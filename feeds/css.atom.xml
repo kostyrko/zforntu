@@ -1,5 +1,502 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-03-27T09:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Flexbox - wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/flexbox-wprowadzenie.html" rel="alternate"></link><published>2020-03-27T09:00:00+01:00</published><updated>2020-03-27T09:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-27:/zfrontu/flexbox-wprowadzenie.html</id><summary type="html">&lt;p&gt;Flexbox jest technologią odpowiedzialną za układ treści znajdujących się na stronie internetowej w dosłownym tłumaczeniu można by to nazwać &lt;em&gt;elastycznym modelem pudełkowym&lt;/em&gt;. Faktycznie ten sposób organizacji tzw layoutu lub też interfejsu oparty jest na równorzędnych &lt;strong&gt;kontenerach&lt;/strong&gt; zwierających treść, które mogą być organizowane &lt;strong&gt;w sposób poziomy (liniowy) lub pionowy (kolumnowy)&lt;/strong&gt; i …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Flexbox jest technologią odpowiedzialną za układ treści znajdujących się na stronie internetowej w dosłownym tłumaczeniu można by to nazwać &lt;em&gt;elastycznym modelem pudełkowym&lt;/em&gt;. Faktycznie ten sposób organizacji tzw layoutu lub też interfejsu oparty jest na równorzędnych &lt;strong&gt;kontenerach&lt;/strong&gt; zwierających treść, które mogą być organizowane &lt;strong&gt;w sposób poziomy (liniowy) lub pionowy (kolumnowy)&lt;/strong&gt; i pozwala na tworzenie &lt;strong&gt;prostej i czytelnej struktury&lt;/strong&gt; strony i pozwala w relatywnie sposób na budowę &lt;strong&gt;responsywnego projektu&lt;/strong&gt; strony internetowej.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-02T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS - calc()</title><link href="https://kostyrko.github.io/zfrontu/css-calc.html" rel="alternate"></link><published>2020-04-02T10:00:00+02:00</published><updated>2020-04-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-02:/zfrontu/css-calc.html</id><summary type="html">&lt;p&gt;Właściwość &lt;code&gt;calc()&lt;/code&gt; jest funkcją której mogą być przypisane wartości:
+&lt;code&gt;length&lt;/code&gt;, &lt;code&gt;angles&lt;/code&gt;, &lt;code&gt;time&lt;/code&gt;, &lt;code&gt;number&lt;/code&gt;, &lt;code&gt;integer&lt;/code&gt;. 
+Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ: 
+pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia  (&lt;code&gt;+&lt;/code&gt;,&lt;code&gt;-&lt;/code&gt;,&lt;code&gt;*&lt;/code&gt;,&lt;code&gt;/&lt;/code&gt;)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości.&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;p&gt;50% rodzica dzielone przez 3&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;el …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Właściwość &lt;code&gt;calc()&lt;/code&gt; jest funkcją której mogą być przypisane wartości:
+&lt;code&gt;length&lt;/code&gt;, &lt;code&gt;angles&lt;/code&gt;, &lt;code&gt;time&lt;/code&gt;, &lt;code&gt;number&lt;/code&gt;, &lt;code&gt;integer&lt;/code&gt;. 
+Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ: 
+pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia  (&lt;code&gt;+&lt;/code&gt;,&lt;code&gt;-&lt;/code&gt;,&lt;code&gt;*&lt;/code&gt;,&lt;code&gt;/&lt;/code&gt;)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości.&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;p&gt;50% rodzica dzielone przez 3&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;el&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;calc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;10% rodzica + dodatkowe 10px&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;el&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;margin-left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;calc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://tympanus.net/codrops/css_reference/calc/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="calc"></category><category term="length"></category><category term="angles"></category><category term="time"></category><category term="number"></category><category term="integer"></category></entry><entry><title>CSS:klasy</title><link href="https://kostyrko.github.io/zfrontu/css-pseudo-klasy.html" rel="alternate"></link><published>2020-04-02T10:00:00+02:00</published><updated>2020-04-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-02:/zfrontu/css-pseudo-klasy.html</id><summary type="html">&lt;p&gt;Pseudo klasy pozwalają na wprowadzenie interaktywnego zachowania się strony przy pomocy CSS, przy pomocy tej deklaracji w zależności od zdefiniowanej sytuacji/stanu dany obiekt może przyjąć inny wygląd. Istotne jest to że deklaracja pseudoklasy poprzedzona jest dwukropkiem &lt;code&gt;:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowy schemat zastosowania&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;selektor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;pseudoklasa&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W przypadku &lt;strong&gt;linków &lt;/strong&gt;istniejącą pseudoklasy&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;a …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Pseudo klasy pozwalają na wprowadzenie interaktywnego zachowania się strony przy pomocy CSS, przy pomocy tej deklaracji w zależności od zdefiniowanej sytuacji/stanu dany obiekt może przyjąć inny wygląd. Istotne jest to że deklaracja pseudoklasy poprzedzona jest dwukropkiem &lt;code&gt;:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowy schemat zastosowania&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;selektor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;pseudoklasa&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W przypadku &lt;strong&gt;linków &lt;/strong&gt;istniejącą pseudoklasy&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;a:visited&lt;/code&gt; - link, który został już użyty
+&lt;code&gt;a:link&lt;/code&gt; - zmienia wygląd odsyłacza&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pseudoklasy akcji&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:hover&lt;/code&gt; - obiekt nad którym znajduje się kursor myszy
+&lt;code&gt;:focused&lt;/code&gt; - obiekt na którym jest focus (właściwość przypisana dla klawiatury)
+&lt;code&gt;:active&lt;/code&gt; - obiekt link/używany&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;hover&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Pseudoklasa dotycząca przycisku&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;button:disabled&lt;/code&gt; - zablokowanie przycisku&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pseudoklasa dotycząca checkboxa&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;input[type="checkbox"]:checked&lt;/code&gt; - zaznaczenie checkboxa&lt;/p&gt;
+&lt;p&gt;Pseudoklasy strukturalne&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:first-child&lt;/code&gt; - wskazanie pierwszego dziecka&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:last-child&lt;/code&gt; - wskazanie ostatniego dziecka&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:nth-child()&lt;/code&gt; - wskazanie wybranego dziecka - w nawias wpisuje się liczbę przypisaną dla danego dziecka&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:nth-of-type()&lt;/code&gt; - n-te element określonego typu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:nth-last-of-type()&lt;/code&gt; - n-ty element określonego typu licząc od ostatniego dziecka&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:nth-last-child()&lt;/code&gt; - każdy element który jest n-tym dzieckiem licząc od ostatniego dziecka&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:only-child&lt;/code&gt; - każdy element który jest jedynym dzieckiem swojego rodzica&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:first-of-type&lt;/code&gt; - pierwszy określonego typu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:last-of-type&lt;/code&gt; - ostatni element określonego typu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;:only-of-type&lt;/code&gt; - jedyny element określonego typu / lub ten który nie posiada rodzeństwa określonego typu&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;p&gt;Jedyne dziecko&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;only&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;child&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;nth&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;child&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="cm"&gt;/* ostatni element listy li */&lt;/span&gt;
+
+&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;nth&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://the-awwwesomes.gitbooks.io/html-css-step-by-step/content/pl/appendix/clean-code/index.html&lt;/p&gt;
+&lt;p&gt;http://www.kurshtml.edu.pl/css/co_to_sa_pseudoklasy,pseudoklasy.html&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/pseudo-class-selectors/&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_pseudo_classes.asp&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="pseudo-klasy"></category></entry><entry><title>CSS::pseudo-elementy</title><link href="https://kostyrko.github.io/zfrontu/css-pseudo-elementy.html" rel="alternate"></link><published>2020-04-02T07:00:00+02:00</published><updated>2020-04-02T07:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-02:/zfrontu/css-pseudo-elementy.html</id><summary type="html">&lt;p&gt;Pseudo elementy pozwalają na zadeklarowanie wyglądu odmiennego dla wybranego fragmentu tekstu lub wstawienie z pozycji CSS dodatkowego elementu. Pseudo elementy poprzedzone są podwójnym dwukropkiem &lt;code&gt;::&lt;/code&gt; np.   &lt;code&gt;::first-line&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Wzór zastosowania (za &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements"&gt;developer.mozzilla.org&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;pseudo-element&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;property&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;selektor&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;pseudo-element&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Innymi słowy pseudoelement jest słowem kluczowym, które w połączeniu z …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Pseudo elementy pozwalają na zadeklarowanie wyglądu odmiennego dla wybranego fragmentu tekstu lub wstawienie z pozycji CSS dodatkowego elementu. Pseudo elementy poprzedzone są podwójnym dwukropkiem &lt;code&gt;::&lt;/code&gt; np.   &lt;code&gt;::first-line&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Wzór zastosowania (za &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements"&gt;developer.mozzilla.org&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;pseudo-element&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;property&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;selektor&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;pseudo-element&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Innymi słowy pseudoelement jest słowem kluczowym, które w połączeniu z wybranym selektorem pozwala na stylowanie wybranej części wybranego elementu.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;stylowanie pierszej litery lub linii&lt;/li&gt;
+&lt;li&gt;wstawianie nowego elementu (np. obrazu)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;first-line&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;text-transform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;uppercase&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;::first-line&lt;/code&gt; - pozwala na zadeklarowanie konkretnych cech dla pierwszej linii wybranego tekstu
+[na marginesie przykładowo do identacji tekstu nie trzeba stosować pseudo-elementów, wystarczy np &lt;code&gt;text-indent&lt;/code&gt; ]&lt;/p&gt;
+&lt;p&gt;Do pseudo-selektorów można dodać odpowiednio np. - &lt;code&gt;font&lt;/code&gt;, &lt;code&gt;color&lt;/code&gt;, &lt;code&gt;word-spacing&lt;/code&gt;, &lt;code&gt;background&lt;/code&gt;, t&lt;code&gt;ext-decoration&lt;/code&gt;, &lt;code&gt;line-height&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;::first-letter&lt;/code&gt; - zadeklarowanie konkretnej cechy dla pierwszej litery&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;::after&lt;/code&gt; - reprezentuje ostatnie dziecko wybranego elementu/ podstawową właściwością jest &lt;code&gt;content&lt;/code&gt; w ramach, której definiowana jest zawartość dodawanego elementu np. tekst lub link do obrazu&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie dodające określony tekst po tekście zawartym w wybranym paragrafie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;after&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="kc"&gt;text&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="n"&gt;after&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;::before&lt;/code&gt;- tworzy pseudo-element, który reprezentuje pierwsze dziecko wybranego selektora HTML, posiada właściwość &lt;code&gt;content&lt;/code&gt; analogiczną do &lt;code&gt;::after&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;::selection&lt;/code&gt; - odwołuje się do podświetlenia wybranego tekstu znajdującego się w selekcji&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;selection&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ale może zawierać również: &lt;code&gt;color&lt;/code&gt;, &lt;code&gt;background-color&lt;/code&gt;, &lt;code&gt;cursor&lt;/code&gt;, &lt;code&gt;caret-color&lt;/code&gt;, &lt;code&gt;outline&lt;/code&gt;, &lt;code&gt;text-decoration&lt;/code&gt;, &lt;code&gt;text-emphasis-color,&lt;/code&gt; &lt;code&gt;text-shadow&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;::marker&lt;/code&gt; - pozwala na stylowanie markera listy&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;marker&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;::placeholder&lt;/code&gt; - pozwala na stylowanie fragmentu formularza który przyjmuje input &lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;input&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;placeholder&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;1.2&lt;/span&gt;&lt;span class="kt"&gt;em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;font-style&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;italic&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pełna lista (łącznie z jeszcze nie w pełni wdrożonymi pseudoelementeami) znajduje się &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements"&gt;tutaj&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Źródło i polecane linki:
+https://blog.logrocket.com/a-guide-to-css-pseudo-elements/&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_pseudo_elements.asp&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/almanac/selectors/a/after-and-before/&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/pseudo-element-roundup/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="pseudo-elementy"></category><category term="first-line"></category><category term="::before"></category><category term="::after"></category></entry><entry><title>CSS: box-sizing</title><link href="https://kostyrko.github.io/zfrontu/css-box-sizing.html" rel="alternate"></link><published>2020-04-01T10:00:00+02:00</published><updated>2020-04-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-01:/zfrontu/css-box-sizing.html</id><summary type="html">&lt;p&gt;Box-sizing&lt;/p&gt;
+&lt;p&gt;Możliwe wartości do zastosowania przy tej właściwości&lt;/p&gt;
+&lt;p&gt;border-box - wielkość &lt;em&gt;kontenera&lt;/em&gt; (div) jest dokładnie taka jak wskazano - definiuje wielkość kontenera po jego granicy&lt;/p&gt;
+&lt;p&gt;content-box- podstawowe, zachowanie się &lt;em&gt;kontenera&lt;/em&gt; (div) od obszaru, w którym znajduje się jego zwartość /wskazana wartość wielkość pudełka odnosi się do jego zawartości, - oznaczo to że margines …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Box-sizing&lt;/p&gt;
+&lt;p&gt;Możliwe wartości do zastosowania przy tej właściwości&lt;/p&gt;
+&lt;p&gt;border-box - wielkość &lt;em&gt;kontenera&lt;/em&gt; (div) jest dokładnie taka jak wskazano - definiuje wielkość kontenera po jego granicy&lt;/p&gt;
+&lt;p&gt;content-box- podstawowe, zachowanie się &lt;em&gt;kontenera&lt;/em&gt; (div) od obszaru, w którym znajduje się jego zwartość /wskazana wartość wielkość pudełka odnosi się do jego zawartości, - oznaczo to że margines jak oraz padding będą naddane ponad wskazaną wielkość&lt;/p&gt;
+&lt;p&gt;padding-box - wielkość &lt;em&gt;kontenera&lt;/em&gt; jest zależna od &lt;em&gt;paddingu&lt;/em&gt;, granica jest nadana&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;box-sizing&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;border-box&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#5B6DCD&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kliknij tutaj:
+&lt;a href="https://codepen.io/carolineartz/full/ogVXZj/"&gt;&lt;strong&gt;Interaktywna aplikacja do sprawdzania wielkości boxa&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="box-sizing" src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2014/09/box-areas1.png"&gt;&lt;/p&gt;
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css3_box-sizing.asp&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=WlGQdgy-M6w&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/box-sizing/&lt;/p&gt;
+&lt;p&gt;https://tympanus.net/codrops/css_reference/box-sizing/&lt;/p&gt;</content><category term="css"></category><category term="css"></category></entry><entry><title>CSS - składnia selektory</title><link href="https://kostyrko.github.io/zfrontu/css-skladnia-selektory.html" rel="alternate"></link><published>2020-04-01T09:00:00+02:00</published><updated>2020-04-01T09:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-01:/zfrontu/css-skladnia-selektory.html</id><summary type="html">&lt;p&gt;Schemat&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;reguła&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;deklaracja&lt;/span&gt;
+&lt;span class="n"&gt;właściwość&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selektor znacznika np &lt;code&gt;strong&lt;/code&gt;
+Selektor klasy poprzedzony jest kropką &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Selektor id poprzedzony jest haszem &lt;code&gt;#&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Selektor id nadaje priorytet regule ważniejszy od niż ten posiadający klasę, a selektor znacznika/typu ma najmniejszy priorytet.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Selektory elementów&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;*&lt;/code&gt;&lt;/strong&gt; - każdy element/ selektor uniwersalny&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e p&lt;/code&gt;&lt;/strong&gt; - element "p" będący &lt;strong&gt;potomkie&lt;/strong&gt;m …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Schemat&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;reguła&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;deklaracja&lt;/span&gt;
+&lt;span class="n"&gt;właściwość&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Selektor znacznika np &lt;code&gt;strong&lt;/code&gt;
+Selektor klasy poprzedzony jest kropką &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Selektor id poprzedzony jest haszem &lt;code&gt;#&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Selektor id nadaje priorytet regule ważniejszy od niż ten posiadający klasę, a selektor znacznika/typu ma najmniejszy priorytet.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Selektory elementów&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;*&lt;/code&gt;&lt;/strong&gt; - każdy element/ selektor uniwersalny&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e p&lt;/code&gt;&lt;/strong&gt; - element "p" będący &lt;strong&gt;potomkie&lt;/strong&gt;m elementu "e"&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e &amp;gt; p&lt;/code&gt;&lt;/strong&gt; - element "p" będący &lt;strong&gt;dzieckiem&lt;/strong&gt; elementu "e"&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e + p&lt;/code&gt;&lt;/strong&gt; - element "e" bezpośrednio poprzedzony elementem "e"&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e ~ p&lt;/code&gt;&lt;/strong&gt; - element "e" poprzedzany przez element "p"&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Selektory atrybutów&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e[atrybut]&lt;/code&gt;&lt;/strong&gt; - element zawierający wybrany atrybut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;http://www.wikipedia.org&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;_top&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;wikipedia&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e[atrybut="wartość"]&lt;/code&gt;&lt;/strong&gt; - element posiadający atrybut z konkretną wartością&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;a[target=&amp;quot;_blank&amp;quot;] {
+  background-color: yellow;
+}
+
+&lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.wikipedia.org&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_top&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;wikipedia.org&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.w3schools.com&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;w3schools.com&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e[atrybut~="konkretna_wartość"]&lt;/code&gt;&lt;/strong&gt; - element zawierający atrybut, którego częścią jest konkretna wartość&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;title&lt;/span&gt;&lt;span class="err"&gt;~&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;flower&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="kc"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="nt"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;img_flwr.gif&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;flower&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;224&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;height&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;162&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="http://www.kurshtml.edu.pl/css/selektory.html"&gt;Pełna lista&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Gra selektory&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;http://flukeout.github.io/&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Moce selektorów&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Star Wars Selectors" src="https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png"&gt;&lt;/p&gt;
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://the-awwwesomes.gitbooks.io/html-css-step-by-step/content/pl/css-advanced-selectors/index.html&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/CSS/Na_pocz%C4%85tek/Selektory&lt;/p&gt;
+&lt;p&gt;https://stuffandnonsense.co.uk/archives/css_specificity_wars.html&lt;/p&gt;</content><category term="css"></category><category term="css"></category></entry><entry><title>CSS - float</title><link href="https://kostyrko.github.io/zfrontu/css-float.html" rel="alternate"></link><published>2020-03-31T08:00:00+02:00</published><updated>2020-03-31T08:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-31:/zfrontu/css-float.html</id><summary type="html">&lt;p&gt;Właściwość &lt;code&gt;float&lt;/code&gt; wskazuje służy do pozycjonowani oraz formatowani treści wskazuje w jaki sposób element ma pływać (float)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;left&lt;/code&gt; - znajduj się po lewej stronie
+&lt;code&gt;right&lt;/code&gt; - znajduj się po prawej stronie
+&lt;code&gt;none&lt;/code&gt; - nie pływaj
+&lt;code&gt;inherit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;right&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_layout_cols"&gt;Układ strony przy wykorzystaniu właściwości &lt;code&gt;float&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Clear&lt;/h3&gt;
+&lt;p&gt;Właściwość &lt;code&gt;clear&lt;/code&gt; definiuje po której …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Właściwość &lt;code&gt;float&lt;/code&gt; wskazuje służy do pozycjonowani oraz formatowani treści wskazuje w jaki sposób element ma pływać (float)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;left&lt;/code&gt; - znajduj się po lewej stronie
+&lt;code&gt;right&lt;/code&gt; - znajduj się po prawej stronie
+&lt;code&gt;none&lt;/code&gt; - nie pływaj
+&lt;code&gt;inherit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;right&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_layout_cols"&gt;Układ strony przy wykorzystaniu właściwości &lt;code&gt;float&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Clear&lt;/h3&gt;
+&lt;p&gt;Właściwość &lt;code&gt;clear&lt;/code&gt; definiuje po której stronie elementu &lt;em&gt;pływające&lt;/em&gt; (float) elementy nie powinny się znajdować&lt;/p&gt;
+&lt;p&gt;Możliwe wartości
+&lt;code&gt;clear:&lt;/code&gt; &lt;code&gt;none&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt;, &lt;code&gt;both&lt;/code&gt;, &lt;code&gt;initial&lt;/code&gt;, &lt;code&gt;inherit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;clear - żaden z elementów pływający nie może znajdować się po lewej lub prawej stronie
+none - elementy pływające po obu stronach
+right/left - żaden z elementów pływający nie może znajdować się po lewej/prawej stronie&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;left&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clear&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;both&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Clearfix/Floatfix&lt;/h3&gt;
+&lt;p&gt;Metody na pozbycie się funkcji float u dzieci pływającego rodzica&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clearfix&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;after&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;lt;!--&lt;/span&gt; &lt;span class="err"&gt;dodaje&lt;/span&gt; &lt;span class="err"&gt;niewidzialny&lt;/span&gt; &lt;span class="err"&gt;element/treść&lt;/span&gt; &lt;span class="err"&gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;lt;!--&lt;/span&gt; &lt;span class="err"&gt;elementy&lt;/span&gt; &lt;span class="err"&gt;pływające&lt;/span&gt; &lt;span class="err"&gt;po&lt;/span&gt; &lt;span class="err"&gt;żadnej&lt;/span&gt; &lt;span class="err"&gt;ze&lt;/span&gt; &lt;span class="err"&gt;stron&lt;/span&gt; &lt;span class="err"&gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class="k"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;both&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;lt;!--&lt;/span&gt; &lt;span class="err"&gt;element&lt;/span&gt; &lt;span class="err"&gt;zachowuje&lt;/span&gt; &lt;span class="err"&gt;się&lt;/span&gt; &lt;span class="err"&gt;jako&lt;/span&gt; &lt;span class="err"&gt;tabela&lt;/span&gt; &lt;span class="err"&gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;table&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Overflow&lt;/h3&gt;
+&lt;p&gt;Właściwość &lt;code&gt;overflow: auto&lt;/code&gt; wpasowuje element znajdujący się w pływającym elemencie (float) tak aby nie wystawał po za niego - metoda starsza i wychodząca obecnie z użycia&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.clearfix&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;overflow:&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;Clear&lt;/p&gt;
+&lt;p&gt;https://www.tutorialbrain.com/css_tutorial/css_clear/&lt;/p&gt;
+&lt;p&gt;Clearfix&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=2tC4PIlEz_o&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/howto/howto_css_clearfix.asp&lt;/p&gt;
+&lt;p&gt;float&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_float.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="float"></category><category term="clear"></category><category term="clearfix"></category><category term="overflow"></category></entry><entry><title>CSS: place-items (umieść element)</title><link href="https://kostyrko.github.io/zfrontu/css-place-items.html" rel="alternate"></link><published>2020-03-31T08:00:00+02:00</published><updated>2020-03-31T08:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-31:/zfrontu/css-place-items.html</id><summary type="html">&lt;p&gt;Deklaracja &lt;strong&gt;&lt;code&gt;place-items&lt;/code&gt;&lt;/strong&gt; (podobnie jak &lt;code&gt;align-items&lt;/code&gt;) odnosi się do pozycjonowania dzieci elementu, których układ jest zależny od układu &lt;strong&gt;Flexbox&lt;/strong&gt; lub &lt;strong&gt;Grid&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Deklaracja &lt;strong&gt;&lt;code&gt;place-items&lt;/code&gt;&lt;/strong&gt; jest połączeniem &lt;code&gt;align-items&lt;/code&gt; oraz &lt;code&gt;justify-items&lt;/code&gt; i przyjmuje podwójne wartości w odpowiadające kolejno za &lt;code&gt;align-items&lt;/code&gt; o następnie za &lt;code&gt;justify-items&lt;/code&gt;. Wymaga wcześniejszej deklaracji &lt;code&gt;floatbox&lt;/code&gt; lub &lt;code&gt;grid&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Deklaracja &lt;strong&gt;&lt;code&gt;place-items&lt;/code&gt;&lt;/strong&gt; (podobnie jak &lt;code&gt;align-items&lt;/code&gt;) odnosi się do pozycjonowania dzieci elementu, których układ jest zależny od układu &lt;strong&gt;Flexbox&lt;/strong&gt; lub &lt;strong&gt;Grid&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Deklaracja &lt;strong&gt;&lt;code&gt;place-items&lt;/code&gt;&lt;/strong&gt; jest połączeniem &lt;code&gt;align-items&lt;/code&gt; oraz &lt;code&gt;justify-items&lt;/code&gt; i przyjmuje podwójne wartości w odpowiadające kolejno za &lt;code&gt;align-items&lt;/code&gt; o następnie za &lt;code&gt;justify-items&lt;/code&gt;. Wymaga wcześniejszej deklaracji &lt;code&gt;floatbox&lt;/code&gt; lub &lt;code&gt;grid&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flexbox&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;place-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt; &lt;span class="no"&gt;center&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;i odpowiada to:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;align-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-items:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W momencie kidy jedna wartość jest wskazana, wówczas przyjęta jest ona jako wspólna dla obu właściwości&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flexbox&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;place-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;i odpowiada to:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flexbox&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;align-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przyjmuje wartości &lt;code&gt;auto&lt;/code&gt;, normal, strech, start end, center, left, right, flex-start, flex-end, self-start, self-end, first-baseline, last-baseline&lt;/p&gt;
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/almanac/properties/p/place-items/&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/almanac/properties/a/align-items/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="place-items"></category><category term="grid"></category><category term="flexbox"></category><category term="start"></category><category term="center"></category></entry><entry><title>CSS - wyświetlanie blokowe, liniowe i inne</title><link href="https://kostyrko.github.io/zfrontu/css-wyswietlanie-display.html" rel="alternate"></link><published>2020-03-30T10:00:00+02:00</published><updated>2020-03-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-30:/zfrontu/css-wyswietlanie-display.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;code&gt;Display&lt;/code&gt;&lt;/strong&gt; odpowiada za sposób w jaki sposób dane elementy będą wyświetlane&lt;/p&gt;
+&lt;p&gt;Właściwości deklaracji &lt;code&gt;display&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;inline&lt;/code&gt; - domyślna funkcja, elementy wyświetlane są w sposób liniowy / obok siebie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;block&lt;/code&gt; - elementy wyświetlane są w sposób blokowy / jeden pod drugim&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;inline-block&lt;/code&gt; - charakterystyka bloku ale trzyma się linii / bloki jeden obok siebie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;none&lt;/code&gt; - chowa element (usuwa …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;&lt;code&gt;Display&lt;/code&gt;&lt;/strong&gt; odpowiada za sposób w jaki sposób dane elementy będą wyświetlane&lt;/p&gt;
+&lt;p&gt;Właściwości deklaracji &lt;code&gt;display&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;inline&lt;/code&gt; - domyślna funkcja, elementy wyświetlane są w sposób liniowy / obok siebie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;block&lt;/code&gt; - elementy wyświetlane są w sposób blokowy / jeden pod drugim&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;inline-block&lt;/code&gt; - charakterystyka bloku ale trzyma się linii / bloki jeden obok siebie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;none&lt;/code&gt; - chowa element (usuwa również przestrzeń przeznaczoną na element, w odróżnieniu od &lt;code&gt;visibility: hidden;&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;table&lt;/code&gt; - pozwala elementowi zachowywać się jak tabela &lt;/p&gt;
+&lt;p&gt;opcjonalne podtypy min.: &lt;code&gt;table-column&lt;/code&gt;, &lt;code&gt;table-row&lt;/code&gt;, &lt;code&gt;table-column-group&lt;/code&gt;, &lt;code&gt;table-row-group&lt;/code&gt;, &lt;code&gt;table-header-group&lt;/code&gt;, &lt;code&gt;table-footer-group&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Css diplay" src="https://i1.wp.com/www.tutorialbrain.com/wp-content/uploads/2019/06/CSS-Display.png?resize=640%2C512&amp;amp;ssl=1"&gt;&lt;/p&gt;
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://www.tutorialbrain.com/css_tutorial/css_display/&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/almanac/properties/d/display/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="wyswietlanie"></category><category term="bloki"></category><category term="linie"></category><category term="display"></category><category term="block"></category><category term="inline"></category><category term="inline-block"></category><category term="table"></category></entry><entry><title>CSS - pozycjonowanie</title><link href="https://kostyrko.github.io/zfrontu/css-pozycjonowanie.html" rel="alternate"></link><published>2020-03-30T08:00:00+02:00</published><updated>2020-03-30T08:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-30:/zfrontu/css-pozycjonowanie.html</id><summary type="html">&lt;p&gt;Podstawowe właściwości &lt;strong&gt;&lt;code&gt;position&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;static&lt;/code&gt;&lt;/strong&gt; - wartość domyślna, pozycja zgodna z układem strony&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;relative&lt;/code&gt;&lt;/strong&gt; - relatywnie do swojej domyślnej pozycji przesunięty o zdefiniowaną właściwość/wartość&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;top&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;relative&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;relative&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#73AD21&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;fixed&lt;/code&gt;&lt;/strong&gt; - pozycja relatywna do wyświetlacza (viewport) - zawsze w tym samym …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Podstawowe właściwości &lt;strong&gt;&lt;code&gt;position&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;static&lt;/code&gt;&lt;/strong&gt; - wartość domyślna, pozycja zgodna z układem strony&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;relative&lt;/code&gt;&lt;/strong&gt; - relatywnie do swojej domyślnej pozycji przesunięty o zdefiniowaną właściwość/wartość&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;top&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;relative&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;relative&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#73AD21&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;fixed&lt;/code&gt;&lt;/strong&gt; - pozycja relatywna do wyświetlacza (viewport) - zawsze w tym samym miejscu&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;top&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;absolute&lt;/code&gt;&lt;/strong&gt; - pozycja relatywna do najbliższego spozycjonowanego rodzica (rodzic musi mieć zdefiniowaną właściwość &lt;code&gt;position: relative/fixed&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;position:&lt;/span&gt; &lt;span class="nf"&gt;relative&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="na"&gt;.center&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;position:&lt;/span&gt; &lt;span class="nf"&gt;absolute&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;left:&lt;/span&gt; &lt;span class="err"&gt;0&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;top:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;100%&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;text-align:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;font-size:&lt;/span&gt; &lt;span class="err"&gt;18&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;sticky&lt;/code&gt;&lt;/strong&gt; - pozycja zależna od pozycji scrolla i łączy w sobie cechy &lt;code&gt;relative&lt;/code&gt; oraz &lt;code&gt;fixed&lt;/code&gt;. Element jest pozycjonowany w sposób &lt;code&gt;relative&lt;/code&gt; do momentu, w którym określone kryterium (scrolla) nie jest spełnione, wówczas spełnia cechy &lt;code&gt;fixed&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;inherit&lt;/code&gt;&lt;/strong&gt; - pozycja jest dziedziczona / domyślnie nie jest&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;sticky&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;-webkit-&lt;/span&gt;&lt;span class="kc"&gt;sticky&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c"&gt;/* Safari */&lt;/span&gt;
+  &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;sticky&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;green&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#4CAF50&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="display-position" src="https://i2.wp.com/www.tutorialbrain.com/wp-content/uploads/2019/03/CSS-Position.png?resize=640%2C640&amp;amp;ssl=1"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bonus&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;z-index&lt;/code&gt; - wskazuje na której pozycji ma się wyświetlić dany element - ma to szczególne znaczenie w kontekście obiektów które się zakrywają lub częściowo pokrywają&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie, obiekt ustawiony na pozycję -1 będzie pod spodem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;absolute&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;z-index&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródła i polecane linki:&lt;/p&gt;
+&lt;p&gt;Przykłady:&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_positioning.asp&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/almanac/properties/p/position/&lt;/p&gt;
+&lt;p&gt;Opis:&lt;/p&gt;
+&lt;p&gt;https://dzone.com/articles/css-position-relative-vs-position-absolute&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/&lt;/p&gt;
+&lt;p&gt;https://www.tutorialbrain.com/css_tutorial/css_position/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="pozycjonowanie"></category><category term="static"></category><category term="relative"></category><category term="absolute"></category><category term="fixed"></category><category term="sticky"></category></entry><entry><title>Flexbox - wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/css-flexbox.html" rel="alternate"></link><published>2020-03-30T06:00:00+02:00</published><updated>2020-03-30T06:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-30:/zfrontu/css-flexbox.html</id><summary type="html">&lt;p&gt;Flexbox jest technologią odpowiedzialną za układ treści znajdujących się na stronie internetowej w dosłownym tłumaczeniu można by to nazwać &lt;em&gt;elastycznym modelem pudełkowym&lt;/em&gt;. Faktycznie ten sposób organizacji tzw layoutu lub też interfejsu oparty jest na równorzędnych &lt;strong&gt;kontenerach&lt;/strong&gt; zwierających treść, które mogą być organizowane &lt;strong&gt;w sposób poziomy (liniowy) lub pionowy (kolumnowy)&lt;/strong&gt; i …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Flexbox jest technologią odpowiedzialną za układ treści znajdujących się na stronie internetowej w dosłownym tłumaczeniu można by to nazwać &lt;em&gt;elastycznym modelem pudełkowym&lt;/em&gt;. Faktycznie ten sposób organizacji tzw layoutu lub też interfejsu oparty jest na równorzędnych &lt;strong&gt;kontenerach&lt;/strong&gt; zwierających treść, które mogą być organizowane &lt;strong&gt;w sposób poziomy (liniowy) lub pionowy (kolumnowy)&lt;/strong&gt; i pozwala na tworzenie &lt;strong&gt;prostej i czytelnej struktury&lt;/strong&gt; strony i pozwala w relatywnie sposób na budowę &lt;strong&gt;responsywnego projektu&lt;/strong&gt; strony internetowej.&lt;/p&gt;
 &lt;p&gt;Stosując flexboxa możemy łatwo:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Pionowe i poziome wycentrować element względem rodzica&lt;/li&gt;
