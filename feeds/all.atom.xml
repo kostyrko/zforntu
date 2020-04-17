@@ -1,12 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-14T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS - hamburger menu</title><link href="https://kostyrko.github.io/zfrontu/css-hamburger-menu.html" rel="alternate"></link><published>2020-04-14T10:00:00+02:00</published><updated>2020-04-14T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-14:/zfrontu/css-hamburger-menu.html</id><content type="html">&lt;p&gt;&lt;strong&gt;Planowny&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Patrz: https://github.com/kostyrko/CSS-SpOT/tree/master/1.%20Navbars&lt;/p&gt;
-&lt;p&gt;Źródła: &lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/46673303/how-to-select-a-div-inside-another-element-when-a-checkbox-input-is-checked&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/:checked&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="hamburger"></category><category term="menu"></category><category term="media queries"></category><category term=":checked"></category><category term="input"></category><category term=":before"></category><category term=":after"></category></entry><entry><title>JavaScript - tablice (array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-13T10:00:00+02:00</published><updated>2020-04-13T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-13:/zfrontu/js-tablice.html</id><content type="html">&lt;p&gt;&lt;strong&gt;Planowany&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-14T00:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - obiekty</title><link href="https://kostyrko.github.io/zfrontu/js-obiekty.html" rel="alternate"></link><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-14:/zfrontu/js-obiekty.html</id><summary type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy).&lt;/p&gt;
+&lt;p&gt;Obiekty zawierają właściwości, którymi są pary składające się z klucza i przypisanych im wartości, owymi wartościami mogą być wszystkie prymitywne typy, jak i tablice czy funkcje - te rozdzielone są przecinkami. Kolokacje te (key-value pairs) są rozdzielone dwukropkiem. Obiekt zadeklarowany jest poprzez użycie słowa kluczowego jak przy innych zmiennych &lt;code&gt;let&lt;/code&gt; lub &lt;code&gt;const&lt;/code&gt; oraz poprzez zastosowanie nawiasów klamrowych.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Mikołaj&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;animals&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;cat&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;dog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="n"&gt;sayHello&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;hello Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sayHello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;Mikolaj&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;animals&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;dog&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Odwołujemy się do poszczególnej wartości poprzez przywołanie nazwy obiektu oraz właściwości po kropce lub funkcji otwierając i zamykając nawias. Alternatywnie można stosować kwadratowe nawiasy np. &lt;code&gt;person["animals"]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Dodawanie nowych par klucza-wartości odbywa się w podobny sposób jak w przypadku tablic&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;lub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Mikołaj&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;animals&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;cat&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;dog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="n"&gt;sayHello&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;hello Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; 
+&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gender&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Poprzez odwołanie się do słów kluczowych &lt;code&gt;delete&lt;/code&gt; istnieje możliwość usunięcia wybranych właściwości obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;delete&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;jeśli&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;możliwe&lt;/span&gt;
+&lt;span class="k"&gt;delete&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Mikołaj&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;animals&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;cat&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;dog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="n"&gt;sayHello&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;hello Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zmiana wartości, przypisanej do klucza odbywa jest prosta i również zbliżona do tego co znane jest z tablicy, jednak zamiast odwoływać się do pozycji indeksowej, należy odwołać się do klucza&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Michał&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Mikołaj&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;99&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;animals&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;cat&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;dog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="n"&gt;sayHello&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;hello Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W wewnętrznej funkcji obiektu można odwołać się do wartości przypisanych do kluczy w niej zawartej w dwojaki sposób odwołując się do klucza lub słowa kluczowego &lt;code&gt;this&lt;/code&gt; (który odwołuje się do obiektu okna)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const person2 = {
+  name: &amp;#39;Mike&amp;#39;,
+  sayHello: function() {
+    console.log(`hello &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`) // lub person2.name &amp;gt; hello Mike
+  }
+  };
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Prototypy&lt;/h3&gt;
+&lt;p&gt;Obiekty mogą dziedziczyć elementy z innych obiektów. Prototypem nazywany wówczas jest obiekt, który jest "dawcą"&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://www.youtube.com/watch?v=qS79OIceQ7k&amp;amp;feature=youtu.be&lt;/p&gt;
-&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#whatisanarray&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - przydatne strony (darmowe kursy, wyzwania)</title><link href="https://kostyrko.github.io/zfrontu/js-kursy-linki.html" rel="alternate"></link><published>2020-04-10T10:00:00+02:00</published><updated>2020-04-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-kursy-linki.html</id><summary type="html">&lt;h3&gt;Kursy online&lt;/h3&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/objects#whatareobjects&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=qs3F-z6ridc&lt;/p&gt;
+&lt;p&gt;https://dev.to/valentinogagliardi/the-secret-life-of-javascript-objects-2a33&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - tablice (obiekt array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-11T10:00:00+02:00</published><updated>2020-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-11:/zfrontu/js-tablice.html</id><summary type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;Arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pusta&lt;/span&gt; &lt;span class="n"&gt;tablica&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zadeklarowanie tablicy słowem kluczowym &lt;strong&gt;&lt;code&gt;const&lt;/code&gt;&lt;/strong&gt; pozwala na modyfikację jej zawartości ale nie na zmianę …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;Arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pusta&lt;/span&gt; &lt;span class="n"&gt;tablica&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zadeklarowanie tablicy słowem kluczowym &lt;strong&gt;&lt;code&gt;const&lt;/code&gt;&lt;/strong&gt; pozwala na modyfikację jej zawartości ale nie na zmianę miejsca, w którym jest ona przechowywana&lt;/p&gt;
+&lt;p&gt;Każdemu elementowi przyporządkowana jest liczba indeksowa, pozwalająca na odwołanie się do niego.
+Tablica może zawierać również obiekty jak i tablice.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Mikolaj&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Właściwość &lt;code&gt;length&lt;/code&gt; zwraca "długość" tablicy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Aby odwołać się do ostatniego elementu należy zastosować &lt;code&gt;length - 1&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przy wykorzystaniu operator składającego się z kwadratowych nawiasów &lt;code&gt;[]&lt;/code&gt; oraz wpisanego w nie indeksu można zmieniać wybrany element tablicy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;maj&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;maj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wykorzystując właściwość &lt;code&gt;length&lt;/code&gt; można również dodać element do końca tablicy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;ostatnia&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;ostatnia&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=8FmBEN0XZyI&lt;/p&gt;
+&lt;p&gt;http://kursjs.pl/kurs/super-podstawy/tablice.php&lt;/p&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#whatisanarray&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - właściwości i metody łańcuch znaków</title><link href="https://kostyrko.github.io/zfrontu/js-metody-lancucha-znakow.html" rel="alternate"></link><published>2020-04-10T10:00:00+02:00</published><updated>2020-04-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-metody-lancucha-znakow.html</id><summary type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;code&gt;length&lt;/code&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;fu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Metod, które można zastosować wobec stringów jest o wiele więcej - poniżej przedstawię tylko część z nich.
+Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalnej&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;charAt()&lt;/code&gt; - zwraca …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;code&gt;length&lt;/code&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;fu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Metod, które można zastosować wobec stringów jest o wiele więcej - poniżej przedstawię tylko część z nich.
+Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalnej&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;charAt()&lt;/code&gt; - zwraca znak znajdujący się na wskazanym indeksie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;concat()&lt;/code&gt; - łączy ze sobą ciągi znaków&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;endsWith()&lt;/code&gt; - sprawdza czy ciąg znaków kończy się wskazanym znakiem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;includes()&lt;/code&gt; - sprawdza czy ciąg znaków zawiera wskazany znak&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;indexOf()&lt;/code&gt; - zwraca pozycję indeksową (pierwszego) wskazanego znaku&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;lastIndexOf()&lt;/code&gt; - zwraca pozycję indeksową (ostatniego) wskazanego znaku&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;match()&lt;/code&gt; - sprawa ciąg znaków w poszukiwaniu wskazanego wyrażenia&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;repeat()&lt;/code&gt; - zwraca ciąg znaków który jest wielokrotnym powtórzeniem danego ciągu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;replace()&lt;/code&gt;  - przeszukuje ciąg znaków w poszukiwaniu znaku lub wyrażenia i zwraca nowy string gdzie wskazany wcześniej ciąg lub znak jest zmieniony&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Visit Microsoft!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Microsoft&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;W3Schools&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Visit W3Schools!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;search()&lt;/code&gt; - przeszukuje ciąg znaków w poszukiwaniu znaku lub wyrażenia i zwraca ich indeks&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;slice()&lt;/code&gt; - wyciąga część łańcucha znaków i zwraca nowy na tej podstawie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;split()&lt;/code&gt; - tnie łańcuch znaków i tworzy z niego tablicę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;How are you doing today?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;How&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;are&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;you&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;doing&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;today?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;/&lt;code&gt;toUpperCase()&lt;/code&gt; - zwraca łańcuch zmieniając wszystkie litery na małe/duże&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;trim()&lt;/code&gt; - pozbywa się spacji z końca i początku łąńcucha znaków&lt;/p&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/jsref/jsref_obj_string.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="string"></category><category term="łańcuch znaków"></category><category term="metody"></category></entry><entry><title>JavaScript - składnia, deklaracje i podstawowe typy danych oraz ich operatory</title><link href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html" rel="alternate"></link><published>2020-04-09T10:00:00+02:00</published><updated>2020-04-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-podstawowe-typy.html</id><summary type="html">&lt;hr&gt;
+&lt;h3&gt;Postawy i deklaracje&lt;/h3&gt;
+&lt;p&gt;w JS instrukcje nazywane są wyrażeniami i rozdzielone są średnikiem &lt;code&gt;;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;składnia komentarza&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;jednoliniowy&lt;/span&gt;
+
+&lt;span class="o"&gt;*/&lt;/span&gt; &lt;span class="n"&gt;wielo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; 
+  &lt;span class="n"&gt;liniowy&lt;/span&gt;
+&lt;span class="o"&gt;*/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Istnieją trzy typy deklaracji zmiennych&lt;/p&gt;
+&lt;p&gt;&lt;img alt="starWars_zmienne" src="https://miro.medium.com/max/640/0*2Iz9vcaOtPNivfen.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;const&lt;/code&gt; - podstawowa deklaracja, zmienna nie ulega zmianie, tylko do odczytu&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;let&lt;/code&gt; - deklaracja stosowana w przypadku gdy zmienna będzie musiała ulec zmianie, jest lokalna i ograniczona do bloku …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;hr&gt;
+&lt;h3&gt;Postawy i deklaracje&lt;/h3&gt;
+&lt;p&gt;w JS instrukcje nazywane są wyrażeniami i rozdzielone są średnikiem &lt;code&gt;;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;składnia komentarza&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;jednoliniowy&lt;/span&gt;
+
+&lt;span class="o"&gt;*/&lt;/span&gt; &lt;span class="n"&gt;wielo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; 
+  &lt;span class="n"&gt;liniowy&lt;/span&gt;
+&lt;span class="o"&gt;*/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Istnieją trzy typy deklaracji zmiennych&lt;/p&gt;
+&lt;p&gt;&lt;img alt="starWars_zmienne" src="https://miro.medium.com/max/640/0*2Iz9vcaOtPNivfen.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;const&lt;/code&gt; - podstawowa deklaracja, zmienna nie ulega zmianie, tylko do odczytu&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;let&lt;/code&gt; - deklaracja stosowana w przypadku gdy zmienna będzie musiała ulec zmianie, jest lokalna i ograniczona do bloku, w którym jest zawarta&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;var&lt;/code&gt; - wcześniej podstawowa zmienna (przed ES6), obecnie rzadziej stosowana (po wprowadzeniu const i let) więcej na ten temat &lt;a href="https://medium.com/@larry.sassainsworth/let-vs-var-vs-const-in-javascript-8b898f868394"&gt;tutaj&lt;/a&gt; lub poniżej.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;var&lt;/code&gt; vs &lt;code&gt;let&lt;/code&gt; -&amp;gt; 4 istotne różnice w:
+1) &lt;strong&gt;zakresie&lt;/strong&gt; (scope) 
+2) &lt;strong&gt;podnoszeniu&lt;/strong&gt; (hoisting) 
+3) &lt;strong&gt;ponownej deklaracji&lt;/strong&gt; (redeclaration) 
+4) &lt;strong&gt;tworzeniu globalnego obiektu&lt;/strong&gt; (global object property)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;let&lt;/code&gt; w odróżnieniu od &lt;code&gt;var&lt;/code&gt; nie jest globalnie dostępny a przypisany do najbliższych funkcji etc. jest dostępny w sposób skryptowy (linia po linii, podobnie jak w pythonie), wartość mu przypisana może być zmieniona ale nie może zostać ponownie zadeklarowany, nie tworzy globalnie dostępnego obiektu.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;deklaracji dokonujemy poprzez użycie słowa kluczowego (let, const) + identyfikator (nazwy zmiennej np. foo lub fu etc.), oraz poprzez opcjonalne przypisanie jej wartości (np. 'bar')&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;fu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;zmienne nie mogą zaczynać się od cyfr&lt;/li&gt;
+&lt;li&gt;wielkość liter na znaczenie &lt;code&gt;fu&lt;/code&gt; to nie to samo co &lt;code&gt;Fu&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;nazwa zmiennej nie może zawierać spacji, myślników, kropek - stosowany natomiast jest podkreślnik np. _fu&lt;/li&gt;
+&lt;li&gt;nazwa zmiennej nie może być &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords"&gt;słowem kluczowym&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Podstawowe typy danych&lt;/h3&gt;
+&lt;p&gt;Do podstawowych (tzw. prymitywnych) typów danych wykorzystywanych w JS zaliczyć można:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;string&lt;/strong&gt; - ciągi znaków tzw łańcuchowy (np. "ab2c ala" - wymaga cudzysłowu lub apostrofu)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;number&lt;/strong&gt; - typ liczbowy (np. 123 - brak cudzysłowu)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;undefined&lt;/strong&gt; - typ specjalny, niezainicjowana zmienna/nieistniejąca właściwość obiektu&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;null&lt;/strong&gt; - type specjalny, określa pustą wartość (wykorzystywany przy obiektach)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;boolean&lt;/strong&gt; - typ logiczny (Prawda/Fałsz - True/False)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Typ łańcuchowy&lt;/h3&gt;
+&lt;p&gt;Przydatne kolokacje znaków wykorzystanych w typie łańcuchowym&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\n&lt;/code&gt; - nowy wiersz&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\r&lt;/code&gt;- reset pozycji kursora i powrót na nową linię&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\t&lt;/code&gt; - tabulacja&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\&lt;/code&gt; - lewy ukośnik jest również wymagany przed &lt;code&gt;\&lt;/code&gt; , &lt;code&gt;"&lt;/code&gt; lub &lt;strong&gt;`&lt;/strong&gt; z racji tego, że są znakami specjalnymi dla JS -&amp;gt; np. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;\&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;pozwala na łączenie ze sobą ciągów znaków przy pomocy operatora &lt;code&gt;+&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;:::Napisy szablonowe - osadzenie do w ramach łańcucha zmiennej wymaga zastosowanie znaku dolara nawiasów klamrowych oraz tylniego apostrofu &lt;code&gt;String ${variable}&lt;/code&gt; więcej na ten temat &lt;a href="https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/template_strings"&gt;tutaj&lt;/a&gt;:::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const cat = &amp;quot;Deedee&amp;quot;
+console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`)
+&amp;gt; kot Deedee
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Typ liczbowy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;jeśli zaczyna się od zera tj traktowany jako wartość ósemkowa a od 0x jako szesnastkowa&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;może być zapisywana wartość w notacji wykładniczej "X.YeZ, gdzie X to część całkowita, Y część dziesiętna, natomiast Z to wykładnik potęgi liczby 10. Zapis taki oznacza to samo, co X.Y * 10Z" (&lt;a href="http://webmaster.helion.pl/index.php/kjs-cechy-jezyka/kjs-typy-danych"&gt;źródło&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Przykładowe zastosowanie: 123, -123, 1.1, -1.1, 0.1E2, -0x0f&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;pozwala na przeprowadzanie stosowanie operatorów arytmetycznych -&amp;gt; &lt;code&gt;* + - /&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;operator &lt;code&gt;%&lt;/code&gt; modulo dzieli z resztą&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;operator &lt;code&gt;--&lt;/code&gt; oraz &lt;code&gt;++&lt;/code&gt; dokonuje dekrementacji oraz inkrementacji/ zmniejszenia lub zwiększenia wartości o 1 (&lt;code&gt;x--&lt;/code&gt; lub &lt;code&gt;--x&lt;/code&gt; tj to samo co &lt;code&gt;x = x -1&lt;/code&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pozwala również na stosowanie &lt;em&gt;operatorów porównania (relacyjnych)&lt;/em&gt; np &lt;code&gt;&amp;lt;= &amp;lt; &amp;gt; &amp;gt;= !== === !=&lt;/code&gt; oraz &lt;em&gt;bitowych&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;==&lt;/code&gt; równy?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;===&lt;/code&gt; równy tego samego typu?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!==&lt;/code&gt; nierówny?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Typ logiczny&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;pozwala na stosowanie operatorów logicznych &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; - and/i, &lt;code&gt;||&lt;/code&gt; - or/albo, &lt;code&gt;!&lt;/code&gt; - not/nie&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;typeof&lt;/h3&gt;
+&lt;p&gt;w przypadku niepewności jakiego typ danych przechowuje dana zmienna istniej możliwość zastosowania operatora &lt;code&gt;typeof&lt;/code&gt;, który zwraca łańcuch zwierający typ tzw. operandu (argument operatora)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;schemat&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="n"&gt;operand&lt;/span&gt;
+&lt;span class="n"&gt;przykład&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;wynik&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;number&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/basics#datatypes&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Guide/Sk%C5%82adnia_i_typy&lt;/p&gt;
+&lt;p&gt;http://webmaster.helion.pl/index.php/kjs-cechy-jezyka/kjs-typy-danych&lt;/p&gt;
+&lt;p&gt;http://webmaster.helion.pl/index.php/kjs-cechy-jezyka/kjs-operatory/kjs-operatory-arytmeyczne&lt;/p&gt;
+&lt;p&gt;http://webmaster.helion.pl/index.php/kjs-cechy-jezyka/kjs-operatory/kjs-operatory-logiczne&lt;/p&gt;
+&lt;p&gt;http://kursjs.pl/kurs/super-podstawy/zmienne.php&lt;/p&gt;
+&lt;p&gt;https://medium.com/@larry.sassainsworth/let-vs-var-vs-const-in-javascript-8b898f868394&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=JFDScHg6Dws&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="typy"></category><category term="dane"></category><category term="data types"></category><category term="operatory"></category></entry><entry><title>JavaScript - przydatne strony (darmowe kursy, wyzwania)</title><link href="https://kostyrko.github.io/zfrontu/js-kursy-linki.html" rel="alternate"></link><published>2020-04-08T10:00:00+02:00</published><updated>2020-04-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-08:/zfrontu/js-kursy-linki.html</id><summary type="html">&lt;h3&gt;Kursy online&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -48,8 +344,8 @@
 &lt;td&gt;Pseudonewsletter - 30 mini projektów na 30 dni&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href="https://justjavascript.com/"&gt;justjavascript&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;W trakcie tworzenia …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;h3&gt;Kursy online&lt;/h3&gt;
+&lt;td&gt;&lt;a href="https://bedeprogramistka.pl/wyzwanie-javascript30/"&gt;bedeprogramistka.pl/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Polska odpowiedź …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;h3&gt;Kursy online&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -89,6 +385,10 @@
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://javascript30.com/"&gt;JavaScript30&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Pseudonewsletter - 30 mini projektów na 30 dni&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://bedeprogramistka.pl/wyzwanie-javascript30/"&gt;bedeprogramistka.pl/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Polska odpowiedź na JavaScript30 /blog/społeczność&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://justjavascript.com/"&gt;justjavascript&lt;/a&gt;&lt;/td&gt;
@@ -114,6 +414,10 @@
 &lt;td&gt;&lt;a href="https://edabit.com/"&gt;edabit&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Ćwiczenia oraz rozwiązania zgłaszane przez społeczność&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="codewars.js"&gt;CodeWars.js&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;do przetestowania&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
@@ -132,7 +436,11 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://launchschool.com/books/javascript"&gt;Introduction to Programming with JavaScript&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Książka - darmowa&lt;/td&gt;
+&lt;td&gt;Książka - darmowa + ćwiczenia&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://eloquentjavascript.net/"&gt;Eloquent JavaScript&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Darmowa książka w wersji elektronicznej&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -198,23 +506,12 @@
 &lt;td&gt;&lt;a href="https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA"&gt;Traversy Media&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;W przystępnej i klarownej formie przedstawiony JS + udemy&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.youtube.com/watch?v=JFDScHg6Dws&amp;amp;list=PLTs20Q-BTEMPRSzhrlAuu7yus1BuOLVrS"&gt;Samuraj Programowania - Java Script w miesiąc&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Warto polecenia choć chyba nie jako pierwsze a kolejne źródło&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="linki"></category><category term="kursy"></category><category term="newslettery"></category><category term="wyzwania"></category><category term="ćwiczenia"></category><category term="aplikacje"></category><category term="android"></category></entry><entry><title>JavaScript - obiekty</title><link href="https://kostyrko.github.io/zfrontu/js-obiekty.html" rel="alternate"></link><published>2020-04-10T00:00:00+02:00</published><updated>2020-04-10T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-obiekty.html</id><content type="html">&lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://launchschool.com/books/javascript/read/objects#whatareobjects&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - podstawowe typy danych</title><link href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html" rel="alternate"></link><published>2020-04-09T10:00:00+02:00</published><updated>2020-04-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-podstawowe-typy.html</id><content type="html">&lt;p&gt;Do podstawowych (tzw. prymitywnych) typów danych zaliczyć można:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;string - ciągi znaków&lt;/li&gt;
-&lt;li&gt;number&lt;/li&gt;
-&lt;li&gt;undefined&lt;/li&gt;
-&lt;li&gt;null&lt;/li&gt;
-&lt;li&gt;boolean&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3&gt;Deklaracje&lt;/h3&gt;
-&lt;hr&gt;
-&lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://launchschool.com/books/javascript/read/basics#datatypes&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Guide/Sk%C5%82adnia_i_typy&lt;/p&gt;
-&lt;p&gt;http://webmaster.helion.pl/index.php/kjs-cechy-jezyka/kjs-typy-danych&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="typy"></category><category term="dane"></category><category term="data types"></category></entry><entry><title>CSS - neumorphism</title><link href="https://kostyrko.github.io/zfrontu/css-neumorphism.html" rel="alternate"></link><published>2020-04-07T11:00:00+02:00</published><updated>2020-04-07T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-neumorphism.html</id><summary type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub też zaokrąglone. Neoumorphism wywodzi się z skeuromorfizmu (gr. skeúos "naczynie, przedmiot" + morphé "postać, kształt") stylistyki, ktra miałą nawiązać do istniejących w świecie realnym przedmiotów.&lt;/p&gt;
+&lt;/table&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="linki"></category><category term="kursy"></category><category term="newslettery"></category><category term="wyzwania"></category><category term="ćwiczenia"></category><category term="aplikacje"></category><category term="android"></category></entry><entry><title>CSS - neumorphism</title><link href="https://kostyrko.github.io/zfrontu/css-neumorphism.html" rel="alternate"></link><published>2020-04-07T11:00:00+02:00</published><updated>2020-04-07T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-neumorphism.html</id><summary type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub też zaokrąglone. Neoumorphism wywodzi się z skeuromorfizmu (gr. skeúos "naczynie, przedmiot" + morphé "postać, kształt") stylistyki, ktra miałą nawiązać do istniejących w świecie realnym przedmiotów.&lt;/p&gt;
 &lt;p&gt;Polecam &lt;a href="https://neumorphism.io/#55b9f3"&gt;generator tego stylu&lt;/a&gt; do zapoznania się z tym w jaki sposób można uzyskać wyżej opisany efekt&lt;/p&gt;
 &lt;p&gt;Zwróć uwagę, że również ja ten styl zastosowałem na tej stronie. Używając poniższej deklaracji wystylizowałem pasek wyszukiwania&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;f5f5f5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -1118,7 +1415,7 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 
 
 &lt;hr&gt;
-&lt;h3&gt;flew po raz kolejny&lt;/h3&gt;
+&lt;h3&gt;flex po raz kolejny&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;flex-grow/shrink + flex-basis = flex&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Deklaracja &lt;code&gt;flex&lt;/code&gt; w ramach dziecka może być użyta w kontekście potrzeby zdefiniowania jego wielkości oraz istotności w rozrastaniu-kurczeniu się wobec jego rodzeństwa - gdzie liczba na początku definiuje skalę a kolejna wielkość wyrażoną w px.
 Przykładowe zastosowanie:&lt;/p&gt;
@@ -1128,6 +1425,15 @@ Przykładowe zastosowanie:&lt;/p&gt;
 
 &lt;span class="nl"&gt;.obiekt:&lt;/span&gt;&lt;span class="nf"&gt;nth-of-type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="nl"&gt;flex:&lt;/span&gt; &lt;span class="err"&gt;2&lt;/span&gt; &lt;span class="err"&gt;200&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;inline-flex / inline flex-block&lt;/h3&gt;
+&lt;p&gt;Display &lt;code&gt;inline-flex&lt;/code&gt; lub &lt;code&gt;inline flex-box&lt;/code&gt; odnosi się do kontenera a nie jego elementów - kolejno do wyświetlania w linii lub w formie blokowej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.kontener&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;inline-flex&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1921,7 +2227,7 @@ Instalowanie programu do zarządzania wyglądem/skórką Ubuntu&lt;/p&gt;
 &lt;li&gt;Część ikon zyskała nową skórkę&lt;/li&gt;
 &lt;li&gt;Zacząłem korzystać z motywu nocnego (podoba mi się opcja dostosowania nasilenia filtra)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;W przyszłym miesiącu pojawia się kolejna wersja Ubuntu i pewnie również skorzystam z aktualizacji jak tylko mi system taką zaproponuje&lt;/strong&gt;&lt;/p&gt;</content><category term="ubuntu"></category><category term="linux"></category><category term="ubuntu"></category><category term="aktualizacja"></category><category term="ciemny motyw"></category><category term="ubuntu 19.10"></category></entry><entry><title>Wprowadzenie do GITa - podstawowe komendy</title><link href="https://kostyrko.github.io/zfrontu/git-wprowadzenie.html" rel="alternate"></link><published>2020-03-25T22:00:00+01:00</published><updated>2020-03-25T22:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-25:/zfrontu/git-wprowadzenie.html</id><content type="html">&lt;p&gt;Planowane&lt;/p&gt;</content><category term="git"></category><category term="gh-pages"></category><category term="git"></category><category term="github"></category><category term="github pages"></category><category term="system kontroli wersji"></category></entry><entry><title>Pelican blog - rozszerzenia</title><link href="https://kostyrko.github.io/zfrontu/pelican-rozszerzenia.html" rel="alternate"></link><published>2020-03-24T22:20:00+01:00</published><updated>2020-03-24T22:20:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-24:/zfrontu/pelican-rozszerzenia.html</id><content type="html">&lt;p&gt;Planowany -&amp;gt; CMS&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;W przyszłym miesiącu pojawia się kolejna wersja Ubuntu i pewnie również skorzystam z aktualizacji jak tylko mi system taką zaproponuje&lt;/strong&gt;&lt;/p&gt;</content><category term="ubuntu"></category><category term="linux"></category><category term="ubuntu"></category><category term="aktualizacja"></category><category term="ciemny motyw"></category><category term="ubuntu 19.10"></category></entry><entry><title>Pelican blog - rozszerzenia</title><link href="https://kostyrko.github.io/zfrontu/pelican-rozszerzenia.html" rel="alternate"></link><published>2020-03-24T22:20:00+01:00</published><updated>2020-03-24T22:20:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-24:/zfrontu/pelican-rozszerzenia.html</id><content type="html">&lt;p&gt;Planowany -&amp;gt; CMS&lt;/p&gt;
 &lt;p&gt;https://blurringexistence.net/pelicide-demo/&lt;/p&gt;
 &lt;h3 id="zrodla"&gt;Źródło:&lt;/h3&gt;
 &lt;p&gt;https://github.com/iksteen/pelicide&lt;/p&gt;
