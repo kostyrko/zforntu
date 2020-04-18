@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - javascript</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/javascript.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-14T00:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - obiekty</title><link href="https://kostyrko.github.io/zfrontu/js-obiekty.html" rel="alternate"></link><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-14:/zfrontu/js-obiekty.html</id><summary type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy).&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - javascript</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/javascript.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-15T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - Obiekt.metoda()</title><link href="https://kostyrko.github.io/zfrontu/js-obiekt-metody.html" rel="alternate"></link><published>2020-04-15T10:00:00+02:00</published><updated>2020-04-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-15:/zfrontu/js-obiekt-metody.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;code&gt;Object.assign()&lt;/code&gt;&lt;/strong&gt; - kopiuje/klonuje wszystkie elementy jednego lub więcej elementu do określonego elementu&lt;/p&gt;
+&lt;p&gt;Schemat:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;returnedTarget&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assign&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;source&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykłady&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;obiekt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;kopia&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;assign&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;obiekt&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;kopia&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;o1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;o2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;o3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;assign&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;o1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;o2 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;&lt;code&gt;Object.assign()&lt;/code&gt;&lt;/strong&gt; - kopiuje/klonuje wszystkie elementy jednego lub więcej elementu do określonego elementu&lt;/p&gt;
+&lt;p&gt;Schemat:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;returnedTarget&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assign&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;source&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykłady&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;obiekt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;kopia&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;assign&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;obiekt&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;kopia&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;o1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;o2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;o3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;assign&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;o1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;o2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;o3&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;:::Właściwości nieprzeliczalne oraz te z łańcucha prototypów nie są kopiowane :::&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Object.create()&lt;/p&gt;
+&lt;p&gt;Object.defineProperty()&lt;/p&gt;
+&lt;p&gt;Object.defineProperties()&lt;/p&gt;
+&lt;p&gt;Object.entries()&lt;/p&gt;
+&lt;p&gt;Object.freeze()&lt;/p&gt;
+&lt;p&gt;Object.fromEntries()&lt;/p&gt;
+&lt;p&gt;Object.getOwnPropertyDescriptor()&lt;/p&gt;
+&lt;p&gt;Object.getOwnPropertyDescriptors()&lt;/p&gt;
+&lt;p&gt;Object.getOwnPropertyNames()&lt;/p&gt;
+&lt;p&gt;Object.getOwnPropertySymbols()&lt;/p&gt;
+&lt;p&gt;Object.getPrototypeOf()&lt;/p&gt;
+&lt;p&gt;Object.is()&lt;/p&gt;
+&lt;p&gt;Object.isExtensible()&lt;/p&gt;
+&lt;p&gt;Object.isFrozen()&lt;/p&gt;
+&lt;p&gt;Object.isSealed()&lt;/p&gt;
+&lt;p&gt;Object.keys()&lt;/p&gt;
+&lt;p&gt;Object.preventExtensions()&lt;/p&gt;
+&lt;p&gt;Object.seal()&lt;/p&gt;
+&lt;p&gt;Object.setPrototypeOf()&lt;/p&gt;
+&lt;p&gt;Object.values()&lt;/p&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/objects#whatareobjects&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Object/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - obiekty</title><link href="https://kostyrko.github.io/zfrontu/js-obiekty.html" rel="alternate"></link><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-14:/zfrontu/js-obiekty.html</id><summary type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy).&lt;/p&gt;
 &lt;p&gt;Obiekty zawierają właściwości, którymi są pary składające się z klucza i przypisanych im wartości, owymi wartościami mogą być wszystkie prymitywne typy, jak i tablice czy funkcje - te rozdzielone są przecinkami. Kolokacje te (key-value pairs) są rozdzielone dwukropkiem. Obiekt zadeklarowany jest poprzez użycie słowa kluczowego jak przy innych zmiennych &lt;code&gt;let&lt;/code&gt; lub &lt;code&gt;const&lt;/code&gt; oraz poprzez zastosowanie nawiasów klamrowych.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
 &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Mikołaj&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -67,7 +127,108 @@
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://launchschool.com/books/javascript/read/objects#whatareobjects&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=qs3F-z6ridc&lt;/p&gt;
-&lt;p&gt;https://dev.to/valentinogagliardi/the-secret-life-of-javascript-objects-2a33&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - tablice (obiekt array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-11T10:00:00+02:00</published><updated>2020-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-11:/zfrontu/js-tablice.html</id><summary type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami&lt;/p&gt;
+&lt;p&gt;https://dev.to/valentinogagliardi/the-secret-life-of-javascript-objects-2a33&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - metody tablic (array methods)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice-metody.html" rel="alternate"></link><published>2020-04-12T10:00:00+02:00</published><updated>2020-04-12T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-12:/zfrontu/js-tablice-metody.html</id><summary type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
+&lt;p&gt;Tablica wyjściowa&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Dodawanie elementów&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;push&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;unshift&lt;/code&gt;&lt;/strong&gt; - pozwala na dodanie jednego lub więcej elementów na koniec/początek tablicy (zwraca nową długość tablicy a nie zmodyfikowaną tablicę)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;push&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unshift&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/strong&gt; - [od concatenate] zwraca nową tablicę, która zawiera wszystkie …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
+&lt;p&gt;Tablica wyjściowa&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Dodawanie elementów&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;push&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;unshift&lt;/code&gt;&lt;/strong&gt; - pozwala na dodanie jednego lub więcej elementów na koniec/początek tablicy (zwraca nową długość tablicy a nie zmodyfikowaną tablicę)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;push&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unshift&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/strong&gt; - [od concatenate] zwraca nową tablicę, która zawiera wszystkie elementy tablicy, na której zostałą zastosowana metoda oraz podanych argumentów&lt;/p&gt;
+&lt;p&gt;::: tablica nie jest modyfikowana :::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;concatenate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;brak&lt;/span&gt; &lt;span class="n"&gt;modyfikacji&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;stąd&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;push&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;pop&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;shift&lt;/code&gt;&lt;/strong&gt; - usuwa i zwraca ostatni/pierwszy element tablicy&lt;/p&gt;
+&lt;p&gt;:::tablica ulega modyfikacji:::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;indexOf&lt;/code&gt;&lt;/strong&gt; - znajduje nr porządkowy (indeks) wybranego elementu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;indexOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;splice&lt;/code&gt;&lt;/strong&gt; - usuwa obiekt z tablicy na podstawie pozycji/indeksu tworząc z niego nową tablicę (może przyjąć więcej niż jeden argument, tworząc ich zakres)&lt;/p&gt;
+&lt;p&gt;:::tablica ulega modyfikacji:::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;removedItems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;removedItems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;slice&lt;/code&gt;&lt;/strong&gt; - przyjmuje zero, 1 lub 2 argumenty / 0 - kopiuję tablicę, 1- tnie ją od wskazanego argumentu (indeks), 2 - w zakresie wskazanym przez argumenty (indeksy) - włącznie&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;sort&lt;/code&gt;&lt;/strong&gt; - zwraca posortowaną tablicę, gdzie sortowanie jest oparte na pierwszej cyfrze składającej się na liczbę, podobnie sprawa wygląda w przypadku alfabetu gdzie 1. litera ma wpływ na kolejność pozycji i a potem następna etc.&lt;/p&gt;
+&lt;p&gt;:::tablica ulega modyfikacji:::&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;reverse&lt;/code&gt;&lt;/strong&gt; - odwraca kolejność elementów znajdujących się w tablicy&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;includes&lt;/code&gt;&lt;/strong&gt; - sprawdza czy tablica zawiera wpisany argument stosuje &lt;code&gt;===&lt;/code&gt; i nie można szukać zagnieżdżonych list&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;forEach&lt;/code&gt;&lt;/strong&gt; - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&amp;gt; zwraca &lt;code&gt;undefined&lt;/code&gt;, ale po drodze wywołuje wynik akcji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arrEach&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="n"&gt;arrEach&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;map&lt;/code&gt;&lt;/strong&gt; - podobny do forEach ale zmienia elementy tablicy i zwraca nową tablicę ze zmienionymi wartościami&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/strong&gt; - zwraca nową tablicę, która zawiera dla, którego wskazany argument jest prawdziwy (= True)&lt;/p&gt;
+&lt;p&gt;:::tablica NIE ulega modyfikacji:::&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;reduce&lt;/code&gt;&lt;/strong&gt; - przyjmuje dwa argumenty 1) wartość inicjalizującą tzw akumulator 2) funkcję wywołania zwrotnego (callback function) // ad 1) funkcja wywołania zwrotnego również przyjmuje 2 argumenty - element tablicy oraz aktualną wartość akumulatora i zwraca wartość, która zostanie przypisana do akumulatora i będzie jako taki użyty w kolejnej iteracji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;accumulator&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;accumulator&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p class="codepen" data-height="450" data-theme-id="dark" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="abvZZBE" style="height: 450px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="tablice-metody"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/abvZZBE"&gt;
+  tablice-metody&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Ćwiczenia:&lt;/p&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#exercises&lt;/p&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array&lt;/p&gt;
+&lt;p&gt;http://kursjs.pl/kurs/super-podstawy/tablice.php&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/from#&lt;/p&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#exercises&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - tablice (obiekt array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-11T10:00:00+02:00</published><updated>2020-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-11:/zfrontu/js-tablice.html</id><summary type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;Arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pusta&lt;/span&gt; &lt;span class="n"&gt;tablica&lt;/span&gt;
 &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -114,7 +275,7 @@ Tablica może zawierać również obiekty jak i tablice.&lt;/p&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=8FmBEN0XZyI&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/super-podstawy/tablice.php&lt;/p&gt;
-&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#whatisanarray&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - właściwości i metody łańcuch znaków</title><link href="https://kostyrko.github.io/zfrontu/js-metody-lancucha-znakow.html" rel="alternate"></link><published>2020-04-10T10:00:00+02:00</published><updated>2020-04-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-metody-lancucha-znakow.html</id><summary type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;code&gt;length&lt;/code&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#whatisanarray&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - właściwości i metody łańcucha znaków</title><link href="https://kostyrko.github.io/zfrontu/js-metody-lancucha-znakow.html" rel="alternate"></link><published>2020-04-10T10:00:00+02:00</published><updated>2020-04-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-metody-lancucha-znakow.html</id><summary type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;code&gt;length&lt;/code&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;fu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
@@ -442,6 +603,10 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;td&gt;&lt;a href="https://eloquentjavascript.net/"&gt;Eloquent JavaScript&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Darmowa książka w wersji elektronicznej&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="devdocs.io/javascript/"&gt;devdocs.io/javascript/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Dokumentacja wieluuuu języków programowani, w tym JS (alfabetycznie)&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
@@ -461,22 +626,6 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://play.google.com/store/apps/details?id=com.sololearn.javascript&amp;amp;hl=en"&gt;SoloLearn&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Dobra na początek, przyjemna w użytkowaniu&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h3&gt;Dzielenie się kodem&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Nazwa&lt;/th&gt;
-&lt;th&gt;główna cecha&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href="https://codepen.io/"&gt;codepen&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Darmowe "hostowanie" w celach pokazowych html/css/js - opcja free i premium&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -509,6 +658,29 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://www.youtube.com/watch?v=JFDScHg6Dws&amp;amp;list=PLTs20Q-BTEMPRSzhrlAuu7yus1BuOLVrS"&gt;Samuraj Programowania - Java Script w miesiąc&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Warto polecenia choć chyba nie jako pierwsze a kolejne źródło&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Dzielenie się kodem&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Nazwa&lt;/th&gt;
+&lt;th&gt;główna cecha&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="playcode.io"&gt;playcode.io&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;dla mnie nr 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td jsbin.com&gt;[JS Bin]&lt;/td&gt;
+&lt;td&gt;nr 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://codepen.io/mkostyrko/pen/yLYJJVV"&gt;codepen.io&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;pozwala na embeding&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="linki"></category><category term="kursy"></category><category term="newslettery"></category><category term="wyzwania"></category><category term="ćwiczenia"></category><category term="aplikacje"></category><category term="android"></category></entry></feed>
