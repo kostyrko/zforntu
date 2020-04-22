@@ -50,30 +50,26 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Właściwość calc() jest funkcją której mogą być przypisane wartości: length, angles, time, number, integer. Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ: pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia (+,-,*,/)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości. Przykładowe zastosowanie 50% rodzica dzielone przez 3 el …" />
-<meta name="keywords" content="css, calc, length, angles, time, number, integer">
+<meta name="description" content="Funkcja podczas wywołania odwołuje się do jej bieżącego kontekstu (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowegothis. -&gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji -&gt; wskazanie kontekstu poprzez call, apply (lub bind) -&gt; wywołanie funkcji z wykorzystaniem …" />
+<meta name="keywords" content="javascript, js, this">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="CSS - calc()"/>
-<meta property="og:description" content="Właściwość calc() jest funkcją której mogą być przypisane wartości: length, angles, time, number, integer. Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ: pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia (+,-,*,/)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości. Przykładowe zastosowanie 50% rodzica dzielone przez 3 el …"/>
+<meta property="og:title" content="JavaScript &#34;this&#34;"/>
+<meta property="og:description" content="Funkcja podczas wywołania odwołuje się do jej bieżącego kontekstu (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowegothis. -&gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji -&gt; wskazanie kontekstu poprzez call, apply (lub bind) -&gt; wywołanie funkcji z wykorzystaniem …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/css-calc.html"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-this.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-04-02 10:00:00+02:00"/>
+<meta property="article:published_time" content="2020-04-20 10:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
-<meta property="article:section" content="css"/>
-<meta property="article:tag" content="css"/>
-<meta property="article:tag" content="calc"/>
-<meta property="article:tag" content="length"/>
-<meta property="article:tag" content="angles"/>
-<meta property="article:tag" content="time"/>
-<meta property="article:tag" content="number"/>
-<meta property="article:tag" content="integer"/>
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="this"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; CSS - calc()</title>
+  <title>...z frontu &ndash; JavaScript &#34;this&#34;</title>
 
 </head>
 <body>
@@ -134,9 +130,9 @@
 <article class="single">
   <header>
       
-    <h1 id="css-calc">CSS - calc()</h1>
+    <h1 id="js-this">JavaScript "this"</h1>
     <p>
-      Opublikowano czw 02 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
+      Opublikowano pon 20 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
         &#8226; 1 min read
     </p>
@@ -144,37 +140,58 @@
 
 
   <div>
-    <p>Właściwość <code>calc()</code> jest funkcją której mogą być przypisane wartości:
-<code>length</code>, <code>angles</code>, <code>time</code>, <code>number</code>, <code>integer</code>. 
-Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ: 
-pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia  (<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości.</p>
-<p>Przykładowe zastosowanie</p>
-<p>50% rodzica dzielone przez 3</p>
-<div class="highlight"><pre><span></span><code><span class="nt">el</span> <span class="p">{</span>
-<span class="k">width</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">100</span><span class="kt">%</span> <span class="o">-</span> <span class="mi">50</span><span class="kt">%</span> <span class="o">/</span> <span class="mi">3</span><span class="p">);</span>
-<span class="p">}</span>
+    <p>Funkcja podczas wywołania odwołuje się do jej <strong>bieżącego kontekstu</strong> (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego<code>this</code>.</p>
+<p>-&gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji</p>
+<p>-&gt; wskazanie kontekstu poprzez <code>call</code>, <code>apply</code> (lub <code>bind</code>)</p>
+<p>-&gt; wywołanie funkcji z wykorzystaniem słowa kluczowego <code>new</code> sprawia, że kontekstem jest nowo stworzony obiekt</p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">function</span> <span class="nt">bike</span><span class="o">()</span> <span class="p">{</span>
+    <span class="err">console.log(this.name)</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nt">var</span> <span class="nt">name</span> <span class="o">=</span> <span class="s2">&quot;Ninja&quot;</span><span class="o">;</span>
+    <span class="nt">var</span> <span class="nt">obj1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Pulsar&quot;</span><span class="p">,</span> <span class="n">bike</span><span class="o">:</span> <span class="n">bike</span> <span class="p">}</span><span class="o">;</span>
+
+    <span class="nt">bike</span><span class="o">();</span>           <span class="o">//</span> <span class="s2">&quot;Ninja&quot;</span>
+    <span class="nt">obj1</span><span class="p">.</span><span class="nc">bike</span><span class="o">();</span>      <span class="o">//</span> <span class="s2">&quot;Pulsar&quot;</span> <span class="o">=</span> <span class="nt">this</span><span class="p">.</span><span class="nc">name</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">obj1</span><span class="p">.</span><span class="nc">name</span>
 </code></pre></div>
 
 
-<p>10% rodzica + dodatkowe 10px</p>
-<div class="highlight"><pre><span></span><code>    <span class="p">.</span><span class="nc">el</span> <span class="p">{</span>
-    <span class="k">margin-left</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">10</span><span class="kt">%</span> <span class="o">+</span> <span class="mi">10</span><span class="kt">px</span><span class="p">);</span>
-  <span class="p">}</span>
-</code></pre></div>
-
-
-<p>Źródło i polecane linki:</p>
-<p>https://tympanus.net/codrops/css_reference/calc/</p>
+<h3>Strict mode - domniemane this</h3>
+<p>W tym trybie <code>this</code> jest <code>undefined</code></p>
+<p>Jeśli właściwość obiektu jest wywoływana jako metoda, wtedy obiekt staję się obiektem <code>this</code> albo kontekstem wywołania tej metody</p>
+<h3>Stały trb/Fixed mode</h3>
+<p>Użycie <code>call</code>, <code>apply</code> lub <code>bind</code> - sprawiają, że pierwszy parametr funkcji będzie jej kontekstem</p>
+<h3>Słowo kluczowe <code>new</code></h3>
+<p>Słowo kluczowe <code>new</code> jest wywołaniem tworzącym/konstruującym. Wywołanie funkcji z wykorzystaniem słowa kluczowego <code>new</code> sprawia, że kontekstem jest nowo stworzony obiekt</p>
+<ul>
+<li>
+<p>w metodzie this odwołuje się do obiektu właściciela</p>
+</li>
+<li>
+<p>samo <code>this</code> odwołuje się do globalnego obiekt</p>
+</li>
+<li>
+<p>w funkcji <code>this</code> odwołuje się do globalnego obiekt/ w strict mode jest <code>undefined</code></p>
+</li>
+<li>
+<p>w wydarzeniu odwołuje się do elementu, który je przyjmuje</p>
+</li>
+<li>
+<p><code>call</code>, <code>apply</code> przypisuje <code>this</code> do wybranego obiektu</p>
+</li>
+</ul>
+<hr>
+<p>Źródła:</p>
+<p>https://www.youtube.com/watch?v=QTDXSUnS1dc</p>
+<p>https://codeburst.io/all-about-this-and-new-keywords-in-javascript-38039f71780c</p>
+<p>https://typeofweb.com/this-js-kontekst-wywolania-funkcji/</p>
+<p>https://www.w3schools.com/js/js_this.asp</p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/calc.html">calc</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/length.html">length</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/angles.html">angles</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/time.html">time</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/number.html">number</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/integer.html">integer</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/this.html">this</a>
     </p>
   </div>
 
@@ -183,7 +200,7 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/css-pseudo-elementy.html">CSS::pseudo-elementy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-funkcja.html">JavaScript - funkcje</a></li>
     </ul>
   </div>
 
