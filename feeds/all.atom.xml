@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-20T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript -&gt; funkcje strzałkowe</title><link href="https://kostyrko.github.io/zfrontu/js-funckja-starzalkowa.html" rel="alternate"></link><published>2020-04-20T10:00:00+02:00</published><updated>2020-04-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-20:/zfrontu/js-funckja-starzalkowa.html</id><summary type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-26T00:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript "this"</title><link href="https://kostyrko.github.io/zfrontu/js-this.html" rel="alternate"></link><published>2020-04-26T00:00:00+02:00</published><updated>2020-04-26T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-26:/zfrontu/js-this.html</id><summary type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;-&amp;gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji&lt;/p&gt;
+&lt;p&gt;-&amp;gt; wskazanie kontekstu poprzez &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; (lub &lt;code&gt;bind&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;-&amp;gt; wywołanie funkcji z wykorzystaniem …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;-&amp;gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji&lt;/p&gt;
+&lt;p&gt;-&amp;gt; wskazanie kontekstu poprzez &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; (lub &lt;code&gt;bind&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;-&amp;gt; wywołanie funkcji z wykorzystaniem słowa kluczowego &lt;code&gt;new&lt;/code&gt; sprawia, że kontekstem jest nowo stworzony obiekt&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;console.log(this.name)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ninja&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;obj1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pulsar&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;bike&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="nt"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ninja&amp;quot;&lt;/span&gt;
+    &lt;span class="nt"&gt;obj1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pulsar&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;name&lt;/span&gt; &lt;span class="nt"&gt;-&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;obj1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;name&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Strict mode - domniemane this&lt;/h3&gt;
+&lt;p&gt;W tym trybie &lt;code&gt;this&lt;/code&gt; jest &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Jeśli właściwość obiektu jest wywoływana jako metoda, wtedy obiekt staję się obiektem &lt;code&gt;this&lt;/code&gt; albo kontekstem wywołania tej metody&lt;/p&gt;
+&lt;h3&gt;Stały trb/Fixed mode&lt;/h3&gt;
+&lt;p&gt;Użycie &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; lub &lt;code&gt;bind&lt;/code&gt; - sprawiają, że pierwszy parametr funkcji będzie jej kontekstem&lt;/p&gt;
+&lt;h3&gt;Słowo kluczowe &lt;code&gt;new&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Słowo kluczowe &lt;code&gt;new&lt;/code&gt; jest wywołaniem tworzącym/konstruującym. Wywołanie funkcji z wykorzystaniem słowa kluczowego &lt;code&gt;new&lt;/code&gt; sprawia, że kontekstem jest nowo stworzony obiekt&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;w metodzie this odwołuje się do obiektu właściciela&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;samo &lt;code&gt;this&lt;/code&gt; odwołuje się do globalnego obiekt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;w funkcji &lt;code&gt;this&lt;/code&gt; odwołuje się do globalnego obiekt/ w strict mode jest &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;w wydarzeniu odwołuje się do elementu, który je przyjmuje&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; przypisuje &lt;code&gt;this&lt;/code&gt; do wybranego obiektu&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=QTDXSUnS1dc&lt;/p&gt;
+&lt;p&gt;https://codeburst.io/all-about-this-and-new-keywords-in-javascript-38039f71780c&lt;/p&gt;
+&lt;p&gt;https://typeofweb.com/this-js-kontekst-wywolania-funkcji/&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/js/js_this.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="this"></category></entry><entry><title>JavaScript -&gt; funkcje strzałkowe</title><link href="https://kostyrko.github.io/zfrontu/js-funckja-starzalkowa.html" rel="alternate"></link><published>2020-04-20T10:00:00+02:00</published><updated>2020-04-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-20:/zfrontu/js-funckja-starzalkowa.html</id><summary type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;słowo kluczowe &lt;code&gt;function&lt;/code&gt; zmienia się w strzałkę &lt;code&gt;=&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -85,55 +133,7 @@
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/es6/funkcja-strzalkowa.php&lt;/p&gt;
 &lt;p&gt;https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html&lt;/p&gt;
-&lt;p&gt;http://www.algosmart.pl/powtorka-przed-reactjs-1-funkcje-strzalkowe&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="arrow functions"></category><category term="funkcja strzałkowa"></category></entry><entry><title>JavaScript "this"</title><link href="https://kostyrko.github.io/zfrontu/js-this.html" rel="alternate"></link><published>2020-04-20T10:00:00+02:00</published><updated>2020-04-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-20:/zfrontu/js-this.html</id><summary type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;-&amp;gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji&lt;/p&gt;
-&lt;p&gt;-&amp;gt; wskazanie kontekstu poprzez &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; (lub &lt;code&gt;bind&lt;/code&gt;)&lt;/p&gt;
-&lt;p&gt;-&amp;gt; wywołanie funkcji z wykorzystaniem …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;-&amp;gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji&lt;/p&gt;
-&lt;p&gt;-&amp;gt; wskazanie kontekstu poprzez &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; (lub &lt;code&gt;bind&lt;/code&gt;)&lt;/p&gt;
-&lt;p&gt;-&amp;gt; wywołanie funkcji z wykorzystaniem słowa kluczowego &lt;code&gt;new&lt;/code&gt; sprawia, że kontekstem jest nowo stworzony obiekt&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;console.log(this.name)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-
-    &lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ninja&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-    &lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;obj1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pulsar&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;bike&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-    &lt;span class="nt"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ninja&amp;quot;&lt;/span&gt;
-    &lt;span class="nt"&gt;obj1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;bike&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pulsar&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;name&lt;/span&gt; &lt;span class="nt"&gt;-&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;obj1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;name&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Strict mode - domniemane this&lt;/h3&gt;
-&lt;p&gt;W tym trybie &lt;code&gt;this&lt;/code&gt; jest &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Jeśli właściwość obiektu jest wywoływana jako metoda, wtedy obiekt staję się obiektem &lt;code&gt;this&lt;/code&gt; albo kontekstem wywołania tej metody&lt;/p&gt;
-&lt;h3&gt;Stały trb/Fixed mode&lt;/h3&gt;
-&lt;p&gt;Użycie &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; lub &lt;code&gt;bind&lt;/code&gt; - sprawiają, że pierwszy parametr funkcji będzie jej kontekstem&lt;/p&gt;
-&lt;h3&gt;Słowo kluczowe &lt;code&gt;new&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Słowo kluczowe &lt;code&gt;new&lt;/code&gt; jest wywołaniem tworzącym/konstruującym. Wywołanie funkcji z wykorzystaniem słowa kluczowego &lt;code&gt;new&lt;/code&gt; sprawia, że kontekstem jest nowo stworzony obiekt&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;w metodzie this odwołuje się do obiektu właściciela&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;samo &lt;code&gt;this&lt;/code&gt; odwołuje się do globalnego obiekt&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;w funkcji &lt;code&gt;this&lt;/code&gt; odwołuje się do globalnego obiekt/ w strict mode jest &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;w wydarzeniu odwołuje się do elementu, który je przyjmuje&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; przypisuje &lt;code&gt;this&lt;/code&gt; do wybranego obiektu&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://www.youtube.com/watch?v=QTDXSUnS1dc&lt;/p&gt;
-&lt;p&gt;https://codeburst.io/all-about-this-and-new-keywords-in-javascript-38039f71780c&lt;/p&gt;
-&lt;p&gt;https://typeofweb.com/this-js-kontekst-wywolania-funkcji/&lt;/p&gt;
-&lt;p&gt;https://www.w3schools.com/js/js_this.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="this"></category></entry><entry><title>JavaScript - funkcje</title><link href="https://kostyrko.github.io/zfrontu/js-funkcja.html" rel="alternate"></link><published>2020-04-19T10:00:00+02:00</published><updated>2020-04-19T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-19:/zfrontu/js-funkcja.html</id><summary type="html">&lt;h3&gt;Funkcje&lt;/h3&gt;
+&lt;p&gt;http://www.algosmart.pl/powtorka-przed-reactjs-1-funkcje-strzalkowe&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="arrow functions"></category><category term="funkcja strzałkowa"></category></entry><entry><title>JavaScript - funkcje</title><link href="https://kostyrko.github.io/zfrontu/js-funkcja.html" rel="alternate"></link><published>2020-04-19T10:00:00+02:00</published><updated>2020-04-19T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-19:/zfrontu/js-funkcja.html</id><summary type="html">&lt;h3&gt;Funkcje&lt;/h3&gt;
 &lt;p&gt;Zbiór zgrupowanych instrukcji, które można wywołać poprzez odwołanie się do ich nazwy, funkcja może ale nie musi przyjmować parametry/argumenty, które biorą udział w wywoływaniu się jej wewnętrznego kodu. &lt;/p&gt;
 &lt;p&gt;Funkcję można stworzyć poprzez jej deklarację przy użycia słowa kluczowego &lt;code&gt;function&lt;/code&gt; &lt;/p&gt;
 &lt;p&gt;Schemat &lt;/p&gt;
@@ -160,6 +160,18 @@
 &lt;p&gt;::: Funkcje posiadają własne właściwości np. .name -&amp;gt; identyfikator.name = identyfikator (może być użyty w funkcji) :::&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Hoisting/wynoszenie&lt;/strong&gt; - funkcje tak samo jak i deklaracje zmiennych w trakcie analizowania/parsowania kodu przez przeglądarkę są wynoszone na górę aktualnego zasięgu i tam pojawiają się w zapisanej kolejności (ma to wpływ na nadpisywanie) -&amp;gt;&amp;gt; &lt;code&gt;Można wywoływać funkcje zanim zostaną zadeklarowane&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;::: wynoszenie odbywa się przed wykonaniem kodu :::&lt;/p&gt;
+&lt;p&gt;Istnieje możliwość zdefiniowania domyślnego parametru w funkcji, który zostaje użyty w przypadku gdy ten nie zostanie podany&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;droidSeeker&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;droid&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;`&lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; ${&lt;span class="nv"&gt;name&lt;/span&gt;} &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;`&lt;span class="ss"&gt;)&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;droidSeeker&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Mike&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;Mike&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;
+&lt;span class="nv"&gt;droidSeeker&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;h3&gt;Wyrażenia funkcyjne&lt;/h3&gt;
 &lt;p&gt;Funkcje można przypisać do zmiennych  - wówczas: &lt;/p&gt;
@@ -183,7 +195,7 @@
 &lt;p&gt;Funkcja w domyśle zwraca wartość &lt;code&gt;undefined&lt;/code&gt; - stąd aby zwróciła jakąś wartość należy zastosować instrukcję &lt;code&gt;return&lt;/code&gt; ::: &lt;strong&gt;przerywa również działanie funcji&lt;/strong&gt; :::&lt;/p&gt;
 &lt;h2&gt;---&lt;/h2&gt;
 &lt;h3&gt;Funkcje anonimowe&lt;/h3&gt;
-&lt;p&gt;Nie posiada nazwy (identyfikatora), może ale nie musi być przypisana do zmiennej, może ale nie musi posiadać agrumentu // występuje często jako funkcja występująca jako parametr w innej
+&lt;p&gt;Nie posiada nazwy (identyfikatora), może ale nie musi być przypisana do zmiennej, może ale nie musi posiadać argumentu // występuje często jako funkcja występująca jako parametr w innej
 Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przypadku należy zamknąć ją w nawiasach -&amp;gt; funkcja zostanie od razu wywołana w trakcie wykonywania kodu.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -200,13 +212,26 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;https://www.modestprogrammer.pl/wyrazenia-funkcyjne-oraz-funkcje-anonimowe-w-javascript&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="funkcja"></category></entry><entry><title>JavaScript - pętle (for/while loop)</title><link href="https://kostyrko.github.io/zfrontu/js-for-while-loop.html" rel="alternate"></link><published>2020-04-18T10:00:00+02:00</published><updated>2020-04-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-18:/zfrontu/js-for-while-loop.html</id><summary type="html">&lt;p&gt;Pętle &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;while&lt;/code&gt; pozwalają na wielokrotne wykonywanie się tego samego kodu&lt;/p&gt;
 &lt;p&gt;schemat pętli &lt;strong&gt;&lt;code&gt;for&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zmienna&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;ę&lt;span class="nv"&gt;d&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;wyznacznikiem&lt;/span&gt; &lt;span class="nv"&gt;granicznym&lt;/span&gt; &lt;span class="nv"&gt;wykonywania&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tli&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; y; i++) { // i - akumulatorem; moment do którego wykonuje się pętla; zmiana dokonywana na akumulatorze po przejściu …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pętle &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;while&lt;/code&gt; pozwalają na wielokrotne wykonywanie się tego samego kodu&lt;/p&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykonaj&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tl&lt;/span&gt;ę &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;momentu&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rym&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;nadal&lt;/span&gt; &lt;span class="nv"&gt;mniejsze&lt;/span&gt; &lt;span class="nv"&gt;ni&lt;/span&gt;ż &lt;span class="nv"&gt;y&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pętle &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;while&lt;/code&gt; pozwalają na wielokrotne wykonywanie się tego samego kodu&lt;/p&gt;
 &lt;p&gt;schemat pętli &lt;strong&gt;&lt;code&gt;for&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zmienna&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;ę&lt;span class="nv"&gt;d&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;wyznacznikiem&lt;/span&gt; &lt;span class="nv"&gt;granicznym&lt;/span&gt; &lt;span class="nv"&gt;wykonywania&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tli&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykonaj&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tl&lt;/span&gt;ę &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;momentu&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rym&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;nadal&lt;/span&gt; &lt;span class="nv"&gt;mniejsze&lt;/span&gt; &lt;span class="nv"&gt;ni&lt;/span&gt;ż &lt;span class="nv"&gt;y&lt;/span&gt;
+
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; y; i++) { // i - akumulatorem; moment do którego wykonuje się pętla; zmiana dokonywana na akumulatorze po przejściu pętli&lt;/span&gt;
   &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;; // wykonujący się kod&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład pętli dekrementacyjnej (wykonuj pętlę w przypadku gdy i jest większe od 5): &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;gt; 5 ; i-- ) {&lt;/span&gt;
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -349,7 +374,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://launchschool.com/books/javascript/read/objects#whatareobjects&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Object/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - obiekty</title><link href="https://kostyrko.github.io/zfrontu/js-obiekty.html" rel="alternate"></link><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-14:/zfrontu/js-obiekty.html</id><summary type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript (porównanie tych 2 rzeczy ze sobą nie jest wskazane,ale najbliższe tego co znam) okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript (porównanie tych 2 rzeczy ze sobą nie jest wskazane,ale najbliższe tego co znam) okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy).&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Object/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - obiekty (Objects)</title><link href="https://kostyrko.github.io/zfrontu/js-obiekty.html" rel="alternate"></link><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-14:/zfrontu/js-obiekty.html</id><summary type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript (porównanie tych 2 rzeczy ze sobą nie jest wskazane,ale najbliższe tego co znam) okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript (porównanie tych 2 rzeczy ze sobą nie jest wskazane,ale najbliższe tego co znam) okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy).&lt;/p&gt;
 &lt;p&gt;Obiekty zawierają właściwości, którymi są pary składające się z klucza i przypisanych im wartości, owymi wartościami mogą być wszystkie prymitywne typy, jak i tablice czy funkcje - te rozdzielone są przecinkami. Kolokacje te (key-value pairs) są rozdzielone dwukropkiem. Obiekt zadeklarowany jest poprzez użycie słowa kluczowego jak przy innych zmiennych &lt;code&gt;let&lt;/code&gt; lub &lt;code&gt;const&lt;/code&gt; oraz poprzez zastosowanie nawiasów klamrowych.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
 &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Mikołaj&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -417,7 +442,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://launchschool.com/books/javascript/read/objects#whatareobjects&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=qs3F-z6ridc&lt;/p&gt;
-&lt;p&gt;https://dev.to/valentinogagliardi/the-secret-life-of-javascript-objects-2a33&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - obiekt Math</title><link href="https://kostyrko.github.io/zfrontu/js-math.html" rel="alternate"></link><published>2020-04-13T10:00:00+02:00</published><updated>2020-04-13T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-13:/zfrontu/js-math.html</id><summary type="html">&lt;p&gt;Math jest wbudowanym obiektem (najwyższego poziomu), który posiada właściwości i metody związane z metodami stałymi i matematycznymi.&lt;/p&gt;
+&lt;p&gt;https://dev.to/valentinogagliardi/the-secret-life-of-javascript-objects-2a33&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JavaScript - obiekt Math</title><link href="https://kostyrko.github.io/zfrontu/js-math.html" rel="alternate"></link><published>2020-04-13T09:00:00+02:00</published><updated>2020-04-13T09:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-13:/zfrontu/js-math.html</id><summary type="html">&lt;p&gt;Math jest wbudowanym obiektem (najwyższego poziomu), który posiada właściwości i metody związane z metodami stałymi i matematycznymi.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Math.Pi&lt;/code&gt; - właściwość (jedna z wielu) - pozwala odwołać się do wartości Pi (ok. 3.14159)&lt;/p&gt;
 &lt;h3&gt;Metody (wybrane):&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Math.random()&lt;/code&gt; - zwraca liczbę pseudolosową z przedziału [0,1)&lt;/p&gt;
@@ -501,7 +526,160 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math&lt;/p&gt;
-&lt;p&gt;https://mathjs.org/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="math"></category><category term="obiekt math"></category><category term="object"></category></entry><entry><title>JavaScript - metody tablic (array methods)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice-metody.html" rel="alternate"></link><published>2020-04-12T10:00:00+02:00</published><updated>2020-04-12T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-12:/zfrontu/js-tablice-metody.html</id><summary type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
+&lt;p&gt;h&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="math"></category><category term="obiekt math"></category><category term="object"></category></entry><entry><title>JavaScript - obiekty wbudowane</title><link href="https://kostyrko.github.io/zfrontu/js-obiekty-wbudowane.html" rel="alternate"></link><published>2020-04-13T08:00:00+02:00</published><updated>2020-04-13T08:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-13:/zfrontu/js-obiekty-wbudowane.html</id><summary type="html">&lt;h3&gt;Wartości&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Infinity&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;NaN&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;null&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Funkcje&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;eval()&lt;/code&gt; - ocenia kod który jest stringiem (użycie tego nie jest bezpieczne jeśli ogólnodostępne)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2 + 2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;expected&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2 + 2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2 + 2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;expected&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;uneval()&lt;/code&gt; - tworzy string reprezentujący kod źródłowy obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;uneval …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h3&gt;Wartości&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Infinity&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;NaN&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;null&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Funkcje&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;eval()&lt;/code&gt; - ocenia kod który jest stringiem (użycie tego nie jest bezpieczne jeśli ogólnodostępne)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2 + 2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;expected&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2 + 2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2 + 2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;expected&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;uneval()&lt;/code&gt; - tworzy string reprezentujący kod źródłowy obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;uneval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;returns&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;(function foo(){})&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;isFinite()&lt;/code&gt; - sprawdza czy liczba podana (argument) jest liczbą skończoną&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;isNaN()&lt;/code&gt; - sprawdza czy podany argument jest liczbą&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;milliseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;100F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;expected&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Not a Number!&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;parseFloat()&lt;/code&gt; - analizuje argument (string?) i zwraca go jako float&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;circumference&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;r&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;parseFloat&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;r&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="nv"&gt;PI&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;parseInt()&lt;/code&gt; - analizuje argument (string) i zwraca go jako integer&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;decodeURI()&lt;/code&gt; - dekoduje Uniform Resource Identifier wcześniej stworzony przez &lt;code&gt;encodeURI()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;decodeURIComponent()&lt;/code&gt;  - dekoduje Uniform Resource Identifier wcześniej stworzony przez &lt;code&gt;encodeURIComponent()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;encodeURI()&lt;/code&gt; - koduje URI poprzez zamianę każdej instancji na 1-4 wyjściowych sekwencji reprezentowanych przez symbol z UTF-8&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;encodeURIComponent()&lt;/code&gt; - jw&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Obiekty podstawowe&lt;/h3&gt;
+&lt;p&gt;Object&lt;/p&gt;
+&lt;p&gt;Function&lt;/p&gt;
+&lt;p&gt;Boolean&lt;/p&gt;
+&lt;p&gt;Symbol&lt;/p&gt;
+&lt;p&gt;Error&lt;/p&gt;
+&lt;p&gt;EvalError&lt;/p&gt;
+&lt;p&gt;RangeError&lt;/p&gt;
+&lt;p&gt;ReferenceError&lt;/p&gt;
+&lt;p&gt;SyntaxError&lt;/p&gt;
+&lt;p&gt;URIError&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Liczby i daty&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Number&lt;/code&gt; - pozwala pracować z wartościami liczbowymi, stosowany przy uzyskiwaniu dostępu do stałych właściwości. Posiada &lt;em&gt;właściwości&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; Metody (wybrane) &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Number.isInteger()&lt;/code&gt; - jest integer?&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Number.toExponential()&lt;/code&gt; - liczba w postaci wykładniczej&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Number.toFixed()&lt;/code&gt; - zwraca liczbę stałoprzecinkową&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Number.isNaN()&lt;/code&gt; - sprawdź czy podana wartość jest liczbą&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kostyrko.github.io/zfrontu/js-math.html"&gt;Math&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Date&lt;/code&gt; - reprezentuje moment w czasie -&amp;gt; odowłując się do 1 January 1970 UTC&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Metody&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Date.now()&lt;/code&gt; - wartość liczbowa aktualnego czasu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Date.pars()&lt;/code&gt; - "Zwraca liczbę milisekund, które upłynęły od 1 stycznia 1970, 00:00:00 czasu lokalnego do daty podanej jako argument string."&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;parse&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Wed, 09 Aug 1995 00:00:00&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;Zwraca&lt;/span&gt; &lt;span class="nt"&gt;807937200000&lt;/span&gt; &lt;span class="nt"&gt;w&lt;/span&gt; &lt;span class="nt"&gt;strefie&lt;/span&gt; &lt;span class="nt"&gt;czasowej&lt;/span&gt; &lt;span class="nt"&gt;GMT-0300&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="nt"&gt;inne&lt;/span&gt; &lt;span class="nt"&gt;wartości&lt;/span&gt; &lt;span class="nt"&gt;w&lt;/span&gt; &lt;span class="nt"&gt;innych&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;Date.UTC()&lt;/code&gt; - "Zwraca liczbę milisekund, które upłynęły od 1 stycznia 1970, 00:00:00 czasu uniwersalnego do daty podanej jako zestaw liczb"&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;utcDate1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UTC&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;96&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;utcDate1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toUTCString&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;expected&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Fri&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;02&lt;/span&gt; &lt;span class="n"&gt;Feb&lt;/span&gt; &lt;span class="mi"&gt;1996&lt;/span&gt; &lt;span class="mi"&gt;03&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;05&lt;/span&gt; &lt;span class="n"&gt;GMT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Instancje obiektu Date (wybrane)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Metody&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Date.prototype.getDate()&lt;/code&gt; - zwraca dzień miesiąca podanej daty&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;birthday&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Date&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;August 19, 1975 23:15:30&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;date1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;birthday&lt;/span&gt;.&lt;span class="k"&gt;getDate&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.getDay()&lt;/code&gt; - zwraca dzień tygodnia&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.getFullYear()&lt;/code&gt; - rok&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.getHours()&lt;/code&gt; - godzinę&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.getMinutes()&lt;/code&gt; - minuty&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.getMonth()&lt;/code&gt; - miesiąc&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.getTime()&lt;/code&gt; - zwraca czas w milisekundach&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Setters - pozwalają na zdefiniowanie czasu&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.setTime()&lt;/code&gt;, &lt;code&gt;setMinutes()&lt;/code&gt; etc&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Przetwarzanie tekstu&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;String&lt;/code&gt; - łańcuch znaków&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;RegExp&lt;/code&gt; - obiekt wyrażeń regularnych, zawiera wzór regularnego wyrażenia -&amp;gt; znalezienie lub zmianę ciągu znaków w innym ciągu znaków&lt;/p&gt;
+&lt;h3&gt;Indeksowanie kolekcji&lt;/h3&gt;
+&lt;p&gt;Array&lt;/p&gt;
+&lt;p&gt;Int8Array&lt;/p&gt;
+&lt;p&gt;Uint8Array&lt;/p&gt;
+&lt;p&gt;Uint8ClampedArray&lt;/p&gt;
+&lt;p&gt;Int16Array&lt;/p&gt;
+&lt;p&gt;Uint16Array&lt;/p&gt;
+&lt;p&gt;Int32Array&lt;/p&gt;
+&lt;p&gt;Uint32Array&lt;/p&gt;
+&lt;p&gt;Float32Array&lt;/p&gt;
+&lt;p&gt;Float64Array&lt;/p&gt;
+&lt;h3&gt;Kolekcje z kluczami&lt;/h3&gt;
+&lt;p&gt;Map&lt;/p&gt;
+&lt;p&gt;Set&lt;/p&gt;
+&lt;p&gt;WeakMap&lt;/p&gt;
+&lt;p&gt;WeakSet&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Kolekcje wektorowe&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h3&gt;Dane strukturalne&lt;/h3&gt;
+&lt;p&gt;ArrayBuffer&lt;/p&gt;
+&lt;p&gt;SharedArrayBuffer &lt;/p&gt;
+&lt;p&gt;Atomics &lt;/p&gt;
+&lt;p&gt;DataView&lt;/p&gt;
+&lt;p&gt;JSON&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Kontrola obiektów abstrakcyjnych&lt;/h3&gt;
+&lt;p&gt;Promise&lt;/p&gt;
+&lt;p&gt;Generator&lt;/p&gt;
+&lt;p&gt;GeneratorFunction&lt;/p&gt;
+&lt;p&gt;AsyncFunction&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Refleksy&lt;/h3&gt;
+&lt;h3&gt;Internacjonalizacja&lt;/h3&gt;
+&lt;h3&gt;WebAssembly&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h3&gt;Pozostał&lt;/h3&gt;
+&lt;p&gt;arguments&lt;/p&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="obiekty wbudowane"></category></entry><entry><title>JavaScript - metody tablic (array methods)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice-metody.html" rel="alternate"></link><published>2020-04-12T10:00:00+02:00</published><updated>2020-04-12T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-12:/zfrontu/js-tablice-metody.html</id><summary type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
 &lt;p&gt;Tablica wyjściowa&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -566,6 +744,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;reverse&lt;/code&gt;&lt;/strong&gt; - odwraca kolejność elementów znajdujących się w tablicy&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;includes&lt;/code&gt;&lt;/strong&gt; - sprawdza czy tablica zawiera wpisany argument stosuje &lt;code&gt;===&lt;/code&gt; i nie można szukać zagnieżdżonych list&lt;/p&gt;
 &lt;hr&gt;
+&lt;p&gt;&lt;code&gt;callback&lt;/code&gt; - funkcja wywołująca się na każdym elemencie&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;forEach&lt;/code&gt;&lt;/strong&gt; - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&amp;gt; zwraca &lt;code&gt;undefined&lt;/code&gt;, ale po drodze wywołuje wynik akcji&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arrEach&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;span class="n"&gt;arrEach&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
@@ -600,9 +779,19 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 
 
 &lt;p&gt;:::tablica NIE ulega modyfikacji:::&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;reduce&lt;/code&gt;&lt;/strong&gt; - przyjmuje dwa argumenty 1) wartość inicjalizującą tzw akumulator 2) funkcję wywołania zwrotnego (callback function) // ad 1) funkcja wywołania zwrotnego również przyjmuje 2 argumenty - element tablicy oraz aktualną wartość akumulatora i zwraca wartość, która zostanie przypisana do akumulatora i będzie jako taki użyty w kolejnej iteracji&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;accumulator&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;accumulator&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;reduce&lt;/code&gt;&lt;/strong&gt; - funkcja przyjmuje cztery argumenty 1) wartość inicjalizującą tzw akumulator 2) obecną wartość Opcjonalnie: 3) obecny indeks 4) źródłową tablicę na której, reduce jest stosowane&lt;/p&gt;
+&lt;p&gt;Funkcja wywołania zwrotnego przyjmuje np. 2 argumenty - element tablicy oraz aktualną wartość akumulatora i zwraca wartość, która zostanie przypisana do akumulatora i będzie jako taki użyty w kolejnej iteracji.&lt;/p&gt;
+&lt;p&gt;Redukuję tablicę do pojedynczej wartości&lt;/p&gt;
+&lt;p&gt;:::tablica NIE ulega modyfikacji:::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;, &lt;span class="mi"&gt;5&lt;/span&gt;, &lt;span class="mi"&gt;7&lt;/span&gt;]
+
+  &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;accumulator&lt;/span&gt;, &lt;span class="nv"&gt;element&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;accumulator&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;element&lt;/span&gt;, &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;inny&lt;/span&gt; &lt;span class="nv"&gt;zapis&lt;/span&gt;
+
+  &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;acc&lt;/span&gt;,&lt;span class="nv"&gt;element&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;acc&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;element&lt;/span&gt;
+  }, &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;pocz&lt;/span&gt;ą&lt;span class="nv"&gt;tkowa&lt;/span&gt; &lt;span class="nv"&gt;akumulatora&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -715,7 +904,90 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 &lt;p&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;/&lt;code&gt;toUpperCase()&lt;/code&gt; - zwraca łańcuch zmieniając wszystkie litery na małe/duże&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;trim()&lt;/code&gt; - pozbywa się spacji z końca i początku łąńcucha znaków&lt;/p&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://www.w3schools.com/jsref/jsref_obj_string.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="string"></category><category term="łańcuch znaków"></category><category term="metody"></category></entry><entry><title>JavaScript - składnia, deklaracje i podstawowe typy danych oraz ich operatory</title><link href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html" rel="alternate"></link><published>2020-04-09T10:00:00+02:00</published><updated>2020-04-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-podstawowe-typy.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;https://www.w3schools.com/jsref/jsref_obj_string.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="string"></category><category term="łańcuch znaków"></category><category term="metody"></category></entry><entry><title>JavaScript - kontrola przepływu (if...else/switch/operator warunkowy)</title><link href="https://kostyrko.github.io/zfrontu/js-kontorla-przeplywu.html" rel="alternate"></link><published>2020-04-09T11:00:00+02:00</published><updated>2020-04-09T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-kontorla-przeplywu.html</id><summary type="html">&lt;p&gt;Polecenie &lt;code&gt;if...else&lt;/code&gt; pozwala na kontrolę przepływu kodu -&amp;gt; gdy pewien warunek jest spełniony (&lt;code&gt;if&lt;/code&gt;) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (&lt;code&gt;else if&lt;/code&gt;) lub wykonać określony kod (&lt;code&gt;else&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;warunek&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="nv"&gt;kod&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;ania&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;warunek&lt;/span&gt; &lt;span class="nv"&gt;spe&lt;/span&gt;ł&lt;span class="nv"&gt;niony&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;inny&lt;/span&gt; &lt;span class="nv"&gt;warunek …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Polecenie &lt;code&gt;if...else&lt;/code&gt; pozwala na kontrolę przepływu kodu -&amp;gt; gdy pewien warunek jest spełniony (&lt;code&gt;if&lt;/code&gt;) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (&lt;code&gt;else if&lt;/code&gt;) lub wykonać określony kod (&lt;code&gt;else&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;warunek&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="nv"&gt;kod&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;ania&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;warunek&lt;/span&gt; &lt;span class="nv"&gt;spe&lt;/span&gt;ł&lt;span class="nv"&gt;niony&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;inny&lt;/span&gt; &lt;span class="nv"&gt;warunek&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="nv"&gt;kod&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;ania&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;warunek&lt;/span&gt; &lt;span class="nv"&gt;spe&lt;/span&gt;ł&lt;span class="nv"&gt;niony&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+        &lt;span class="nv"&gt;kod&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;ania&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; ż&lt;span class="nv"&gt;aden&lt;/span&gt; &lt;span class="nv"&gt;z&lt;/span&gt; &lt;span class="nv"&gt;powy&lt;/span&gt;ż&lt;span class="nv"&gt;szych&lt;/span&gt; &lt;span class="nv"&gt;warunk&lt;/span&gt;ó&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;nie&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;spe&lt;/span&gt;ł&lt;span class="nv"&gt;niony&lt;/span&gt;
+  }
+
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Good morning&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Good day&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+  &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Good evening&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;:::w JS - nie zawsze wymagane jest stosowanie polecania &lt;code&gt;else&lt;/code&gt; i samo &lt;code&gt;if&lt;/code&gt; jest czasem wystarczające np. jeśli sprawdzamy pewien warunek w pętli, wówczas w domyśle &lt;code&gt;continue&lt;/code&gt; :::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;hour&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Good day&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Operator warunkowy&lt;/h3&gt;
+&lt;p&gt;W przypadku prostej kontroli przepływu opierającej się na sprawdzaniu dwóch warunków można oprzeć się na operatorze warunkowym&lt;/p&gt;
+&lt;p&gt;Gdzie po spisaniu warunku stawia się znak zapytania a następnie rozdziela się wyrażenie1 od wyrażenie2 dwukropkiem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;warunek&lt;/span&gt; ? &lt;span class="nv"&gt;wyra&lt;/span&gt;ż&lt;span class="nv"&gt;enie1&lt;/span&gt; : &lt;span class="nv"&gt;wyra&lt;/span&gt;ż&lt;span class="nv"&gt;enie2&lt;/span&gt;
+
+  &lt;span class="nv"&gt;Przyk&lt;/span&gt;ł&lt;span class="nv"&gt;ad&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;:
+
+  &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;
+  &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; ? &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Good morning&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; : &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Good day&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;greeting&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;Good&lt;/span&gt; &lt;span class="nv"&gt;day&lt;/span&gt;
+
+
+  &lt;span class="nv"&gt;Przyk&lt;/span&gt;ł&lt;span class="nv"&gt;ad&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;:
+
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;tablicy&lt;/span&gt; &lt;span class="nv"&gt;nic&lt;/span&gt; &lt;span class="nv"&gt;nie&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;zwr&lt;/span&gt;óć &lt;span class="nv"&gt;null&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;przeciwnym&lt;/span&gt; &lt;span class="nv"&gt;wypadku&lt;/span&gt; &lt;span class="nv"&gt;wykonaj&lt;/span&gt; &lt;span class="nv"&gt;na&lt;/span&gt; &lt;span class="nv"&gt;tablicy&lt;/span&gt; &lt;span class="nv"&gt;metod&lt;/span&gt;ę &lt;span class="nv"&gt;reduce&lt;/span&gt;...
+
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;newArr&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+  ? &lt;span class="nv"&gt;null&lt;/span&gt;
+  : &lt;span class="nv"&gt;newArr&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;acc&lt;/span&gt;, &lt;span class="nv"&gt;elem&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;acc&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;elem&lt;/span&gt;, &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Switch&lt;/h3&gt;
+&lt;p&gt;Polecenie if jest używane wówczas gdy należy wywołać określony kod przy zaistnieniu odpowiednich warunków&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;switch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;wyra&lt;/span&gt;ż&lt;span class="nv"&gt;enie_zwracaj&lt;/span&gt;ą&lt;span class="nv"&gt;ce_warunek&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;warunek1&lt;/span&gt;:
+              &lt;span class="nv"&gt;kod1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+              &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;warunek2&lt;/span&gt;:
+              &lt;span class="nv"&gt;kod2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+              &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;default&lt;/span&gt;:
+              &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;powy&lt;/span&gt;ż&lt;span class="nv"&gt;sze&lt;/span&gt; &lt;span class="nv"&gt;nie&lt;/span&gt; &lt;span class="nv"&gt;s&lt;/span&gt;ą &lt;span class="nv"&gt;spe&lt;/span&gt;ł&lt;span class="nv"&gt;nione&lt;/span&gt;
+  }
+
+        &lt;span class="nv"&gt;switch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Date&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;.&lt;span class="nv"&gt;getDay&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; {
+        &lt;span class="nv"&gt;default&lt;/span&gt;:
+              &lt;span class="nv"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Looking forward to the Weekend&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+              &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;:
+              &lt;span class="nv"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Today is Saturday&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+              &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;:
+              &lt;span class="nv"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Today is Sunday&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://codeburst.io/javascript-the-conditional-ternary-operator-explained-cac7218beeff&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/js/js_if_else.asp&lt;/p&gt;
+&lt;p&gt;https://pl.wikipedia.org/wiki/Operator_warunkowy&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="if...else"></category><category term="switch"></category><category term="else...if"></category></entry><entry><title>JavaScript - składnia, deklaracje i podstawowe typy danych oraz ich operatory</title><link href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html" rel="alternate"></link><published>2020-04-09T10:00:00+02:00</published><updated>2020-04-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-podstawowe-typy.html</id><summary type="html">&lt;hr&gt;
 &lt;h3&gt;Postawy i deklaracje&lt;/h3&gt;
 &lt;p&gt;w JS instrukcje nazywane są wyrażeniami i rozdzielone są średnikiem &lt;code&gt;;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;składnia komentarza&lt;/p&gt;
@@ -859,7 +1131,40 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;p&gt;http://kursjs.pl/kurs/super-podstawy/zmienne.php&lt;/p&gt;
 &lt;p&gt;https://medium.com/@larry.sassainsworth/let-vs-var-vs-const-in-javascript-8b898f868394&lt;/p&gt;
 &lt;p&gt;https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var&lt;/p&gt;
-&lt;p&gt;https://www.youtube.com/watch?v=JFDScHg6Dws&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="typy"></category><category term="dane"></category><category term="data types"></category><category term="operatory"></category></entry><entry><title>JavaScript - przydatne strony (darmowe kursy, wyzwania)</title><link href="https://kostyrko.github.io/zfrontu/js-kursy-linki.html" rel="alternate"></link><published>2020-04-08T10:00:00+02:00</published><updated>2020-04-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-08:/zfrontu/js-kursy-linki.html</id><summary type="html">&lt;h3&gt;Kursy online&lt;/h3&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=JFDScHg6Dws&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="typy"></category><category term="dane"></category><category term="data types"></category><category term="operatory"></category></entry><entry><title>JavaScript - polecenia</title><link href="https://kostyrko.github.io/zfrontu/js-polecenia.html" rel="alternate"></link><published>2020-04-09T08:00:00+02:00</published><updated>2020-04-09T08:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-polecenia.html</id><content type="html">&lt;h3&gt;Kontroli przepływu&lt;/h3&gt;
+&lt;p&gt;Block&lt;/p&gt;
+&lt;p&gt;break&lt;/p&gt;
+&lt;p&gt;continue&lt;/p&gt;
+&lt;p&gt;Empty&lt;/p&gt;
+&lt;p&gt;if...else&lt;/p&gt;
+&lt;p&gt;swith&lt;/p&gt;
+&lt;p&gt;throw&lt;/p&gt;
+&lt;p&gt;try...catch&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Deklaracje&lt;/h3&gt;
+&lt;p&gt;var&lt;/p&gt;
+&lt;p&gt;const&lt;/p&gt;
+&lt;p&gt;let&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Funkcji i klas&lt;/h3&gt;
+&lt;p&gt;function&lt;/p&gt;
+&lt;p&gt;function*&lt;/p&gt;
+&lt;p&gt;async function&lt;/p&gt;
+&lt;p&gt;return&lt;/p&gt;
+&lt;p&gt;class&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Iteracji&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://kostyrko.github.io/zfrontu/js-for-while-loop.html"&gt;Patrz tutaj&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Inne&lt;/h3&gt;
+&lt;p&gt;debugger&lt;/p&gt;
+&lt;p&gt;export&lt;/p&gt;
+&lt;p&gt;import&lt;/p&gt;
+&lt;p&gt;lable&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math&lt;/p&gt;
+&lt;p&gt;https://mathjs.org/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="polecenia"></category></entry><entry><title>JavaScript - przydatne strony (darmowe kursy, wyzwania)</title><link href="https://kostyrko.github.io/zfrontu/js-kursy-linki.html" rel="alternate"></link><published>2020-04-08T10:00:00+02:00</published><updated>2020-04-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-08:/zfrontu/js-kursy-linki.html</id><summary type="html">&lt;h3&gt;Kursy online&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
