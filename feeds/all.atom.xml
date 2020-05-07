@@ -1,5 +1,504 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-26T00:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript "this"</title><link href="https://kostyrko.github.io/zfrontu/js-this.html" rel="alternate"></link><published>2020-04-26T00:00:00+02:00</published><updated>2020-04-26T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-26:/zfrontu/js-this.html</id><summary type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-04T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - wydarzenia DOM cz. 1</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-1.html" rel="alternate"></link><published>2020-05-04T10:00:00+02:00</published><updated>2020-05-04T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-1.html</id><summary type="html">&lt;h3&gt;Nasłuchiwacz wydarzeń ;)&lt;/h3&gt;
+&lt;p&gt;Aby dodać interakcji do strony internetowej przy pomocy JS należy do wybranego przez siebie elementu dołączyć tzw. 'nasłuchiwacz wydarzeń' (ang. event listener)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.addEventListener(wydarzenie, funkcja-przekazana-do-wywołania)&lt;/code&gt;&lt;/strong&gt; - ta metoda przyjmuje dwa argumenty rodzaj 1) rodzaj wydarzenia np. 'click' (kliknięcie myszy) oraz 2) funkcję jaka ma się wywołać w momencie jego …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Nasłuchiwacz wydarzeń ;)&lt;/h3&gt;
+&lt;p&gt;Aby dodać interakcji do strony internetowej przy pomocy JS należy do wybranego przez siebie elementu dołączyć tzw. 'nasłuchiwacz wydarzeń' (ang. event listener)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.addEventListener(wydarzenie, funkcja-przekazana-do-wywołania)&lt;/code&gt;&lt;/strong&gt; - ta metoda przyjmuje dwa argumenty rodzaj 1) rodzaj wydarzenia np. 'click' (kliknięcie myszy) oraz 2) funkcję jaka ma się wywołać w momencie jego zajścia tzw &lt;strong&gt;callback&lt;/strong&gt;/bez nawiasów.&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;helloWorld&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;preventDefault&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;button&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;helloWorld&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;this.&lt;/code&gt;&lt;/strong&gt; - wyrażenie reprezentujące element, na którym doszło do wydarzenia // cenne w przypadku gdy jedno wydarzenie zostało nastawione na więcej niż jeden element (np. na wszystkie przyciski, a ma zmieniać się jeden, który wywołał akcję)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;buttonsList&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;querySelectorAll&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;.btn&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; buttons.length; i++) {&lt;/span&gt;
+  &lt;span class="nv"&gt;buttons&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;].&lt;span class="nv"&gt;addEventListener&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;click&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+    &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;style&lt;/span&gt;.&lt;span class="nv"&gt;backgroundColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;green&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.preventDefault()&lt;/code&gt;&lt;/strong&gt; - zapobiega domyślnemu zachowaniu się elementu, np. w przypadku linku jest to przejście na kolejną stronę etc.&lt;/p&gt;
+&lt;p&gt;funkcja wywołująca obiekt &lt;em&gt;event&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;button&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Obiekt event zawiera zbiór informacji na temat wydarzenia, do którego doszło np. &lt;em&gt;target&lt;/em&gt; - zawierający informację, na temat obiektu, na którym doszło do danego wydarzenia&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.target&lt;/code&gt;&lt;/strong&gt; - zwraca element, który spowodował wywołanie wydarzenia/event&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;który&lt;/span&gt; &lt;span class="n"&gt;był&lt;/span&gt; &lt;span class="n"&gt;celem&lt;/span&gt;
+
+&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;classList&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;nazwę&lt;/span&gt; &lt;span class="n"&gt;klasy&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;listę&lt;/span&gt; &lt;span class="n"&gt;klas&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;który&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;targetem&lt;/span&gt;
+
+&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;innerText&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;tekst&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt; &lt;span class="n"&gt;celowego&lt;/span&gt;
+
+&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;przydatne&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;formularzu&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.type&lt;/code&gt;&lt;/strong&gt; - zwraca typ wydarzenia&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;  &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;mouseover&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;.timeStamp&lt;/code&gt;&lt;/strong&gt; - czas w którym doszło do wydarzenia&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.clientY&lt;/code&gt;/&lt;code&gt;.clientX&lt;/code&gt; - miejsce wydarzenia relatywnie do granic okna przeglądarki / zwraca wartość w px&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.offsetY&lt;/code&gt;/&lt;code&gt;.offsetX&lt;/code&gt; - miejsce wydarzenia relatywne wobec elementu, na którym dochodzi do danego wydarzenia, gdzie punktem wyjściowym jest lewy górny róg / zwraca wartość w px&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Typy wydarzeń&lt;/h3&gt;
+&lt;h4&gt;Mysz&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;click&lt;/code&gt; - pojedyncze kliknięcie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dblclick&lt;/code&gt; - podwójne kliknięcie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mousedown&lt;/code&gt; - kliknięcie i przytrzymanie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mouseup&lt;/code&gt; - puszczenie po mousedown&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mouseenter&lt;/code&gt; - najechanie kursorem na obiekt / dotyczy jedynie obiektu ale nie jego dzieci&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mouseleave&lt;/code&gt; - opuszczenie kursorem obszaru obiektu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mouseover&lt;/code&gt; - takie samo jak &lt;code&gt;mouseenter&lt;/code&gt; ale dotyczy również elementów zawartych w danym elemencie/całości&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mouseout&lt;/code&gt;- takie samo jak &lt;code&gt;mouseout&lt;/code&gt; ale dotyczy również elementów zawartych w danym elemencie/całości&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mousemove&lt;/code&gt; - ruch wewnątrz obiektu, zwraca koordynaty w px znajdowania się myszki (offsetX,offsetY)&lt;/p&gt;
+&lt;h4&gt;Input i formularze&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;.type&lt;/code&gt; - zwraca typ wydarzenia&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const form = document.querySelector(&amp;#39;form&amp;#39;)
+
+const input = document.querySelector(&amp;#39;input&amp;#39;)
+
+form.addEventListener(&amp;#39;submit&amp;#39;, runEvent);
+
+function runEvent(e){
+  console.log(`typ wydarzenia:` &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;submit&lt;/code&gt; - nasłuchuje wysłania formularza // często używany z preventDefault() - aby powstrzymać przed domyślną akcją wywołaną przez dany element&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.value&lt;/code&gt; - zwraca wartość wpisaną w formularz, pozwala również nadać wartość domyślną formularzowi np. po wykonanym przesłaniu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;inputContent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;runEvent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;czyści&lt;/span&gt; &lt;span class="n"&gt;formularz&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Klawiatura&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;keydown&lt;/code&gt; - działa w momencie, w którym klawisz jest wciśnięty // zwraca true&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;keyup&lt;/code&gt; - działa w momencie pozostawienia klawisza // zwraca true&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;keypress&lt;/code&gt; - działa w momencie wciśnięcia guzika // zwraca true&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;altKey&lt;/code&gt; - działa w momencie przyciśnięcia klawisza ALT // zwraca true&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ctrlKey&lt;/code&gt; - działa w momencie przyciśnięcia klawisza CTRL // zwraca true&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;shiftKey&lt;/code&gt; działa w momencie przyciśnięcia klawisza Shift // zwraca true&lt;/p&gt;
+&lt;h4&gt;Inne&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;focus&lt;/code&gt; - focus na elemencie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;blur&lt;/code&gt; - kliknięcie po za element (eliminacja focusa)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cut&lt;/code&gt; - rejestruje wycięcie treści&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;paste&lt;/code&gt; - rejestruje wklejenie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;input&lt;/code&gt; - rejestruje każdy element związany z inputem (cut,paste,type)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;change&lt;/code&gt; - działa na &lt;select&gt; list - rejestruje wybór w rozwijanej liście&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;resieze&lt;/code&gt; - zmiana okna&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;touch&lt;/strong&gt; -&amp;gt; &lt;code&gt;touchstart&lt;/code&gt;, &lt;code&gt;touchmove&lt;/code&gt;, &lt;code&gt;touchend&lt;/code&gt;,
+&lt;code&gt;touchcancel&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;</content><category term="javascript"></category><category term="dom"></category><category term="js"></category><category term="javascript"></category><category term="events"></category><category term="wydarzenia"></category><category term="selectors"></category></entry><entry><title>JavaScript - wydarzenia DOM cz. 2 - propagacja</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-2.html" rel="alternate"></link><published>2020-05-04T10:00:00+02:00</published><updated>2020-05-04T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-2.html</id><summary type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
+&lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
+&lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba, że dojdzie do przerwania propagacji - oznacza to również, że wydarzeni, do której doszło na dziecku może wywoływać akcję na rodzicu ( w takim przypadku wystarczy jedynie ustawienie eventListener na rodzicu), a propagacja zachodzi również pomiędzy rodzeństwem.&lt;/p&gt;
+&lt;p&gt;Przeciwieństwem &lt;em&gt;event bubbling&lt;/em&gt; jest &lt;em&gt;event capturing&lt;/em&gt; - przekazywanie danych w dół drzewa DOM (domyślna np. dla focus)&lt;/p&gt;
+&lt;h4&gt;Metody zatrzymujące propagacje&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;event.stopPropagation()&lt;/code&gt; - zatrzymuje propagację w górę wydarzeń tego samego typu/ propagacja poziome (pomiędzy rodzeństwem) nadal jest aktywne&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;event.stopImmediatePropagation()&lt;/code&gt; - zatrzymuje wykonywanie wydarzeń pojedynczym elemencie, wywoływanie wydarzenia nie jest przenoszone na rodziców ani rodzeństwo&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Delegacja wydarzeń - event delegation&lt;/h3&gt;
+&lt;p&gt;W przypadku delegacji wydarzeń dochodzi to propagacji innej niż w domyślny sposób - np.dziecko (oraz jego potomstwo etc.) dziedziczy po rodzicu lub rodzeństwie. np. akcja, która zachodzi na rodzicu może wywoływać zdarzenie na dziecku. Tego typu zachowanie można zdefiniować przy pomocy warunków. Oznacza to, że można nastawić 'nasłuchiwacz', który wykonuje określone zadanie na wybranym elemencie.&lt;/p&gt;
+&lt;p&gt;Rozwiązanie 1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;deleteItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;className&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: jeśli celem jest obiekt posiadający rodzica, który posiada dokładnie w ten sposób przypisaną klasę lub klasy 'delete-item' to wówczas wykonaj wydarzenie:::&lt;/p&gt;
+&lt;p&gt;Rozwiązanie 2&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;deleteItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;classList&lt;/span&gt;.&lt;span class="nv"&gt;contains&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;remove&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: jeśli celem jest obiekt posiadający rodzica, który posiada klasę lub klasy, której częścią jest podane wyrażenie 'delete-item' to wówczas wykonaj wydarzenie:::&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;</content><category term="javascript"></category><category term="dom"></category><category term="js"></category><category term="javascript"></category><category term="events"></category><category term="propagacja wydarzenia"></category><category term="selectors"></category></entry><entry><title>JavaScript - selektory DOM</title><link href="https://kostyrko.github.io/zfrontu/js-dom-elementy-selektory.html" rel="alternate"></link><published>2020-05-02T10:00:00+02:00</published><updated>2020-05-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-02:/zfrontu/js-dom-elementy-selektory.html</id><summary type="html">&lt;p&gt;DOM - document object model&lt;/p&gt;
+&lt;h3&gt;Selektory pojedynczych elementów&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;selektor&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;th&gt;przykładowe zastosowanie&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;document.getElementById()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;zwraca element w podanym Id&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;document.getElementById('button-4')&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;document.querySelector()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;zwraca pierwszy element spełniający podany warunek/ wpisany składnią znaną z CSS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;document.getElementById('#button-4')&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;:::Istnieje możliwość łączenia selektorów z atrybutami :::&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.getElementById('button-4').className&lt;/code&gt; // zwraca …&lt;/p&gt;</summary><content type="html">&lt;p&gt;DOM - document object model&lt;/p&gt;
+&lt;h3&gt;Selektory pojedynczych elementów&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;selektor&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;th&gt;przykładowe zastosowanie&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;document.getElementById()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;zwraca element w podanym Id&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;document.getElementById('button-4')&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;document.querySelector()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;zwraca pierwszy element spełniający podany warunek/ wpisany składnią znaną z CSS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;document.getElementById('#button-4')&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;:::Istnieje możliwość łączenia selektorów z atrybutami :::&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.getElementById('button-4').className&lt;/code&gt; // zwraca klasę&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;const button = document.getElementById('button-4')&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;button.style.background = 'red'&lt;/code&gt; // zmienia tło na czerwone&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;button.style.display = 'none'&lt;/code&gt; - element znika&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;button.style.display = " "&lt;/code&gt; - element się pojawia&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;button.textContent = "tekst"&lt;/code&gt; - wpisuje treść&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;button.innerText = "tekst"&lt;/code&gt; - wpisuje treść&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;button.innerHTML = "&amp;lt;span style="color: red"&amp;gt;tekst&amp;lt;/span&amp;gt;"&lt;/code&gt; - dodaje html&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('#button')&lt;/code&gt; - pierwszy element gdzie id='button'&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('.button')&lt;/code&gt; - pierwszy element gdzie class='button'&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('.button .name')&lt;/code&gt; - pierwszy element gdzie class='name' będący dzieckiem elementu gdzie class='button'&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('h1')&lt;/code&gt; - pierwszy element z tagiem h1&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('h1 span')&lt;/code&gt; - pierwszy dziecko &lt;em&gt;span&lt;/em&gt; elementu &lt;em&gt;h1&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('li:last-child')&lt;/code&gt; - pierwszy element typu &lt;em&gt;li&lt;/em&gt; będący &lt;em&gt;ostatnim dzieckiem&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('li:nth-child(odd)').style.color = "red"&lt;/code&gt; - pierwszy element typu &lt;em&gt;li&lt;/em&gt; będzie czerwony (ponieważ pierwszy jest nieparzysty)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelector('[href = "google.com"]')&lt;/code&gt; - pierwszy element z atrybutem href&lt;/p&gt;
+&lt;h3&gt;Selektory wielu elementów&lt;/h3&gt;
+&lt;p&gt;Zwracają kolekcję HTML (HTML Collection) albo node-list&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;selektor&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;th&gt;przykładowe zastosowanie&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;document.getElementsByClassName()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;zwraca wiele elementów na podstawie podanej nazwy klasy w postaci kolekcji html&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;document.getElementsByClassName('buttons')&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;document.getElementsByTagName()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;zwraca wiele elementów na podstawie podanego tagu w postaci kolekcji html&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;document.getElementsTagName('li')&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;document.querySelectorAll()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;zwraca wszystkie element spełniający podany warunek/składnia CSS jako NodeList&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;document.querySelectorAll('ul.list li.list-item')&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;::: Konwersja HTML collection :::&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementsTagName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;li&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;::: NodeList nie wymaga konwersji ponieważ ma metodę forEach() :::&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.querySelectorAll('li:nth-child(odd)')&lt;/code&gt; - co 2. element listy, każde parzyste dziecko będące li - aby nadać styl należy użyć pętli &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;forEach&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;oddItem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelectorAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;li:nth-child(odd)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;oddItem&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;red&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lub (działa również dla kolekcji html)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; oddItem.length; i++ ) {&lt;/span&gt;
+  &lt;span class="nv"&gt;oddItem&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;].&lt;span class="nv"&gt;style&lt;/span&gt;.&lt;span class="nv"&gt;background&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;red&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.getElementsByClassName('buttons')[3].style.color= 'red'&lt;/code&gt; - zmieni 4 zwrócony element na czerwono&lt;/p&gt;
+&lt;p&gt;'document.querySelector('ul').getElementsByClassName('list-item') - zwróć wszystkie elementy mające klasę &lt;em&gt;list-item&lt;/em&gt; będące się w elemencie &lt;em&gt;ul&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Przechodzenie pomiędzy elementami DOM&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;.childNodes&lt;/code&gt; - nodeList wszystkich węzłów "dzieci" wybranego elementu&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;childNodes&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wszystkie&lt;/span&gt; &lt;span class="n"&gt;węzły&lt;/span&gt; &lt;span class="n"&gt;dzieci&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt; &lt;span class="n"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="n"&gt;oraz&lt;/span&gt; &lt;span class="nb"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;childNodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;nodeName&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="nb"&gt;text&lt;/span&gt;
+&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;childNodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;nodeType&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; 
+&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;childNodes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;nodeType&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;1 - Element
+3 - Text node
+8 - Comment
+9 - Document itself
+10 - Doctype&lt;/p&gt;
+&lt;p&gt;::: text nodes - składają się na nie przejścia do kolejnej linii :::&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.children&lt;/code&gt; - zwraca wszystkie węzły reprezentujące elementy które są dziećmi - zwraca &lt;em&gt;kolekcję HTML&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cont&lt;/span&gt; &lt;span class="n"&gt;liElem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;children&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;
+&lt;span class="n"&gt;liElem&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;textContent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;hello&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wpisuje&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;dziecko&lt;/span&gt; &lt;span class="n"&gt;pierwszego&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;tagiem&lt;/span&gt; &lt;span class="n"&gt;ul&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;children&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;children&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;dziecka&lt;/span&gt; &lt;span class="n"&gt;będącego&lt;/span&gt; &lt;span class="n"&gt;dzieckiem&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt; &lt;span class="n"&gt;ul&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.firstChild&lt;/code&gt; - zwraca pierwsze dziecko wybranego elementu będący węzłem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;firstChild&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nb"&gt;text&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.firstElementChild&lt;/code&gt; - zwraca pierwszy element będący dzieckiem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.lastChild&lt;/code&gt; - zwraca ostatni węzeł&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.lastElementChild&lt;/code&gt; - zwraca ostatni element będący dzieckiem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.childElementCount&lt;/code&gt; - zwraca liczbę reprezentującą wielkość zbioru dzieci&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.childParentNode&lt;/code&gt; - zwraca węzeł będący rodzicem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.parentElement&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;li&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;perentElement&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parentElement&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;dziadka&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rodzica&lt;/span&gt; &lt;span class="n"&gt;będącego&lt;/span&gt; &lt;span class="n"&gt;rodzicem&lt;/span&gt; &lt;span class="n"&gt;rodzica&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.nextSibling&lt;/code&gt; - kolejne rodzeństwo będące węzłem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.nextSiblingElement&lt;/code&gt; - kolejne rodzeństwo będące elementem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.perviousSibling&lt;/code&gt; - poprzedzające rodzeństwo będące węzłem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.previousSiblingElement&lt;/code&gt; - poprzedzające rodzeństwo będące elementem // jak w innych przypadkach zwraca &lt;code&gt;null&lt;/code&gt; w przypadku braku&lt;/p&gt;
+&lt;h3&gt;Tworzenie elementów&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;.createElement()&lt;/code&gt; - stwórz element&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;li&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dodawanie klas, id i atrybutów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;className&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;list-item&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;można&lt;/span&gt; &lt;span class="n"&gt;również&lt;/span&gt; &lt;span class="n"&gt;dodać&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;podobny&lt;/span&gt; &lt;span class="n"&gt;sposób&lt;/span&gt;
+
+&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;New Item&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.appendChild()&lt;/code&gt; - dodanie elementu jako dziecka dziecka&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;appendChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createTextNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;węzła&lt;/span&gt; &lt;span class="n"&gt;tekstowego&lt;/span&gt; &lt;span class="n"&gt;zamkniętego&lt;/span&gt; &lt;span class="n"&gt;pomiędzy&lt;/span&gt; &lt;span class="n"&gt;tagami&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowy łańcuch zdarzeń&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const link = document.createElement(&amp;#39;a&amp;#39;)
+
+link.className = &amp;#39;nav-link&amp;#39;
+
+link.innerHTML = &amp;#39;&lt;span class="nt"&gt;&amp;lt;i&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;fa&lt;/span&gt; &lt;span class="err"&gt;fa-remove&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;&amp;#39;
+
+li.appendChild(link)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dodanie wygenerowanego elementu do innego&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;appendChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Usuwanie i wymiana elementów&lt;/h3&gt;
+&lt;p&gt;Zmiana elementu odbywa się na rodzicu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.replaceChild(nowyElement, staryElement)&lt;/code&gt; - wymiana elementu&lt;/p&gt;
+&lt;p&gt;Przykładowy ciąg zdarzeń&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;newTitle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;createElement&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;h2&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; //tworzymy element&lt;/span&gt;
+
+&lt;span class="nv"&gt;newTitle&lt;/span&gt;.&lt;span class="nv"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;title-id&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;nadajemu&lt;/span&gt; &lt;span class="nv"&gt;mu&lt;/span&gt; &lt;span class="nv"&gt;id&lt;/span&gt;
+
+&lt;span class="nv"&gt;newTitle&lt;/span&gt;.&lt;span class="nv"&gt;appendChild&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;createTextNode&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Nowy tytuł&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;dodajemy&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;niego&lt;/span&gt; &lt;span class="nv"&gt;tekst&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;oldTitle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;title-id&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // &amp;quot;złapanie&amp;quot; elementu podlegającego wymianie&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;parentDiv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;querySelector&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;div.nav-bar&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;złapanie rodzica&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="nv"&gt;parentDiv&lt;/span&gt;.&lt;span class="nv"&gt;replaceChild&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;newTitle&lt;/span&gt;,&lt;span class="nv"&gt;oldTitle&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.remove()&lt;/code&gt; - usuwa podany element
+&lt;code&gt;.removeChild()&lt;/code&gt; - usuwa dziecko podanego elementu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;listItems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelectorAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;li&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;listItems&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;usuwa&lt;/span&gt; &lt;span class="n"&gt;pierwszy&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;
+
+&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelectorAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;removeChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;listItems&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;usuwa&lt;/span&gt; &lt;span class="n"&gt;pierwsze&lt;/span&gt; &lt;span class="n"&gt;dziecko&lt;/span&gt; &lt;span class="n"&gt;mające&lt;/span&gt; &lt;span class="n"&gt;tag&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zmiana klasy i atrybutu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.add()&lt;/code&gt; - dodaje klasę
+&lt;code&gt;.remove()&lt;/code&gt; - usuwa klasę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;link&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;querySelector&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;li:first-child&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;children&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;]
+
+&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;classLink&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;link&lt;/span&gt;.&lt;span class="nv"&gt;className&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;zwraca&lt;/span&gt; &lt;span class="nv"&gt;klasy&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;postaci&lt;/span&gt; &lt;span class="nv"&gt;stringu&lt;/span&gt;
+
+&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;listOfClasses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;link&lt;/span&gt;.&lt;span class="nv"&gt;classList&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zwracam&lt;/span&gt; &lt;span class="nv"&gt;list&lt;/span&gt;ę &lt;span class="nv"&gt;klas&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;postaci&lt;/span&gt; &lt;span class="nv"&gt;DOMTokenList&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;zbli&lt;/span&gt;ż&lt;span class="nv"&gt;one&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;tablicy&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;posiada&lt;/span&gt; &lt;span class="nv"&gt;indeksy&lt;/span&gt;
+
+&lt;span class="nv"&gt;link&lt;/span&gt;.&lt;span class="nv"&gt;classList&lt;/span&gt;.&lt;span class="nv"&gt;add&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;second-class&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;dodaje&lt;/span&gt; &lt;span class="nv"&gt;klas&lt;/span&gt;ę
+
+&lt;span class="nv"&gt;link&lt;/span&gt;.&lt;span class="nv"&gt;classList&lt;/span&gt;.&lt;span class="nv"&gt;remove&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;second-class&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;usuwa&lt;/span&gt; &lt;span class="nv"&gt;klas&lt;/span&gt;ę
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.setAttribute(atrybut, jego właściwość)&lt;/code&gt; - pozwala na zdefiniowanego atrybutu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;złap&lt;/span&gt; &lt;span class="n"&gt;atrybutem&lt;/span&gt;
+
+&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://google.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodaj&lt;/span&gt; &lt;span class="n"&gt;atrybut&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;jego&lt;/span&gt; &lt;span class="n"&gt;właściwość&lt;/span&gt;
+
+&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hassAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="n"&gt;albo&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt; &lt;span class="n"&gt;jeśli&lt;/span&gt; &lt;span class="n"&gt;taki&lt;/span&gt; &lt;span class="n"&gt;posiada&lt;/span&gt; &lt;span class="n"&gt;lub&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.removeAttribute()&lt;/code&gt; - usuwa atrybut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;removeAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Ćwiczenia&lt;/h3&gt;
+&lt;p&gt;&lt;a href="ttps://mtomchuck.github.io/monster-village/dist/"&gt;GRA&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/API/NodeList&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="selektory"></category><category term="dom"></category><category term="elementy dom"></category></entry><entry><title>JavaScript - obiekt window i document</title><link href="https://kostyrko.github.io/zfrontu/js-obiekt-window-document.html" rel="alternate"></link><published>2020-04-30T10:00:00+02:00</published><updated>2020-04-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-30:/zfrontu/js-obiekt-window-document.html</id><summary type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Na początek poniżej przedstawię wybrane metody obiektu window (globalny)&lt;/p&gt;
+&lt;h3&gt;Window&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;alert()&lt;/code&gt; - pokazuje się okienko z ostrzeżeniem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello world&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lub po prostu&lt;/p&gt;
+&lt;p&gt;alert('Hello world')&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;prompt()&lt;/code&gt; - wyskakuje okienko z informacją&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;confirm()&lt;/code&gt; - przyjmuje parametr&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;confirm&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Are you sure?&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; {
+  &lt;span class="nv"&gt;console …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Na początek poniżej przedstawię wybrane metody obiektu window (globalny)&lt;/p&gt;
+&lt;h3&gt;Window&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;alert()&lt;/code&gt; - pokazuje się okienko z ostrzeżeniem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello world&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lub po prostu&lt;/p&gt;
+&lt;p&gt;alert('Hello world')&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;prompt()&lt;/code&gt; - wyskakuje okienko z informacją&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;confirm()&lt;/code&gt; - przyjmuje parametr&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;confirm&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Are you sure?&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; {
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Yes)&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;window.outerHeight&lt;/code&gt;/&lt;code&gt;Width&lt;/code&gt; - zwraca wysokość/szerokość okna&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.innerWidth&lt;/code&gt;/&lt;code&gt;Height&lt;/code&gt; - zwraca wewnętrzną szerokość/wysokość okna&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.scrollY&lt;/code&gt; - ukazuje poziom (miejsce na stronie) scroll w pionie &lt;code&gt;scrollX&lt;/code&gt; - w poziomie
+pozwala na korelację z długością strony oraz animacją ukazującą ilość przeczytanej treści&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Obiekt lokacyjny&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;window.location&lt;/code&gt; -&amp;gt; jest właściwością obiektu window i jest referencją do obiektu Location/lokacji&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.location.hostname&lt;/code&gt;
+&lt;code&gt;window.location.port&lt;/code&gt;
+&lt;code&gt;window.location.href&lt;/code&gt;
+&lt;code&gt;window.location.search&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;// Redirect&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.location.href = 'http://google.com'&lt;/code&gt; - będzie odsyłać do strony google
+&lt;code&gt;window.location.reload()&lt;/code&gt; - będzie przeładowywać stronę&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Obiekt historii&lt;/h4&gt;
+&lt;p&gt;Daje możliwość przeglądania historii korzystania przeglądarki&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.history.go(-1)&lt;/code&gt; - odsyła do poprzedniej strony/ jako argument kolejność w odwiedzonych stronach
+&lt;code&gt;window.history.length&lt;/code&gt; - ilość pozycji w historii&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Obiekt Navigatora&lt;/h4&gt;
+&lt;p&gt;Odwołuje się do właściwości przeglądarki&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.navigator&lt;/code&gt; - zwraca informacje na temat przeglądarki np. geolokalizację&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.navigator.appVersion&lt;/code&gt; - wersja przeglądarki&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.navigator.platform&lt;/code&gt; - zwraca system operacyjny&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.navigator.vendor&lt;/code&gt; - provider internetu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;window.navigator.language&lt;/code&gt; - język przelądarki&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Obiekt document i jego właściwości&lt;/h3&gt;
+&lt;p&gt;Obiekt &lt;code&gt;document&lt;/code&gt; zawiera całą zawartość przeglądanego pliku HTML&lt;/p&gt;
+&lt;p&gt;Część właściwości zwraca w postaci tzw node-list przypominającej tablicę, choć nią nie są [wymaga konwersji do tablicy by używać ich metod]&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.all&lt;/code&gt; - zwraca całość w postaci node-listy wszystkie elementy&lt;br&gt;
+&lt;code&gt;document.all.length&lt;/code&gt; - zwraca liczbę 
+&lt;code&gt;document.head&lt;/code&gt; - elementy z head
+&lt;code&gt;document.body&lt;/code&gt; - elementy z body
+&lt;code&gt;document.doctype&lt;/code&gt; - rodzaj dokumentu
+&lt;code&gt;document.domain&lt;/code&gt; - domenę
+&lt;code&gt;document.url&lt;/code&gt; - url
+&lt;code&gt;document.characterSet&lt;/code&gt; 
+&lt;code&gt;document.contentType&lt;/code&gt; - np. text/html&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.forms&lt;/code&gt; - zwraca wszystkie formy z html
+&lt;code&gt;document.forms[0]&lt;/code&gt; - można traktować jak listę i wydobyć po indeksie
+&lt;code&gt;document.forms[0].id&lt;/code&gt; - zwraca id
+&lt;code&gt;document.forms[0].method&lt;/code&gt; - zwraca dostępną metodę
+&lt;code&gt;document.forms[0].action&lt;/code&gt; - zwraca przypisaną akcję&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.links&lt;/code&gt; - zwraca linki [a]
+&lt;code&gt;document.links[0].id/.className/.classList&lt;/code&gt; - zwraca id, klasy, listę klas&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.images&lt;/code&gt; - zwraca obrazy&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.scripts&lt;/code&gt; - zwraca wszystkie skrypty js&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;document.scripts[2].getAttribute(&lt;/code&gt;src') - treść atrybutu source&lt;/p&gt;
+&lt;h4&gt;Przypisanie elementów document do tablicy&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;scripts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/API/Window/location&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="window"></category><category term="document"></category></entry><entry><title>JavaScript "this"</title><link href="https://kostyrko.github.io/zfrontu/js-this.html" rel="alternate"></link><published>2020-04-26T00:00:00+02:00</published><updated>2020-04-26T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-26:/zfrontu/js-this.html</id><summary type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;-&amp;gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji&lt;/p&gt;
 &lt;p&gt;-&amp;gt; wskazanie kontekstu poprzez &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; (lub &lt;code&gt;bind&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;-&amp;gt; wywołanie funkcji z wykorzystaniem …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
@@ -47,7 +546,58 @@
 &lt;p&gt;https://www.youtube.com/watch?v=QTDXSUnS1dc&lt;/p&gt;
 &lt;p&gt;https://codeburst.io/all-about-this-and-new-keywords-in-javascript-38039f71780c&lt;/p&gt;
 &lt;p&gt;https://typeofweb.com/this-js-kontekst-wywolania-funkcji/&lt;/p&gt;
-&lt;p&gt;https://www.w3schools.com/js/js_this.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="this"></category></entry><entry><title>JavaScript -&gt; funkcje strzałkowe</title><link href="https://kostyrko.github.io/zfrontu/js-funckja-starzalkowa.html" rel="alternate"></link><published>2020-04-20T10:00:00+02:00</published><updated>2020-04-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-20:/zfrontu/js-funckja-starzalkowa.html</id><summary type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/js/js_this.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="this"></category></entry><entry><title>JavaScript - bloki i zakres</title><link href="https://kostyrko.github.io/zfrontu/js-blok-zakres.html" rel="alternate"></link><published>2020-04-22T10:00:00+02:00</published><updated>2020-04-22T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-22:/zfrontu/js-blok-zakres.html</id><summary type="html">&lt;p&gt;Instrukcja blokowa (ang. blocks) - blok służy do grupowania wyrażeń i jest kodem zamkniętym w nawiasach klamrowych. Przykładem bloku kodu jest funkcja lub instrukcja if.&lt;/p&gt;
+&lt;p&gt;Zmienna znajduje się w zasięgu funkcji jeśli zamknięta jest w tym samym bloku kodu jak i wówczas gdy znajduje się po za nim.&lt;/p&gt;
+&lt;h3&gt;Zakres/scope&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Zakres …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Instrukcja blokowa (ang. blocks) - blok służy do grupowania wyrażeń i jest kodem zamkniętym w nawiasach klamrowych. Przykładem bloku kodu jest funkcja lub instrukcja if.&lt;/p&gt;
+&lt;p&gt;Zmienna znajduje się w zasięgu funkcji jeśli zamknięta jest w tym samym bloku kodu jak i wówczas gdy znajduje się po za nim.&lt;/p&gt;
+&lt;h3&gt;Zakres/scope&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Zakres (scope)&lt;/em&gt; jest kontekstem, w którym dana zmienna jest zadeklarowana.
+&lt;em&gt;Zakres blokowy&lt;/em&gt; odnosi się do zmiennej, która jest dostępna w ramach bloku.
+&lt;em&gt;Zmienne o globalnym&lt;/em&gt; zakresie zadeklarowane są po za blokiem.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droidSeeker&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="c1"&gt;; // R2D2&lt;/span&gt;
+    }
+
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droidSeeker&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;R2D2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Gdy zmienna jest deklarowana wewnątrz bloku, wówczas jest osiągalna jedynie tam i jest zwana lokalną zmienną. Zmienna zadeklarowana globalnie jest dostępna w trakcie całości wykonywania się programu (zużycie pamięci + możliwość zmiany), w przypadku zmiennej lokalnej tak nie jest.&lt;/p&gt;
+&lt;p&gt;Zmiana zmiennej w funkcji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;R2D2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droidSeeker&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;C3PO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Take&lt;/span&gt; &lt;span class="n"&gt;note&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;logNum&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;C3PO&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;C3PO&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Deklarowanie zmiennej w ramach bloku pozwala na tworzeni czystszego kodu, łatwiejszego w utrzymaniu (dana zmienna jest odpowiedzialna za wybrany fragment kodu), pozwala na tworzeni kodu w sposób modułowy.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droidSeeker&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;smallDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;C3PO&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;smallDroid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;R2D2&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // R2D2&lt;/span&gt;
+    }
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // C3PO&lt;/span&gt;
+    }&lt;span class="c1"&gt;;&lt;/span&gt;
+
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // ReferenceError&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Global namespace&lt;/em&gt; - odnosi się do przestrzeni, w której przechowywane są nazwy zmiennych o globalnym zasięgu.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Guide/Control_flow_and_error_handli&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="blocks"></category><category term="scopes"></category><category term="zakres"></category><category term="blok"></category></entry><entry><title>JavaScript -&gt; funkcje strzałkowe</title><link href="https://kostyrko.github.io/zfrontu/js-funckja-starzalkowa.html" rel="alternate"></link><published>2020-04-20T10:00:00+02:00</published><updated>2020-04-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-20:/zfrontu/js-funckja-starzalkowa.html</id><summary type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;słowo kluczowe &lt;code&gt;function&lt;/code&gt; zmienia się w strzałkę &lt;code&gt;=&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -60,8 +610,8 @@
 
 &lt;ul&gt;
 &lt;li&gt;w przypadku &lt;strong&gt;tylko&lt;/strong&gt; jednego parametru można pominąć nawiasy / nawis pozostaje gdy funkcja nie ma parametru lub więcej niż 1&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;jeśli funkcja jedynie zwraca to można pominąć instrukcję &lt;code&gt;return …&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
+&lt;/ul&gt;
+&lt;p&gt;::: jeśli funkcja jedynie zwraca to można pominąć instrukcję &lt;code&gt;return …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;słowo kluczowe &lt;code&gt;function&lt;/code&gt; zmienia się w strzałkę &lt;code&gt;=&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -74,17 +624,20 @@
 
 &lt;ul&gt;
 &lt;li&gt;w przypadku &lt;strong&gt;tylko&lt;/strong&gt; jednego parametru można pominąć nawiasy / nawis pozostaje gdy funkcja nie ma parametru lub więcej niż 1&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;jeśli funkcja jedynie zwraca to można pominąć instrukcję &lt;code&gt;return&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;multiply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-}
+&lt;/ul&gt;
+&lt;p&gt;::: jeśli funkcja jedynie zwraca to można pominąć instrukcję &lt;code&gt;return&lt;/code&gt; - tzw. domniemany zwrot/return :::&lt;/p&gt;
+&lt;p&gt;::: można również pominąć &lt;code&gt;{}&lt;/code&gt; w przypadku gdy istnieje tylko jedna linia kodu :::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;multiply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
 
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;multiply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;multiply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;waterPlant&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;day&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;day&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Tuesday&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; ? &lt;span class="nv"&gt;true&lt;/span&gt; : &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;/li&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;jeżeli funkcja zwraca jedną instrukcję można pominąć klamry&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;multiply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;,&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
@@ -160,8 +713,8 @@
 &lt;p&gt;::: Funkcje posiadają własne właściwości np. .name -&amp;gt; identyfikator.name = identyfikator (może być użyty w funkcji) :::&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Hoisting/wynoszenie&lt;/strong&gt; - funkcje tak samo jak i deklaracje zmiennych w trakcie analizowania/parsowania kodu przez przeglądarkę są wynoszone na górę aktualnego zasięgu i tam pojawiają się w zapisanej kolejności (ma to wpływ na nadpisywanie) -&amp;gt;&amp;gt; &lt;code&gt;Można wywoływać funkcje zanim zostaną zadeklarowane&lt;/code&gt;. &lt;/p&gt;
 &lt;p&gt;::: wynoszenie odbywa się przed wykonaniem kodu :::&lt;/p&gt;
-&lt;p&gt;Istnieje możliwość zdefiniowania domyślnego parametru w funkcji, który zostaje użyty w przypadku gdy ten nie zostanie podany&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;droidSeeker&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;droid&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;p&gt;Istnieje możliwość zdefiniowania domyślnego parametru w funkcji, który zostaje użyty w przypadku gdy ten nie zostanie podany (przy pomocy operatora &lt;code&gt;=&lt;/code&gt; po którym wpisujemy domyślną wartość)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;droidSeeker&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;droid&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
   &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;`&lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; ${&lt;span class="nv"&gt;name&lt;/span&gt;} &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;`&lt;span class="ss"&gt;)&lt;/span&gt;
 }
 
@@ -173,8 +726,24 @@
 
 
 &lt;hr&gt;
+&lt;h3&gt;Funkcje pomocnicze&lt;/h3&gt;
+&lt;p&gt;Funkcje pomocnicze pozwalają na rozbicie kodu na jego poszczególne części tak aby był czytelniejszy i prostszy w utrzymaniu&lt;/p&gt;
+&lt;p&gt;w tym celu można stworzyć jedną funkcję cząstkową a następnie odwołać się do niej w kolejnej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;multipNineFifth&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;getFarenheit&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;celc&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;multipNineFifth&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;celc&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;getFarenheit&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
 &lt;h3&gt;Wyrażenia funkcyjne&lt;/h3&gt;
-&lt;p&gt;Funkcje można przypisać do zmiennych  - wówczas: &lt;/p&gt;
+&lt;p&gt;Funkcje (zwykle anonimowa) można przypisać do zmiennych  - wówczas: &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;zmienna&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;arg1&lt;/span&gt;,&lt;span class="nv"&gt;arg2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;arg1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;arg2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
@@ -183,17 +752,19 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;W ten sposób zadeklarowana funkcja nie jest &lt;strong&gt;jest wynoszona&lt;/strong&gt; za to deklaracja ich zmiennych jest&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;zmienna&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;zmienna2&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt;,&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;p&gt;W ten sposób zadeklarowana funkcja nie jest &lt;strong&gt;wynoszona&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;::: wynoszona jest deklaracja funkcja jeśli jest poprzedzona  słowem kluczowego &lt;strong&gt;&lt;code&gt;var&lt;/code&gt;&lt;/strong&gt;:::&lt;/p&gt;
+&lt;p&gt;Przypadek z nazwaną funkcją&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;zmienna&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;nazwa&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt;,&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 
-&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;zmienna&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // = zmienna2 -&amp;gt; pozwala na odwołanie się do f(x) w jej wnętrzu&lt;/span&gt;
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;zmienna&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // = nazwa -&amp;gt; pozwala na odwołanie się do f(x) w jej wnętrzu&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Funkcja w domyśle zwraca wartość &lt;code&gt;undefined&lt;/code&gt; - stąd aby zwróciła jakąś wartość należy zastosować instrukcję &lt;code&gt;return&lt;/code&gt; ::: &lt;strong&gt;przerywa również działanie funcji&lt;/strong&gt; :::&lt;/p&gt;
-&lt;h2&gt;---&lt;/h2&gt;
+&lt;p&gt;Funkcja w domyśle zwraca wartość &lt;code&gt;undefined&lt;/code&gt; - stąd aby zwróciła jakąś wartość należy zastosować instrukcję &lt;code&gt;return&lt;/code&gt; ::: &lt;strong&gt;, który przerywa również działanie funkcji&lt;/strong&gt; :::&lt;/p&gt;
+&lt;hr&gt;
 &lt;h3&gt;Funkcje anonimowe&lt;/h3&gt;
 &lt;p&gt;Nie posiada nazwy (identyfikatora), może ale nie musi być przypisana do zmiennej, może ale nie musi posiadać argumentu // występuje często jako funkcja występująca jako parametr w innej
 Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przypadku należy zamknąć ją w nawiasach -&amp;gt; funkcja zostanie od razu wywołana w trakcie wykonywania kodu.&lt;/p&gt;
@@ -204,12 +775,30 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 
 
 &lt;hr&gt;
+&lt;h3&gt;Funkcja natychmiastowa Tzw IIFE (Immediately-Invoked Function Expression)&lt;/h3&gt;
+&lt;p&gt;Funkcja, która jest deklarowana i przeprowadzana "w tym samym czasie" - taka funkcja zamknięta jest w nawias (często jest anonimowa) i jest natychmiast wywoływana. Często wykorzystywana w metodach tablic.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;this is &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;r2d2&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;r2d2&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; 12; i++) {&lt;/span&gt;
+      &lt;span class="nv"&gt;setTimeout&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+      &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      }, &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pozwala na uniknięcie zdublowania nazw zmiennych. Nie trzeba osobno wywoływać funkcji. &lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/super-podstawy/funkcje.php&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/super-podstawy/funkcje-tematy-dodatkowe.php#callback&lt;/p&gt;
 &lt;p&gt;http://jsdn.pl/samowywolujace-sie-anonimowe-funkcje/&lt;/p&gt;
 &lt;p&gt;http://jsdn.pl/funkcje-tworzenie-funkcji-w-javascripcie/&lt;/p&gt;
-&lt;p&gt;https://www.modestprogrammer.pl/wyrazenia-funkcyjne-oraz-funkcje-anonimowe-w-javascript&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="funkcja"></category></entry><entry><title>JavaScript - pętle (for/while loop)</title><link href="https://kostyrko.github.io/zfrontu/js-for-while-loop.html" rel="alternate"></link><published>2020-04-18T10:00:00+02:00</published><updated>2020-04-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-18:/zfrontu/js-for-while-loop.html</id><summary type="html">&lt;p&gt;Pętle &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;while&lt;/code&gt; pozwalają na wielokrotne wykonywanie się tego samego kodu&lt;/p&gt;
+&lt;p&gt;https://www.modestprogrammer.pl/wyrazenia-funkcyjne-oraz-funkcje-anonimowe-w-javascript&lt;/p&gt;
+&lt;p&gt;http://papoldesign.pl/edukacja/javascript-funkcja-natychmiastowa-iife/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="funkcja"></category></entry><entry><title>JavaScript - pętle (for/while loop)</title><link href="https://kostyrko.github.io/zfrontu/js-for-while-loop.html" rel="alternate"></link><published>2020-04-18T10:00:00+02:00</published><updated>2020-04-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-18:/zfrontu/js-for-while-loop.html</id><summary type="html">&lt;p&gt;Pętle &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;while&lt;/code&gt; pozwalają na wielokrotne wykonywanie się tego samego kodu&lt;/p&gt;
 &lt;p&gt;schemat pętli &lt;strong&gt;&lt;code&gt;for&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zmienna&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;ę&lt;span class="nv"&gt;d&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;wyznacznikiem&lt;/span&gt; &lt;span class="nv"&gt;granicznym&lt;/span&gt; &lt;span class="nv"&gt;wykonywania&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tli&lt;/span&gt;
 
@@ -253,9 +842,13 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;for...in&lt;/code&gt;&lt;/strong&gt; - - przechodzi przez wszystkie policzalne właściwości obiektu, których kluczem jest string / ignoruje te, których kluczem jest symbol&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {&lt;span class="nv"&gt;a&lt;/span&gt;: &lt;span class="mi"&gt;1&lt;/span&gt;, &lt;span class="nv"&gt;b&lt;/span&gt;: &lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="nv"&gt;c&lt;/span&gt;: &lt;span class="mi"&gt;3&lt;/span&gt;}&lt;span class="c1"&gt;;&lt;/span&gt;
 
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;property&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;object&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;property&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;object&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
   &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;`${&lt;span class="nv"&gt;property&lt;/span&gt;}: ${&lt;span class="nv"&gt;object&lt;/span&gt;[&lt;span class="nv"&gt;property&lt;/span&gt;]}`&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;: &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;: &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;c&lt;/span&gt;: &lt;span class="mi"&gt;3&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -446,10 +1039,15 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;&lt;code&gt;Math.Pi&lt;/code&gt; - właściwość (jedna z wielu) - pozwala odwołać się do wartości Pi (ok. 3.14159)&lt;/p&gt;
 &lt;h3&gt;Metody (wybrane):&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Math.random()&lt;/code&gt; - zwraca liczbę pseudolosową z przedziału [0,1)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Math.ceil()&lt;/code&gt; - zwraca najmniejszą liczbę całkowitą większą …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Math jest wbudowanym obiektem (najwyższego poziomu), który posiada właściwości i metody związane z metodami stałymi i matematycznymi.&lt;/p&gt;
+&lt;p&gt;::: aby uzyskać liczbę pomiędzy 1-20 należy pomnożyć …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Math jest wbudowanym obiektem (najwyższego poziomu), który posiada właściwości i metody związane z metodami stałymi i matematycznymi.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Math.Pi&lt;/code&gt; - właściwość (jedna z wielu) - pozwala odwołać się do wartości Pi (ok. 3.14159)&lt;/p&gt;
 &lt;h3&gt;Metody (wybrane):&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Math.random()&lt;/code&gt; - zwraca liczbę pseudolosową z przedziału [0,1)&lt;/p&gt;
+&lt;p&gt;::: aby uzyskać liczbę pomiędzy 1-20 należy pomnożyć wynik Math.random() * 20 i dodać do tego 1 :::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;val&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="nv"&gt;floor&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="k"&gt;random&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="nv"&gt;floor&lt;/span&gt; &lt;span class="nv"&gt;aby&lt;/span&gt; &lt;span class="nv"&gt;uzyska&lt;/span&gt;ć &lt;span class="nv"&gt;ca&lt;/span&gt;ł&lt;span class="nv"&gt;kowit&lt;/span&gt;ą &lt;span class="nv"&gt;zaokr&lt;/span&gt;ą&lt;span class="nv"&gt;glon&lt;/span&gt;ą &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;do&lt;/span&gt;ł&lt;span class="nv"&gt;u&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;&lt;code&gt;Math.ceil()&lt;/code&gt; - zwraca najmniejszą liczbę całkowitą większą do lub równą danej&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ceil&lt;/span&gt;&lt;span class="p"&gt;(.&lt;/span&gt;&lt;span class="mi"&gt;95&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
   &lt;span class="n"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ceil&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;     &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
@@ -598,12 +1196,11 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;hr&gt;
 &lt;h3&gt;Liczby i daty&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Number&lt;/code&gt; - pozwala pracować z wartościami liczbowymi, stosowany przy uzyskiwaniu dostępu do stałych właściwości. Posiada &lt;em&gt;właściwości&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt; Metody (wybrane) &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Number.isInteger()&lt;/code&gt; - jest integer?&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Number.toExponential()&lt;/code&gt; - liczba w postaci wykładniczej&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Number.toFixed()&lt;/code&gt; - zwraca liczbę stałoprzecinkową&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Number.isNaN()&lt;/code&gt; - sprawdź czy podana wartość jest liczbą&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://kostyrko.github.io/zfrontu/js-math.html"&gt;Math&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Metody Numbers został przedstawione tutaj &lt;a href="https://kostyrko.github.io/zfrontu/js-metody-liczb.html"&gt;tutaj&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Obiekt Math został opisany &lt;a href="https://kostyrko.github.io/zfrontu/js-math.html"&gt;tutaj&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Date&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;Date&lt;/code&gt; - reprezentuje moment w czasie -&amp;gt; odowłując się do 1 January 1970 UTC&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Metody&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Date.now()&lt;/code&gt; - wartość liczbowa aktualnego czasu&lt;/p&gt;
@@ -633,7 +1230,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;&lt;code&gt;.getHours()&lt;/code&gt; - godzinę&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.getMinutes()&lt;/code&gt; - minuty&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.getMonth()&lt;/code&gt; - miesiąc&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;.getTime()&lt;/code&gt; - zwraca czas w milisekundach&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.getTime()&lt;/code&gt; - zwraca aktualny czas w milisekundach&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Setters - pozwalają na zdefiniowanie czasu&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.setTime()&lt;/code&gt;, &lt;code&gt;setMinutes()&lt;/code&gt; etc&lt;/p&gt;
 &lt;hr&gt;
@@ -680,27 +1277,46 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;arguments&lt;/p&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="obiekty wbudowane"></category></entry><entry><title>JavaScript - metody tablic (array methods)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice-metody.html" rel="alternate"></link><published>2020-04-12T10:00:00+02:00</published><updated>2020-04-12T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-12:/zfrontu/js-tablice-metody.html</id><summary type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
-&lt;p&gt;Tablica wyjściowa&lt;/p&gt;
+&lt;p&gt;Tworzenie tablicy&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Dodawanie elementów&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;push&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;unshift&lt;/code&gt;&lt;/strong&gt; - pozwala na dodanie jednego lub więcej elementów na koniec/początek tablicy (zwraca nową długość tablicy a nie zmodyfikowaną tablicę)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;push&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unshift&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;p&gt;::: istnieje możliwość również przez funkcję konstruktora &lt;code&gt;new Array()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isArray&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/strong&gt; - [od concatenate] zwraca nową tablicę, która zawiera wszystkie …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
-&lt;p&gt;Tablica wyjściowa&lt;/p&gt;
+&lt;p&gt;Dodawanie wartości do tablicy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Metody()&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;push&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;unshift&lt;/code&gt;&lt;/strong&gt; - pozwala na …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
+&lt;p&gt;Tworzenie tablicy&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Dodawanie elementów&lt;/h4&gt;
+&lt;p&gt;::: istnieje możliwość również przez funkcję konstruktora &lt;code&gt;new Array()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isArray&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dodawanie wartości do tablicy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Metody()&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;push&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;unshift&lt;/code&gt;&lt;/strong&gt; - pozwala na dodanie jednego lub więcej elementów na koniec/początek tablicy (zwraca nową długość tablicy a nie zmodyfikowaną tablicę)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;push&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;push&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unshift&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -723,7 +1339,8 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;indexOf&lt;/code&gt;&lt;/strong&gt; - znajduje nr porządkowy (indeks) wybranego elementu&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;indexOf&lt;/code&gt;&lt;/strong&gt; - znajduje nr porządkowy (indeks) wybranego elementu
+::: jeśli dany element nie jest obecny w tablicy to wówczas zwraca &lt;strong&gt;&lt;code&gt;-1&lt;/code&gt;&lt;/strong&gt; :::&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;indexOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -738,11 +1355,38 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;slice&lt;/code&gt;&lt;/strong&gt; - przyjmuje zero, 1 lub 2 argumenty / 0 - kopiuję tablicę, 1- tnie ją od wskazanego argumentu (indeks), 2 - w zakresie wskazanym przez argumenty (indeksy) - włącznie&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;sort&lt;/code&gt;&lt;/strong&gt; - zwraca posortowaną tablicę, gdzie sortowanie jest oparte na pierwszej cyfrze składającej się na liczbę, podobnie sprawa wygląda w przypadku alfabetu gdzie 1. litera ma wpływ na kolejność pozycji i a potem następna etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;slice&lt;/code&gt;&lt;/strong&gt; - przyjmuje zero, 1 lub 2 argumenty / 0 - kopiuję tablicę, 1- tnie ją od wskazanego argumentu (indeks), 2 - w zakresie wskazanym przez argumenty (indeksy) - wyłącznie (argument końcowy nie będzie częścią)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;sort&lt;/code&gt;&lt;/strong&gt; - zwraca posortowaną tablicę w sposób leksykograficzny (słownikowo), gdzie sortowanie jest oparte na pierwszej cyfrze/literze składającej się na liczbę/wyraz,  gdzie 1. litera/cyfra ma wpływ na kolejność pozycji i a potem następna etc.&lt;/p&gt;
+&lt;p&gt;aby posortować ze sobą liczby w tablicy należy jest ze sobą porównać i do tego stosuje się funkcji porównawczej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;compareNumbers&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;,&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;b&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: jeśli wynik -1 to sortuje do lewej, jeśli 1 to do prawej w przypadku 0 pozostawia na miejscu :::&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;od&lt;/span&gt; &lt;span class="n"&gt;najmniejszej&lt;/span&gt;
+&lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;od&lt;/span&gt; &lt;span class="n"&gt;największej&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;:::tablica ulega modyfikacji:::&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;reverse&lt;/code&gt;&lt;/strong&gt; - odwraca kolejność elementów znajdujących się w tablicy&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;includes&lt;/code&gt;&lt;/strong&gt; - sprawdza czy tablica zawiera wpisany argument stosuje &lt;code&gt;===&lt;/code&gt; i nie można szukać zagnieżdżonych list&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;find&lt;/code&gt;&lt;/strong&gt; jako argument można wpisać wyrażenie na podstawie, którego będzie wyszukiwać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="mi"&gt;50&lt;/span&gt;,&lt;span class="mi"&gt;51&lt;/span&gt;,&lt;span class="mi"&gt;7&lt;/span&gt;,&lt;span class="mi"&gt;1&lt;/span&gt;,&lt;span class="mi"&gt;2&lt;/span&gt;,&lt;span class="mi"&gt;3&lt;/span&gt;,&lt;span class="mi"&gt;4&lt;/span&gt;,&lt;span class="mi"&gt;5&lt;/span&gt;]
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zwracaj&lt;/span&gt; &lt;span class="nv"&gt;wynik&lt;/span&gt; &lt;span class="nv"&gt;poni&lt;/span&gt;ż&lt;span class="nv"&gt;ej&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;under50&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zwraca&lt;/span&gt; &lt;span class="nv"&gt;pierwszy&lt;/span&gt; &lt;span class="nv"&gt;wynik&lt;/span&gt;
+&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;find&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;find&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;under50&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;callback&lt;/code&gt; - funkcja wywołująca się na każdym elemencie&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;forEach&lt;/code&gt;&lt;/strong&gt; - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&amp;gt; zwraca &lt;code&gt;undefined&lt;/code&gt;, ale po drodze wywołuje wynik akcji&lt;/p&gt;
@@ -805,6 +1449,8 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
 
 &lt;hr&gt;
+&lt;p&gt;&lt;img alt="sort_method" src="https://i.stack.imgur.com/81miP.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;Ćwiczenia:&lt;/p&gt;
 &lt;p&gt;https://launchschool.com/books/javascript/read/arrays#exercises&lt;/p&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
@@ -812,19 +1458,21 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;http://kursjs.pl/kurs/super-podstawy/tablice.php&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/from#&lt;/p&gt;
 &lt;p&gt;https://launchschool.com/books/javascript/read/arrays#exercises&lt;/p&gt;
-&lt;p&gt;https://alligator.io/js/filter-array-method/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - tablice (obiekt array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-11T10:00:00+02:00</published><updated>2020-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-11:/zfrontu/js-tablice.html</id><summary type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami&lt;/p&gt;
+&lt;p&gt;https://alligator.io/js/filter-array-method/&lt;/p&gt;
+&lt;p&gt;https://www.freecodecamp.org/forum/t/arr-sort-a-b-a-b-explanation/167677&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - tablice (obiekt array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-11T10:00:00+02:00</published><updated>2020-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-11:/zfrontu/js-tablice.html</id><summary type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;Arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pusta&lt;/span&gt; &lt;span class="n"&gt;tablica&lt;/span&gt;
 &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Zadeklarowanie tablicy słowem kluczowym &lt;strong&gt;&lt;code&gt;const&lt;/code&gt;&lt;/strong&gt; pozwala na modyfikację jej zawartości ale nie na zmianę …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami&lt;/p&gt;
+&lt;p&gt;Zadeklarowanie tablicy słowem kluczowym &lt;strong&gt;&lt;code&gt;const&lt;/code&gt;&lt;/strong&gt; pozwala na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;Arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pusta&lt;/span&gt; &lt;span class="n"&gt;tablica&lt;/span&gt;
 &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Zadeklarowanie tablicy słowem kluczowym &lt;strong&gt;&lt;code&gt;const&lt;/code&gt;&lt;/strong&gt; pozwala na modyfikację jej zawartości ale nie na zmianę miejsca, w którym jest ona przechowywana&lt;/p&gt;
+&lt;p&gt;Zadeklarowanie tablicy słowem kluczowym &lt;strong&gt;&lt;code&gt;const&lt;/code&gt;&lt;/strong&gt; pozwala na modyfikację jej zawartości ale nie na zmianę miejsca, w którym jest ona przechowywana.&lt;/p&gt;
+&lt;p&gt;W przypadku użycia słowa kluczowego &lt;strong&gt;&lt;code&gt;let&lt;/code&gt;&lt;/strong&gt; istnieje możliwość nadpisania tablicy&lt;/p&gt;
 &lt;p&gt;Każdemu elementowi przyporządkowana jest liczba indeksowa, pozwalająca na odwołanie się do niego.
 Tablica może zawierać również obiekty jak i tablice.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -844,22 +1492,77 @@ Tablica może zawierać również obiekty jak i tablice.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h3&gt;Zmiana elementów&lt;/h3&gt;
 &lt;p&gt;Przy wykorzystaniu operator składającego się z kwadratowych nawiasów &lt;code&gt;[]&lt;/code&gt; oraz wpisanego w nie indeksu można zmieniać wybrany element tablicy&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;maj&amp;quot;&lt;/span&gt;
 &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;maj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h3&gt;"Długość" tablicy&lt;/h3&gt;
 &lt;p&gt;Wykorzystując właściwość &lt;code&gt;length&lt;/code&gt; można również dodać element do końca tablicy&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;ostatnia&amp;quot;&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;ostatnia&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h3&gt;Undefined&lt;/h3&gt;
+&lt;p&gt;Jeśli dana tablica nie zawiera elementu pod indeksem do którego się odwołujemy wówczas zwraca &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;undefined&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=8FmBEN0XZyI&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/super-podstawy/tablice.php&lt;/p&gt;
-&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#whatisanarray&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - właściwości i metody łańcucha znaków</title><link href="https://kostyrko.github.io/zfrontu/js-metody-lancucha-znakow.html" rel="alternate"></link><published>2020-04-10T10:00:00+02:00</published><updated>2020-04-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-metody-lancucha-znakow.html</id><summary type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;code&gt;length&lt;/code&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
+&lt;p&gt;https://launchschool.com/books/javascript/read/arrays#whatisanarray&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - metody liczb</title><link href="https://kostyrko.github.io/zfrontu/js-metody-liczb.html" rel="alternate"></link><published>2020-04-10T11:00:00+02:00</published><updated>2020-04-10T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-metody-liczb.html</id><summary type="html">&lt;p&gt;Typ liczbowy (Numbers) posiada przypisane sobie metody - poniżej przedstawiona została część z nich&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;toString()&lt;/code&gt; - dokonuje konwersji na string&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;120&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;sumę&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;toFixed()&lt;/code&gt; - pozwala na określenie ilości znajków liczbowych po kropce&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;656&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toFixed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toFixed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toFixed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;9 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Typ liczbowy (Numbers) posiada przypisane sobie metody - poniżej przedstawiona została część z nich&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;toString()&lt;/code&gt; - dokonuje konwersji na string&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;120&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;sumę&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;toFixed()&lt;/code&gt; - pozwala na określenie ilości znajków liczbowych po kropce&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;656&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toFixed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toFixed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toFixed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6560&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;toPrecision()&lt;/code&gt; - określa ilość znaków w wyrażeniu (łącznie)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;656&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toPrecision&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;656&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toPrecision&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toPrecision&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;656&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;MAX_VALUE&lt;/code&gt;/&lt;code&gt;MIN_VALUE&lt;/code&gt; - zwraca największą/najmniejszą możliwą liczbę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MAX_VALUE&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;MIN_VALUE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;parseInt()&lt;/code&gt;/&lt;code&gt;parseFloat()&lt;/code&gt; - zmienia string w integer/float&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;123.32&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;
+
+&lt;span class="n"&gt;parseFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;123.32&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/js/js_number_methods.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="liczby"></category><category term="numbers"></category></entry><entry><title>JavaScript - właściwości i metody łańcucha znaków</title><link href="https://kostyrko.github.io/zfrontu/js-metody-lancucha-znakow.html" rel="alternate"></link><published>2020-04-10T10:00:00+02:00</published><updated>2020-04-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-metody-lancucha-znakow.html</id><summary type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;strong&gt;&lt;code&gt;length&lt;/code&gt;&lt;/strong&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;fu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
@@ -868,7 +1571,7 @@ Tablica może zawierać również obiekty jak i tablice.&lt;/p&gt;
 
 &lt;p&gt;Metod, które można zastosować wobec stringów jest o wiele więcej - poniżej przedstawię tylko część z nich.
 Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalnej&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;charAt()&lt;/code&gt; - zwraca …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;code&gt;length&lt;/code&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;charAt()&lt;/code&gt; - zwraca …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Jedną z podstawowych i często stosowanych właściwości stringów jest &lt;strong&gt;&lt;code&gt;length&lt;/code&gt;&lt;/strong&gt; który zwraca długość łańcucha znaków&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;fu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
@@ -878,12 +1581,34 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 &lt;p&gt;Metod, które można zastosować wobec stringów jest o wiele więcej - poniżej przedstawię tylko część z nich.
 Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalnej&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;charAt()&lt;/code&gt; - zwraca znak znajdujący się na wskazanym indeksie&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;concat()&lt;/code&gt; - łączy ze sobą ciągi znaków&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;charAt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;concat()&lt;/code&gt; - łączy ze sobą ciągi znaków, pozwala na wprowadzenie więcej niż jednego argumentu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c3po&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;c3po&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;&lt;code&gt;endsWith()&lt;/code&gt; - sprawdza czy ciąg znaków kończy się wskazanym znakiem&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;includes()&lt;/code&gt; - sprawdza czy ciąg znaków zawiera wskazany znak&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;includes()&lt;/code&gt; - sprawdza czy ciąg znaków zawiera wskazany znak // zwraca true albo flase&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;indexOf()&lt;/code&gt; - zwraca pozycję indeksową (pierwszego) wskazanego znaku&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;
+
+&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;indexOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;&lt;code&gt;lastIndexOf()&lt;/code&gt; - zwraca pozycję indeksową (ostatniego) wskazanego znaku&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;match()&lt;/code&gt; - sprawa ciąg znaków w poszukiwaniu wskazanego wyrażenia&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lastIndexOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;match()&lt;/code&gt; - sprawdza ciąg znaków w poszukiwaniu wskazanego wyrażenia&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;repeat()&lt;/code&gt; - zwraca ciąg znaków który jest wielokrotnym powtórzeniem danego ciągu&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;replace()&lt;/code&gt;  - przeszukuje ciąg znaków w poszukiwaniu znaku lub wyrażenia i zwraca nowy string gdzie wskazany wcześniej ciąg lub znak jest zmieniony&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Visit Microsoft!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -893,18 +1618,141 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 
 
 &lt;p&gt;&lt;code&gt;search()&lt;/code&gt; - przeszukuje ciąg znaków w poszukiwaniu znaku lub wyrażenia i zwraca ich indeks&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;slice()&lt;/code&gt; - wyciąga część łańcucha znaków i zwraca nowy na tej podstawie&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;split()&lt;/code&gt; - tnie łańcuch znaków i tworzy z niego tablicę&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;How are you doing today?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;How&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;are&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;you&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;doing&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;today?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;p&gt;&lt;code&gt;split()&lt;/code&gt; - tnie łańcuch znaków i tworzy z niego tablicę (jako argument przyjmuje separator)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2, c3po&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;,&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;r2d2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; c3po&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;slice()&lt;/code&gt; - wyciąga część łańcucha znaków i zwraca nowy na tej podstawie / przyjmuje również liczbę ujemną (zaczyna od końca)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;substring&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;substring()&lt;/code&gt; - przyjmuje dwa argumenty (indeks - 1. łącznie, 2. wyłącznie) i zwraca części łańcucha zawarte pomiędzy nimi &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;substring&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;/&lt;code&gt;toUpperCase()&lt;/code&gt; - zwraca łańcuch zmieniając wszystkie litery na małe/duże&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;trim()&lt;/code&gt; - pozbywa się spacji z końca i początku łąńcucha znaków&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;trim()&lt;/code&gt; - pozbywa się spacji z końca i początku łańcucha znaków&lt;/p&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://www.w3schools.com/jsref/jsref_obj_string.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="string"></category><category term="łańcuch znaków"></category><category term="metody"></category></entry><entry><title>JavaScript - kontrola przepływu (if...else/switch/operator warunkowy)</title><link href="https://kostyrko.github.io/zfrontu/js-kontorla-przeplywu.html" rel="alternate"></link><published>2020-04-09T11:00:00+02:00</published><updated>2020-04-09T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-kontorla-przeplywu.html</id><summary type="html">&lt;p&gt;Polecenie &lt;code&gt;if...else&lt;/code&gt; pozwala na kontrolę przepływu kodu -&amp;gt; gdy pewien warunek jest spełniony (&lt;code&gt;if&lt;/code&gt;) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (&lt;code&gt;else if&lt;/code&gt;) lub wykonać określony kod (&lt;code&gt;else&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/jsref/jsref_obj_string.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="string"></category><category term="łańcuch znaków"></category><category term="metody"></category></entry><entry><title>JavaScript - konwersja/translacja pomiędzy numbers i string</title><link href="https://kostyrko.github.io/zfrontu/js-konwersja-typow.html" rel="alternate"></link><published>2020-04-10T09:00:00+02:00</published><updated>2020-04-10T09:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-10:/zfrontu/js-konwersja-typow.html</id><summary type="html">&lt;p&gt;W przy pomocy metod istnieje możliwość wymuszenia konwersji różnego typu danych (boolean, string, numbers)&lt;/p&gt;
+&lt;p&gt;W ten sposób można przekształcić &lt;strong&gt;boolean lub number w string&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; Konwersja na string&lt;/strong&gt; &lt;code&gt;String()&lt;/code&gt;, &lt;code&gt;x.toString()&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;123&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;-12.3&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;null&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;undefined&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;true&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;false …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;W przy pomocy metod istnieje możliwość wymuszenia konwersji różnego typu danych (boolean, string, numbers)&lt;/p&gt;
+&lt;p&gt;W ten sposób można przekształcić &lt;strong&gt;boolean lub number w string&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; Konwersja na string&lt;/strong&gt; &lt;code&gt;String()&lt;/code&gt;, &lt;code&gt;x.toString()&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;123&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;-12.3&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;null&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;undefined&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;true&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;false&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;50&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Cannot&lt;/span&gt; &lt;span class="k"&gt;read&lt;/span&gt; &lt;span class="n"&gt;property&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;toString&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="k"&gt;null&lt;/span&gt;
+
+&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;false&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;true&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Wed Apr 29 2020 11:49:20 GMT+0200 (Central European Summer Time)&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Wed Apr 29 2020 11:49:20 GMT+0200 (Central European Summer Time)&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W ten sposób można przekształcić &lt;strong&gt;boolean lub string w number&lt;/strong&gt; -&amp;gt; &lt;code&gt;Number(), parseInt(), parseFloat()&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;undefined&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;              &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;NaN&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; 12 &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                 &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;-12.34&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;               &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;34&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; 12s &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;NaN&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                     &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;99 88&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;NaN&lt;/span&gt;
+&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;2020-09-30&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;1601424000000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zmienia string w integer&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;123.32&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zmienia string w float &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;parseFloat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;123.32&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pozwala na łączenie z metodami liczb&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;154.223&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toPrecision&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;154&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W ten sposób można przekształcić &lt;strong&gt;boolean do stringu w number&lt;/strong&gt; &lt;code&gt;Boolean()&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;Boolean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;span class="nb"&gt;Boolean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;     
+&lt;span class="nb"&gt;Boolean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;           &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;span class="nb"&gt;Boolean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NaN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;          &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;span class="nb"&gt;Boolean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;         &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;span class="nb"&gt;Boolean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;undefined&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;span class="nb"&gt;Boolean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Domniemane (automatyczne) wymuszanie typów&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Tak zwane &lt;em&gt;domniemane wymuszenie typów&lt;/em&gt; (type coersion) jest procesem konwersji danych z jednego typu na inny bezpośrednio przez JS - to może dokonać się zarówno na typach prymitywnych jak i obiektach. &lt;/p&gt;
+&lt;p&gt;Do takiego wymuszenia zachodzi wówczas gdy dokonujemy &lt;strong&gt;porównania&lt;/strong&gt; danych bez sprawdzenia ich typu
+zatem zastosowanie &lt;code&gt;==&lt;/code&gt; zamiast &lt;code&gt;===&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="s1"&gt;&amp;#39;true&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+
+&lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;6&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+
+&lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;6&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+
+&lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;6&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Do &lt;code&gt;wymuszenia&lt;/code&gt; może dojść również w trakcie podjęcia próby &lt;strong&gt;sumowania&lt;/strong&gt; różnego typu danych&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+
+&lt;span class="s1"&gt;&amp;#39;5&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+
+&lt;span class="s1"&gt;&amp;#39;five&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;five5&lt;/span&gt;
+
+&lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ponieważ&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;false&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ponieważ&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W przypadku obiektów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zmiana&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;wymuszana&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ale&lt;/span&gt; &lt;span class="n"&gt;sprawdzana&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;instancja&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;zawartość&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;             &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/js/js_type_conversion.asp
+https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="string"></category><category term="łańcuch znaków"></category><category term="metody"></category></entry><entry><title>JavaScript - kontrola przepływu (if...else/switch/operator warunkowy)</title><link href="https://kostyrko.github.io/zfrontu/js-kontorla-przeplywu.html" rel="alternate"></link><published>2020-04-09T11:00:00+02:00</published><updated>2020-04-09T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-kontorla-przeplywu.html</id><summary type="html">&lt;p&gt;Polecenie &lt;code&gt;if...else&lt;/code&gt; pozwala na kontrolę przepływu kodu -&amp;gt; gdy pewien warunek jest spełniony (&lt;code&gt;if&lt;/code&gt;) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (&lt;code&gt;else if&lt;/code&gt;) lub wykonać określony kod (&lt;code&gt;else&lt;/code&gt;)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;warunek&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
         &lt;span class="nv"&gt;kod&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;ania&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;warunek&lt;/span&gt; &lt;span class="nv"&gt;spe&lt;/span&gt;ł&lt;span class="nv"&gt;niony&lt;/span&gt;
   } &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;inny&lt;/span&gt; &lt;span class="nv"&gt;warunek …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Polecenie &lt;code&gt;if...else&lt;/code&gt; pozwala na kontrolę przepływu kodu -&amp;gt; gdy pewien warunek jest spełniony (&lt;code&gt;if&lt;/code&gt;) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (&lt;code&gt;else if&lt;/code&gt;) lub wykonać określony kod (&lt;code&gt;else&lt;/code&gt;)&lt;/p&gt;
@@ -930,11 +1778,18 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;hour&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
   &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Good day&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
+
+
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;undefined&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="nv"&gt;console&lt;/span&gt; &lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;`&lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; ${&lt;span class="nv"&gt;droid&lt;/span&gt;}`&lt;span class="ss"&gt;)&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+        &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;droid variable was not defined&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
-&lt;h3&gt;Operator warunkowy&lt;/h3&gt;
+&lt;h3&gt;Operator warunkowy/ Ternary operator&lt;/h3&gt;
 &lt;p&gt;W przypadku prostej kontroli przepływu opierającej się na sprawdzaniu dwóch warunków można oprzeć się na operatorze warunkowym&lt;/p&gt;
 &lt;p&gt;Gdzie po spisaniu warunku stawia się znak zapytania a następnie rozdziela się wyrażenie1 od wyrażenie2 dwukropkiem&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;warunek&lt;/span&gt; ? &lt;span class="nv"&gt;wyra&lt;/span&gt;ż&lt;span class="nv"&gt;enie1&lt;/span&gt; : &lt;span class="nv"&gt;wyra&lt;/span&gt;ż&lt;span class="nv"&gt;enie2&lt;/span&gt;
@@ -987,7 +1842,8 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://codeburst.io/javascript-the-conditional-ternary-operator-explained-cac7218beeff&lt;/p&gt;
 &lt;p&gt;https://www.w3schools.com/js/js_if_else.asp&lt;/p&gt;
-&lt;p&gt;https://pl.wikipedia.org/wiki/Operator_warunkowy&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="if...else"></category><category term="switch"></category><category term="else...if"></category></entry><entry><title>JavaScript - składnia, deklaracje i podstawowe typy danych oraz ich operatory</title><link href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html" rel="alternate"></link><published>2020-04-09T10:00:00+02:00</published><updated>2020-04-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-podstawowe-typy.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;https://pl.wikipedia.org/wiki/Operator_warunkowy&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="if...else"></category><category term="switch"></category><category term="else...if"></category></entry><entry><title>JavaScript - składnia, deklaracje i podstawowe typy danych oraz ich operatory</title><link href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html" rel="alternate"></link><published>2020-04-09T10:00:00+02:00</published><updated>2020-04-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-podstawowe-typy.html</id><summary type="html">&lt;p&gt;W JavaScript istnieją dwa typy danych - proste/prymitywne i referencyjne, poniżej zostaną przedstawione te pierwsze. Typy referencyjne przechowywane są w pamięci podręcznej a zmienna jest do nich referencją.&lt;/p&gt;
+&lt;hr&gt;
 &lt;h3&gt;Postawy i deklaracje&lt;/h3&gt;
 &lt;p&gt;w JS instrukcje nazywane są wyrażeniami i rozdzielone są średnikiem &lt;code&gt;;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;składnia komentarza&lt;/p&gt;
@@ -999,11 +1855,8 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Istnieją trzy typy deklaracji zmiennych&lt;/p&gt;
-&lt;p&gt;&lt;img alt="starWars_zmienne" src="https://miro.medium.com/max/640/0*2Iz9vcaOtPNivfen.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;const&lt;/code&gt; - podstawowa deklaracja, zmienna nie ulega zmianie, tylko do odczytu&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;let&lt;/code&gt; - deklaracja stosowana w przypadku gdy zmienna będzie musiała ulec zmianie, jest lokalna i ograniczona do bloku …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;Istnieją trzy typy deklaracji …&lt;/p&gt;</summary><content type="html">&lt;p&gt;W JavaScript istnieją dwa typy danych - proste/prymitywne i referencyjne, poniżej zostaną przedstawione te pierwsze. Typy referencyjne przechowywane są w pamięci podręcznej a zmienna jest do nich referencją.&lt;/p&gt;
+&lt;hr&gt;
 &lt;h3&gt;Postawy i deklaracje&lt;/h3&gt;
 &lt;p&gt;w JS instrukcje nazywane są wyrażeniami i rozdzielone są średnikiem &lt;code&gt;;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;składnia komentarza&lt;/p&gt;
@@ -1053,7 +1906,39 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h3&gt;Typ łańcuchowy&lt;/h3&gt;
-&lt;p&gt;Przydatne kolokacje znaków wykorzystanych w typie łańcuchowym&lt;/p&gt;
+&lt;p&gt;Operator &lt;code&gt;+&lt;/code&gt; pozwala na dodanie treści do zadeklarowanego wcześniej łańcucha znaków&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;amp;c3po&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;c3po&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Można uzyskać wybrany znak z łańcuch po indeksie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;
+
+&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;indexOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: (Template literals) istnieje również możliwość włączania wartości zmiennej w ciąg łańcucha znaków poprzez zamknięcie treście w `` + zastosowaniu $ i nawiasów klamrowych - w ten sposób można wstawiać również równania( zwraca wynik), jak i funkcje etc. :::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;którego&lt;/span&gt; &lt;span class="n"&gt;szukamy&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lub:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;to nie jest&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot; którego szukamy&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;wynik będzie ten sam:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;którego&lt;/span&gt; &lt;span class="n"&gt;szukamy&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przydatne kolokacje znaków (tzw. escaping) wykorzystanych w typie łańcuchowym&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;\n&lt;/code&gt; - nowy wiersz&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;\r&lt;/code&gt;- reset pozycji kursora i powrót na nową linię&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;\t&lt;/code&gt; - tabulacja&lt;/p&gt;
@@ -1072,7 +1957,7 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;::: metody łańcucha znaków String.formCharCode() - "Zwraca łańcuch znaków stworzony przez podaną sekwencję kodów Unicode.", String.fromCodePoint() - zwraca  łąńcuch stworzony na podstawie specyficznej sekwencji punktów kodu, String.raw() :::&lt;/p&gt;
+&lt;p&gt;::: metody łańcucha znaków String.formCharCode() - "Zwraca łańcuch znaków stworzony przez podaną sekwencję kodów Unicode.", String.fromCodePoint() - zwraca łańcuch stworzony na podstawie specyficznej sekwencji punktów kodu, String.raw() :::&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Typ liczbowy&lt;/h3&gt;
 &lt;ul&gt;
@@ -1116,8 +2001,28 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;h3&gt;typeof&lt;/h3&gt;
 &lt;p&gt;w przypadku niepewności jakiego typ danych przechowuje dana zmienna istniej możliwość zastosowania operatora &lt;code&gt;typeof&lt;/code&gt;, który zwraca łańcuch zwierający typ tzw. operandu (argument operatora)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;schemat&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="n"&gt;operand&lt;/span&gt;
-&lt;span class="n"&gt;przykład&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;typeof&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="n"&gt;wynik&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;number&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;przykład1: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;number&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;przykład2:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;robot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="n"&gt;robot&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;string&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zastosowanie z innymi typami danych:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;              &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;object&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;John&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;34&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;object&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;             &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;object&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{}&lt;/span&gt;         &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;function&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;typeof&lt;/span&gt; &lt;span class="n"&gt;myCar&lt;/span&gt;                  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;undefined&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
