@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - javascript</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/javascript.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-04T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - wydarzenia DOM cz. 1</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-1.html" rel="alternate"></link><published>2020-05-04T10:00:00+02:00</published><updated>2020-05-04T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-1.html</id><summary type="html">&lt;h3&gt;Nasłuchiwacz wydarzeń ;)&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - javascript</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/javascript.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-04T11:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - wydarzenia DOM cz. 2 - propagacja</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-2.html" rel="alternate"></link><published>2020-05-04T11:00:00+02:00</published><updated>2020-05-04T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-2.html</id><summary type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
+&lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
+&lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba, że dojdzie do przerwania propagacji - oznacza to również, że wydarzeni, do której doszło na dziecku może wywoływać akcję na rodzicu ( w takim przypadku wystarczy jedynie ustawienie eventListener na rodzicu), a propagacja zachodzi również pomiędzy rodzeństwem.&lt;/p&gt;
+&lt;p&gt;Przeciwieństwem &lt;em&gt;event bubbling&lt;/em&gt; jest &lt;em&gt;event capturing&lt;/em&gt; - przekazywanie danych w dół drzewa DOM (domyślna np. dla focus)&lt;/p&gt;
+&lt;h4&gt;Metody zatrzymujące propagacje&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;event.stopPropagation()&lt;/code&gt; - zatrzymuje propagację w górę wydarzeń tego samego typu/ propagacja poziome (pomiędzy rodzeństwem) nadal jest aktywne&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;event.stopImmediatePropagation()&lt;/code&gt; - zatrzymuje wykonywanie wydarzeń pojedynczym elemencie, wywoływanie wydarzenia nie jest przenoszone na rodziców ani rodzeństwo&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Delegacja wydarzeń - event delegation&lt;/h3&gt;
+&lt;p&gt;W przypadku delegacji wydarzeń dochodzi to propagacji innej niż w domyślny sposób - np.dziecko (oraz jego potomstwo etc.) dziedziczy po rodzicu lub rodzeństwie. np. akcja, która zachodzi na rodzicu może wywoływać zdarzenie na dziecku. Tego typu zachowanie można zdefiniować przy pomocy warunków. Oznacza to, że można nastawić 'nasłuchiwacz', który wykonuje określone zadanie na wybranym elemencie.&lt;/p&gt;
+&lt;p&gt;Rozwiązanie 1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;deleteItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;className&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: jeśli celem jest obiekt posiadający rodzica, który posiada dokładnie w ten sposób przypisaną klasę lub klasy 'delete-item' to wówczas wykonaj wydarzenie:::&lt;/p&gt;
+&lt;p&gt;Rozwiązanie 2&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;deleteItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;classList&lt;/span&gt;.&lt;span class="nv"&gt;contains&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;remove&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: jeśli celem jest obiekt posiadający rodzica, który posiada klasę lub klasy, której częścią jest podane wyrażenie 'delete-item' to wówczas wykonaj wydarzenie:::&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;</content><category term="javascript"></category><category term="dom"></category><category term="js"></category><category term="javascript"></category><category term="events"></category><category term="propagacja wydarzenia"></category><category term="selectors"></category></entry><entry><title>JavaScript - wydarzenia DOM cz. 1</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-1.html" rel="alternate"></link><published>2020-05-04T10:00:00+02:00</published><updated>2020-05-04T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-1.html</id><summary type="html">&lt;h3&gt;Nasłuchiwacz wydarzeń ;)&lt;/h3&gt;
 &lt;p&gt;Aby dodać interakcji do strony internetowej przy pomocy JS należy do wybranego przez siebie elementu dołączyć tzw. 'nasłuchiwacz wydarzeń' (ang. event listener)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;.addEventListener(wydarzenie, funkcja-przekazana-do-wywołania)&lt;/code&gt;&lt;/strong&gt; - ta metoda przyjmuje dwa argumenty rodzaj 1) rodzaj wydarzenia np. 'click' (kliknięcie myszy) oraz 2) funkcję jaka ma się wywołać w momencie jego …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Nasłuchiwacz wydarzeń ;)&lt;/h3&gt;
 &lt;p&gt;Aby dodać interakcji do strony internetowej przy pomocy JS należy do wybranego przez siebie elementu dołączyć tzw. 'nasłuchiwacz wydarzeń' (ang. event listener)&lt;/p&gt;
@@ -113,38 +144,7 @@ function runEvent(e){
 &lt;p&gt;&lt;strong&gt;touch&lt;/strong&gt; -&amp;gt; &lt;code&gt;touchstart&lt;/code&gt;, &lt;code&gt;touchmove&lt;/code&gt;, &lt;code&gt;touchend&lt;/code&gt;,
 &lt;code&gt;touchcancel&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;Źródła:&lt;/p&gt;</content><category term="javascript"></category><category term="dom"></category><category term="js"></category><category term="javascript"></category><category term="events"></category><category term="wydarzenia"></category><category term="selectors"></category></entry><entry><title>JavaScript - wydarzenia DOM cz. 2 - propagacja</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-2.html" rel="alternate"></link><published>2020-05-04T10:00:00+02:00</published><updated>2020-05-04T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-2.html</id><summary type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
-&lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
-&lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba, że dojdzie do przerwania propagacji - oznacza to również, że wydarzeni, do której doszło na dziecku może wywoływać akcję na rodzicu ( w takim przypadku wystarczy jedynie ustawienie eventListener na rodzicu), a propagacja zachodzi również pomiędzy rodzeństwem.&lt;/p&gt;
-&lt;p&gt;Przeciwieństwem &lt;em&gt;event bubbling&lt;/em&gt; jest &lt;em&gt;event capturing&lt;/em&gt; - przekazywanie danych w dół drzewa DOM (domyślna np. dla focus)&lt;/p&gt;
-&lt;h4&gt;Metody zatrzymujące propagacje&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;event.stopPropagation()&lt;/code&gt; - zatrzymuje propagację w górę wydarzeń tego samego typu/ propagacja poziome (pomiędzy rodzeństwem) nadal jest aktywne&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;event.stopImmediatePropagation()&lt;/code&gt; - zatrzymuje wykonywanie wydarzeń pojedynczym elemencie, wywoływanie wydarzenia nie jest przenoszone na rodziców ani rodzeństwo&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;Delegacja wydarzeń - event delegation&lt;/h3&gt;
-&lt;p&gt;W przypadku delegacji wydarzeń dochodzi to propagacji innej niż w domyślny sposób - np.dziecko (oraz jego potomstwo etc.) dziedziczy po rodzicu lub rodzeństwie. np. akcja, która zachodzi na rodzicu może wywoływać zdarzenie na dziecku. Tego typu zachowanie można zdefiniować przy pomocy warunków. Oznacza to, że można nastawić 'nasłuchiwacz', który wykonuje określone zadanie na wybranym elemencie.&lt;/p&gt;
-&lt;p&gt;Rozwiązanie 1&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;deleteItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;className&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;::: jeśli celem jest obiekt posiadający rodzica, który posiada dokładnie w ten sposób przypisaną klasę lub klasy 'delete-item' to wówczas wykonaj wydarzenie:::&lt;/p&gt;
-&lt;p&gt;Rozwiązanie 2&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;deleteItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;classList&lt;/span&gt;.&lt;span class="nv"&gt;contains&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;delete-item&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;parentElement&lt;/span&gt;.&lt;span class="nv"&gt;remove&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;::: jeśli celem jest obiekt posiadający rodzica, który posiada klasę lub klasy, której częścią jest podane wyrażenie 'delete-item' to wówczas wykonaj wydarzenie:::&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Źródła:&lt;/p&gt;</content><category term="javascript"></category><category term="dom"></category><category term="js"></category><category term="javascript"></category><category term="events"></category><category term="propagacja wydarzenia"></category><category term="selectors"></category></entry><entry><title>JavaScript - selektory DOM</title><link href="https://kostyrko.github.io/zfrontu/js-dom-elementy-selektory.html" rel="alternate"></link><published>2020-05-02T10:00:00+02:00</published><updated>2020-05-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-02:/zfrontu/js-dom-elementy-selektory.html</id><summary type="html">&lt;p&gt;DOM - document object model&lt;/p&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;</content><category term="javascript"></category><category term="dom"></category><category term="js"></category><category term="javascript"></category><category term="events"></category><category term="wydarzenia"></category><category term="selectors"></category></entry><entry><title>JavaScript - selektory DOM</title><link href="https://kostyrko.github.io/zfrontu/js-dom-elementy-selektory.html" rel="alternate"></link><published>2020-05-02T10:00:00+02:00</published><updated>2020-05-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-02:/zfrontu/js-dom-elementy-selektory.html</id><summary type="html">&lt;p&gt;DOM - document object model&lt;/p&gt;
 &lt;h3&gt;Selektory pojedynczych elementów&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -316,6 +316,11 @@ function runEvent(e){
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;&lt;code&gt;.cloneNode(true)&lt;/code&gt; lub &lt;code&gt;.cloneNode(deep)&lt;/code&gt; - klonowanie elementu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;div2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;div1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cloneNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;deep&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Dodawanie klas, id i atrybutów&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;className&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;list-item&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;można&lt;/span&gt; &lt;span class="n"&gt;również&lt;/span&gt; &lt;span class="n"&gt;dodać&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;podobny&lt;/span&gt; &lt;span class="n"&gt;sposób&lt;/span&gt;
 
@@ -344,9 +349,11 @@ li.appendChild(link)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;&lt;code&gt;.insertBefore(nowyElement, dziecko)&lt;/code&gt; - wstawienie nowego elementu przed wybranym dzieckiem&lt;/p&gt;
 &lt;h3&gt;Usuwanie i wymiana elementów&lt;/h3&gt;
 &lt;p&gt;Zmiana elementu odbywa się na rodzicu&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;.replaceChild(nowyElement, staryElement)&lt;/code&gt; - wymiana elementu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.replaceChild(nowyElement, staryElementDziecko)&lt;/code&gt; - wymiana elementu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.replace(nowyElement, dziecko)&lt;/code&gt; - zamiana wybranego dziecka na inny element&lt;/p&gt;
 &lt;p&gt;Przykładowy ciąg zdarzeń&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;newTitle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;createElement&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;h2&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; //tworzymy element&lt;/span&gt;
 
@@ -362,8 +369,8 @@ li.appendChild(link)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;code&gt;.remove()&lt;/code&gt; - usuwa podany element
-&lt;code&gt;.removeChild()&lt;/code&gt; - usuwa dziecko podanego elementu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.remove()&lt;/code&gt; - usuwa podany element&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.removeChild()&lt;/code&gt; - usuwa dziecko podanego elementu&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;listItems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;querySelectorAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;li&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="n"&gt;listItems&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;usuwa&lt;/span&gt; &lt;span class="n"&gt;pierwszy&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;
@@ -407,7 +414,7 @@ li.appendChild(link)
 &lt;p&gt;&lt;a href="ttps://mtomchuck.github.io/monster-village/dist/"&gt;GRA&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/API/NodeList&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="selektory"></category><category term="dom"></category><category term="elementy dom"></category></entry><entry><title>JavaScript - obiekt window i document</title><link href="https://kostyrko.github.io/zfrontu/js-obiekt-window-document.html" rel="alternate"></link><published>2020-04-30T10:00:00+02:00</published><updated>2020-04-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-30:/zfrontu/js-obiekt-window-document.html</id><summary type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Na początek poniżej przedstawię wybrane metody obiektu window (globalny)&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/do&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="selektory"></category><category term="dom"></category><category term="elementy dom"></category></entry><entry><title>JavaScript - obiekt window i document</title><link href="https://kostyrko.github.io/zfrontu/js-obiekt-window-document.html" rel="alternate"></link><published>2020-04-30T10:00:00+02:00</published><updated>2020-04-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-30:/zfrontu/js-obiekt-window-document.html</id><summary type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Wybrane metody obiektu window (globalny) -&amp;gt;&lt;/p&gt;
 &lt;h3&gt;Window&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;alert()&lt;/code&gt; - pokazuje się okienko z ostrzeżeniem&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello world&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -419,7 +426,12 @@ li.appendChild(link)
 &lt;p&gt;&lt;code&gt;prompt()&lt;/code&gt; - wyskakuje okienko z informacją&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;confirm()&lt;/code&gt; - przyjmuje parametr&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;confirm&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Are you sure?&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; {
-  &lt;span class="nv"&gt;console …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Na początek poniżej przedstawię wybrane metody obiektu window (globalny)&lt;/p&gt;
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Yes)&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;window.outerHeight …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Wybrane metody obiektu window (globalny) -&amp;gt;&lt;/p&gt;
 &lt;h3&gt;Window&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;alert()&lt;/code&gt; - pokazuje się okienko z ostrzeżeniem&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello world&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -498,7 +510,246 @@ pozwala na korelację z długością strony oraz animacją ukazującą ilość p
 
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/API/Window/location&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="window"></category><category term="document"></category></entry><entry><title>JavaScript "this"</title><link href="https://kostyrko.github.io/zfrontu/js-this.html" rel="alternate"></link><published>2020-04-26T00:00:00+02:00</published><updated>2020-04-26T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-26:/zfrontu/js-this.html</id><summary type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/API/Window/location&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="window"></category><category term="document"></category></entry><entry><title>JavaScript - konstruktor, prototyp i dziedziczenie</title><link href="https://kostyrko.github.io/zfrontu/js-konstruktor-prototyp-dziedziczenie.html" rel="alternate"></link><published>2020-04-28T10:00:00+02:00</published><updated>2020-04-28T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-28:/zfrontu/js-konstruktor-prototyp-dziedziczenie.html</id><summary type="html">&lt;p&gt;Funkcja konstruktora pozwala na stworzenie wielu obiektów według zdefiniowanego schematu, który jest nazywany prototypem&lt;/p&gt;
+&lt;p&gt;Nazwa funkcji konstruktora często zaczyna się od dużej litery&lt;/p&gt;
+&lt;p&gt;Schemat:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;NazwaFunkcji&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zdefiniowanie&lt;/span&gt; &lt;span class="n"&gt;konstruktora&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;przekazanie&lt;/span&gt; &lt;span class="n"&gt;właściwości&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;atrybut1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;atrybut2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argument&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;zawarta&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;ramach&lt;/span&gt; &lt;span class="n"&gt;obiektu&lt;/span&gt; &lt;span class="n"&gt;stająca&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;metodą&lt;/span&gt; &lt;span class="n"&gt;obiektu&lt;/span&gt;
+              &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Funkcja konstruktora pozwala na stworzenie wielu obiektów według zdefiniowanego schematu, który jest nazywany prototypem&lt;/p&gt;
+&lt;p&gt;Nazwa funkcji konstruktora często zaczyna się od dużej litery&lt;/p&gt;
+&lt;p&gt;Schemat:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;NazwaFunkcji&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zdefiniowanie&lt;/span&gt; &lt;span class="n"&gt;konstruktora&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;przekazanie&lt;/span&gt; &lt;span class="n"&gt;właściwości&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;atrybut1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;atrybut2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argument&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;zawarta&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;ramach&lt;/span&gt; &lt;span class="n"&gt;obiektu&lt;/span&gt; &lt;span class="n"&gt;stająca&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;metodą&lt;/span&gt; &lt;span class="n"&gt;obiektu&lt;/span&gt;
+              &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;atrybut1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przykłądowe&lt;/span&gt; &lt;span class="n"&gt;wyrażenie&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wywołujące&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Korzystanie z funkcji - tworzenie nowego obiektu (musi być poprzedzonę słowem kluczowym &lt;code&gt;new&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;nazwaZmiennej&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;nazwaFunkcji&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;argument&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;nazwaZmiennej&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;nazwaFunkcji&lt;/span&gt; { &lt;span class="nv"&gt;atrybut1&lt;/span&gt;:&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;argument&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;atrybut2&lt;/span&gt;: {...}}
+
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;nazwaZmiennej&lt;/span&gt;.&lt;span class="nv"&gt;atrybut2&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;anie&lt;/span&gt; &lt;span class="nv"&gt;metody&lt;/span&gt;
+
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt;ł&lt;span class="nv"&gt;a&lt;/span&gt;ś&lt;span class="nv"&gt;ciwo&lt;/span&gt;ść &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;przypisana&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;atrybut1&lt;/span&gt; &lt;span class="nv"&gt;tego&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;ywanego&lt;/span&gt; &lt;span class="nv"&gt;obiektu&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowa funkcja konstruktora - tworzenie obiektu Person&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;słowo kluczowe &lt;code&gt;this&lt;/code&gt; odwołuje się do aktualnej instancji/wywołania obiektu&lt;/p&gt;
+&lt;p&gt;Wywołanie funkcji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;mike&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mike&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mike&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;mike&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Słowo kluczowe &lt;code&gt;this&lt;/code&gt; odwołuje się do aktualnej instancji/wywołania obiektu. Przykładowo w tym przypadku this jest wywoływanym obiektem &lt;code&gt;mike&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;mike&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mike&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;mike&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;this&lt;/code&gt; wywołane po za funkcją zwraca obiekt window&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Window&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="n"&gt;frames&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Window&lt;/span&gt;&lt;span class="p"&gt;....&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Aby zmieniać właściwości konstruktorów można  słowo kluczowe &lt;code&gt;.prototype&lt;/code&gt; (będzie to miało wpływ na wszystkie stworzone na jego podstawie obiekty - jego instancji!!!) i edytować prototyp danej funkcji&lt;/p&gt;
+&lt;p&gt;Dodawanie nowej przypisanej właściwości&lt;/p&gt;
+&lt;p&gt;Funkcja wyjściowa&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dodanie właściwości&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;human&amp;quot;&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mike&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wywołanie&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;human&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ale -&amp;gt; &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mike&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mike&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;brak&lt;/span&gt; &lt;span class="n"&gt;właściwości&lt;/span&gt; &lt;span class="ss"&gt;`type`&lt;/span&gt; &lt;span class="n"&gt;chociaż&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;konsoli&lt;/span&gt; &lt;span class="n"&gt;zwróci&lt;/span&gt; &lt;span class="n"&gt;również&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt; &lt;span class="n"&gt;następującego&lt;/span&gt; &lt;span class="n"&gt;typi&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+   &lt;span class="n"&gt;__proto__&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;human&amp;quot;&lt;/span&gt;
+
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mike&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;human&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pojawić się również powinna wiadomość na temat prototypu obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;__proto__&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;Object&lt;/span&gt;
+  &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;hasOwnProperty&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;
+
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mike&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hasOwnProperty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ale:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;mike&lt;/span&gt;.&lt;span class="nv"&gt;hasOwnProperty&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;type&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;poniewa&lt;/span&gt;ż &lt;span class="nv"&gt;nale&lt;/span&gt;ż&lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;prototypu&lt;/span&gt;, &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;nie&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt;ł&lt;span class="nv"&gt;a&lt;/span&gt;ś&lt;span class="nv"&gt;ciwo&lt;/span&gt;ś&lt;span class="nv"&gt;ci&lt;/span&gt; &lt;span class="nv"&gt;obiektu&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;konstruktora&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dodawanie nowej metody&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;Person&lt;/span&gt;.&lt;span class="nv"&gt;prototype&lt;/span&gt;.&lt;span class="nv"&gt;showName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; { &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}
+
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;mike&lt;/span&gt;.&lt;span class="nv"&gt;showName&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;mike&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wywo&lt;/span&gt;ł&lt;span class="nv"&gt;uje&lt;/span&gt; &lt;span class="nv"&gt;funkcj&lt;/span&gt;ę
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;mike&lt;/span&gt;.&lt;span class="nv"&gt;showName&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="c1"&gt;;} // zwraca funkcję&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;JS - zawiera wiele funkcji konstruktorów, które pozwalają na stworzenie obiektów według wcześniej zdefiniowanych prototypów&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;new String()&lt;/code&gt;, &lt;code&gt;new Boolean()&lt;/code&gt;, &lt;code&gt;new Number()&lt;/code&gt;, &lt;code&gt;new Array()&lt;/code&gt;, &lt;code&gt;new Function()&lt;/code&gt;, &lt;code&gt;new Object()&lt;/code&gt;, &lt;code&gt;new RexExp()&lt;/code&gt; - regular expression&lt;/p&gt;
+&lt;p&gt;::: warto pamiętać o tym, że w ten sposób tworzy się obiekty a nie typy prymitywne choć wywołanie go odbywa się w taki sam sposób jak przy typie prymitywnym/podstawowym :::&lt;/p&gt;
+&lt;p&gt;Wbudowana funkcja konstrukcyjna dla tablic&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Funkcji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;x&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;y&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;return x + y&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;func&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;,&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Obiekt&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="k"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;r2d2&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Prototypy - każdy obiekt ma swój prototyp, który również jest obiektem i dziedziczy z niego metody oraz właściwości&lt;/p&gt;
+&lt;p&gt;Object.prototype&lt;/p&gt;
+&lt;p&gt;Przykładowa funkcja konstruktora zawierająca funkcję liczenia wieku&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;, &lt;span class="nv"&gt;constDate&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;birthday&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Date&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;constDate&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;showAge&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+        &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;diff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nv"&gt;Date&lt;/span&gt;.&lt;span class="nv"&gt;now&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;birthday&lt;/span&gt;.&lt;span class="k"&gt;getTime&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;ageDate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Date&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;diff&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="nv"&gt;abs&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ageDate&lt;/span&gt;.&lt;span class="nv"&gt;getUTCFullYear&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1970&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        }
+  }
+
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;c3po&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;C3PO&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;2-2-2222&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;c3po&lt;/span&gt;.&lt;span class="nv"&gt;showAge&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Każdy ze stworzonych obiektów na podstawie tego konstruktora, również zawiera w sobie tą funkcję
+aby tego uniknąć można zadeklarować funkcję po za konstruktorem, wówczas zostanie ona zapisana do prototypu ale nie przypisana do każdego utworzonego obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;, &lt;span class="nv"&gt;constDate&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;birthday&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Date&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;constDate&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;Droid&lt;/span&gt;.&lt;span class="nv"&gt;prototype&lt;/span&gt;.&lt;span class="nv"&gt;showAge&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+        &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;diff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nv"&gt;Date&lt;/span&gt;.&lt;span class="nv"&gt;now&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;birthday&lt;/span&gt;.&lt;span class="k"&gt;getTime&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;ageDate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Date&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;diff&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="nv"&gt;abs&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ageDate&lt;/span&gt;.&lt;span class="nv"&gt;getUTCFullYear&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1970&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Standard ES6 wprowadza również możliwość zadeklarowania klasy, której skutek będzie zbliżony&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; {
+        &lt;span class="nv"&gt;constructor&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;, &lt;span class="nv"&gt;constDate&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+              &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+              &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;constDate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;constDate&lt;/span&gt;
+        }
+
+        &lt;span class="nv"&gt;showName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+              &lt;span class="k"&gt;return&lt;/span&gt; `&lt;span class="nv"&gt;Hello&lt;/span&gt; ${&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}`
+        }
+  }
+
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;c3po&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;c3po&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;2222&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;c3po&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; {&lt;span class="nv"&gt;name&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;c3po&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;constDate&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;2222&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;}
+        &lt;span class="nv"&gt;constDate&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;2222&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="nv"&gt;name&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;c3po&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+              &lt;span class="nv"&gt;__proto__&lt;/span&gt;:
+              &lt;span class="nv"&gt;constructor&lt;/span&gt;: &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;
+              &lt;span class="nv"&gt;showName&lt;/span&gt;: ƒ &lt;span class="nv"&gt;showName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+              &lt;span class="nv"&gt;__proto__&lt;/span&gt;: &lt;span class="nv"&gt;Object&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Dziedziczenie&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;Robot&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dodanie funkcji w prototypie konstruktora Robot&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;Robot&lt;/span&gt;.&lt;span class="nv"&gt;prototype&lt;/span&gt;.&lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+        &lt;span class="k"&gt;return&lt;/span&gt; `&lt;span class="nv"&gt;hello&lt;/span&gt; ${&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}`&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Konstruktor droid, który dziedziczy właściwości konstruktora Robot&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;Robot&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;:::&lt;code&gt;.call()&lt;/code&gt; - funkcja call pozwala na wywołanie funkcji z innego kontekstu:::&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;aby zapewnić dziedziczenie prototypie należy to zaznaczyć w innym przypadku nie będzie to możliwe&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Robot&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Object.create - metoda, która pozwala na przekazanie dziedziczenia prototypu, te mogą być nadpisana nową metodą o tej samej nazwie.&lt;/strong&gt;
+&lt;strong&gt;Ta metoda tworzy nowy obiekt, korzystając z istniejących obiektów jako jej prototypu stąd:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Należy zdefiniować używanie konstruktora z Droida, w innym przypadku zostanie on odziedziczony&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;constructor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Guide/Obsolete_Pages/Przewodnik_po_j%C4%99zyku_JavaScript_1.5/Tworzenie_nowych_obiekt%C3%B3w/Zastosowanie_konstruktor%C3%B3w_funkcji&lt;/p&gt;
+&lt;p&gt;http://kursjs.pl/kurs/obiekty/konstruktor.php&lt;/p&gt;
+&lt;p&gt;https://www.udemy.com/course/modern-javascript-from-the-beginning/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category></entry><entry><title>JavaScript "this"</title><link href="https://kostyrko.github.io/zfrontu/js-this.html" rel="alternate"></link><published>2020-04-26T00:00:00+02:00</published><updated>2020-04-26T00:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-26:/zfrontu/js-this.html</id><summary type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;-&amp;gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji&lt;/p&gt;
 &lt;p&gt;-&amp;gt; wskazanie kontekstu poprzez &lt;code&gt;call&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt; (lub &lt;code&gt;bind&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;-&amp;gt; wywołanie funkcji z wykorzystaniem …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Funkcja podczas wywołania odwołuje się do jej &lt;strong&gt;bieżącego kontekstu&lt;/strong&gt; (sposobu jej wywołania, a nie miejsca jej deklaracji lub sposobu jej zdefiniowania) przy pomocy słowa kluczowego&lt;code&gt;this&lt;/code&gt;.&lt;/p&gt;
