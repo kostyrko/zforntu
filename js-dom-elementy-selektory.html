@@ -286,6 +286,7 @@
 <h3>Tworzenie elementów</h3>
 <p><code>.createElement()</code> - stwórz element</p>
 <div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">li</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="n">li</span><span class="p">.</span><span class="n">innerText</span> <span class="o">=</span> <span class="o">`</span><span class="k">To</span> <span class="n">jest</span> <span class="n">tekst</span> <span class="n">dodanego</span> <span class="n">elementu</span><span class="o">`</span>
 </code></pre></div>
 
 
@@ -303,6 +304,8 @@
 
 <p><code>.appendChild()</code> - dodanie elementu jako dziecka dziecka</p>
 <div class="highlight"><pre><span></span><code><span class="n">li</span><span class="p">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">document</span><span class="p">.</span><span class="n">createTextNode</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">))</span> <span class="o">//</span> <span class="n">dodanie</span> <span class="n">węzła</span> <span class="n">tekstowego</span> <span class="n">zamkniętego</span> <span class="n">pomiędzy</span> <span class="n">tagami</span> <span class="o">*</span><span class="n">li</span><span class="o">*</span>
+
+<span class="n">e</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="n">nextElementSibling</span><span class="p">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">//</span> <span class="n">dodanie</span> <span class="n">dziecka</span> <span class="n">li</span> <span class="n">następnego</span> <span class="n">rodzeństwa</span> <span class="n">elementu</span> <span class="n">na</span> <span class="n">którym</span> <span class="n">wykonał</span> <span class="n">się</span> <span class="n">dany</span> <span class="n">event</span><span class="o">/</span><span class="n">wydarzenie</span>
 </code></pre></div>
 
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - js</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/js.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-11T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - etykietowanie funkcji</title><link href="https://kostyrko.github.io/zfrontu/js-etykietowana-funkcja.html" rel="alternate"></link><published>2020-05-11T10:00:00+02:00</published><updated>2020-05-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-11:/zfrontu/js-etykietowana-funkcja.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Template strings&lt;/em&gt; lub też &lt;em&gt;literals&lt;/em&gt; zwane po polsku &lt;em&gt;łańcuchami szablonowymi&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Łańcuchy szablonowe [wcześniej wspominałem o nich &lt;a href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html"&gt;w tym miejscu&lt;/a&gt;] pozwalają na podstawianie zmiennych wewnątrz informacji przeznaczonymi do druku i zawartymi pomiędzy apostrofami [ warto pamiętać o tym, że stosowanie tego formatu zapisu nie wymaga używania sekwencji ucieczkowej -&amp;gt; /n]&lt;/p&gt;
+&lt;p&gt;Przykładowo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droid …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Template strings&lt;/em&gt; lub też &lt;em&gt;literals&lt;/em&gt; zwane po polsku &lt;em&gt;łańcuchami szablonowymi&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Łańcuchy szablonowe [wcześniej wspominałem o nich &lt;a href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html"&gt;w tym miejscu&lt;/a&gt;] pozwalają na podstawianie zmiennych wewnątrz informacji przeznaczonymi do druku i zawartymi pomiędzy apostrofami [ warto pamiętać o tym, że stosowanie tego formatu zapisu nie wymaga używania sekwencji ucieczkowej -&amp;gt; /n]&lt;/p&gt;
+&lt;p&gt;Przykładowo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droid = &amp;quot;r2d2&amp;quot;
+const droid2 = &amp;quot;c3po&amp;quot;
+
+console.log(`Hello 
+&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;, 
+&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droid2&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`)
+
+&amp;gt;&amp;gt;Hello 
+&amp;gt;&amp;gt;r2d2, 
+&amp;gt;&amp;gt;c3po
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Funkcje mogą być również wywołane poprzez zastosowania &lt;code&gt;łańcucha szablonów&lt;/code&gt; tzw &lt;code&gt;tag functions&lt;/code&gt; - wówczas części tego łańcucha nie odwołujące się do zmiennych mogą być traktowane jako tablica (podzielona w miejscach gdzie znajdują się zmienne), która musi być  zawarta jako argument&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;droidGreeter&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;strings&lt;/span&gt;, &lt;span class="nv"&gt;droidName&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;strings&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;] &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;droidName&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;strings&lt;/span&gt;[&lt;span class="mi"&gt;1&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;droidName&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;strings&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;]
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;c3po&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droidGreeter&lt;/span&gt;` &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; ${&lt;span class="nv"&gt;droid&lt;/span&gt;} &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt;? `&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // array strings = [&amp;#39; I am &amp;#39;, &amp;#39; - and you? &amp;#39;]&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;  &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;c3po&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt;?
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;c3po&lt;/span&gt; &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W ten sposób można tworzyć instancje różnego rodzaju informacji wynikowych przy pomocy jednej funkcji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droids = [
+  {name: &amp;#39;C3PO&amp;#39;, height: &amp;#39;1.71&amp;#39;},
+  {name: &amp;#39;R2D2&amp;#39;, height: &amp;#39;1.09&amp;#39;},
+  {name: &amp;#39;BB8&amp;#39;, height: &amp;#39;0.67&amp;#39;},
+  {name: &amp;#39;L3-37&amp;#39;, height: &amp;#39;1.79&amp;#39;},
+  {name: &amp;#39;K-2SO&amp;#39;, height: &amp;#39;2.16&amp;#39;}
+]
+
+function showSpecs (arr, n, h) {
+  console.log(arr[0] + n + arr[1] + h + arr[2])
+}
+
+showSpecs`This &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
+
+&amp;gt;&amp;gt; This R2D2 is 1.09
+
+showSpecs`This droid&amp;#39;s name is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; and he is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; m high`
+
+&amp;gt;&amp;gt; This droid&amp;#39;s name is R2D2 and he is 1.09 m high
+
+droids.forEach(function(droids){
+  showSpecs`This &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; high`; 
+})
+
+&amp;gt;&amp;gt; This C3PO is 1.71 high
+&amp;gt;&amp;gt; This R2D2 is 1.09 high
+&amp;gt;&amp;gt; This BB8 is 0.67 high
+&amp;gt;&amp;gt; This L3-37 is 1.79 high
+&amp;gt;&amp;gt; This K-2SO is 2.16 high
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Patrz również &lt;a href="https://playcode.io/602318"&gt;tutaj&lt;/a&gt; aby popracować na powyższej funkcji w edytorze i konsoli online&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image" src="https://pbs.twimg.com/media/EXpDjdDWsAE9D7D?format=jpg&amp;amp;name=large"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:
+https://codeburst.io/javascript-what-are-tag-functions-97682f29521b&lt;/p&gt;</content><category term="js"></category><category term="javascript"></category><category term="tag"></category><category term="function"></category><category term="funkcja"></category><category term="etykietowanie"></category><category term="tagged function"></category></entry></feed>

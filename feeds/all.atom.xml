@@ -1,8 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-11T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - etykietowana funkcja</title><link href="https://kostyrko.github.io/zfrontu/js-etykietowana-funkcja.html" rel="alternate"></link><published>2020-05-11T10:00:00+02:00</published><updated>2020-05-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-11:/zfrontu/js-etykietowana-funkcja.html</id><content type="html">&lt;p&gt;&lt;img alt="image" src="https://pbs.twimg.com/media/EXpDjdDWsAE9D7D?format=jpg&amp;amp;name=large"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-12T21:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Ubuntu - zamiana gronostaja na fossę - przerwana aktualizacja</title><link href="https://kostyrko.github.io/zfrontu/ubuntu-aktualizacja-fossa.html" rel="alternate"></link><published>2020-05-12T21:00:00+02:00</published><updated>2020-05-12T21:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-12:/zfrontu/ubuntu-aktualizacja-fossa.html</id><summary type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Przerwana …&lt;/h3&gt;</summary><content type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Przerwana aktualizacja Ubuntu 20.04&lt;/h3&gt;
+&lt;p&gt;W pierwszej kolejności musiałem dostać się do konsoli (z pozycji Grub'a). W tym celu wykorzystałem następującą ścieżkę postępowania:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Grub&lt;/code&gt;-&amp;gt; &lt;code&gt;Advance options for Ubuntu&lt;/code&gt; -&amp;gt; &lt;code&gt;...(recovery mode)&lt;/code&gt; -&amp;gt; &lt;code&gt;root&lt;/code&gt; -&amp;gt; &lt;code&gt;Enter&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Następnie zgodnie z sugestią wpisałem w terminal komendę (odpakowującą ale nie skonfigurowane paczki) - instalacja została przerwana na dość późnym etapie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo dpkg --configure -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Po uruchomieniu Ubuntu (20.04) działało ale nie w pełni poprawny sposób (program z aktualizacjami nie funkcjonował w sposób poprawny) stąd wywołałem komendę aktualizującą poszczególne paczki, z których składa się system&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Ubuntu 20.04 centralizacja paska "dokującego"&lt;/h3&gt;
+&lt;p&gt;Aby dokonać różnego rodzaju zmian z paskiem dokującym należy zainstalować rozszerzenie &lt;code&gt;dconf-editor&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt install dconf-tools
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Po uruchomieniu programu należy odznaczyć opcję &lt;code&gt;extend-height&lt;/code&gt; (ustawić na &lt;code&gt;false&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Ten program pozwala również na zmianę wydarzeń generowanych przez kliknięcie na ikonę w pasku dokującym - &lt;code&gt;click-action&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowo można ustawić na &lt;code&gt;minimize-or-previews&lt;/code&gt; - minimalizuje okno po kliknięciu jeśli jest jedynym oknem danego programu lub wywołuje podgląd jeśli jest ich więcej (domyślnie ustawione jest &lt;code&gt;previews&lt;/code&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://askubuntu.com/questions/346678/how-do-i-resume-a-release-upgrade&lt;/p&gt;
+&lt;p&gt;https://askubuntu.com/questions/859630/how-to-start-ubuntu-in-console-mode&lt;/p&gt;
+&lt;p&gt;https://askubuntu.com/questions/222348/what-does-sudo-apt-get-update-do&lt;/p&gt;
+&lt;p&gt;https://linuxconfig.org/how-to-customize-dock-panel-on-ubuntu-18-04-bionic-beaver-linux&lt;/p&gt;</content><category term="ubuntu"></category><category term="linux"></category><category term="ubuntu"></category><category term="aktualizacja"></category><category term="ciemny motyw"></category><category term="ubuntu 19.10"></category><category term="ubuntu 20.04"></category></entry><entry><title>JavaScript - etykietowanie funkcji</title><link href="https://kostyrko.github.io/zfrontu/js-etykietowana-funkcja.html" rel="alternate"></link><published>2020-05-11T10:00:00+02:00</published><updated>2020-05-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-11:/zfrontu/js-etykietowana-funkcja.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Template strings&lt;/em&gt; lub też &lt;em&gt;literals&lt;/em&gt; zwane po polsku &lt;em&gt;łańcuchami szablonowymi&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Łańcuchy szablonowe [wcześniej wspominałem o nich &lt;a href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html"&gt;w tym miejscu&lt;/a&gt;] pozwalają na podstawianie zmiennych wewnątrz informacji przeznaczonymi do druku i zawartymi pomiędzy apostrofami [ warto pamiętać o tym, że stosowanie tego formatu zapisu nie wymaga używania sekwencji ucieczkowej -&amp;gt; /n]&lt;/p&gt;
+&lt;p&gt;Przykładowo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droid …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Template strings&lt;/em&gt; lub też &lt;em&gt;literals&lt;/em&gt; zwane po polsku &lt;em&gt;łańcuchami szablonowymi&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Łańcuchy szablonowe [wcześniej wspominałem o nich &lt;a href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html"&gt;w tym miejscu&lt;/a&gt;] pozwalają na podstawianie zmiennych wewnątrz informacji przeznaczonymi do druku i zawartymi pomiędzy apostrofami [ warto pamiętać o tym, że stosowanie tego formatu zapisu nie wymaga używania sekwencji ucieczkowej -&amp;gt; /n]&lt;/p&gt;
+&lt;p&gt;Przykładowo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droid = &amp;quot;r2d2&amp;quot;
+const droid2 = &amp;quot;c3po&amp;quot;
+
+console.log(`Hello 
+&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;, 
+&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droid2&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`)
+
+&amp;gt;&amp;gt;Hello 
+&amp;gt;&amp;gt;r2d2, 
+&amp;gt;&amp;gt;c3po
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Funkcje mogą być również wywołane poprzez zastosowania &lt;code&gt;łańcucha szablonów&lt;/code&gt; tzw &lt;code&gt;tag functions&lt;/code&gt; - wówczas części tego łańcucha nie odwołujące się do zmiennych mogą być traktowane jako tablica (podzielona w miejscach gdzie znajdują się zmienne), która musi być  zawarta jako argument&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;droidGreeter&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;strings&lt;/span&gt;, &lt;span class="nv"&gt;droidName&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;strings&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;] &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;droidName&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;strings&lt;/span&gt;[&lt;span class="mi"&gt;1&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;droidName&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;strings&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;]
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;c3po&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droidGreeter&lt;/span&gt;` &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; ${&lt;span class="nv"&gt;droid&lt;/span&gt;} &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt;? `&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // array strings = [&amp;#39; I am &amp;#39;, &amp;#39; - and you? &amp;#39;]&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;  &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;c3po&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt;?
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;c3po&lt;/span&gt; &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W ten sposób można tworzyć instancje różnego rodzaju informacji wynikowych przy pomocy jednej funkcji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droids = [
+  {name: &amp;#39;C3PO&amp;#39;, height: &amp;#39;1.71&amp;#39;},
+  {name: &amp;#39;R2D2&amp;#39;, height: &amp;#39;1.09&amp;#39;},
+  {name: &amp;#39;BB8&amp;#39;, height: &amp;#39;0.67&amp;#39;},
+  {name: &amp;#39;L3-37&amp;#39;, height: &amp;#39;1.79&amp;#39;},
+  {name: &amp;#39;K-2SO&amp;#39;, height: &amp;#39;2.16&amp;#39;}
+]
+
+function showSpecs (arr, n, h) {
+  console.log(arr[0] + n + arr[1] + h + arr[2])
+}
+
+showSpecs`This &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
+
+&amp;gt;&amp;gt; This R2D2 is 1.09
+
+showSpecs`This droid&amp;#39;s name is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; and he is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; m high`
+
+&amp;gt;&amp;gt; This droid&amp;#39;s name is R2D2 and he is 1.09 m high
+
+droids.forEach(function(droids){
+  showSpecs`This &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; is &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; high`; 
+})
+
+&amp;gt;&amp;gt; This C3PO is 1.71 high
+&amp;gt;&amp;gt; This R2D2 is 1.09 high
+&amp;gt;&amp;gt; This BB8 is 0.67 high
+&amp;gt;&amp;gt; This L3-37 is 1.79 high
+&amp;gt;&amp;gt; This K-2SO is 2.16 high
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Patrz również &lt;a href="https://playcode.io/602318"&gt;tutaj&lt;/a&gt; aby popracować na powyższej funkcji w edytorze i konsoli online&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image" src="https://pbs.twimg.com/media/EXpDjdDWsAE9D7D?format=jpg&amp;amp;name=large"&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:
-https://codeburst.io/javascript-what-are-tag-functions-97682f29521b&lt;/p&gt;</content><category term="javascript, tag, function, funkcja, etykietowanie"></category></entry><entry><title>JavaScript - wydarzenia DOM cz. 2 - propagacja</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-2.html" rel="alternate"></link><published>2020-05-04T11:00:00+02:00</published><updated>2020-05-04T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-2.html</id><summary type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
+https://codeburst.io/javascript-what-are-tag-functions-97682f29521b&lt;/p&gt;</content><category term="js"></category><category term="javascript"></category><category term="tag"></category><category term="function"></category><category term="funkcja"></category><category term="etykietowanie"></category><category term="tagged function"></category></entry><entry><title>JavaScript - wydarzenia DOM cz. 2 - propagacja</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-2.html" rel="alternate"></link><published>2020-05-04T11:00:00+02:00</published><updated>2020-05-04T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-2.html</id><summary type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
 &lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
 &lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba, że dojdzie do przerwania propagacji - oznacza to również, że wydarzeni, do której doszło na dziecku może wywoływać akcję na rodzicu ( w takim przypadku wystarczy jedynie ustawienie eventListener na rodzicu), a propagacja zachodzi również pomiędzy rodzeństwem.&lt;/p&gt;
 &lt;p&gt;Przeciwieństwem &lt;em&gt;event bubbling&lt;/em&gt; jest &lt;em&gt;event capturing&lt;/em&gt; - przekazywanie danych w dół drzewa DOM (domyślna np. dla focus)&lt;/p&gt;
@@ -316,6 +417,7 @@ function runEvent(e){
 &lt;h3&gt;Tworzenie elementów&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;.createElement()&lt;/code&gt; - stwórz element&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;li&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;innerText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="k"&gt;To&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;tekst&lt;/span&gt; &lt;span class="n"&gt;dodanego&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -333,6 +435,8 @@ function runEvent(e){
 
 &lt;p&gt;&lt;code&gt;.appendChild()&lt;/code&gt; - dodanie elementu jako dziecka dziecka&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;appendChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createTextNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;węzła&lt;/span&gt; &lt;span class="n"&gt;tekstowego&lt;/span&gt; &lt;span class="n"&gt;zamkniętego&lt;/span&gt; &lt;span class="n"&gt;pomiędzy&lt;/span&gt; &lt;span class="n"&gt;tagami&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nextElementSibling&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;appendChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;dziecka&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="n"&gt;następnego&lt;/span&gt; &lt;span class="n"&gt;rodzeństwa&lt;/span&gt; &lt;span class="n"&gt;elementu&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;którym&lt;/span&gt; &lt;span class="n"&gt;wykonał&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;dany&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wydarzenie&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
