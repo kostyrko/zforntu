@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
   <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/sas.min.css">
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -136,7 +136,7 @@
     <p>
       Opublikowano sob 02 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
-        &#8226; 3 min read
+        &#8226; 2 min read
     </p>
   </header>
 
@@ -206,13 +206,24 @@
 </tr>
 <tr>
 <td><code>document.querySelectorAll()</code></td>
-<td>zwraca wszystkie element spełniający podany warunek/składnia CSS jako NodeList</td>
+<td>zwraca wszystkie element spełniający podany warunek/składnia CSS/ <strong>zwraca NodeList </strong></td>
 <td><code>document.querySelectorAll('ul.list li.list-item')</code></td>
 </tr>
 </tbody>
 </table>
+<hr>
+<p><strong><code>document.querySelectorAll()</code> zwraca NodeList a nie HTML collection</strong>
+<strong>::: NodeList nie wymaga konwersji ponieważ ma metodę forEach() :::</strong></p>
+<hr>
+<p>w innym przypadku wymagana jest konwersja aby móc dokonać iteracji...</p>
 <p><strong>::: Konwersja HTML collection :::</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="n">document</span><span class="p">.</span><span class="n">getElementsTagName</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">))</span>
+<p>Wykorzystujące metodę przypisaną do tablic</p>
+<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="n">document</span><span class="p">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+
+<p>Albo poprzez użycie tzw <code>spread operatora</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[...</span><span class="n">document</span><span class="p">.</span><span class="n">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)]</span>
 
 <span class="n">arr</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="k">index</span><span class="p">)</span><span class="err">{</span>
   <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="k">index</span><span class="p">,</span> <span class="n">elem</span><span class="p">.</span><span class="n">className</span><span class="p">);</span>
@@ -220,7 +231,6 @@
 </code></pre></div>
 
 
-<p><strong>::: NodeList nie wymaga konwersji ponieważ ma metodę forEach() :::</strong></p>
 <p><code>document.querySelectorAll('li:nth-child(odd)')</code> - co 2. element listy, każde parzyste dziecko będące li - aby nadać styl należy użyć pętli <code>for</code> lub <code>forEach</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">oddItem</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;li:nth-child(odd)&#39;</span><span class="p">)</span>
 
@@ -230,7 +240,7 @@
 </code></pre></div>
 
 
-<p>Lub (działa również dla kolekcji html)</p>
+<p>Lub (działa również dla kolekcji html/ HTML collection)</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="ss">(</span><span class="nv">let</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; i &lt; oddItem.length; i++ ) {</span>
   <span class="nv">oddItem</span>[<span class="nv">i</span>].<span class="nv">style</span>.<span class="nv">background</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">red</span><span class="s1">&#39;</span>
 }
@@ -240,6 +250,7 @@
 <p>Przykładowe zastosowanie</p>
 <p><code>document.getElementsByClassName('buttons')[3].style.color= 'red'</code> - zmieni 4 zwrócony element na czerwono</p>
 <p>'document.querySelector('ul').getElementsByClassName('list-item') - zwróć wszystkie elementy mające klasę <em>list-item</em> będące się w elemencie <em>ul</em></p>
+<hr>
 <h3>Przechodzenie pomiędzy elementami DOM</h3>
 <p><code>.childNodes</code> - nodeList wszystkich węzłów "dzieci" wybranego elementu</p>
 <p>Przykładowe zastosowanie</p>
@@ -283,109 +294,7 @@
 <p><code>.nextSiblingElement</code> - kolejne rodzeństwo będące elementem</p>
 <p><code>.perviousSibling</code> - poprzedzające rodzeństwo będące węzłem</p>
 <p><code>.previousSiblingElement</code> - poprzedzające rodzeństwo będące elementem // jak w innych przypadkach zwraca <code>null</code> w przypadku braku</p>
-<h3>Tworzenie elementów</h3>
-<p><code>.createElement()</code> - stwórz element</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">li</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
-<span class="n">li</span><span class="p">.</span><span class="n">innerText</span> <span class="o">=</span> <span class="o">`</span><span class="k">To</span> <span class="n">jest</span> <span class="n">tekst</span> <span class="n">dodanego</span> <span class="n">elementu</span><span class="o">`</span>
-</code></pre></div>
-
-
-<p><code>.cloneNode(true)</code> lub <code>.cloneNode(deep)</code> - klonowanie elementu</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">div2</span> <span class="o">=</span> <span class="n">div1</span><span class="p">.</span><span class="n">cloneNode</span><span class="p">(</span><span class="n">deep</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p>Dodawanie klas, id i atrybutów</p>
-<div class="highlight"><pre><span></span><code><span class="n">li</span><span class="p">.</span><span class="n">className</span> <span class="o">=</span> <span class="s1">&#39;list-item&#39;</span> <span class="o">//</span> <span class="n">można</span> <span class="n">również</span> <span class="n">dodać</span> <span class="n">id</span> <span class="n">w</span> <span class="n">podobny</span> <span class="n">sposób</span>
-
-<span class="n">li</span><span class="p">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;New Item&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p><code>.appendChild()</code> - dodanie elementu jako dziecka dziecka</p>
-<div class="highlight"><pre><span></span><code><span class="n">li</span><span class="p">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">document</span><span class="p">.</span><span class="n">createTextNode</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">))</span> <span class="o">//</span> <span class="n">dodanie</span> <span class="n">węzła</span> <span class="n">tekstowego</span> <span class="n">zamkniętego</span> <span class="n">pomiędzy</span> <span class="n">tagami</span> <span class="o">*</span><span class="n">li</span><span class="o">*</span>
-
-<span class="n">e</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="n">nextElementSibling</span><span class="p">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">//</span> <span class="n">dodanie</span> <span class="n">dziecka</span> <span class="n">li</span> <span class="n">następnego</span> <span class="n">rodzeństwa</span> <span class="n">elementu</span> <span class="n">na</span> <span class="n">którym</span> <span class="n">wykonał</span> <span class="n">się</span> <span class="n">dany</span> <span class="n">event</span><span class="o">/</span><span class="n">wydarzenie</span>
-</code></pre></div>
-
-
-<p>Przykładowy łańcuch zdarzeń</p>
-<div class="highlight"><pre><span></span><code>const link = document.createElement(&#39;a&#39;)
-
-link.className = &#39;nav-link&#39;
-
-link.innerHTML = &#39;<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">fa</span> <span class="err">fa-remove</span><span class="nt">&gt;&lt;/i&gt;</span>&#39;
-
-li.appendChild(link)
-</code></pre></div>
-
-
-<p>Dodanie wygenerowanego elementu do innego</p>
-<div class="highlight"><pre><span></span><code><span class="n">document</span><span class="p">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="n">appendChild</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p><code>.insertBefore(nowyElement, dziecko)</code> - wstawienie nowego elementu przed wybranym dzieckiem</p>
-<h3>Usuwanie i wymiana elementów</h3>
-<p>Zmiana elementu odbywa się na rodzicu</p>
-<p><code>.replaceChild(nowyElement, staryElementDziecko)</code> - wymiana elementu</p>
-<p><code>.replace(nowyElement, dziecko)</code> - zamiana wybranego dziecka na inny element</p>
-<p>Przykładowy ciąg zdarzeń</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">newTitle</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">createElement</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">h2</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; //tworzymy element</span>
-
-<span class="nv">newTitle</span>.<span class="nv">id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">title-id</span><span class="s1">&#39;</span> <span class="o">//</span> <span class="nv">nadajemu</span> <span class="nv">mu</span> <span class="nv">id</span>
-
-<span class="nv">newTitle</span>.<span class="nv">appendChild</span><span class="ss">(</span><span class="nv">document</span>.<span class="nv">createTextNode</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Nowy tytuł</span><span class="s1">&#39;</span><span class="ss">))</span> <span class="o">//</span> <span class="nv">dodajemy</span> <span class="k">do</span> <span class="nv">niego</span> <span class="nv">tekst</span>
-
-<span class="nv">const</span> <span class="nv">oldTitle</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">title-id</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; // &quot;złapanie&quot; elementu podlegającego wymianie</span>
-
-<span class="nv">const</span> <span class="nv">parentDiv</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">querySelector</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">div.nav-bar</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="s2">&quot;</span><span class="s">złapanie rodzica</span><span class="s2">&quot;</span>
-
-<span class="nv">parentDiv</span>.<span class="nv">replaceChild</span><span class="ss">(</span><span class="nv">newTitle</span>,<span class="nv">oldTitle</span><span class="ss">)</span>
-</code></pre></div>
-
-
-<p><code>.remove()</code> - usuwa podany element</p>
-<p><code>.removeChild()</code> - usuwa dziecko podanego elementu</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">listItems</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
-
-<span class="n">listItems</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">remove</span><span class="p">()</span> <span class="o">//</span> <span class="n">usuwa</span> <span class="n">pierwszy</span> <span class="n">element</span>
-
-<span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
-
-<span class="n">list</span><span class="p">.</span><span class="n">removeChild</span><span class="p">(</span><span class="n">listItems</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">//</span> <span class="n">usuwa</span> <span class="n">pierwsze</span> <span class="n">dziecko</span> <span class="n">mające</span> <span class="n">tag</span> <span class="o">*</span><span class="n">li</span><span class="o">*</span>
-</code></pre></div>
-
-
-<p>Zmiana klasy i atrybutu</p>
-<p><code>.add()</code> - dodaje klasę
-<code>.remove()</code> - usuwa klasę</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">link</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">querySelector</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">li:first-child</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">children</span>[<span class="mi">0</span>]
-
-<span class="nv">let</span> <span class="nv">classLink</span> <span class="o">=</span> <span class="nv">link</span>.<span class="nv">className</span> <span class="o">//</span><span class="nv">zwraca</span> <span class="nv">klasy</span> <span class="nv">w</span> <span class="nv">postaci</span> <span class="nv">stringu</span>
-
-<span class="nv">let</span> <span class="nv">listOfClasses</span> <span class="o">=</span> <span class="nv">link</span>.<span class="nv">classList</span> <span class="o">//</span> <span class="nv">zwracam</span> <span class="nv">list</span>ę <span class="nv">klas</span> <span class="nv">w</span> <span class="nv">postaci</span> <span class="nv">DOMTokenList</span> <span class="o">-</span> <span class="nv">zbli</span>ż<span class="nv">one</span> <span class="k">do</span> <span class="nv">tablicy</span> <span class="o">-</span> <span class="nv">posiada</span> <span class="nv">indeksy</span>
-
-<span class="nv">link</span>.<span class="nv">classList</span>.<span class="nv">add</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">second-class</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">dodaje</span> <span class="nv">klas</span>ę
-
-<span class="nv">link</span>.<span class="nv">classList</span>.<span class="nv">remove</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">second-class</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">usuwa</span> <span class="nv">klas</span>ę
-</code></pre></div>
-
-
-<p><code>.setAttribute(atrybut, jego właściwość)</code> - pozwala na zdefiniowanego atrybutu</p>
-<div class="highlight"><pre><span></span><code><span class="n">link</span><span class="p">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="o">//</span><span class="n">złap</span> <span class="n">atrybutem</span>
-
-<span class="n">link</span><span class="p">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">,</span><span class="s1">&#39;http://google.com&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">dodaj</span> <span class="n">atrybut</span> <span class="n">i</span> <span class="n">jego</span> <span class="n">właściwość</span>
-
-<span class="n">link</span><span class="p">.</span><span class="n">hassAttribute</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">zwraca</span> <span class="k">true</span> <span class="n">albo</span> <span class="k">false</span> <span class="n">jeśli</span> <span class="n">taki</span> <span class="n">posiada</span> <span class="n">lub</span> <span class="n">nie</span>
-</code></pre></div>
-
-
-<p><code>.removeAttribute()</code> - usuwa atrybut</p>
-<div class="highlight"><pre><span></span><code><span class="n">link</span><span class="p">.</span><span class="n">removeAttribute</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-
+<hr>
 <h3>Ćwiczenia</h3>
 <p><a href="ttps://mtomchuck.github.io/monster-village/dist/">GRA</a></p>
 <hr>
