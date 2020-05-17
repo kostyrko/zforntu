@@ -1715,8 +1715,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/strong&gt; - [od concatenate] zwraca nową tablicę, która zawiera wszystkie elementy tablicy, na której zostałą zastosowana metoda oraz podanych argumentów&lt;/p&gt;
-&lt;p&gt;::: tablica nie jest modyfikowana :::&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/strong&gt; - [od concatenate] zwraca nową tablicę, która zawiera wszystkie elementy tablicy, na której zostałą zastosowana metoda oraz podanych argumentów :::tablica wyjściowa NIE ulega modyfikacji:::&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;concatenate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="n"&gt;brak&lt;/span&gt; &lt;span class="n"&gt;modyfikacji&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;stąd&lt;/span&gt;
@@ -1726,8 +1725,16 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;pop&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;shift&lt;/code&gt;&lt;/strong&gt; - usuwa i zwraca ostatni/pierwszy element tablicy&lt;/p&gt;
-&lt;p&gt;:::tablica ulega modyfikacji:::&lt;/p&gt;
+&lt;p&gt;Pozwala na łączenie ze sobą 2 tablic&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;Array&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;pop&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;shift&lt;/code&gt;&lt;/strong&gt; - usuwa i zwraca ostatni/pierwszy element tablicy :::tablica ulega modyfikacji:::&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1740,8 +1747,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;splice&lt;/code&gt;&lt;/strong&gt; - usuwa obiekt z tablicy na podstawie pozycji/indeksu tworząc z niego nową tablicę (może przyjąć więcej niż jeden argument, tworząc ich zakres)&lt;/p&gt;
-&lt;p&gt;:::tablica ulega modyfikacji:::&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;splice&lt;/code&gt;&lt;/strong&gt; - zwraca "wycięte" obiekt z tablicy na podstawie pozycji/indeksu tworząc z niego nową tablicę (może przyjąć więcej niż jeden argument, tworząc ich zakres):::tablica wyjściowa ULEGA modyfikacji:::&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;removedItems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -1749,7 +1755,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;slice&lt;/code&gt;&lt;/strong&gt; - przyjmuje zero, 1 lub 2 argumenty / 0 - kopiuję tablicę, 1- tnie ją od wskazanego argumentu (indeks), 2 - w zakresie wskazanym przez argumenty (indeksy) - wyłącznie (argument końcowy nie będzie częścią)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;slice&lt;/code&gt;&lt;/strong&gt; - przyjmuje zero, 1 lub 2 argumenty / 0 - kopiuję tablicę, 1- tnie ją od wskazanego argumentu (indeks), 2 - w zakresie wskazanym przez argumenty (indeksy) - wyłącznie (argument końcowy nie będzie częścią) :::tablica wyjściowa NIE ulega modyfikacji:::&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;sort&lt;/code&gt;&lt;/strong&gt; - zwraca posortowaną tablicę w sposób leksykograficzny (słownikowo), gdzie sortowanie jest oparte na pierwszej cyfrze/literze składającej się na liczbę/wyraz,  gdzie 1. litera/cyfra ma wpływ na kolejność pozycji i a potem następna etc.&lt;/p&gt;
 &lt;p&gt;aby posortować ze sobą liczby w tablicy należy jest ze sobą porównać i do tego stosuje się funkcji porównawczej&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;compareNumbers&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;,&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
@@ -1766,7 +1772,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;:::tablica ulega modyfikacji:::&lt;/p&gt;
+&lt;p&gt;:::tablica ULEGA modyfikacji:::&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;reverse&lt;/code&gt;&lt;/strong&gt; - odwraca kolejność elementów znajdujących się w tablicy&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;includes&lt;/code&gt;&lt;/strong&gt; - sprawdza czy tablica zawiera wpisany argument stosuje &lt;code&gt;===&lt;/code&gt; i nie można szukać zagnieżdżonych list&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;find&lt;/code&gt;&lt;/strong&gt; jako argument można wpisać wyrażenie na podstawie, którego będzie wyszukiwać&lt;/p&gt;
@@ -1795,7 +1801,8 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 
 
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;map&lt;/code&gt;&lt;/strong&gt; - podobny do forEach ale zmienia elementy tablicy i zwraca nową tablicę ze zmienionymi wartościami&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/strong&gt; - zwraca &lt;strong&gt;nową tablicę&lt;/strong&gt;, z elementami dla którego wskazany argument jest prawdziwy (= True)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/strong&gt; - zwraca &lt;strong&gt;nową tablicę&lt;/strong&gt;, z elementami dla którego wskazany argument jest prawdziwy (= True)
+:::tablica wyjściowa NIE ulega modyfikacji:::&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;newArr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;array&lt;/span&gt;.&lt;span class="nv"&gt;filter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;condition&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
@@ -1816,11 +1823,11 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;:::tablica NIE ulega modyfikacji:::&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;reduce&lt;/code&gt;&lt;/strong&gt; - funkcja przyjmuje cztery argumenty 1) wartość inicjalizującą tzw akumulator 2) obecną wartość Opcjonalnie: 3) obecny indeks 4) źródłową tablicę na której, reduce jest stosowane&lt;/p&gt;
 &lt;p&gt;Funkcja wywołania zwrotnego przyjmuje np. 2 argumenty - element tablicy oraz aktualną wartość akumulatora i zwraca wartość, która zostanie przypisana do akumulatora i będzie jako taki użyty w kolejnej iteracji.&lt;/p&gt;
-&lt;p&gt;Redukuję tablicę do pojedynczej wartości&lt;/p&gt;
-&lt;p&gt;:::tablica NIE ulega modyfikacji:::&lt;/p&gt;
+&lt;p&gt;Redukuję tablicę do pojedynczej wartości
+:::tablica NIE ulega modyfikacji:::&lt;/p&gt;
+&lt;p&gt;Wyliczanie sumy tablicy (dla każdego elementu dodaj go do akumulatora, który przyjmuje wartość poprzedniej iteracji, akumulator zaczyna od 0)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;, &lt;span class="mi"&gt;5&lt;/span&gt;, &lt;span class="mi"&gt;7&lt;/span&gt;]
 
   &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;accumulator&lt;/span&gt;, &lt;span class="nv"&gt;element&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;accumulator&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;element&lt;/span&gt;, &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;
@@ -1830,6 +1837,25 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
   &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;acc&lt;/span&gt;,&lt;span class="nv"&gt;element&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
       &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;acc&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;element&lt;/span&gt;
   }, &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;pocz&lt;/span&gt;ą&lt;span class="nv"&gt;tkowa&lt;/span&gt; &lt;span class="nv"&gt;akumulatora&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wyliczanie średniej tablicy &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="mi"&gt;1&lt;/span&gt;,&lt;span class="mi"&gt;2&lt;/span&gt;,&lt;span class="mi"&gt;3&lt;/span&gt;]
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;arrAvg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;,&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;, &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;ES6&lt;/span&gt;
+
+&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="mi"&gt;1&lt;/span&gt;,&lt;span class="mi"&gt;2&lt;/span&gt;,&lt;span class="mi"&gt;3&lt;/span&gt;]
+
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;arrAvg&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;arr&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;acc&lt;/span&gt;,&lt;span class="nv"&gt;element&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;acc&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;element&lt;/span&gt;
+    }, &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;arrAvg&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;arr&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1853,7 +1879,8 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/from#&lt;/p&gt;
 &lt;p&gt;https://launchschool.com/books/javascript/read/arrays#exercises&lt;/p&gt;
 &lt;p&gt;https://alligator.io/js/filter-array-method/&lt;/p&gt;
-&lt;p&gt;https://www.freecodecamp.org/forum/t/arr-sort-a-b-a-b-explanation/167677&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - tablice (obiekt array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-11T10:00:00+02:00</published><updated>2020-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-11:/zfrontu/js-tablice.html</id><summary type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.&lt;/p&gt;
+&lt;p&gt;https://www.freecodecamp.org/forum/t/arr-sort-a-b-a-b-explanation/167677&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/10359907/how-to-compute-the-sum-and-average-of-elements-in-an-array&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category></entry><entry><title>JavaScript - tablice (obiekt array)</title><link href="https://kostyrko.github.io/zfrontu/js-tablice.html" rel="alternate"></link><published>2020-04-11T10:00:00+02:00</published><updated>2020-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-11:/zfrontu/js-tablice.html</id><summary type="html">&lt;p&gt;Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;Arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pusta&lt;/span&gt; &lt;span class="n"&gt;tablica&lt;/span&gt;
 &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Mikolaj&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;kwiecień&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;

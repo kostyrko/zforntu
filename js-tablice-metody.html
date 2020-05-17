@@ -167,8 +167,7 @@
 </code></pre></div>
 
 
-<p><strong><code>concat</code></strong> - [od concatenate] zwraca nową tablicę, która zawiera wszystkie elementy tablicy, na której zostałą zastosowana metoda oraz podanych argumentów</p>
-<p>::: tablica nie jest modyfikowana :::</p>
+<p><strong><code>concat</code></strong> - [od concatenate] zwraca nową tablicę, która zawiera wszystkie elementy tablicy, na której zostałą zastosowana metoda oraz podanych argumentów :::tablica wyjściowa NIE ulega modyfikacji:::</p>
 <div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">.</span><span class="n">concat</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;concatenate&#39;</span><span class="p">)</span>
 
 <span class="n">brak</span> <span class="n">modyfikacji</span> <span class="o">-&gt;</span> <span class="n">stąd</span>
@@ -178,8 +177,16 @@
 </code></pre></div>
 
 
-<p><strong><code>pop</code></strong> i <strong><code>shift</code></strong> - usuwa i zwraca ostatni/pierwszy element tablicy</p>
-<p>:::tablica ulega modyfikacji:::</p>
+<p>Pozwala na łączenie ze sobą 2 tablic</p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">let</span> <span class="n">arr3</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">.</span><span class="n">concat</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr3</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="nb">Array</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p><strong><code>pop</code></strong> i <strong><code>shift</code></strong> - usuwa i zwraca ostatni/pierwszy element tablicy :::tablica ulega modyfikacji:::</p>
 <div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="o">&gt;&gt;</span> <span class="n">push</span>
 </code></pre></div>
@@ -192,8 +199,7 @@
 </code></pre></div>
 
 
-<p><strong><code>splice</code></strong> - usuwa obiekt z tablicy na podstawie pozycji/indeksu tworząc z niego nową tablicę (może przyjąć więcej niż jeden argument, tworząc ich zakres)</p>
-<p>:::tablica ulega modyfikacji:::</p>
+<p><strong><code>splice</code></strong> - zwraca "wycięte" obiekt z tablicy na podstawie pozycji/indeksu tworząc z niego nową tablicę (może przyjąć więcej niż jeden argument, tworząc ich zakres):::tablica wyjściowa ULEGA modyfikacji:::</p>
 <div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">let</span> <span class="n">removedItems</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">.</span><span class="n">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="o">//</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
@@ -201,7 +207,7 @@
 </code></pre></div>
 
 
-<p><strong><code>slice</code></strong> - przyjmuje zero, 1 lub 2 argumenty / 0 - kopiuję tablicę, 1- tnie ją od wskazanego argumentu (indeks), 2 - w zakresie wskazanym przez argumenty (indeksy) - wyłącznie (argument końcowy nie będzie częścią)</p>
+<p><strong><code>slice</code></strong> - przyjmuje zero, 1 lub 2 argumenty / 0 - kopiuję tablicę, 1- tnie ją od wskazanego argumentu (indeks), 2 - w zakresie wskazanym przez argumenty (indeksy) - wyłącznie (argument końcowy nie będzie częścią) :::tablica wyjściowa NIE ulega modyfikacji:::</p>
 <p><strong><code>sort</code></strong> - zwraca posortowaną tablicę w sposób leksykograficzny (słownikowo), gdzie sortowanie jest oparte na pierwszej cyfrze/literze składającej się na liczbę/wyraz,  gdzie 1. litera/cyfra ma wpływ na kolejność pozycji i a potem następna etc.</p>
 <p>aby posortować ze sobą liczby w tablicy należy jest ze sobą porównać i do tego stosuje się funkcji porównawczej</p>
 <div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">compareNumbers</span><span class="ss">(</span><span class="nv">a</span>,<span class="nv">b</span><span class="ss">)</span> {
@@ -218,7 +224,7 @@
 </code></pre></div>
 
 
-<p>:::tablica ulega modyfikacji:::</p>
+<p>:::tablica ULEGA modyfikacji:::</p>
 <p><strong><code>reverse</code></strong> - odwraca kolejność elementów znajdujących się w tablicy</p>
 <p><strong><code>includes</code></strong> - sprawdza czy tablica zawiera wpisany argument stosuje <code>===</code> i nie można szukać zagnieżdżonych list</p>
 <p><strong><code>find</code></strong> jako argument można wpisać wyrażenie na podstawie, którego będzie wyszukiwać</p>
@@ -247,7 +253,8 @@
 
 
 <p><strong><code>map</code></strong> - podobny do forEach ale zmienia elementy tablicy i zwraca nową tablicę ze zmienionymi wartościami</p>
-<p><strong><code>filter</code></strong> - zwraca <strong>nową tablicę</strong>, z elementami dla którego wskazany argument jest prawdziwy (= True)</p>
+<p><strong><code>filter</code></strong> - zwraca <strong>nową tablicę</strong>, z elementami dla którego wskazany argument jest prawdziwy (= True)
+:::tablica wyjściowa NIE ulega modyfikacji:::</p>
 <div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">newArr</span> <span class="o">=</span> <span class="nv">array</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">item</span><span class="ss">)</span>{
     <span class="k">return</span> <span class="nv">condition</span><span class="c1">;</span>
 }<span class="ss">)</span><span class="c1">;</span>
@@ -268,11 +275,11 @@
 </code></pre></div>
 
 
-<p>:::tablica NIE ulega modyfikacji:::</p>
 <p><strong><code>reduce</code></strong> - funkcja przyjmuje cztery argumenty 1) wartość inicjalizującą tzw akumulator 2) obecną wartość Opcjonalnie: 3) obecny indeks 4) źródłową tablicę na której, reduce jest stosowane</p>
 <p>Funkcja wywołania zwrotnego przyjmuje np. 2 argumenty - element tablicy oraz aktualną wartość akumulatora i zwraca wartość, która zostanie przypisana do akumulatora i będzie jako taki użyty w kolejnej iteracji.</p>
-<p>Redukuję tablicę do pojedynczej wartości</p>
-<p>:::tablica NIE ulega modyfikacji:::</p>
+<p>Redukuję tablicę do pojedynczej wartości
+:::tablica NIE ulega modyfikacji:::</p>
+<p>Wyliczanie sumy tablicy (dla każdego elementu dodaj go do akumulatora, który przyjmuje wartość poprzedniej iteracji, akumulator zaczyna od 0)</p>
 <div class="highlight"><pre><span></span><code>  <span class="nv">let</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="mi">2</span>, <span class="mi">3</span>, <span class="mi">5</span>, <span class="mi">7</span>]
 
   <span class="nv">arr</span>.<span class="nv">reduce</span><span class="ss">((</span><span class="nv">accumulator</span>, <span class="nv">element</span><span class="ss">)</span> <span class="o">=&gt;</span> <span class="nv">accumulator</span> <span class="o">+</span> <span class="nv">element</span>, <span class="mi">0</span><span class="ss">)</span> <span class="o">//</span><span class="mi">17</span>
@@ -282,6 +289,25 @@
   <span class="nv">arr</span>.<span class="nv">reduce</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">acc</span>,<span class="nv">element</span><span class="ss">)</span>{
       <span class="k">return</span> <span class="nv">acc</span> <span class="o">+</span> <span class="nv">element</span>
   }, <span class="mi">0</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">warto</span>ść <span class="nv">pocz</span>ą<span class="nv">tkowa</span> <span class="nv">akumulatora</span>
+</code></pre></div>
+
+
+<p>Wyliczanie średniej tablicy </p>
+<div class="highlight"><pre><span></span><code><span class="nv">let</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>]
+
+<span class="nv">const</span> <span class="nv">arrAvg</span> <span class="o">=</span> <span class="nv">arr</span> <span class="o">=</span> <span class="nv">arr</span>.<span class="nv">reduce</span><span class="ss">((</span><span class="nv">a</span>,<span class="nv">b</span><span class="ss">)</span> <span class="o">=&gt;</span> <span class="nv">a</span> <span class="o">+</span> <span class="nv">b</span>, <span class="mi">0</span><span class="ss">)</span> <span class="o">/</span> <span class="nv">arr</span>.<span class="nv">length</span> <span class="o">//</span> <span class="nv">ES6</span>
+
+<span class="nv">let</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>]
+
+
+<span class="nv">function</span> <span class="nv">arrAvg</span><span class="ss">(</span><span class="nv">arr</span><span class="ss">)</span>{
+<span class="nv">let</span> <span class="nv">sum</span> <span class="o">=</span> <span class="nv">arr</span>.<span class="nv">reduce</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">acc</span>,<span class="nv">element</span><span class="ss">)</span>{
+        <span class="k">return</span> <span class="nv">acc</span> <span class="o">+</span> <span class="nv">element</span>
+    }, <span class="mi">0</span><span class="ss">)</span><span class="c1">;</span>
+<span class="k">return</span> <span class="nv">sum</span> <span class="o">/</span> <span class="nv">arr</span>.<span class="nv">length</span>
+}
+
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">arrAvg</span><span class="ss">(</span><span class="nv">arr</span><span class="ss">))</span>
 </code></pre></div>
 
 
@@ -306,6 +332,7 @@
 <p>https://launchschool.com/books/javascript/read/arrays#exercises</p>
 <p>https://alligator.io/js/filter-array-method/</p>
 <p>https://www.freecodecamp.org/forum/t/arr-sort-a-b-a-b-explanation/167677</p>
+<p>https://stackoverflow.com/questions/10359907/how-to-compute-the-sum-and-average-of-elements-in-an-array</p>
   </div>
   <div class="tag-cloud">
     <p>
