@@ -1,25 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-21T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript i trzykropek (...)</title><link href="https://kostyrko.github.io/zfrontu/js-prototypy.html" rel="alternate"></link><published>2020-05-21T10:00:00+02:00</published><updated>2020-05-21T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-21:/zfrontu/js-prototypy.html</id><summary type="html">&lt;hr&gt;
-&lt;h2&gt;In statu nascendi&lt;/h2&gt;
-&lt;p&gt;Składnia rozwinięcie (ang. spread sytnax) - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego)
-gdzie oczekiwane jest zero lub więcej argumentów.&lt;/p&gt;
-&lt;p&gt;Ostatni wpisany parametr z listy i będzie przypisany jako domyślny dla wszystkich&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-21T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript i trzykropek (...)</title><link href="https://kostyrko.github.io/zfrontu/js-prototypy.html" rel="alternate"></link><published>2020-05-21T10:00:00+02:00</published><updated>2020-05-21T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-21:/zfrontu/js-prototypy.html</id><summary type="html">&lt;p&gt;Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako &lt;code&gt;spread&lt;/code&gt; operator lub parametr &lt;code&gt;rest&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map.&lt;/p&gt;
 &lt;h3&gt;Spread Operator&lt;/h3&gt;
-&lt;p&gt;Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych do tablicy&lt;/p&gt;
-&lt;p&gt;let arr = [...HTML-collection …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
-&lt;h2&gt;In statu nascendi&lt;/h2&gt;
-&lt;p&gt;Składnia rozwinięcie (ang. spread sytnax) - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego)
-gdzie oczekiwane jest zero lub więcej argumentów.&lt;/p&gt;
-&lt;p&gt;Ostatni wpisany parametr z listy i będzie przypisany jako domyślny dla wszystkich&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Dzieli kolekcję tworząc tablicę&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako &lt;code&gt;spread&lt;/code&gt; operator lub parametr &lt;code&gt;rest&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map.&lt;/p&gt;
 &lt;h3&gt;Spread Operator&lt;/h3&gt;
-&lt;p&gt;Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych do tablicy&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Dzieli kolekcję tworząc tablicę&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast tworzenia zagnieżdżonej tablicy1 w tablicy2 - tablice2 przyjmuje właściwości tablicy1)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c3po&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2dr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c3po&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2dr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;vs&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[...&lt;/span&gt;&lt;span class="n"&gt;arr1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c3po&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2dr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych (argument) do tablicy lub ze stringa [argument jak i odbiorca mogą być obiektem tablicą, łańcuchem znaków (stringiem), zbiorem lub map]&lt;/p&gt;
 &lt;p&gt;let arr = [...HTML-collection]&lt;/p&gt;
-&lt;h3&gt;Rest operator&lt;/h3&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;sum&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;...&lt;span class="nv"&gt;theArgs&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;theArgs&lt;/span&gt;.&lt;span class="nv"&gt;reduce&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;previous&lt;/span&gt;, &lt;span class="nv"&gt;current&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;previous&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;current&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sum&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;, &lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przy wywoływaniu funkcji i podawaniu jako argumentu tablicy pozwala na jej rozłożenie na pojedyncze argumenty (wyjmuje je z tablicy)&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;sum&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt;, &lt;span class="nv"&gt;y&lt;/span&gt;, &lt;span class="nv"&gt;z&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;z&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;numbers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="mi"&gt;1&lt;/span&gt;, &lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;]&lt;span class="c1"&gt;; // tablica&lt;/span&gt;
+
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sum&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;...&lt;span class="nv"&gt;numbers&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;; // rozłożenie tablicy na pojedyncze argumentu&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Rest parameters&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Sumuje poszczególne parametry (w) tworząc tablicę&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Pozwala na wskazanie możliwości zastosowania nieokreślonej liczby argumentów, w funkcji, które zostaną zamienione w tablicę. Pozwala również na podanie poprzedzających parametrów nazwanych (te wówczas nie znają się w tablicy).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;, &lt;span class="nv"&gt;b&lt;/span&gt;, ...&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // 22&lt;/span&gt;
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // 98&lt;/span&gt;
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // [43, 3, 26]&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;, &lt;span class="mi"&gt;98&lt;/span&gt;, &lt;span class="mi"&gt;43&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;, &lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="o"&gt;-------------------&lt;/span&gt;
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;...&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+&lt;span class="nv"&gt;args&lt;/span&gt;.&lt;span class="nv"&gt;forEach&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;args&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;, &lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;  &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;  [&lt;span class="mi"&gt;1&lt;/span&gt;,&lt;span class="mi"&gt;2&lt;/span&gt;,&lt;span class="mi"&gt;3&lt;/span&gt;]
+
+&lt;span class="o"&gt;----&lt;/span&gt;
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;...[&lt;span class="nv"&gt;x&lt;/span&gt;, &lt;span class="nv"&gt;y&lt;/span&gt;, &lt;span class="nv"&gt;z&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;z&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;          &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;NaN&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;brak&lt;/span&gt; &lt;span class="nv"&gt;agrument&lt;/span&gt;ó&lt;span class="nv"&gt;w&lt;/span&gt;
+  &lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;, &lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;
+  &lt;span class="nv"&gt;myFunc&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;, &lt;span class="mi"&gt;2&lt;/span&gt;, &lt;span class="mi"&gt;3&lt;/span&gt;, &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;tylko&lt;/span&gt; &lt;span class="nv"&gt;pierwsze&lt;/span&gt; &lt;span class="nv"&gt;trzy&lt;/span&gt; &lt;span class="nv"&gt;s&lt;/span&gt;ą &lt;span class="nv"&gt;brane&lt;/span&gt; &lt;span class="nv"&gt;pod&lt;/span&gt; &lt;span class="nv"&gt;uwag&lt;/span&gt;ę
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://dev.to/sagar/three-dots---in-javascript-26ci&lt;/p&gt;
 &lt;p&gt;https://dev.to/blacksonic/the-tale-of-three-dots-in-javascript-4287&lt;/p&gt;
 &lt;p&gt;https://stackoverflow.com/questions/42184674/what-is-the-meaning-of-args-three-dots-in-a-function-definition&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Sk%C5%82adnia_rozwini%C4%99cia&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category></entry><entry><title>JS - klasy</title><link href="https://kostyrko.github.io/zfrontu/js-klasy.html" rel="alternate"></link><published>2020-05-15T21:00:00+02:00</published><updated>2020-05-15T21:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-15:/zfrontu/js-klasy.html</id><summary type="html">&lt;p&gt;Klasy pozwalają na przypisanie metod bezpośrednio to prototypów obiektów przy pomocy jednego bloku (od ES5)&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Sk%C5%82adnia_rozwini%C4%99cia&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="array"></category><category term="tablica"></category><category term="ES6"></category><category term="ES2015"></category></entry><entry><title>JS - klasy</title><link href="https://kostyrko.github.io/zfrontu/js-klasy.html" rel="alternate"></link><published>2020-05-15T21:00:00+02:00</published><updated>2020-05-15T21:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-15:/zfrontu/js-klasy.html</id><summary type="html">&lt;p&gt;Klasy pozwalają na przypisanie metod bezpośrednio to prototypów obiektów przy pomocy jednego bloku (od ES5)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; {
     &lt;span class="nv"&gt;constructor&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;, &lt;span class="nv"&gt;occupation&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
         &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
@@ -120,6 +185,7 @@ gdzie oczekiwane jest zero lub więcej argumentów.&lt;/p&gt;
 
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;ME&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="nv"&gt;D9&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;Protocol&lt;/span&gt; &lt;span class="nv"&gt;droid&lt;/span&gt;
 
+```&lt;span class="nv"&gt;JavaScript&lt;/span&gt;
 &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;ProtocolDroid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; {
     &lt;span class="nv"&gt;constructor&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;, &lt;span class="nv"&gt;occupation&lt;/span&gt;,  &lt;span class="nv"&gt;height&lt;/span&gt;, &lt;span class="nv"&gt;homeWorld&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
         &lt;span class="nv"&gt;super&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;, &lt;span class="nv"&gt;occupation&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // odwołanie się do konstruktora rodzica&lt;/span&gt;
@@ -134,10 +200,11 @@ gdzie oczekiwane jest zero lub więcej argumentów.&lt;/p&gt;
 
 &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ProtocolDroid&lt;/span&gt;.&lt;span class="nv"&gt;learnNewLanguage&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; `&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;unable&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;learn&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;languages&lt;/span&gt;`
+```
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Istnieje możliwość do odwołania się do dziedziczonej metody statycznej np.&lt;/p&gt;
+&lt;p&gt;Istnieje możliwość odwołania się do dziedziczonej metody statycznej np.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ProtocolDroid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;greetings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;IG-88&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
     &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Hey&lt;/span&gt; &lt;span class="n"&gt;IG&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;88&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -250,7 +317,44 @@ droids.forEach(function(droids){
 &lt;p&gt;&lt;img alt="image" src="https://pbs.twimg.com/media/EXpDjdDWsAE9D7D?format=jpg&amp;amp;name=large"&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:
-https://codeburst.io/javascript-what-are-tag-functions-97682f29521b&lt;/p&gt;</content><category term="js"></category><category term="javascript"></category><category term="tag"></category><category term="function"></category><category term="funkcja"></category><category term="etykietowanie"></category><category term="tagged function"></category></entry><entry><title>JavaScript - wydarzenia DOM cz. 2 - propagacja</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-2.html" rel="alternate"></link><published>2020-05-04T11:00:00+02:00</published><updated>2020-05-04T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-2.html</id><summary type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
+https://codeburst.io/javascript-what-are-tag-functions-97682f29521b&lt;/p&gt;</content><category term="js"></category><category term="javascript"></category><category term="tag"></category><category term="function"></category><category term="funkcja"></category><category term="etykietowanie"></category><category term="tagged function"></category></entry><entry><title>DOM: NodeList i HTML Collection</title><link href="https://kostyrko.github.io/zfrontu/js-nodelist-htmlcollection.html" rel="alternate"></link><published>2020-05-05T10:00:00+02:00</published><updated>2020-05-05T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-05:/zfrontu/js-nodelist-htmlcollection.html</id><summary type="html">&lt;p&gt;Kolekcje węzłów DOM&lt;/p&gt;
+&lt;p&gt;Typy węzłów&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;element node&lt;/li&gt;
+&lt;li&gt;attribute node&lt;/li&gt;
+&lt;li&gt;text node&lt;/li&gt;
+&lt;li&gt;comment node&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;NodeList&lt;/h3&gt;
+&lt;p&gt;Uporządkowana lista wszystkich węzłów DOM, obiekty można uzyskać poprzez odwołanie się do indeksu&lt;/p&gt;
+&lt;p&gt;Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie.&lt;/p&gt;
+&lt;p&gt;document.&lt;code&gt;querySelectorAll('div')&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;HTML Collection&lt;/h3&gt;
+&lt;p&gt;Lista węzłów będących &lt;strong&gt;elementami&lt;/strong&gt; - węzeł może być użyty …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Kolekcje węzłów DOM&lt;/p&gt;
+&lt;p&gt;Typy węzłów&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;element node&lt;/li&gt;
+&lt;li&gt;attribute node&lt;/li&gt;
+&lt;li&gt;text node&lt;/li&gt;
+&lt;li&gt;comment node&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;NodeList&lt;/h3&gt;
+&lt;p&gt;Uporządkowana lista wszystkich węzłów DOM, obiekty można uzyskać poprzez odwołanie się do indeksu&lt;/p&gt;
+&lt;p&gt;Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie.&lt;/p&gt;
+&lt;p&gt;document.&lt;code&gt;querySelectorAll('div')&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;HTML Collection&lt;/h3&gt;
+&lt;p&gt;Lista węzłów będących &lt;strong&gt;elementami&lt;/strong&gt; - węzeł może być użyty poprzez odwołanie się do nr indeksu, nazwy węzła lub id atrybutu.&lt;/p&gt;
+&lt;p&gt;Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie.&lt;/p&gt;
+&lt;p&gt;Atrybuty: length
+Metody: 
+&lt;code&gt;item()&lt;/code&gt; - jako argument przyjmuje nr indeksu i zwraca obiekt, zwraca &lt;code&gt;null&lt;/code&gt; gdy jest po za zasięgiem (brak elementu o podanym indeksie)
+&lt;code&gt;nameItem()&lt;/code&gt; - przyjmuje nazwę obiektu lub jego id i zwraca zwraca obiekt lub &lt;code&gt;null&lt;/code&gt; w przypadku braku&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/15763358/difference-between-htmlcollection-nodelists-and-arrays-of-objects&lt;/p&gt;
+&lt;p&gt;https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-75708506&lt;/p&gt;
+&lt;p&gt;https://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-536297177&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/jsref/prop_node_nodetype.asp&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="dom"></category><category term="kolekcje węzłów DOM"></category><category term="kolekcja węzłów DOM"></category><category term="collection of DOM nodes"></category></entry><entry><title>JavaScript - wydarzenia DOM cz. 2 - propagacja</title><link href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-2.html" rel="alternate"></link><published>2020-05-04T11:00:00+02:00</published><updated>2020-05-04T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-04:/zfrontu/js-wydarzenia-dom-2.html</id><summary type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
 &lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Propagacja wydarzeń (w górę) - event bubbling&lt;/h3&gt;
 &lt;p&gt;W DOM domyślnie wydarzenia są przenoszone od dziecka lub rodzeństwa do rodzica lub rodzeństwa - oznacza to, że jeśli rodzic oraz dziecko mają nastawioną ten sam rodzaj akcji wywołującej (np. click) oraz różne lub tą samą wydarzenie wywołane, oba z nich dojdą do skutku chyba, że dojdzie do przerwania propagacji - oznacza to również, że wydarzeni, do której doszło na dziecku może wywoływać akcję na rodzicu ( w takim przypadku wystarczy jedynie ustawienie eventListener na rodzicu), a propagacja zachodzi również pomiędzy rodzeństwem.&lt;/p&gt;
 &lt;p&gt;Przeciwieństwem &lt;em&gt;event bubbling&lt;/em&gt; jest &lt;em&gt;event capturing&lt;/em&gt; - przekazywanie danych w dół drzewa DOM (domyślna np. dla focus)&lt;/p&gt;
@@ -778,7 +882,7 @@ li.appendChild(link)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;code&gt;.nextSibling&lt;/code&gt; - kolejne rodzeństwo będące węzłem&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.nextSibling&lt;/code&gt; - kolejne rodzeństwo (sibling) będące węzłem&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.nextSiblingElement&lt;/code&gt; - kolejne rodzeństwo będące elementem&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.perviousSibling&lt;/code&gt; - poprzedzające rodzeństwo będące węzłem&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.previousSiblingElement&lt;/code&gt; - poprzedzające rodzeństwo będące elementem // jak w innych przypadkach zwraca &lt;code&gt;null&lt;/code&gt; w przypadku braku&lt;/p&gt;
@@ -787,7 +891,7 @@ li.appendChild(link)
 &lt;p&gt;&lt;a href="ttps://mtomchuck.github.io/monster-village/dist/"&gt;GRA&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/en-US/do&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="selektory"></category><category term="dom"></category><category term="elementy dom"></category></entry><entry><title>JavaScript - obiekt window i document</title><link href="https://kostyrko.github.io/zfrontu/js-obiekt-window-document.html" rel="alternate"></link><published>2020-04-30T10:00:00+02:00</published><updated>2020-04-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-30:/zfrontu/js-obiekt-window-document.html</id><summary type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Wybrane metody obiektu window (globalny) -&amp;gt;&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/do&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="selektory"></category><category term="dom"></category><category term="elementy dom"></category><category term="sibling"></category></entry><entry><title>JavaScript - obiekt window i document</title><link href="https://kostyrko.github.io/zfrontu/js-obiekt-window-document.html" rel="alternate"></link><published>2020-04-30T10:00:00+02:00</published><updated>2020-04-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-30:/zfrontu/js-obiekt-window-document.html</id><summary type="html">&lt;p&gt;Obiekt &lt;em&gt;document&lt;/em&gt; jest częścią obiektu &lt;em&gt;window&lt;/em&gt; i został opisany poniżej. Wybrane metody obiektu window (globalny) -&amp;gt;&lt;/p&gt;
 &lt;h3&gt;Window&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;alert()&lt;/code&gt; - pokazuje się okienko z ostrzeżeniem&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello world&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -2014,10 +2118,25 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zwraca&lt;/span&gt; &lt;span class="nv"&gt;pierwszy&lt;/span&gt; &lt;span class="nv"&gt;wynik&lt;/span&gt;
-&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;find&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;find&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;under50&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;find&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;arr&lt;/span&gt;.&lt;span class="nv"&gt;find&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;under50&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;find&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;alternatywny zapis (zwracaj pierwszy wynik poniżej 50)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;find&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowe zastosowanie z projektu &lt;code&gt;To Do App&lt;/code&gt;[z tablicy wszystkich zadań (allTasks) znajdź to, którego data-priority jest niższe od nowo tworzonego zadania(newTask)]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;allTasks&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; 
+  &lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newTask&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;priority&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;priority&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="https://github.com/kostyrko/JS-apps/tree/master/1_task_list_app/2_task_app"&gt;Repo całego kodu projektu&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;callback&lt;/code&gt; - funkcja wywołująca się na każdym elemencie&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;forEach&lt;/code&gt;&lt;/strong&gt; - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&amp;gt; zwraca &lt;code&gt;undefined&lt;/code&gt;, ale po drodze wywołuje wynik akcji&lt;/p&gt;
@@ -2949,7 +3068,8 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Źródło:&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://uxplanet.org/the-ground-breaking-possibilities-with-neumorphism-9ed9e64c2513&lt;/p&gt;
 &lt;p&gt;https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6&lt;/p&gt;
 &lt;p&gt;https://pl.wikipedia.org/wiki/Skeumorfizm&lt;/p&gt;
@@ -3445,7 +3565,12 @@ Selektor klasy poprzedzony jest kropką &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;e &amp;gt; p&lt;/code&gt;&lt;/strong&gt; - element "p" będący &lt;strong&gt;dzieckiem&lt;/strong&gt; elementu "e"&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;e + p&lt;/code&gt;&lt;/strong&gt; - element "e" bezpośrednio poprzedzony elementem "e"&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;e ~ p&lt;/code&gt;&lt;/strong&gt; - element "e" poprzedzany przez element "p"&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;p&gt;li .taskBtn ~ .taskBtn {
+  color: white;
+  background-color: green;
+  }&lt;/p&gt;
+&lt;h2&gt;::: wszystkie elementy będące dzieckiem elementu li poprzedzone elementem z klasą .taskBtn&lt;/h2&gt;
 &lt;h3&gt;Selektory atrybutów&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;e[atrybut]&lt;/code&gt;&lt;/strong&gt; - element zawierający wybrany atrybut&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
@@ -4051,7 +4176,151 @@ install-jetbrains-mono-in-debian-ubuntu/&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Polish - Code Spell Checker&lt;/strong&gt; (Street Side Software) - sprawdza błędy ortograficzne w języku polskim&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Project Manager&lt;/strong&gt; (Alessandro Fragnani) - na bocznym pasku pojawia się nowa ikona folderu i dzięki niej mamy szybki dostęp do wybranych projektów&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;==&amp;gt; Quokka.js &amp;lt;==&lt;/strong&gt; (Wallaby.js) - wymaga instalacji node.js a dzięki niej w głównym oknie VSC będzie wywoływany JS - Gorąco polecam!!!
- - sprawdź również Quokka Statusbar Buttons (Skethcbuch)&lt;/p&gt;</content><category term="VSC"></category><category term="vsc"></category><category term="visual studio code"></category><category term="visual studio"></category></entry><entry><title>Visual Studio Code - skróty klawiszowe</title><link href="https://kostyrko.github.io/zfrontu/vsc-skroty-klawiszowe.html" rel="alternate"></link><published>2020-03-27T21:00:00+01:00</published><updated>2020-03-27T21:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-27:/zfrontu/vsc-skroty-klawiszowe.html</id><summary type="html">&lt;p&gt;Przydatne skróty klawiszowe o których warto pamiętać korzystając z Visual Studio Code&lt;/p&gt;
+ - sprawdź również Quokka Statusbar Buttons (Skethcbuch)&lt;/p&gt;</content><category term="VSC"></category><category term="vsc"></category><category term="visual studio code"></category><category term="visual studio"></category></entry><entry><title>Visual Studio Code - Emmet</title><link href="https://kostyrko.github.io/zfrontu/vsc-emmet.html" rel="alternate"></link><published>2020-03-28T21:00:00+01:00</published><updated>2020-03-28T21:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-28:/zfrontu/vsc-emmet.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Emmet&lt;/em&gt; jest zbiorem wtyczek, które pozwalają na szybkie kodowanie (html,xml,css) przy pomocy wykorzystania pojawiających się podpowiedzi rozpoznających wpisane skróty. Nazwa ma być nawiązaniem do brzmienia wyrazu mrówka w j. angielskim (Ant) - owada potrafiącego przenieść przedmioty ważące wielokrotnie więcej od niej samej.&lt;/p&gt;
+&lt;p&gt;Emmet jest "wbudowany" w Visual Studio Code …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Emmet&lt;/em&gt; jest zbiorem wtyczek, które pozwalają na szybkie kodowanie (html,xml,css) przy pomocy wykorzystania pojawiających się podpowiedzi rozpoznających wpisane skróty. Nazwa ma być nawiązaniem do brzmienia wyrazu mrówka w j. angielskim (Ant) - owada potrafiącego przenieść przedmioty ważące wielokrotnie więcej od niej samej.&lt;/p&gt;
+&lt;p&gt;Emmet jest "wbudowany" w Visual Studio Code i nie wymaga instalacji wtyczek i faktycznie pozwala na szybkie tworzenie przy pomocy pojedynczych linii całych bloków kodu&lt;/p&gt;
+&lt;p&gt;&lt;img alt="demo działania emeta" src="https://code.visualstudio.com/assets/docs/editor/emmet/emmet.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie &lt;em&gt;Emmeta&lt;/em&gt; oraz jego wyniki: &lt;/p&gt;
+&lt;h4&gt;HTML&lt;/h4&gt;
+&lt;p&gt;0) HTML&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;!&lt;/code&gt; - wystarczy wpisać pojedynczy wykrzyknik aby pojawiła się podstawowe elementy strony HTML&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="na"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;en&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Document&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;1) Dzieci, rodzeństwo i multiplikacja&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; - dziecko&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;+&lt;/code&gt; - rodzeństwo&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; - multiplikacja elementów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nav&amp;gt;ul&amp;gt;li+li
+
+&lt;span class="nt"&gt;&amp;lt;nav&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt; 
+    &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+
+--------
+
+nav&amp;gt;ul&amp;gt;li*3
+
+&lt;span class="nt"&gt;&amp;lt;nav&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2) Grupowane&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;()&lt;/code&gt; - grupowanie elementów pozwala na tworzenie kodu w sposób blokowy (np. dodania rodzeństwa do ustrukturyzowanego wielowarstwowo bloku)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;div&amp;gt;(div&amp;gt;ul&amp;gt;li*2)+div
+
+&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3) Przechodzenie poziom wyżej (do rodzica)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;^&lt;/code&gt; - pozwala na przejście o poziom wyżej // pozwala na multiplikację znajku ^^ - rodzic rodzica etc.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;div+div&amp;gt;p&amp;gt;span^p
+
+&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+div+div&amp;gt;p&amp;gt;span^^div
+
+&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4) Klasy, id, numeracja&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.&lt;/code&gt; - nazwa klasy powinna być poprzedzona kropką&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#&lt;/code&gt; - nazwa id powinna być poprzedzona haszem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;div.container
+
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+---
+
+div#container
+
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+---
+
+div.container.container2
+
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container container2&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+---
+
+div#container1.container
+
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;5) Atrybuty&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[]&lt;/code&gt; - kwadratowe nawiasy powinny być poprzedzone odpowiednim tagiem i zawierać w sobie odpowiedni atrybut&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;p[value=&amp;#39;1&amp;#39;]
+
+&lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+
+---
+
+[value=&amp;#39;1&amp;#39;]
+
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;6) Automatyczna numeracja&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$&lt;/code&gt; - numeracja powinna być poprzedzona znakiem dolara, po niej następuje odpowiednie wyrażenie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ul&amp;gt;li.item$*3
+
+&lt;span class="nt"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;item1&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;item2&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;item3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;!-- #### CSS --&gt;
+
+&lt;hr&gt;
+&lt;h3&gt;Źródło:&lt;/h3&gt;
+&lt;p&gt;https://code.visualstudio.com/docs/editor/emmet&lt;/p&gt;
+&lt;p&gt;https://docs.emmet.io/cheat-sheet/&lt;/p&gt;
+&lt;p&gt;https://en.wikipedia.org/wiki/Emmet_(software)&lt;/p&gt;</content><category term="VSC"></category><category term="vsc"></category><category term="emmet"></category><category term="html"></category><category term="css"></category><category term="szybkie kodowanie"></category><category term="code snippets"></category><category term="szybkie pisanie"></category></entry><entry><title>Visual Studio Code - skróty klawiszowe</title><link href="https://kostyrko.github.io/zfrontu/vsc-skroty-klawiszowe.html" rel="alternate"></link><published>2020-03-27T21:00:00+01:00</published><updated>2020-03-27T21:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-27:/zfrontu/vsc-skroty-klawiszowe.html</id><summary type="html">&lt;p&gt;Przydatne skróty klawiszowe o których warto pamiętać korzystając z Visual Studio Code&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;

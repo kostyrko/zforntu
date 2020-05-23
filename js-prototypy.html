@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="In statu nascendi Składnia rozwinięcie (ang. spread sytnax) - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) gdzie oczekiwane jest zero lub więcej argumentów. Ostatni wpisany parametr z listy i będzie przypisany jako domyślny dla wszystkich Spread Operator Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych do tablicy let arr = [...HTML-collection …" />
-<meta name="keywords" content="javascript, js, array">
+<meta name="description" content="Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako spread operator lub parametr rest. Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map. Spread Operator Dzieli kolekcję tworząc tablicę Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast …" />
+<meta name="keywords" content="javascript, js, array, tablica, ES6, ES2015">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="JavaScript i trzykropek (...)"/>
-<meta property="og:description" content="In statu nascendi Składnia rozwinięcie (ang. spread sytnax) - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) gdzie oczekiwane jest zero lub więcej argumentów. Ostatni wpisany parametr z listy i będzie przypisany jako domyślny dla wszystkich Spread Operator Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych do tablicy let arr = [...HTML-collection …"/>
+<meta property="og:description" content="Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako spread operator lub parametr rest. Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map. Spread Operator Dzieli kolekcję tworząc tablicę Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-prototypy.html"/>
 <meta property="og:type" content="article"/>
@@ -67,6 +67,9 @@
 <meta property="article:tag" content="javascript"/>
 <meta property="article:tag" content="js"/>
 <meta property="article:tag" content="array"/>
+<meta property="article:tag" content="tablica"/>
+<meta property="article:tag" content="ES6"/>
+<meta property="article:tag" content="ES2015"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; JavaScript i trzykropek (...)</title>
@@ -134,21 +137,89 @@
     <p>
       Opublikowano czw 21 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
 
   <div>
-    <hr>
-<h2>In statu nascendi</h2>
-<p>Składnia rozwinięcie (ang. spread sytnax) - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego)
-gdzie oczekiwane jest zero lub więcej argumentów.</p>
-<p>Ostatni wpisany parametr z listy i będzie przypisany jako domyślny dla wszystkich</p>
+    <p>Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako <code>spread</code> operator lub parametr <code>rest</code>. </p>
+<p>Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map.</p>
 <h3>Spread Operator</h3>
-<p>Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych do tablicy</p>
+<p><em>Dzieli kolekcję tworząc tablicę</em></p>
+<p>Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast tworzenia zagnieżdżonej tablicy1 w tablicy2 - tablice2 przyjmuje właściwości tablicy1)</p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
+<span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">],</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
+<span class="n">vs</span>
+<span class="n">const</span> <span class="n">arr3</span> <span class="o">=</span> <span class="p">[...</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;r2d2&#39;</span><span class="p">]</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr3</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">,</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p>Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych (argument) do tablicy lub ze stringa [argument jak i odbiorca mogą być obiektem tablicą, łańcuchem znaków (stringiem), zbiorem lub map]</p>
 <p>let arr = [...HTML-collection]</p>
-<h3>Rest operator</h3>
+<p>Przykładowe zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">sum</span><span class="ss">(</span>...<span class="nv">theArgs</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">theArgs</span>.<span class="nv">reduce</span><span class="ss">((</span><span class="nv">previous</span>, <span class="nv">current</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+      <span class="k">return</span> <span class="nv">previous</span> <span class="o">+</span> <span class="nv">current</span><span class="c1">;</span>
+    }<span class="ss">)</span><span class="c1">;</span>
+  }
+
+  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">sum</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span><span class="ss">))</span><span class="c1">;</span>
+  <span class="o">&gt;&gt;</span> <span class="mi">6</span>
+</code></pre></div>
+
+
+<p>Przy wywoływaniu funkcji i podawaniu jako argumentu tablicy pozwala na jej rozłożenie na pojedyncze argumenty (wyjmuje je z tablicy)</p>
+<p>Przykładowe zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">sum</span><span class="ss">(</span><span class="nv">x</span>, <span class="nv">y</span>, <span class="nv">z</span><span class="ss">)</span> {
+  <span class="k">return</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span> <span class="o">+</span> <span class="nv">z</span><span class="c1">;</span>
+}
+
+<span class="nv">const</span> <span class="nv">numbers</span> <span class="o">=</span> [<span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span>]<span class="c1">; // tablica</span>
+
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">sum</span><span class="ss">(</span>...<span class="nv">numbers</span><span class="ss">))</span><span class="c1">; // rozłożenie tablicy na pojedyncze argumentu</span>
+<span class="o">&gt;&gt;</span> <span class="mi">6</span>
+</code></pre></div>
+
+
+<h3>Rest parameters</h3>
+<p><em>Sumuje poszczególne parametry (w) tworząc tablicę</em></p>
+<p>Pozwala na wskazanie możliwości zastosowania nieokreślonej liczby argumentów, w funkcji, które zostaną zamienione w tablicę. Pozwala również na podanie poprzedzających parametrów nazwanych (te wówczas nie znają się w tablicy).</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">myFunc</span><span class="ss">(</span><span class="nv">a</span>, <span class="nv">b</span>, ...<span class="nv">args</span><span class="ss">)</span> {
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span><span class="c1">; // 22</span>
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">b</span><span class="ss">)</span><span class="c1">; // 98</span>
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">args</span><span class="ss">)</span><span class="c1">; // [43, 3, 26]</span>
+}<span class="c1">;</span>
+<span class="nv">myFunc</span><span class="ss">(</span><span class="mi">22</span>, <span class="mi">98</span>, <span class="mi">43</span>, <span class="mi">3</span>, <span class="mi">26</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="o">-------------------</span>
+
+<span class="nv">function</span> <span class="nv">myFunc</span><span class="ss">(</span>...<span class="nv">args</span><span class="ss">)</span> {
+<span class="nv">args</span>.<span class="nv">forEach</span><span class="ss">(</span> <span class="nv">a</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">a</span><span class="ss">))</span>
+<span class="k">return</span> <span class="nv">args</span>
+}
+
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span><span class="ss">))</span>
+
+<span class="o">&gt;&gt;</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;</span>  <span class="mi">2</span>
+<span class="o">&gt;&gt;</span>  <span class="mi">3</span>
+<span class="o">&gt;&gt;</span>  [<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>]
+
+<span class="o">----</span>
+
+<span class="nv">function</span> <span class="nv">myFunc</span><span class="ss">(</span>...[<span class="nv">x</span>, <span class="nv">y</span>, <span class="nv">z</span>]<span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span> <span class="o">+</span> <span class="nv">z</span><span class="c1">;</span>
+  }
+
+  <span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>          <span class="o">//</span> <span class="nv">NaN</span> <span class="o">-</span> <span class="nv">brak</span> <span class="nv">agrument</span>ó<span class="nv">w</span>
+  <span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span><span class="ss">)</span>    <span class="o">//</span> <span class="mi">6</span>
+  <span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span>, <span class="mi">4</span><span class="ss">)</span> <span class="o">//</span> <span class="mi">6</span> <span class="o">-</span> <span class="nv">tylko</span> <span class="nv">pierwsze</span> <span class="nv">trzy</span> <span class="nv">s</span>ą <span class="nv">brane</span> <span class="nv">pod</span> <span class="nv">uwag</span>ę
+</code></pre></div>
+
+
 <p>Źródła:</p>
 <p>https://dev.to/sagar/three-dots---in-javascript-26ci</p>
 <p>https://dev.to/blacksonic/the-tale-of-three-dots-in-javascript-4287</p>
@@ -160,6 +231,9 @@ gdzie oczekiwane jest zero lub więcej argumentów.</p>
       <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/array.html">array</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/tablica.html">tablica</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/es6.html">ES6</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/es2015.html">ES2015</a>
     </p>
   </div>
 
