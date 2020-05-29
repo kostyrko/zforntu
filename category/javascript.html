@@ -66,6 +66,14 @@
   <!-- ASIDE -->
   
   <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
     <div>
       <a href="https://kostyrko.github.io/zfrontu">
         <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
@@ -120,7 +128,56 @@
 
 <article>
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/js-prototypy.html">JavaScript i trzykropek (...)</a></h2>
+    <h2><a href="https://kostyrko.github.io/zfrontu/js-gulp.html">JavaScript - Gulp</a></h2>
+    <p>
+      Opublikowano czw 28 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li"></p>
+<p>Gulp</p>
+<p>Instalacja globalna</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="c1">--global gulp-cli</span>
+</code></pre></div>
+
+
+<p>Inicjalizujaca</p>
+<p>Z odpowiedzią na pytania
+    npm init</p>
+<p>lub (bez konieczności odpowiedzi)</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
+</code></pre></div>
+
+
+<blockquote>
+<blockquote>
+<p>powstaje package.json plik </p>
+</blockquote>
+</blockquote>
+<p>Instalacja zależności</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="n">gulp</span> <span class="c1">--save-dev</span>
+</code></pre></div>
+
+
+<blockquote>
+<blockquote>
+<p>tworzy folder node_modules (z pobranymi modułami) + package-lock.json</p>
+</blockquote>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">gulp</span><span class="p">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">done</span><span class="p">)</span> <span class="err">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="ss">&quot;HTTP Server Started&quot;</span><span class="p">);</span>
+    <span class="n">done …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-gulp.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/js-trzykropek.html">JavaScript i trzykropek (...)</a></h2>
     <p>
       Opublikowano czw 21 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
@@ -136,7 +193,7 @@
 <p><em>Dzieli kolekcję tworząc tablicę</em></p>
 <p>Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast …</p>
         <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-prototypy.html">Czytaj dalej</a>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-trzykropek.html">Czytaj dalej</a>
   </div>
   <hr />
 </article>
@@ -161,11 +218,10 @@
 <li>comment node</li>
 </ul>
 <h3>NodeList</h3>
-<p>Uporządkowana lista wszystkich węzłów DOM, obiekty można uzyskać poprzez odwołanie się do indeksu</p>
-<p>Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie.</p>
-<p>document.<code>querySelectorAll('div')</code></p>
-<h3>HTML Collection</h3>
-<p>Lista węzłów będących <strong>elementami</strong> - węzeł może być użyty …</p>
+<p>Uporządkowana lista wszystkich węzłów DOM (w tym również węzłów tekstowych oraz bloków tekstowych), obiekty można uzyskać poprzez odwołanie się do indeksu</p>
+<p><code>querySelectorAll()</code>/<code>getElementsByName()</code> - - metody document zwracające NodeList</p>
+<p>NodeList posiada metodę <code>forEach()</code> !!</p>
+<p>NodeList, jest <code>static</code> - zwrócona lista …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-nodelist-htmlcollection.html">Czytaj dalej</a>
   </div>
@@ -626,34 +682,6 @@
 <p>Zadeklarowanie tablicy słowem kluczowym <strong><code>const</code></strong> pozwala na …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-tablice.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/js-metody-liczb.html">JavaScript - metody liczb</a></h2>
-    <p>
-      Opublikowano pią 10 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/liczby.html">liczby</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/numbers.html">numbers</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p>Typ liczbowy (Numbers) posiada przypisane sobie metody - poniżej przedstawiona została część z nich</p>
-<p><code>toString()</code> - dokonuje konwersji na string</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">20</span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>   <span class="o">//</span> <span class="s1">&#39;120&#39;</span> <span class="o">-</span> <span class="n">zwraca</span> <span class="n">sumę</span>
-</code></pre></div>
-
-
-<p><code>toFixed()</code> - pozwala na określenie ilości znajków liczbowych po kropce</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">.</span><span class="mi">656</span><span class="p">;</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">10</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">9</span><span class="p">.</span><span class="mi">66</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">9 …</span></code></pre></div>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-metody-liczb.html">Czytaj dalej</a>
   </div>
 </article>
 

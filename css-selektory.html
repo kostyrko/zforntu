@@ -79,6 +79,14 @@
   <!-- ASIDE -->
   
   <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
     <div>
       <a href="https://kostyrko.github.io/zfrontu">
         <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
@@ -164,16 +172,17 @@ Selektor klasy poprzedzony jest kropką <code>.</code></p>
 <hr>
 <h3>Selektory elementów</h3>
 <p><strong><code>*</code></strong> - każdy element/ selektor uniwersalny</p>
-<p><strong><code>e p</code></strong> - element "p" będący <strong>potomkie</strong>m elementu "e"</p>
-<p><strong><code>e &gt; p</code></strong> - element "p" będący <strong>dzieckiem</strong> elementu "e"</p>
-<p><strong><code>e + p</code></strong> - element "e" bezpośrednio poprzedzony elementem "e"</p>
+<p><strong><code>e p</code></strong> - element "p" będący <strong>potomkiem</strong> elementu "e"</p>
+<p><strong><code>e &gt; p</code></strong> - element "p" będący bezpośrednim <strong>dzieckiem</strong> elementu "e" (wnuki i pra etc. wyłączone)</p>
+<p><strong><code>e + p</code></strong> - element "p" bezpośrednio poprzedzony elementem "e" (rodzeństwo)</p>
 <p><strong><code>e ~ p</code></strong> - element "e" poprzedzany przez element "p"</p>
 <p>Przykładowe zastosowanie</p>
 <p>li .taskBtn ~ .taskBtn {
   color: white;
   background-color: green;
   }</p>
-<h2>::: wszystkie elementy będące dzieckiem elementu li poprzedzone elementem z klasą .taskBtn</h2>
+<p>::: wszystkie elementy będące dzieckiem elementu li poprzedzone elementem z klasą .taskBtn :::</p>
+<hr>
 <h3>Selektory atrybutów</h3>
 <p><strong><code>e[atrybut]</code></strong> - element zawierający wybrany atrybut</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">[</span><span class="n">target</span><span class="o">]</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
@@ -208,8 +217,6 @@ Selektor klasy poprzedzony jest kropką <code>.</code></p>
 <p><strong>Gra selektory</strong></p>
 <p>http://flukeout.github.io/</p>
 <hr>
-<h3>Moce selektorów</h3>
-<p><img alt="Star Wars Selectors" src="https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png"></p>
 <p>Źródło i polecane linki:</p>
 <p>https://the-awwwesomes.gitbooks.io/html-css-step-by-step/content/pl/css-advanced-selectors/index.html</p>
 <p>https://developer.mozilla.org/pl/docs/Web/CSS/Na_pocz%C4%85tek/Selektory</p>

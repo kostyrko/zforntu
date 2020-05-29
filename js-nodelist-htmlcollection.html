@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Kolekcje węzłów DOM Typy węzłów element node attribute node text node comment node NodeList Uporządkowana lista wszystkich węzłów DOM, obiekty można uzyskać poprzez odwołanie się do indeksu Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie. document.querySelectorAll(&#39;div&#39;) HTML Collection Lista węzłów będących elementami - węzeł może być użyty …" />
+<meta name="description" content="Kolekcje węzłów DOM Typy węzłów element node attribute node text node comment node NodeList Uporządkowana lista wszystkich węzłów DOM (w tym również węzłów tekstowych oraz bloków tekstowych), obiekty można uzyskać poprzez odwołanie się do indeksu querySelectorAll()/getElementsByName() - - metody document zwracające NodeList NodeList posiada metodę forEach() !! NodeList, jest static - zwrócona lista …" />
 <meta name="keywords" content="javascript, js, dom, kolekcje węzłów DOM, kolekcja węzłów DOM, collection of DOM nodes">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="DOM: NodeList i HTML Collection"/>
-<meta property="og:description" content="Kolekcje węzłów DOM Typy węzłów element node attribute node text node comment node NodeList Uporządkowana lista wszystkich węzłów DOM, obiekty można uzyskać poprzez odwołanie się do indeksu Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie. document.querySelectorAll(&#39;div&#39;) HTML Collection Lista węzłów będących elementami - węzeł może być użyty …"/>
+<meta property="og:description" content="Kolekcje węzłów DOM Typy węzłów element node attribute node text node comment node NodeList Uporządkowana lista wszystkich węzłów DOM (w tym również węzłów tekstowych oraz bloków tekstowych), obiekty można uzyskać poprzez odwołanie się do indeksu querySelectorAll()/getElementsByName() - - metody document zwracające NodeList NodeList posiada metodę forEach() !! NodeList, jest static - zwrócona lista …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-nodelist-htmlcollection.html"/>
 <meta property="og:type" content="article"/>
@@ -80,6 +80,14 @@
   <!-- ASIDE -->
   
   <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
     <div>
       <a href="https://kostyrko.github.io/zfrontu">
         <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
@@ -152,22 +160,65 @@
 <li>comment node</li>
 </ul>
 <h3>NodeList</h3>
-<p>Uporządkowana lista wszystkich węzłów DOM, obiekty można uzyskać poprzez odwołanie się do indeksu</p>
-<p>Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie.</p>
-<p>document.<code>querySelectorAll('div')</code></p>
-<h3>HTML Collection</h3>
-<p>Lista węzłów będących <strong>elementami</strong> - węzeł może być użyty poprzez odwołanie się do nr indeksu, nazwy węzła lub id atrybutu.</p>
-<p>Kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie.</p>
-<p>Atrybuty: length
-Metody: 
+<p>Uporządkowana lista wszystkich węzłów DOM (w tym również węzłów tekstowych oraz bloków tekstowych), obiekty można uzyskać poprzez odwołanie się do indeksu</p>
+<p><code>querySelectorAll()</code>/<code>getElementsByName()</code> - - metody document zwracające NodeList</p>
+<p>NodeList posiada metodę <code>forEach()</code> !!</p>
+<p>NodeList, jest <code>static</code> - zwrócona lista nie jest odświeżana w przypadku zmian w DOM -&gt; brak detekcji zmian</p>
+<h3>HTMLCollection</h3>
+<p>Lista węzłów (wybranego typu) będących <strong>elementami</strong> - węzeł może być użyty poprzez odwołanie się do nr indeksu, nazwy węzła lub id atrybutu.</p>
+<p>W większości przypadków kolekcja jest odświeżana automatycznie w momencie gdy DOM ulega zmianie.</p>
+<p><code>getElementsByTagName()</code> / <code>getElementsByClassName()</code> - metody document zwracające HTMLCollection</p>
+<p>Posiada atrybut <em>length</em></p>
+<p>Metody: 
 <code>item()</code> - jako argument przyjmuje nr indeksu i zwraca obiekt, zwraca <code>null</code> gdy jest po za zasięgiem (brak elementu o podanym indeksie)
 <code>nameItem()</code> - przyjmuje nazwę obiektu lub jego id i zwraca zwraca obiekt lub <code>null</code> w przypadku braku</p>
+<hr>
+<p>Sprawdź wynik poniższego kodu (<a href="https://dev.to/jharteaga/difference-between-htmlcollection-and-nodelist-25bp">źródło</a>)</p>
+<p>Index.html</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Demo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;list&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;item&quot;</span><span class="p">&gt;</span>Pierwszy Element<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;item&quot;</span><span class="p">&gt;</span>Drugi Element<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;item&quot;</span><span class="p">&gt;</span>Trzeci Element<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;script.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+
+<p>script.js</p>
+<div class="highlight"><pre><span></span><code>//złap element UL
+const list = document.getElementById(&#39;list&#39;);
+
+//Złam element wykorzystując dwie metody oraz jego klasę (two ways)
+const itemsByClassName = document.getElementsByClassName(&#39;item&#39;);
+const itemsByQuerySelector = document.querySelectorAll(&#39;.item&#39;);
+
+console.log(&#39;Pierwszy console log&#39;, itemsByClassName, itemsByQuerySelector);
+
+//dodaj czwarty element
+list.innerHTML += `<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>Czwarty Element<span class="nt">&lt;/li&gt;</span>`;
+
+console.log(&#39;Kolejny console log&#39;, itemsByClassName, itemsByQuerySelector);
+</code></pre></div>
+
+
+<p><strong>Tak, NodeList dalej będzie zawierało 3 elementy podczas gdy HTMLCollection zwróci 4 podczas kolejnego wywoływania zmiennych</strong></p>
 <hr>
 <p>Źródła:</p>
 <p>https://stackoverflow.com/questions/15763358/difference-between-htmlcollection-nodelists-and-arrays-of-objects</p>
 <p>https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-75708506</p>
 <p>https://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-536297177</p>
 <p>https://www.w3schools.com/jsref/prop_node_nodetype.asp</p>
+<p>https://medium.com/@layne_celeste/htmlcollection-vs-nodelist-4b83e3a4fb4b</p>
   </div>
   <div class="tag-cloud">
     <p>

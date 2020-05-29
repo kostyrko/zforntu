@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="min() - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw, %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący. .second-level { width: min(50vw, 400px); } Przykładowo powyższy …" />
+<meta name="keywords" content="css, max, min, clamp, funkcje">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="CSS - max(), min(), clamp()"/>
+<meta property="og:description" content="min() - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw, %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący. .second-level { width: min(50vw, 400px); } Przykładowo powyższy …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-05-24 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="css"/>
+<meta property="article:tag" content="css"/>
+<meta property="article:tag" content="max"/>
+<meta property="article:tag" content="min"/>
+<meta property="article:tag" content="clamp"/>
+<meta property="article:tag" content="funkcje"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; CSS - max(), min(), clamp()</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="css-max-min-clamp">CSS - max(), min(), clamp()</h1>
+    <p>
+      Opublikowano nie 24 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><code>min()</code> - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.</p>
+<div class="highlight"><pre><span></span><code><span class="na">.second-level</span> <span class="err">{</span>
+  <span class="nl">width:</span> <span class="nf">min</span><span class="p">(</span><span class="mi">50</span><span class="no">vw</span><span class="p">,</span> <span class="mi">400</span><span class="no">px</span><span class="p">)</span><span class="c">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>Przykładowo powyższy zapis zakłada, że dany element o klasie <code>second-level</code> będzie miał szerokość 400px do momentu, w którym połowa szerokości ekranu (50vw, innymi słowy gdy ekran jest węższy od 800px) nie będzie mniejsza niż 400px i wówczas przyjmie wartość 50vw.
+Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości ekranu jeśli ten będzie mniejszy niż 800px, a w przypadku szerszych ekranów jego szerokość będzie maksymalnie wynosiła 400px.</p>
+<p>Innymi słowy min() oznacza podanie maksymalnej wartości jaką może mieć dany element</p>
+<hr>
+<p><code>max()</code> - jest funkcją podobną do min() jednak odnosi się do maksymalnej wartości danego elementu - również przyjmuje jedną lub więcej wyrażeń jako parametr. Za wartość, ustawiającą szerokość przyjmuje największą wartość z podanych parametrów</p>
+<p>.second-level {
+      width: max(50vw, 400px);
+  }</p>
+<p>Powyższe wyrażenie zakłada, że dany element o klasie <code>second-level</code> będzie miał szerokość 400px do momentu, w którym połowa ekranu nie będzie większa niż 800 px i wówczas przyjmie wartość połowy szerokości ekranu (50vw). Dla ekranu węższego niż 400px zajmie 100% rodzica.</p>
+<p>Innymi słowy max() oznacza podanie minimalnej (największej w danym momencie) wartości jaką może mieć dany element</p>
+<p>Inny przykład oznacza maksymalną wielkość fontu na stronie, który będzie zależny od jego rozmiaru np.</p>
+<p>p {
+    font-size: max(4vw, 2em, 2rem)
+  }</p>
+<hr>
+<p><code>clamp()</code> - pozwala na zdefiniowanie przedziału, w ramach, które powinien zamknąć się dany element. Przyjmuje trzy wartości - minimalną, preferowaną oraz maksymalną -&gt; clamp(MIN, VAL, MAX). Tym samym istnieje możliwość ustawienia wielkości elementu, który zmieniać się będzie razem z wielkością ekranu ale nie będzie mniejsza niż dana wartość ani większa od innej podanej.</p>
+<p>p {
+    font-size: max(1rem, 2.5vw, 2rem)
+  }</p>
+<hr>
+<p>Źrdóła: </p>
+<p>https://developer.mozilla.org/en-US/docs/Web/CSS/min</p>
+<p>https://developer.mozilla.org/en-US/docs/Web/CSS/max</p>
+<p>https://css-tricks.com/snippets/css/fluid-typography/</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/max.html">max</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/min.html">min</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/clamp.html">clamp</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/funkcje.html">funkcje</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

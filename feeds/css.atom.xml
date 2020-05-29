@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-04-07T11:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS - neumorphism</title><link href="https://kostyrko.github.io/zfrontu/css-neumorphism.html" rel="alternate"></link><published>2020-04-07T11:00:00+02:00</published><updated>2020-04-07T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-neumorphism.html</id><summary type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub też zaokrąglone. Neoumorphism wywodzi się z skeuromorfizmu (gr. skeúos "naczynie, przedmiot" + morphé "postać, kształt") stylistyki, ktra miałą nawiązać do istniejących w świecie realnym przedmiotów.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-24T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo powyższy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo powyższy zapis zakłada, że dany element o klasie &lt;code&gt;second-level&lt;/code&gt; będzie miał szerokość 400px do momentu, w którym połowa szerokości ekranu (50vw, innymi słowy gdy ekran jest węższy od 800px) nie będzie mniejsza niż 400px i wówczas przyjmie wartość 50vw.
+Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości ekranu jeśli ten będzie mniejszy niż 800px, a w przypadku szerszych ekranów jego szerokość będzie maksymalnie wynosiła 400px.&lt;/p&gt;
+&lt;p&gt;Innymi słowy min() oznacza podanie maksymalnej wartości jaką może mieć dany element&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;max()&lt;/code&gt; - jest funkcją podobną do min() jednak odnosi się do maksymalnej wartości danego elementu - również przyjmuje jedną lub więcej wyrażeń jako parametr. Za wartość, ustawiającą szerokość przyjmuje największą wartość z podanych parametrów&lt;/p&gt;
+&lt;p&gt;.second-level {
+      width: max(50vw, 400px);
+  }&lt;/p&gt;
+&lt;p&gt;Powyższe wyrażenie zakłada, że dany element o klasie &lt;code&gt;second-level&lt;/code&gt; będzie miał szerokość 400px do momentu, w którym połowa ekranu nie będzie większa niż 800 px i wówczas przyjmie wartość połowy szerokości ekranu (50vw). Dla ekranu węższego niż 400px zajmie 100% rodzica.&lt;/p&gt;
+&lt;p&gt;Innymi słowy max() oznacza podanie minimalnej (największej w danym momencie) wartości jaką może mieć dany element&lt;/p&gt;
+&lt;p&gt;Inny przykład oznacza maksymalną wielkość fontu na stronie, który będzie zależny od jego rozmiaru np.&lt;/p&gt;
+&lt;p&gt;p {
+    font-size: max(4vw, 2em, 2rem)
+  }&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;clamp()&lt;/code&gt; - pozwala na zdefiniowanie przedziału, w ramach, które powinien zamknąć się dany element. Przyjmuje trzy wartości - minimalną, preferowaną oraz maksymalną -&amp;gt; clamp(MIN, VAL, MAX). Tym samym istnieje możliwość ustawienia wielkości elementu, który zmieniać się będzie razem z wielkością ekranu ale nie będzie mniejsza niż dana wartość ani większa od innej podanej.&lt;/p&gt;
+&lt;p&gt;p {
+    font-size: max(1rem, 2.5vw, 2rem)
+  }&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źrdóła: &lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/min&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/max&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/snippets/css/fluid-typography/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="max"></category><category term="min"></category><category term="clamp"></category><category term="funkcje"></category></entry><entry><title>CSS - neumorphism</title><link href="https://kostyrko.github.io/zfrontu/css-neumorphism.html" rel="alternate"></link><published>2020-04-07T11:00:00+02:00</published><updated>2020-04-07T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-neumorphism.html</id><summary type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub też zaokrąglone. Neoumorphism wywodzi się z skeuromorfizmu (gr. skeúos "naczynie, przedmiot" + morphé "postać, kształt") stylistyki, ktra miałą nawiązać do istniejących w świecie realnym przedmiotów.&lt;/p&gt;
 &lt;p&gt;Polecam &lt;a href="https://neumorphism.io/#55b9f3"&gt;generator tego stylu&lt;/a&gt; do zapoznania się z tym w jaki sposób można uzyskać wyżej opisany efekt&lt;/p&gt;
 &lt;p&gt;Zwróć uwagę, że również ja ten styl zastosowałem na tej stronie. Używając poniższej deklaracji wystylizowałem pasek wyszukiwania&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;f5f5f5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -500,16 +537,17 @@ Selektor klasy poprzedzony jest kropką &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Selektory elementów&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;*&lt;/code&gt;&lt;/strong&gt; - każdy element/ selektor uniwersalny&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;e p&lt;/code&gt;&lt;/strong&gt; - element "p" będący &lt;strong&gt;potomkie&lt;/strong&gt;m elementu "e"&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;e &amp;gt; p&lt;/code&gt;&lt;/strong&gt; - element "p" będący &lt;strong&gt;dzieckiem&lt;/strong&gt; elementu "e"&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;e + p&lt;/code&gt;&lt;/strong&gt; - element "e" bezpośrednio poprzedzony elementem "e"&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e p&lt;/code&gt;&lt;/strong&gt; - element "p" będący &lt;strong&gt;potomkiem&lt;/strong&gt; elementu "e"&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e &amp;gt; p&lt;/code&gt;&lt;/strong&gt; - element "p" będący bezpośrednim &lt;strong&gt;dzieckiem&lt;/strong&gt; elementu "e" (wnuki i pra etc. wyłączone)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;e + p&lt;/code&gt;&lt;/strong&gt; - element "p" bezpośrednio poprzedzony elementem "e" (rodzeństwo)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;e ~ p&lt;/code&gt;&lt;/strong&gt; - element "e" poprzedzany przez element "p"&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;p&gt;li .taskBtn ~ .taskBtn {
   color: white;
   background-color: green;
   }&lt;/p&gt;
-&lt;h2&gt;::: wszystkie elementy będące dzieckiem elementu li poprzedzone elementem z klasą .taskBtn&lt;/h2&gt;
+&lt;p&gt;::: wszystkie elementy będące dzieckiem elementu li poprzedzone elementem z klasą .taskBtn :::&lt;/p&gt;
+&lt;hr&gt;
 &lt;h3&gt;Selektory atrybutów&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;e[atrybut]&lt;/code&gt;&lt;/strong&gt; - element zawierający wybrany atrybut&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
@@ -544,8 +582,6 @@ Selektor klasy poprzedzony jest kropką &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Gra selektory&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;http://flukeout.github.io/&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3&gt;Moce selektorów&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="Star Wars Selectors" src="https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png"&gt;&lt;/p&gt;
 &lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
 &lt;p&gt;https://the-awwwesomes.gitbooks.io/html-css-step-by-step/content/pl/css-advanced-selectors/index.html&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/pl/docs/Web/CSS/Na_pocz%C4%85tek/Selektory&lt;/p&gt;
@@ -953,5 +989,8 @@ Przykładowe zastosowanie:&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"&gt;css-tricks.com&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://grid.malven.co/"&gt;grid.malven.co&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content><category term="css"></category><category term="css"></category><category term="flexbox"></category><category term="pozycjonowanie-css"></category></entry></feed>
