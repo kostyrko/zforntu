@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="RWD - treść stara dopasować sie do wyświetlacza alternatywnie istnieje jeszcze... ADW - Adaptive Web Design -&gt; desing w którym na sztywno tworzy się szerokość strony przypisaną do przedziałów szerokości ekranu (np. 600, 900, 1200px). To pod tą ograniczoną ilości szerokości tworzony jest layout, a ten jest wyświetlana dla zdefiniowanych przedziałów szerokości ekranu …" />
+<meta name="keywords" content="">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="CSS - Responsive Web Design"/>
+<meta property="og:description" content="RWD - treść stara dopasować sie do wyświetlacza alternatywnie istnieje jeszcze... ADW - Adaptive Web Design -&gt; desing w którym na sztywno tworzy się szerokość strony przypisaną do przedziałów szerokości ekranu (np. 600, 900, 1200px). To pod tą ograniczoną ilości szerokości tworzony jest layout, a ten jest wyświetlana dla zdefiniowanych przedziałów szerokości ekranu …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/html-rwd.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-04-06 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="html"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; CSS - Responsive Web Design</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="html-rwd">CSS - Responsive Web Design</h1>
+    <p>
+      Opublikowano pon 06 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/html.html">html</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="RWD" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Diseno-web-responsive-design.jpg"></p>
+<p>RWD - treść stara dopasować sie do wyświetlacza </p>
+<p>alternatywnie istnieje jeszcze...</p>
+<p>ADW - Adaptive Web Design -&gt; desing w którym na sztywno tworzy się szerokość strony przypisaną do przedziałów szerokości ekranu (np. 600, 900, 1200px). To pod tą ograniczoną ilości szerokości tworzony jest layout, a ten jest wyświetlana dla zdefiniowanych przedziałów szerokości ekranu.</p>
+<h3>Relatywne jednostki</h3>
+<p><code>rem</code>- root element odwołuje się do roota, warto wówczas zdefiniować wysokość
+ w html - domyślnie wynosi 16px</p>
+<div class="highlight"><pre><span></span><code><span class="nt">html</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Reszta w rem i html zmieniać w zależności od wielkości ekranu</p>
+<p><code>em</code> - odnosi się do rodzica, ale w przypadku rozmiaru fontu inne wartości em odwołają się do bieżącej wartości em danego elementu</p>
+<p><code>%</code> - może odwoływać się do różnych wartości, w przypadku szerokości będzie odwoływać się procentowo do rodzica. Ta sama zasada odwołuje się do wielkości fontu, jednak w przypadku wysokości obiektu wówczas będzie odwoływać się do wielkości fontu danego obiektu.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">p</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="mi">10</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">line-height</span><span class="p">:</span> <span class="mi">120</span><span class="kt">%</span><span class="p">;</span> <span class="err">//</span> <span class="err">12px</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><code>vh</code> - view hight -&gt; przyjmuje wysokość wyświetlacza
+<code>vw</code>- view width -&gt; przyjmuje szerokość wyświetlacza</p>
+<p>1vmin = 1% (przyjmie tą wartość która jest mniejsza)
+1vmax = 1wv (przyjmie wartość większą)</p>
+<p><img alt="Treść jak woda" src="https://www.weboftwo.com/wp-content/uploads/2017/12/content-is-like-water.png"></p>
+<h3>@media queries - zapytanie o media (ekran)</h3>
+<p>Ustawienia w html tagu <code>meta</code> w <code>head</code> oraz zdefiniowanie <code>content</code> na <code>width=device-width</code> oznacza, to że treść dopasuje się do szerokości ekranu, na którym dana strona jest przeglądana</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="ss">&quot;viewport&quot;</span> <span class="n">content</span><span class="o">=</span><span class="ss">&quot;width=device-width, initial-scale=1.0&quot;</span> <span class="o">/&gt;</span>
+</code></pre></div>
+
+
+<p>Zapytanie o wielkość ekranu osoby korzystającej ze strony poprzedzone jest słowem kluczowym <code>@media</code> następnie należy zapisać warunek oraz przypisać konkretne deklaracje do selektorów wskazujące na zachowanie się układu strony w momencie gdy warunek zostanie spełniony</p>
+<p>Częścią warunku/reguły może być jedno ze słów kluczowych odwołujących się do urządzenie lub ekranu <code>tv</code> (telewizor), <code>screen</code> (ekran), <code>all</code> (wszystkie), <code>print</code> (drukarki), <code>speech</code> (urządzenia czytające), <code>viewport</code> (ekran/domyślnie) lub inne odwołujące się do jego orientacji pionowej (<code>portrait</code>) lub poziomej (<code>landscape</code>)</p>
+<div class="highlight"><pre><span></span><code><span class="n">orientation</span><span class="o">=</span><span class="n">portrait</span>
+
+<span class="n">orientation</span><span class="o">=</span><span class="n">landscape</span>
+</code></pre></div>
+
+
+<hr>
+<h4>Operatory and/,(or)/not/only</h4>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>and</code></td>
+<td>oba warunki muszą być spełnione</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>przy pomocy przecinka <code>,</code></td>
+</tr>
+<tr>
+<td><code>not</code> -</td>
+<td>spełniony jeśli jest negatywny</td>
+</tr>
+<tr>
+<td><code>only</code></td>
+<td>tylko dla</td>
+</tr>
+</tbody>
+</table>
+<h4>Atrybuty</h4>
+<table>
+<thead>
+<tr>
+<th>Atrybut</th>
+<th>Cecha</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>min-width</td>
+<td>minimalna szerokość, od której obowiązują deklaracje</td>
+</tr>
+<tr>
+<td>mix-width</td>
+<td>maksymalna szerokość</td>
+</tr>
+<tr>
+<td>min-height</td>
+<td>minimalna wysokość</td>
+</tr>
+<tr>
+<td>max-height</td>
+<td>maksymalna wysokość</td>
+</tr>
+</tbody>
+</table>
+<p>Przykładowe zastosowanie:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@media</span><span class="w"> </span><span class="p">(</span><span class="nf">min</span><span class="o">-</span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="n">px</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">aside</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="n">vw</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>Łączenie przy pomocy operator <code>and</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">1024px</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">main</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">80</span><span class="kt">vw</span><span class="p">;</span>
+        <span class="c">/* left: 25vw; */</span>
+    <span class="p">}</span>
+    <span class="nt">aside</span> <span class="p">{</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">20</span><span class="kt">vw</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nt">aside</span> <span class="nt">div</span> <span class="p">{</span>
+        <span class="k">padding</span><span class="p">:</span> <span class="mi">25</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Użycie operatora only oraz wskazanie na jedynie ekrany</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nv">@media</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="nf">max</span><span class="o">-</span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="n">px</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">body</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span><span class="w"> </span><span class="n">gray</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
+<h4>Punkty graniczne -&gt; break points</h4>
+<p>Punkty, w których zmienia się układ strony dla których należy stworzyć kolejne zapytani</p>
+<p>Klasyczne punkty graniczne max-width: 600px (smartfon), 768px (tablet), 992px/1024px(tablet poziomo, małe i starsze laptopy), 1200px(większe ekrany)</p>
+<hr>
+<h4>CSS</h4>
+<p>Deklaracje dla poszczególnych szerokości ekranu można przechowywać w osobnych plikach css wówczas należy również dodać właściwość <code>media</code> i wpisanie odpowiedniego warunku w tagu <code>link</code> a następnie przypisać mu konkretny css</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="ss">&quot;stylesheet&quot;</span> <span class="n">media</span><span class="o">=</span><span class="ss">&quot;(min-width: 640px)&quot;</span> <span class="n">href</span><span class="o">=</span><span class="ss">&quot;min-640px.css&quot;</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<hr>
+<h4>@media queries w Sass</h4>
+<p>Można warunki wpisać do zmiennej a następnie je interpolować
+lub stworzenie mixina, który zastępuje media-query (@content)</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nv">@mixin</span><span class="w"> </span><span class="n">tablet</span><span class="o">-</span><span class="n">up</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="nv">@media</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="p">(</span><span class="nf">min</span><span class="o">-</span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="mi">768</span><span class="n">px</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nv">@content</span><span class="p">;</span><span class="w"> </span><span class="err">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p>https://css-tricks.com/viewport-sized-typography/</p>
+<p>https://generatedcontent.org/post/21279324555/viewportunits</p>
+<p>https://developers.google.com/web/fundamentals/design-and-ux/responsive?hl=pl</p>
+<p>http://blog.kamilbrenk.pl/meta-tag-viewport-kiedy-i-jak-uzywac/</p>
+<p>https://getflywheel.com/layout/css-breakpoints-responsive-design-how-to/#:~:text=CSS%20breakpoints%20are%20points%20where,adapts%20to%20the%20screen%20size.</p>
+<p>https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp</p>
+<p>Pełna lista zapytań zw. z ekranem</p>
+<p>https://www.w3schools.com/cssref/css3_pr_mediaquery.asp</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

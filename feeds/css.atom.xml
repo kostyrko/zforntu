@@ -18,20 +18,29 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 &lt;p&gt;Innymi słowy min() oznacza podanie maksymalnej wartości jaką może mieć dany element&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;max()&lt;/code&gt; - jest funkcją podobną do min() jednak odnosi się do maksymalnej wartości danego elementu - również przyjmuje jedną lub więcej wyrażeń jako parametr. Za wartość, ustawiającą szerokość przyjmuje największą wartość z podanych parametrów&lt;/p&gt;
-&lt;p&gt;.second-level {
-      width: max(50vw, 400px);
-  }&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Powyższe wyrażenie zakłada, że dany element o klasie &lt;code&gt;second-level&lt;/code&gt; będzie miał szerokość 400px do momentu, w którym połowa ekranu nie będzie większa niż 800 px i wówczas przyjmie wartość połowy szerokości ekranu (50vw). Dla ekranu węższego niż 400px zajmie 100% rodzica.&lt;/p&gt;
 &lt;p&gt;Innymi słowy max() oznacza podanie minimalnej (największej w danym momencie) wartości jaką może mieć dany element&lt;/p&gt;
 &lt;p&gt;Inny przykład oznacza maksymalną wielkość fontu na stronie, który będzie zależny od jego rozmiaru np.&lt;/p&gt;
-&lt;p&gt;p {
-    font-size: max(4vw, 2em, 2rem)
-  }&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;clamp()&lt;/code&gt; - pozwala na zdefiniowanie przedziału, w ramach, które powinien zamknąć się dany element. Przyjmuje trzy wartości - minimalną, preferowaną oraz maksymalną -&amp;gt; clamp(MIN, VAL, MAX). Tym samym istnieje możliwość ustawienia wielkości elementu, który zmieniać się będzie razem z wielkością ekranu ale nie będzie mniejsza niż dana wartość ani większa od innej podanej.&lt;/p&gt;
-&lt;p&gt;p {
-    font-size: max(1rem, 2.5vw, 2rem)
-  }&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;Źrdóła: &lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/min&lt;/p&gt;
@@ -49,7 +58,43 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 &lt;p&gt;https://uxplanet.org/the-ground-breaking-possibilities-with-neumorphism-9ed9e64c2513&lt;/p&gt;
 &lt;p&gt;https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6&lt;/p&gt;
 &lt;p&gt;https://pl.wikipedia.org/wiki/Skeumorfizm&lt;/p&gt;
-&lt;p&gt;https://css-tricks.com/neumorphism-and-css/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="neumorphism"></category><category term="style"></category><category term="ux"></category></entry><entry><title>CSS - wyśrodkowany układ strony</title><link href="https://kostyrko.github.io/zfrontu/css-wysrodkowany-uklad-strony.html" rel="alternate"></link><published>2020-04-07T10:00:00+02:00</published><updated>2020-04-07T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-wysrodkowany-uklad-strony.html</id><summary type="html">&lt;p&gt;Jednym popularniejszych obecnie stosowanych układów stron internetowych jest oparty na wyśrodkowanej treści - dzięki temu treść strony nie rozjeżdża się na boki przy większych ekranach.&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/neumorphism-and-css/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="neumorphism"></category><category term="style"></category><category term="ux"></category></entry><entry><title>CSS - centrowanie treści</title><link href="https://kostyrko.github.io/zfrontu/css-centrowanie-tresci.html" rel="alternate"></link><published>2020-04-07T10:00:00+02:00</published><updated>2020-04-07T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-centrowanie-tresci.html</id><summary type="html">&lt;p&gt;Istnieje parę sposobów na to w jaki sposób można wycentrować treść, na środku strony w taki sposób aby znajdowała na środku strony.&lt;/p&gt;
+&lt;p&gt;Można to zrobić łątwo przy pomocy flexboxa, ale gdy nie chcemy zmieniać deklaracji 'rodzeństwa' (rodzica) danego elementu wówczas nie będzie to możliwe.&lt;/p&gt;
+&lt;p&gt;Bez jakiejkolwiek ingerencji w deklaracje przypisaną …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Istnieje parę sposobów na to w jaki sposób można wycentrować treść, na środku strony w taki sposób aby znajdowała na środku strony.&lt;/p&gt;
+&lt;p&gt;Można to zrobić łątwo przy pomocy flexboxa, ale gdy nie chcemy zmieniać deklaracji 'rodzeństwa' (rodzica) danego elementu wówczas nie będzie to możliwe.&lt;/p&gt;
+&lt;p&gt;Bez jakiejkolwiek ingerencji w deklaracje przypisaną do rodzica możemy skorzystać z pomocy marginesów oraz jednostek relatywnych np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.centered_text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;-50&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;; //  powinna być połowa wysokości obiektu &lt;/span&gt;
+&lt;span class="nl"&gt;margin-left:&lt;/span&gt; &lt;span class="err"&gt;-100&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;; // połowa szerokości obiektu&lt;/span&gt;
+&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="nl"&gt;margin-lef:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lub można również wykorzystać pozycjonować przy pomocy absolute&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.&lt;span class="nv"&gt;centered_text&lt;/span&gt; {
+  &lt;span class="nv"&gt;position&lt;/span&gt;: &lt;span class="nv"&gt;absolutne&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;top&lt;/span&gt;: &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="nv"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
+  &lt;span class="nv"&gt;left&lt;/span&gt;: &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="nv"&gt;vw&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
+  &lt;span class="nv"&gt;transform&lt;/span&gt;: &lt;span class="nv"&gt;translate&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;, &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // zmień pozycję o połowę rozmiaru wysokość i szerokość&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W obu przypadkach wymagana jest transformacja pozycjonowanego elementu w taki sposób aby znajdował się on na środku ponieważ powyższymi deklaracjami wskazujemy na lewy górny róg danego elementu - stąd należy od odpowiednio wyrównać aby znalazł się na środku a nie był przesunięty w prawo i w dół o własną wysokość i szerokość.&lt;/p&gt;
+&lt;p&gt;Być może lepszy rozwiązaniem jest zatem ustawienie marginesu na auto i jedynie kontrola marginesu od góry:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.centered_text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródło:&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_align.asp&lt;/p&gt;
+&lt;p&gt;https://www.freecodecamp.org/news/how-to-center-things-with-style-in-css-dc87b7542689/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="centrowanie"></category><category term="wyśrodkowanie"></category></entry><entry><title>CSS - wyśrodkowany układ strony</title><link href="https://kostyrko.github.io/zfrontu/css-wysrodkowany-uklad-strony.html" rel="alternate"></link><published>2020-04-07T10:00:00+02:00</published><updated>2020-04-07T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-wysrodkowany-uklad-strony.html</id><summary type="html">&lt;p&gt;Jednym popularniejszych obecnie stosowanych układów stron internetowych jest oparty na wyśrodkowanej treści - dzięki temu treść strony nie rozjeżdża się na boki przy większych ekranach.&lt;/p&gt;
 &lt;p&gt;Taki układ można łatwo osiągnąć przy użyciu &lt;code&gt;flexboxa&lt;/code&gt;, odpowiednio zagnieżdżonego &lt;code&gt;div&lt;/code&gt;'a oraz przypisanej mu klasy określającej jego szerokość&lt;/p&gt;
 &lt;p&gt;Przyjmę, że będziemy operować na 3 częściach …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Jednym popularniejszych obecnie stosowanych układów stron internetowych jest oparty na wyśrodkowanej treści - dzięki temu treść strony nie rozjeżdża się na boki przy większych ekranach.&lt;/p&gt;
 &lt;p&gt;Taki układ można łatwo osiągnąć przy użyciu &lt;code&gt;flexboxa&lt;/code&gt;, odpowiednio zagnieżdżonego &lt;code&gt;div&lt;/code&gt;'a oraz przypisanej mu klasy określającej jego szerokość&lt;/p&gt;
@@ -316,8 +361,11 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;hr&gt;
 &lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
-&lt;p&gt;https://tympanus.net/codrops/css_reference/calc/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="calc"></category><category term="length"></category><category term="angles"></category><category term="time"></category><category term="number"></category><category term="integer"></category></entry><entry><title>CSS:pseudo-klasy</title><link href="https://kostyrko.github.io/zfrontu/css-pseudo-klasy.html" rel="alternate"></link><published>2020-04-02T10:00:00+02:00</published><updated>2020-04-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-02:/zfrontu/css-pseudo-klasy.html</id><summary type="html">&lt;p&gt;Pseudo klasy pozwalają na wprowadzenie interaktywnego zachowania się strony przy pomocy CSS, przy pomocy tej deklaracji w zależności od zdefiniowanej sytuacji/stanu dany obiekt może przyjąć inny wygląd. Istotne jest to że deklaracja pseudoklasy poprzedzona jest dwukropkiem &lt;code&gt;:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;https://tympanus.net/codrops/css_reference/calc/&lt;/p&gt;
+&lt;p&gt;Pełen spis referencji CSS&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/cssref/default.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="calc"></category><category term="length"></category><category term="angles"></category><category term="time"></category><category term="number"></category><category term="integer"></category></entry><entry><title>CSS:pseudo-klasy</title><link href="https://kostyrko.github.io/zfrontu/css-pseudo-klasy.html" rel="alternate"></link><published>2020-04-02T10:00:00+02:00</published><updated>2020-04-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-02:/zfrontu/css-pseudo-klasy.html</id><summary type="html">&lt;p&gt;Pseudo klasy pozwalają na wprowadzenie interaktywnego zachowania się strony przy pomocy CSS, przy pomocy tej deklaracji w zależności od zdefiniowanej sytuacji/stanu dany obiekt może przyjąć inny wygląd. Istotne jest to że deklaracja pseudoklasy poprzedzona jest dwukropkiem &lt;code&gt;:&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Przykładowy schemat zastosowania&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;selektor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;pseudoklasa&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -425,7 +473,7 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 
 &lt;p&gt;&lt;code&gt;::first-line&lt;/code&gt; - pozwala na zadeklarowanie konkretnych cech dla pierwszej linii wybranego tekstu
 [na marginesie przykładowo do identacji tekstu nie trzeba stosować pseudo-elementów, wystarczy np &lt;code&gt;text-indent&lt;/code&gt; ]&lt;/p&gt;
-&lt;p&gt;Do pseudo-selektorów można dodać odpowiednio np. - &lt;code&gt;font&lt;/code&gt;, &lt;code&gt;color&lt;/code&gt;, &lt;code&gt;word-spacing&lt;/code&gt;, &lt;code&gt;background&lt;/code&gt;, t&lt;code&gt;ext-decoration&lt;/code&gt;, &lt;code&gt;line-height&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Do pseudo-selektorów można dodać odpowiednio np. - &lt;code&gt;font&lt;/code&gt;, &lt;code&gt;color&lt;/code&gt;, &lt;code&gt;word-spacing&lt;/code&gt;, &lt;code&gt;background&lt;/code&gt;, &lt;code&gt;text-decoration&lt;/code&gt;, &lt;code&gt;line-height&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::first-letter&lt;/code&gt; - zadeklarowanie konkretnej cechy dla pierwszej litery&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::after&lt;/code&gt; - reprezentuje ostatnie dziecko wybranego elementu/ podstawową właściwością jest &lt;code&gt;content&lt;/code&gt; w ramach, której definiowana jest zawartość dodawanego elementu np. tekst lub link do obrazu&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie dodające określony tekst po tekście zawartym w wybranym paragrafie&lt;/p&gt;
@@ -466,8 +514,9 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 
 
 &lt;p&gt;Pełna lista (łącznie z jeszcze nie w pełni wdrożonymi pseudoelementeami) znajduje się &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements"&gt;tutaj&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Źródło i polecane linki:
-https://blog.logrocket.com/a-guide-to-css-pseudo-elements/&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://blog.logrocket.com/a-guide-to-css-pseudo-elements/&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements&lt;/p&gt;
 &lt;p&gt;https://www.w3schools.com/css/css_pseudo_elements.asp&lt;/p&gt;
 &lt;p&gt;https://css-tricks.com/almanac/selectors/a/after-and-before/&lt;/p&gt;

@@ -1,102 +1,727 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-28T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - Gulp</title><link href="https://kostyrko.github.io/zfrontu/js-gulp.html" rel="alternate"></link><published>2020-05-28T10:00:00+02:00</published><updated>2020-05-28T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-28:/zfrontu/js-gulp.html</id><summary type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li"&gt;&lt;/p&gt;
-&lt;p&gt;Gulp&lt;/p&gt;
-&lt;p&gt;Instalacja globalna&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-01T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - przechowywanie danych lokalnie i w sesji</title><link href="https://kostyrko.github.io/zfrontu/js-przechowywanie-danych-lokalnie.html" rel="alternate"></link><published>2020-06-01T10:00:00+02:00</published><updated>2020-06-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-01:/zfrontu/js-przechowywanie-danych-lokalnie.html</id><summary type="html">&lt;p&gt;Lokalna pamięć przeglądarki pozwala na przechowywanie danych przy pomocy JavaScript bezterminowo.&lt;/p&gt;
+&lt;p&gt;Dane przechowywane w lokalnej pamięci przeglądarki nie mogą przekroczyć 5mb i nie powinny znajdować się w nich dane poufne.
+Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zapytania po kolei).&lt;/p&gt;
+&lt;p&gt;Aby korzystać z tzw &lt;code&gt;local storage&lt;/code&gt; (LS) można …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Lokalna pamięć przeglądarki pozwala na przechowywanie danych przy pomocy JavaScript bezterminowo.&lt;/p&gt;
+&lt;p&gt;Dane przechowywane w lokalnej pamięci przeglądarki nie mogą przekroczyć 5mb i nie powinny znajdować się w nich dane poufne.
+Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zapytania po kolei).&lt;/p&gt;
+&lt;p&gt;Aby korzystać z tzw &lt;code&gt;local storage&lt;/code&gt; (LS) można wykorzystać jedną z 5 dostępnych metod.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metoda&lt;/th&gt;
+&lt;th&gt;główna cecha&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;setItem()&lt;/td&gt;
+&lt;td&gt;Dodaj element (klucz oraz wartość)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;getItem()&lt;/td&gt;
+&lt;td&gt;Zwraca element po kluczu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;removeItem()&lt;/td&gt;
+&lt;td&gt;Usuwa element po kluczu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clear()&lt;/td&gt;
+&lt;td&gt;Czyści pamięć LS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;key()&lt;/td&gt;
+&lt;td&gt;pozwala na pozyskanie klucza z obiektu znajdującego się z LS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;localStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;droid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;localStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;droid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;r2d2&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Istotne jest to że pamięć lokalna przeglądarki może przechowywać jedynie łańcuchy znaków (stringi) w tym również stringi JSON
+stąd często stosuje się metody interpolujące obiekty lub tablice do tego formatu stosując metody &lt;code&gt;JSON.stringify()&lt;/code&gt; zmień w JSON string oraz &lt;code&gt;JSON.parse()&lt;/code&gt; (tworzy obiekt opisany przez JSON string)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;newDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;r2d2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Astromech droid&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;localStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;newDroid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newDroid&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+
+&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;localStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;newDroid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;{&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;,&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;Astromech&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;}&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Konwersja w obiekt&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;localStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;user&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;r2d2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Astromech droid&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;r2d2&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Astromech droid&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;__proto__&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;Object&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowe zastosowanie w aplikacji - zapisanie elementu jako częsci tablicy &lt;code&gt;tasks&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;źródło kodu: &lt;a href="https://github.com/bradtraversy/modern_js_udemy_projects/blob/master/tasklist_project/app.js"&gt;org repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;function storeTaskInLocalStorage(task) {
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+      tasks = [];
+    } else {
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(task);&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;localStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tasks&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tasks&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;usunięcie elementu z lokalnej pamięci&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;removeTaskFromLocalStorage&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;taskItem&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;tasks&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;localStorage&lt;/span&gt;.&lt;span class="nv"&gt;getItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;tasks&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+    &lt;span class="nv"&gt;tasks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; []&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;tasks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;localStorage&lt;/span&gt;.&lt;span class="nv"&gt;getItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;tasks&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;tasks&lt;/span&gt;.&lt;span class="nv"&gt;forEach&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;task&lt;/span&gt;, &lt;span class="nv"&gt;index&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;taskItem&lt;/span&gt;.&lt;span class="nv"&gt;textContent&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+      &lt;span class="nv"&gt;tasks&lt;/span&gt;.&lt;span class="nv"&gt;splice&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt;, &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+  &lt;span class="nv"&gt;localStorage&lt;/span&gt;.&lt;span class="nv"&gt;setItem&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;tasks&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;tasks&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;http://kursjs.pl/kurs/storage/storage.php&lt;/p&gt;
+&lt;p&gt;https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="local storage"></category><category term="przechowywanie danych lokalnie"></category></entry><entry><title>Sass - wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/saas-wprowadzenie.html" rel="alternate"></link><published>2020-05-29T10:00:00+02:00</published><updated>2020-05-29T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-29:/zfrontu/saas-wprowadzenie.html</id><summary type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC&lt;/p&gt;
+&lt;p&gt;pliki sassowe mają rozszerzenie &lt;code&gt;.sass&lt;/code&gt; lub &lt;code&gt;.scss&lt;/code&gt;. Starsza wersja Sass nie zwierała …&lt;/p&gt;</summary><content type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"&gt;&lt;/p&gt;
+&lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC&lt;/p&gt;
+&lt;p&gt;pliki sassowe mają rozszerzenie &lt;code&gt;.sass&lt;/code&gt; lub &lt;code&gt;.scss&lt;/code&gt;. Starsza wersja Sass nie zwierała nawiasów klamrowych i nie posiadała średników te wprowadzono od v. 3&lt;/p&gt;
+&lt;p&gt;Sass&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nav&lt;/span&gt;
+    &lt;span class="n"&gt;ul&lt;/span&gt;
+        &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt;
+    &lt;span class="n"&gt;ul&lt;/span&gt;
+        &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;red&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;wersja Scss&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;ul&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;li&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W wyniku kompilacji z Sass na CSS kod może być przedstawiony w 4 następujących formatach
+* nested - styl domyślny, bliski do Sassa gdzie CSS odzwierciedla strukturę obiektów HTML poprzez wcięcia&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;expanded - najbliższy CSS, wcięte są jedynie właściwości&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;compact - właściwości w miarę możliwości kompresowaną, tak aby &lt;em&gt;deklaracja&lt;/em&gt; (np. właściwości z z fontem) zajmowała pojedynczą linię&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;compressed - wszystko jest kompresowane do poszczególnych linii, kolejne elementy oddziela spacja - jakiekolwiek komentarze zawarte w scss NIE będą kompilowane do css&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Style definiuje się poprze użycie parametru &lt;code&gt;outputStyle&lt;/code&gt; lub parametr &lt;code&gt;style&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outputStyle:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nf"&gt;expanded&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nl"&gt;sourceComments:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nf"&gt;map&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="no"&gt;mapowanie&lt;/span&gt; &lt;span class="no"&gt;pliku&lt;/span&gt;
+&lt;span class="err"&gt;}))&lt;/span&gt;
+
+&lt;span class="nf"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;style:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nf"&gt;expanded&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W terminalu poprzez flagę &lt;code&gt;--style&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="c1"&gt;--style compressed&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;sourceComments: 'map'&lt;/code&gt; - w css pojawia się komentarz odwołujący się do danego pliku scss&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+    &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;scss/main.scss&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;{
+        &lt;span class="nv"&gt;outputStyle&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;compressed&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
+        &lt;span class="nv"&gt;sourceComments&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;map&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; 
+    }&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;error&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;sass&lt;/span&gt;.&lt;span class="nv"&gt;logError&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;css&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+    }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wynik w CSS (expanded)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="c"&gt;/* line 1, scss/main.scss */&lt;/span&gt;
+    &lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#692626&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;CSS (compressed)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="cm"&gt;/* line 1, scss/main.scss */&lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;ce4242&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Proces &lt;em&gt;mapowania&lt;/em&gt; pozwala na wskazanie przeglądarce interpretującej css z którego miejsca w pliku sass pochodzi dana deklaracja. Wymaga to dodania pakietu oraz dodania odpowiedniej komendy &lt;code&gt;init&lt;/code&gt; i &lt;code&gt;write&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;sourcemaps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-sourcemaps&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // wskazanie zależności&lt;/span&gt;
+
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;scss/main.scss&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+.&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sourcemaps&lt;/span&gt;.&lt;span class="nv"&gt;init&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;inicjalizacja&lt;/span&gt;
+.&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;{
+    &lt;span class="nv"&gt;outputStyle&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;expanded&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
+    &lt;span class="nv"&gt;sourceComments&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;map&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; 
+}&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;on&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;error&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;sass&lt;/span&gt;.&lt;span class="nv"&gt;logError&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;alternatywnie&lt;/span&gt; .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;{&lt;span class="nv"&gt;errLogToConsole&lt;/span&gt;: &lt;span class="nv"&gt;true&lt;/span&gt;}&lt;span class="ss"&gt;))&lt;/span&gt;
+.&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sourcemaps&lt;/span&gt;.&lt;span class="nv"&gt;write&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zapis&lt;/span&gt;
+.&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;css&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;watch&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;watch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;scss/**/*.scss&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;series&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Mapa źródłowa jest wytworzona przy pomocy zakodowanego komentarza poprzedzonego /*# - teraz przeglądając narzędzia programistyczne w przeglądarce będziemy wiedzieć w którym miejscu pliku scss (a nie css) doszło do danej deklaracji - !! przy pracy z sassem nie modyfikujemy pliku CSS, ponieważ ten będzie tworzony przez kompilator&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;/* line 1, scss/main.scss */&lt;/span&gt;
+&lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#994f4f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzIjpbIm1haW4uc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJib2R5e1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTUzLCA3OSwgNzkpO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxBQUFBLElBQUksQ0FBQTtFQUNGLGdCQUFnQixFQUFFLE9BQWdCO0NBQ25DIn0= */&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;Komentarze&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/* */&lt;/code&gt; - komentarz znajdzie się w pliku wynikowym CSS&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;//&lt;/code&gt; ten komentarz znajdzie się jedynie w pliku Sass&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;Zmienne&lt;/code&gt; są poprzedzone znakiem dolara $ (pozwala na szeroki zakres przetrzymywanych danych). Zmienne należy nazywać ze względu na semantykę (opis do czego ona służy) i wg jednej zasady np. main-color lub color-main&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;font-stack&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Helvetica&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;sans-serif&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;primary-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;333&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;font&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="k"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;stack&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;primary-color&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;CSS&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;/* line 2, scss/main.scss */&lt;/span&gt;
+&lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;font&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Helvetica&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;sans-serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#333&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zmienne można przechowywać w odmiennym pliku np "variables" i wówczas stosuje się&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;@import&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;variables&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;Zagnieżdżenie&lt;/code&gt; - Sass pozwala na odwzorowanie hierarchii znanej z HTML przy pisaniu styli
+::: stosowanie zagnieżdżeń do 3-4 poziomów&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;ul&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;list-style&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;li&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;inline-block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+
+    &lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;text-decoration&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;list-style&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;inline-block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;text-decoration&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; - jest stosowane w przypadku pseudoklas (zapewnia powtórzenie selektora =&amp;gt; rodzica sassowego)&lt;/p&gt;
+&lt;p&gt;Scss&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;amp;:visited{&lt;/span&gt;
+        &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;hover&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;green&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;CSS&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;visited&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;hover&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Partials/Cząstkowość - Saas pozwala na rozbicie "CSS" na mniejsze pliki tworzące większą całość (np. jeden plik może odpowiadać za wszystkie buttony albo jedną dużą tabelę) - modularność
+Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&gt;_buttons.scss&lt;/code&gt; importowany do &lt;code&gt;main.scss&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Moduły&lt;/h4&gt;
+&lt;p&gt;Sass pozwala na odwołanie się do zmiennych z zawartych w innych modułach/plikach (&lt;code&gt;@use&lt;/code&gt; + np. nazwa_zmiennej- pozwala na importowanie pojedynczych deklaracji/zmiennych albo &lt;code&gt;@import&lt;/code&gt; + nazwa pliku)&lt;/p&gt;
+&lt;p&gt;Zwykle stosuje się main.scss do scalania (importowania) zawartości innych plików scss (mogą się znajdować w folderach tematycznych)&lt;/p&gt;
+&lt;p&gt;bazowy plik Saas (nazwa &lt;code&gt;_base.sass&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;_base&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;stack&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    &lt;span class="n"&gt;Helvetica&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sans&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;serif&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="k"&gt;primary&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;333&lt;/span&gt;
+
+    &lt;span class="n"&gt;body&lt;/span&gt;
+    &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;stack&lt;/span&gt;
+    &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="k"&gt;primary&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: poprzedzenie podkreślnikiem nazwy pliku sprawia, że nie będzie on automatycznie wczytany przez przeglądarkę, ale zawartość plink znajdzie się w CSS :::&lt;/p&gt;
+&lt;p&gt;plika zawierający style i odwołujących się do zmiennych zdefiniowanych w pliku bazowym - wymaga odwołania się do nazwy pliku przed wymianą nazwy zmiennej tu &lt;code&gt;elements/_base.scss&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nd"&gt;@import&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;elements/base&amp;#39;&lt;/span&gt;
+
+    &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inverse&lt;/span&gt;
+    &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;primary&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;
+    &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;white&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;CSS wygląda następująco&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nt"&gt;body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;font&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="n"&gt;Helvetica&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;sans-serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#333&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;inverse&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#333&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;white&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(źódło przykładu: https://sass-lang.com/guide)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Mixins&lt;/h4&gt;
+&lt;p&gt;Pozwalają na użycie kodu, który jest powtarzany (może ale nie musi przyjmować jeden lub więcej argumentów - argumenty oddzielone są przecinkami) - argument może odnosić się zarówno do właściwości (np. display/padding) jak i przypisanej do niej wartości (np. flex/40px) danego obiektu - jest to tzw. &lt;strong&gt;interpolacja&lt;/strong&gt;. W przypadku właściwości stosuje się zapis &lt;code&gt;#{$nazwa_właściwości}&lt;/code&gt; w przypadku wartości &lt;code&gt;$wartość&lt;/code&gt;. Istnieje również możliwość deklaracji tzw. argumentów opcjonalnych - bez ich podania danej właściwości zostanie przypisana domyślna wartość (domyślną wartość wpisuje się po dwukropku! --&amp;gt; &lt;code&gt;$y: 50%&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Zmienna która pozwala na przetrzymywanie wielu deklaracji styli.&lt;/p&gt;
+&lt;p&gt;$value... - trzykropek pozwala na dodanie listy jako argumentu, która ma być traktowana jako jeden parametr&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@mixin&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;boxShadow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;box&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;shadow&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;@include&lt;/code&gt; - słowo kluczowe, które pozwala na wykorzystanie mixina&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.&lt;span class="nv"&gt;box&lt;/span&gt; {
+    @&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;boxShadow&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;red&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+
+@&lt;span class="nv"&gt;mixin&lt;/span&gt; &lt;span class="nv"&gt;divMixin&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;olor&lt;/span&gt;, &lt;span class="mh"&gt;$f&lt;/span&gt;&lt;span class="nv"&gt;ont&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;size&lt;/span&gt;: &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nv"&gt;rem&lt;/span&gt;, $&lt;span class="nv"&gt;translate&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="nv"&gt;box&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;shadow&lt;/span&gt;: &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;olor&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;size&lt;/span&gt;: &lt;span class="mh"&gt;$f&lt;/span&gt;&lt;span class="nv"&gt;ont&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;size&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        #{$&lt;span class="nv"&gt;translate&lt;/span&gt;} : $&lt;span class="nv"&gt;translate&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;val&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+
+&lt;span class="nv"&gt;div&lt;/span&gt; {
+    @&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;divMixin&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;black&lt;/span&gt;, &lt;span class="nv"&gt;translate&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Y&lt;/span&gt;, &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;https://sass-lang.com/documentation/at-rules/mixin&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Dziedziczenie&lt;/h4&gt;
+&lt;p&gt;Dziedziczenie pozwala na stworzenie stylu, który przejmuje deklaracje innego stylu - selektory będą miały te same właściwości&lt;/p&gt;
+&lt;p&gt;Dziedziczenie do prostszych rzeczy związanych z powielaniem styli, jednak w przypadku jego wariacji @mixin jest lepszy.&lt;/p&gt;
+&lt;p&gt;::: Różnica pomiędzy dziedziczeniem a Mixinem jest również widoczna w przypadku wielu klas współdzielących style zapisane w Mixinie lub dziedziczone - w przypadku dziedziczenia nie powiela się stylu tylko jest przypisany do jednego selektora oznaczającego elementy w postaci listy rodzielonej przecinkami, w przypadku Mixina kod jest powielany wielokrotnie - dla każdego selektora jest tworzony unikalny styl - ze względu na to, że Mixin może być parametryzowany :::&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@extend&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@extend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dziedziczy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;również&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;hover&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;black&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nl"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;hover&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;black&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Problemy z ilością selektorów w dziedziczeniu! - te są przypisywane automatycznie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;%&lt;/code&gt; - &lt;em&gt;placeholder&lt;/em&gt; - wirtualny selektor, który zapobiega replikacji selektorów w przypadku dziedziczenie&lt;/p&gt;
+&lt;p&gt;Pozwala na wytworzenie stylu do replikacji bez powielania klas w CSS (różnica jest widoczna na poziomie CSS)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nf"&gt;%a&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;extend&lt;/span&gt; &lt;span class="nf"&gt;%a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// color: red;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Listy&lt;/h4&gt;
+&lt;p&gt;Zbiór elementów wykorzystywanych wyłącznie wewnątrz Saas [ nawiązują do tablic z JS - jednak sposób ich rozdzielenia nie jest zdefiniowany - może być spacja, przecinek] - jej numeracja zaczyna się od 1!&lt;/p&gt;
+&lt;p&gt;posiada metodę &lt;code&gt;length($nazwa_listy)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;nth() - wyciąga n-ty element z listy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt;
+
+&lt;span class="n"&gt;nth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Mapa&lt;/h4&gt;
+&lt;p&gt;Przypomina obiekt z JS - posiada klucze oraz wartości - również nie jest kompilowana do CSS&lt;/p&gt;
+&lt;p&gt;$mapa-kolorow: (klucz1: wartość1, klucz2: wartość2);
+map-get($mapa, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.footer&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;map-get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;$mapa-kolorow&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;klucz1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;; // zwraca wartość1&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;map-values()&lt;/code&gt; - metoda zmieniająca wartości znajdujące się w mapie w listę&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5&gt;Wtyczka do VSC - Live Sass Complier !&lt;/h5&gt;
+&lt;p&gt;Wtyczka Live Sass Complier dokonuje translację z Sass na CSS automatycznie&lt;/p&gt;
+&lt;p&gt;strona projektu: https://github.com/ritwickdey/vscode-live-sass-compiler&lt;/p&gt;
+&lt;h4&gt;@debug&lt;/h4&gt;
+&lt;p&gt;Sassowy console.log ;) wypisuje w terminalu podaną frazę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nl"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Operatory&lt;/h4&gt;
+&lt;p&gt;Sass pozwala i przyjmuje klasyczne operatory (+,/,-...) łącznie z modulo &lt;code&gt;%&lt;/code&gt;
+Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z ich logiki&lt;/p&gt;
+&lt;p&gt;Np. dodawanie ze sobą stringów skutkuje w ich łączeniu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zmien&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zmien&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W przypadku dzielenia może pojawić się problem gdy wartość dzielona może być częścią atrybutu np w przypadku fontu: 20px/10px aby temu zapbiec należy wykorzystać zmienne np font: $primary-size/10px&lt;/p&gt;
+&lt;p&gt;Zastosowanie okrągłych nawiasów pozwala na wymuszenie kolejności działań&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Instrukcja warunkowa @if&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="nv"&gt;type&lt;/span&gt;: &lt;span class="nv"&gt;monster&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;p&lt;/span&gt; {
+    @&lt;span class="k"&gt;if&lt;/span&gt; $&lt;span class="nv"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;ocean&lt;/span&gt; {
+        &lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="nv"&gt;blue&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    } @&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; $&lt;span class="nv"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;matador&lt;/span&gt; {
+        &lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="nv"&gt;red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    } @&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; $&lt;span class="nv"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;monster&lt;/span&gt; {
+        &lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="nv"&gt;green&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    } @&lt;span class="k"&gt;else&lt;/span&gt; {
+        &lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="nv"&gt;black&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Pętla @for i @each&lt;/h4&gt;
+&lt;p&gt;Generacja selektorów z powtarzalną wartością&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;ko&lt;/span&gt;ń&lt;span class="nv"&gt;cowa&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;wliczana&lt;/span&gt;
+
+@&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;ko&lt;/span&gt;ń&lt;span class="nv"&gt;cowa&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;pomijana&lt;/span&gt;
+
+@&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; {
+    .&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;#{$&lt;span class="nv"&gt;i&lt;/span&gt;} { &lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="nv"&gt;em&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;; }&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pętla @each pracuje na zbiorze danych - iteruje po liście wartości&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@each&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nf"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;lista&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@each&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;animal&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;puma&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sea&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;slug&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;egret&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;salamander&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="err"&gt;#{$&lt;/span&gt;&lt;span class="n"&gt;animal&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nc"&gt;image&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/images/#{$animal}.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;puma&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nc"&gt;image&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;/images/puma.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Istnieje pętla &lt;code&gt;@while&lt;/code&gt; wykorzystywana jest wtedy gdy nie mamy pewności kiedy dany warunek się skończy&lt;/p&gt;
+&lt;h4&gt;@funkcje&lt;/h4&gt;
+&lt;p&gt;Funkcje wbudowane i zdefiniowane&lt;/p&gt;
+&lt;p&gt;https://sass-lang.com/documentation/at-rules/function&lt;/p&gt;
+&lt;p&gt;Zdefiniowane&lt;/p&gt;
+&lt;p&gt;Funkcja wyznacza i zwraca zdefiniowaną wartość&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@&lt;span class="nv"&gt;funkcja&lt;/span&gt; &lt;span class="nv"&gt;nazwa_funkcji&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;$&lt;span class="nv"&gt;parametr&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    @&lt;span class="k"&gt;return&lt;/span&gt; $&lt;span class="nv"&gt;parametr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://sass-lang.com/&lt;/p&gt;
+&lt;p&gt;https://sass-lang.com/documentation&lt;/p&gt;
+&lt;p&gt;VSC:&lt;/p&gt;
+&lt;p&gt;https://github.com/ritwickdey/vscode-live-sass-com&lt;/p&gt;</content><category term="saas"></category><category term="sass"></category><category term="scss"></category><category term="css"></category><category term="javascript"></category><category term="gulp"></category><category term="gulpfile"></category></entry><entry><title>JavaScript - Gulp</title><link href="https://kostyrko.github.io/zfrontu/js-gulp.html" rel="alternate"></link><published>2020-05-28T10:00:00+02:00</published><updated>2020-05-28T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-28:/zfrontu/js-gulp.html</id><summary type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li"&gt;&lt;/p&gt;
+&lt;h3&gt;Instalacja globalna&lt;/h3&gt;
+&lt;p&gt;Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami&lt;/p&gt;
+&lt;p&gt;Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="c1"&gt;--global gulp-cli&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Inicjalizujaca&lt;/p&gt;
-&lt;p&gt;Z odpowiedzią na pytania
-    npm init&lt;/p&gt;
-&lt;p&gt;lub (bez konieczności odpowiedzi)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;p&gt;Sprawdzanie instalacji (jej wersji)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;powstaje package.json plik &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Instalacja zależności&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;tworzy folder node_modules (z pobranymi modułami) + package-lock.json&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;HTTP Server Started&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="n"&gt;done …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li"&gt;&lt;/p&gt;
-&lt;p&gt;Gulp&lt;/p&gt;
-&lt;p&gt;Instalacja globalna&lt;/p&gt;
+&lt;p&gt;zwraca:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;CLI&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li"&gt;&lt;/p&gt;
+&lt;h3&gt;Instalacja globalna&lt;/h3&gt;
+&lt;p&gt;Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami&lt;/p&gt;
+&lt;p&gt;Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="c1"&gt;--global gulp-cli&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Inicjalizujaca&lt;/p&gt;
-&lt;p&gt;Z odpowiedzią na pytania
-    npm init&lt;/p&gt;
-&lt;p&gt;lub (bez konieczności odpowiedzi)&lt;/p&gt;
+&lt;p&gt;Sprawdzanie instalacji (jej wersji)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;zwraca:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;CLI&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;Local&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;Unknown&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Instalacja lokalna w folderze projektu&lt;/h3&gt;
+&lt;p&gt;Inicjalizujaca lokalna zaczyna się od stworzenia pliku, w którym zawarte są informacje na temat projektu -&amp;gt; &lt;code&gt;package.json&lt;/code&gt; (w folderze, w którym znajduje się projekt) - przechowywane w nim podstawowe informacje na temat projektu oraz jego zależności (np. wymaganych wtyczek)&lt;/p&gt;
+&lt;p&gt;Plik tworzony jest przy pomocy komend&lt;/p&gt;
+&lt;p&gt;1) Z odpowiedzią na pytania / w trakcie kolejnych kroków należy odpowiedzieć na podstawowe pytania i stworzyć metadane projektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2) lub (bez konieczności odpowiedzi - zostawia puste pola)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;powstaje package.json plik &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Instalacja zależności&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;:::&lt;/strong&gt; package.json zawiera informacje na temat zależności projektu - w trakcie przenoszenia plików projektu należy również go zawrzeć wraz z innymi -&amp;gt; wówczas w terminalu na początku pracy nad projektem wystarczy wpisać komendę &lt;code&gt;npm install&lt;/code&gt; - npm zainstaluje wszystkie zależności (wymaga Noda + npm) &lt;strong&gt;:::&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;3) Instalacja zależności - wtyczka Gulp &lt;/p&gt;
+&lt;p&gt;dodanie flagi &lt;code&gt;--save-dev&lt;/code&gt; przy instalacji sprawia, że paczka zostaje dodana do zależności deweloperskich devDependencies (wtyczka powinna znaleźć się w spisie znajdującym się w &lt;code&gt;package.json&lt;/code&gt;, również bez podania flagi)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;tworzy folder node_modules (z pobranymi modułami) + package-lock.json&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;p&gt;&lt;strong&gt;:::&lt;/strong&gt; tworzy folder &lt;code&gt;node_modules&lt;/code&gt; (z pobranymi modułami) + &lt;code&gt;package-lock.json&lt;/code&gt; (blokuje wersję używanych paczek - zawiera listę pobranych modułów oraz informację o ich wersji) ten folder nie będzie i nie powinien być przenoszony wraz z innymi plikami stąd warto dla niego stworzyć  &lt;code&gt;.gitignore&lt;/code&gt; i wpisać w niego &lt;code&gt;node_modules/&lt;/code&gt; aby GIT do ignorował &lt;strong&gt;:::&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;// powinno zwrócić informację o wersji globalnej (CLI) oraz lokalnej (wersje mogą się różnić)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;CLI&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;Local&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie należy stworzyć plik &lt;code&gt;gulpfile.js&lt;/code&gt; i w ramach niego wpisywać gulpowe polecenia&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie (użycie metody &lt;code&gt;task()&lt;/code&gt; - zdefiniowanie zadania oraz &lt;code&gt;done()&lt;/code&gt; - wskazuje zakończenie zadania)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;HTTP Server Started&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
     &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Instalacja gulpowej paczki Sassowej&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
+&lt;p&gt;W terminalu (w folderze gdzie zapisany jest plik gulpfile.js) wywołujemy zdefiniowane zadanie/funkcję stosując [&lt;code&gt;gulp&lt;/code&gt; + &lt;code&gt;nazwa_funkcji&lt;/code&gt;]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;
+
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;43&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;Starting&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+    &lt;span class="n"&gt;HTTP&lt;/span&gt; &lt;span class="n"&gt;Server&lt;/span&gt; &lt;span class="n"&gt;Started&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;43&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;Finished&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;message&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;after&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;85&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;funkcja do translacji Sass na CSS&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;hr&gt;
+&lt;h3&gt;Rura albo .pipe()&lt;/h3&gt;
+&lt;p&gt;Użycie metody &lt;code&gt;.pipe()&lt;/code&gt; - która pozwala na zdefiniowanie kolejnych kroków wykonywanego zadania (przepływu)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.src()&lt;/code&gt; - metoda w ramach, której wskazuje się pliki, na których zostaje podjęte zadanie&lt;/p&gt;
+&lt;p&gt;Użycie wtyczki -&amp;gt; kompilujące Sass na CSS (o wtyczce i jej instalacji poniżej)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wskazanie&lt;/span&gt; &lt;span class="n"&gt;zależności&lt;/span&gt;
 
 &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/app.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/style.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pracuj&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;pliku&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="k"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;ź&lt;/span&gt;&lt;span class="n"&gt;ródło&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;uruchom&lt;/span&gt; &lt;span class="n"&gt;wtyczkę&lt;/span&gt; &lt;span class="n"&gt;kompilatora&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;tutaj&lt;/span&gt; &lt;span class="n"&gt;zwróć&lt;/span&gt; &lt;span class="n"&gt;skompilowany&lt;/span&gt; &lt;span class="n"&gt;plik&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;postaci&lt;/span&gt; &lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dest&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;folder_docelowy&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;można również wykorzystać metodę &lt;code&gt;.on&lt;/code&gt; i dodać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="no"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;error&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;sass.logError&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="no"&gt;wypisz&lt;/span&gt; &lt;span class="no"&gt;error&lt;/span&gt; &lt;span class="no"&gt;w&lt;/span&gt; &lt;span class="no"&gt;przypadku&lt;/span&gt; &lt;span class="no"&gt;jego&lt;/span&gt; &lt;span class="no"&gt;wystąpienia&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Wtyczki&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Spis wtyczek gulpowych:&lt;/em&gt; https://gulpjs.com/plugins&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Spis wtyczek js:&lt;/em&gt; https://www.npmjs.com/&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gulp-sass&lt;/code&gt; - gulpowa paczka do kompilacji Sass na CSS&lt;/p&gt;
+&lt;p&gt;Instalacja paczki przy pomocy terminala (lokalnie)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: paczki można instalować z pozycji podfolderów ale i tak trafią do nadrzędnego folderu (node_modules oraz package.json nie jest tworzony ponownie - ten odpowiada za własny folder oraz podfoldery)&lt;/p&gt;
+&lt;p&gt;paczki zostały dodane do pliku package.json&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ss"&gt;&amp;quot;author&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;MK&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;license&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;ISC&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="ss"&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="ss"&gt;&amp;quot;gulp&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;^4.0.2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="ss"&gt;&amp;quot;gulp-sass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;^4.1.0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="ss"&gt;&amp;quot;node-sass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;^4.14.1&amp;quot;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;===========================================&lt;/p&gt;
+&lt;h4&gt;Nasłuch zmian -&amp;gt; .watch()&lt;/h4&gt;
+&lt;p&gt;// W kolejnej funkcji można ustawić nasłuch na zmiany i wykonywanie zadania
+-&amp;gt; wymaga wskazania miejsca oraz użycia metody &lt;code&gt;series()&lt;/code&gt; (https://gulpjs.com/docs/en/api/series/)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; - dowolny ciąg znaków (wszystkie pliki z rozszerzeniem np. scss)
+&lt;code&gt;**&lt;/code&gt; - dotyczy wszystkich podfolderów oraz folderu początkowego&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gulp.series()&lt;/code&gt; - wykonuj synchronicznie jedno po 2.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;watch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;watch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/**/*.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;sass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;// wywołanie funkcji w terminalu dokonuje translacji&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/main.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; 
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;watch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;watch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/**/*.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;sass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Gulp prefixer (dodaje --webkit-transform)
+&lt;p&gt;dla Gulp w wersji poniżej 4 (bez gulp.series())&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;watch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/**/*.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;sass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W terminalu &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="n"&gt;watch&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Po zmianie zawartości pliku main.scss wywołuje się funkcja sass&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;57&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;46&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;Starting&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;57&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;46&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;Finished&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;after&lt;/span&gt; &lt;span class="mi"&gt;28&lt;/span&gt; &lt;span class="n"&gt;ms&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: po wprowadzeniu zmian do pliku gulp należy wyłączyć funkcję watch i włączyć ją ponownie by zmiany zaszły w żuycie&lt;/p&gt;
+&lt;p&gt;&lt;img alt="gulp_watch" src="https://i2.wp.com/css-tricks.com/wp-content/uploads/2015/08/watch-compile.gif"&gt;&lt;/p&gt;
+&lt;p&gt;===========================================&lt;/p&gt;
+&lt;h4&gt;gulp-autoprefixer&lt;/h4&gt;
+&lt;p&gt;(dodaje --webkit-transform)
 upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
-&lt;p&gt;https://gulpjs.com/plugins&lt;/p&gt;
-&lt;p&gt;https://www.npmjs.com/package/gulp-autoprefixer&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;translacji&lt;/span&gt;
-&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;autoprefixer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-autoprefixer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;funkcji&lt;/span&gt; &lt;span class="n"&gt;prefiksującej&lt;/span&gt;
+&lt;p&gt;&lt;em&gt;Adres:&lt;/em&gt; https://www.npmjs.com/package/gulp-autoprefixer&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Instalacja:&lt;/em&gt; npm install --save-dev gulp-autoprefixer&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;kompilator&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;autoprefixer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-autoprefixer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;wtyczki&lt;/span&gt; &lt;span class="n"&gt;prefiksującej&lt;/span&gt;
 
 &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
 &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/app.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -107,20 +732,96 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;// W kolejnej funkcji można ustawić nasłuch na zmiany i wykonywanie zadania&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;watch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;watch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/app.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;p&gt;===========================================&lt;/p&gt;
+&lt;h4&gt;gulp-jshint&lt;code&gt;oraz&lt;/code&gt;jshint`&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;sprawdza poprawność zapisu kodu Gulp i JS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;https://www.npmjs.com/package/gulp-jshint&lt;/p&gt;
+&lt;p&gt;::: Wiele wtyczek naraz można instalować poprzez rozgraniczenie ich nazw spacją&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;jshint&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;jshint&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wykorzystanie wtyczki jshint&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;jshint&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gulp-jshint&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;task-name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;js/*.js&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wszystkie&lt;/span&gt; &lt;span class="nv"&gt;pliki&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;folderze&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt;
+    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykorzystaj&lt;/span&gt; &lt;span class="nv"&gt;wtyczk&lt;/span&gt;ę &lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;.&lt;span class="nv"&gt;reporter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;default&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;terminalu&lt;/span&gt; &lt;span class="nv"&gt;wydrukuj&lt;/span&gt; &lt;span class="nv"&gt;ew&lt;/span&gt;. &lt;span class="nv"&gt;problemy&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
+&lt;h4&gt;gulp-useref&lt;/h4&gt;
+&lt;p&gt;źródło: https://www.npmjs.com/package/gulp-useref&lt;/p&gt;
+&lt;p&gt;Wtyczka łącząca podobne do siebie pliki dążąc do zmiejszenia ilości kodu w HTML&lt;/p&gt;
+&lt;p&gt;Przed:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- build:css css/combined.css --&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;css/one.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;css/two.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- endbuild --&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- build:js scripts/combined.js --&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scripts/one.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt; 
+    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scripts/two.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt; 
+    &lt;span class="c"&gt;&amp;lt;!-- endbuild --&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Po:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;css/combined.css&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;scripts/combined.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt; 
+&lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="c1"&gt;--save-dev gulp-useref&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;,
+    &lt;span class="nv"&gt;useref&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-useref&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;default&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app/*.html&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wszystkie&lt;/span&gt; &lt;span class="nv"&gt;pliki&lt;/span&gt; &lt;span class="nv"&gt;html&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;useref&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;dist&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;; // distribution&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;gulp-cleancss&lt;/h4&gt;
+&lt;p&gt;źródło: https://www.npmjs.com/package/gulp-cleancss &lt;/p&gt;
+&lt;p&gt;Wtyczka służąca do minifikacja kodu - minimalizacja kodu do niezbędnego minimum - więcej na ten temat można przeczytać &lt;a href="https://mansfeld.pl/webdesign/minifikacja-minimalizacja-plikow-js-css/"&gt;tutaj&lt;/a&gt; lub zobaczyć ten &lt;a href="https://www.youtube.com/watch?v=1eolpnIKnRM"&gt;film&lt;/a&gt;. Pozawala na optymalizację ładowania się okna witryny.&lt;/p&gt;
+&lt;p&gt;sprawdź również: &lt;code&gt;gulp-if&lt;/code&gt; - https://www.npmjs.com/package/gulp-if&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Gulp:&lt;/p&gt;
 &lt;p&gt;https://gulpjs.com/docs/en/getting-started/quick-start/&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=eRv8jUz2FgI&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=LYbt50dhTko&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=QgMQeLymAdU&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/36897877/gulp-error-the-following-tasks-did-not-complete-did-you-forget-to-signal-async&lt;/p&gt;</content><category term="javascript"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/36897877/gulp-error-the-following-tasks-did-not-complete-did-you-forget-to-signal-async&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/gulp-for-beginners/&lt;/p&gt;
+&lt;p&gt;Node:&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=ENrzD9HAZK4&lt;/p&gt;
+&lt;p&gt;https://github.com/nvm-sh/nvm#installing-and-updating&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
@@ -139,20 +840,29 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 &lt;p&gt;Innymi słowy min() oznacza podanie maksymalnej wartości jaką może mieć dany element&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;max()&lt;/code&gt; - jest funkcją podobną do min() jednak odnosi się do maksymalnej wartości danego elementu - również przyjmuje jedną lub więcej wyrażeń jako parametr. Za wartość, ustawiającą szerokość przyjmuje największą wartość z podanych parametrów&lt;/p&gt;
-&lt;p&gt;.second-level {
-      width: max(50vw, 400px);
-  }&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Powyższe wyrażenie zakłada, że dany element o klasie &lt;code&gt;second-level&lt;/code&gt; będzie miał szerokość 400px do momentu, w którym połowa ekranu nie będzie większa niż 800 px i wówczas przyjmie wartość połowy szerokości ekranu (50vw). Dla ekranu węższego niż 400px zajmie 100% rodzica.&lt;/p&gt;
 &lt;p&gt;Innymi słowy max() oznacza podanie minimalnej (największej w danym momencie) wartości jaką może mieć dany element&lt;/p&gt;
 &lt;p&gt;Inny przykład oznacza maksymalną wielkość fontu na stronie, który będzie zależny od jego rozmiaru np.&lt;/p&gt;
-&lt;p&gt;p {
-    font-size: max(4vw, 2em, 2rem)
-  }&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;clamp()&lt;/code&gt; - pozwala na zdefiniowanie przedziału, w ramach, które powinien zamknąć się dany element. Przyjmuje trzy wartości - minimalną, preferowaną oraz maksymalną -&amp;gt; clamp(MIN, VAL, MAX). Tym samym istnieje możliwość ustawienia wielkości elementu, który zmieniać się będzie razem z wielkością ekranu ale nie będzie mniejsza niż dana wartość ani większa od innej podanej.&lt;/p&gt;
-&lt;p&gt;p {
-    font-size: max(1rem, 2.5vw, 2rem)
-  }&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;Źrdóła: &lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/min&lt;/p&gt;
@@ -371,7 +1081,7 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/es6/class.php&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes&lt;/p&gt;</content><category term="js"></category><category term="js"></category><category term="javascript"></category><category term="klasy"></category><category term="classes"></category></entry><entry><title>Ubuntu - zamiana gronostaja na fossę - przerwana aktualizacja</title><link href="https://kostyrko.github.io/zfrontu/ubuntu-aktualizacja-fossa.html" rel="alternate"></link><published>2020-05-12T21:00:00+02:00</published><updated>2020-05-12T21:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-12:/zfrontu/ubuntu-aktualizacja-fossa.html</id><summary type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Classes&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="javascript"></category><category term="klasy"></category><category term="classes"></category></entry><entry><title>Ubuntu - zamiana gronostaja na fossę - przerwana aktualizacja</title><link href="https://kostyrko.github.io/zfrontu/ubuntu-aktualizacja-fossa.html" rel="alternate"></link><published>2020-05-12T21:00:00+02:00</published><updated>2020-05-12T21:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-12:/zfrontu/ubuntu-aktualizacja-fossa.html</id><summary type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="focal fossa" src="https://cdn.benchmark.pl/thumbs/uploads/article/75474/MODERNICON/5004efa885bbab2ef39843c390f113c69f5bafc4.jpg/780x0x1.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;Przerwana …&lt;/h3&gt;</summary><content type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="focal fossa" src="https://cdn.benchmark.pl/thumbs/uploads/article/75474/MODERNICON/5004efa885bbab2ef39843c390f113c69f5bafc4.jpg/780x0x1.jpg"&gt;&lt;/p&gt;
@@ -475,7 +1185,7 @@ droids.forEach(function(droids){
 &lt;p&gt;&lt;img alt="image" src="https://pbs.twimg.com/media/EXpDjdDWsAE9D7D?format=jpg&amp;amp;name=large"&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:
-https://codeburst.io/javascript-what-are-tag-functions-97682f29521b&lt;/p&gt;</content><category term="js"></category><category term="javascript"></category><category term="tag"></category><category term="function"></category><category term="funkcja"></category><category term="etykietowanie"></category><category term="tagged function"></category></entry><entry><title>DOM: NodeList i HTML Collection</title><link href="https://kostyrko.github.io/zfrontu/js-nodelist-htmlcollection.html" rel="alternate"></link><published>2020-05-05T10:00:00+02:00</published><updated>2020-05-05T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-05:/zfrontu/js-nodelist-htmlcollection.html</id><summary type="html">&lt;p&gt;Kolekcje węzłów DOM&lt;/p&gt;
+https://codeburst.io/javascript-what-are-tag-functions-97682f29521b&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="tag"></category><category term="function"></category><category term="funkcja"></category><category term="etykietowanie"></category><category term="tagged function"></category></entry><entry><title>DOM: NodeList i HTML Collection</title><link href="https://kostyrko.github.io/zfrontu/js-nodelist-htmlcollection.html" rel="alternate"></link><published>2020-05-05T10:00:00+02:00</published><updated>2020-05-05T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-05:/zfrontu/js-nodelist-htmlcollection.html</id><summary type="html">&lt;p&gt;Kolekcje węzłów DOM&lt;/p&gt;
 &lt;p&gt;Typy węzłów&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;element node&lt;/li&gt;
@@ -2182,7 +2892,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;p&gt;Float32Array&lt;/p&gt;
 &lt;p&gt;Float64Array&lt;/p&gt;
 &lt;h3&gt;Kolekcje z kluczami&lt;/h3&gt;
-&lt;p&gt;Map&lt;/p&gt;
+&lt;p&gt;Map - by: &lt;a href="https://www.youtube.com/watch?v=NV54JW_PaeA"&gt;overment&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Set&lt;/p&gt;
 &lt;p&gt;WeakMap&lt;/p&gt;
 &lt;p&gt;WeakSet&lt;/p&gt;
@@ -3136,6 +3846,38 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;td&gt;&lt;a href="https://justjavascript.com/"&gt;justjavascript&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;W trakcie tworzenia/ klarowne tłumaczenie poruszanych problemów&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://javascriptweekly.com/"&gt;JavaScript Weekly&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;--&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://frontendfoc.us/"&gt;Frontend Focus&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;--&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://overment.com/newsletter"&gt;overment&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3&gt;Strony internetowe &amp;amp; blogi&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Nazwa&lt;/th&gt;
+&lt;th&gt;główna cecha&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://przeprogramowani.pl/"&gt;przeprogramowani&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://socialshub.net/overment"&gt;overment&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PL&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
@@ -3236,6 +3978,25 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;td&gt;&lt;a href="https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA"&gt;Traversy Media&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;W przystępnej i klarownej formie przedstawiony JS + udemy&lt;/td&gt;
 &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;PL&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Nazwa&lt;/th&gt;
+&lt;th&gt;główna cecha&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.youtube.com/helloroman"&gt;hello roman&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Warto polecenia choć chyba nie jako pierwsze a kolejne źródło&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.youtube.com/channel/UC_MIaHmSkt9JHNZfQ_gUmrg"&gt;overment&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Duży zakres informacji strona &lt;a href="https://socialshub.net/overment"&gt;www&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://www.youtube.com/watch?v=JFDScHg6Dws&amp;amp;list=PLTs20Q-BTEMPRSzhrlAuu7yus1BuOLVrS"&gt;Samuraj Programowania - Java Script w miesiąc&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Warto polecenia choć chyba nie jako pierwsze a kolejne źródło&lt;/td&gt;
@@ -3256,12 +4017,31 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;td&gt;dla mnie nr 1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td jsbin.com&gt;[JS Bin]&lt;/td&gt;
+&lt;td&gt;&lt;a href="jsbin.com"&gt;JS Bin&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;nr 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://codesandbox.io/"&gt;CodeSandbox&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;nr 3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://codepen.io/mkostyrko/pen/yLYJJVV"&gt;codepen.io&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;pozwala na embeding&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Historia&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Nazwa&lt;/th&gt;
+&lt;th&gt;główna cecha&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Java a JavaScript&lt;/td&gt;
+&lt;td&gt;filmy &lt;a href="https://www.youtube.com/watch?v=X1nGEaaQdbs"&gt;przeprogramowani&lt;/a&gt; oraz &lt;a href="https://www.youtube.com/watch?v=gd2w8hrlmsc&amp;amp;feature=youtu.be"&gt;Dziwne, u mnie działa&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="linki"></category><category term="kursy"></category><category term="newslettery"></category><category term="wyzwania"></category><category term="ćwiczenia"></category><category term="aplikacje"></category><category term="android"></category></entry><entry><title>CSS - neumorphism</title><link href="https://kostyrko.github.io/zfrontu/css-neumorphism.html" rel="alternate"></link><published>2020-04-07T11:00:00+02:00</published><updated>2020-04-07T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-neumorphism.html</id><summary type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub też zaokrąglone. Neoumorphism wywodzi się z skeuromorfizmu (gr. skeúos "naczynie, przedmiot" + morphé "postać, kształt") stylistyki, ktra miałą nawiązać do istniejących w świecie realnym przedmiotów.&lt;/p&gt;
@@ -3277,7 +4057,43 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;p&gt;https://uxplanet.org/the-ground-breaking-possibilities-with-neumorphism-9ed9e64c2513&lt;/p&gt;
 &lt;p&gt;https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6&lt;/p&gt;
 &lt;p&gt;https://pl.wikipedia.org/wiki/Skeumorfizm&lt;/p&gt;
-&lt;p&gt;https://css-tricks.com/neumorphism-and-css/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="neumorphism"></category><category term="style"></category><category term="ux"></category></entry><entry><title>CSS - wyśrodkowany układ strony</title><link href="https://kostyrko.github.io/zfrontu/css-wysrodkowany-uklad-strony.html" rel="alternate"></link><published>2020-04-07T10:00:00+02:00</published><updated>2020-04-07T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-wysrodkowany-uklad-strony.html</id><summary type="html">&lt;p&gt;Jednym popularniejszych obecnie stosowanych układów stron internetowych jest oparty na wyśrodkowanej treści - dzięki temu treść strony nie rozjeżdża się na boki przy większych ekranach.&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/neumorphism-and-css/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="neumorphism"></category><category term="style"></category><category term="ux"></category></entry><entry><title>CSS - centrowanie treści</title><link href="https://kostyrko.github.io/zfrontu/css-centrowanie-tresci.html" rel="alternate"></link><published>2020-04-07T10:00:00+02:00</published><updated>2020-04-07T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-centrowanie-tresci.html</id><summary type="html">&lt;p&gt;Istnieje parę sposobów na to w jaki sposób można wycentrować treść, na środku strony w taki sposób aby znajdowała na środku strony.&lt;/p&gt;
+&lt;p&gt;Można to zrobić łątwo przy pomocy flexboxa, ale gdy nie chcemy zmieniać deklaracji 'rodzeństwa' (rodzica) danego elementu wówczas nie będzie to możliwe.&lt;/p&gt;
+&lt;p&gt;Bez jakiejkolwiek ingerencji w deklaracje przypisaną …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Istnieje parę sposobów na to w jaki sposób można wycentrować treść, na środku strony w taki sposób aby znajdowała na środku strony.&lt;/p&gt;
+&lt;p&gt;Można to zrobić łątwo przy pomocy flexboxa, ale gdy nie chcemy zmieniać deklaracji 'rodzeństwa' (rodzica) danego elementu wówczas nie będzie to możliwe.&lt;/p&gt;
+&lt;p&gt;Bez jakiejkolwiek ingerencji w deklaracje przypisaną do rodzica możemy skorzystać z pomocy marginesów oraz jednostek relatywnych np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.centered_text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;-50&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;; //  powinna być połowa wysokości obiektu &lt;/span&gt;
+&lt;span class="nl"&gt;margin-left:&lt;/span&gt; &lt;span class="err"&gt;-100&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;; // połowa szerokości obiektu&lt;/span&gt;
+&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="nl"&gt;margin-lef:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lub można również wykorzystać pozycjonować przy pomocy absolute&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.&lt;span class="nv"&gt;centered_text&lt;/span&gt; {
+  &lt;span class="nv"&gt;position&lt;/span&gt;: &lt;span class="nv"&gt;absolutne&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;top&lt;/span&gt;: &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="nv"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
+  &lt;span class="nv"&gt;left&lt;/span&gt;: &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="nv"&gt;vw&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
+  &lt;span class="nv"&gt;transform&lt;/span&gt;: &lt;span class="nv"&gt;translate&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;, &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // zmień pozycję o połowę rozmiaru wysokość i szerokość&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W obu przypadkach wymagana jest transformacja pozycjonowanego elementu w taki sposób aby znajdował się on na środku ponieważ powyższymi deklaracjami wskazujemy na lewy górny róg danego elementu - stąd należy od odpowiednio wyrównać aby znalazł się na środku a nie był przesunięty w prawo i w dół o własną wysokość i szerokość.&lt;/p&gt;
+&lt;p&gt;Być może lepszy rozwiązaniem jest zatem ustawienie marginesu na auto i jedynie kontrola marginesu od góry:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.centered_text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródło:&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_align.asp&lt;/p&gt;
+&lt;p&gt;https://www.freecodecamp.org/news/how-to-center-things-with-style-in-css-dc87b7542689/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="centrowanie"></category><category term="wyśrodkowanie"></category></entry><entry><title>CSS - wyśrodkowany układ strony</title><link href="https://kostyrko.github.io/zfrontu/css-wysrodkowany-uklad-strony.html" rel="alternate"></link><published>2020-04-07T10:00:00+02:00</published><updated>2020-04-07T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-wysrodkowany-uklad-strony.html</id><summary type="html">&lt;p&gt;Jednym popularniejszych obecnie stosowanych układów stron internetowych jest oparty na wyśrodkowanej treści - dzięki temu treść strony nie rozjeżdża się na boki przy większych ekranach.&lt;/p&gt;
 &lt;p&gt;Taki układ można łatwo osiągnąć przy użyciu &lt;code&gt;flexboxa&lt;/code&gt;, odpowiednio zagnieżdżonego &lt;code&gt;div&lt;/code&gt;'a oraz przypisanej mu klasy określającej jego szerokość&lt;/p&gt;
 &lt;p&gt;Przyjmę, że będziemy operować na 3 częściach …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Jednym popularniejszych obecnie stosowanych układów stron internetowych jest oparty na wyśrodkowanej treści - dzięki temu treść strony nie rozjeżdża się na boki przy większych ekranach.&lt;/p&gt;
 &lt;p&gt;Taki układ można łatwo osiągnąć przy użyciu &lt;code&gt;flexboxa&lt;/code&gt;, odpowiednio zagnieżdżonego &lt;code&gt;div&lt;/code&gt;'a oraz przypisanej mu klasy określającej jego szerokość&lt;/p&gt;
@@ -3414,7 +4230,173 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
   on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
 &lt;/p&gt;
 
-&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;</content><category term="css"></category><category term="css"></category><category term="flex"></category><category term="flexbox"></category><category term="layout"></category><category term="układ"></category></entry><entry><title>CSS - reset i normalizer</title><link href="https://kostyrko.github.io/zfrontu/css-reset-normalizer.html" rel="alternate"></link><published>2020-04-05T11:00:00+02:00</published><updated>2020-04-05T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-05:/zfrontu/css-reset-normalizer.html</id><summary type="html">&lt;h3&gt;Reset&lt;/h3&gt;
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;</content><category term="css"></category><category term="css"></category><category term="flex"></category><category term="flexbox"></category><category term="layout"></category><category term="układ"></category></entry><entry><title>CSS - Responsive Web Design</title><link href="https://kostyrko.github.io/zfrontu/html-rwd.html" rel="alternate"></link><published>2020-04-06T10:00:00+02:00</published><updated>2020-04-06T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-06:/zfrontu/html-rwd.html</id><summary type="html">&lt;p&gt;&lt;img alt="RWD" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Diseno-web-responsive-design.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;RWD - treść stara dopasować sie do wyświetlacza &lt;/p&gt;
+&lt;p&gt;alternatywnie istnieje jeszcze...&lt;/p&gt;
+&lt;p&gt;ADW - Adaptive Web Design -&amp;gt; desing w którym na sztywno tworzy się szerokość strony przypisaną do przedziałów szerokości ekranu (np. 600, 900, 1200px). To pod tą ograniczoną ilości szerokości tworzony jest layout, a ten jest wyświetlana dla zdefiniowanych przedziałów szerokości ekranu …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="RWD" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Diseno-web-responsive-design.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;RWD - treść stara dopasować sie do wyświetlacza &lt;/p&gt;
+&lt;p&gt;alternatywnie istnieje jeszcze...&lt;/p&gt;
+&lt;p&gt;ADW - Adaptive Web Design -&amp;gt; desing w którym na sztywno tworzy się szerokość strony przypisaną do przedziałów szerokości ekranu (np. 600, 900, 1200px). To pod tą ograniczoną ilości szerokości tworzony jest layout, a ten jest wyświetlana dla zdefiniowanych przedziałów szerokości ekranu.&lt;/p&gt;
+&lt;h3&gt;Relatywne jednostki&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;rem&lt;/code&gt;- root element odwołuje się do roota, warto wówczas zdefiniować wysokość
+ w html - domyślnie wynosi 16px&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Reszta w rem i html zmieniać w zależności od wielkości ekranu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;em&lt;/code&gt; - odnosi się do rodzica, ale w przypadku rozmiaru fontu inne wartości em odwołają się do bieżącej wartości em danego elementu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;%&lt;/code&gt; - może odwoływać się do różnych wartości, w przypadku szerokości będzie odwoływać się procentowo do rodzica. Ta sama zasada odwołuje się do wielkości fontu, jednak w przypadku wysokości obiektu wówczas będzie odwoływać się do wielkości fontu danego obiektu.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;line-height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;120&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;12px&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;vh&lt;/code&gt; - view hight -&amp;gt; przyjmuje wysokość wyświetlacza
+&lt;code&gt;vw&lt;/code&gt;- view width -&amp;gt; przyjmuje szerokość wyświetlacza&lt;/p&gt;
+&lt;p&gt;1vmin = 1% (przyjmie tą wartość która jest mniejsza)
+1vmax = 1wv (przyjmie wartość większą)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Treść jak woda" src="https://www.weboftwo.com/wp-content/uploads/2017/12/content-is-like-water.png"&gt;&lt;/p&gt;
+&lt;h3&gt;@media queries - zapytanie o media (ekran)&lt;/h3&gt;
+&lt;p&gt;Ustawienia w html tagu &lt;code&gt;meta&lt;/code&gt; w &lt;code&gt;head&lt;/code&gt; oraz zdefiniowanie &lt;code&gt;content&lt;/code&gt; na &lt;code&gt;width=device-width&lt;/code&gt; oznacza, to że treść dopasuje się do szerokości ekranu, na którym dana strona jest przeglądana&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;meta&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zapytanie o wielkość ekranu osoby korzystającej ze strony poprzedzone jest słowem kluczowym &lt;code&gt;@media&lt;/code&gt; następnie należy zapisać warunek oraz przypisać konkretne deklaracje do selektorów wskazujące na zachowanie się układu strony w momencie gdy warunek zostanie spełniony&lt;/p&gt;
+&lt;p&gt;Częścią warunku/reguły może być jedno ze słów kluczowych odwołujących się do urządzenie lub ekranu &lt;code&gt;tv&lt;/code&gt; (telewizor), &lt;code&gt;screen&lt;/code&gt; (ekran), &lt;code&gt;all&lt;/code&gt; (wszystkie), &lt;code&gt;print&lt;/code&gt; (drukarki), &lt;code&gt;speech&lt;/code&gt; (urządzenia czytające), &lt;code&gt;viewport&lt;/code&gt; (ekran/domyślnie) lub inne odwołujące się do jego orientacji pionowej (&lt;code&gt;portrait&lt;/code&gt;) lub poziomej (&lt;code&gt;landscape&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;orientation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;portrait&lt;/span&gt;
+
+&lt;span class="n"&gt;orientation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;landscape&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Operatory and/,(or)/not/only&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Operator&lt;/th&gt;
+&lt;th&gt;Znaczenie&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;and&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;oba warunki muszą być spełnione&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;or&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;przy pomocy przecinka &lt;code&gt;,&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;not&lt;/code&gt; -&lt;/td&gt;
+&lt;td&gt;spełniony jeśli jest negatywny&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;only&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;tylko dla&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;Atrybuty&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Atrybut&lt;/th&gt;
+&lt;th&gt;Cecha&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;min-width&lt;/td&gt;
+&lt;td&gt;minimalna szerokość, od której obowiązują deklaracje&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;mix-width&lt;/td&gt;
+&lt;td&gt;maksymalna szerokość&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;min-height&lt;/td&gt;
+&lt;td&gt;minimalna wysokość&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;max-height&lt;/td&gt;
+&lt;td&gt;maksymalna wysokość&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Przykładowe zastosowanie:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@media&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;aside&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Łączenie przy pomocy operator &lt;code&gt;and&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;media&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;min-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;768px&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nt"&gt;and&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;max-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;1024px&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nt"&gt;main&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="kt"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="c"&gt;/* left: 25vw; */&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;aside&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="kt"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;aside&lt;/span&gt; &lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Użycie operatora only oraz wskazanie na jedynie ekrany&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@media&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;only&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;600&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Punkty graniczne -&amp;gt; break points&lt;/h4&gt;
+&lt;p&gt;Punkty, w których zmienia się układ strony dla których należy stworzyć kolejne zapytani&lt;/p&gt;
+&lt;p&gt;Klasyczne punkty graniczne max-width: 600px (smartfon), 768px (tablet), 992px/1024px(tablet poziomo, małe i starsze laptopy), 1200px(większe ekrany)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;CSS&lt;/h4&gt;
+&lt;p&gt;Deklaracje dla poszczególnych szerokości ekranu można przechowywać w osobnych plikach css wówczas należy również dodać właściwość &lt;code&gt;media&lt;/code&gt; i wpisanie odpowiedniego warunku w tagu &lt;code&gt;link&lt;/code&gt; a następnie przypisać mu konkretny css&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;(min-width: 640px)&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;min-640px.css&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;@media queries w Sass&lt;/h4&gt;
+&lt;p&gt;Można warunki wpisać do zmiennej a następnie je interpolować
+lub stworzenie mixina, który zastępuje media-query (@content)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@mixin&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tablet&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@media&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;only&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;768&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@content&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/viewport-sized-typography/&lt;/p&gt;
+&lt;p&gt;https://generatedcontent.org/post/21279324555/viewportunits&lt;/p&gt;
+&lt;p&gt;https://developers.google.com/web/fundamentals/design-and-ux/responsive?hl=pl&lt;/p&gt;
+&lt;p&gt;http://blog.kamilbrenk.pl/meta-tag-viewport-kiedy-i-jak-uzywac/&lt;/p&gt;
+&lt;p&gt;https://getflywheel.com/layout/css-breakpoints-responsive-design-how-to/#:~:text=CSS%20breakpoints%20are%20points%20where,adapts%20to%20the%20screen%20size.&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp&lt;/p&gt;
+&lt;p&gt;Pełna lista zapytań zw. z ekranem&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/cssref/css3_pr_mediaquery.asp&lt;/p&gt;</content><category term="html"></category></entry><entry><title>CSS - reset i normalizer</title><link href="https://kostyrko.github.io/zfrontu/css-reset-normalizer.html" rel="alternate"></link><published>2020-04-05T11:00:00+02:00</published><updated>2020-04-05T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-05:/zfrontu/css-reset-normalizer.html</id><summary type="html">&lt;h3&gt;Reset&lt;/h3&gt;
 &lt;p&gt;Każda z przeglądarek ma swoje domyślne style, celem &lt;code&gt;reset&lt;/code&gt;u jest ich wyzbycie się i doprowadzenie do sytuacji, w której zadeklarowane style własne spowodują, możliwie jak najbliższe sobie zachowanie w różnego typu wyszukiwarkach internetowych. Normalizer zaczyna się od gwiazdki &lt;code&gt;*&lt;/code&gt; wyznaczając, że deklaracja odnosi się do wszystkich elementów. Tu często …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Reset&lt;/h3&gt;
 &lt;p&gt;Każda z przeglądarek ma swoje domyślne style, celem &lt;code&gt;reset&lt;/code&gt;u jest ich wyzbycie się i doprowadzenie do sytuacji, w której zadeklarowane style własne spowodują, możliwie jak najbliższe sobie zachowanie w różnego typu wyszukiwarkach internetowych. Normalizer zaczyna się od gwiazdki &lt;code&gt;*&lt;/code&gt; wyznaczając, że deklaracja odnosi się do wszystkich elementów. Tu często również wskazuje się na rozmiar box-sizingu.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -3544,8 +4526,11 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;hr&gt;
 &lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
-&lt;p&gt;https://tympanus.net/codrops/css_reference/calc/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="calc"></category><category term="length"></category><category term="angles"></category><category term="time"></category><category term="number"></category><category term="integer"></category></entry><entry><title>CSS:pseudo-klasy</title><link href="https://kostyrko.github.io/zfrontu/css-pseudo-klasy.html" rel="alternate"></link><published>2020-04-02T10:00:00+02:00</published><updated>2020-04-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-02:/zfrontu/css-pseudo-klasy.html</id><summary type="html">&lt;p&gt;Pseudo klasy pozwalają na wprowadzenie interaktywnego zachowania się strony przy pomocy CSS, przy pomocy tej deklaracji w zależności od zdefiniowanej sytuacji/stanu dany obiekt może przyjąć inny wygląd. Istotne jest to że deklaracja pseudoklasy poprzedzona jest dwukropkiem &lt;code&gt;:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;https://tympanus.net/codrops/css_reference/calc/&lt;/p&gt;
+&lt;p&gt;Pełen spis referencji CSS&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/cssref/default.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="calc"></category><category term="length"></category><category term="angles"></category><category term="time"></category><category term="number"></category><category term="integer"></category></entry><entry><title>CSS:pseudo-klasy</title><link href="https://kostyrko.github.io/zfrontu/css-pseudo-klasy.html" rel="alternate"></link><published>2020-04-02T10:00:00+02:00</published><updated>2020-04-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-02:/zfrontu/css-pseudo-klasy.html</id><summary type="html">&lt;p&gt;Pseudo klasy pozwalają na wprowadzenie interaktywnego zachowania się strony przy pomocy CSS, przy pomocy tej deklaracji w zależności od zdefiniowanej sytuacji/stanu dany obiekt może przyjąć inny wygląd. Istotne jest to że deklaracja pseudoklasy poprzedzona jest dwukropkiem &lt;code&gt;:&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Przykładowy schemat zastosowania&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;selektor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;pseudoklasa&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;właściwość&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -3653,7 +4638,7 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 
 &lt;p&gt;&lt;code&gt;::first-line&lt;/code&gt; - pozwala na zadeklarowanie konkretnych cech dla pierwszej linii wybranego tekstu
 [na marginesie przykładowo do identacji tekstu nie trzeba stosować pseudo-elementów, wystarczy np &lt;code&gt;text-indent&lt;/code&gt; ]&lt;/p&gt;
-&lt;p&gt;Do pseudo-selektorów można dodać odpowiednio np. - &lt;code&gt;font&lt;/code&gt;, &lt;code&gt;color&lt;/code&gt;, &lt;code&gt;word-spacing&lt;/code&gt;, &lt;code&gt;background&lt;/code&gt;, t&lt;code&gt;ext-decoration&lt;/code&gt;, &lt;code&gt;line-height&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Do pseudo-selektorów można dodać odpowiednio np. - &lt;code&gt;font&lt;/code&gt;, &lt;code&gt;color&lt;/code&gt;, &lt;code&gt;word-spacing&lt;/code&gt;, &lt;code&gt;background&lt;/code&gt;, &lt;code&gt;text-decoration&lt;/code&gt;, &lt;code&gt;line-height&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::first-letter&lt;/code&gt; - zadeklarowanie konkretnej cechy dla pierwszej litery&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::after&lt;/code&gt; - reprezentuje ostatnie dziecko wybranego elementu/ podstawową właściwością jest &lt;code&gt;content&lt;/code&gt; w ramach, której definiowana jest zawartość dodawanego elementu np. tekst lub link do obrazu&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie dodające określony tekst po tekście zawartym w wybranym paragrafie&lt;/p&gt;
@@ -3694,8 +4679,9 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 
 
 &lt;p&gt;Pełna lista (łącznie z jeszcze nie w pełni wdrożonymi pseudoelementeami) znajduje się &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements"&gt;tutaj&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Źródło i polecane linki:
-https://blog.logrocket.com/a-guide-to-css-pseudo-elements/&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródło i polecane linki:&lt;/p&gt;
+&lt;p&gt;https://blog.logrocket.com/a-guide-to-css-pseudo-elements/&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements&lt;/p&gt;
 &lt;p&gt;https://www.w3schools.com/css/css_pseudo_elements.asp&lt;/p&gt;
 &lt;p&gt;https://css-tricks.com/almanac/selectors/a/after-and-before/&lt;/p&gt;
@@ -5132,7 +6118,61 @@ Instalowanie programu do zarządzania wyglądem/skórką Ubuntu&lt;/p&gt;
 &lt;li&gt;Część ikon zyskała nową skórkę&lt;/li&gt;
 &lt;li&gt;Zacząłem korzystać z motywu nocnego (podoba mi się opcja dostosowania nasilenia filtra)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;W przyszłym miesiącu pojawia się kolejna wersja Ubuntu i pewnie również skorzystam z aktualizacji jak tylko mi system taką zaproponuje&lt;/strong&gt;&lt;/p&gt;</content><category term="ubuntu"></category><category term="linux"></category><category term="ubuntu"></category><category term="aktualizacja"></category><category term="ciemny motyw"></category><category term="ubuntu 19.10"></category></entry><entry><title>Pelican blog - rozszerzenia</title><link href="https://kostyrko.github.io/zfrontu/pelican-rozszerzenia.html" rel="alternate"></link><published>2020-03-24T22:20:00+01:00</published><updated>2020-03-24T22:20:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-24:/zfrontu/pelican-rozszerzenia.html</id><content type="html">&lt;p&gt;Planowany -&amp;gt; CMS&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;W przyszłym miesiącu pojawia się kolejna wersja Ubuntu i pewnie również skorzystam z aktualizacji jak tylko mi system taką zaproponuje&lt;/strong&gt;&lt;/p&gt;</content><category term="ubuntu"></category><category term="linux"></category><category term="ubuntu"></category><category term="aktualizacja"></category><category term="ciemny motyw"></category><category term="ubuntu 19.10"></category></entry><entry><title>.gitignore</title><link href="https://kostyrko.github.io/zfrontu/git-gitignore.html" rel="alternate"></link><published>2020-03-25T22:00:00+01:00</published><updated>2020-03-25T22:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-25:/zfrontu/git-gitignore.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.gitignore&lt;/code&gt; - plik o takiej dokładnie nazwie (rozszerzenie bez nazwy), które zawiera reguły wykluczające z systemu kontroli wersji - GIT konkretne pliki oraz foldery innymi słowy te, której mają być ignorowane przez git. 
+Sam plik powinien znajdować się w folderze źródłowym.&lt;/p&gt;
+&lt;p&gt;Sposoby na wykluczenie&lt;/p&gt;
+&lt;p&gt;pliki: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.gitignore&lt;/span&gt;
+&lt;span class="na"&gt;.vscode&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;pliki po rozszerzeniu tzw. dzika …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-logo" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.gitignore&lt;/code&gt; - plik o takiej dokładnie nazwie (rozszerzenie bez nazwy), które zawiera reguły wykluczające z systemu kontroli wersji - GIT konkretne pliki oraz foldery innymi słowy te, której mają być ignorowane przez git. 
+Sam plik powinien znajdować się w folderze źródłowym.&lt;/p&gt;
+&lt;p&gt;Sposoby na wykluczenie&lt;/p&gt;
+&lt;p&gt;pliki: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.gitignore&lt;/span&gt;
+&lt;span class="na"&gt;.vscode&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;pliki po rozszerzeniu tzw. dzika karta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;~&lt;/code&gt; - kończące się na daną frazę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;!&lt;/code&gt; - negacja np. wykazanie pliku, który ma nie być ignorowany&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="sx"&gt;!nowy_folder/nowy_plik.txt&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;foldery: &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nazwa_folderu/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;**&lt;/code&gt; - każda ilość folderów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;**/&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt;
+
+&lt;span class="n"&gt;logs&lt;/span&gt;&lt;span class="cm"&gt;/**/&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;#&lt;/code&gt; - komentarz&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;komentarz&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://www.pluralsight.com/guides/how-to-use-gitignore-file&lt;/p&gt;
+&lt;p&gt;https://git-scm.com/docs/gitignore&lt;/p&gt;
+&lt;p&gt;https://www.atlassian.com/git/tutorials/saving-changes/gitignore&lt;/p&gt;
+&lt;p&gt;https://www.coderomeos.org/gitignore-file-and-its-usage&lt;/p&gt;</content><category term="git"></category><category term="gh-pages"></category><category term="git"></category><category term="github"></category><category term="github pages"></category><category term="system kontroli wersji"></category></entry><entry><title>Pelican blog - rozszerzenia</title><link href="https://kostyrko.github.io/zfrontu/pelican-rozszerzenia.html" rel="alternate"></link><published>2020-03-24T22:20:00+01:00</published><updated>2020-03-24T22:20:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-24:/zfrontu/pelican-rozszerzenia.html</id><content type="html">&lt;p&gt;Planowany -&amp;gt; CMS&lt;/p&gt;
 &lt;p&gt;https://blurringexistence.net/pelicide-demo/&lt;/p&gt;
 &lt;h3 id="zrodla"&gt;Źródło:&lt;/h3&gt;
 &lt;p&gt;https://github.com/iksteen/pelicide&lt;/p&gt;

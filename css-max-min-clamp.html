@@ -162,20 +162,29 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 <p>Innymi słowy min() oznacza podanie maksymalnej wartości jaką może mieć dany element</p>
 <hr>
 <p><code>max()</code> - jest funkcją podobną do min() jednak odnosi się do maksymalnej wartości danego elementu - również przyjmuje jedną lub więcej wyrażeń jako parametr. Za wartość, ustawiającą szerokość przyjmuje największą wartość z podanych parametrów</p>
-<p>.second-level {
-      width: max(50vw, 400px);
-  }</p>
+<div class="highlight"><pre><span></span><code><span class="na">.second-level</span> <span class="err">{</span>
+    <span class="nl">width:</span> <span class="nf">max</span><span class="p">(</span><span class="mi">50</span><span class="no">vw</span><span class="p">,</span> <span class="mi">400</span><span class="no">px</span><span class="p">)</span><span class="c">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
 <p>Powyższe wyrażenie zakłada, że dany element o klasie <code>second-level</code> będzie miał szerokość 400px do momentu, w którym połowa ekranu nie będzie większa niż 800 px i wówczas przyjmie wartość połowy szerokości ekranu (50vw). Dla ekranu węższego niż 400px zajmie 100% rodzica.</p>
 <p>Innymi słowy max() oznacza podanie minimalnej (największej w danym momencie) wartości jaką może mieć dany element</p>
 <p>Inny przykład oznacza maksymalną wielkość fontu na stronie, który będzie zależny od jego rozmiaru np.</p>
-<p>p {
-    font-size: max(4vw, 2em, 2rem)
-  }</p>
+<div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="err">{</span>
+  <span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="p">:</span> <span class="k">max</span><span class="p">(</span><span class="mi">4</span><span class="n">vw</span><span class="p">,</span> <span class="mi">2</span><span class="n">em</span><span class="p">,</span> <span class="mi">2</span><span class="n">rem</span><span class="p">)</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
 <hr>
 <p><code>clamp()</code> - pozwala na zdefiniowanie przedziału, w ramach, które powinien zamknąć się dany element. Przyjmuje trzy wartości - minimalną, preferowaną oraz maksymalną -&gt; clamp(MIN, VAL, MAX). Tym samym istnieje możliwość ustawienia wielkości elementu, który zmieniać się będzie razem z wielkością ekranu ale nie będzie mniejsza niż dana wartość ani większa od innej podanej.</p>
-<p>p {
-    font-size: max(1rem, 2.5vw, 2rem)
-  }</p>
+<div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="err">{</span>
+  <span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="p">:</span> <span class="k">max</span><span class="p">(</span><span class="mi">1</span><span class="n">rem</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="n">vw</span><span class="p">,</span> <span class="mi">2</span><span class="n">rem</span><span class="p">)</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
 <hr>
 <p>Źrdóła: </p>
 <p>https://developer.mozilla.org/en-US/docs/Web/CSS/min</p>
