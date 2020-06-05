@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="CSS na sterydach - czyli Syntactically Awesome Style Sheets Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC pliki sassowe mają rozszerzenie .sass lub .scss. Starsza wersja Sass nie zwierała …" />
+<meta name="description" content="CSS na sterydach - czyli Syntactically Awesome Style Sheets Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC. Sass pozwala na: * definiowanie zmiennych * pisanie składni opartej na zagnieżdżaniu selektorów w …" />
 <meta name="keywords" content="sass, scss, css, javascript, gulp, gulpfile">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="Sass - wprowadzenie"/>
-<meta property="og:description" content="CSS na sterydach - czyli Syntactically Awesome Style Sheets Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC pliki sassowe mają rozszerzenie .sass lub .scss. Starsza wersja Sass nie zwierała …"/>
+<meta property="og:description" content="CSS na sterydach - czyli Syntactically Awesome Style Sheets Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC. Sass pozwala na: * definiowanie zmiennych * pisanie składni opartej na zagnieżdżaniu selektorów w …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/saas-wprowadzenie.html"/>
 <meta property="og:type" content="article"/>
@@ -145,7 +145,7 @@
     <p>
       Opublikowano pią 29 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/saas.html">saas</a>
 
-        &#8226; 6 min read
+        &#8226; 7 min read
     </p>
   </header>
 
@@ -153,8 +153,20 @@
   <div>
     <p>CSS na sterydach - czyli <strong>Syntactically Awesome Style Sheets</strong></p>
 <p><img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"></p>
-<p>Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC</p>
-<p>pliki sassowe mają rozszerzenie <code>.sass</code> lub <code>.scss</code>. Starsza wersja Sass nie zwierała nawiasów klamrowych i nie posiadała średników te wprowadzono od v. 3</p>
+<p>Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC.</p>
+<p>Sass pozwala na:</p>
+<p><a href="#zmienne">* definiowanie <strong>zmiennych</strong></a></p>
+<p><a href="#zagnieżdżanie">* pisanie składni opartej na <strong>zagnieżdżaniu</strong> selektorów w selektorach</a></p>
+<p><a href="#moduły">* organizację projektu w sposób <strong>modułowy</strong> (przechowywanie deklaracji w wielu plikach)</a></p>
+<p><a href="#mixins">* umożliwia tworzenie <strong>@mixins</strong> - grupowanie deklaracji oraz ich wielokrotne użytkowanie</a></p>
+<p><a href="#dziedziczenie">* pozwala na <strong>dziedziczenie</strong> deklaracji @extend</a></p>
+<p><a href="#obiekt-map">* umożliwia tworzenie obiektów typu <strong>map</strong></a> i <a href="#obiekt-list"><strong>list</strong></a></p>
+<p><a href="#operatory">* stosowanie <strong>operatorów</strong> matematycznych/stingów/relacji/logicznych</a></p>
+<p><a href="#if">* stosowanie pętli warunkowych <strong>if</strong></a></p>
+<p><a href="#for">* stosowanie pętli <strong>for</strong> i <strong>each</strong></a></p>
+<p><a href="#funkcje">* definiowanie i użytkowanie <strong>funkcji</strong></a></p>
+<p><a href="https://kostyrko.github.io/zfrontu/saas-moduly-metody.html">* stosowanie wbudowanych modułów oraz ich <strong>metod</strong></a></p>
+<p>Pliki sassowe mają rozszerzenie <code>.sass</code> lub <code>.scss</code>. Starsza wersja Sass nie zwierała nawiasów klamrowych i nie posiadała średników te wprowadzono od v. 3</p>
 <p>Sass</p>
 <div class="highlight"><pre><span></span><code><span class="n">nav</span>
     <span class="n">ul</span>
@@ -176,17 +188,19 @@
 </code></pre></div>
 
 
-<p>W wyniku kompilacji z Sass na CSS kod może być przedstawiony w 4 następujących formatach
-* nested - styl domyślny, bliski do Sassa gdzie CSS odzwierciedla strukturę obiektów HTML poprzez wcięcia</p>
+<p>W wyniku kompilacji z Sass na CSS kod może być przedstawiony w 4 następujących formatach</p>
 <ul>
 <li>
-<p>expanded - najbliższy CSS, wcięte są jedynie właściwości</p>
+<p><code>nested</code> - styl domyślny, bliski do Sassa gdzie CSS odzwierciedla strukturę obiektów HTML poprzez wcięcia</p>
 </li>
 <li>
-<p>compact - właściwości w miarę możliwości kompresowaną, tak aby <em>deklaracja</em> (np. właściwości z z fontem) zajmowała pojedynczą linię</p>
+<p><code>expanded</code> - najbliższy CSS, wcięte są jedynie właściwości</p>
 </li>
 <li>
-<p>compressed - wszystko jest kompresowane do poszczególnych linii, kolejne elementy oddziela spacja - jakiekolwiek komentarze zawarte w scss NIE będą kompilowane do css</p>
+<p><code>compact</code> - właściwości w miarę możliwości kompresowaną, tak aby <em>deklaracja</em> (np. właściwości z z fontem) zajmowała pojedynczą linię</p>
+</li>
+<li>
+<p><code>compressed</code> - wszystko jest kompresowane do poszczególnych linii, kolejne elementy oddziela spacja - jakiekolwiek komentarze zawarte w scss NIE będą kompilowane do css -&gt; najlżejsza forma zapisu deklaracji, która ma pozytywny wpływ na prędkość ładowania strony</p>
 </li>
 </ul>
 <p>Style definiuje się poprze użycie parametru <code>outputStyle</code> lub parametr <code>style</code></p>
@@ -235,6 +249,8 @@
 </code></pre></div>
 
 
+<p>=============================</p>
+<h4>Mapowanie SCSS</h4>
 <p>Proces <em>mapowania</em> pozwala na wskazanie przeglądarce interpretującej css z którego miejsca w pliku sass pochodzi dana deklaracja. Wymaga to dodania pakietu oraz dodania odpowiedniej komendy <code>init</code> i <code>write</code></p>
 <p>Przykładowe zastosowanie</p>
 <div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gulp</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
@@ -268,11 +284,27 @@
 </code></pre></div>
 
 
-<hr>
+<p>================</p>
 <p><code>Komentarze</code></p>
 <p><code>/* */</code> - komentarz znajdzie się w pliku wynikowym CSS</p>
 <p><code>//</code> ten komentarz znajdzie się jedynie w pliku Sass</p>
+<p>================</p>
+<h4>@debug</h4>
+<p>Sassowy console.log ;) - pozwala na proste debuggowanie -&gt; wypisuje w terminalu podaną frazę</p>
+<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="nl">colors</span><span class="p">:</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="err">&quot;</span><span class="n">colors</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="n">colors</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+
+
+<h4>@error i @warn</h4>
+<p>użycie @warn ma za zadanie informowaniu o zajściu pewnego warunku granicznego jednak nie przerywa wykonywania się kodu jak to powinno nastąpić w przypadku @error</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@warn</span><span class="w"> </span><span class="ss">&quot;Unknown prefix #{$prefix}.&quot;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+
+
 <hr>
+<h4 id="zmienne">Zmienne</h4>
 <p><code>Zmienne</code> są poprzedzone znakiem dolara $ (pozwala na szeroki zakres przetrzymywanych danych). Zmienne należy nazywać ze względu na semantykę (opis do czego ona służy) i wg jednej zasady np. main-color lub color-main</p>
 <div class="highlight"><pre><span></span><code><span class="o">$</span><span class="nt">font-stack</span><span class="o">:</span> <span class="nt">Helvetica</span><span class="o">,</span> <span class="nt">sans-serif</span><span class="o">;</span>
 <span class="o">$</span><span class="nt">primary-color</span><span class="o">:</span> <span class="p">#</span><span class="nn">333</span><span class="o">;</span>
@@ -299,6 +331,7 @@
 
 
 <hr>
+<h4 id="zagnieżdżanie">Zagnieżdżanie</h4>
 <p><code>Zagnieżdżenie</code> - Sass pozwala na odwzorowanie hierarchii znanej z HTML przy pisaniu styli
 ::: stosowanie zagnieżdżeń do 3-4 poziomów</p>
 <p><em>Sass</em></p>
@@ -366,8 +399,9 @@
 <p>Partials/Cząstkowość - Saas pozwala na rozbicie "CSS" na mniejsze pliki tworzące większą całość (np. jeden plik może odpowiadać za wszystkie buttony albo jedną dużą tabelę) - modularność
 Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_buttons.scss</code> importowany do <code>main.scss</code></p>
 <hr>
-<h4>Moduły</h4>
-<p>Sass pozwala na odwołanie się do zmiennych z zawartych w innych modułach/plikach (<code>@use</code> + np. nazwa_zmiennej- pozwala na importowanie pojedynczych deklaracji/zmiennych albo <code>@import</code> + nazwa pliku)</p>
+<h4 id="moduły">Modułowość - wprowadzenie</h4>
+<p>Sass pozwala na odwołanie się do zmiennych z zawartych w innych modułach/plikach (<code>@import</code> + nazwa pliku/ dąży się do zastąpienia @import przez <code>@use</code> i <code>@forward</code>)</p>
+<p>Różnice pomiędzy <code>@use</code> a <code>@import</code> -&gt; 1) use zapewnia pojedyncze importowanie w projekcie, 2) mixiny i funkcje (członkowie) zaczynające się na <code>_</code> lub <code>-</code> są postrzegane jako prywatne wyjątki i nie są importowane 3) import członków odbywa się jedynie lokalnie i nie jest przekazywany do dalszych importów 4) <code>@extends</code> - pozwoli na aplikację dalszą importów w kolejnych etapach łańcuch łączników 5) tworzy <code>namespace</code>(przestrzeń nazwy)</p>
 <p>Zwykle stosuje się main.scss do scalania (importowania) zawartości innych plików scss (mogą się znajdować w folderach tematycznych)</p>
 <p>bazowy plik Saas (nazwa <code>_base.sass</code>)</p>
 <div class="highlight"><pre><span></span><code>    <span class="o">//</span> <span class="n">_base</span><span class="p">.</span><span class="n">sass</span>
@@ -405,7 +439,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 
 <p>(źódło przykładu: https://sass-lang.com/guide)</p>
 <hr>
-<h4>Mixins</h4>
+<h4 id="mixins">Mixins</h4>
 <p>Pozwalają na użycie kodu, który jest powtarzany (może ale nie musi przyjmować jeden lub więcej argumentów - argumenty oddzielone są przecinkami) - argument może odnosić się zarówno do właściwości (np. display/padding) jak i przypisanej do niej wartości (np. flex/40px) danego obiektu - jest to tzw. <strong>interpolacja</strong>. W przypadku właściwości stosuje się zapis <code>#{$nazwa_właściwości}</code> w przypadku wartości <code>$wartość</code>. Istnieje również możliwość deklaracji tzw. argumentów opcjonalnych - bez ich podania danej właściwości zostanie przypisana domyślna wartość (domyślną wartość wpisuje się po dwukropku! --&gt; <code>$y: 50%</code>)</p>
 <p>Zmienna która pozwala na przetrzymywanie wielu deklaracji styli.</p>
 <p>$value... - trzykropek pozwala na dodanie listy jako argumentu, która ma być traktowana jako jeden parametr</p>
@@ -435,7 +469,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 
 <p>https://sass-lang.com/documentation/at-rules/mixin</p>
 <hr>
-<h4>Dziedziczenie</h4>
+<h4 id="dziedziczenie">Dziedziczenie</h4>
 <p>Dziedziczenie pozwala na stworzenie stylu, który przejmuje deklaracje innego stylu - selektory będą miały te same właściwości</p>
 <p>Dziedziczenie do prostszych rzeczy związanych z powielaniem styli, jednak w przypadku jego wariacji @mixin jest lepszy.</p>
 <p>::: Różnica pomiędzy dziedziczeniem a Mixinem jest również widoczna w przypadku wielu klas współdzielących style zapisane w Mixinie lub dziedziczone - w przypadku dziedziczenia nie powiela się stylu tylko jest przypisany do jednego selektora oznaczającego elementy w postaci listy rodzielonej przecinkami, w przypadku Mixina kod jest powielany wielokrotnie - dla każdego selektora jest tworzony unikalny styl - ze względu na to, że Mixin może być parametryzowany :::</p>
@@ -467,8 +501,9 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 </code></pre></div>
 
 
+<p>https://sass-lang.com/documentation/at-rules/extend</p>
 <hr>
-<h4>Listy</h4>
+<h4 id="obiekt-list">Listy</h4>
 <p>Zbiór elementów wykorzystywanych wyłącznie wewnątrz Saas [ nawiązują do tablic z JS - jednak sposób ich rozdzielenia nie jest zdefiniowany - może być spacja, przecinek] - jej numeracja zaczyna się od 1!</p>
 <p>posiada metodę <code>length($nazwa_listy)</code></p>
 <p>nth() - wyciąga n-ty element z listy</p>
@@ -479,7 +514,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 
 
 <hr>
-<h4>Mapa</h4>
+<h4 id="obiekt-map">Mapa</h4>
 <p>Przypomina obiekt z JS - posiada klucze oraz wartości - również nie jest kompilowana do CSS</p>
 <p>$mapa-kolorow: (klucz1: wartość1, klucz2: wartość2);
 map-get($mapa, klucz1) -&gt; zwraca wartość1</p>
@@ -491,30 +526,42 @@ map-get($mapa, klucz1) -&gt; zwraca wartość1</p>
 
 <p><code>map-values()</code> - metoda zmieniająca wartości znajdujące się w mapie w listę</p>
 <hr>
-<h5>Wtyczka do VSC - Live Sass Complier !</h5>
-<p>Wtyczka Live Sass Complier dokonuje translację z Sass na CSS automatycznie</p>
-<p>strona projektu: https://github.com/ritwickdey/vscode-live-sass-compiler</p>
-<h4>@debug</h4>
-<p>Sassowy console.log ;) wypisuje w terminalu podaną frazę</p>
-<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="nl">colors</span><span class="p">:</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="w"></span>
-
-<span class="nv">@debug</span><span class="w"> </span><span class="err">&quot;</span><span class="n">colors</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="n">colors</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-
-
-<hr>
-<h4>Operatory</h4>
-<p>Sass pozwala i przyjmuje klasyczne operatory (+,/,-...) łącznie z modulo <code>%</code>
-Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z ich logiki</p>
-<p>Np. dodawanie ze sobą stringów skutkuje w ich łączeniu</p>
+<h4 id="operatory">Operatory</h4>
+<p>Sass pozwala i przyjmuje klasyczne operatory kontekście <strong>liczb/wyrażeń matematycznych</strong> (+,/,-...) łącznie z modulo <code>%</code></p>
+<p>Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z ich logiki.</p>
+<p>W przypadku dzielenia może pojawić się problem gdy wartość dzielona może być częścią atrybutu np w przypadku fontu: 20px/10px aby temu zapobiec należy wykorzystać zmienne np font: $primary-size/10px</p>
+<p>Zastosowanie okrągłych nawiasów pozwala na wymuszenie kolejności działań</p>
+<p>Pozwala również na stosowanie operatorów w kontekście <strong>stringów</strong> - </p>
+<p>np. dodawanie ze sobą stringów skutkuje w ich łączeniu</p>
 <div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">+</span> <span class="o">-</span><span class="n">zmien</span>  <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">zmien</span>
 </code></pre></div>
 
 
-<p>W przypadku dzielenia może pojawić się problem gdy wartość dzielona może być częścią atrybutu np w przypadku fontu: 20px/10px aby temu zapbiec należy wykorzystać zmienne np font: $primary-size/10px</p>
-<p>Zastosowanie okrągłych nawiasów pozwala na wymuszenie kolejności działań</p>
+<p>https://sass-lang.com/documentation/operators/string</p>
+<p>Z operatorów moża korzystać również w kontekście sprawdzania <strong>równości</strong> oraz <strong>relacji</strong></p>
+<p><code>==</code> jest takie samo <code>!=</code> nie jest takie samo </p>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="mi">1</span><span class="n">px</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="n">em</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="ss">&quot;Helvetica&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">przypadku</span><span class="w"> </span><span class="n">stringów</span><span class="w"> </span><span class="n">zastosowanie</span><span class="w"> </span><span class="n">cudzysłowu</span><span class="w"> </span><span class="n">nie</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="n">znaczenia</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="n">hsl</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="o">%</span><span class="p">,</span><span class="w"> </span><span class="mf">92.1</span><span class="o">%</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">#f2ece4</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">kolory</span><span class="w"> </span><span class="n">również</span><span class="w"> </span><span class="n">są</span><span class="w"> </span><span class="n">tłumaczone</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="n">px</span><span class="w"> </span><span class="mi">7</span><span class="n">px</span><span class="w"> </span><span class="mi">10</span><span class="n">px</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">[</span><span class="n">5px 7px 10px</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nawiasy</span><span class="w"> </span><span class="n">są</span><span class="w"> </span><span class="n">rozpoznawane</span><span class="w"></span>
+
+<span class="err">$</span><span class="nl">theme</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;venus&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">#998099</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;nebula&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">#d2e1dd</span><span class="p">);</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="err">$</span><span class="n">theme</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;venus&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">#998099</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;iron&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">#dadbdf</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">zawartość</span><span class="w"> </span><span class="n">zmiennych</span><span class="w"> </span><span class="n">jest</span><span class="w"> </span><span class="n">sprawdzana</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="n">występuje</span><span class="w"> </span><span class="n">jako</span><span class="w"> </span><span class="k">false</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>Operatory stosowane przypadku <strong>wyrażeń logicznych</strong> -&gt; <code>not</code>, <code>and</code>, <code>or</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">false</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+</code></pre></div>
+
+
 <hr>
-<h4>Instrukcja warunkowa @if</h4>
+<h4 id="if">Instrukcja warunkowa @if</h4>
 <div class="highlight"><pre><span></span><code>$<span class="nv">type</span>: <span class="nv">monster</span><span class="c1">;</span>
 <span class="nv">p</span> {
     @<span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">ocean</span> {
@@ -530,7 +577,7 @@ Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z 
 </code></pre></div>
 
 
-<h4>Pętla @for i @each</h4>
+<h4 id="for">Pętla @for i @each</h4>
 <p>Generacja selektorów z powtarzalną wartością</p>
 <div class="highlight"><pre><span></span><code>@<span class="k">for</span> $<span class="nv">var</span> <span class="nv">from</span> <span class="o">&lt;</span><span class="nv">start</span><span class="o">&gt;</span> <span class="nv">through</span> <span class="o">&lt;</span><span class="k">end</span><span class="o">&gt;</span> <span class="o">//</span> <span class="nv">warto</span>ść <span class="nv">ko</span>ń<span class="nv">cowa</span> <span class="nv">jest</span> <span class="nv">wliczana</span>
 
@@ -556,7 +603,7 @@ Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z 
 
 
 <p>Istnieje pętla <code>@while</code> wykorzystywana jest wtedy gdy nie mamy pewności kiedy dany warunek się skończy</p>
-<h4>@funkcje</h4>
+<h4 id="funkcje">@funkcje</h4>
 <p>Funkcje wbudowane i zdefiniowane</p>
 <p>https://sass-lang.com/documentation/at-rules/function</p>
 <p>Zdefiniowane</p>
@@ -567,6 +614,10 @@ Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z 
 </code></pre></div>
 
 
+<hr>
+<h5>Wtyczka do VSC - Live Sass Complier !</h5>
+<p>Wtyczka Live Sass Complier dokonuje translację z Sass na CSS automatycznie</p>
+<p>strona projektu: https://github.com/ritwickdey/vscode-live-sass-compiler</p>
 <hr>
 <p>Źródła:</p>
 <p>https://sass-lang.com/</p>

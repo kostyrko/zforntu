@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Sass oferuje następujące wbudowane moduły color, list, map, math, meta, selector, string Używanie modułu odbywa się poprzez jego zaimportowanie na początku poprzez odowłanie się do słowa kluczowego @use nazwy modułu oraz użycia gwiazdki lub bez użycia gwiazdki - wówczas każda metoda musi być poprzedzona nazwą modułu @use &#39;sass:math&#39;; $half: math …" />
+<meta name="keywords" content="sass, scss, css, javascript, gulp, gulpfile">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Sass - wbudowane moduły i ich metody"/>
+<meta property="og:description" content="Sass oferuje następujące wbudowane moduły color, list, map, math, meta, selector, string Używanie modułu odbywa się poprzez jego zaimportowanie na początku poprzez odowłanie się do słowa kluczowego @use nazwy modułu oraz użycia gwiazdki lub bez użycia gwiazdki - wówczas każda metoda musi być poprzedzona nazwą modułu @use &#39;sass:math&#39;; $half: math …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/saas-moduly-metody.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-05-31 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="saas"/>
+<meta property="article:tag" content="sass"/>
+<meta property="article:tag" content="scss"/>
+<meta property="article:tag" content="css"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="gulp"/>
+<meta property="article:tag" content="gulpfile"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Sass - wbudowane moduły i ich metody</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="saas-moduly-metody">Sass - wbudowane moduły i ich metody</h1>
+    <p>
+      Opublikowano nie 31 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/saas.html">saas</a>
+
+        &#8226; 4 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p>Sass oferuje następujące wbudowane moduły <a href="#color">color</a>, <a href="#list">list</a>, <a href="#map">map</a>, <a href="#math">math</a>, <a href="#meta">meta</a>, <a href="#selector">selector</a>, <a href="#string">string</a></p>
+<p>Używanie modułu odbywa się poprzez jego zaimportowanie na początku poprzez odowłanie się do słowa kluczowego <code>@use</code> nazwy modułu oraz użycia gwiazdki lub bez użycia gwiazdki - wówczas każda metoda musi być poprzedzona nazwą modułu</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@use</span><span class="w"> </span><span class="s1">&#39;sass:math&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="err">$</span><span class="nl">half</span><span class="p">:</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="n">percentage</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+
+<span class="nv">@use</span><span class="w"> </span><span class="s1">&#39;sass:math&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="err">$</span><span class="nl">half</span><span class="p">:</span><span class="w"> </span><span class="n">percentage</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>Obecnie jedynie Dart Sass wspiera nazewnictwo bez odwołania się do modułów w sposób globalny</p>
+<p><strong>Indeks w SAAS zaczyna się od 1 !! a nie 0</strong></p>
+<h3 id="color">Color</h3>
+<p>https://sass-lang.com/documentation/modules/color</p>
+<p>Wybrane</p>
+<table>
+<thead>
+<tr>
+<th>metoda</th>
+<th>funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>color.adjust</strong>($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/adjust-color(...)</td>
+<td>zmniejsza lub zwiększa jedną lub więcej właściwości koloru</td>
+</tr>
+<tr>
+<td><strong>color.change</strong>($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/change-color(...)</td>
+<td>zmienia jedną lub więcej właściwości koloru</td>
+</tr>
+<tr>
+<td><strong>color.alpha($color)</strong>/alpha($color)/opacity($color)</td>
+<td>pozwala na zmianę kanału alpha (0-1)</td>
+</tr>
+<tr>
+<td>color.blue($color)/color.red($color)/color.green($color)</td>
+<td>zwraca niebieskie/czerwony/zielony kanał</td>
+</tr>
+<tr>
+<td><strong>darken($color, $amount)</strong></td>
+<td>przyciemnia kolor, przyjmuje kolor i wartość przyciemnienia (0-100%)</td>
+</tr>
+<tr>
+<td><strong>color.scale($color,$red: null, $green: null, $blue: null, $saturation: null, $lightness: null, $alpha: null)</strong>/scale()</td>
+<td>skalowanie koloru wobec poprzedniej jego wartości wykorzystując jedną lub więcej jego właściwości</td>
+</tr>
+<tr>
+<td><strong>desaturate($color, $amount)</strong></td>
+<td>pozwala zmienić nasycenie koloru</td>
+</tr>
+<tr>
+<td><strong>color.grayscale($color)</strong>/grayscale($color)</td>
+<td>zwraca szary kolor przyjmujący balans bieli od koloru wprowadzonego</td>
+</tr>
+<tr>
+<td><strong>color.hue($color)</strong>/hue($color)</td>
+<td>zwraca odcień koloru w skali 0-360 stopni</td>
+</tr>
+<tr>
+<td><strong>color.invert($color, $weight: 100%)</strong></td>
+<td>zwraca inwersję kolorystyczną podanej barwy</td>
+</tr>
+<tr>
+<td><strong>lighten($color, $amount)</strong></td>
+<td>rozjaśnia</td>
+</tr>
+<tr>
+<td><strong>saturate($color, $amount)</strong></td>
+<td>zmienia nasilenie barwy koloru</td>
+</tr>
+<tr>
+<td><strong>transparentize($color, $amount)</strong>/fade-out($color, $amount)</td>
+<td>wpływa na przezroczystość koloru</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="list">List</h3>
+<p>Wybrane</p>
+<table>
+<thead>
+<tr>
+<th>metoda</th>
+<th>funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>list.append($list, $val, $separator: auto)</strong>/quote()</td>
+<td>zwraca kopię listy z dodanym elementem</td>
+</tr>
+<tr>
+<td><strong>list.index($list, $value)</strong></td>
+<td>zwraca indeks wybranej wartości w liście/null jeśli nie istnieje</td>
+</tr>
+<tr>
+<td><strong>list.is-bracketed($list)</strong></td>
+<td>zwraca wartość logiczną - czy jest w kwadratowych nawiasach</td>
+</tr>
+<tr>
+<td><strong>list.join($list1, $list2, $separator: auto, $bracketed: auto)</strong></td>
+<td>łączenie list</td>
+</tr>
+<tr>
+<td><strong>list.append($list, $val, $separator: auto)</strong></td>
+<td>dołączenie wartości do listy</td>
+</tr>
+<tr>
+<td><strong>list.length($list)</strong></td>
+<td>zwraca długość listy</td>
+</tr>
+<tr>
+<td><strong>list.separator($list)</strong></td>
+<td>zwraca nazwę separatora</td>
+</tr>
+<tr>
+<td><strong>list.nth($list, $n)</strong>/nth($list, $n)</td>
+<td>zwraca element listy na n-tym miejscu indeksu</td>
+</tr>
+<tr>
+<td><strong>list.set-nth($list, $n, $value)</strong></td>
+<td>zwraca kopię listy z podmienionym elementem</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">),</span><span class="w"> </span><span class="n">green</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="n">px</span><span class="w"> </span><span class="mi">20</span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="n">px</span><span class="w"> </span><span class="mi">40</span><span class="n">px</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">10</span><span class="n">px</span><span class="w"> </span><span class="mi">20</span><span class="n">px</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="n">px</span><span class="w"> </span><span class="mi">40</span><span class="n">px</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
+<h3 id="map">Map</h3>
+<p>Wybrane</p>
+<table>
+<thead>
+<tr>
+<th>metoda</th>
+<th>funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>map.get($map, $key)</strong></td>
+<td>zwraca element mapy wg. podanego klucza</td>
+</tr>
+<tr>
+<td><strong>map.has-key($map, $key)</strong></td>
+<td>sprawdza czy mapa posiada podany klucz</td>
+</tr>
+<tr>
+<td><strong>map.keys($map)</strong></td>
+<td>zwraca klucze mapy</td>
+</tr>
+<tr>
+<td><strong>map.merge($map1, $map2)</strong></td>
+<td>łączy mapy</td>
+</tr>
+<tr>
+<td><strong>map.remove($map, $keys...)</strong></td>
+<td>zwraca kopię mapy bez wartości połączonych z podanymi kluczami</td>
+</tr>
+<tr>
+<td><strong>map.values($map)</strong></td>
+<td>zwraca listę wszystkich wartości mapy</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="math">Math</h3>
+<table>
+<thead>
+<tr>
+<th>metoda</th>
+<th>funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>math.$pi</strong></td>
+<td>zwraca wartość PI</td>
+</tr>
+<tr>
+<td><strong>math.round($number)</strong>/round($number)</td>
+<td>zwraca zaokrągloną liczbę</td>
+</tr>
+<tr>
+<td><strong>math.ceil($number)</strong>/ceil()</td>
+<td>zwraca zaokrągloną liczbę w górę do najbliższej pełnej</td>
+</tr>
+<tr>
+<td><strong>math.clamp($min, $number, $max)</strong></td>
+<td>ograniczę liczbę do podanego zakresu min-max</td>
+</tr>
+<tr>
+<td><strong>math.floor($number)</strong>/ceil()</td>
+<td>zwraca zaokrągloną liczbę w dół do najbliższej pełnej</td>
+</tr>
+<tr>
+<td><strong>math.clamp($min, $number, $max)</strong></td>
+<td>zwraca string w cudzysłowie</td>
+</tr>
+<tr>
+<td><strong>math.max($number...)</strong> max($number...)</td>
+<td>zwraca najwyższą z podanych wartości</td>
+</tr>
+<tr>
+<td><strong>math.min($number...)</strong> min($number...)</td>
+<td>zwraca najniższą z podanych wartości</td>
+</tr>
+<tr>
+<td><strong>math.max($number...)</strong> max($number...)</td>
+<td>zwraca najwyższą z podanych liczb</td>
+</tr>
+<tr>
+<td><strong>math.sqrt($number)</strong></td>
+<td>zwraca pierwiastek kwadratowy</td>
+</tr>
+<tr>
+<td><strong>math.abs($number)</strong></td>
+<td>zwraca wartość absolutną podanej liczby</td>
+</tr>
+<tr>
+<td><strong>math.percentage($number)</strong> percentage($number)</td>
+<td>konwertuje liczbę w procent</td>
+</tr>
+<tr>
+<td><strong>math.random($limit: null)</strong> random($limit: null)</td>
+<td>zwraca liczbę przypadkową pomiędzy 0 a 1, jeśli limit powyżej 1 to wówczas jest od 1 do limitowej liczby</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="nf">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="n">px</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">10</span><span class="n">px</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
+<h3 id="meta">Meta</h3>
+<table>
+<thead>
+<tr>
+<th>metoda</th>
+<th>funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>meta.load-css($url, $with: null)</strong></td>
+<td>--- Mixins</td>
+</tr>
+<tr>
+<td><strong>meta.call($function, $args...)</strong></td>
+<td>--- Functions</td>
+</tr>
+<tr>
+<td><strong>meta.content-exists()</strong></td>
+<td>--- Functions</td>
+</tr>
+<tr>
+<td><strong>meta.feature-exists($feature)</strong>/feature-exists($feature)</td>
+<td>--- Functions</td>
+</tr>
+<tr>
+<td><strong>meta.get-function($name, $css: false, $module: null)</strong>/get-function($name, $css: false, $module: null)</td>
+<td>--- Functions</td>
+</tr>
+<tr>
+<td><strong>meta.global-variable-exists($name, $module: null)</strong></td>
+<td>--- Functions</td>
+</tr>
+<tr>
+<td><strong>meta.inspect($value)</strong></td>
+<td>zwraca podaną wartość jako string</td>
+</tr>
+<tr>
+<td><strong>meta.keywords($args)</strong></td>
+<td>zwraca słowa kluczowe podane w mixie lub funkcje, które przyjmują słowa kluczowe</td>
+</tr>
+<tr>
+<td><strong>meta.mixin-exists($name, $module: null)</strong></td>
+<td>sprawdza czy mixin o podanej nazwie istnieje</td>
+</tr>
+<tr>
+<td><strong>meta.module-functions($module)</strong></td>
+<td>--- Functions</td>
+</tr>
+<tr>
+<td><strong>meta.module-variables($module)</strong></td>
+<td>zwraca zmienne zadeklarowane w module</td>
+</tr>
+<tr>
+<td><strong>meta.type-of($value)</strong></td>
+<td>zwraca typo podanej zmiennej/wartości</td>
+</tr>
+<tr>
+<td><strong>meta.variable-exists($name)</strong></td>
+<td>sprawdza czy podana zmienna znajduje się w obecnym zakresie</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="selector">Selector</h3>
+<p>https://sass-lang.com/documentation/modules/selector</p>
+<table>
+<thead>
+<tr>
+<th>metoda</th>
+<th>funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>selector.is-superselector($super, $sub)</strong></td>
+<td>sprawdza czy selektor $super pokrywa się z selektorem $sub</td>
+</tr>
+<tr>
+<td><strong>selector.append($selectors...)</strong></td>
+<td>łączy selektory</td>
+</tr>
+<tr>
+<td><strong>selector.extend($selector, $extendee, $extender)</strong>/</td>
+<td>rozszerza selektor o podaną regułę</td>
+</tr>
+<tr>
+<td><strong>selector.nest($selectors...)</strong></td>
+<td>łączy selektory w taki sposób jak by były zagnieżdżone</td>
+</tr>
+<tr>
+<td><strong>selector.parse($selector)</strong></td>
+<td>rozdziela selektory w formacie selektora wartości</td>
+</tr>
+<tr>
+<td><strong>selector.replace($selector, $original, $replacement)</strong></td>
+<td>podmienia selektor / przyjmuje org. selektor, element do podmiany oraz ten, który go zastąpi</td>
+</tr>
+<tr>
+<td><strong>selector.unify($selector1, $selector2)</strong></td>
+<td>łączy selektory - zwraca selektor będący połączeniem wprowadzonych selektorów</td>
+</tr>
+<tr>
+<td><strong>selector.simple-selectors($selector)</strong></td>
+<td>zwraca listę selektorów zawartych w selektorze</td>
+</tr>
+<tr>
+<td><strong>unquote(".main")</strong></td>
+<td>pozbywa wprowadzony string cudzysłów</td>
+</tr>
+<tr>
+<td>(unquote(".main") unquote("aside:hover"))</td>
+<td>// .main aside:hover</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="k">is</span><span class="o">-</span><span class="n">superselector</span><span class="p">(</span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.link&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">disabled</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+
+<span class="err">#{$</span><span class="n">extender</span><span class="err">}</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@extend</span><span class="w"> </span><span class="err">#{$</span><span class="n">extendee</span><span class="err">}</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="ss">&quot;.main aside:hover, .sidebar p&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="o">//</span><span class="w"> </span><span class="p">((</span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;.main&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;aside:hover&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="o">//</span><span class="w">  </span><span class="p">(</span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;.sidebar&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;p&quot;</span><span class="p">)))</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.link&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="n">simple</span><span class="o">-</span><span class="n">selectors</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
+<h3 id="string">String</h3>
+<p>https://sass-lang.com/documentation/modules/string</p>
+<table>
+<thead>
+<tr>
+<th>metoda</th>
+<th>funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>string.quote($string)</strong>/quote()</td>
+<td>zwraca string w cudzysłowie</td>
+</tr>
+<tr>
+<td><strong>string.index($string, $substring)</strong>/str-index()</td>
+<td>Zwraca pierwszy indeks fragmentu stringu znajdującego się w stringu lub null</td>
+</tr>
+<tr>
+<td><strong>string.insert($string, $insert, $index)</strong>/str-insert()</td>
+<td>zwraca kopię zmodyfikowanego string - przyjmuje string do wstawienia i indeks (miejsce)</td>
+</tr>
+<tr>
+<td><strong>string.length($string)</strong>/str-length()</td>
+<td>zwraca liczbę reprezentującą długość łańcucha znaków</td>
+</tr>
+<tr>
+<td>string.index("")</td>
+<td>zwraca indeks podanego ciągu znaków lub 0</td>
+</tr>
+<tr>
+<td><strong>string.slice($string, $start-at, $end-at: -1)</strong> / str-slice()</td>
+<td>zwraca fragment stringu zależnego od podanych parametrów (początkowej i końcowej wartości/indeks/łącznie)</td>
+</tr>
+<tr>
+<td><strong>string.to-upper-case($string)</strong> /to-upper-case()</td>
+<td>wszystkie litery zmienia na wielkie</td>
+</tr>
+<tr>
+<td><strong>string.to-lower-case($string)</strong>/to-lower-case()</td>
+<td>zmienia litery na małe</td>
+</tr>
+<tr>
+<td><strong>string.unique-id()</strong>/unique-id()</td>
+<td>zwraca randomowo generowany ciąg znaków i unikatowy w ramach obecnej kompilacji Sass</td>
+</tr>
+<tr>
+<td><strong>string.unquote($string)</strong>/unquote()</td>
+<td>zwraca ciąg znaków niezamknięty w cudzysłów</td>
+</tr>
+</tbody>
+</table>
+<p>Przykłady zastosowania:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">string</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="ss">&quot;Roboto&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot; Bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="ss">&quot;Roboto Bold&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wstawia</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">końcu</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="n">string</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="ss">&quot;Bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Roboto &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="ss">&quot;Roboto Bold&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wstawia</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="n">początek</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p>https://sass-lang.com/</p>
+<p>https://sass-lang.com/documentation</p>
+<p>https://css-tricks.com/introducing-sass-modules/</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/sass.html">sass</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/scss.html">scss</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/gulp.html">gulp</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/gulpfile.html">gulpfile</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-gulp.html">JavaScript - Gulp</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/saas-wprowadzenie.html">Sass - wprowadzenie</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

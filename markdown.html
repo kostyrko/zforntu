@@ -63,7 +63,7 @@
 <meta property="article:published_time" content="2020-03-23 19:05:00+01:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
-<meta property="article:section" content="pelican-blog"/>
+<meta property="article:section" content="markdown"/>
 <meta property="article:tag" content="python"/>
 <meta property="article:tag" content="markdown"/>
 <meta property="article:tag" content="pelican"/>
@@ -141,7 +141,7 @@
       
     <h1 id="markdown">Markdown - podstawowa składnia</h1>
     <p>
-      Opublikowano pon 23 marca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/pelican-blog.html">pelican-blog</a>
+      Opublikowano pon 23 marca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/markdown.html">markdown</a>
 
         &#8226; 2 min read
     </p>
@@ -190,7 +190,12 @@
 
 
 <h3>Zmiana wielkości obrazu</h3>
-<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="p">){</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="o">%</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="p">){</span> <span class="n">width</span><span class="o">=</span><span class="s">&quot;50%&quot;</span> <span class="p">}</span>
+
+<span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span> <span class="o">|</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span> <span class="o">=</span> <span class="mi">250</span><span class="n">x250</span><span class="p">)</span>
+
 <span class="o">!</span><span class="p">[</span><span class="n">bobr</span><span class="p">](</span><span class="n">gronostaj</span><span class="p">.</span><span class="n">png</span><span class="p">){</span><span class="o">:</span><span class="n">height</span><span class="o">=</span><span class="s">&quot;40px&quot;</span> <span class="n">width</span><span class="o">=</span><span class="s">&quot;40px&quot;</span><span class="p">}</span>
 </code></pre></div>
 
@@ -203,6 +208,7 @@
 
 
 <h3>Linki</h3>
+<h4>Zewnętrzne</h4>
 <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">nazwa</span> <span class="n">obiektu</span><span class="o">/</span><span class="n">strony</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">przykladowy</span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">com</span><span class="p">)</span>
 <span class="p">[</span><span class="n">Notatki</span> <span class="n">z</span> <span class="n">frontu</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">kostyrko</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">zfrontu</span><span class="o">/</span><span class="p">)</span>
 </code></pre></div>
@@ -214,15 +220,17 @@
 </code></pre></div>
 
 
-<p>https://kostyrko.github.io/zfrontu/
-(tu akurat nie działa za to np. w VSC się sprawdza)</p>
+<p>https://kostyrko.github.io/zfrontu/</p>
+<p>:::tu akurat nie działa za to np. w VSC się sprawdza :::</p>
+<h4>Wewnętrzne</h4>
 <p>link działający w ramach strony</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">sprawdź</span> <span class="n">również</span> <span class="n">tą</span> <span class="n">część</span> <span class="n">tekstu</span><span class="p">](</span><span class="o">#</span><span class="n">strony</span><span class="p">)</span>
-<span class="n">gdzie</span><span class="p">:</span>
-<span class="o">####</span><span class="n">Strony</span> <span class="n">warte</span> <span class="n">odwiedzenia</span>
+<div class="highlight"><pre><span></span><code>[<span class="nv">Strony</span> <span class="nv">warte</span> <span class="nv">odwiedzenia</span>]<span class="ss">(</span>#<span class="nv">strony</span><span class="ss">)</span>
+<span class="nv">gdzie</span> <span class="nv">nag</span>łó<span class="nv">wek</span> <span class="k">do</span> <span class="nv">kt</span>ó<span class="nv">rego</span> <span class="nv">jest</span> <span class="nv">odwo</span>ł<span class="nv">anie</span>:
+### <span class="nv">Strony</span> <span class="nv">warte</span> <span class="nv">odwiedzenia</span> {#<span class="nv">strony</span>}
 </code></pre></div>
 
 
+<p><a href="#strony">Strony warte odwiedzenia</a></p>
 <p>lub (pewniejsza opcja, ale wykorzystująca HTML)</p>
 <div class="highlight"><pre><span></span><code>[Strony warte odwiedzenia](#strony)
 gdzie:
@@ -233,13 +241,15 @@ gdzie:
 
 
 <p>kolejna możliwość</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">Strony</span> <span class="n">warte</span> <span class="n">odwiedzenia</span><span class="p">](</span><span class="o">#</span><span class="n">strony</span><span class="p">)</span>
-<span class="n">gdzie</span>
-<span class="o">###</span> <span class="n">Strony</span> <span class="n">warte</span> <span class="n">odwiedzenia</span> <span class="err">{</span><span class="o">#</span><span class="n">strony</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">sprawdź</span> <span class="n">również</span> <span class="n">tą</span> <span class="n">część</span> <span class="n">tekstu</span><span class="p">](</span><span class="o">#</span><span class="n">strony</span><span class="p">)</span>
+<span class="n">gdzie</span><span class="p">:</span>
+<span class="o">####</span> <span class="n">Strony</span> <span class="n">warte</span> <span class="n">odwiedzenia</span>
 </code></pre></div>
 
 
-<p><a href="#strony">Strony warte odwiedzenia</a></p>
+<p>::: ta opcja u mnie na blogu się nie sprawdziła :::</p>
+<hr>
+<h3>Wstawianie kodu</h3>
 <p>Kod w lini tekstu</p>
 <div class="highlight"><pre><span></span><code><span class="o">`</span><span class="n">back</span> <span class="n">quote</span><span class="o">`</span>
 </code></pre></div>
@@ -333,6 +343,7 @@ gdzie:
 </tr>
 </tbody>
 </table>
+<hr>
 <h3>Tworzenie list</h3>
 <p>Uporządkowana lista</p>
 <div class="highlight"><pre><span></span><code><span class="mi">1</span><span class="p">.</span> <span class="n">Obiekt</span> <span class="mi">1</span>
@@ -386,15 +397,16 @@ gdzie:
 </ol>
 <h3>Tworzenie linii</h3>
 <p>Dwa z możliwych sposobów (potrójne znaki):</p>
-<div class="highlight"><pre><span></span><code><span class="n">___</span>
-<span class="c1">---</span>
+<div class="highlight"><pre><span></span><code><span class="n">___</span> <span class="p">(</span><span class="n">podkreślnik</span><span class="p">)</span>
+<span class="c1">--- (łącznik)</span>
 </code></pre></div>
 
 
 <hr>
 <hr>
 <h3>Emotki</h3>
-<p>:smile: (nie działa)</p>
+<p>:smile: </p>
+<p>:::nie działa :( :::</p>
 <hr>
 <h3 id="strony">Strony warte odwiedzenia</h3>
 <ul>

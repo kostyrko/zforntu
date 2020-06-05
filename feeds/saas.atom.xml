@@ -1,11 +1,517 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - saas</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/saas.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-29T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Sass - wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/saas-wprowadzenie.html" rel="alternate"></link><published>2020-05-29T10:00:00+02:00</published><updated>2020-05-29T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-29:/zfrontu/saas-wprowadzenie.html</id><summary type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - saas</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/saas.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-02T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Sass - struktura projektu</title><link href="https://kostyrko.github.io/zfrontu/saas-struktura-projektu.html" rel="alternate"></link><published>2020-06-02T10:00:00+02:00</published><updated>2020-06-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-02:/zfrontu/saas-struktura-projektu.html</id><summary type="html">&lt;p&gt;&lt;img alt="struktura-projektu-scss" height="75%" src="https://miro.medium.com/max/1400/1*MCiNLBzUI-LWK_PhVwq0xA.png" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;Wraz z wzrostem wielkości projektu, większą rolę odgrywać będzie odpowiedni sposób strukturyzacji oraz modularyzacji plików zdefiniowanych w ramach niego stylów. Podział na odpowiednie moduły umożliwia również ponowne wykorzystanie wybranych części kodu w innych projektach.&lt;/p&gt;
+&lt;p&gt;Zwyczajowo przyjęło, się że plik, który importuje moduły (partials) a staje się łącznikiem pomiędzy nimi nazwany …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="struktura-projektu-scss" height="75%" src="https://miro.medium.com/max/1400/1*MCiNLBzUI-LWK_PhVwq0xA.png" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;Wraz z wzrostem wielkości projektu, większą rolę odgrywać będzie odpowiedni sposób strukturyzacji oraz modularyzacji plików zdefiniowanych w ramach niego stylów. Podział na odpowiednie moduły umożliwia również ponowne wykorzystanie wybranych części kodu w innych projektach.&lt;/p&gt;
+&lt;p&gt;Zwyczajowo przyjęło, się że plik, który importuje moduły (partials) a staje się łącznikiem pomiędzy nimi nazwany jest &lt;code&gt;main.scss&lt;/code&gt;. W ramach tego pliku importuje się moduł używając relatywnej ścieżki do oraz nazwy danego pliku z pominięciem rozszerzenia zawartej w apostrofach/cudz. poprzedzonej słowem kluczowym &lt;code&gt;@import&lt;/code&gt;/&lt;code&gt;@use&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Pliki modułów, które nie muszą być importowane przez kompilator bezpośrednio poprzedzone są podkreślaniem.&lt;/p&gt;
+&lt;p&gt;Nazwy plików oraz ich zawartość powinna w sposób semantyczny odzwierciedlać układ strony np. w pliku _header.scss powinny znaleźć się deklaracje związane z nagłówkiem/headerem.&lt;/p&gt;
+&lt;h4&gt;Struktura małego projektu ...&lt;/h4&gt;
+&lt;p&gt;... może zamknąć się w 3-4 plikach &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;_base&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zawiera&lt;/span&gt; &lt;span class="n"&gt;zmienne&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mixins&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;resety&lt;/span&gt;
+&lt;span class="n"&gt;_layout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;deklaracje&lt;/span&gt; &lt;span class="n"&gt;związane&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;układem&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kontenery&lt;/span&gt;
+&lt;span class="n"&gt;_compontents&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;elementy&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;również&lt;/span&gt; &lt;span class="n"&gt;przedstawione&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;taki&lt;/span&gt; &lt;span class="n"&gt;sposób&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="n"&gt;mogły&lt;/span&gt; &lt;span class="n"&gt;zostać&lt;/span&gt; &lt;span class="n"&gt;ponownie&lt;/span&gt; &lt;span class="n"&gt;użyte&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;przyciski&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;navy&lt;/span&gt;
+
+&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zawiera&lt;/span&gt; &lt;span class="n"&gt;jedynie&lt;/span&gt; &lt;span class="n"&gt;importy&lt;/span&gt; &lt;span class="n"&gt;modułów&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;:::zaprezentowana struktura w momencie rozrostu projektu może zostać rozszerzona w taki sposób, że foldery przyjmują nazwy wymienionych plików zawierające pliki rozbijające deklaracje na jeszcze bardziej podstawowe części :::&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Może również przyjąć bardziej rozbudowaną formę (nazwy folderów oraz poszczególnych plików są samowyjaśniające)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+  &lt;span class="n"&gt;abstracts&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_variables&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_functions&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_mixins&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+  &lt;span class="n"&gt;base&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_reset&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_typography&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+  &lt;span class="n"&gt;components&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_buttons&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_sliders&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+  &lt;span class="n"&gt;layout&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_navigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_header&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_footer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_forms&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+  &lt;span class="n"&gt;pages&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_home&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_about&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+  &lt;span class="n"&gt;themes&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_theme&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+  &lt;span class="n"&gt;vendors&lt;/span&gt;
+    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;_bootstrap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Więcej na temat typografi można przeczytać &lt;a href="https://css-tricks.com/six-tips-for-better-web-typography/"&gt;tutaj&lt;/a&gt; i &lt;a href="https://css-tricks.com/typography-for-developers/"&gt;tutaj&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="stuktura-projektu" src="https://entwickler.de/wp-content/uploads/2013/12/kurm_style1.png"&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowa struktura folderów zawierająca pliki saasowe&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://itnext.io/structuring-your-sass-projects-c8d41fa55ed4&lt;/p&gt;
+&lt;p&gt;https://github.com/Automattic/_s/issues/1215&lt;/p&gt;
+&lt;p&gt;http://dualeoblog.com/structure-sass-project/&lt;/p&gt;</content><category term="saas"></category><category term="sass"></category><category term="scss"></category><category term="css"></category><category term="javascript"></category><category term="gulp"></category><category term="gulpfile"></category></entry><entry><title>Sass - wbudowane moduły i ich metody</title><link href="https://kostyrko.github.io/zfrontu/saas-moduly-metody.html" rel="alternate"></link><published>2020-05-31T10:00:00+02:00</published><updated>2020-05-31T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-31:/zfrontu/saas-moduly-metody.html</id><summary type="html">&lt;p&gt;Sass oferuje następujące wbudowane moduły &lt;a href="#color"&gt;color&lt;/a&gt;, &lt;a href="#list"&gt;list&lt;/a&gt;, &lt;a href="#map"&gt;map&lt;/a&gt;, &lt;a href="#math"&gt;math&lt;/a&gt;, &lt;a href="#meta"&gt;meta&lt;/a&gt;, &lt;a href="#selector"&gt;selector&lt;/a&gt;, &lt;a href="#string"&gt;string&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Używanie modułu odbywa się poprzez jego zaimportowanie na początku poprzez odowłanie się do słowa kluczowego &lt;code&gt;@use&lt;/code&gt; nazwy modułu oraz użycia gwiazdki lub bez użycia gwiazdki - wówczas każda metoda musi być poprzedzona nazwą modułu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@use&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass:math&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nl"&gt;half&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;math …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Sass oferuje następujące wbudowane moduły &lt;a href="#color"&gt;color&lt;/a&gt;, &lt;a href="#list"&gt;list&lt;/a&gt;, &lt;a href="#map"&gt;map&lt;/a&gt;, &lt;a href="#math"&gt;math&lt;/a&gt;, &lt;a href="#meta"&gt;meta&lt;/a&gt;, &lt;a href="#selector"&gt;selector&lt;/a&gt;, &lt;a href="#string"&gt;string&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Używanie modułu odbywa się poprzez jego zaimportowanie na początku poprzez odowłanie się do słowa kluczowego &lt;code&gt;@use&lt;/code&gt; nazwy modułu oraz użycia gwiazdki lub bez użycia gwiazdki - wówczas każda metoda musi być poprzedzona nazwą modułu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@use&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass:math&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nl"&gt;half&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;percentage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@use&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass:math&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nl"&gt;half&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;percentage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Obecnie jedynie Dart Sass wspiera nazewnictwo bez odwołania się do modułów w sposób globalny&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Indeks w SAAS zaczyna się od 1 !! a nie 0&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id="color"&gt;Color&lt;/h3&gt;
+&lt;p&gt;https://sass-lang.com/documentation/modules/color&lt;/p&gt;
+&lt;p&gt;Wybrane&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;metoda&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;color.adjust&lt;/strong&gt;($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/adjust-color(...)&lt;/td&gt;
+&lt;td&gt;zmniejsza lub zwiększa jedną lub więcej właściwości koloru&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;color.change&lt;/strong&gt;($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/change-color(...)&lt;/td&gt;
+&lt;td&gt;zmienia jedną lub więcej właściwości koloru&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;color.alpha($color)&lt;/strong&gt;/alpha($color)/opacity($color)&lt;/td&gt;
+&lt;td&gt;pozwala na zmianę kanału alpha (0-1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;color.blue($color)/color.red($color)/color.green($color)&lt;/td&gt;
+&lt;td&gt;zwraca niebieskie/czerwony/zielony kanał&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;darken($color, $amount)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;przyciemnia kolor, przyjmuje kolor i wartość przyciemnienia (0-100%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;color.scale($color,$red: null, $green: null, $blue: null, $saturation: null, $lightness: null, $alpha: null)&lt;/strong&gt;/scale()&lt;/td&gt;
+&lt;td&gt;skalowanie koloru wobec poprzedniej jego wartości wykorzystując jedną lub więcej jego właściwości&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;desaturate($color, $amount)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;pozwala zmienić nasycenie koloru&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;color.grayscale($color)&lt;/strong&gt;/grayscale($color)&lt;/td&gt;
+&lt;td&gt;zwraca szary kolor przyjmujący balans bieli od koloru wprowadzonego&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;color.hue($color)&lt;/strong&gt;/hue($color)&lt;/td&gt;
+&lt;td&gt;zwraca odcień koloru w skali 0-360 stopni&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;color.invert($color, $weight: 100%)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca inwersję kolorystyczną podanej barwy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;lighten($color, $amount)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;rozjaśnia&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;saturate($color, $amount)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zmienia nasilenie barwy koloru&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;transparentize($color, $amount)&lt;/strong&gt;/fade-out($color, $amount)&lt;/td&gt;
+&lt;td&gt;wpływa na przezroczystość koloru&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3 id="list"&gt;List&lt;/h3&gt;
+&lt;p&gt;Wybrane&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;metoda&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.append($list, $val, $separator: auto)&lt;/strong&gt;/quote()&lt;/td&gt;
+&lt;td&gt;zwraca kopię listy z dodanym elementem&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.index($list, $value)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca indeks wybranej wartości w liście/null jeśli nie istnieje&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.is-bracketed($list)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca wartość logiczną - czy jest w kwadratowych nawiasach&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.join($list1, $list2, $separator: auto, $bracketed: auto)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;łączenie list&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.append($list, $val, $separator: auto)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;dołączenie wartości do listy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.length($list)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca długość listy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.separator($list)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca nazwę separatora&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.nth($list, $n)&lt;/strong&gt;/nth($list, $n)&lt;/td&gt;
+&lt;td&gt;zwraca element listy na n-tym miejscu indeksu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;list.set-nth($list, $n, $value)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca kopię listy z podmienionym elementem&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3 id="map"&gt;Map&lt;/h3&gt;
+&lt;p&gt;Wybrane&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;metoda&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;map.get($map, $key)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca element mapy wg. podanego klucza&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;map.has-key($map, $key)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;sprawdza czy mapa posiada podany klucz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;map.keys($map)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca klucze mapy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;map.merge($map1, $map2)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;łączy mapy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;map.remove($map, $keys...)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca kopię mapy bez wartości połączonych z podanymi kluczami&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;map.values($map)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca listę wszystkich wartości mapy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3 id="math"&gt;Math&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;metoda&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.$pi&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca wartość PI&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.round($number)&lt;/strong&gt;/round($number)&lt;/td&gt;
+&lt;td&gt;zwraca zaokrągloną liczbę&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.ceil($number)&lt;/strong&gt;/ceil()&lt;/td&gt;
+&lt;td&gt;zwraca zaokrągloną liczbę w górę do najbliższej pełnej&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.clamp($min, $number, $max)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ograniczę liczbę do podanego zakresu min-max&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.floor($number)&lt;/strong&gt;/ceil()&lt;/td&gt;
+&lt;td&gt;zwraca zaokrągloną liczbę w dół do najbliższej pełnej&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.clamp($min, $number, $max)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca string w cudzysłowie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.max($number...)&lt;/strong&gt; max($number...)&lt;/td&gt;
+&lt;td&gt;zwraca najwyższą z podanych wartości&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.min($number...)&lt;/strong&gt; min($number...)&lt;/td&gt;
+&lt;td&gt;zwraca najniższą z podanych wartości&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.max($number...)&lt;/strong&gt; max($number...)&lt;/td&gt;
+&lt;td&gt;zwraca najwyższą z podanych liczb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.sqrt($number)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca pierwiastek kwadratowy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.abs($number)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca wartość absolutną podanej liczby&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.percentage($number)&lt;/strong&gt; percentage($number)&lt;/td&gt;
+&lt;td&gt;konwertuje liczbę w procent&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;math.random($limit: null)&lt;/strong&gt; random($limit: null)&lt;/td&gt;
+&lt;td&gt;zwraca liczbę przypadkową pomiędzy 0 a 1, jeśli limit powyżej 1 to wówczas jest od 1 do limitowej liczby&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3 id="meta"&gt;Meta&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;metoda&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.load-css($url, $with: null)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;--- Mixins&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.call($function, $args...)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;--- Functions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.content-exists()&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;--- Functions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.feature-exists($feature)&lt;/strong&gt;/feature-exists($feature)&lt;/td&gt;
+&lt;td&gt;--- Functions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.get-function($name, $css: false, $module: null)&lt;/strong&gt;/get-function($name, $css: false, $module: null)&lt;/td&gt;
+&lt;td&gt;--- Functions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.global-variable-exists($name, $module: null)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;--- Functions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.inspect($value)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca podaną wartość jako string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.keywords($args)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca słowa kluczowe podane w mixie lub funkcje, które przyjmują słowa kluczowe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.mixin-exists($name, $module: null)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;sprawdza czy mixin o podanej nazwie istnieje&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.module-functions($module)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;--- Functions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.module-variables($module)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca zmienne zadeklarowane w module&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.type-of($value)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca typo podanej zmiennej/wartości&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meta.variable-exists($name)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;sprawdza czy podana zmienna znajduje się w obecnym zakresie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3 id="selector"&gt;Selector&lt;/h3&gt;
+&lt;p&gt;https://sass-lang.com/documentation/modules/selector&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;metoda&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.is-superselector($super, $sub)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;sprawdza czy selektor $super pokrywa się z selektorem $sub&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.append($selectors...)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;łączy selektory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.extend($selector, $extendee, $extender)&lt;/strong&gt;/&lt;/td&gt;
+&lt;td&gt;rozszerza selektor o podaną regułę&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.nest($selectors...)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;łączy selektory w taki sposób jak by były zagnieżdżone&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.parse($selector)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;rozdziela selektory w formacie selektora wartości&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.replace($selector, $original, $replacement)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;podmienia selektor / przyjmuje org. selektor, element do podmiany oraz ten, który go zastąpi&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.unify($selector1, $selector2)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;łączy selektory - zwraca selektor będący połączeniem wprowadzonych selektorów&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;selector.simple-selectors($selector)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zwraca listę selektorów zawartych w selektorze&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;unquote(".main")&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;pozbywa wprowadzony string cudzysłów&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(unquote(".main") unquote("aside:hover"))&lt;/td&gt;
+&lt;td&gt;// .main aside:hover&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;superselector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a.disabled&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;.disabled&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a.disabled&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;.link&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="err"&gt;#{$&lt;/span&gt;&lt;span class="n"&gt;extender&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@extend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#{$&lt;/span&gt;&lt;span class="n"&gt;extendee&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;.main aside:hover, .sidebar p&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;unquote&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;.main&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;unquote&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;aside:hover&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unquote&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;.sidebar&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;unquote&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;p&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a.disabled&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;.link&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simple&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;selectors&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;a.disabled&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3 id="string"&gt;String&lt;/h3&gt;
+&lt;p&gt;https://sass-lang.com/documentation/modules/string&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;metoda&lt;/th&gt;
+&lt;th&gt;funkcja&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.quote($string)&lt;/strong&gt;/quote()&lt;/td&gt;
+&lt;td&gt;zwraca string w cudzysłowie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.index($string, $substring)&lt;/strong&gt;/str-index()&lt;/td&gt;
+&lt;td&gt;Zwraca pierwszy indeks fragmentu stringu znajdującego się w stringu lub null&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.insert($string, $insert, $index)&lt;/strong&gt;/str-insert()&lt;/td&gt;
+&lt;td&gt;zwraca kopię zmodyfikowanego string - przyjmuje string do wstawienia i indeks (miejsce)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.length($string)&lt;/strong&gt;/str-length()&lt;/td&gt;
+&lt;td&gt;zwraca liczbę reprezentującą długość łańcucha znaków&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;string.index("")&lt;/td&gt;
+&lt;td&gt;zwraca indeks podanego ciągu znaków lub 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.slice($string, $start-at, $end-at: -1)&lt;/strong&gt; / str-slice()&lt;/td&gt;
+&lt;td&gt;zwraca fragment stringu zależnego od podanych parametrów (początkowej i końcowej wartości/indeks/łącznie)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.to-upper-case($string)&lt;/strong&gt; /to-upper-case()&lt;/td&gt;
+&lt;td&gt;wszystkie litery zmienia na wielkie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.to-lower-case($string)&lt;/strong&gt;/to-lower-case()&lt;/td&gt;
+&lt;td&gt;zmienia litery na małe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.unique-id()&lt;/strong&gt;/unique-id()&lt;/td&gt;
+&lt;td&gt;zwraca randomowo generowany ciąg znaków i unikatowy w ramach obecnej kompilacji Sass&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;string.unquote($string)&lt;/strong&gt;/unquote()&lt;/td&gt;
+&lt;td&gt;zwraca ciąg znaków niezamknięty w cudzysłów&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Przykłady zastosowania:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;insert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Roboto&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; Bold&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Roboto Bold&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wstawia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;na&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;końcu&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;insert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Bold&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Roboto &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Roboto Bold&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wstawia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;na&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sam&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;początek&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://sass-lang.com/&lt;/p&gt;
+&lt;p&gt;https://sass-lang.com/documentation&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/introducing-sass-modules/&lt;/p&gt;</content><category term="saas"></category><category term="sass"></category><category term="scss"></category><category term="css"></category><category term="javascript"></category><category term="gulp"></category><category term="gulpfile"></category></entry><entry><title>Sass - wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/saas-wprowadzenie.html" rel="alternate"></link><published>2020-05-29T10:00:00+02:00</published><updated>2020-05-29T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-29:/zfrontu/saas-wprowadzenie.html</id><summary type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"&gt;&lt;/p&gt;
-&lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC&lt;/p&gt;
-&lt;p&gt;pliki sassowe mają rozszerzenie &lt;code&gt;.sass&lt;/code&gt; lub &lt;code&gt;.scss&lt;/code&gt;. Starsza wersja Sass nie zwierała …&lt;/p&gt;</summary><content type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC.&lt;/p&gt;
+&lt;p&gt;Sass pozwala na:&lt;/p&gt;
+&lt;p&gt;&lt;a href="#zmienne"&gt;* definiowanie &lt;strong&gt;zmiennych&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#zagnieżdżanie"&gt;* pisanie składni opartej na &lt;strong&gt;zagnieżdżaniu&lt;/strong&gt; selektorów w …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"&gt;&lt;/p&gt;
-&lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC&lt;/p&gt;
-&lt;p&gt;pliki sassowe mają rozszerzenie &lt;code&gt;.sass&lt;/code&gt; lub &lt;code&gt;.scss&lt;/code&gt;. Starsza wersja Sass nie zwierała nawiasów klamrowych i nie posiadała średników te wprowadzono od v. 3&lt;/p&gt;
+&lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC.&lt;/p&gt;
+&lt;p&gt;Sass pozwala na:&lt;/p&gt;
+&lt;p&gt;&lt;a href="#zmienne"&gt;* definiowanie &lt;strong&gt;zmiennych&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#zagnieżdżanie"&gt;* pisanie składni opartej na &lt;strong&gt;zagnieżdżaniu&lt;/strong&gt; selektorów w selektorach&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#moduły"&gt;* organizację projektu w sposób &lt;strong&gt;modułowy&lt;/strong&gt; (przechowywanie deklaracji w wielu plikach)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#mixins"&gt;* umożliwia tworzenie &lt;strong&gt;@mixins&lt;/strong&gt; - grupowanie deklaracji oraz ich wielokrotne użytkowanie&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#dziedziczenie"&gt;* pozwala na &lt;strong&gt;dziedziczenie&lt;/strong&gt; deklaracji @extend&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#obiekt-map"&gt;* umożliwia tworzenie obiektów typu &lt;strong&gt;map&lt;/strong&gt;&lt;/a&gt; i &lt;a href="#obiekt-list"&gt;&lt;strong&gt;list&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#operatory"&gt;* stosowanie &lt;strong&gt;operatorów&lt;/strong&gt; matematycznych/stingów/relacji/logicznych&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#if"&gt;* stosowanie pętli warunkowych &lt;strong&gt;if&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#for"&gt;* stosowanie pętli &lt;strong&gt;for&lt;/strong&gt; i &lt;strong&gt;each&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#funkcje"&gt;* definiowanie i użytkowanie &lt;strong&gt;funkcji&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kostyrko.github.io/zfrontu/saas-moduly-metody.html"&gt;* stosowanie wbudowanych modułów oraz ich &lt;strong&gt;metod&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pliki sassowe mają rozszerzenie &lt;code&gt;.sass&lt;/code&gt; lub &lt;code&gt;.scss&lt;/code&gt;. Starsza wersja Sass nie zwierała nawiasów klamrowych i nie posiadała średników te wprowadzono od v. 3&lt;/p&gt;
 &lt;p&gt;Sass&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nav&lt;/span&gt;
     &lt;span class="n"&gt;ul&lt;/span&gt;
@@ -27,17 +533,19 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;W wyniku kompilacji z Sass na CSS kod może być przedstawiony w 4 następujących formatach
-* nested - styl domyślny, bliski do Sassa gdzie CSS odzwierciedla strukturę obiektów HTML poprzez wcięcia&lt;/p&gt;
+&lt;p&gt;W wyniku kompilacji z Sass na CSS kod może być przedstawiony w 4 następujących formatach&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;expanded - najbliższy CSS, wcięte są jedynie właściwości&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nested&lt;/code&gt; - styl domyślny, bliski do Sassa gdzie CSS odzwierciedla strukturę obiektów HTML poprzez wcięcia&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;compact - właściwości w miarę możliwości kompresowaną, tak aby &lt;em&gt;deklaracja&lt;/em&gt; (np. właściwości z z fontem) zajmowała pojedynczą linię&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;expanded&lt;/code&gt; - najbliższy CSS, wcięte są jedynie właściwości&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;compressed - wszystko jest kompresowane do poszczególnych linii, kolejne elementy oddziela spacja - jakiekolwiek komentarze zawarte w scss NIE będą kompilowane do css&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;compact&lt;/code&gt; - właściwości w miarę możliwości kompresowaną, tak aby &lt;em&gt;deklaracja&lt;/em&gt; (np. właściwości z z fontem) zajmowała pojedynczą linię&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;compressed&lt;/code&gt; - wszystko jest kompresowane do poszczególnych linii, kolejne elementy oddziela spacja - jakiekolwiek komentarze zawarte w scss NIE będą kompilowane do css -&amp;gt; najlżejsza forma zapisu deklaracji, która ma pozytywny wpływ na prędkość ładowania strony&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Style definiuje się poprze użycie parametru &lt;code&gt;outputStyle&lt;/code&gt; lub parametr &lt;code&gt;style&lt;/code&gt;&lt;/p&gt;
@@ -86,6 +594,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;=============================&lt;/p&gt;
+&lt;h4&gt;Mapowanie SCSS&lt;/h4&gt;
 &lt;p&gt;Proces &lt;em&gt;mapowania&lt;/em&gt; pozwala na wskazanie przeglądarce interpretującej css z którego miejsca w pliku sass pochodzi dana deklaracja. Wymaga to dodania pakietu oraz dodania odpowiedniej komendy &lt;code&gt;init&lt;/code&gt; i &lt;code&gt;write&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
@@ -119,11 +629,27 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;hr&gt;
+&lt;p&gt;================&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Komentarze&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;/* */&lt;/code&gt; - komentarz znajdzie się w pliku wynikowym CSS&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;//&lt;/code&gt; ten komentarz znajdzie się jedynie w pliku Sass&lt;/p&gt;
+&lt;p&gt;================&lt;/p&gt;
+&lt;h4&gt;@debug&lt;/h4&gt;
+&lt;p&gt;Sassowy console.log ;) - pozwala na proste debuggowanie -&amp;gt; wypisuje w terminalu podaną frazę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nl"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;@error i @warn&lt;/h4&gt;
+&lt;p&gt;użycie @warn ma za zadanie informowaniu o zajściu pewnego warunku granicznego jednak nie przerywa wykonywania się kodu jak to powinno nastąpić w przypadku @error&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@warn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Unknown prefix #{$prefix}.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
+&lt;h4 id="zmienne"&gt;Zmienne&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;Zmienne&lt;/code&gt; są poprzedzone znakiem dolara $ (pozwala na szeroki zakres przetrzymywanych danych). Zmienne należy nazywać ze względu na semantykę (opis do czego ona służy) i wg jednej zasady np. main-color lub color-main&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;font-stack&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Helvetica&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;sans-serif&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="nt"&gt;primary-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;333&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -150,6 +676,7 @@
 
 
 &lt;hr&gt;
+&lt;h4 id="zagnieżdżanie"&gt;Zagnieżdżanie&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;Zagnieżdżenie&lt;/code&gt; - Sass pozwala na odwzorowanie hierarchii znanej z HTML przy pisaniu styli
 ::: stosowanie zagnieżdżeń do 3-4 poziomów&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/p&gt;
@@ -217,8 +744,9 @@
 &lt;p&gt;Partials/Cząstkowość - Saas pozwala na rozbicie "CSS" na mniejsze pliki tworzące większą całość (np. jeden plik może odpowiadać za wszystkie buttony albo jedną dużą tabelę) - modularność
 Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&gt;_buttons.scss&lt;/code&gt; importowany do &lt;code&gt;main.scss&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4&gt;Moduły&lt;/h4&gt;
-&lt;p&gt;Sass pozwala na odwołanie się do zmiennych z zawartych w innych modułach/plikach (&lt;code&gt;@use&lt;/code&gt; + np. nazwa_zmiennej- pozwala na importowanie pojedynczych deklaracji/zmiennych albo &lt;code&gt;@import&lt;/code&gt; + nazwa pliku)&lt;/p&gt;
+&lt;h4 id="moduły"&gt;Modułowość - wprowadzenie&lt;/h4&gt;
+&lt;p&gt;Sass pozwala na odwołanie się do zmiennych z zawartych w innych modułach/plikach (&lt;code&gt;@import&lt;/code&gt; + nazwa pliku/ dąży się do zastąpienia @import przez &lt;code&gt;@use&lt;/code&gt; i &lt;code&gt;@forward&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Różnice pomiędzy &lt;code&gt;@use&lt;/code&gt; a &lt;code&gt;@import&lt;/code&gt; -&amp;gt; 1) use zapewnia pojedyncze importowanie w projekcie, 2) mixiny i funkcje (członkowie) zaczynające się na &lt;code&gt;_&lt;/code&gt; lub &lt;code&gt;-&lt;/code&gt; są postrzegane jako prywatne wyjątki i nie są importowane 3) import członków odbywa się jedynie lokalnie i nie jest przekazywany do dalszych importów 4) &lt;code&gt;@extends&lt;/code&gt; - pozwoli na aplikację dalszą importów w kolejnych etapach łańcuch łączników 5) tworzy &lt;code&gt;namespace&lt;/code&gt;(przestrzeń nazwy)&lt;/p&gt;
 &lt;p&gt;Zwykle stosuje się main.scss do scalania (importowania) zawartości innych plików scss (mogą się znajdować w folderach tematycznych)&lt;/p&gt;
 &lt;p&gt;bazowy plik Saas (nazwa &lt;code&gt;_base.sass&lt;/code&gt;)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;_base&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;
@@ -256,7 +784,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 
 &lt;p&gt;(źódło przykładu: https://sass-lang.com/guide)&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4&gt;Mixins&lt;/h4&gt;
+&lt;h4 id="mixins"&gt;Mixins&lt;/h4&gt;
 &lt;p&gt;Pozwalają na użycie kodu, który jest powtarzany (może ale nie musi przyjmować jeden lub więcej argumentów - argumenty oddzielone są przecinkami) - argument może odnosić się zarówno do właściwości (np. display/padding) jak i przypisanej do niej wartości (np. flex/40px) danego obiektu - jest to tzw. &lt;strong&gt;interpolacja&lt;/strong&gt;. W przypadku właściwości stosuje się zapis &lt;code&gt;#{$nazwa_właściwości}&lt;/code&gt; w przypadku wartości &lt;code&gt;$wartość&lt;/code&gt;. Istnieje również możliwość deklaracji tzw. argumentów opcjonalnych - bez ich podania danej właściwości zostanie przypisana domyślna wartość (domyślną wartość wpisuje się po dwukropku! --&amp;gt; &lt;code&gt;$y: 50%&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;Zmienna która pozwala na przetrzymywanie wielu deklaracji styli.&lt;/p&gt;
 &lt;p&gt;$value... - trzykropek pozwala na dodanie listy jako argumentu, która ma być traktowana jako jeden parametr&lt;/p&gt;
@@ -286,7 +814,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 
 &lt;p&gt;https://sass-lang.com/documentation/at-rules/mixin&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4&gt;Dziedziczenie&lt;/h4&gt;
+&lt;h4 id="dziedziczenie"&gt;Dziedziczenie&lt;/h4&gt;
 &lt;p&gt;Dziedziczenie pozwala na stworzenie stylu, który przejmuje deklaracje innego stylu - selektory będą miały te same właściwości&lt;/p&gt;
 &lt;p&gt;Dziedziczenie do prostszych rzeczy związanych z powielaniem styli, jednak w przypadku jego wariacji @mixin jest lepszy.&lt;/p&gt;
 &lt;p&gt;::: Różnica pomiędzy dziedziczeniem a Mixinem jest również widoczna w przypadku wielu klas współdzielących style zapisane w Mixinie lub dziedziczone - w przypadku dziedziczenia nie powiela się stylu tylko jest przypisany do jednego selektora oznaczającego elementy w postaci listy rodzielonej przecinkami, w przypadku Mixina kod jest powielany wielokrotnie - dla każdego selektora jest tworzony unikalny styl - ze względu na to, że Mixin może być parametryzowany :::&lt;/p&gt;
@@ -318,8 +846,9 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;https://sass-lang.com/documentation/at-rules/extend&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4&gt;Listy&lt;/h4&gt;
+&lt;h4 id="obiekt-list"&gt;Listy&lt;/h4&gt;
 &lt;p&gt;Zbiór elementów wykorzystywanych wyłącznie wewnątrz Saas [ nawiązują do tablic z JS - jednak sposób ich rozdzielenia nie jest zdefiniowany - może być spacja, przecinek] - jej numeracja zaczyna się od 1!&lt;/p&gt;
 &lt;p&gt;posiada metodę &lt;code&gt;length($nazwa_listy)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;nth() - wyciąga n-ty element z listy&lt;/p&gt;
@@ -330,7 +859,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 
 
 &lt;hr&gt;
-&lt;h4&gt;Mapa&lt;/h4&gt;
+&lt;h4 id="obiekt-map"&gt;Mapa&lt;/h4&gt;
 &lt;p&gt;Przypomina obiekt z JS - posiada klucze oraz wartości - również nie jest kompilowana do CSS&lt;/p&gt;
 &lt;p&gt;$mapa-kolorow: (klucz1: wartość1, klucz2: wartość2);
 map-get($mapa, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
@@ -342,30 +871,42 @@ map-get($mapa, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;map-values()&lt;/code&gt; - metoda zmieniająca wartości znajdujące się w mapie w listę&lt;/p&gt;
 &lt;hr&gt;
-&lt;h5&gt;Wtyczka do VSC - Live Sass Complier !&lt;/h5&gt;
-&lt;p&gt;Wtyczka Live Sass Complier dokonuje translację z Sass na CSS automatycznie&lt;/p&gt;
-&lt;p&gt;strona projektu: https://github.com/ritwickdey/vscode-live-sass-compiler&lt;/p&gt;
-&lt;h4&gt;@debug&lt;/h4&gt;
-&lt;p&gt;Sassowy console.log ;) wypisuje w terminalu podaną frazę&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nl"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-
-&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;h4&gt;Operatory&lt;/h4&gt;
-&lt;p&gt;Sass pozwala i przyjmuje klasyczne operatory (+,/,-...) łącznie z modulo &lt;code&gt;%&lt;/code&gt;
-Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z ich logiki&lt;/p&gt;
-&lt;p&gt;Np. dodawanie ze sobą stringów skutkuje w ich łączeniu&lt;/p&gt;
+&lt;h4 id="operatory"&gt;Operatory&lt;/h4&gt;
+&lt;p&gt;Sass pozwala i przyjmuje klasyczne operatory kontekście &lt;strong&gt;liczb/wyrażeń matematycznych&lt;/strong&gt; (+,/,-...) łącznie z modulo &lt;code&gt;%&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z ich logiki.&lt;/p&gt;
+&lt;p&gt;W przypadku dzielenia może pojawić się problem gdy wartość dzielona może być częścią atrybutu np w przypadku fontu: 20px/10px aby temu zapobiec należy wykorzystać zmienne np font: $primary-size/10px&lt;/p&gt;
+&lt;p&gt;Zastosowanie okrągłych nawiasów pozwala na wymuszenie kolejności działań&lt;/p&gt;
+&lt;p&gt;Pozwala również na stosowanie operatorów w kontekście &lt;strong&gt;stringów&lt;/strong&gt; - &lt;/p&gt;
+&lt;p&gt;np. dodawanie ze sobą stringów skutkuje w ich łączeniu&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zmien&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zmien&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;W przypadku dzielenia może pojawić się problem gdy wartość dzielona może być częścią atrybutu np w przypadku fontu: 20px/10px aby temu zapbiec należy wykorzystać zmienne np font: $primary-size/10px&lt;/p&gt;
-&lt;p&gt;Zastosowanie okrągłych nawiasów pozwala na wymuszenie kolejności działań&lt;/p&gt;
+&lt;p&gt;https://sass-lang.com/documentation/operators/string&lt;/p&gt;
+&lt;p&gt;Z operatorów moża korzystać również w kontekście sprawdzania &lt;strong&gt;równości&lt;/strong&gt; oraz &lt;strong&gt;relacji&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;==&lt;/code&gt; jest takie samo &lt;code&gt;!=&lt;/code&gt; nie jest takie samo &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Helvetica&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Helvetica&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;przypadku&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stringów&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;zastosowanie&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cudzysłowu&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nie&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ma&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;znaczenia&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hsl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;34&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;92.1&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#f2ece4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;kolory&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;również&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;są&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tłumaczone&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;5px 7px 10px&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nawiasy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;są&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rozpoznawane&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="nl"&gt;theme&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;venus&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#998099&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;nebula&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#d2e1dd&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;theme&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;venus&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#998099&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;iron&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#dadbdf&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;zawartość&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;zmiennych&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jest&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sprawdzana&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;występuje&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jako&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Operatory stosowane przypadku &lt;strong&gt;wyrażeń logicznych&lt;/strong&gt; -&amp;gt; &lt;code&gt;not&lt;/code&gt;, &lt;code&gt;and&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;@debug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
-&lt;h4&gt;Instrukcja warunkowa @if&lt;/h4&gt;
+&lt;h4 id="if"&gt;Instrukcja warunkowa @if&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="nv"&gt;type&lt;/span&gt;: &lt;span class="nv"&gt;monster&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="nv"&gt;p&lt;/span&gt; {
     @&lt;span class="k"&gt;if&lt;/span&gt; $&lt;span class="nv"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;ocean&lt;/span&gt; {
@@ -381,7 +922,7 @@ Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Pętla @for i @each&lt;/h4&gt;
+&lt;h4 id="for"&gt;Pętla @for i @each&lt;/h4&gt;
 &lt;p&gt;Generacja selektorów z powtarzalną wartością&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;ko&lt;/span&gt;ń&lt;span class="nv"&gt;cowa&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;wliczana&lt;/span&gt;
 
@@ -407,7 +948,7 @@ Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z 
 
 
 &lt;p&gt;Istnieje pętla &lt;code&gt;@while&lt;/code&gt; wykorzystywana jest wtedy gdy nie mamy pewności kiedy dany warunek się skończy&lt;/p&gt;
-&lt;h4&gt;@funkcje&lt;/h4&gt;
+&lt;h4 id="funkcje"&gt;@funkcje&lt;/h4&gt;
 &lt;p&gt;Funkcje wbudowane i zdefiniowane&lt;/p&gt;
 &lt;p&gt;https://sass-lang.com/documentation/at-rules/function&lt;/p&gt;
 &lt;p&gt;Zdefiniowane&lt;/p&gt;
@@ -418,6 +959,10 @@ Należy pamiętać, że jednostki wprowadzają pewne ograniczenia wynikające z 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;hr&gt;
+&lt;h5&gt;Wtyczka do VSC - Live Sass Complier !&lt;/h5&gt;
+&lt;p&gt;Wtyczka Live Sass Complier dokonuje translację z Sass na CSS automatycznie&lt;/p&gt;
+&lt;p&gt;strona projektu: https://github.com/ritwickdey/vscode-live-sass-compiler&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://sass-lang.com/&lt;/p&gt;
