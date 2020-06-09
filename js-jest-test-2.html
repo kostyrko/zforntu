@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Poniższy wpis powstał na podstawie tego materiału, patrz również tutaj i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja Zadanie stwórz funkcję spełniającą następujące warunki 1. Bob answers &#39;Sure.&#39; if you ask …" />
+<meta name="keywords" content="test, jest, tdd, node, npm, babel, transpilacja, transpilator, babel.js, babeljs">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript - kolejny test w JEST (TDD)"/>
+<meta property="og:description" content="Poniższy wpis powstał na podstawie tego materiału, patrz również tutaj i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja Zadanie stwórz funkcję spełniającą następujące warunki 1. Bob answers &#39;Sure.&#39; if you ask …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-jest-test-2.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-10 12:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="test"/>
+<meta property="article:tag" content="jest"/>
+<meta property="article:tag" content="tdd"/>
+<meta property="article:tag" content="node"/>
+<meta property="article:tag" content="npm"/>
+<meta property="article:tag" content="babel"/>
+<meta property="article:tag" content="transpilacja"/>
+<meta property="article:tag" content="transpilator"/>
+<meta property="article:tag" content="babel.js"/>
+<meta property="article:tag" content="babeljs"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript - kolejny test w JEST (TDD)</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-jest-test-2">JavaScript - kolejny test w JEST (TDD)</h1>
+    <p>
+      Opublikowano śro 10 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="TDD" src="https://i.pinimg.com/originals/6a/74/6c/6a746c70228203d1cbd8835bf63840b1.jpg"></p>
+<p>Poniższy wpis powstał na podstawie tego <a href="https://www.youtube.com/watch?v=gX440uva4NU">materiału</a>, patrz również <a href="https://exercism.io/my/solutions/ca7b90c2164a49e5aed19f12518ac333">tutaj</a> i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja</p>
+<p>Zadanie stwórz funkcję spełniającą następujące warunki</p>
+<div class="highlight"><pre><span></span><code><span class="mi">1</span>. <span class="nv">Bob</span> <span class="nv">answers</span> <span class="s1">&#39;</span><span class="s">Sure.</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">ask</span> <span class="nv">him</span> <span class="nv">a</span> <span class="nv">question</span>.
+
+<span class="mi">2</span>. <span class="nv">He</span> <span class="nv">answers</span> <span class="s1">&#39;</span><span class="s">Whoa, chill out!</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">yell</span> <span class="nv">at</span> <span class="nv">him</span>.
+
+<span class="mi">3</span>. <span class="nv">He</span> <span class="nv">retorts</span> <span class="s1">&#39;</span><span class="s">Calm down, I know what I</span><span class="s1">&#39;</span><span class="nv">m</span> <span class="nv">doing</span><span class="o">!</span><span class="s1">&#39;</span><span class="s"> if you yell a question at him.</span>
+
+<span class="mi">4</span>. <span class="nv">He</span> <span class="nv">says</span> <span class="s1">&#39;</span><span class="s">Fine. Be that way!</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">address</span> <span class="nv">him</span> <span class="nv">without</span> <span class="nv">actually</span> <span class="nv">saying</span> <span class="nv">anything</span>.
+
+<span class="mi">5</span>. <span class="nv">He</span> <span class="nv">answers</span> <span class="s1">&#39;</span><span class="s">Whatever.</span><span class="s1">&#39;</span> <span class="nv">to</span> <span class="nv">anything</span> <span class="k">else</span>.
+</code></pre></div>
+
+
+<p>Test 1</p>
+<p><code>talkToBob.test.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">talkToBob</span> <span class="nn">from</span> <span class="s1">&#39;./talkToBob&#39;</span>
+
+<span class="n">it</span><span class="p">(</span><span class="s2">&quot;answers Sure, if ask him a question&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">talkToBob</span><span class="p">(</span><span class="s2">&quot;How are You?&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toBe</span><span class="p">(</span><span class="s1">&#39;Sure.&#39;</span><span class="p">))</span>
+<span class="p">})</span>
+</code></pre></div>
+
+
+<p><code>talkToBob.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">talkToBob</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+  <span class="k">if</span><span class="ss">(</span><span class="nv">msg</span>.<span class="nv">endsWidth</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">))</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Sure</span><span class="s2">&quot;</span>
+}<span class="c1">;</span>
+
+<span class="nv">export</span> <span class="nv">default</span> <span class="nv">talkToBob</span>
+</code></pre></div>
+
+
+<hr>
+<p>Test 2...</p>
+<p><img alt="TBC" src="https://steveworkingthroughtheword.files.wordpress.com/2016/03/tobecontinued.jpg"></p>
+<hr>
+<p>Źródła:</p>
+<p>https://jestjs.io/</p>
+<p>https://www.youtube.com/watch?v=gX440uva4NU</p>
+<p>https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80 --TDD</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/test.html">test</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/jest.html">jest</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/tdd.html">tdd</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/node.html">node</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/babel.html">babel</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/transpilacja.html">transpilacja</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/transpilator.html">transpilator</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/babeljs.html">babel.js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/babeljs.html">babeljs</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

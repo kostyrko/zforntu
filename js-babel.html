@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Babel pozwala na transpilację/tłumaczenie kodu ES6+ do ES5 - sprawiając tym samym możliwość na interpretację kodu przez szerszą gamę środowisk od node.js po starsze przeglądarki internetowe. Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie oczekiwanej od niego pracy. W jaki sposób działa Babel można również sprawdzić …" />
+<meta name="keywords" content="babel, transpilacja, gulp">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript - Babel"/>
+<meta property="og:description" content="Babel pozwala na transpilację/tłumaczenie kodu ES6+ do ES5 - sprawiając tym samym możliwość na interpretację kodu przez szerszą gamę środowisk od node.js po starsze przeglądarki internetowe. Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie oczekiwanej od niego pracy. W jaki sposób działa Babel można również sprawdzić …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-babel.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-09 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="babel"/>
+<meta property="article:tag" content="transpilacja"/>
+<meta property="article:tag" content="gulp"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript - Babel</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-babel">JavaScript - Babel</h1>
+    <p>
+      Opublikowano wto 09 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="babel" src="https://www.lambdatest.com/blog/wp-content/uploads/2018/06/babel.png"></p>
+<p>Babel pozwala na transpilację/tłumaczenie kodu ES6+ do ES5 - sprawiając tym samym możliwość na interpretację kodu przez szerszą gamę środowisk od node.js po starsze przeglądarki internetowe.
+Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie oczekiwanej od niego pracy.</p>
+<p>W jaki sposób działa Babel można również sprawdzić korzystając z narzędzia online <a href="https://babeljs.io/en/repl">Babel REPL</a></p>
+<p>Jeśli korzystamy z VSC możemy zainstalować wtyczkę <code>vscode-babel-repl</code>, która dokonuje transpilacji w locie i wykorzystanie kodu wynikowego -&gt; <code>F1</code> -&gt; <code>babel repl</code></p>
+<p><a href="https://raw.githubusercontent.com/t-sauer/vscode-babel-repl/master/babel.gif">vscode-babel-repl</a></p>
+<hr>
+<p>Instalacja lokalna</p>
+<div class="highlight"><pre><span></span><code><span class="n">nmp</span> <span class="n">install</span> <span class="c1">--save-dev babel-cli</span>
+</code></pre></div>
+
+
+<p>Babel pozwala na instalację całych "ustawień" języka JS z danego roku wykorzystując słowo kluczowe <code>preset</code> a następnie esRok np. es2017.</p>
+<div class="highlight"><pre><span></span><code><span class="n">nmp</span> <span class="n">install</span> <span class="c1">--save-dev babel-preset-es2017</span>
+
+<span class="n">nmp</span> <span class="n">install</span> <span class="c1">--save-dev babel-preset-react</span>
+
+<span class="n">nmp</span> <span class="n">install</span> <span class="c1">--save-dev babel-preset-flow</span>
+</code></pre></div>
+
+
+<h4>@babel/preset-env</h4>
+<p>Najłatwiej jest jednak wskazać aby babel automatycznie instalował potrzebne mu wtyczki wykorzystując:</p>
+<div class="highlight"><pre><span></span><code><span class="n">nmp</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="c1">--save-dev @babel/preset-env</span>
+</code></pre></div>
+
+
+<p>a następnie w pliku konfiguracyjny <code>.babelrc</code> to zaznaczyć</p>
+<div class="highlight"><pre><span></span><code><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="ss">&quot;presets&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;@babel/preset-env&quot;</span><span class="o">]</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<p><code>.babelrc</code> - jest plikiem, w którym zawarte powinny być informacje na temat tego jakich wtyczek użyć oraz jakie pliki powinny być zignorowane - te informacje mogą znaleźć się zamiast tego w <code>package.json</code></p>
+<h4>@babel/node</h4>
+<p>@babel/node - pozwala na transpilację kodu na bieżąco</p>
+<p>https://babeljs.io/docs/en/next/babel-node.html</p>
+<p>Instalacja (jeśli brakuje @babel/core)</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="c1">--save-dev @babel/core @babel/node</span>
+</code></pre></div>
+
+
+<hr>
+<h4>Automatyzacja Babel wykorzystując Gulp</h4>
+<p><img alt="babel+gulp" src="https://fernandolujan.ca/sites/default/files/styles/large/public/field/image/gulp-babel.png"></p>
+<p>Instalacja gulp + babel core + @babel/preset-env oraz <a href="https://www.npmjs.com/package/gulp-babel">gulp-babel</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">nmp</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="c1">--save-dev gulp gulp-babel @babel/core @babel/preset-env</span>
+</code></pre></div>
+
+
+<p>W pliku konfiguracyjnym gulpfile.js definiujemy zadanie zmieniające ES5 na ES6</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">const</span> <span class="nv">babel</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-babel</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">default</span><span class="s1">&#39;</span>, <span class="ss">()</span> <span class="o">=&gt;</span>
+  <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">src/app.js); // można dodać tu cały katalog lub listę zawierającą pliki źródłowe</span>
+  .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">babel</span><span class="ss">(</span>{  <span class="o">//</span> <span class="nv">wykorzystuj</span>ą<span class="nv">c</span> <span class="nv">babel</span> <span class="nv">dokonaj</span> <span class="nv">transpilacji</span> <span class="nv">i</span> <span class="nv">zapisz</span> <span class="k">do</span> <span class="nv">dist</span>
+    <span class="nv">presets</span>: [<span class="s2">&quot;</span><span class="s">@babel/preset-env</span><span class="s2">&quot;</span>]
+  }<span class="ss">))</span>
+  .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">dist</span><span class="s1">&#39;</span><span class="ss">))</span> <span class="o">//</span> <span class="nv">destination</span> <span class="nv">folder</span>
+<span class="ss">)</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p>https://babeljs.io/setup#installation</p>
+<p><a href="https://www.youtube.com/watch?v=ju4fnkkc0x0">How to Install and Use Babel to Transpile JavaScript</a></p>
+<p><a href="https://www.youtube.com/watch?v=ahh65GQz74g">Getting Started with Babel</a></p>
+<p><a href="https://www.youtube.com/watch?v=T1ZwhqojI7o&amp;t=179s">Node.js - Konfigracja Babel.js (Moduły ES6)</a></p>
+<p><a href="https://www.youtube.com/watch?v=C2PDAGCrk_g">Babel.js: What It Is, and How You Can Use It. [What The Stack]</a></p>
+<p><a href="https://www.youtube.com/watch?v=NMlc0_i5z5I">Poznaj JavaScript - BabelJS</a></p>
+<p><a href="https://www.youtube.com/watch?v=MzZilaM16oY">BABEL COMPILER: Do you really need BABEL to compile JavaScript with ES6?</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/babel.html">babel</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/transpilacja.html">transpilacja</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/gulp.html">gulp</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-jest-test-babel.html">JavaScript - pierwszy test w JEST (+ Babel)</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-gulp.html">JavaScript - Gulp</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

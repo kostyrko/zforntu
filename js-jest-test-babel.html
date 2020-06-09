@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Do stworzenia pierwszego testu posłużyłem się dokumentacją JEST oraz tym materiałem (autorstwa Kacpra Kozaka) Jest wyszuka pliku, w którego nazwie znajduje się słowo kluczowe test poprzedzone kropką o rozszerzeniu js którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla sum …" />
+<meta name="keywords" content="test, jest, tdd, node, npm, babel, transpilacja, transpilator, babel.js, babeljs">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript - pierwszy test w JEST (+ Babel)"/>
+<meta property="og:description" content="Do stworzenia pierwszego testu posłużyłem się dokumentacją JEST oraz tym materiałem (autorstwa Kacpra Kozaka) Jest wyszuka pliku, w którego nazwie znajduje się słowo kluczowe test poprzedzone kropką o rozszerzeniu js którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla sum …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-jest-test-babel.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-08 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="test"/>
+<meta property="article:tag" content="jest"/>
+<meta property="article:tag" content="tdd"/>
+<meta property="article:tag" content="node"/>
+<meta property="article:tag" content="npm"/>
+<meta property="article:tag" content="babel"/>
+<meta property="article:tag" content="transpilacja"/>
+<meta property="article:tag" content="transpilator"/>
+<meta property="article:tag" content="babel.js"/>
+<meta property="article:tag" content="babeljs"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript - pierwszy test w JEST (+ Babel)</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-jest-test-babel">JavaScript - pierwszy test w JEST (+ Babel)</h1>
+    <p>
+      Opublikowano pon 08 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png"></p>
+<p>Do stworzenia pierwszego testu posłużyłem się <a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file">dokumentacją JEST</a> oraz <a href="https://www.youtube.com/watch?v=_zEX9sHzqS4">tym materiałem</a> (autorstwa Kacpra Kozaka)</p>
+<p><em>Jest</em> wyszuka pliku, w którego nazwie znajduje się słowo kluczowe <code>test</code> poprzedzone <code>kropką</code> o rozszerzeniu <code>js</code> którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla <code>sum.js</code> znajdzie się w pliku <code>sum.test.js</code></p>
+<p>W pierwszej kolejności należy stworzyć plik <code>sum.js</code> w którym znajdzie się testowany kod, w którym należy wskazać moduł do eksportu (umożliwia wykorzystanie funkcji w innym pliki/tworzy moduł)</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">sum</span><span class="ss">(</span><span class="nv">a</span>, <span class="nv">b</span><span class="ss">)</span> {
+  <span class="k">return</span> <span class="nv">a</span> <span class="o">+</span> <span class="nv">b</span><span class="c1">;</span>
+}
+
+<span class="nv">module</span>.<span class="nv">exports</span> <span class="o">=</span> <span class="nv">sum</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>W pliku <code>sum.test.js</code> należy zaimportować stworzony moduł oraz napisać dla niego test</p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="k">sum</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;./sum&#39;</span><span class="p">);</span>
+
+<span class="n">test</span><span class="p">(</span><span class="s1">&#39;adds 1 + 2 to equal 3&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="err">{</span> <span class="o">//</span> <span class="n">funkcja</span> <span class="n">testująca</span>
+  <span class="n">expect</span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)).</span><span class="n">toBe</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="o">//</span> <span class="n">oczekiwany</span> <span class="n">wynik</span>
+<span class="err">}</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Następnie należy zainicjować projekt przy pomocy npm/node.js wpisując w terminal</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
+</code></pre></div>
+
+
+<p>Oraz zainstalować framework <em>jest</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="c1">--save-dev jest</span>
+</code></pre></div>
+
+
+<p>W pliku <code>package.json</code> należy wskazać <em>jest</em> jako framework testujący</p>
+<div class="highlight"><pre><span></span><code><span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;2_Jest&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;version&quot;</span><span class="p">:</span> <span class="ss">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;description&quot;</span><span class="p">:</span> <span class="ss">&quot;&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;main&quot;</span><span class="p">:</span> <span class="ss">&quot;sum.js&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;scripts&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;test&quot;</span><span class="p">:</span> <span class="ss">&quot;jest&quot;</span> <span class="o">//</span> <span class="n">w</span> <span class="n">tym</span> <span class="n">miejscu</span> <span class="n">należy</span> <span class="n">wpisać</span> <span class="ss">&quot;jest&quot;</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="ss">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="ss">&quot;author&quot;</span><span class="p">:</span> <span class="ss">&quot;&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;license&quot;</span><span class="p">:</span> <span class="ss">&quot;ISC&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;dependencies&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;jest&quot;</span><span class="p">:</span> <span class="ss">&quot;^26.0.1&quot;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>Podstawowa konfiguracja jest już skończona, zatem wystarczy w terminalu (z pozycji folderu projektu) wpisać</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">run</span> <span class="n">test</span>
+</code></pre></div>
+
+
+<hr>
+<h4>Porządkowanie/blokowanie testów</h4>
+<p>Porządkowanie testów odbywa się poprzez ich blokowanie wykorzystując słowo kluczowe <code>describe</code> a następnie zamknięcie testów przypisanych do jednego modułu w anonimowej funkcji poprzedzonej krótkim opisem</p>
+<div class="highlight"><pre><span></span><code><span class="k">describe</span><span class="p">(</span><span class="s1">&#39;Function - sum&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="err">{</span> <span class="o">//</span> <span class="n">grupowanie</span> <span class="n">testów</span>
+  <span class="n">test</span><span class="p">(</span><span class="s1">&#39;adds 1 + 2 to equal 3&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="err">{</span>
+    <span class="n">expect</span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)).</span><span class="n">toBe</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="err">}</span><span class="p">);</span>
+
+  <span class="n">test</span><span class="p">(</span><span class="s1">&#39;add negative numbers&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="err">{</span>
+    <span class="n">expect</span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)).</span><span class="n">toBe</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">);</span>
+  <span class="err">}</span><span class="p">);</span>
+
+  <span class="n">test</span><span class="p">(</span><span class="s1">&#39;add Infinity&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="err">{</span> <span class="o">//</span> <span class="n">wartość</span> <span class="n">brzegowa</span>
+    <span class="n">expect</span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Infinity</span><span class="p">)).</span><span class="n">toBe</span><span class="p">(</span><span class="n">Infinity</span><span class="p">);</span>
+  <span class="err">}</span><span class="p">);</span>
+<span class="err">}</span><span class="p">);</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Babel X 3</h3>
+<p>Jak widać w powyższym przykładzie zastosowano składnię ES6 oraz wcześniejszą. Ograniczeniem, które narzuca tego typu rozwiązanie jest node.js, stąd aby w pełni wykorzystać możliwości składni wprowadzonej przez ES6 należy skorzystać z <code>Babel.js</code> - jego konfiguracja może być wykonana na parę sposobów, poniżej wykorzystam tą przedstawioną w <a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file">dokumentacji JEST</a></p>
+<p>Zawartość <code>sum.js</code> ulegnie zmianie i zostanie nieco skrócona</p>
+<div class="highlight"><pre><span></span><code><span class="nv">export</span> <span class="nv">const</span> <span class="nv">add</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">a</span>,<span class="nv">b</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+  <span class="k">return</span> <span class="nv">a</span> <span class="o">+</span> <span class="nv">b</span><span class="c1">;</span>
+}<span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Podobnie stanie się z <code>sum.test.js</code> gdzie sposób importowania modułu będzie inny</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">add</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./add&#39;</span><span class="p">;</span>
+
+<span class="n">test</span><span class="p">(</span><span class="s1">&#39;add two numbers&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">toBe</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div>
+
+
+<p>==================================</p>
+<p>Wpisując jedną komendę w terminalu</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">babel</span><span class="o">-</span><span class="n">jest</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">core</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">preset</span><span class="o">-</span><span class="n">env</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>W ten sposób zostanie zainstalowany <a href="https://pl.wikipedia.org/wiki/Babel_(transpilator)">Babel</a> (transpilator konwertujący ES6&lt; na ES5) wraz z niezbędnymi dodatkami. Do projektu zostaną dodane następujące zależności/wtyczki</p>
+<div class="highlight"><pre><span></span><code><span class="ss">&quot;dependencies&quot;</span><span class="err">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="ss">&quot;@babel/core&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;^7.10.2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="ss">&quot;@babel/preset-env&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;^7.10.2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="ss">&quot;babel-jest&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;^26.0.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="ss">&quot;jest&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;^26.0.1&quot;</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>W następnym kroku należy stworzyć plik <code>babel.config.js</code> w którym należy skonfigurować narzędzie <em>Babel</em></p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="p">.</span><span class="n">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="nl">presets</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">    [</span>
+<span class="n">      &#39;@babel/preset-env&#39;,</span>
+<span class="n">      {</span>
+<span class="n">        targets: {</span>
+<span class="n">          node: &#39;current&#39;,</span>
+<span class="n">        },</span>
+<span class="n">      },</span>
+<span class="n">    </span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">]</span><span class="p">,</span><span class="w"></span>
+<span class="err">}</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>==================================</p>
+<p>Alternatywnie należy zainstalować <code>babel-cli</code> oraz również <code>@babel/preset-env</code> (patrz <a href="https://babeljs.io/setup#installation">tutaj</a>) w ten sposób babel zainstaluje potrzebne mu wtyczki</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="c1">--save-dev babel-cli</span>
+
+<span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">preset</span><span class="o">-</span><span class="n">env</span><span class="w"> </span><span class="c1">--save-dev</span>
+</code></pre></div>
+
+
+<p>plik konfiguracyjny powinien nosić nazwę <code>.babelrc</code> i zawierać:</p>
+<p>{
+    "presets": ["@babel/preset-env"]
+  }</p>
+<p>==================================</p>
+<p>Jeśli korzystamy z VSC najprostszym rozwiązaniem może być jednak instalacja wtyczki <code>vscode-babel-repl</code>, która dokonuje transpilacji w locie i wykorzystanie kodu wynikowego -&gt; <code>F1</code> -&gt; <code>babel repl</code></p>
+<p><a href="https://raw.githubusercontent.com/t-sauer/vscode-babel-repl/master/babel.gif">vscode-babel-repl</a></p>
+<hr>
+<p>Źródła:</p>
+<p>https://jestjs.io/</p>
+<p>https://www.youtube.com/watch?v=_zEX9sHzqS4</p>
+<p>https://www.youtube.com/watch?v=gX440uva4NU</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/test.html">test</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/jest.html">jest</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/tdd.html">tdd</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/node.html">node</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/babel.html">babel</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/transpilacja.html">transpilacja</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/transpilator.html">transpilator</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/babeljs.html">babel.js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/babeljs.html">babeljs</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-babel.html">JavaScript - Babel</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-jest-test-2.html">JavaScript - kolejny test w JEST (TDD)</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>
