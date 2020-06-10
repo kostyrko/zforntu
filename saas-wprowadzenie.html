@@ -562,13 +562,13 @@ map-get($mapa, klucz1) -&gt; zwraca wartość1</p>
 
 <hr>
 <h4 id="if">Instrukcja warunkowa @if</h4>
-<div class="highlight"><pre><span></span><code>$<span class="nv">type</span>: <span class="nv">monster</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>$<span class="nv">type</span>: <span class="nv">droid</span><span class="c1">;</span>
 <span class="nv">p</span> {
-    @<span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">ocean</span> {
+    @<span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">c3po</span> {
+        <span class="nv">color</span>: <span class="nv">gold</span><span class="c1">;</span>
+    } @<span class="k">else</span> <span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">r2d2</span> {
         <span class="nv">color</span>: <span class="nv">blue</span><span class="c1">;</span>
-    } @<span class="k">else</span> <span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">matador</span> {
-        <span class="nv">color</span>: <span class="nv">red</span><span class="c1">;</span>
-    } @<span class="k">else</span> <span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">monster</span> {
+    } @<span class="k">else</span> <span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">d</span><span class="o">-</span><span class="nv">o</span> {
         <span class="nv">color</span>: <span class="nv">green</span><span class="c1">;</span>
     } @<span class="k">else</span> {
         <span class="nv">color</span>: <span class="nv">black</span><span class="c1">;</span>
@@ -583,8 +583,46 @@ map-get($mapa, klucz1) -&gt; zwraca wartość1</p>
 
 @<span class="k">for</span> $<span class="nv">var</span> <span class="nv">from</span> <span class="o">&lt;</span><span class="nv">start</span><span class="o">&gt;</span> <span class="nv">to</span> <span class="o">&lt;</span><span class="k">end</span><span class="o">&gt;</span> <span class="o">//</span> <span class="nv">warto</span>ść <span class="nv">ko</span>ń<span class="nv">cowa</span> <span class="nv">jest</span> <span class="nv">pomijana</span>
 
+<span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">1</span>:
+
+@<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mi">3</span> {
+    <span class="nv">h</span>#{$<span class="nv">i</span>} {
+        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">120</span><span class="nv">px</span><span class="c1">;</span>
+    }
+}
+
+    <span class="nv">WYNIK</span> <span class="nv">CSS</span>:
+
+        <span class="nv">h1</span> {
+        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">100</span><span class="nv">px</span><span class="c1">;</span>
+        }
+
+        <span class="nv">h2</span> {
+        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">100</span><span class="nv">px</span><span class="c1">;</span>
+        }
+
+        <span class="nv">h3</span> {
+        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">100</span><span class="nv">px</span><span class="c1">;</span>
+        }
+
+<span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">2</span>
+
 @<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mi">3</span> {
     .<span class="nv">item</span><span class="o">-</span>#{$<span class="nv">i</span>} { <span class="nv">width</span>: <span class="mi">2</span><span class="nv">em</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">; }</span>
+}
+
+<span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">3</span>
+
+<span class="mh">$f</span><span class="nv">ont</span><span class="o">-</span><span class="nv">color</span>: <span class="ss">(</span>
+    <span class="nv">color1</span>: <span class="nv">red</span>,
+    <span class="nv">color2</span>: <span class="nv">green</span>,
+    <span class="nv">color3</span>: <span class="nv">blue</span>
+<span class="ss">)</span><span class="c1">;</span>
+
+@<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mi">3</span> {
+    <span class="nv">h</span>#{$<span class="nv">i</span>} {
+        <span class="nv">color</span>: <span class="nv">nth</span><span class="ss">(</span><span class="nv">map</span><span class="o">-</span><span class="nv">values</span><span class="ss">(</span><span class="mh">$f</span><span class="nv">ont</span><span class="o">-</span><span class="nv">color</span><span class="ss">)</span>, $<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
+    }
 }
 </code></pre></div>
 
@@ -593,12 +631,39 @@ map-get($mapa, klucz1) -&gt; zwraca wartość1</p>
 <div class="highlight"><pre><span></span><code><span class="nv">@each</span><span class="w"> </span><span class="err">$</span><span class="nf">var</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">&lt;</span><span class="n">lista</span><span class="o">&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
 <span class="err">}</span><span class="w"></span>
 
+<span class="o">//</span><span class="w"> </span><span class="n">PRZYKŁAD</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="nv">@each</span><span class="w"> </span><span class="err">$</span><span class="n">num</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="n">h</span><span class="err">#{$</span><span class="n">num</span><span class="err">}</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+<span class="err">}</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">WYNIK</span><span class="w"> </span><span class="nl">CSS</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">h1</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">h2</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">h3</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="w"></span>
+
+
+
+<span class="o">//</span><span class="w"> </span><span class="n">PRZYKŁAD</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
 <span class="nv">@each</span><span class="w"> </span><span class="err">$</span><span class="n">animal</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">puma</span><span class="p">,</span><span class="w"> </span><span class="n">sea</span><span class="o">-</span><span class="n">slug</span><span class="p">,</span><span class="w"> </span><span class="n">egret</span><span class="p">,</span><span class="w"> </span><span class="n">salamander</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="err">#{$</span><span class="n">animal</span><span class="err">}</span><span class="o">-</span><span class="n">icon</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">background</span><span class="o">-</span><span class="nc">image</span><span class="err">:</span><span class="w"> </span><span class="n">url</span><span class="p">(</span><span class="s1">&#39;/images/#{$animal}.png&#39;</span><span class="p">);</span><span class="err">}</span><span class="w"></span>
 <span class="err">}</span><span class="w"></span>
 
-<span class="p">.</span><span class="n">puma</span><span class="o">-</span><span class="n">icon</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">background</span><span class="o">-</span><span class="nc">image</span><span class="err">:</span><span class="w"> </span><span class="n">url</span><span class="p">(</span><span class="ss">&quot;/images/puma.png&quot;</span><span class="p">);</span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">WYNIK</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="nl">CSS</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">puma</span><span class="o">-</span><span class="n">icon</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">background</span><span class="o">-</span><span class="nc">image</span><span class="err">:</span><span class="w"> </span><span class="n">url</span><span class="p">(</span><span class="ss">&quot;/images/puma.png&quot;</span><span class="p">);</span><span class="err">}</span><span class="w"></span>
 </code></pre></div>
 
 
@@ -642,6 +707,7 @@ map-get($mapa, klucz1) -&gt; zwraca wartość1</p>
     <h4>Zobacz także</h4>
     <ul class="related-posts">
       <li><a href="https://kostyrko.github.io/zfrontu/js-gulp.html">JavaScript - Gulp</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/css-rwd.html">CSS - Responsive Web Design</a></li>
     </ul>
   </div>
 

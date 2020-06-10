@@ -175,15 +175,15 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>color.adjust</strong>($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/adjust-color(...)</td>
+<td><strong>adjust</strong>($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/adjust-color(...)</td>
 <td>zmniejsza lub zwiększa jedną lub więcej właściwości koloru</td>
 </tr>
 <tr>
-<td><strong>color.change</strong>($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/change-color(...)</td>
+<td><strong>change</strong>($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $alpha: null)/change-color(...)</td>
 <td>zmienia jedną lub więcej właściwości koloru</td>
 </tr>
 <tr>
-<td><strong>color.alpha($color)</strong>/alpha($color)/opacity($color)</td>
+<td><strong>alpha($color)/opacity($color)</strong></td>
 <td>pozwala na zmianę kanału alpha (0-1)</td>
 </tr>
 <tr>
@@ -195,7 +195,7 @@
 <td>przyciemnia kolor, przyjmuje kolor i wartość przyciemnienia (0-100%)</td>
 </tr>
 <tr>
-<td><strong>color.scale($color,$red: null, $green: null, $blue: null, $saturation: null, $lightness: null, $alpha: null)</strong>/scale()</td>
+<td><strong>scale($color,$red: null, $green: null, $blue: null, $saturation: null, $lightness: null, $alpha: null)</strong>/scale()</td>
 <td>skalowanie koloru wobec poprzedniej jego wartości wykorzystując jedną lub więcej jego właściwości</td>
 </tr>
 <tr>
@@ -203,15 +203,15 @@
 <td>pozwala zmienić nasycenie koloru</td>
 </tr>
 <tr>
-<td><strong>color.grayscale($color)</strong>/grayscale($color)</td>
+<td><strong>grayscale($color)</strong></td>
 <td>zwraca szary kolor przyjmujący balans bieli od koloru wprowadzonego</td>
 </tr>
 <tr>
-<td><strong>color.hue($color)</strong>/hue($color)</td>
+<td><strong>hue($color)</strong></td>
 <td>zwraca odcień koloru w skali 0-360 stopni</td>
 </tr>
 <tr>
-<td><strong>color.invert($color, $weight: 100%)</strong></td>
+<td><strong>invert($color, $weight: 100%)</strong></td>
 <td>zwraca inwersję kolorystyczną podanej barwy</td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@
 <td>zmienia nasilenie barwy koloru</td>
 </tr>
 <tr>
-<td><strong>transparentize($color, $amount)</strong>/fade-out($color, $amount)</td>
+<td><strong>transparentize($color, $amount)</strong></td>
 <td>wpływa na przezroczystość koloru</td>
 </tr>
 </tbody>
@@ -240,45 +240,46 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>list.append($list, $val, $separator: auto)</strong>/quote()</td>
+<td><strong>append($list, $val, $separator: auto)</strong>/quote()</td>
 <td>zwraca kopię listy z dodanym elementem</td>
 </tr>
 <tr>
-<td><strong>list.index($list, $value)</strong></td>
+<td><strong>index($list, $value)</strong></td>
 <td>zwraca indeks wybranej wartości w liście/null jeśli nie istnieje</td>
 </tr>
 <tr>
-<td><strong>list.is-bracketed($list)</strong></td>
+<td><strong>is-bracketed($list)</strong></td>
 <td>zwraca wartość logiczną - czy jest w kwadratowych nawiasach</td>
 </tr>
 <tr>
-<td><strong>list.join($list1, $list2, $separator: auto, $bracketed: auto)</strong></td>
+<td><strong>join($list1, $list2, $separator: auto, $bracketed: auto)</strong></td>
 <td>łączenie list</td>
 </tr>
 <tr>
-<td><strong>list.append($list, $val, $separator: auto)</strong></td>
+<td><strong>append($list, $val, $separator: auto)</strong></td>
 <td>dołączenie wartości do listy</td>
 </tr>
 <tr>
-<td><strong>list.length($list)</strong></td>
+<td><strong>length($list)</strong></td>
 <td>zwraca długość listy</td>
 </tr>
 <tr>
-<td><strong>list.separator($list)</strong></td>
+<td><strong>separator($list)</strong></td>
 <td>zwraca nazwę separatora</td>
 </tr>
 <tr>
-<td><strong>list.nth($list, $n)</strong>/nth($list, $n)</td>
+<td><strong>nth($list, $n)</strong>/nth($list, $n)</td>
 <td>zwraca element listy na n-tym miejscu indeksu</td>
 </tr>
 <tr>
-<td><strong>list.set-nth($list, $n, $value)</strong></td>
+<td><strong>set-nth($list, $n, $value)</strong></td>
 <td>zwraca kopię listy z podmienionym elementem</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">),</span><span class="w"> </span><span class="n">green</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="w"></span>
-<span class="nv">@debug</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="n">px</span><span class="w"> </span><span class="mi">20</span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="n">px</span><span class="w"> </span><span class="mi">40</span><span class="n">px</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">10</span><span class="n">px</span><span class="w"> </span><span class="mi">20</span><span class="n">px</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="n">px</span><span class="w"> </span><span class="mi">40</span><span class="n">px</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">append</span><span class="p">((</span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">),</span><span class="w"> </span><span class="n">green</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">blue</span><span class="p">,</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="n">px</span><span class="w"> </span><span class="mi">20</span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="n">px</span><span class="w"> </span><span class="mi">40</span><span class="n">px</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">10</span><span class="n">px</span><span class="w"> </span><span class="mi">20</span><span class="n">px</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="n">px</span><span class="w"> </span><span class="mi">40</span><span class="n">px</span><span class="p">)</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="k">index</span><span class="p">((</span><span class="k">map</span><span class="o">-</span><span class="k">values</span><span class="p">(</span><span class="err">$</span><span class="n">font</span><span class="o">-</span><span class="n">sizes</span><span class="p">)),</span><span class="w"> </span><span class="mi">50</span><span class="n">px</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"></span>
 </code></pre></div>
 
 
@@ -294,32 +295,31 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>map.get($map, $key)</strong></td>
+<td><strong>get($map, $key)</strong></td>
 <td>zwraca element mapy wg. podanego klucza</td>
 </tr>
 <tr>
-<td><strong>map.has-key($map, $key)</strong></td>
+<td><strong>has-key($map, $key)</strong></td>
 <td>sprawdza czy mapa posiada podany klucz</td>
 </tr>
 <tr>
-<td><strong>map.keys($map)</strong></td>
-<td>zwraca klucze mapy</td>
+<td><strong>keys($map)</strong></td>
+<td>zwraca klucze mapy w postaci listy</td>
 </tr>
 <tr>
-<td><strong>map.merge($map1, $map2)</strong></td>
+<td><strong>merge($map1, $map2)</strong></td>
 <td>łączy mapy</td>
 </tr>
 <tr>
-<td><strong>map.remove($map, $keys...)</strong></td>
+<td><strong>remove($map, $keys...)</strong></td>
 <td>zwraca kopię mapy bez wartości połączonych z podanymi kluczami</td>
 </tr>
 <tr>
-<td><strong>map.values($map)</strong></td>
+<td><strong>values($map)</strong></td>
 <td>zwraca listę wszystkich wartości mapy</td>
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="math">Math</h3>
 <table>
 <thead>
@@ -330,55 +330,55 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>math.$pi</strong></td>
+<td><strong>$pi</strong></td>
 <td>zwraca wartość PI</td>
 </tr>
 <tr>
-<td><strong>math.round($number)</strong>/round($number)</td>
+<td><strong>round($number)</strong></td>
 <td>zwraca zaokrągloną liczbę</td>
 </tr>
 <tr>
-<td><strong>math.ceil($number)</strong>/ceil()</td>
+<td><strong>ceil($number)</strong></td>
 <td>zwraca zaokrągloną liczbę w górę do najbliższej pełnej</td>
 </tr>
 <tr>
-<td><strong>math.clamp($min, $number, $max)</strong></td>
+<td><strong>clamp($min, $number, $max)</strong></td>
 <td>ograniczę liczbę do podanego zakresu min-max</td>
 </tr>
 <tr>
-<td><strong>math.floor($number)</strong>/ceil()</td>
+<td><strong>floor($number)</strong></td>
 <td>zwraca zaokrągloną liczbę w dół do najbliższej pełnej</td>
 </tr>
 <tr>
-<td><strong>math.clamp($min, $number, $max)</strong></td>
+<td><strong>clamp($min, $number, $max)</strong></td>
 <td>zwraca string w cudzysłowie</td>
 </tr>
 <tr>
-<td><strong>math.max($number...)</strong> max($number...)</td>
+<td><strong>max($number...)</strong></td>
 <td>zwraca najwyższą z podanych wartości</td>
 </tr>
 <tr>
-<td><strong>math.min($number...)</strong> min($number...)</td>
+<td><strong>min($number...)</strong></td>
 <td>zwraca najniższą z podanych wartości</td>
 </tr>
 <tr>
-<td><strong>math.max($number...)</strong> max($number...)</td>
+<td><strong>max($number...)</strong></td>
 <td>zwraca najwyższą z podanych liczb</td>
 </tr>
 <tr>
-<td><strong>math.sqrt($number)</strong></td>
+<td><strong>sqrt($number)</strong></td>
 <td>zwraca pierwiastek kwadratowy</td>
 </tr>
 <tr>
-<td><strong>math.abs($number)</strong></td>
+<td><strong>abs($number)</strong></td>
 <td>zwraca wartość absolutną podanej liczby</td>
 </tr>
 <tr>
-<td><strong>math.percentage($number)</strong> percentage($number)</td>
+<td><strong>percentage($number)</strong></td>
 <td>konwertuje liczbę w procent</td>
 </tr>
 <tr>
-<td><strong>math.random($limit: null)</strong> random($limit: null)</td>
+<td><strong>random($limit: null)</strong></td>
 <td>zwraca liczbę przypadkową pomiędzy 0 a 1, jeśli limit powyżej 1 to wówczas jest od 1 do limitowej liczby</td>
 </tr>
 </tbody>
@@ -398,60 +398,63 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>meta.load-css($url, $with: null)</strong></td>
+<td><strong>load-css($url, $with: null)</strong></td>
 <td>--- Mixins</td>
 </tr>
 <tr>
-<td><strong>meta.call($function, $args...)</strong></td>
+<td><strong>call($function, $args...)</strong></td>
 <td>--- Functions</td>
 </tr>
 <tr>
-<td><strong>meta.content-exists()</strong></td>
+<td><strong>content-exists()</strong></td>
 <td>--- Functions</td>
 </tr>
 <tr>
-<td><strong>meta.feature-exists($feature)</strong>/feature-exists($feature)</td>
+<td><strong>feature-exists($feature)</strong>/feature-exists($feature)</td>
 <td>--- Functions</td>
 </tr>
 <tr>
-<td><strong>meta.get-function($name, $css: false, $module: null)</strong>/get-function($name, $css: false, $module: null)</td>
+<td><strong>get-function($name, $css: false, $module: null)</strong>/get-function($name, $css: false, $module: null)</td>
 <td>--- Functions</td>
 </tr>
 <tr>
-<td><strong>meta.global-variable-exists($name, $module: null)</strong></td>
+<td><strong>global-variable-exists($name, $module: null)</strong></td>
 <td>--- Functions</td>
 </tr>
 <tr>
-<td><strong>meta.inspect($value)</strong></td>
+<td><strong>inspect($value)</strong></td>
 <td>zwraca podaną wartość jako string</td>
 </tr>
 <tr>
-<td><strong>meta.keywords($args)</strong></td>
+<td><strong>keywords($args)</strong></td>
 <td>zwraca słowa kluczowe podane w mixie lub funkcje, które przyjmują słowa kluczowe</td>
 </tr>
 <tr>
-<td><strong>meta.mixin-exists($name, $module: null)</strong></td>
+<td><strong>mixin-exists($name, $module: null)</strong></td>
 <td>sprawdza czy mixin o podanej nazwie istnieje</td>
 </tr>
 <tr>
-<td><strong>meta.module-functions($module)</strong></td>
+<td><strong>module-functions($module)</strong></td>
 <td>--- Functions</td>
 </tr>
 <tr>
-<td><strong>meta.module-variables($module)</strong></td>
+<td><strong>module-variables($module)</strong></td>
 <td>zwraca zmienne zadeklarowane w module</td>
 </tr>
 <tr>
-<td><strong>meta.type-of($value)</strong></td>
+<td><strong>type-of($value)</strong></td>
 <td>zwraca typo podanej zmiennej/wartości</td>
 </tr>
 <tr>
-<td><strong>meta.variable-exists($name)</strong></td>
-<td>sprawdza czy podana zmienna znajduje się w obecnym zakresie</td>
+<td><strong>variable-exists($name)</strong></td>
+<td>sprawdza czy podana zmienna znajduje się w obecnym za</td>
+</tr>
+<tr>
+<td>---</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="selector">Selector</h3>
 <p>https://sass-lang.com/documentation/modules/selector</p>
 <table>
@@ -463,64 +466,61 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>selector.is-superselector($super, $sub)</strong></td>
+<td><strong>is-superselector($super, $sub)</strong></td>
 <td>sprawdza czy selektor $super pokrywa się z selektorem $sub</td>
 </tr>
 <tr>
-<td><strong>selector.append($selectors...)</strong></td>
+<td><strong>append($selectors...)</strong></td>
 <td>łączy selektory</td>
 </tr>
 <tr>
-<td><strong>selector.extend($selector, $extendee, $extender)</strong>/</td>
+<td><strong>extend($selector, $extendee, $extender)</strong>/</td>
 <td>rozszerza selektor o podaną regułę</td>
 </tr>
 <tr>
-<td><strong>selector.nest($selectors...)</strong></td>
+<td><strong>nest($selectors...)</strong></td>
 <td>łączy selektory w taki sposób jak by były zagnieżdżone</td>
 </tr>
 <tr>
-<td><strong>selector.parse($selector)</strong></td>
+<td><strong>parse($selector)</strong></td>
 <td>rozdziela selektory w formacie selektora wartości</td>
 </tr>
 <tr>
-<td><strong>selector.replace($selector, $original, $replacement)</strong></td>
+<td><strong>replace($selector, $original, $replacement)</strong></td>
 <td>podmienia selektor / przyjmuje org. selektor, element do podmiany oraz ten, który go zastąpi</td>
 </tr>
 <tr>
-<td><strong>selector.unify($selector1, $selector2)</strong></td>
+<td><strong>unify($selector1, $selector2)</strong></td>
 <td>łączy selektory - zwraca selektor będący połączeniem wprowadzonych selektorów</td>
 </tr>
 <tr>
-<td><strong>selector.simple-selectors($selector)</strong></td>
+<td><strong>simple-selectors($selector)</strong></td>
 <td>zwraca listę selektorów zawartych w selektorze</td>
 </tr>
 <tr>
 <td><strong>unquote(".main")</strong></td>
 <td>pozbywa wprowadzony string cudzysłów</td>
 </tr>
-<tr>
-<td>(unquote(".main") unquote("aside:hover"))</td>
-<td>// .main aside:hover</td>
-</tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="k">is</span><span class="o">-</span><span class="n">superselector</span><span class="p">(</span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="p">(</span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;.main&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;aside:hover&quot;</span><span class="p">))</span><span class="o">//</span><span class="w"> </span><span class="p">.</span><span class="n">main</span><span class="w"> </span><span class="nl">aside</span><span class="p">:</span><span class="n">hover</span><span class="o">|</span><span class="w"></span>
 
-<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="k">is</span><span class="o">-</span><span class="n">superselector</span><span class="p">(</span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
 
-<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.link&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">disabled</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="n">append</span><span class="p">(</span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+
+<span class="nv">@debug</span><span class="w"> </span><span class="n">extend</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.link&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">disabled</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
 
 <span class="err">#{$</span><span class="n">extender</span><span class="err">}</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
 <span class="w">    </span><span class="nv">@extend</span><span class="w"> </span><span class="err">#{$</span><span class="n">extendee</span><span class="err">}</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="err">}</span><span class="w"></span>
 
-<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="ss">&quot;.main aside:hover, .sidebar p&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="ss">&quot;.main aside:hover, .sidebar p&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="o">//</span><span class="w"> </span><span class="p">((</span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;.main&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;aside:hover&quot;</span><span class="p">)),</span><span class="w"></span>
-<span class="o">//</span><span class="w">  </span><span class="p">(</span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;.sidebar&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;p&quot;</span><span class="p">)))</span><span class="w"></span>
+<span class="o">//</span><span class="w">  </span><span class="p">(</span><span class="n">unquote</span><span class="p">(</span><span class="ss">&quot;.sidebar&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">unquote</span><span class="p">(</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="nf">replace</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.link&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
 
-<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;.link&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
-
-<span class="nv">@debug</span><span class="w"> </span><span class="n">selector</span><span class="p">.</span><span class="n">simple</span><span class="o">-</span><span class="n">selectors</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="n">simple</span><span class="o">-</span><span class="n">selectors</span><span class="p">(</span><span class="ss">&quot;a.disabled&quot;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">disabled</span><span class="w"></span>
 </code></pre></div>
 
 
@@ -536,50 +536,50 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>string.quote($string)</strong>/quote()</td>
+<td><strong>quote($string)</strong></td>
 <td>zwraca string w cudzysłowie</td>
 </tr>
 <tr>
-<td><strong>string.index($string, $substring)</strong>/str-index()</td>
+<td><strong>index($string, $substring)</strong></td>
 <td>Zwraca pierwszy indeks fragmentu stringu znajdującego się w stringu lub null</td>
 </tr>
 <tr>
-<td><strong>string.insert($string, $insert, $index)</strong>/str-insert()</td>
+<td><strong>insert($string, $insert, $index)</strong></td>
 <td>zwraca kopię zmodyfikowanego string - przyjmuje string do wstawienia i indeks (miejsce)</td>
 </tr>
 <tr>
-<td><strong>string.length($string)</strong>/str-length()</td>
+<td><strong>length($string)</strong></td>
 <td>zwraca liczbę reprezentującą długość łańcucha znaków</td>
 </tr>
 <tr>
-<td>string.index("")</td>
+<td><strong>index("")</strong></td>
 <td>zwraca indeks podanego ciągu znaków lub 0</td>
 </tr>
 <tr>
-<td><strong>string.slice($string, $start-at, $end-at: -1)</strong> / str-slice()</td>
+<td><strong>slice($string, $start-at, $end-at: -1)</strong></td>
 <td>zwraca fragment stringu zależnego od podanych parametrów (początkowej i końcowej wartości/indeks/łącznie)</td>
 </tr>
 <tr>
-<td><strong>string.to-upper-case($string)</strong> /to-upper-case()</td>
+<td><strong>to-upper-case($string)</strong></td>
 <td>wszystkie litery zmienia na wielkie</td>
 </tr>
 <tr>
-<td><strong>string.to-lower-case($string)</strong>/to-lower-case()</td>
+<td><strong>to-lower-case($string)</strong></td>
 <td>zmienia litery na małe</td>
 </tr>
 <tr>
-<td><strong>string.unique-id()</strong>/unique-id()</td>
+<td><strong>unique-id()</strong></td>
 <td>zwraca randomowo generowany ciąg znaków i unikatowy w ramach obecnej kompilacji Sass</td>
 </tr>
 <tr>
-<td><strong>string.unquote($string)</strong>/unquote()</td>
+<td><strong>unquote($string)</strong></td>
 <td>zwraca ciąg znaków niezamknięty w cudzysłów</td>
 </tr>
 </tbody>
 </table>
 <p>Przykłady zastosowania:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="n">string</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="ss">&quot;Roboto&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot; Bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="ss">&quot;Roboto Bold&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wstawia</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">końcu</span><span class="w"></span>
-<span class="nv">@debug</span><span class="w"> </span><span class="n">string</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="ss">&quot;Bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Roboto &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="ss">&quot;Roboto Bold&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wstawia</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="n">początek</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="k">insert</span><span class="p">(</span><span class="ss">&quot;Roboto&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot; Bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="ss">&quot;Roboto Bold&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wstawia</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">końcu</span><span class="w"></span>
+<span class="nv">@debug</span><span class="w"> </span><span class="k">insert</span><span class="p">(</span><span class="ss">&quot;Bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Roboto &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="ss">&quot;Roboto Bold&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">wstawia</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="n">początek</span><span class="w"></span>
 </code></pre></div>
 
 
