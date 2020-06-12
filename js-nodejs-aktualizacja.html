@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki Linux Binaries node -v &gt;&gt; v10.19.0 Moduł N z NMP Moduł n służy do interaktywnego zarządzani wersjami Node.js Kroki podjęte do instalacji najnowszej wersji Node.js Czyszczenie pamięci cache sudo npm cache …" />
+<meta name="keywords" content="node.js, node, nvm, aktualizacja, linux, ubuntu, bash, curl, npm">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Node.js aktualizacja (Ubuntu)"/>
+<meta property="og:description" content="Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki Linux Binaries node -v &gt;&gt; v10.19.0 Moduł N z NMP Moduł n służy do interaktywnego zarządzani wersjami Node.js Kroki podjęte do instalacji najnowszej wersji Node.js Czyszczenie pamięci cache sudo npm cache …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-11 11:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="node.js"/>
+<meta property="article:tag" content="node"/>
+<meta property="article:tag" content="nvm"/>
+<meta property="article:tag" content="aktualizacja"/>
+<meta property="article:tag" content="linux"/>
+<meta property="article:tag" content="ubuntu"/>
+<meta property="article:tag" content="bash"/>
+<meta property="article:tag" content="curl"/>
+<meta property="article:tag" content="npm"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Node.js aktualizacja (Ubuntu)</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-nodejs-aktualizacja">Node.js aktualizacja (Ubuntu)</h1>
+    <p>
+      Opublikowano czw 11 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png" width="50%"></p>
+<p>Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki <a href="https://nodejs.org/en/download/">Linux Binaries</a> 
+    node -v
+    &gt;&gt; v10.19.0</p>
+<h4>Moduł N z NMP</h4>
+<p>Moduł <a href="https://www.npmjs.com/package/n"><strong>n</strong></a> służy do interaktywnego zarządzani wersjami <em>Node.js</em></p>
+<p>Kroki podjęte do instalacji najnowszej wersji <em>Node.js</em></p>
+<p>Czyszczenie pamięci cache</p>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">npm</span> <span class="k">cache</span> <span class="n">clean</span> <span class="o">-</span><span class="n">f</span>
+</code></pre></div>
+
+
+<p>Instalacja przy pomocy nmp modułu n (-g -&gt; globalnie)</p>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="k">g</span> <span class="n">n</span>
+</code></pre></div>
+
+
+<p>Instalacja najnowszej wersji (w domyśle <em>Node.js</em>) oraz usunięcie poprzedniej</p>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">n</span> <span class="n">latest</span>
+</code></pre></div>
+
+
+<h4>NVM - Node Version Manager</h4>
+<p>Zalecane jest instalacja oraz zarządzanie wersją(w tym przypadku również wieloma wersjami) przy pomocy NVM (Node Version Manager)</p>
+<p>Pobranie paczek dla Ubuntu, które pozwolą na budowę paczek źródłowych (NVM będzie je wykorzystywał w trakcie instalacji)</p>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span>
+</code></pre></div>
+
+
+<p>Instalacja NVM (uwaga v0.35.3 jest aktualną wersją, która ulegnie zmianie) - pobranie skryptu install_nvm.sh przy pomocy <code>culr</code> (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z <a href="https://github.com/nvm-sh/nvm/blob/master/install.sh">repo na GitHubie</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">creationix</span><span class="o">/</span><span class="n">nvm</span><span class="o">/</span><span class="n">v0</span><span class="p">.</span><span class="mi">35</span><span class="p">.</span><span class="mi">3</span><span class="o">/</span><span class="n">install</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">o</span> <span class="n">install_nvm</span><span class="p">.</span><span class="n">sh</span>
+</code></pre></div>
+
+
+<p>Uruchomienie skryptu przy pomocy komendy <code>bash</code></p>
+<p>Pobranie, kompilacja i instalacja najnowszej wersji <em>Node.js</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">nvm</span> <span class="n">install</span> <span class="n">node</span>
+</code></pre></div>
+
+
+<p>Zwrócenie listy dostępnych wersji </p>
+<div class="highlight"><pre><span></span><code><span class="n">nvm</span> <span class="n">ls</span><span class="o">-</span><span class="n">remote</span>
+</code></pre></div>
+
+
+<p>Instalacja konkretnej wersji</p>
+<div class="highlight"><pre><span></span><code><span class="n">nvm</span> <span class="n">install</span> <span class="mi">6</span><span class="p">.</span><span class="mi">14</span><span class="p">.</span><span class="mi">4</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p>https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages</p>
+<p>https://github.com/nodesource/distributions/blob/master/README.md</p>
+<p>https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version</p>
+<p>https://github.com/nvm-sh/nvm</p>
+<p>https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/nodejs.html">node.js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/node.html">node</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/nvm.html">nvm</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/aktualizacja.html">aktualizacja</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/linux.html">linux</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/ubuntu.html">ubuntu</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/bash.html">bash</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/curl.html">curl</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

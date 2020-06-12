@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Wstęp JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …" />
+<meta name="keywords" content="javascript, js, asynchroniczność, call stack, Web Api, obietnice, promises">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript: asynchroniczność i AJAX"/>
+<meta property="og:description" content="Wstęp JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-11 12:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="asynchroniczność"/>
+<meta property="article:tag" content="call stack"/>
+<meta property="article:tag" content="Web Api"/>
+<meta property="article:tag" content="obietnice"/>
+<meta property="article:tag" content="promises"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript: asynchroniczność i AJAX</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-asynchronicznosc-ajax">JavaScript: asynchroniczność i AJAX</h1>
+    <p>
+      Opublikowano czw 11 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="ajax" src="https://adairtechs.com/images/ajax.jpg"></p>
+<h3>Wstęp</h3>
+<p>JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody setTimeout(opóźnienie wywołania się bloku kodu))- jest to przydatne w przypadku odwołań do serwerów, gdzie zwrócenie określonych danych może trwać dłuższy moment np. w przypadku Fetch API (kod odpowiedzialny za funkcjonowanie strony będzie dalej funkcjonował poprawnie w trakcie wysyłania i odbierania zapytania). Patrz też dalej <a href="#ajax">ajax</a></p>
+<p><strong>Podsumowując - asynchroniczność pozwala na:</strong></p>
+<ul>
+<li>
+<p>Zmianę zawartości części strony bez konieczności jej odświeżenia</p>
+</li>
+<li>
+<p>Wysłanie żadania zwrotu danych na serwer</p>
+</li>
+<li>
+<p>Odebranie danych przesłanych przez serwer</p>
+</li>
+<li>
+<p>Wysłanie danych na serwer</p>
+</li>
+</ul>
+<h4>Jak to działa? - istotne etapy/wyrażenia</h4>
+<p><strong>Stos wywołań</strong>/<em>Call stack</em> - miejsce, w które trafiają wywołania funkcji (kolejność, w której tam trafiają ma znaczenie na ich wywoływanie) i z którego są ściągane w momencie ich ukończenia.</p>
+<p><strong>Web API</strong> - tu trafiają asynchroniczne operacje (np. setTimeout) i są wykonywane - po wykonaniu trafia do <strong>kolejki wywołań zwrotnych</strong>/<em>Callback queue</em> oraz czeka na moment, w którym może zostać wprowadzony na stronę internetową.</p>
+<p><strong>Pętla wydarzeń</strong>/<em>Event loop</em> - funkcja sprawdzająca czy Stos wywołań jest pusty i w momencie, gdy ten warunek zostaje spełniony przenosi wywołania z kolejki <strong>wywołań zwrotnych</strong> do <em>stosu wywołań</em> i wówczas funkcja jest wywoływana</p>
+<p><img alt="event-loop" src="https://www.oreilly.com/library/view/learning-nodejs-development/9781788395540/assets/74fbf540-71b8-499a-a7cf-2da14ed034de.jpg"></p>
+<hr>
+<h3>Wyjście z piekła wywołań zwrotnych/ callback hell</h3>
+<p>Callback jest funkcją przekazywaną jako parametr innej funkcji (funkcja zagnieżdżona w wywołaniu funkcji) umożliwia to uzależnienia kolejnego działania od zwrotu działania funkcji poprzedzającej - wywołanie się funkcji wewnętrznej było uzależnione od wywołania funkcji wyższego rzędu. Wielokrotne zagnieżdżenie wywołań zwrotnych, trudne do opanowania oraz utrzymania, nazywane jest <code>callback hell</code></p>
+<h4>Obietnice/Promises</h4>
+<p><em>Promises</em> zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na <code>callbackach</code>/<em>wywołaniach zwrotnych</em>. Obiekty <em>promises</em> (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie i może znajdować się w jednym stanie jednocześnie: <code>Pending</code> (wywołane i oczekuje), <code>Fulfilled</code> (wykonane z powodzeniem), <code>Rejected</code> (odrzucone z niepowodzeniem)</p>
+<p>Schemat kodu w przypadku Fulfilled</p>
+<div class="highlight"><pre><span></span><code><span class="nv">Promise</span><span class="ss">(</span><span class="nv">tre</span>ść<span class="o">-</span><span class="nv">obietnicy</span><span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="nb">result</span><span class="o">=&gt;</span>{
+    <span class="o">//</span><span class="nv">rezultat</span> <span class="k">do</span> <span class="nv">wykonania</span>
+}<span class="ss">)</span>
+</code></pre></div>
+
+
+<p>Schemat kodu w przypadku Fulfilled</p>
+<div class="highlight"><pre><span></span><code><span class="n">Promise</span><span class="p">(</span><span class="n">treść</span><span class="o">-</span><span class="n">obietnicy</span><span class="p">).</span><span class="n">catch</span><span class="p">(</span><span class="n">error</span><span class="o">=&gt;</span><span class="err">{</span>
+    <span class="o">//</span><span class="n">zwraca</span> <span class="n">błąd</span>
+<span class="err">}</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h4>Async oraz await</h4>
+<p><code>async</code> oraz <code>await</code> wprowadzono w ES7 i ich zadaniem jest dalszy rozwój asynchroniczności w JavaScript -&gt; pozwala na zapis asynchronicznego kodu w sposób przypominający synchroniczny</p>
+<p><code>async</code> oznacza funkcję, która zwraca obietnicę/promise</p>
+<p><code>await</code> słowo kluczowe stosowane wewnątrz funkcji <code>async</code> - program czeka z wywołaniem kolejnej linii do spełnienia warunku związanego z zakończeniem akcji asynchronicznej znajdującej się po za słowem kluczowym <code>await</code></p>
+<p>[syntactic sugar]</p>
+<hr>
+<h4>Istotne wyrażenia:</h4>
+<p>Sposób łączenia się z serwerem tzw. WEB API: AJAX -&gt; XMLHttp oraz Fetch API</p>
+<p>Przykładowe sposoby/formaty przechowywania danych na serwerze: XML, JSON ... HTML, YAML</p>
+<p>Standard łączenia się z serwerem oraz wymiany informacji: REST API</p>
+<hr>
+<p><img alt="ajax" src="https://i.pinimg.com/originals/e4/e9/fc/e4e9fc856f0ee78ce86696e5729ab1d2.png"></p>
+<h3 id="ajax">AJAX</h3>
+<p><strong>AJAX - Asynchronous JavaScript And XML/ Asynchroniczny JS i XML</strong> - umożliwia wykorzystanie XML (obiektów XMLHttpRequest) do komunikacji z serwerem - w ten sposób zbudowana strona internetowa może funkcjonować w sposób asynchroniczny (wcześniej serwer zwracał HTML + dane - w modelu AJAX XML+ dane jest przetwarzany na HTML + dane przy pomocy JS).</p>
+<p>Początkowo (w momencie stworzenia AJAX) formatem, w którym dane przesyłano był XML (długi zapis - składnia może być dłuższa od przechowywanych danych, wydzielenie danych z XML przypomina ten z DOM), który z czasem został zastąpiony przez JSON (bardziej przyjazny format/przypomina obiekty JS)</p>
+<p><strong>Protokół HTTP </strong>- Hypertext Transfer Protocol - protokół zapewniający komunikację w sieci internet. [Zapytanie z przeglądarki (powtarzane w trakcie korzystania ze strony) trafiają na serwer DNS (Domain Name System) -&gt; serwer w Internecie -&gt; Zwracana odpowiedź (Składa się na nią Status odpowiedzi, 0 lub więcej nagłówków, Ciało odpowiedzi/body)</p>
+<p><img alt="HTTP/XML-Request" src="https://derivadow.files.wordpress.com/2007/01/ajax.png?w=506&amp;h=309"></p>
+<p>Możliwe statusy odpowiedzi (wybrane)</p>
+<p>| Numer | Znaczenie
+|---|---|---|
+| 200 | połączenie zakończyło się sukcesem |
+| 301 | strona przeniesiona na inny adres |
+| 404 | strona nie istnieje |
+| 500 | błąd serwera|</p>
+<p>Typy połączenia</p>
+<p>| Typ | Znaczenie
+|---|---|---|
+| GET | pobierani danych |
+| POST | wysyłanie danych |
+| PUT | zmiana obiektu w bazie danych |
+| PATCH | edycja pojedynczej właściwości obiektu w bazie danych |
+| DELETE | usunięcie danych |</p>
+<hr>
+<p>Źródła:</p>
+<p>Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a></p>
+<p><a href="https://www.youtube.com/watch?v=MD1euJQQkLQ">Jak działa asynchroniczność w JavaScript</a></p>
+<p><a href="https://bit.ly/3cUHuT0">Event Loop a kolejność wykonywania kodu w JavaScript</a></p>
+<p><a href="https://fsgeek.pl/post/asynchronicznosc-w-javascript/">Asynchroniczność w JavaScript</a></p>
+<p><a href="https://www.nafrontendzie.pl/jak-pozbyc-sie-callback-hell">Jak pozbyć się callback hell za pomocą promisów?</a></p>
+<p><a href="http://kursjs.pl/kurs/ajax/promise.php">Callback i Promise</a></p>
+<p><a href="http://kursjs.pl/kurs/ajax/async-await.php">Async / await</a></p>
+<p><a href="https://derivadow.com/2007/01/05/ajax-what-is-it-its-not-dhtml/">AJAX what is it? (it’s not DHTML)</a></p>
+<p>http://kursjs.pl/kurs/ajax/ajax.php</p>
+<p>https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/asynchronicznosc.html">asynchroniczność</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/call-stack.html">call stack</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/web-api.html">Web Api</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/obietnice.html">obietnice</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/promises.html">promises</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

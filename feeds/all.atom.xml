@@ -1,5 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-10T12:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - kolejny test w JEST (TDD)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-2.html" rel="alternate"></link><published>2020-06-10T12:00:00+02:00</published><updated>2020-06-10T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-10:/zfrontu/js-jest-test-2.html</id><summary type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-11T12:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript: asynchroniczność i AJAX</title><link href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html" rel="alternate"></link><published>2020-06-11T12:00:00+02:00</published><updated>2020-06-11T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-asynchronicznosc-ajax.html</id><summary type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Wstęp&lt;/h3&gt;
+&lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Wstęp&lt;/h3&gt;
+&lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody setTimeout(opóźnienie wywołania się bloku kodu))- jest to przydatne w przypadku odwołań do serwerów, gdzie zwrócenie określonych danych może trwać dłuższy moment np. w przypadku Fetch API (kod odpowiedzialny za funkcjonowanie strony będzie dalej funkcjonował poprawnie w trakcie wysyłania i odbierania zapytania). Patrz też dalej &lt;a href="#ajax"&gt;ajax&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Podsumowując - asynchroniczność pozwala na:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Zmianę zawartości części strony bez konieczności jej odświeżenia&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wysłanie żadania zwrotu danych na serwer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Odebranie danych przesłanych przez serwer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wysłanie danych na serwer&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Jak to działa? - istotne etapy/wyrażenia&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Stos wywołań&lt;/strong&gt;/&lt;em&gt;Call stack&lt;/em&gt; - miejsce, w które trafiają wywołania funkcji (kolejność, w której tam trafiają ma znaczenie na ich wywoływanie) i z którego są ściągane w momencie ich ukończenia.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Web API&lt;/strong&gt; - tu trafiają asynchroniczne operacje (np. setTimeout) i są wykonywane - po wykonaniu trafia do &lt;strong&gt;kolejki wywołań zwrotnych&lt;/strong&gt;/&lt;em&gt;Callback queue&lt;/em&gt; oraz czeka na moment, w którym może zostać wprowadzony na stronę internetową.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pętla wydarzeń&lt;/strong&gt;/&lt;em&gt;Event loop&lt;/em&gt; - funkcja sprawdzająca czy Stos wywołań jest pusty i w momencie, gdy ten warunek zostaje spełniony przenosi wywołania z kolejki &lt;strong&gt;wywołań zwrotnych&lt;/strong&gt; do &lt;em&gt;stosu wywołań&lt;/em&gt; i wówczas funkcja jest wywoływana&lt;/p&gt;
+&lt;p&gt;&lt;img alt="event-loop" src="https://www.oreilly.com/library/view/learning-nodejs-development/9781788395540/assets/74fbf540-71b8-499a-a7cf-2da14ed034de.jpg"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Wyjście z piekła wywołań zwrotnych/ callback hell&lt;/h3&gt;
+&lt;p&gt;Callback jest funkcją przekazywaną jako parametr innej funkcji (funkcja zagnieżdżona w wywołaniu funkcji) umożliwia to uzależnienia kolejnego działania od zwrotu działania funkcji poprzedzającej - wywołanie się funkcji wewnętrznej było uzależnione od wywołania funkcji wyższego rzędu. Wielokrotne zagnieżdżenie wywołań zwrotnych, trudne do opanowania oraz utrzymania, nazywane jest &lt;code&gt;callback hell&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;Obietnice/Promises&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Promises&lt;/em&gt; zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na &lt;code&gt;callbackach&lt;/code&gt;/&lt;em&gt;wywołaniach zwrotnych&lt;/em&gt;. Obiekty &lt;em&gt;promises&lt;/em&gt; (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie i może znajdować się w jednym stanie jednocześnie: &lt;code&gt;Pending&lt;/code&gt; (wywołane i oczekuje), &lt;code&gt;Fulfilled&lt;/code&gt; (wykonane z powodzeniem), &lt;code&gt;Rejected&lt;/code&gt; (odrzucone z niepowodzeniem)&lt;/p&gt;
+&lt;p&gt;Schemat kodu w przypadku Fulfilled&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;Promise&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;tre&lt;/span&gt;ść&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;obietnicy&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;result&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;{
+    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;rezultat&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;wykonania&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Schemat kodu w przypadku Fulfilled&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;treść&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;obietnicy&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;catch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;błąd&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Async oraz await&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;async&lt;/code&gt; oraz &lt;code&gt;await&lt;/code&gt; wprowadzono w ES7 i ich zadaniem jest dalszy rozwój asynchroniczności w JavaScript -&amp;gt; pozwala na zapis asynchronicznego kodu w sposób przypominający synchroniczny&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;async&lt;/code&gt; oznacza funkcję, która zwraca obietnicę/promise&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;await&lt;/code&gt; słowo kluczowe stosowane wewnątrz funkcji &lt;code&gt;async&lt;/code&gt; - program czeka z wywołaniem kolejnej linii do spełnienia warunku związanego z zakończeniem akcji asynchronicznej znajdującej się po za słowem kluczowym &lt;code&gt;await&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;[syntactic sugar]&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Istotne wyrażenia:&lt;/h4&gt;
+&lt;p&gt;Sposób łączenia się z serwerem tzw. WEB API: AJAX -&amp;gt; XMLHttp oraz Fetch API&lt;/p&gt;
+&lt;p&gt;Przykładowe sposoby/formaty przechowywania danych na serwerze: XML, JSON ... HTML, YAML&lt;/p&gt;
+&lt;p&gt;Standard łączenia się z serwerem oraz wymiany informacji: REST API&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="ajax" src="https://i.pinimg.com/originals/e4/e9/fc/e4e9fc856f0ee78ce86696e5729ab1d2.png"&gt;&lt;/p&gt;
+&lt;h3 id="ajax"&gt;AJAX&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;AJAX - Asynchronous JavaScript And XML/ Asynchroniczny JS i XML&lt;/strong&gt; - umożliwia wykorzystanie XML (obiektów XMLHttpRequest) do komunikacji z serwerem - w ten sposób zbudowana strona internetowa może funkcjonować w sposób asynchroniczny (wcześniej serwer zwracał HTML + dane - w modelu AJAX XML+ dane jest przetwarzany na HTML + dane przy pomocy JS).&lt;/p&gt;
+&lt;p&gt;Początkowo (w momencie stworzenia AJAX) formatem, w którym dane przesyłano był XML (długi zapis - składnia może być dłuższa od przechowywanych danych, wydzielenie danych z XML przypomina ten z DOM), który z czasem został zastąpiony przez JSON (bardziej przyjazny format/przypomina obiekty JS)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Protokół HTTP &lt;/strong&gt;- Hypertext Transfer Protocol - protokół zapewniający komunikację w sieci internet. [Zapytanie z przeglądarki (powtarzane w trakcie korzystania ze strony) trafiają na serwer DNS (Domain Name System) -&amp;gt; serwer w Internecie -&amp;gt; Zwracana odpowiedź (Składa się na nią Status odpowiedzi, 0 lub więcej nagłówków, Ciało odpowiedzi/body)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="HTTP/XML-Request" src="https://derivadow.files.wordpress.com/2007/01/ajax.png?w=506&amp;amp;h=309"&gt;&lt;/p&gt;
+&lt;p&gt;Możliwe statusy odpowiedzi (wybrane)&lt;/p&gt;
+&lt;p&gt;| Numer | Znaczenie
+|---|---|---|
+| 200 | połączenie zakończyło się sukcesem |
+| 301 | strona przeniesiona na inny adres |
+| 404 | strona nie istnieje |
+| 500 | błąd serwera|&lt;/p&gt;
+&lt;p&gt;Typy połączenia&lt;/p&gt;
+&lt;p&gt;| Typ | Znaczenie
+|---|---|---|
+| GET | pobierani danych |
+| POST | wysyłanie danych |
+| PUT | zmiana obiektu w bazie danych |
+| PATCH | edycja pojedynczej właściwości obiektu w bazie danych |
+| DELETE | usunięcie danych |&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"&gt;Fetch API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=MD1euJQQkLQ"&gt;Jak działa asynchroniczność w JavaScript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bit.ly/3cUHuT0"&gt;Event Loop a kolejność wykonywania kodu w JavaScript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fsgeek.pl/post/asynchronicznosc-w-javascript/"&gt;Asynchroniczność w JavaScript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/jak-pozbyc-sie-callback-hell"&gt;Jak pozbyć się callback hell za pomocą promisów?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/promise.php"&gt;Callback i Promise&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/async-await.php"&gt;Async / await&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://derivadow.com/2007/01/05/ajax-what-is-it-its-not-dhtml/"&gt;AJAX what is it? (it’s not DHTML)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;http://kursjs.pl/kurs/ajax/ajax.php&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="asynchroniczność"></category><category term="call stack"></category><category term="Web Api"></category><category term="obietnice"></category><category term="promises"></category></entry><entry><title>Node.js aktualizacja (Ubuntu)</title><link href="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html" rel="alternate"></link><published>2020-06-11T11:00:00+02:00</published><updated>2020-06-11T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-nodejs-aktualizacja.html</id><summary type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
+    node -v
+    &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
+&lt;h4&gt;Moduł N z NMP&lt;/h4&gt;
+&lt;p&gt;Moduł &lt;a href="https://www.npmjs.com/package/n"&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;/a&gt; służy do interaktywnego zarządzani wersjami &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Kroki podjęte do instalacji najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Czyszczenie pamięci cache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="k"&gt;cache …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
+    node -v
+    &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
+&lt;h4&gt;Moduł N z NMP&lt;/h4&gt;
+&lt;p&gt;Moduł &lt;a href="https://www.npmjs.com/package/n"&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;/a&gt; służy do interaktywnego zarządzani wersjami &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Kroki podjęte do instalacji najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Czyszczenie pamięci cache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="n"&gt;clean&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja przy pomocy nmp modułu n (-g -&amp;gt; globalnie)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja najnowszej wersji (w domyśle &lt;em&gt;Node.js&lt;/em&gt;) oraz usunięcie poprzedniej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;latest&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;NVM - Node Version Manager&lt;/h4&gt;
+&lt;p&gt;Zalecane jest instalacja oraz zarządzanie wersją(w tym przypadku również wieloma wersjami) przy pomocy NVM (Node Version Manager)&lt;/p&gt;
+&lt;p&gt;Pobranie paczek dla Ubuntu, które pozwolą na budowę paczek źródłowych (NVM będzie je wykorzystywał w trakcie instalacji)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;essential&lt;/span&gt; &lt;span class="n"&gt;libssl&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja NVM (uwaga v0.35.3 jest aktualną wersją, która ulegnie zmianie) - pobranie skryptu install_nvm.sh przy pomocy &lt;code&gt;culr&lt;/code&gt; (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z &lt;a href="https://github.com/nvm-sh/nvm/blob/master/install.sh"&gt;repo na GitHubie&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sL&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;raw&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;githubusercontent&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;creationix&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nvm&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;install_nvm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Uruchomienie skryptu przy pomocy komendy &lt;code&gt;bash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Pobranie, kompilacja i instalacja najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nvm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zwrócenie listy dostępnych wersji &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nvm&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;remote&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja konkretnej wersji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nvm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages&lt;/p&gt;
+&lt;p&gt;https://github.com/nodesource/distributions/blob/master/README.md&lt;/p&gt;
+&lt;p&gt;https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version&lt;/p&gt;
+&lt;p&gt;https://github.com/nvm-sh/nvm&lt;/p&gt;
+&lt;p&gt;https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04&lt;/p&gt;</content><category term="javascript"></category><category term="node.js"></category><category term="node"></category><category term="nvm"></category><category term="aktualizacja"></category><category term="linux"></category><category term="ubuntu"></category><category term="bash"></category><category term="curl"></category><category term="npm"></category></entry><entry><title>JavaScript - kolejny test w JEST (TDD)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-2.html" rel="alternate"></link><published>2020-06-10T12:00:00+02:00</published><updated>2020-06-10T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-10:/zfrontu/js-jest-test-2.html</id><summary type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png"&gt;&lt;/p&gt;
 &lt;p&gt;Poniższy wpis powstał na podstawie tego &lt;a href="https://www.youtube.com/watch?v=gX440uva4NU"&gt;materiału&lt;/a&gt;, patrz również &lt;a href="https://exercism.io/my/solutions/ca7b90c2164a49e5aed19f12518ac333"&gt;tutaj&lt;/a&gt; i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja&lt;/p&gt;
 &lt;p&gt;Zadanie stwórz funkcję spełniającą następujące warunki&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;Bob&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Sure.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;ask …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png"&gt;&lt;/p&gt;
@@ -19,10 +172,14 @@
 
 &lt;h4&gt;Test 1&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;talkToBob.test.js&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;const talkToBob = require('./talkToBob');&lt;/p&gt;
-&lt;p&gt;test("answers Sure, if ask him a question", () =&amp;gt; {
-    expect(talkToBob("How are You?")).toBe("Sure")
-  });&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;answers Sure, if ask him a question&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;How are You?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;&lt;code&gt;talkToBob.js&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
   &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
@@ -57,9 +214,75 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;hr&gt;
-&lt;p&gt;Test 2...&lt;/p&gt;
-&lt;p&gt;&lt;img alt="TBC" src="https://steveworkingthroughtheword.files.wordpress.com/2016/03/tobecontinued.jpg"&gt;&lt;/p&gt;
+&lt;h4&gt;Test 3&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;talkToBob.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;describe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Function - talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;answers Sure, if ask him a question&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;How are You?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Answers &amp;#39;Whoa, chill out!&amp;#39; if you yell at him&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;DON&amp;#39;T&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He retorts &amp;#39;Calm down, I know what I&amp;#39;m doing!&amp;#39; if you yell a question at him.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;WHAT?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;talkToBob.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Fine. Be that way!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whatever.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Test 4-5&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;talkToBob.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;describe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Function - talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;answers Sure, if ask him a question&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;How are You?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Answers &amp;#39;Whoa, chill out!&amp;#39; if you yell at him&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;DON&amp;#39;T&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He retorts &amp;#39;Calm down, I know what I&amp;#39;m doing!&amp;#39; if you yell a question at him.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;WHAT?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He says &amp;#39;Fine. Be that way!&amp;#39; if you address him without actually saying anything.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Fine. Be that way!&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He answers &amp;#39;Whatever.&amp;#39; to anything else.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;whatever&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whatever.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;talkToBob.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Fine. Be that way!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whatever.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: Niezastosowanie przy drugim warunku  &lt;code&gt;&amp;amp;&amp;amp; info.length !== 0&lt;/code&gt; a wprowadzenie dowolnej wartości jako domyślnej wprowadzanego, który stanie się wywołaniem czwartego warunku nie spełni wymogu założonego przez piąty test:::&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://jestjs.io/&lt;/p&gt;
@@ -140,7 +363,7 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=T1ZwhqojI7o&amp;amp;t=179s"&gt;Node.js - Konfigracja Babel.js (Moduły ES6)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=C2PDAGCrk_g"&gt;Babel.js: What It Is, and How You Can Use It. [What The Stack]&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=NMlc0_i5z5I"&gt;Poznaj JavaScript - BabelJS&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=MzZilaM16oY"&gt;BABEL COMPILER: Do you really need BABEL to compile JavaScript with ES6?&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="babel"></category><category term="transpilacja"></category><category term="gulp"></category></entry><entry><title>JavaScript - pierwszy test w JEST (+ Babel)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-babel.html" rel="alternate"></link><published>2020-06-08T10:00:00+02:00</published><updated>2020-06-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-08:/zfrontu/js-jest-test-babel.html</id><summary type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=MzZilaM16oY"&gt;BABEL COMPILER: Do you really need BABEL to compile JavaScript with ES6?&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="babel"></category><category term="transpilacja"></category><category term="gulp"></category><category term="npm"></category><category term="node.js"></category><category term="node"></category></entry><entry><title>JavaScript - pierwszy test w JEST (+ Babel)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-babel.html" rel="alternate"></link><published>2020-06-08T10:00:00+02:00</published><updated>2020-06-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-08:/zfrontu/js-jest-test-babel.html</id><summary type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png"&gt;&lt;/p&gt;
 &lt;p&gt;Do stworzenia pierwszego testu posłużyłem się &lt;a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file"&gt;dokumentacją JEST&lt;/a&gt; oraz &lt;a href="https://www.youtube.com/watch?v=_zEX9sHzqS4"&gt;tym materiałem&lt;/a&gt; (autorstwa Kacpra Kozaka)&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Jest&lt;/em&gt; wyszuka pliku, w którego nazwie znajduje się słowo kluczowe &lt;code&gt;test&lt;/code&gt; poprzedzone &lt;code&gt;kropką&lt;/code&gt; o rozszerzeniu &lt;code&gt;js&lt;/code&gt; którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla &lt;code&gt;sum …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png"&gt;&lt;/p&gt;
 &lt;p&gt;Do stworzenia pierwszego testu posłużyłem się &lt;a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file"&gt;dokumentacją JEST&lt;/a&gt; oraz &lt;a href="https://www.youtube.com/watch?v=_zEX9sHzqS4"&gt;tym materiałem&lt;/a&gt; (autorstwa Kacpra Kozaka)&lt;/p&gt;
@@ -1441,7 +1664,8 @@ map-get($mapa, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;:::&lt;/strong&gt; package.json zawiera informacje na temat zależności projektu - w trakcie przenoszenia plików projektu należy również go zawrzeć wraz z innymi -&amp;gt; wówczas w terminalu na początku pracy nad projektem wystarczy wpisać komendę &lt;code&gt;npm install&lt;/code&gt; - npm zainstaluje wszystkie zależności (wymaga Noda + npm) &lt;strong&gt;:::&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;3) Instalacja zależności - wtyczka Gulp &lt;/p&gt;
-&lt;p&gt;dodanie flagi &lt;code&gt;--save-dev&lt;/code&gt; przy instalacji sprawia, że paczka zostaje dodana do zależności deweloperskich devDependencies (wtyczka powinna znaleźć się w spisie znajdującym się w &lt;code&gt;package.json&lt;/code&gt;, również bez podania flagi)&lt;/p&gt;
+&lt;h4&gt;devDependencies a Dependencies&lt;/h4&gt;
+&lt;p&gt;dodanie flagi &lt;code&gt;--save-dev&lt;/code&gt; przy instalacji sprawia, że paczka zostaje dodana do zależności deweloperskich devDependencies (wtyczka znajdzie się w spisie znajdującym się w &lt;code&gt;package.json&lt;/code&gt;, również bez podania flagi ale wówczas trafi do spisu Dependencies) tu powinny trafić te zależności (paczki), które pozwalają na rozwój/budowę aplikacji, ale nie są niezbędne do jej pełnego funkcjonowania np. związane z transpilacją (np. Saas) lub testowanie. W Dependencies powinny znaleźć niezbędne wtyczki do działania aplikacji (instalacja tylko tych z pominięciem devDependencies odbywa się poprzez &lt;code&gt;npm install --production&lt;/code&gt; zamiast zwykłego &lt;code&gt;npm install&lt;/code&gt; - można też dodać, że zawartość devDependencies jest formą dokumentacji projektu/jego metadanymi)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1678,7 +1902,8 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 &lt;p&gt;https://css-tricks.com/gulp-for-beginners/&lt;/p&gt;
 &lt;p&gt;Node:&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=ENrzD9HAZK4&lt;/p&gt;
-&lt;p&gt;https://github.com/nvm-sh/nvm#installing-and-updating&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
+&lt;p&gt;https://github.com/nvm-sh/nvm#installing-and-updating&lt;/p&gt;
+&lt;p&gt;https://docs.npmjs.com/files/package.json&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;

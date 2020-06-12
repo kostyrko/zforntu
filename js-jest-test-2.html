@@ -149,7 +149,7 @@
     <p>
       Opublikowano śro 10 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
@@ -172,10 +172,14 @@
 
 <h4>Test 1</h4>
 <p><code>talkToBob.test.js</code></p>
-<p>const talkToBob = require('./talkToBob');</p>
-<p>test("answers Sure, if ask him a question", () =&gt; {
-    expect(talkToBob("How are You?")).toBe("Sure")
-  });</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">talkToBob</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./talkToBob</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">answers Sure, if ask him a question</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+  <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">How are You?</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Sure</span><span class="s2">&quot;</span><span class="ss">)</span>
+}<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
 <p><code>talkToBob.js</code></p>
 <div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">talkToBob</span><span class="ss">(</span><span class="nv">info</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="ss">)</span> {
   <span class="k">if</span><span class="ss">(</span><span class="nv">info</span>.<span class="nv">endsWith</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">))</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Sure</span><span class="s2">&quot;</span><span class="c1">;</span>
@@ -210,9 +214,75 @@
 </code></pre></div>
 
 
-<hr>
-<p>Test 2...</p>
-<p><img alt="TBC" src="https://steveworkingthroughtheword.files.wordpress.com/2016/03/tobecontinued.jpg"></p>
+<h4>Test 3</h4>
+<p><code>talkToBob.test.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">talkToBob</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./talkToBob</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">describe</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Function - talkToBob</span><span class="s1">&#39;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">answers Sure, if ask him a question</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">How are You?</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Sure</span><span class="s2">&quot;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Answers &#39;Whoa, chill out!&#39; if you yell at him</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">DON&#39;T</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Whoa, chill out!</span><span class="s2">&quot;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">He retorts &#39;Calm down, I know what I&#39;m doing!&#39; if you yell a question at him.</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">WHAT?</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Calm down, I know what I&#39;m doing!</span><span class="s2">&quot;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p><code>talkToBob.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">talkToBob</span><span class="ss">(</span><span class="nv">info</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="ss">)</span> {
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span>.<span class="nv">endsWith</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">)</span> <span class="o">&amp;&amp;</span> <span class="nv">info</span> <span class="o">!==</span> <span class="nv">info</span>.<span class="nv">toUpperCase</span><span class="ss">())</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Sure</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span> <span class="o">===</span> <span class="nv">info</span>.<span class="nv">toUpperCase</span><span class="ss">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">info</span>.<span class="nv">endsWith</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">))</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Whoa, chill out!</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span>.<span class="nv">endsWith</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">))</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Calm down, I know what I&#39;m doing!</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="ss">)</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Fine. Be that way!</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="s1">&#39;</span><span class="s">Whatever.</span><span class="s1">&#39;</span>
+}<span class="c1">;</span>
+
+<span class="nv">module</span>.<span class="nv">exports</span> <span class="o">=</span> <span class="nv">talkToBob</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<h4>Test 4-5</h4>
+<p><code>talkToBob.test.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">talkToBob</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./talkToBob</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">describe</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Function - talkToBob</span><span class="s1">&#39;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">answers Sure, if ask him a question</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">How are You?</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Sure</span><span class="s2">&quot;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Answers &#39;Whoa, chill out!&#39; if you yell at him</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">DON&#39;T</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Whoa, chill out!</span><span class="s2">&quot;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">He retorts &#39;Calm down, I know what I&#39;m doing!&#39; if you yell a question at him.</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">WHAT?</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Calm down, I know what I&#39;m doing!</span><span class="s2">&quot;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">He says &#39;Fine. Be that way!&#39; if you address him without actually saying anything.</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Fine. Be that way!</span><span class="s1">&#39;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">test</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">He answers &#39;Whatever.&#39; to anything else.</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">expect</span><span class="ss">(</span><span class="nv">talkToBob</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">whatever</span><span class="s2">&quot;</span><span class="ss">))</span>.<span class="nv">toBe</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Whatever.</span><span class="s1">&#39;</span><span class="ss">)</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p><code>talkToBob.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">talkToBob</span><span class="ss">(</span><span class="nv">info</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="ss">)</span> {
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span>.<span class="nv">endsWith</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">)</span> <span class="o">&amp;&amp;</span> <span class="nv">info</span> <span class="o">!==</span> <span class="nv">info</span>.<span class="nv">toUpperCase</span><span class="ss">())</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Sure</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span> <span class="o">===</span> <span class="nv">info</span>.<span class="nv">toUpperCase</span><span class="ss">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">info</span>.<span class="nv">endsWith</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">)</span> <span class="o">&amp;&amp;</span> <span class="nv">info</span>.<span class="nv">length</span> <span class="o">!==</span> <span class="mi">0</span> <span class="ss">)</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Whoa, chill out!</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span>.<span class="nv">endsWith</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span><span class="ss">))</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Calm down, I know what I&#39;m doing!</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">info</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="ss">)</span> <span class="k">return</span> <span class="s2">&quot;</span><span class="s">Fine. Be that way!</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="s1">&#39;</span><span class="s">Whatever.</span><span class="s1">&#39;</span>
+}<span class="c1">;</span>
+
+<span class="nv">module</span>.<span class="nv">exports</span> <span class="o">=</span> <span class="nv">talkToBob</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>::: Niezastosowanie przy drugim warunku  <code>&amp;&amp; info.length !== 0</code> a wprowadzenie dowolnej wartości jako domyślnej wprowadzanego, który stanie się wywołaniem czwartego warunku nie spełni wymogu założonego przez piąty test:::</p>
 <hr>
 <p>Źródła:</p>
 <p>https://jestjs.io/</p>

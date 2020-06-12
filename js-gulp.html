@@ -51,7 +51,7 @@
 
 <meta name="author" content="mkostyrko" />
 <meta name="description" content="Instalacja globalna Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala npm install --global gulp-cli Sprawdzanie instalacji (jej wersji) gulp -v zwraca: CLI version: 2.2.1 …" />
-<meta name="keywords" content="gitignore, node_modules, node, gulp, sass, wtyczki">
+<meta name="keywords" content="gitignore, node_modules, node, gulp, sass, wtyczki, npm, Dependencies, devDependencies, package.json">
 
 
 <meta property="og:site_name" content="...z frontu"/>
@@ -70,6 +70,10 @@
 <meta property="article:tag" content="gulp"/>
 <meta property="article:tag" content="sass"/>
 <meta property="article:tag" content="wtyczki"/>
+<meta property="article:tag" content="npm"/>
+<meta property="article:tag" content="Dependencies"/>
+<meta property="article:tag" content="devDependencies"/>
+<meta property="article:tag" content="package.json"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; JavaScript - Gulp</title>
@@ -187,7 +191,8 @@
 <p><strong>:::</strong> package.json zawiera informacje na temat zależności projektu - w trakcie przenoszenia plików projektu należy również go zawrzeć wraz z innymi -&gt; wówczas w terminalu na początku pracy nad projektem wystarczy wpisać komendę <code>npm install</code> - npm zainstaluje wszystkie zależności (wymaga Noda + npm) <strong>:::</strong></p>
 <hr>
 <p>3) Instalacja zależności - wtyczka Gulp </p>
-<p>dodanie flagi <code>--save-dev</code> przy instalacji sprawia, że paczka zostaje dodana do zależności deweloperskich devDependencies (wtyczka powinna znaleźć się w spisie znajdującym się w <code>package.json</code>, również bez podania flagi)</p>
+<h4>devDependencies a Dependencies</h4>
+<p>dodanie flagi <code>--save-dev</code> przy instalacji sprawia, że paczka zostaje dodana do zależności deweloperskich devDependencies (wtyczka znajdzie się w spisie znajdującym się w <code>package.json</code>, również bez podania flagi ale wówczas trafi do spisu Dependencies) tu powinny trafić te zależności (paczki), które pozwalają na rozwój/budowę aplikacji, ale nie są niezbędne do jej pełnego funkcjonowania np. związane z transpilacją (np. Saas) lub testowanie. W Dependencies powinny znaleźć niezbędne wtyczki do działania aplikacji (instalacja tylko tych z pominięciem devDependencies odbywa się poprzez <code>npm install --production</code> zamiast zwykłego <code>npm install</code> - można też dodać, że zawartość devDependencies jest formą dokumentacji projektu/jego metadanymi)</p>
 <div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="n">gulp</span> <span class="c1">--save-dev</span>
 </code></pre></div>
 
@@ -425,6 +430,7 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami</p>
 <p>Node:</p>
 <p>https://www.youtube.com/watch?v=ENrzD9HAZK4</p>
 <p>https://github.com/nvm-sh/nvm#installing-and-updating</p>
+<p>https://docs.npmjs.com/files/package.json</p>
   </div>
   <div class="tag-cloud">
     <p>
@@ -434,6 +440,10 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami</p>
       <a href="https://kostyrko.github.io/zfrontu/tag/gulp.html">gulp</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/sass.html">sass</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/wtyczki.html">wtyczki</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/dependencies.html">Dependencies</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/devdependencies.html">devDependencies</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/packagejson.html">package.json</a>
     </p>
   </div>
 
