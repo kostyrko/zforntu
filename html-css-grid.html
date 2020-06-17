@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Grid -&gt; HTML + klasy CSS Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania) W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom) Kolumna ustala szerokość a wiersz &#34;trzyma&#34; elementy w jednej …" />
+<meta name="keywords" content="css, grid, layout, rwd">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Grid przy pomocy HTML i klas oraz Grid:CSS"/>
+<meta property="og:description" content="Grid -&gt; HTML + klasy CSS Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania) W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom) Kolumna ustala szerokość a wiersz &#34;trzyma&#34; elementy w jednej …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/html-css-grid.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-15 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="css"/>
+<meta property="article:tag" content="css"/>
+<meta property="article:tag" content="grid"/>
+<meta property="article:tag" content="layout"/>
+<meta property="article:tag" content="rwd"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Grid przy pomocy HTML i klas oraz Grid:CSS</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="html-css-grid">Grid przy pomocy HTML i klas oraz Grid:CSS</h1>
+    <p>
+      Opublikowano pon 15 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
+
+        &#8226; 4 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg" width="500px"></p>
+<h3>Grid -&gt; HTML + klasy CSS</h3>
+<p>Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)</p>
+<p>W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)</p>
+<p>Kolumna ustala szerokość a wiersz "trzyma" elementy w jednej linii</p>
+<p>Wiersze zawsze nazywają się <code>row</code> i zadaniem wiersza jest ustawienie kolumn</p>
+<hr>
+<h4>Warunek 1 -&gt; box-sizing</h4>
+<p>Aby elementy były zawarte w jednej linii <code>box-sizing</code> musi być ustawiony na <code>bored-box</code></p>
+<hr>
+<h4>Warunek 2 -&gt; float lub flex-box</h4>
+<p>Należy zastosować <code>clearfix</code> na elementach zawartych w rzędzie jeśli całość oparta jest o <code>float</code></p>
+<p>Clearfix jest sposobem na ujarzmienie problemu z pojemnikami o zerowej wysokości -&gt; elementów pływających </p>
+<p>Patrz: <a href="https://www.it-swarm.dev/pl/html/co-jest-clearfix/941223603/">Co to jest clearfix?</a></p>
+<p>Alternatywnie zagnieżdżenie wewnątrz jednego rzędu oprzeć można na <code>flex-box</code></p>
+<hr>
+<h4>Warunek 3 -&gt; klasy kolumn</h4>
+<p>Należy stworzyć klasy, które wskazując na szerokość kolumn i je odpowiednio używać np. jeśli całość ma być szeroka na 12 kolumn to jedna kolumna wynosi 100%/12, zatem obiekt zajmująca połowę rodzica w poziomie  składać się będzie z 6 kolumn i winien być oznaczony <code>col-6</code> poniższy mixin to dobrze obrazuje</p>
+<div class="highlight"><pre><span></span><code>@<span class="nv">mixin</span> <span class="nv">grid</span><span class="ss">(</span><span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> {
+  <span class="nv">display</span>: <span class="nv">flex</span><span class="c1">; /* rozwiązanie oparte o flex-box */</span>
+  [<span class="nv">class</span><span class="o">*=</span><span class="s2">&quot;</span><span class="s">col-</span><span class="s2">&quot;</span>] {
+    <span class="o">//</span> <span class="nv">float</span>: <span class="nv">left</span><span class="c1">; /* rozwiązanie oparte o float */</span>
+    <span class="nv">min</span><span class="o">-</span><span class="nv">height</span>: <span class="mi">1</span><span class="nv">px</span><span class="c1">;</span>
+  }
+  @<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mh">$c</span><span class="nv">ols</span> {
+    .<span class="nv">col</span><span class="o">-</span>#{$<span class="nv">i</span>} {
+      <span class="nv">width</span>: <span class="ss">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">/</span> <span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">;</span>
+    }
+  }
+}
+</code></pre></div>
+
+
+<p>Wynik (przykładowy fragment kodu wynikowego css):</p>
+<div class="highlight"><pre><span></span><code><span class="c">/* line 33, scss/main.scss */</span>
+<span class="p">.</span><span class="nc">container</span> <span class="p">.</span><span class="nc">row</span> <span class="p">.</span><span class="nc">col-6</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* line 33, scss/main.scss */</span>
+<span class="p">.</span><span class="nc">container</span> <span class="p">.</span><span class="nc">row</span> <span class="p">.</span><span class="nc">col-7</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mf">58.33333</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* line 33, scss/main.scss */</span>
+<span class="p">.</span><span class="nc">container</span> <span class="p">.</span><span class="nc">row</span> <span class="p">.</span><span class="nc">col-8</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mf">66.66667</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<hr>
+<h4>Warunek 4 -&gt; wiersz</h4>
+<p>Należy odpowiednio przygotować stylizację <code>wiersza</code>/row</p>
+<div class="highlight"><pre><span></span><code>$<span class="nv">gutter</span>: <span class="mi">10</span><span class="nv">px</span><span class="c1">; /* przestrzeń pomiędzy kolumnami */</span>
+
+.<span class="nv">container</span> {
+  <span class="nv">max</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">1000</span><span class="nv">px</span><span class="c1">;</span>
+  <span class="nv">width</span>: <span class="mi">100</span><span class="o">%</span><span class="c1">;</span>
+  <span class="nv">margin</span>: <span class="mi">0</span> <span class="nv">auto</span><span class="c1">;</span>
+  .<span class="nv">row</span> {
+    <span class="o">//</span> @<span class="nv">extend</span> <span class="o">%</span><span class="nv">clearfix</span><span class="c1">; /* rozwiązanie oparte o float */</span>
+    <span class="nv">height</span>: <span class="mi">60</span><span class="nv">vh</span><span class="c1">; /* tu można podstawić dowolną wartość */</span>
+    [<span class="nv">class</span><span class="o">*=</span><span class="s2">&quot;</span><span class="s">col-</span><span class="s2">&quot;</span>] {
+      <span class="o">//</span> <span class="nv">float</span>: <span class="nv">left</span><span class="c1">; /* rozwiązanie oparte o float */</span>
+      <span class="nv">min</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">1</span><span class="nv">px</span><span class="c1">;</span>
+      <span class="nv">padding</span><span class="o">-</span><span class="nv">left</span>: $<span class="nv">gutter</span><span class="c1">;</span>
+      <span class="nv">padding</span><span class="o">-</span><span class="nv">right</span>: $<span class="nv">gutter</span><span class="c1">;</span>
+    }
+    @<span class="k">include</span> <span class="nv">grid</span><span class="ss">(</span><span class="mi">12</span><span class="ss">)</span><span class="c1">;</span>
+  }
+}
+</code></pre></div>
+
+
+<hr>
+<h4>Warunek 5 -&gt; HTML</h4>
+<p>Przygotowanie kolumn w pojedynczym wierszu tak aby zajmowały nie więcej niż 100% z ilości kolumn</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">&lt;main&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-3&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>col-3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>col-3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>col-3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>col-3<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-6&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>col-6<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-3&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>col-3<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/main&gt;</span>
+  <span class="nt">&lt;footer&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-12&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>Footer<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/footer&gt;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Responsywność</h3>
+<p>W tym przypadku responsywność jest oparta o dodanie dodatkowych klas, które są aktywowane w przypadku spełnienia określonego warunku w media-query</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-2 col-md-4&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6 col-md-4&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+<p><code>col-lg-*</code>// large - duży ekran ≥ 1200px</p>
+<p><code>col-md-*</code> // medium - desktop ≥ 992px</p>
+<p><code>col-sm-*</code> // small - tablet ≥ 768px</p>
+<p><code>col-xs-*</code> w przypadku bootstrapu jest to odpowiednik <code>col-*</code>// extra small - telefon &lt; 768 px</p>
+<h4>@mixin z media query</h4>
+<div class="highlight"><pre><span></span><code>@<span class="nv">mixin</span> <span class="nv">grid</span><span class="ss">(</span><span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> {
+  @<span class="nv">media</span> <span class="nv">screen</span> <span class="nv">and</span> <span class="ss">(</span><span class="nv">max</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">768</span><span class="nv">px</span><span class="ss">)</span> {
+    <span class="nv">display</span>: <span class="nv">flex</span><span class="c1">;</span>
+    @<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mh">$c</span><span class="nv">ols</span> {
+      .<span class="nv">col</span><span class="o">-</span><span class="nv">sm</span><span class="o">-</span>#{$<span class="nv">i</span>} {
+        <span class="nv">flex</span>: <span class="mi">0</span> <span class="mi">0</span> <span class="ss">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">/</span> <span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">;</span>
+      }
+    }
+  }
+  @<span class="nv">media</span> <span class="nv">screen</span> <span class="nv">and</span> <span class="ss">(</span><span class="nv">min</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">767</span><span class="nv">px</span><span class="ss">)</span> {
+    @<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mh">$c</span><span class="nv">ols</span> {
+      .<span class="nv">col</span><span class="o">-</span><span class="nv">md</span><span class="o">-</span>#{$<span class="nv">i</span>} {
+        <span class="nv">flex</span>: <span class="mi">0</span> <span class="mi">0</span> <span class="ss">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">/</span> <span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">;</span>
+      }
+    }
+  }
+}
+</code></pre></div>
+
+
+<p>Patrz: <a href="https://getbootstrap.com/docs/4.0/layout/grid/">Bootstrap-Grid system</a></p>
+<p>Budowanie siatki w sposób responsywny nie jest proste więc wykorzystuje się często już przygotowane wcześniej layouty</p>
+<h4><a href="https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp">Przykłady układu Grid</a></h4>
+<hr>
+<h3>Grid w CSS na 100%</h3>
+<p>Nie wymaga zaangażowania struktury HTML</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;grid-container&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;header&gt;</span>Nagłówek<span class="nt">&lt;/header&gt;</span>
+  <span class="nt">&lt;aside&gt;</span>Pasek boczny<span class="nt">&lt;/aside&gt;</span>
+  <span class="nt">&lt;main&gt;</span>Główna treść<span class="nt">&lt;/main&gt;</span>
+  <span class="nt">&lt;footer&gt;</span>Stopka<span class="nt">&lt;/footer&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+<p>Grid wprowadza jednostkę <code>fr</code> (fraction -&gt; ułamek) i na niej opiera podział i pozwala to budować grid oparty o dwa istotne wyrażenia dla kolumn - <code>grid-template-columns</code> i wierszy - <code>grid-template-rows</code></p>
+<p><code>grid-template-columns: 1fr 1fr</code>; -&gt; 2 kolumny, gdzie każda zajmuje jeden ułamek</p>
+<p><code>grid-template-columns: 2fr 1fr</code>; 2 kolumny, gdzie 1 zajmuje dwa ułamki a druga jeden</p>
+<p><code>grid-template-columns: 200px 1fr 300px</code>; // 200px auto 300px</p>
+<p><code>grid-template-rows: 200px 1fr</code>; // pierwszy wiersz ma 200px a kolejny dostosowuje się automatycznie</p>
+<p>=========</p>
+<h4>grid-template-areas</h4>
+<p><code>grid-template-areas</code> - pozwala na wyznaczenie obszarów i rozmieszczenie elementów według określonego wzoru</p>
+<p>.grid-container {
+    display: grid;
+    grid-template-columns: 300px 1fr; // dwie kolumny
+    grid-template-rows: 100px 1fr 200px;
+    grid-template-areas: // wskazanie układu
+    "header header" // dwie kolumny 1 rząd
+    "sidebar main" // 2 rząd - część na sidebar (300px) a część na main (1fr/auto)
+  }</p>
+<p>aside {
+    padding: 20px;
+    background-color: orangered;
+    grid-area: header;
+  }</p>
+<p>aside {
+    padding: 20px;
+    background-color: orangered;
+    grid-area: sidebar;
+  }</p>
+<p>====</p>
+<p><code>grid-column-start:</code> 2 // od której kolumny ma się układać element</p>
+<p><code>grid-column-end:</code> 4 // na której kolumnie ma się kończyć</p>
+<p><code>grid-column:</code> 2/4 // skrócony zapis</p>
+<p><code>grid-row-start:</code> 2 // od którego rzędu ma się układać element</p>
+<p><code>grid-row-end:</code> 4 // na którym rzędzie ma się kończyć</p>
+<p><code>grid-row:</code> 2/4 // skrócony zapis</p>
+<p>Przykład zastosowania <code>index.html</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;grid-container&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;Header&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;aside&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;aside-1&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;aside-2&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+<p><code>style.css</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="p">.</span><span class="nc">grid-container</span> <span class="p">{</span> <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="p">.</span><span class="nc">grid-container</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
+  <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+  <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+  <span class="n">gap</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">grid-template-areas</span><span class="p">:</span> <span class="s2">&quot;Header Header Header Header&quot;</span> <span class="s2">&quot;aside main main main&quot;</span> <span class="s2">&quot;aside main main main&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">Header</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">Header</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="p">.</span><span class="nc">aside</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
+  <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+  <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+  <span class="n">gap</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">grid-template-areas</span><span class="p">:</span> <span class="s2">&quot;aside-1 aside-1 aside-1&quot;</span> <span class="s2">&quot;aside-2 aside-2 aside-2&quot;</span><span class="p">;</span>
+  <span class="k">grid-area</span><span class="p">:</span> <span class="n">aside</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">aside-1</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">aside-1</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="p">.</span><span class="nc">aside-2</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">aside-2</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="p">.</span><span class="nc">main</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">main</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+
+
+<p class="codepen" data-height="400" data-theme-id="light" data-default-tab="css,result" data-user="mkostyrko" data-slug-hash="vYLXEor" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Grid-tampleate-example">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/vYLXEor">
+  Grid-tampleate-example</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>====</p>
+<p><code>grid-gap:</code> 10px; // odstęp pomiędzy kafelkami (kolumnami i rzędami)</p>
+<p><code>grid-column-gap:</code> // odstęp pomiędzy kolumnami</p>
+<p><code>grid-row-gap:</code> // odstęp pomiędzy rzędami</p>
+<p>====
+Pozycjonowanie dzieci</p>
+<p><code>align-item</code> start/end/center/stretch</p>
+<p><code>grid-column-start</code> <number> | <name> | span <number> | span <name> | auto;</p>
+<p><code>grid-column-end</code> <number> | <name> | span <number> | span <name> | auto;</p>
+<p><code>grid-row-start</code> <number> | <name> | span <number> | span <name> | auto;</p>
+<p><code>grid-row-end</code> <number> | <name> | span <number> | span <name> | auto;</p>
+<p><code>grid-area</code> schemat <row-start> / <column-start> / <row-end> / <column-end></p>
+<p>====</p>
+<p>Pozycjonowanie siebie
+<code></code>justify-self` start/end/center/stretch</p>
+<p><img alt="justyfie-self" src="https://css-tricks.com/wp-content/uploads/2018/11/justify-self-center.svg" width="400px"></p>
+<p><code>align-self</code> start/end/center/stretch</p>
+<p><img alt="align-self" src="https://css-tricks.com/wp-content/uploads/2018/11/align-self-start.svg" width="400px"></p>
+<p><code>place-self</code> - schemat <align-self> / <justify-self> domyślnie auto ale można np. center</p>
+<p><img alt="place-self" src="https://css-tricks.com/wp-content/uploads/2018/11/place-self-center.svg" width="400px"></p>
+<p>Patrz więcej <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" width="400px">A Complete Guide to Grid</a></p>
+<p>====</p>
+<h4>Media query</h4>
+<div class="highlight"><pre><span></span><code><span class="na">.grid-container</span> <span class="err">{</span>
+  <span class="nl">display:</span> <span class="nf">grid</span><span class="c">;</span>
+  <span class="nl">min-height:</span> <span class="err">100</span><span class="nf">vh</span><span class="c">;</span>
+  <span class="nl">grid-template-columns:</span> <span class="err">1</span><span class="nf">fr</span> <span class="mi">1</span><span class="no">fr</span><span class="c">;</span>
+  <span class="err">@</span><span class="nf">media</span> <span class="no">screen</span> <span class="no">and</span> <span class="p">(</span><span class="no">min-width</span><span class="p">:</span> <span class="mi">800</span><span class="no">px</span><span class="p">)</span> <span class="err">{</span>
+    <span class="nl">grid-template-columns:</span> <span class="na">rep</span><span class="nf">eat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="no">fr</span><span class="p">)</span><span class="c">;</span>
+  <span class="err">}</span>
+  <span class="err">@</span><span class="nf">media</span> <span class="no">screen</span> <span class="no">and</span> <span class="p">(</span><span class="no">min-width</span><span class="p">:</span> <span class="mi">1000</span><span class="no">px</span><span class="p">)</span> <span class="err">{</span>
+    <span class="nl">grid-template-columns:</span> <span class="na">rep</span><span class="nf">eat</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="no">fr</span><span class="p">)</span><span class="c">;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<hr>
+<h4>Generatory układu Grid w CSS</h4>
+<ul>
+<li>
+<p><a href="https://cssgrid-generator.netlify.app/">CSS Grid Generator</a></p>
+</li>
+<li>
+<p><a href="https://grid.layoutit.com/">Layoutit</a></p>
+</li>
+<li>
+<p><a href="https://griddy.io/">Griddy</a></p>
+</li>
+</ul>
+<h4>Wydajność?</h4>
+<p>A może by tak... flexbox + grid? -&gt; <a href="https://ishadeed.com/article/grid-layout-flexbox-components/">Grid for layout, Flexbox for components</a></p>
+<p>Grid-CSS jest relatywnie nowym dodatkiem w świecie CSS i wciąż charakteryzuje się niską wydajnością ((źródło)[https://twitter.com/brian_lovin/status/1262169865504174081?s=20]), a do tego nie wszystkie przeglądarki mogą z nim funkcjonować <a href="https://caniuse.com/#feat=css-grid">patrz tutaj</a></p>
+<hr>
+<p>Źródła</p>
+<p>https://getbootstrap.com/docs/4.0/layout/grid/</p>
+<p>https://www.w3schools.com/css/css_grid.asp</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/grid.html">grid</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/layout.html">layout</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/rwd.html">rwd</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/css-flexbox.html">Flexbox - wprowadzenie</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

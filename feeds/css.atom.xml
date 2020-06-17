@@ -1,5 +1,546 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-24T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-18T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
+&lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
+&lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;funkcjonalność (Functional class names) -&amp;gt; połączenie klasy z elementem ze względu na jego znaczenie &lt;code&gt;selected-button&lt;/code&gt;, &lt;code&gt;important-text&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;zawartość (Content-based class names) -&amp;gt; klasy wskazujące na zawartość elementu &lt;code&gt;submit-button&lt;/code&gt;, &lt;code&gt;intro-text&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;prezencja (Presentational class …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
+&lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
+&lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;funkcjonalność (Functional class names) -&amp;gt; połączenie klasy z elementem ze względu na jego znaczenie &lt;code&gt;selected-button&lt;/code&gt;, &lt;code&gt;important-text&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;zawartość (Content-based class names) -&amp;gt; klasy wskazujące na zawartość elementu &lt;code&gt;submit-button&lt;/code&gt;, &lt;code&gt;intro-text&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;prezencja (Presentational class names) -&amp;gt; klasy zorientowane na sposób prezentacji elementu &lt;code&gt;round-image&lt;/code&gt; &lt;code&gt;green-button&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;więcej na ten temat przeczytasz tutaj &lt;a href="https://seesparkbox.com/foundry/naming_css_stuff_is_really_hard"&gt;Naming CSS Stuff Is Really Hard&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;OOCss/ Object Oriented CSS&lt;/h3&gt;
+&lt;p&gt;Metodyka OOCSS jest zorientowana na stworzenie modularnego CSS zorientowanego obiektowo - elementy strony postrzegane są jako obiekty&lt;/p&gt;
+&lt;p&gt;Podstawowe zasady:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;separacja struktury od stylu&lt;/strong&gt; (tworzenie klas globalnych a następnie niższego rzędu odpowiedzialne za stany obiektów oraz wielkość/prezencję obiektów &lt;code&gt;.btn&lt;/code&gt; -&amp;gt; &lt;code&gt;.btn-clicked&lt;/code&gt;, &lt;code&gt;btn-primary&lt;/code&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;separacja kontenerów i zawartości&lt;/strong&gt; (wygląd obiektu nie powinien być zależny od elementu, w którym się znajduje - jego ewentualna modyfikacja powinna być uzależniona od osobnej klasy przypisanej tej danej modyfikacji &lt;code&gt;.article-header&lt;/code&gt; zamist &lt;code&gt;.article h1&lt;/code&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="others-css" height="250px" src="https://ach-te-internety.pl/wp-content/uploads/2016/07/bem-css-768x432.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Podstawowe zasady, o których warto pamiętać&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 1&lt;/strong&gt; Dwuczłonowe nazwy klas rozdzielać należy myślnikiem &lt;code&gt;-&lt;/code&gt; (w przypadku JS stosowany jest camelCase) &lt;code&gt;secondaryButton&lt;/code&gt; -&amp;gt; &lt;code&gt;secondary-button&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 2&lt;/strong&gt; - Nazwa klasy powinna być na najniższym poziomie elementu, który ma zostać wystylizowany lub inaczej rzecz ujmując bezpośrednio na danym elemencie.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 3&lt;/strong&gt; - wykorzystaj zawartość danego elementu html np. klasa &lt;code&gt;header-logo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 4&lt;/strong&gt; - nie wykorzystuj zawartości jeśli to kształt w łatwiejszy sposób przekazuje (jest czytelniejszy) czym jest dany element.&lt;/p&gt;
+&lt;p&gt;======================&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 5&lt;/strong&gt; - jeśli dany element jest podobny do czegoś ale tym nie jest można stosować przyrostek &lt;code&gt;-like&lt;/code&gt; np. &lt;code&gt;h1-like&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 6&lt;/strong&gt; - jeśli chcesz klasę wykorzystać jako element związany z JS możesz klasie nadać przedrostek &lt;code&gt;js-&lt;/code&gt; np. &lt;code&gt;js-click-me&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 7&lt;/strong&gt; - należy unikać klas dłuższych niż dwa słowa&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Zasada 8&lt;/strong&gt; - można używać przedrostków is- lub has- dla klas opisujących dany stan np &lt;code&gt;.activate&lt;/code&gt; -&amp;gt; &lt;code&gt;.is-activate&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="BEM-batman" height="300px" src="https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_1600/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/3a93b95e-3e4e-4367-86cb-0606ace15af3/sign-theme-batman.png"&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;a href="http://getbem.com/"&gt;BEM&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Jedna z najpopularniejszych koncepcji nazewnictwa CSS&lt;/p&gt;
+&lt;h3&gt;Podstawa&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Block/Blok&lt;/strong&gt; - sam w sobie określa własne znaczenie -&amp;gt; &lt;code&gt;header&lt;/code&gt;, &lt;code&gt;menu&lt;/code&gt;, &lt;code&gt;button&lt;/code&gt;, &lt;code&gt;input&lt;/code&gt;, &lt;code&gt;aside&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Element&lt;/strong&gt; - element bloku -&amp;gt; &lt;code&gt;header__title&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Modifier/Modyfikator&lt;/strong&gt; - zmienia wygląd lub zachowanie danego elementu -&amp;gt; &lt;code&gt;input–-disabled&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img _500px_="&amp;quot;500px&amp;quot;" alt="BEM-blok" src="https://en.bem.info/kFetIbKxQdABHhUecbic45Il0Bg.png" width:&gt;&lt;/p&gt;
+&lt;h4&gt;Istotne:&lt;/h4&gt;
+&lt;p&gt;Rozgraniczenie wyrazów w nazwie klasy podwójnym myślnikiem oznacza wariację elementu &lt;strong&gt;&lt;code&gt;--&lt;/code&gt;&lt;/strong&gt; (&lt;code&gt;input–-disabled&lt;/code&gt;, &lt;code&gt;header--blue&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Podwójnym podkreślnikiem oznacza dziecko elementu &lt;strong&gt;&lt;code&gt;__&lt;/code&gt;&lt;/strong&gt; (&lt;code&gt;menu__item&lt;/code&gt;)&lt;/p&gt;
+&lt;h4&gt;Blokowisko&lt;/h4&gt;
+&lt;p&gt;Strona internetowa może być rozumiana poprzez podział na bloki, gdzie każdy kolejny poziom albo poszerza poprzedni albo go nadpisuje własnym stylem&lt;/p&gt;
+&lt;p&gt;&lt;img alt="gw" src="https://en.bem.info/kqvCO2ZXeivuLHCbn2to5chFZrM.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;BEMIT&lt;/h3&gt;
+&lt;p&gt;BEM + ITCSS (Inverted Triangle CSS) = BEMIT.&lt;/p&gt;
+&lt;p&gt;Inverted Triangle CSS -&amp;gt; Odwrócony trójkąt CSS, którego podstawowym założeniem jest strukturyzacja projektu zgodnie z trzema założeniami&lt;/p&gt;
+&lt;p&gt;1) zaczyna się od szczegółu i przechodzi do ogółu&lt;/p&gt;
+&lt;p&gt;2) zaczyna się od deklaracji używających jak najmniejszą ilość selektorów (mniej konfliktów na koniec)&lt;/p&gt;
+&lt;p&gt;3) selektory zastosowane na początku powinny mieć jak najszerszy zasięg np. reset&lt;/p&gt;
+&lt;p&gt;tu można przeczytać na temat 7 warstw projektu (Saas) -&amp;gt; &lt;a href="https://www.freecodecamp.org/news/managing-large-s-css-projects-using-the-inverted-triangle-architecture-3c03e4b1e6df/"&gt;The Inverted Triangle Architecture: how to manage large CSS Projects&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Inverted Triangle CSS" height="300px" src="https://cdn-media-1.freecodecamp.org/images/1*4oGYOCrfBqsjnqGwZ_GaHg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/kostyrko/54aa8c4fd5ab64e2ea81b5d69f8183e3"&gt;&lt;strong&gt;BEMIT Cheatsheet&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Znaczeniowe przedrostki - akronimy (Namespaces)&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;litera&lt;/th&gt;
+&lt;th&gt;znaczenie&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;c&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Components/element&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;o&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Objects/obiekt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;u&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Utilities/narzędzie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;is/has&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;stan bycia/posiadania&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;theme/skórka&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;s&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;styling/stylizacja&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;js&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;powiązanie z JS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;o-media__body  c-user__bio&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;...&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Więcej na ten temat tutaj: &lt;a href="https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/"&gt;More Transparent UI Code with Namespaces&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Responsywne Przyrostki&lt;/h4&gt;
+&lt;h4&gt;Responsywne Przyrostki&lt;/h4&gt;
+&lt;p&gt;Tu kluczowy jest znak &lt;code&gt;@&lt;/code&gt; (ang. at ~ w) i oznacza, w którym momencie (media query) dana klasa się aktywuje (w zależności od tzw break pointów / punktów załamania) &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;o-layout@md&lt;/code&gt; - obiekt układu w momencie średniego (middle) punktu załamania&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;u-1/4@lg&lt;/code&gt; - narzędzie gdy media-query large spełnia swój warunek posiada 1/4 szerokości&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scss&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;$lg&lt;/span&gt; = 1240px
+
+    @media screen and (min-width:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;lg&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;){
+        deklaracja: właściwość;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Wizualizacja wielu podobnych&lt;/h4&gt;
+&lt;p&gt;Stosowanie nazewnictwa klas według jednego schematu pozawala na i późniejsze debugowanie lub wizualizaję elementów zbliżonych do siebie cechami w celu sprawdzenia poprawności deklaracji/ funkcjonowania strony&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;            &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * Ukazuje wszystkie klasy.&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;lightgrey&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * Ukazuje wszystkie elementy BEM - wszystkie które posiadają &amp;quot;__&amp;quot;.&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;grey&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * Modyfikatory.&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;--&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;darkgrey&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * klasy obiektów.&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;^=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;o-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; o-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * klasy składnikowych elementów.&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;^=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;c-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; c-&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;cyan&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * klasy związane z responsywnością.&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;@&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;rosybrown&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * Wszystkie klasy przypisane do Hack classes.&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;^=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;    * Poprzez dodanie klasy hakowej do warstwy html (scss zagnieżdżenie powyższych w s-healthcheck)&lt;/span&gt;
+&lt;span class="cm"&gt;    */&lt;/span&gt;
+
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;s-healthcheck&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Na zakończenie&lt;/h3&gt;
+&lt;p&gt;::: Należy pamiętać o pisaniu komentarzy w kodzie CSS ::: przejrzystość i czytelność priorytetem nr 1&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bdavidxyz.com/blog/how-to-name-css-classes/"&gt;How to name css classes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/"&gt;BEMIT: Taking the BEM Naming Convention a Step Further&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-1-oocss"&gt;Metodyki CSS #1 - OOCSS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-2-bem"&gt;Metodologia BEM. Jak pisać dobry kod CSS. Praktyczne przykłady.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-2-bem"&gt;Metodyki CSS #2 – BEM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.bem.info/methodology/naming-convention/"&gt;BEM - naming conventions&lt;/a&gt;&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="html"></category><category term="klasy"></category><category term="bem"></category><category term="bemit"></category><category term="oocss"></category></entry><entry><title>Grid przy pomocy HTML i klas oraz Grid:CSS</title><link href="https://kostyrko.github.io/zfrontu/html-css-grid.html" rel="alternate"></link><published>2020-06-15T10:00:00+02:00</published><updated>2020-06-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-15:/zfrontu/html-css-grid.html</id><summary type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h3&gt;Grid -&amp;gt; HTML + klasy CSS&lt;/h3&gt;
+&lt;p&gt;Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)&lt;/p&gt;
+&lt;p&gt;W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)&lt;/p&gt;
+&lt;p&gt;Kolumna ustala szerokość a wiersz "trzyma" elementy w jednej …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;h3&gt;Grid -&amp;gt; HTML + klasy CSS&lt;/h3&gt;
+&lt;p&gt;Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)&lt;/p&gt;
+&lt;p&gt;W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)&lt;/p&gt;
+&lt;p&gt;Kolumna ustala szerokość a wiersz "trzyma" elementy w jednej linii&lt;/p&gt;
+&lt;p&gt;Wiersze zawsze nazywają się &lt;code&gt;row&lt;/code&gt; i zadaniem wiersza jest ustawienie kolumn&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Warunek 1 -&amp;gt; box-sizing&lt;/h4&gt;
+&lt;p&gt;Aby elementy były zawarte w jednej linii &lt;code&gt;box-sizing&lt;/code&gt; musi być ustawiony na &lt;code&gt;bored-box&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Warunek 2 -&amp;gt; float lub flex-box&lt;/h4&gt;
+&lt;p&gt;Należy zastosować &lt;code&gt;clearfix&lt;/code&gt; na elementach zawartych w rzędzie jeśli całość oparta jest o &lt;code&gt;float&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Clearfix jest sposobem na ujarzmienie problemu z pojemnikami o zerowej wysokości -&amp;gt; elementów pływających &lt;/p&gt;
+&lt;p&gt;Patrz: &lt;a href="https://www.it-swarm.dev/pl/html/co-jest-clearfix/941223603/"&gt;Co to jest clearfix?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Alternatywnie zagnieżdżenie wewnątrz jednego rzędu oprzeć można na &lt;code&gt;flex-box&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Warunek 3 -&amp;gt; klasy kolumn&lt;/h4&gt;
+&lt;p&gt;Należy stworzyć klasy, które wskazując na szerokość kolumn i je odpowiednio używać np. jeśli całość ma być szeroka na 12 kolumn to jedna kolumna wynosi 100%/12, zatem obiekt zajmująca połowę rodzica w poziomie  składać się będzie z 6 kolumn i winien być oznaczony &lt;code&gt;col-6&lt;/code&gt; poniższy mixin to dobrze obrazuje&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@&lt;span class="nv"&gt;mixin&lt;/span&gt; &lt;span class="nv"&gt;grid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;display&lt;/span&gt;: &lt;span class="nv"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o flex-box */&lt;/span&gt;
+  [&lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;col-&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] {
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;float&lt;/span&gt;: &lt;span class="nv"&gt;left&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o float */&lt;/span&gt;
+    &lt;span class="nv"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;height&lt;/span&gt;: &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+  @&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt; {
+    .&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;#{$&lt;span class="nv"&gt;i&lt;/span&gt;} {
+      &lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wynik (przykładowy fragment kodu wynikowego css):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;container&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;row&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;col-6&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;container&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;row&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;col-7&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;58.33333&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;container&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;row&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;col-8&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;66.66667&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Warunek 4 -&amp;gt; wiersz&lt;/h4&gt;
+&lt;p&gt;Należy odpowiednio przygotować stylizację &lt;code&gt;wiersza&lt;/code&gt;/row&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="nv"&gt;gutter&lt;/span&gt;: &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;; /* przestrzeń pomiędzy kolumnami */&lt;/span&gt;
+
+.&lt;span class="nv"&gt;container&lt;/span&gt; {
+  &lt;span class="nv"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;margin&lt;/span&gt;: &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;auto&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  .&lt;span class="nv"&gt;row&lt;/span&gt; {
+    &lt;span class="o"&gt;//&lt;/span&gt; @&lt;span class="nv"&gt;extend&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nv"&gt;clearfix&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o float */&lt;/span&gt;
+    &lt;span class="nv"&gt;height&lt;/span&gt;: &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="nv"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;; /* tu można podstawić dowolną wartość */&lt;/span&gt;
+    [&lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;col-&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] {
+      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;float&lt;/span&gt;: &lt;span class="nv"&gt;left&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o float */&lt;/span&gt;
+      &lt;span class="nv"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="nv"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;left&lt;/span&gt;: $&lt;span class="nv"&gt;gutter&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="nv"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;right&lt;/span&gt;: $&lt;span class="nv"&gt;gutter&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    @&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;grid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Warunek 5 -&amp;gt; HTML&lt;/h4&gt;
+&lt;p&gt;Przygotowanie kolumn w pojedynczym wierszu tak aby zajmowały nie więcej niż 100% z ilości kolumn&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;&amp;lt;main&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-6&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-6&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/main&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;footer&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-12&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Footer&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Responsywność&lt;/h3&gt;
+&lt;p&gt;W tym przypadku responsywność jest oparta o dodanie dodatkowych klas, które są aktywowane w przypadku spełnienia określonego warunku w media-query&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-sm-2 col-md-4&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;1&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-sm-6 col-md-4&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;2&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;col-lg-*&lt;/code&gt;// large - duży ekran ≥ 1200px&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;col-md-*&lt;/code&gt; // medium - desktop ≥ 992px&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;col-sm-*&lt;/code&gt; // small - tablet ≥ 768px&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;col-xs-*&lt;/code&gt; w przypadku bootstrapu jest to odpowiednik &lt;code&gt;col-*&lt;/code&gt;// extra small - telefon &amp;lt; 768 px&lt;/p&gt;
+&lt;h4&gt;@mixin z media query&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@&lt;span class="nv"&gt;mixin&lt;/span&gt; &lt;span class="nv"&gt;grid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  @&lt;span class="nv"&gt;media&lt;/span&gt; &lt;span class="nv"&gt;screen&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;768&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;display&lt;/span&gt;: &lt;span class="nv"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    @&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt; {
+      .&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;sm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;#{$&lt;span class="nv"&gt;i&lt;/span&gt;} {
+        &lt;span class="nv"&gt;flex&lt;/span&gt;: &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      }
+    }
+  }
+  @&lt;span class="nv"&gt;media&lt;/span&gt; &lt;span class="nv"&gt;screen&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;767&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    @&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt; {
+      .&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;md&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;#{$&lt;span class="nv"&gt;i&lt;/span&gt;} {
+        &lt;span class="nv"&gt;flex&lt;/span&gt;: &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      }
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Patrz: &lt;a href="https://getbootstrap.com/docs/4.0/layout/grid/"&gt;Bootstrap-Grid system&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Budowanie siatki w sposób responsywny nie jest proste więc wykorzystuje się często już przygotowane wcześniej layouty&lt;/p&gt;
+&lt;h4&gt;&lt;a href="https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp"&gt;Przykłady układu Grid&lt;/a&gt;&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h3&gt;Grid w CSS na 100%&lt;/h3&gt;
+&lt;p&gt;Nie wymaga zaangażowania struktury HTML&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;grid-container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;header&amp;gt;&lt;/span&gt;Nagłówek&lt;span class="nt"&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;aside&amp;gt;&lt;/span&gt;Pasek boczny&lt;span class="nt"&gt;&amp;lt;/aside&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;main&amp;gt;&lt;/span&gt;Główna treść&lt;span class="nt"&gt;&amp;lt;/main&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;footer&amp;gt;&lt;/span&gt;Stopka&lt;span class="nt"&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Grid wprowadza jednostkę &lt;code&gt;fr&lt;/code&gt; (fraction -&amp;gt; ułamek) i na niej opiera podział i pozwala to budować grid oparty o dwa istotne wyrażenia dla kolumn - &lt;code&gt;grid-template-columns&lt;/code&gt; i wierszy - &lt;code&gt;grid-template-rows&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-template-columns: 1fr 1fr&lt;/code&gt;; -&amp;gt; 2 kolumny, gdzie każda zajmuje jeden ułamek&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-template-columns: 2fr 1fr&lt;/code&gt;; 2 kolumny, gdzie 1 zajmuje dwa ułamki a druga jeden&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-template-columns: 200px 1fr 300px&lt;/code&gt;; // 200px auto 300px&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-template-rows: 200px 1fr&lt;/code&gt;; // pierwszy wiersz ma 200px a kolejny dostosowuje się automatycznie&lt;/p&gt;
+&lt;p&gt;=========&lt;/p&gt;
+&lt;h4&gt;grid-template-areas&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;grid-template-areas&lt;/code&gt; - pozwala na wyznaczenie obszarów i rozmieszczenie elementów według określonego wzoru&lt;/p&gt;
+&lt;p&gt;.grid-container {
+    display: grid;
+    grid-template-columns: 300px 1fr; // dwie kolumny
+    grid-template-rows: 100px 1fr 200px;
+    grid-template-areas: // wskazanie układu
+    "header header" // dwie kolumny 1 rząd
+    "sidebar main" // 2 rząd - część na sidebar (300px) a część na main (1fr/auto)
+  }&lt;/p&gt;
+&lt;p&gt;aside {
+    padding: 20px;
+    background-color: orangered;
+    grid-area: header;
+  }&lt;/p&gt;
+&lt;p&gt;aside {
+    padding: 20px;
+    background-color: orangered;
+    grid-area: sidebar;
+  }&lt;/p&gt;
+&lt;p&gt;====&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-column-start:&lt;/code&gt; 2 // od której kolumny ma się układać element&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-column-end:&lt;/code&gt; 4 // na której kolumnie ma się kończyć&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-column:&lt;/code&gt; 2/4 // skrócony zapis&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-row-start:&lt;/code&gt; 2 // od którego rzędu ma się układać element&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-row-end:&lt;/code&gt; 4 // na którym rzędzie ma się kończyć&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-row:&lt;/code&gt; 2/4 // skrócony zapis&lt;/p&gt;
+&lt;p&gt;Przykład zastosowania &lt;code&gt;index.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;grid-container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Header&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;aside&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;aside-1&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;aside-2&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;main&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;style.css&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;grid-container&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;grid-container&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-columns&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-rows&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;gap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-areas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Header Header Header Header&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside main main main&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside main main main&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;Header&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Header&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;aside&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-columns&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-rows&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;gap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-areas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside-1 aside-1 aside-1&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside-2 aside-2 aside-2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;aside&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;aside-1&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;aside-1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;aside-2&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;aside-2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;main&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p class="codepen" data-height="400" data-theme-id="light" data-default-tab="css,result" data-user="mkostyrko" data-slug-hash="vYLXEor" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Grid-tampleate-example"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/vYLXEor"&gt;
+  Grid-tampleate-example&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;====&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-gap:&lt;/code&gt; 10px; // odstęp pomiędzy kafelkami (kolumnami i rzędami)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-column-gap:&lt;/code&gt; // odstęp pomiędzy kolumnami&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-row-gap:&lt;/code&gt; // odstęp pomiędzy rzędami&lt;/p&gt;
+&lt;p&gt;====
+Pozycjonowanie dzieci&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;align-item&lt;/code&gt; start/end/center/stretch&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-column-start&lt;/code&gt; &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-column-end&lt;/code&gt; &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-row-start&lt;/code&gt; &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-row-end&lt;/code&gt; &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grid-area&lt;/code&gt; schemat &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;&lt;/p&gt;
+&lt;p&gt;====&lt;/p&gt;
+&lt;p&gt;Pozycjonowanie siebie
+&lt;code&gt;&lt;/code&gt;justify-self` start/end/center/stretch&lt;/p&gt;
+&lt;p&gt;&lt;img alt="justyfie-self" src="https://css-tricks.com/wp-content/uploads/2018/11/justify-self-center.svg" width="400px"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;align-self&lt;/code&gt; start/end/center/stretch&lt;/p&gt;
+&lt;p&gt;&lt;img alt="align-self" src="https://css-tricks.com/wp-content/uploads/2018/11/align-self-start.svg" width="400px"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;place-self&lt;/code&gt; - schemat &lt;align-self&gt; / &lt;justify-self&gt; domyślnie auto ale można np. center&lt;/p&gt;
+&lt;p&gt;&lt;img alt="place-self" src="https://css-tricks.com/wp-content/uploads/2018/11/place-self-center.svg" width="400px"&gt;&lt;/p&gt;
+&lt;p&gt;Patrz więcej &lt;a href="https://css-tricks.com/snippets/css/complete-guide-grid/" width="400px"&gt;A Complete Guide to Grid&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;====&lt;/p&gt;
+&lt;h4&gt;Media query&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.grid-container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;min-height:&lt;/span&gt; &lt;span class="err"&gt;100&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;media&lt;/span&gt; &lt;span class="no"&gt;screen&lt;/span&gt; &lt;span class="no"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;min-width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;800&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="na"&gt;rep&lt;/span&gt;&lt;span class="nf"&gt;eat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;media&lt;/span&gt; &lt;span class="no"&gt;screen&lt;/span&gt; &lt;span class="no"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;min-width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="na"&gt;rep&lt;/span&gt;&lt;span class="nf"&gt;eat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Generatory układu Grid w CSS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://cssgrid-generator.netlify.app/"&gt;CSS Grid Generator&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://grid.layoutit.com/"&gt;Layoutit&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://griddy.io/"&gt;Griddy&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Wydajność?&lt;/h4&gt;
+&lt;p&gt;A może by tak... flexbox + grid? -&amp;gt; &lt;a href="https://ishadeed.com/article/grid-layout-flexbox-components/"&gt;Grid for layout, Flexbox for components&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Grid-CSS jest relatywnie nowym dodatkiem w świecie CSS i wciąż charakteryzuje się niską wydajnością ((źródło)[https://twitter.com/brian_lovin/status/1262169865504174081?s=20]), a do tego nie wszystkie przeglądarki mogą z nim funkcjonować &lt;a href="https://caniuse.com/#feat=css-grid"&gt;patrz tutaj&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła&lt;/p&gt;
+&lt;p&gt;https://getbootstrap.com/docs/4.0/layout/grid/&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_grid.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="grid"></category><category term="layout"></category><category term="rwd"></category></entry><entry><title>HTML i CSS: Obrazy i Sprite</title><link href="https://kostyrko.github.io/zfrontu/html-css-obrazy.html" rel="alternate"></link><published>2020-05-25T10:00:00+02:00</published><updated>2020-05-25T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-25:/zfrontu/html-css-obrazy.html</id><summary type="html">&lt;p&gt;Semantyczny HTML&lt;/p&gt;
+&lt;p&gt;Znaczeniowy kod HTML - wykorzystanie tagów HTML zgodnie z przeznaczeniem&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wstawianie obrazu&lt;/p&gt;
+&lt;p&gt;Z perspektyw css/background wtedy kiedy zdjęcie nie jest treścią - kiedy jest zaledwie lukrem&lt;/p&gt;
+&lt;p&gt;Kiedy zdjęcie jest integralną częścią (np. wykres) wówczas jest istotne by znalazło się w img. tak aby czytnik stron, mógł przeczytać treść zawartą …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Semantyczny HTML&lt;/p&gt;
+&lt;p&gt;Znaczeniowy kod HTML - wykorzystanie tagów HTML zgodnie z przeznaczeniem&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wstawianie obrazu&lt;/p&gt;
+&lt;p&gt;Z perspektyw css/background wtedy kiedy zdjęcie nie jest treścią - kiedy jest zaledwie lukrem&lt;/p&gt;
+&lt;p&gt;Kiedy zdjęcie jest integralną częścią (np. wykres) wówczas jest istotne by znalazło się w img. tak aby czytnik stron, mógł przeczytać treść zawartą w &lt;code&gt;alt&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;PNG - bezstratna kompresja stosowany do ikon i logotypów, gdzie rozmycie pikseli i nie jest dopuszczalne&lt;/p&gt;
+&lt;p&gt;JPG - do zdjęć, kompresja stratna - gdzie ew. rozmycie jest dopuszczalne&lt;/p&gt;
+&lt;p&gt;CSS Sprite - tworzenie wielu obrazów w jednym pliku PNG, tak aby wychodziło jedno zapytanie do serwera a nie wiele dla każdego obrazu (oszczędza czas) - korzystanie z takiego podejścia wymaga ustawienia tła aby wyświetlało jeden obraz (będący fragmentem dużego obrazu) w danym miejscu. Z tego podejścia korzysta się w trakcie tworzenia animacji&lt;/p&gt;
+&lt;p&gt;&lt;img alt="star-wars-sprite" src="https://i.stack.imgur.com/vIyfV.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;srcset&lt;/code&gt; - pozwala na podmianę obrazu wy przypadku innej gęstości pikseli&lt;/p&gt;
+&lt;p&gt;na jeszcze więcej pozwala tag &lt;picture&gt; (warunki sprawdzane są od góry)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;picture&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;source&lt;/span&gt; &lt;span class="na"&gt;media=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;(min-width: 45em)&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;srcset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;large.jpg&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;source&lt;/span&gt; &lt;span class="na"&gt;media=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;(min-width: 32em)&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;srcset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;med.jpg&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;small.jpg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;The president giving an award.&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/picture&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_image_sprites.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="html"></category><category term="klasy"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
@@ -1106,19 +1647,6 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;Możliwe opcje: &lt;code&gt;nowrap&lt;/code&gt; oraz &lt;code&gt;wrap-reverse&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Więcej na ten temat znajdziesz &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap"&gt;tutaj&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3&gt;flex&lt;/h3&gt;
-&lt;p&gt;Przy pomocy deklaracji &lt;code&gt;flex&lt;/code&gt; istnieje możliwość zdefiniowania minimalnej wielkości dziecka np. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;flex-direction&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;row&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;flex-wrap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Ta &lt;strong&gt;deklaracja&lt;/strong&gt; może być użyta również w ramach deklaracji &lt;strong&gt;dziecka&lt;/strong&gt; - patrz niżej&lt;/p&gt;
-&lt;hr&gt;
 &lt;h3&gt;flex-flow&lt;/h3&gt;
 &lt;p&gt;flex-direction + flex-wrap = flex-flow np.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -1174,6 +1702,13 @@ Przykładowe zastosowanie:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Skrótu &lt;code&gt;flex&lt;/code&gt; można wykorzystać w następujący sposób&lt;/p&gt;
+&lt;p&gt;.div1 {
+      flex: 0 0 200px; // flex grow, shrink, basis
+    }
+  .div2 {
+      flex: 1; // 0 grow; 1 shrink, basis: auto (całość)
+    }&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;inline-flex / inline flex-block&lt;/h3&gt;
 &lt;p&gt;Display &lt;code&gt;inline-flex&lt;/code&gt; lub &lt;code&gt;inline flex-box&lt;/code&gt; odnosi się do kontenera a nie jego elementów - kolejno do wyświetlania w linii lub w formie blokowej&lt;/p&gt;

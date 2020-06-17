@@ -234,19 +234,6 @@
 <p>Możliwe opcje: <code>nowrap</code> oraz <code>wrap-reverse</code></p>
 <p>Więcej na ten temat znajdziesz <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">tutaj</a></p>
 <hr>
-<h3>flex</h3>
-<p>Przy pomocy deklaracji <code>flex</code> istnieje możliwość zdefiniowania minimalnej wielkości dziecka np. </p>
-<div class="highlight"><pre><span></span><code><span class="nt">div</span> <span class="p">{</span>
-    <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-    <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
-    <span class="k">flex-wrap</span><span class="p">:</span> <span class="kc">wrap</span><span class="p">;</span>
-    <span class="k">flex</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span>
-  <span class="p">}</span>
-</code></pre></div>
-
-
-<p>Ta <strong>deklaracja</strong> może być użyta również w ramach deklaracji <strong>dziecka</strong> - patrz niżej</p>
-<hr>
 <h3>flex-flow</h3>
 <p>flex-direction + flex-wrap = flex-flow np.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">div</span> <span class="p">{</span>
@@ -302,6 +289,13 @@ Przykładowe zastosowanie:</p>
 </code></pre></div>
 
 
+<p>Skrótu <code>flex</code> można wykorzystać w następujący sposób</p>
+<p>.div1 {
+      flex: 0 0 200px; // flex grow, shrink, basis
+    }
+  .div2 {
+      flex: 1; // 0 grow; 1 shrink, basis: auto (całość)
+    }</p>
 <hr>
 <h3>inline-flex / inline flex-block</h3>
 <p>Display <code>inline-flex</code> lub <code>inline flex-box</code> odnosi się do kontenera a nie jego elementów - kolejno do wyświetlania w linii lub w formie blokowej</p>

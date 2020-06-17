@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Podstawowe zasady nazewnictwa Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później... Podział na 3 sposoby nazywania klas funkcjonalność (Functional class names) -&gt; połączenie klasy z elementem ze względu na jego znaczenie selected-button, important-text zawartość (Content-based class names) -&gt; klasy wskazujące na zawartość elementu submit-button, intro-text prezencja (Presentational class …" />
+<meta name="keywords" content="css, html, klasy, bem, bemit, oocss">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT"/>
+<meta property="og:description" content="Podstawowe zasady nazewnictwa Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później... Podział na 3 sposoby nazywania klas funkcjonalność (Functional class names) -&gt; połączenie klasy z elementem ze względu na jego znaczenie selected-button, important-text zawartość (Content-based class names) -&gt; klasy wskazujące na zawartość elementu submit-button, intro-text prezencja (Presentational class …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-18 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="css"/>
+<meta property="article:tag" content="css"/>
+<meta property="article:tag" content="html"/>
+<meta property="article:tag" content="klasy"/>
+<meta property="article:tag" content="bem"/>
+<meta property="article:tag" content="bemit"/>
+<meta property="article:tag" content="oocss"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="html-konwencje-klas">CSS konwencje nazewnictwa klas -> OOCSS, BEM i BEMIT</h1>
+    <p>
+      Opublikowano czw 18 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png"></p>
+<h3>Podstawowe zasady nazewnictwa</h3>
+<p>Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...</p>
+<h4>Podział na 3 sposoby nazywania klas</h4>
+<ul>
+<li>
+<p>funkcjonalność (Functional class names) -&gt; połączenie klasy z elementem ze względu na jego znaczenie <code>selected-button</code>, <code>important-text</code></p>
+</li>
+<li>
+<p>zawartość (Content-based class names) -&gt; klasy wskazujące na zawartość elementu <code>submit-button</code>, <code>intro-text</code></p>
+</li>
+<li>
+<p>prezencja (Presentational class names) -&gt; klasy zorientowane na sposób prezentacji elementu <code>round-image</code> <code>green-button</code></p>
+</li>
+</ul>
+<p>więcej na ten temat przeczytasz tutaj <a href="https://seesparkbox.com/foundry/naming_css_stuff_is_really_hard">Naming CSS Stuff Is Really Hard</a></p>
+<hr>
+<h3>OOCss/ Object Oriented CSS</h3>
+<p>Metodyka OOCSS jest zorientowana na stworzenie modularnego CSS zorientowanego obiektowo - elementy strony postrzegane są jako obiekty</p>
+<p>Podstawowe zasady:</p>
+<ul>
+<li>
+<p><strong>separacja struktury od stylu</strong> (tworzenie klas globalnych a następnie niższego rzędu odpowiedzialne za stany obiektów oraz wielkość/prezencję obiektów <code>.btn</code> -&gt; <code>.btn-clicked</code>, <code>btn-primary</code>)</p>
+</li>
+<li>
+<p><strong>separacja kontenerów i zawartości</strong> (wygląd obiektu nie powinien być zależny od elementu, w którym się znajduje - jego ewentualna modyfikacja powinna być uzależniona od osobnej klasy przypisanej tej danej modyfikacji <code>.article-header</code> zamist <code>.article h1</code>)</p>
+</li>
+</ul>
+<p><img alt="others-css" height="250px" src="https://ach-te-internety.pl/wp-content/uploads/2016/07/bem-css-768x432.png"></p>
+<hr>
+<h4>Podstawowe zasady, o których warto pamiętać</h4>
+<p><strong>Zasada 1</strong> Dwuczłonowe nazwy klas rozdzielać należy myślnikiem <code>-</code> (w przypadku JS stosowany jest camelCase) <code>secondaryButton</code> -&gt; <code>secondary-button</code></p>
+<p><strong>Zasada 2</strong> - Nazwa klasy powinna być na najniższym poziomie elementu, który ma zostać wystylizowany lub inaczej rzecz ujmując bezpośrednio na danym elemencie.</p>
+<p><strong>Zasada 3</strong> - wykorzystaj zawartość danego elementu html np. klasa <code>header-logo</code></p>
+<p><strong>Zasada 4</strong> - nie wykorzystuj zawartości jeśli to kształt w łatwiejszy sposób przekazuje (jest czytelniejszy) czym jest dany element.</p>
+<p>======================</p>
+<p><strong>Zasada 5</strong> - jeśli dany element jest podobny do czegoś ale tym nie jest można stosować przyrostek <code>-like</code> np. <code>h1-like</code></p>
+<p><strong>Zasada 6</strong> - jeśli chcesz klasę wykorzystać jako element związany z JS możesz klasie nadać przedrostek <code>js-</code> np. <code>js-click-me</code></p>
+<p><strong>Zasada 7</strong> - należy unikać klas dłuższych niż dwa słowa</p>
+<p><strong>Zasada 8</strong> - można używać przedrostków is- lub has- dla klas opisujących dany stan np <code>.activate</code> -&gt; <code>.is-activate</code></p>
+<hr>
+<p><img alt="BEM-batman" height="300px" src="https://res.cloudinary.com/indysigner/image/fetch/f_auto,q_auto/w_1600/https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/3a93b95e-3e4e-4367-86cb-0606ace15af3/sign-theme-batman.png"></p>
+<h3><a href="http://getbem.com/">BEM</a></h3>
+<p>Jedna z najpopularniejszych koncepcji nazewnictwa CSS</p>
+<h3>Podstawa</h3>
+<p><strong>Block/Blok</strong> - sam w sobie określa własne znaczenie -&gt; <code>header</code>, <code>menu</code>, <code>button</code>, <code>input</code>, <code>aside</code></p>
+<p><strong>Element</strong> - element bloku -&gt; <code>header__title</code></p>
+<p><strong>Modifier/Modyfikator</strong> - zmienia wygląd lub zachowanie danego elementu -&gt; <code>input–-disabled</code></p>
+<p><img _500px_="&quot;500px&quot;" alt="BEM-blok" src="https://en.bem.info/kFetIbKxQdABHhUecbic45Il0Bg.png" width:></p>
+<h4>Istotne:</h4>
+<p>Rozgraniczenie wyrazów w nazwie klasy podwójnym myślnikiem oznacza wariację elementu <strong><code>--</code></strong> (<code>input–-disabled</code>, <code>header--blue</code>)</p>
+<p>Podwójnym podkreślnikiem oznacza dziecko elementu <strong><code>__</code></strong> (<code>menu__item</code>)</p>
+<h4>Blokowisko</h4>
+<p>Strona internetowa może być rozumiana poprzez podział na bloki, gdzie każdy kolejny poziom albo poszerza poprzedni albo go nadpisuje własnym stylem</p>
+<p><img alt="gw" src="https://en.bem.info/kqvCO2ZXeivuLHCbn2to5chFZrM.png"></p>
+<hr>
+<h3>BEMIT</h3>
+<p>BEM + ITCSS (Inverted Triangle CSS) = BEMIT.</p>
+<p>Inverted Triangle CSS -&gt; Odwrócony trójkąt CSS, którego podstawowym założeniem jest strukturyzacja projektu zgodnie z trzema założeniami</p>
+<p>1) zaczyna się od szczegółu i przechodzi do ogółu</p>
+<p>2) zaczyna się od deklaracji używających jak najmniejszą ilość selektorów (mniej konfliktów na koniec)</p>
+<p>3) selektory zastosowane na początku powinny mieć jak najszerszy zasięg np. reset</p>
+<p>tu można przeczytać na temat 7 warstw projektu (Saas) -&gt; <a href="https://www.freecodecamp.org/news/managing-large-s-css-projects-using-the-inverted-triangle-architecture-3c03e4b1e6df/">The Inverted Triangle Architecture: how to manage large CSS Projects</a></p>
+<p><img alt="Inverted Triangle CSS" height="300px" src="https://cdn-media-1.freecodecamp.org/images/1*4oGYOCrfBqsjnqGwZ_GaHg.jpeg"></p>
+<p><a href="https://gist.github.com/kostyrko/54aa8c4fd5ab64e2ea81b5d69f8183e3"><strong>BEMIT Cheatsheet</strong></a></p>
+<hr>
+<h4>Znaczeniowe przedrostki - akronimy (Namespaces)</h4>
+<table>
+<thead>
+<tr>
+<th>litera</th>
+<th>znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td>Components/element</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>Objects/obiekt</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>Utilities/narzędzie</td>
+</tr>
+<tr>
+<td><code>is/has</code></td>
+<td>stan bycia/posiadania</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td>theme/skórka</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>styling/stylizacja</td>
+</tr>
+<tr>
+<td><code>js</code></td>
+<td>powiązanie z JS</td>
+</tr>
+</tbody>
+</table>
+<p>Przykładowe zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;o-media__body  c-user__bio&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>
+
+
+<p>Więcej na ten temat tutaj: <a href="https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/">More Transparent UI Code with Namespaces</a></p>
+<hr>
+<h4>Responsywne Przyrostki</h4>
+<h4>Responsywne Przyrostki</h4>
+<p>Tu kluczowy jest znak <code>@</code> (ang. at ~ w) i oznacza, w którym momencie (media query) dana klasa się aktywuje (w zależności od tzw break pointów / punktów załamania) </p>
+<p><code>o-layout@md</code> - obiekt układu w momencie średniego (middle) punktu załamania</p>
+<p><code>u-1/4@lg</code> - narzędzie gdy media-query large spełnia swój warunek posiada 1/4 szerokości</p>
+<p><code>scss</code></p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">$lg</span> = 1240px
+
+    @media screen and (min-width:<span class="cp">${</span><span class="n">lg</span><span class="cp">}</span>){
+        deklaracja: właściwość;
+    }
+</code></pre></div>
+
+
+<h4>Wizualizacja wielu podobnych</h4>
+<p>Stosowanie nazewnictwa klas według jednego schematu pozawala na i późniejsze debugowanie lub wizualizaję elementów zbliżonych do siebie cechami w celu sprawdzenia poprawności deklaracji/ funkcjonowania strony</p>
+<div class="highlight"><pre><span></span><code>            <span class="cm">/**</span>
+<span class="cm">    * Ukazuje wszystkie klasy.</span>
+<span class="cm">    */</span>
+    <span class="p">[</span><span class="k">class</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">lightgrey</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * Ukazuje wszystkie elementy BEM - wszystkie które posiadają &quot;__&quot;.</span>
+<span class="cm">    */</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">*=</span><span class="s">&quot;__&quot;</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">grey</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * Modyfikatory.</span>
+<span class="cm">    */</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">*=</span><span class="s">&quot;--&quot;</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">darkgrey</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * klasy obiektów.</span>
+<span class="cm">    */</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">^=</span><span class="s">&quot;o-&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">*=</span><span class="s">&quot; o-&quot;</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">orange</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * klasy składnikowych elementów.</span>
+<span class="cm">    */</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">^=</span><span class="s">&quot;c-&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">*=</span><span class="s">&quot; c-&quot;</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">cyan</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * klasy związane z responsywnością.</span>
+<span class="cm">    */</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">*=</span><span class="s">&quot;@&quot;</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">rosybrown</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * Wszystkie klasy przypisane do Hack classes.</span>
+<span class="cm">    */</span>
+    <span class="p">[</span><span class="k">class</span><span class="o">^=</span><span class="s">&quot;_&quot;</span><span class="p">]</span> <span class="p">{</span>
+    <span class="nl">outline</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span> <span class="n">solid</span> <span class="n">red</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * Poprzez dodanie klasy hakowej do warstwy html (scss zagnieżdżenie powyższych w s-healthcheck)</span>
+<span class="cm">    */</span>
+
+    <span class="o">&lt;</span><span class="n">html</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;s-healthcheck&quot;</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Na zakończenie</h3>
+<p>::: Należy pamiętać o pisaniu komentarzy w kodzie CSS ::: przejrzystość i czytelność priorytetem nr 1</p>
+<hr>
+<p>Źródła</p>
+<p><a href="http://bdavidxyz.com/blog/how-to-name-css-classes/">How to name css classes</a></p>
+<p><a href="https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/">BEMIT: Taking the BEM Naming Convention a Step Further</a></p>
+<p><a href="https://www.nafrontendzie.pl/metodyki-css-1-oocss">Metodyki CSS #1 - OOCSS</a></p>
+<p><a href="https://www.nafrontendzie.pl/metodyki-css-2-bem">Metodologia BEM. Jak pisać dobry kod CSS. Praktyczne przykłady.</a></p>
+<p><a href="https://www.nafrontendzie.pl/metodyki-css-2-bem">Metodyki CSS #2 – BEM</a></p>
+<p>https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/</p>
+<p><a href="https://en.bem.info/methodology/naming-convention/">BEM - naming conventions</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/html.html">html</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/klasy.html">klasy</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/bem.html">bem</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/bemit.html">bemit</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/oocss.html">oocss</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

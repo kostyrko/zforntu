@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="/theme/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/theme/img/favicon.png" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Znaczniki semantyczne określają znaczenie treści, która jest w ramach nich zamknięta. Nie powinny być wykorzystywane do pozycjonowania (od tego div) a do określania treści. HTML - tag znaczenie &lt;alt&gt; alternative/opis w przypadku braku elementu lub dla czytnika &lt;article&gt; artykuł - rozumiany jako przedmiot rzecz / niezależna i zamknięta część strony zawartość tego …" />
+<meta name="keywords" content="css, html, semantyczny html, semantic">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="HTML: semantyczny HTML"/>
+<meta property="og:description" content="Znaczniki semantyczne określają znaczenie treści, która jest w ramach nich zamknięta. Nie powinny być wykorzystywane do pozycjonowania (od tego div) a do określania treści. HTML - tag znaczenie &lt;alt&gt; alternative/opis w przypadku braku elementu lub dla czytnika &lt;article&gt; artykuł - rozumiany jako przedmiot rzecz / niezależna i zamknięta część strony zawartość tego …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/html-semantyczny.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-17 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="html"/>
+<meta property="article:tag" content="css"/>
+<meta property="article:tag" content="html"/>
+<meta property="article:tag" content="semantyczny html"/>
+<meta property="article:tag" content="semantic"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; HTML: semantyczny HTML</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="html-semantyczny">HTML: semantyczny HTML</h1>
+    <p>
+      Opublikowano śro 17 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/html.html">html</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="semantyczny-html" height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png"></p>
+<p>Znaczniki semantyczne określają znaczenie treści, która jest w ramach nich zamknięta. Nie powinny być wykorzystywane do pozycjonowania (od tego <code>div</code>) a do określania treści.</p>
+<table>
+<thead>
+<tr>
+<th>HTML - tag</th>
+<th>znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;alt&gt;</code></td>
+<td>alternative/opis w przypadku braku elementu lub dla czytnika</td>
+</tr>
+<tr>
+<td><code>&lt;article&gt;</code></td>
+<td>artykuł - rozumiany jako przedmiot rzecz / niezależna i zamknięta część strony</td>
+</tr>
+<tr>
+<td></td>
+<td>zawartość tego taga powinna stanowić treść samą w sobie / będzie miała sens też na innej stronie</td>
+</tr>
+<tr>
+<td><code>&lt;aside&gt;</code></td>
+<td>boczny pasek/treść boczna</td>
+</tr>
+<tr>
+<td><code>&lt;details&gt;</code></td>
+<td>detale / w przypadku inputu pozwala na dodanie opcji wyboru</td>
+</tr>
+<tr>
+<td><code>&lt;figcaption&gt;</code></td>
+<td>podpis obrazu</td>
+</tr>
+<tr>
+<td><code>&lt;figure&gt;</code></td>
+<td>obraz/rycina</td>
+</tr>
+<tr>
+<td><code>&lt;footer&gt;</code></td>
+<td>stopka</td>
+</tr>
+<tr>
+<td><code>&lt;header&gt;</code></td>
+<td>wstęp/metadane/ linki nawigacji</td>
+</tr>
+<tr>
+<td><code>&lt;main&gt;</code></td>
+<td>główna treść strony</td>
+</tr>
+<tr>
+<td><code>&lt;mark&gt;</code></td>
+<td>podkreślony tekst</td>
+</tr>
+<tr>
+<td><code>&lt;nav&gt;</code></td>
+<td>element nawigacyjny</td>
+</tr>
+<tr>
+<td><code>&lt;section&gt;</code></td>
+<td>sekcja - tematyczne grupowanie semantycznie wspólnej części np. wielu artykułów</td>
+</tr>
+<tr>
+<td></td>
+<td>może też rozdzielać na mniejsze części artykułów / sekcja jest integralną częścią strony</td>
+</tr>
+<tr>
+<td><code>&lt;summery&gt;</code></td>
+<td>podsumowanie</td>
+</tr>
+<tr>
+<td><code>&lt;time&gt;</code></td>
+<td>podsumowanie</td>
+</tr>
+<tr>
+<td>-----</td>
+<td>------</td>
+</tr>
+<tr>
+<td><code>&lt;abbr&gt;</code></td>
+<td>abbreviation/skrót</td>
+</tr>
+<tr>
+<td><code>&lt;address&gt;</code></td>
+<td>adres</td>
+</tr>
+<tr>
+<td><code>&lt;code&gt;</code></td>
+<td>kod</td>
+</tr>
+<tr>
+<td><code>&lt;dfn&gt;</code></td>
+<td>definicja</td>
+</tr>
+<tr>
+<td><code>&lt;Hn&gt;</code></td>
+<td>Nagłówek</td>
+</tr>
+<tr>
+<td><code>&lt;em&gt;</code></td>
+<td>emphasis/podkreślenie</td>
+</tr>
+<tr>
+<td><code>&lt;ins&gt;</code></td>
+<td>insertion/ treść wstawiona</td>
+</tr>
+<tr>
+<td><code>&lt;progress&gt;</code></td>
+<td>oznaczenie postępu</td>
+</tr>
+<tr>
+<td><code>&lt;rel&gt;</code></td>
+<td>relation- ma na celu wskazanie na relacje pomiędzy elementami</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Przykłady użycia semantycznego HTML</h3>
+<h4><code>&lt;section&gt;</code> &amp; <code>&lt;article&gt;</code></h4>
+<blockquote>
+<p>HTML Article Element (<code>&lt;article&gt;</code>) defines a piece of self-contained content. It does not refer to the main content alone and can be used for comments and widgets.
+HTML Section Element (<code>&lt;section&gt;</code>) defines a section of a document to indicate a related grouping of semantic meaning. (za <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#:~:text=HTML%20Article%20Element%20(,related%20grouping%20of%20semantic%20meaning.)">MDN web docs - Using HTML sections and outlines</a>)</p>
+</blockquote>
+<p>Ten tag wyraźnie wprowadza małe zamieszanie i zauważalne są dwie strategie korzystania z niego 1) porcjuje <code>&lt;article&gt;</code> na mniejsze sekcji 2) grupuje wiele <code>&lt;article&gt;</code> - tworzy cześć wyższego rzędu strony niż <code>&lt;article&gt;</code> oba podejścia nie muszą się wykluczać (<a href="https://stackoverflow.com/questions/7549561/section-vs-article-html5">Section vs Article HTML5 - Stack Overflow</a>)</p>
+<p><img alt="site-layout-1" height="400px" src="https://almosthumor.files.wordpress.com/2011/09/html5demo1.jpg"></p>
+<p><strong>oraz</strong></p>
+<p><img alt="site-layout-2" height="400px" src="https://cdn.semrush.com/blog/static/media/62/de/62de85ae40932e6d41e2966b3af3ca8e/resize/885x666/semantic-html5-markup-related-aside-kalicube.webp"></p>
+<hr>
+<h3>Przykłady użycia semantycznego HTML 2</h3>
+<h4>Input + Details</h4>
+<p class="codepen" data-height="400" data-theme-id="dark" data-default-tab="html,result" data-user="mkostyrko" data-slug-hash="qBbqapZ" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="datalist">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/qBbqapZ">
+  datalist</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h4>Progress</h4>
+<p class="codepen" data-height=""400 data-theme-id="dark" data-default-tab="html,result" data-user="mkostyrko" data-slug-hash="PoZbGeQ" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="progressbar">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/PoZbGeQ">
+  progressbar</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h3>Semantyczny HTML</h3>
+<p>Semantyczny HTML jest istotny z perspektywy:</p>
+<ul>
+<li>
+<p>dostępności (Accessibility) -&gt; Czytniki ekranowe/syntezatory mowy oraz urządzenia z niewielkimi ekranami (np. Apple Watch) korzystają z pomocy semantycznego HTML.</p>
+</li>
+<li>
+<p>SEO -&gt; roboty wyszukiwarek sieciowych wykorzystują semantyczny html do indeksowania/pozycjonowania strony/jej znaczenia</p>
+</li>
+<li>
+<p>HTML pozwala na prostą walidację <code>&lt;input type="email"&gt;</code> np. w przypadku wpisywanie adresu email -&gt; tym samym mniej JS </p>
+</li>
+</ul>
+<hr>
+<p>Źródła</p>
+<p><a href="https://addyosmani.com/blog/lazy-loading/">Native image lazy-loading for the web!</a></p>
+<p><a href="https://devchat.tv/js-jabber/jsj-421-semantic-html-with-bruce-lawson/">JSJ 421: Semantic HTML with Bruce Lawson</a></p>
+<p><a href="https://tutorials.comandeer.pl/html5-blog.html">Semantyczny blog w HTML</a></p>
+<p><a href="https://www.youtube.com/watch?v=hffiWUbbPFs">Znacznik label - semantyczny HTML by Comandeer</a></p>
+<p><a href="http://www.kurshtml.edu.pl/html/kod_poprawny_semantycznie,tekst.html">Kod poprawny semantycznie</a></p>
+<p><a href="https://codepen.io/mi-lee/post/an-overview-of-html5-semantics">An Overview of HTML5 Semantics</a></p>
+<p><a href="https://www.semrush.com/blog/semantic-html5-guide/">HTML5 Semantic Tags: What Are They and How To Use Them!</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/html.html">html</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/semantyczny-html.html">semantyczny html</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/semantic.html">semantic</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>
