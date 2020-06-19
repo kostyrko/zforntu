@@ -76,7 +76,7 @@
   <!-- ASIDE -->
   
   <aside>
-    <!-- intrusion by MK -->
+    <!-- intrusion by MK - not implemented -->
     <!-- <div>
       <input type="checkbox" class="check-box">
       <label for="check">
@@ -84,6 +84,7 @@
         <i class="fa fa-times"></i>
       </label>
     </div> -->
+    <!-- END of intrusion -->
     <div>
       <a href="https://kostyrko.github.io/zfrontu">
         <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
@@ -122,7 +123,18 @@
 
   <!-- MAIN -->
   <main>
+
+
     <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
 
       <nav>
         <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
@@ -131,6 +143,7 @@
         <a href="tags.html">Tagi</a>
 
         <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
 
       </nav>
 
@@ -141,7 +154,7 @@
     <p>
       Opublikowano czw 02 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
@@ -173,6 +186,14 @@
 <p><code>button:disabled</code> - zablokowanie przycisku</p>
 <p><strong>Pseudoklasa dotycząca checkboxa</strong></p>
 <p><code>input[type="checkbox"]:checked</code> - zaznaczenie checkboxa</p>
+<p>Ta pseudo klasa często może być wykorzystana również w celu dodanie jakiegoś rodzaju funkcjonalności do strony - np. poprzez ustawienie deklaracji <code>display</code> oraz nadanie jej odpowiedniej wartości w momencie gdy <code>checked = true</code>. Należy pamiętać wówczas o dwóch ważnych warunkach. 1) checkbox musi znajdować się na poziomie wyżej niż obiekt, na który planujemy mieć wpływ 2) zależność należy oznaczyć znakiem "poprzedzony" -&gt; <code>~</code></p>
+<p>CSS</p>
+<div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">theme-checkbox</span><span class="p">:</span><span class="nd">checked</span> <span class="o">~</span><span class="nt">article</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="kc">gray</span><span class="o">-</span><span class="n">darker</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
 <p>Pseudoklasy strukturalne</p>
 <p><code>:first-child</code> - wskazanie pierwszego dziecka</p>
 <p><code>:last-child</code> - wskazanie ostatniego dziecka</p>

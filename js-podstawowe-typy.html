@@ -80,7 +80,7 @@
   <!-- ASIDE -->
   
   <aside>
-    <!-- intrusion by MK -->
+    <!-- intrusion by MK - not implemented -->
     <!-- <div>
       <input type="checkbox" class="check-box">
       <label for="check">
@@ -88,6 +88,7 @@
         <i class="fa fa-times"></i>
       </label>
     </div> -->
+    <!-- END of intrusion -->
     <div>
       <a href="https://kostyrko.github.io/zfrontu">
         <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
@@ -126,7 +127,18 @@
 
   <!-- MAIN -->
   <main>
+
+
     <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
 
       <nav>
         <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
@@ -135,6 +147,7 @@
         <a href="tags.html">Tagi</a>
 
         <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
 
       </nav>
 
@@ -167,7 +180,7 @@
 <p>Istnieją trzy typy deklaracji zmiennych</p>
 <p><img alt="starWars_zmienne" src="https://miro.medium.com/max/640/0*2Iz9vcaOtPNivfen.png"></p>
 <ul>
-<li><code>const</code> - podstawowa deklaracja, zmienna nie ulega zmianie, tylko do odczytu</li>
+<li><code>const</code> - podstawowa deklaracja, nie ulega zmianie, tylko do odczytu</li>
 <li><code>let</code> - deklaracja stosowana w przypadku gdy zmienna będzie musiała ulec zmianie, jest lokalna i ograniczona do bloku, w którym jest zawarta</li>
 <li><code>var</code> - wcześniej podstawowa zmienna (przed ES6), obecnie rzadziej stosowana (po wprowadzeniu const i let) więcej na ten temat <a href="https://medium.com/@larry.sassainsworth/let-vs-var-vs-const-in-javascript-8b898f868394">tutaj</a> lub poniżej.</li>
 </ul>
@@ -178,6 +191,42 @@
 3) <strong>ponownej deklaracji</strong> (redeclaration) 
 4) <strong>tworzeniu globalnego obiektu</strong> (global object property)</p>
 <p><code>let</code> w odróżnieniu od <code>var</code> nie jest globalnie dostępny a przypisany do najbliższych funkcji etc. jest dostępny w sposób skryptowy (linia po linii, podobnie jak w pythonie), wartość mu przypisana może być zmieniona ale nie może zostać ponownie zadeklarowany, nie tworzy globalnie dostępnego obiektu.</p>
+<table>
+<thead>
+<tr>
+<th>słowo kluczowe</th>
+<th>Zakres</th>
+<th>Windowanie</th>
+<th>Czy może być jej ponownie przypisana wartość</th>
+<th>Czy może być ponownie zadeklarowana?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>var</code></td>
+<td>Zakres funkcji</td>
+<td>Tak</td>
+<td>Tak</td>
+<td>Tak</td>
+</tr>
+<tr>
+<td><code>let</code></td>
+<td>Zakres bloku</td>
+<td>nie</td>
+<td>Tak</td>
+<td>nie</td>
+</tr>
+<tr>
+<td><code>var</code></td>
+<td>Zakres bloku</td>
+<td>nie</td>
+<td>nie</td>
+<td>nie</td>
+</tr>
+</tbody>
+</table>
+<p>więcej na ten temat <a href="https://www.taniarascia.com/es6-syntax-and-feature-overview/">tutaj</a></p>
+<p><em>Hoisting</em> - "przenoszenie" zmiennych na sam początek kodu, do globalnego zasięgu lub zasięgu funkcji (<a href="http://blog.pjuskiewicz.com/2017/11/11/hoisting-windowanie-javascript/">więcej tutaj na ten temat</a>)</p>
 <hr>
 <p>deklaracji dokonujemy poprzez użycie słowa kluczowego (let, const) + identyfikator (nazwy zmiennej np. foo lub fu etc.), oraz poprzez opcjonalne przypisanie jej wartości (np. 'bar')</p>
 <div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">fu</span> <span class="o">=</span> <span class="ss">&quot;bar&quot;</span>
