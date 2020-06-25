@@ -51,7 +51,7 @@
 
 <meta name="author" content="mkostyrko" />
 <meta name="description" content="Pseudo elementy pozwalają na zadeklarowanie wyglądu odmiennego dla wybranego fragmentu tekstu lub wstawienie z pozycji CSS dodatkowego elementu. Pseudo elementy poprzedzone są podwójnym dwukropkiem :: np. ::first-line Wzór zastosowania (za developer.mozzilla.org) selector::pseudo-element { property: value; } selektor::pseudo-element { właściwość: wartość; } Innymi słowy pseudoelement jest słowem kluczowym, które w połączeniu z …" />
-<meta name="keywords" content="css, pseudo-elementy, first-line, ::before, ::after">
+<meta name="keywords" content="css, pseudo-elementy, first-line, ::before, ::after, before, after">
 
 
 <meta property="og:site_name" content="...z frontu"/>
@@ -69,6 +69,8 @@
 <meta property="article:tag" content="first-line"/>
 <meta property="article:tag" content="::before"/>
 <meta property="article:tag" content="::after"/>
+<meta property="article:tag" content="before"/>
+<meta property="article:tag" content="after"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; CSS::pseudo-elementy</title>
@@ -198,9 +200,13 @@
   <span class="k">content</span><span class="p">:</span> <span class="err">“</span><span class="n">this</span> <span class="kc">text</span> <span class="n">will</span> <span class="n">be</span> <span class="n">added</span> <span class="n">after</span><span class="err">”</span><span class="p">;</span>
   <span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
 <span class="p">}</span>
+
+<span class="p">.</span><span class="nc">eye</span><span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+<span class="k">content</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">../assets/Eye.svg</span><span class="p">);</span>
 </code></pre></div>
 
 
+<p>}</p>
 <p><code>::before</code>- tworzy pseudo-element, który reprezentuje pierwsze dziecko wybranego selektora HTML, posiada właściwość <code>content</code> analogiczną do <code>::after</code></p>
 <p><code>::selection</code> - odwołuje się do podświetlenia wybranego tekstu znajdującego się w selekcji</p>
 <p>Przykładowe zastosowanie</p>
@@ -246,6 +252,8 @@
       <a href="https://kostyrko.github.io/zfrontu/tag/first-line.html">first-line</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/before.html">::before</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/after.html">::after</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/before.html">before</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/after.html">after</a>
     </p>
   </div>
 

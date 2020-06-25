@@ -1,5 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-18T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-24T12:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
+&lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
+&lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard HEAD~1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;a jeśli zależy nam na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
+&lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
+&lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard HEAD~1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;a jeśli zależy nam na konkretnym commicie to wówczas&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard &amp;lt;adres commita&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zachodzi wówczas sytuacja, w której repozytorium znajdujące się na GitHubie jest "do przodu" względem tego, które znajduje się u mnie na dysku lokalnym - sygnalizuje to min. ikona w lewym dolnym rogu jeśli teraz dokonam synchronizacji (Synchronise Changes)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="synchronizacja zmian" src="https://i.stack.imgur.com/P5VKm.png"&gt;&lt;/p&gt;
+&lt;p&gt;vsc zrobi &lt;code&gt;pull&lt;/code&gt; a następnie &lt;code&gt;push&lt;/code&gt; - repo wróci do stanu sprzed cofnięcia commita. Stąd zamiast tego muszę zrobić tzw twardy (lub przy użyciu siły push) korzystając z komendy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt; &lt;span class="c1"&gt;--force&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;dzięki niej repozytorium zostanie sprowadzone ("wyzerowane") do tego stanu jaki mam u siebie na dysku lokalnym&lt;/p&gt;
+&lt;p&gt;Warto pamiętać o tym, że można dodać własne komendy do narzędzia (Synchronise Changes) przy pomocy &lt;code&gt;.gitconfig&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/1338728/delete-commits-from-a-branch-in-git&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/36878344/what-does-git-sync-do-in-vscode&lt;/p&gt;
+&lt;p&gt;https://evilmartians.com/chronicles/git-push---force-and-how-to-deal-with-it&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="cofanie commita"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category></entry><entry><title>Agile &gt; Scrum &gt; Lean Management &gt; Kaban</title><link href="https://kostyrko.github.io/zfrontu/agile-scrum.html" rel="alternate"></link><published>2020-06-24T11:00:00+02:00</published><updated>2020-06-24T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/agile-scrum.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.pmpp.pl/hello-world/"&gt;&lt;img alt="agile" height="300px" src="http://www.pmpp.pl/wp-content/uploads/2019/02/agile-project-management-1200x850.jpg#center"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Wstęp&lt;/h3&gt;
+&lt;p&gt;W pierwszej kolejności polecam podcast &lt;strong&gt;DVLPR-WNBE #14&lt;/strong&gt; -&amp;gt; &lt;a href="https://codeboy.pl/dw14/"&gt;Scrum Master i odpowiedzi na pytania Developer Wannabe podcast #14&lt;/a&gt;, który stał się przyczynkiem do moich dalszych poszukiwań związanych z poruszonymi poniżej kwestiami i pozwolił mi na uporządkowanie wcześniej zasłyszanych pojęć, których zakres nie był mi znany - dodam, że nadal czuję się …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.pmpp.pl/hello-world/"&gt;&lt;img alt="agile" height="300px" src="http://www.pmpp.pl/wp-content/uploads/2019/02/agile-project-management-1200x850.jpg#center"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Wstęp&lt;/h3&gt;
+&lt;p&gt;W pierwszej kolejności polecam podcast &lt;strong&gt;DVLPR-WNBE #14&lt;/strong&gt; -&amp;gt; &lt;a href="https://codeboy.pl/dw14/"&gt;Scrum Master i odpowiedzi na pytania Developer Wannabe podcast #14&lt;/a&gt;, który stał się przyczynkiem do moich dalszych poszukiwań związanych z poruszonymi poniżej kwestiami i pozwolił mi na uporządkowanie wcześniej zasłyszanych pojęć, których zakres nie był mi znany - dodam, że nadal czuję się w nich zagubiony i wraz z upływem czasu mam nadzieję wracać do poniższej treści i ją edytować (głównie wzbogacać ją o tekst - moją własną interpretację niżej przedstawionych pojęć). &lt;/p&gt;
+&lt;p&gt;Na ogólnym poziomie rozumiem &lt;em&gt;Agile&lt;/em&gt; jako pojęcie najwyższego rzędu, ukazujące pewnego rodzaju założenia pracy zespołowej, przełamujące schematyczne myślenie liniowe oparty na szybkim wprowadzeniu danego produktu lub jego modułów do użytkowania i testowania przez klienta, tak aby móc zebrać od niego informacje zwrotną oraz dostosowanie produktu na tej podstawie (zwinne programowanie). To założenie również leży u podstaw &lt;em&gt;Scrum&lt;/em&gt;, który angażuje się głębiej w określenie zasad oraz interakcji panujących w zespole (np. poprzez założenie spotkań grupowych w trakcie, których przedstawia się wykonywane zadania ew. problemy czy tzw sprintów - czas w którym jest tworzona forma oprogramowania, która jest możliwa do użytkowania (testowania)). Zarówno &lt;em&gt;Agile&lt;/em&gt; jak i &lt;em&gt;Scrum&lt;/em&gt; się przenikają i podkreślają wagę tzw umiejętności miękkich (co wydaje się być oczywiste, ale często szybko znika za horyzontem kiedy przychodzi do działania w trakcie realizacji projektów - jest to rzecz jasna zależne od świadomości zespołu).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Lean development&lt;/em&gt; również nie jest daleki od wyżej przedstawionych założeń ale kładzie nacisk na nieco inne aspekty/wartości i ujmuje problemy interakcji w zespole oraz pomiędzy nim a klientem na poziomie ogólnym - podobnie do &lt;em&gt;Agile&lt;/em&gt;. &lt;em&gt;Kaban&lt;/em&gt; oraz &lt;em&gt;Tablica Kaban&lt;/em&gt; jest związana z &lt;em&gt;Lean development&lt;/em&gt; jak &lt;em&gt;Scrum&lt;/em&gt; z &lt;em&gt;Agile&lt;/em&gt; - zwraca większą uwagę na proces, w sposób bardziej szczegółowy/konkretny.&lt;em&gt;Tablica Kaban&lt;/em&gt; - pozwala na wizualizację tego procesu mając na uwadze zwiększenie jego transparentności oraz umożliwia łatwe zarządzanie organiczne projektem.&lt;/p&gt;
+&lt;h3&gt;Agile/Programowanie zwinne - model realizacji zadania w formie ogólnych założeń&lt;/h3&gt;
+&lt;p&gt;Alternatywa wobec kaskadowego/liniowego sposóbu produkcji oprogramowania (Watefall) - podążania za jasno wytyczonym planem. Stosując metody &lt;em&gt;Agile&lt;/em&gt; należy mieć na uwadze możliwe zmiany oraz wykazywać się umiejętnościami miękkimi.&lt;/p&gt;
+&lt;p&gt;Główne założenia "Agile manifesto"&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ważne&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;istotne&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;jednostki i interakcje&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ponad&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;proces i narzędzia&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;działające oprogramowanie&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ponad&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;dokumentacją&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;współpraca z klientem&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ponad&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;negocjację kontraktu&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;rekcja na zmiany/elastyczność&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ponad&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;sztywne trzymanie się planu&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img alt="12 zasad" src="https://i.pinimg.com/originals/c0/7a/21/c07a212b9ca4380618e78efd636b7e9a.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.pinterest.com/pin/418131146630927486/"&gt;źródło grafiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="agile-vs-waterfall-2" src="https://www.techguide.com.au/wp-content/uploads/2020/01/Agile-750x430.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.techguide.com.au/news/internet-news/agile-beneficial-tech-development-companies/"&gt;źródło grafiki&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Scrum/młyn - szczegółowe zasady współpracy&lt;/h3&gt;
+&lt;p&gt;Termin scrum został zapożyczony z.. Rugby w połowie lat 80-tych przez Japończyków i odnosi się do metod związanych z rozwojem nowego produktu - polega na "tworzeniu wiedzy organizacyjnej [...] oraz wprowadzania innowacji w sposób ciągły i spiralny" [... nie sposób tutaj nie odnaleźć analogii to spirali/koła hermeneutycznej znanej z filozofii/filologii]&lt;/p&gt;
+&lt;p&gt;W metodzie Scrum istotne są trzy elementy 1) role projektowe (scrum master, klient) 2) narzędzia organizujące pracę (lista funkcjonalności - produkt backlog) 3) wydarzenia (sesja planowania, sprint)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="podstawowe-zalozenia-scum" src="https://ullizee.files.wordpress.com/2018/12/the-scrum-values-polish.png?w=300&amp;amp;h=290"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://guntherverheyen.com/tag/scrum-values/"&gt;źródło grafiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="podstawy-scrum" src="https://cdn.educba.com/academy/wp-content/uploads/2019/08/scrum-basic-02.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.educba.com/scrum-basics/"&gt;źródło grafiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="scrum" src="https://miro.medium.com/max/2000/0*YdGp-9USV9C5Skuh"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a _400px_="&amp;quot;400px&amp;quot;" href="https://medium.com/@jw207427/how-scrum-help-turn-around-our-development-process-dac6ff7c700" width:&gt;źródło grafiki&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Lean Management/szczupłe zarządzanie - zarządzanie procesem&lt;/h3&gt;
+&lt;p&gt;Dostarczanie produktów takich jakich klienci oczekują (produkcja z myślą o kliencie) mając na uwadze również potrzeby pracowników. Eliminowanie marnotrawstwa (to co nie dodaje wartości do produktu - definiowanej przez klienta) i stawianie na elastyczność oraz zdobywanie nowej wiedzy.&lt;/p&gt;
+&lt;p&gt;Podstawowe założenia:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tworzenie jakości i spójności&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wzmocnienie pozyskiwania wiedzy&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;podejmowanie decyzji najpóźniej jak to możliwe&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wdrażanie najwcześniej jak to możliwe&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wdrażanie zespołu&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;spojrzenie na całość&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="lean-management" src="https://leanactionplan.pl/wp-content/uploads/2019/04/Zasady-lean-01-600x680.png"&gt;
+&lt;a href="https://leanactionplan.pl/zasady-lean/"&gt;źródło grafiki&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Tablica Kaban - wizualizacja procesu&lt;/h3&gt;
+&lt;p&gt;Kaban - jest sposobem wizualizacji etapów produkcji związanych z wytwarzaniem np. nowego oprogramowania&lt;/p&gt;
+&lt;p&gt;Wymaga: wizualizacji (tablica kaban -&amp;gt; np. trello), ograniczenia pracy w toku (założenie, że na danym etapie tylko określona ilość zadań może być realizowana), pozwala na zarządzanie strumieniem poprzez pomiar, z góry przyjętych wartości.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="kaban" src="https://www.heflo.com/pt-br/wp-content/uploads/sites/2/2017/12/metodo-kanban-01.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Agile&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.visual-paradigm.com/scrum/agile-manifesto-and-agile-principles/"&gt;The Agile Manifesto and Twelve Principles&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Scrum&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@jw207427/how-scrum-help-turn-around-our-development-process-dac6ff7c700"&gt;How scrum help turn around our development process&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lean Management&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.wikipedia.org/wiki/Lean_software_development"&gt;Lean software development- WIKI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://leanactionplan.pl/zasady-lean/"&gt;Zasady lean&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Kaban&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.wikipedia.org/wiki/Kanban_w_tworzeniu_oprogramowania"&gt;Kanban w tworzeniu oprogramowania&lt;/a&gt;&lt;/p&gt;</content><category term="dev"></category><category term="agile"></category><category term="scrum"></category><category term="lean management"></category><category term="kaban"></category><category term="dvlpr-wnbe"></category><category term="tablica kaban"></category><category term="agile manifesto"></category></entry><entry><title>HTML -&gt; zasady dostępności (ang. Accessibility)</title><link href="https://kostyrko.github.io/zfrontu/html-dostepnosc.html" rel="alternate"></link><published>2020-06-23T11:00:00+02:00</published><updated>2020-06-23T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-23:/zfrontu/html-dostepnosc.html</id><summary type="html">&lt;p&gt;&lt;img alt="accessibility" height="300px" src="https://miro.medium.com/max/1400/1*kxPPtGoUuY2EX41DbQMLOw.jpeg#center"&gt;&lt;/p&gt;
+&lt;p&gt;Kwestia &lt;em&gt;dostępności&lt;/em&gt; (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać.&lt;/p&gt;
+&lt;p&gt;Podstawowe zasady:&lt;/p&gt;
+&lt;p&gt;W dużym skrócie polega to na stosowaniu …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="accessibility" height="300px" src="https://miro.medium.com/max/1400/1*kxPPtGoUuY2EX41DbQMLOw.jpeg#center"&gt;&lt;/p&gt;
+&lt;p&gt;Kwestia &lt;em&gt;dostępności&lt;/em&gt; (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać.&lt;/p&gt;
+&lt;p&gt;Podstawowe zasady:&lt;/p&gt;
+&lt;p&gt;W dużym skrócie polega to na stosowaniu semantycznego HTML oraz przypisywania tagom odpowiednich im atrybutów informujących użytkownika o treści w nich zawartych w dodatkowy sposób.&lt;/p&gt;
+&lt;p&gt;Należy również pamiętać o kwestii wizualnej - stosowanie odpowiedniego kontrastu (osoby niedowidzące) oraz o znacznym ograniczeniu animacji (zaburzenia neurologiczne - epilepsja).&lt;/p&gt;
+&lt;p&gt;Treść strony internetowej również ma znaczenie - powinna być przekazana w możliwie najprostszy sposób.&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;h3&gt;Atrybuty WAI-ARIA -&amp;gt; Accessible Rich Internet Applications.&lt;/h3&gt;
+&lt;p&gt;Standard mający na uwadzę dostępność i użyteczność stron internetowych dla tzw wykluczonych cyfrowo&lt;/p&gt;
+&lt;p&gt;Poprzez przypisanie ról do poszczególnych elementów HTML współpracuje z czytnikami stron -&amp;gt; te dzielą się na 4 kategorie &lt;strong&gt;abstract&lt;/strong&gt;, &lt;strong&gt;widget&lt;/strong&gt;, &lt;strong&gt;landmark roles&lt;/strong&gt; i &lt;strong&gt;document structure roles&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Stany kontrolowane są przy pomocy JS - jednak istnieją atrybuty, które w przypadku niezaładowania JS działają w zbliżony i określony sposób np &lt;code&gt;aria-hidden=""&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;atrybut&lt;/th&gt;
+&lt;th&gt;znaczenie&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;div role="banner"&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Wartość 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;aria-hidden="true"&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Wartość 5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;aria-haspopup="true"&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Wartość 8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://wave.webaim.org/"&gt;WAVE (Web Accessibility Evaluation Tool)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?utm_source=chrome-app-launcher-info-dialog"&gt;Imitacja czytnika stron - wtyczka Chrome&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-
+US/docs/Web/Accessibility/ARIA&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/pl/docs/Web/Dost%C4%99pno%C5%9B%C4%87&lt;/p&gt;
+&lt;p&gt;http://users.uj.edu.pl/~konior/tech_www/disabled/dostepnosc1.html#_Toc319571640&lt;/p&gt;
+&lt;p&gt;http://www.pad.widzialni.org/narzedziownia&lt;/p&gt;
+&lt;p&gt;http://dostepnestrony.pl&lt;/p&gt;</content><category term="html"></category></entry><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
 &lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
 &lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;
@@ -11,7 +187,7 @@
 &lt;p&gt;zawartość (Content-based class names) -&amp;gt; klasy wskazujące na zawartość elementu &lt;code&gt;submit-button&lt;/code&gt;, &lt;code&gt;intro-text&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;prezencja (Presentational class …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png"&gt;&lt;/p&gt;
+&lt;p&gt;prezencja (Presentational class …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
 &lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
 &lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;
@@ -208,8 +384,8 @@
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-1-oocss"&gt;Metodyki CSS #1 - OOCSS&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-2-bem"&gt;Metodologia BEM. Jak pisać dobry kod CSS. Praktyczne przykłady.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-2-bem"&gt;Metodyki CSS #2 – BEM&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://en.bem.info/methodology/naming-convention/"&gt;BEM - naming conventions&lt;/a&gt;&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="html"></category><category term="klasy"></category><category term="bem"></category><category term="bemit"></category><category term="oocss"></category></entry><entry><title>HTML: semantyczny HTML</title><link href="https://kostyrko.github.io/zfrontu/html-semantyczny.html" rel="alternate"></link><published>2020-06-17T10:00:00+02:00</published><updated>2020-06-17T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-17:/zfrontu/html-semantyczny.html</id><summary type="html">&lt;p&gt;&lt;img alt="semantyczny-html" height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/"&gt;css-naming-conventions-that-will-save-you-hours-of-debugging&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.bem.info/methodology/naming-convention/"&gt;BEM - naming conventions&lt;/a&gt;&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="html"></category><category term="klasy"></category><category term="bem"></category><category term="bemit"></category><category term="oocss"></category></entry><entry><title>HTML: semantyczny HTML</title><link href="https://kostyrko.github.io/zfrontu/html-semantyczny.html" rel="alternate"></link><published>2020-06-17T10:00:00+02:00</published><updated>2020-06-17T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-17:/zfrontu/html-semantyczny.html</id><summary type="html">&lt;p&gt;&lt;img alt="semantyczny-html" height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Znaczniki semantyczne określają znaczenie treści, która jest w ramach nich zamknięta. Nie powinny być wykorzystywane do pozycjonowania (od tego &lt;code&gt;div&lt;/code&gt;) a do określania treści.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -229,7 +405,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;zawartość tego …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="semantyczny-html" height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png"&gt;&lt;/p&gt;
+&lt;td&gt;zawartość tego …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="semantyczny-html" height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Znaczniki semantyczne określają znaczenie treści, która jest w ramach nich zamknięta. Nie powinny być wykorzystywane do pozycjonowania (od tego &lt;code&gt;div&lt;/code&gt;) a do określania treści.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -397,11 +573,11 @@ HTML Section Element (&lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt;) defines 
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hffiWUbbPFs"&gt;Znacznik label - semantyczny HTML by Comandeer&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.kurshtml.edu.pl/html/kod_poprawny_semantycznie,tekst.html"&gt;Kod poprawny semantycznie&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://codepen.io/mi-lee/post/an-overview-of-html5-semantics"&gt;An Overview of HTML5 Semantics&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.semrush.com/blog/semantic-html5-guide/"&gt;HTML5 Semantic Tags: What Are They and How To Use Them!&lt;/a&gt;&lt;/p&gt;</content><category term="html"></category><category term="css"></category><category term="html"></category><category term="semantyczny html"></category><category term="semantic"></category></entry><entry><title>Grid przy pomocy HTML i klas oraz Grid:CSS</title><link href="https://kostyrko.github.io/zfrontu/html-css-grid.html" rel="alternate"></link><published>2020-06-15T10:00:00+02:00</published><updated>2020-06-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-15:/zfrontu/html-css-grid.html</id><summary type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.semrush.com/blog/semantic-html5-guide/"&gt;HTML5 Semantic Tags: What Are They and How To Use Them!&lt;/a&gt;&lt;/p&gt;</content><category term="html"></category><category term="css"></category><category term="html"></category><category term="semantyczny html"></category><category term="semantic"></category></entry><entry><title>Grid przy pomocy HTML i klas oraz Grid:CSS</title><link href="https://kostyrko.github.io/zfrontu/html-css-grid.html" rel="alternate"></link><published>2020-06-15T10:00:00+02:00</published><updated>2020-06-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-15:/zfrontu/html-css-grid.html</id><summary type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center" width="500px"&gt;&lt;/p&gt;
 &lt;h3&gt;Grid -&amp;gt; HTML + klasy CSS&lt;/h3&gt;
 &lt;p&gt;Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)&lt;/p&gt;
 &lt;p&gt;W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)&lt;/p&gt;
-&lt;p&gt;Kolumna ustala szerokość a wiersz "trzyma" elementy w jednej …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg" width="500px"&gt;&lt;/p&gt;
+&lt;p&gt;Kolumna ustala szerokość a wiersz "trzyma" elementy w jednej …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center" width="500px"&gt;&lt;/p&gt;
 &lt;h3&gt;Grid -&amp;gt; HTML + klasy CSS&lt;/h3&gt;
 &lt;p&gt;Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)&lt;/p&gt;
 &lt;p&gt;W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)&lt;/p&gt;
@@ -700,9 +876,9 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła&lt;/p&gt;
 &lt;p&gt;https://getbootstrap.com/docs/4.0/layout/grid/&lt;/p&gt;
-&lt;p&gt;https://www.w3schools.com/css/css_grid.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="grid"></category><category term="layout"></category><category term="rwd"></category></entry><entry><title>JavaScript: asynchroniczność i AJAX</title><link href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html" rel="alternate"></link><published>2020-06-11T12:00:00+02:00</published><updated>2020-06-11T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-asynchronicznosc-ajax.html</id><summary type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_grid.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="grid"></category><category term="layout"></category><category term="rwd"></category></entry><entry><title>JavaScript: asynchroniczność i AJAX</title><link href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html" rel="alternate"></link><published>2020-06-11T12:00:00+02:00</published><updated>2020-06-11T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-asynchronicznosc-ajax.html</id><summary type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
-&lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody setTimeout(opóźnienie wywołania się bloku kodu))- jest to przydatne w przypadku odwołań do serwerów, gdzie zwrócenie określonych danych może trwać dłuższy moment np. w przypadku Fetch API (kod odpowiedzialny za funkcjonowanie strony będzie dalej funkcjonował poprawnie w trakcie wysyłania i odbierania zapytania). Patrz też dalej &lt;a href="#ajax"&gt;ajax&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Podsumowując - asynchroniczność pozwala na:&lt;/strong&gt;&lt;/p&gt;
@@ -788,7 +964,7 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/async-await.php"&gt;Async / await&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://derivadow.com/2007/01/05/ajax-what-is-it-its-not-dhtml/"&gt;AJAX what is it? (it’s not DHTML)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/ajax/ajax.php&lt;/p&gt;
-&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="asynchroniczność"></category><category term="call stack"></category><category term="Web Api"></category><category term="obietnice"></category><category term="promises"></category></entry><entry><title>Node.js aktualizacja (Ubuntu)</title><link href="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html" rel="alternate"></link><published>2020-06-11T11:00:00+02:00</published><updated>2020-06-11T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-nodejs-aktualizacja.html</id><summary type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="asynchroniczność"></category><category term="call stack"></category><category term="Web Api"></category><category term="obietnice"></category><category term="promises"></category></entry><entry><title>Node.js aktualizacja (Ubuntu)</title><link href="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html" rel="alternate"></link><published>2020-06-11T11:00:00+02:00</published><updated>2020-06-11T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-nodejs-aktualizacja.html</id><summary type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
 &lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
     node -v
     &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
@@ -796,7 +972,7 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;p&gt;Moduł &lt;a href="https://www.npmjs.com/package/n"&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;/a&gt; służy do interaktywnego zarządzani wersjami &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Kroki podjęte do instalacji najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Czyszczenie pamięci cache&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="k"&gt;cache …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png" width="50%"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="k"&gt;cache …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
 &lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
     node -v
     &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
@@ -853,10 +1029,10 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;p&gt;https://github.com/nodesource/distributions/blob/master/README.md&lt;/p&gt;
 &lt;p&gt;https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version&lt;/p&gt;
 &lt;p&gt;https://github.com/nvm-sh/nvm&lt;/p&gt;
-&lt;p&gt;https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04&lt;/p&gt;</content><category term="javascript"></category><category term="node.js"></category><category term="node"></category><category term="nvm"></category><category term="aktualizacja"></category><category term="linux"></category><category term="ubuntu"></category><category term="bash"></category><category term="curl"></category><category term="npm"></category></entry><entry><title>JavaScript - kolejny test w JEST (TDD)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-2.html" rel="alternate"></link><published>2020-06-10T12:00:00+02:00</published><updated>2020-06-10T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-10:/zfrontu/js-jest-test-2.html</id><summary type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png"&gt;&lt;/p&gt;
+&lt;p&gt;https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04&lt;/p&gt;</content><category term="javascript"></category><category term="node.js"></category><category term="node"></category><category term="nvm"></category><category term="aktualizacja"></category><category term="linux"></category><category term="ubuntu"></category><category term="bash"></category><category term="curl"></category><category term="npm"></category></entry><entry><title>JavaScript - kolejny test w JEST (TDD)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-2.html" rel="alternate"></link><published>2020-06-10T12:00:00+02:00</published><updated>2020-06-10T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-10:/zfrontu/js-jest-test-2.html</id><summary type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Poniższy wpis powstał na podstawie tego &lt;a href="https://www.youtube.com/watch?v=gX440uva4NU"&gt;materiału&lt;/a&gt;, patrz również &lt;a href="https://exercism.io/my/solutions/ca7b90c2164a49e5aed19f12518ac333"&gt;tutaj&lt;/a&gt; i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja&lt;/p&gt;
 &lt;p&gt;Zadanie stwórz funkcję spełniającą następujące warunki&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;Bob&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Sure.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;ask …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;Bob&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Sure.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;ask …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Poniższy wpis powstał na podstawie tego &lt;a href="https://www.youtube.com/watch?v=gX440uva4NU"&gt;materiału&lt;/a&gt;, patrz również &lt;a href="https://exercism.io/my/solutions/ca7b90c2164a49e5aed19f12518ac333"&gt;tutaj&lt;/a&gt; i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja&lt;/p&gt;
 &lt;p&gt;Zadanie stwórz funkcję spełniającą następujące warunki&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;Bob&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Sure.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;ask&lt;/span&gt; &lt;span class="nv"&gt;him&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;question&lt;/span&gt;.
@@ -988,10 +1164,10 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://jestjs.io/&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=gX440uva4NU&lt;/p&gt;
-&lt;p&gt;https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80 --TDD&lt;/p&gt;</content><category term="javascript"></category><category term="test"></category><category term="jest"></category><category term="tdd"></category><category term="node"></category><category term="npm"></category><category term="babel"></category><category term="transpilacja"></category><category term="transpilator"></category><category term="babel.js"></category><category term="babeljs"></category></entry><entry><title>JavaScript - Babel</title><link href="https://kostyrko.github.io/zfrontu/js-babel.html" rel="alternate"></link><published>2020-06-09T10:00:00+02:00</published><updated>2020-06-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-09:/zfrontu/js-babel.html</id><summary type="html">&lt;p&gt;&lt;img alt="babel" src="https://www.lambdatest.com/blog/wp-content/uploads/2018/06/babel.png"&gt;&lt;/p&gt;
+&lt;p&gt;https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80 --TDD&lt;/p&gt;</content><category term="javascript"></category><category term="test"></category><category term="jest"></category><category term="tdd"></category><category term="node"></category><category term="npm"></category><category term="babel"></category><category term="transpilacja"></category><category term="transpilator"></category><category term="babel.js"></category><category term="babeljs"></category></entry><entry><title>JavaScript - Babel</title><link href="https://kostyrko.github.io/zfrontu/js-babel.html" rel="alternate"></link><published>2020-06-09T10:00:00+02:00</published><updated>2020-06-09T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-09:/zfrontu/js-babel.html</id><summary type="html">&lt;p&gt;&lt;img alt="babel" src="https://www.lambdatest.com/blog/wp-content/uploads/2018/06/babel.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Babel pozwala na transpilację/tłumaczenie kodu ES6+ do ES5 - sprawiając tym samym możliwość na interpretację kodu przez szerszą gamę środowisk od node.js po starsze przeglądarki internetowe.
 Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie oczekiwanej od niego pracy.&lt;/p&gt;
-&lt;p&gt;W jaki sposób działa Babel można również sprawdzić …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="babel" src="https://www.lambdatest.com/blog/wp-content/uploads/2018/06/babel.png"&gt;&lt;/p&gt;
+&lt;p&gt;W jaki sposób działa Babel można również sprawdzić …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="babel" src="https://www.lambdatest.com/blog/wp-content/uploads/2018/06/babel.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Babel pozwala na transpilację/tłumaczenie kodu ES6+ do ES5 - sprawiając tym samym możliwość na interpretację kodu przez szerszą gamę środowisk od node.js po starsze przeglądarki internetowe.
 Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie oczekiwanej od niego pracy.&lt;/p&gt;
 &lt;p&gt;W jaki sposób działa Babel można również sprawdzić korzystając z narzędzia online &lt;a href="https://babeljs.io/en/repl"&gt;Babel REPL&lt;/a&gt;&lt;/p&gt;
@@ -1064,9 +1240,9 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=T1ZwhqojI7o&amp;amp;t=179s"&gt;Node.js - Konfigracja Babel.js (Moduły ES6)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=C2PDAGCrk_g"&gt;Babel.js: What It Is, and How You Can Use It. [What The Stack]&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=NMlc0_i5z5I"&gt;Poznaj JavaScript - BabelJS&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=MzZilaM16oY"&gt;BABEL COMPILER: Do you really need BABEL to compile JavaScript with ES6?&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="babel"></category><category term="transpilacja"></category><category term="gulp"></category><category term="npm"></category><category term="node.js"></category><category term="node"></category></entry><entry><title>JavaScript - pierwszy test w JEST (+ Babel)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-babel.html" rel="alternate"></link><published>2020-06-08T10:00:00+02:00</published><updated>2020-06-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-08:/zfrontu/js-jest-test-babel.html</id><summary type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=MzZilaM16oY"&gt;BABEL COMPILER: Do you really need BABEL to compile JavaScript with ES6?&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="babel"></category><category term="transpilacja"></category><category term="gulp"></category><category term="npm"></category><category term="node.js"></category><category term="node"></category></entry><entry><title>JavaScript - pierwszy test w JEST (+ Babel)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-babel.html" rel="alternate"></link><published>2020-06-08T10:00:00+02:00</published><updated>2020-06-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-08:/zfrontu/js-jest-test-babel.html</id><summary type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Do stworzenia pierwszego testu posłużyłem się &lt;a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file"&gt;dokumentacją JEST&lt;/a&gt; oraz &lt;a href="https://www.youtube.com/watch?v=_zEX9sHzqS4"&gt;tym materiałem&lt;/a&gt; (autorstwa Kacpra Kozaka)&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Jest&lt;/em&gt; wyszuka pliku, w którego nazwie znajduje się słowo kluczowe &lt;code&gt;test&lt;/code&gt; poprzedzone &lt;code&gt;kropką&lt;/code&gt; o rozszerzeniu &lt;code&gt;js&lt;/code&gt; którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla &lt;code&gt;sum …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Jest&lt;/em&gt; wyszuka pliku, w którego nazwie znajduje się słowo kluczowe &lt;code&gt;test&lt;/code&gt; poprzedzone &lt;code&gt;kropką&lt;/code&gt; o rozszerzeniu &lt;code&gt;js&lt;/code&gt; którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla &lt;code&gt;sum …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Do stworzenia pierwszego testu posłużyłem się &lt;a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file"&gt;dokumentacją JEST&lt;/a&gt; oraz &lt;a href="https://www.youtube.com/watch?v=_zEX9sHzqS4"&gt;tym materiałem&lt;/a&gt; (autorstwa Kacpra Kozaka)&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Jest&lt;/em&gt; wyszuka pliku, w którego nazwie znajduje się słowo kluczowe &lt;code&gt;test&lt;/code&gt; poprzedzone &lt;code&gt;kropką&lt;/code&gt; o rozszerzeniu &lt;code&gt;js&lt;/code&gt; którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla &lt;code&gt;sum.js&lt;/code&gt; znajdzie się w pliku &lt;code&gt;sum.test.js&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;W pierwszej kolejności należy stworzyć plik &lt;code&gt;sum.js&lt;/code&gt; w którym znajdzie się testowany kod, w którym należy wskazać moduł do eksportu (umożliwia wykorzystanie funkcji w innym pliki/tworzy moduł)&lt;/p&gt;
@@ -1210,11 +1386,11 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://jestjs.io/&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=_zEX9sHzqS4&lt;/p&gt;
-&lt;p&gt;https://www.youtube.com/watch?v=gX440uva4NU&lt;/p&gt;</content><category term="javascript"></category><category term="test"></category><category term="jest"></category><category term="tdd"></category><category term="node"></category><category term="npm"></category><category term="babel"></category><category term="transpilacja"></category><category term="transpilator"></category><category term="babel.js"></category><category term="babeljs"></category></entry><entry><title>JavaScript - krótkie wprowadzenie do testowania kodu</title><link href="https://kostyrko.github.io/zfrontu/js-testowanie-wprowadzenie.html" rel="alternate"></link><published>2020-06-03T10:00:00+02:00</published><updated>2020-06-03T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-03:/zfrontu/js-testowanie-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="TDD" src="https://i.pinimg.com/originals/6a/74/6c/6a746c70228203d1cbd8835bf63840b1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=gX440uva4NU&lt;/p&gt;</content><category term="javascript"></category><category term="test"></category><category term="jest"></category><category term="tdd"></category><category term="node"></category><category term="npm"></category><category term="babel"></category><category term="transpilacja"></category><category term="transpilator"></category><category term="babel.js"></category><category term="babeljs"></category></entry><entry><title>JavaScript - krótkie wprowadzenie do testowania kodu</title><link href="https://kostyrko.github.io/zfrontu/js-testowanie-wprowadzenie.html" rel="alternate"></link><published>2020-06-03T10:00:00+02:00</published><updated>2020-06-03T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-03:/zfrontu/js-testowanie-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="TDD" src="https://i.pinimg.com/originals/6a/74/6c/6a746c70228203d1cbd8835bf63840b1.jpg#center"&gt;&lt;/p&gt;
 &lt;p&gt;Dlaczego warto stosować testy/Do czego służą testy?&lt;/p&gt;
 &lt;p&gt;[..........]&lt;/p&gt;
 &lt;p&gt;TDD - test driven development - testowanie aplikacji na bieżąco, podczas realizacji kolejnych kroków, może to być związane z tworzeniem testu jeszcze przed napisaniem danego bloku kodu&lt;/p&gt;
-&lt;p&gt;Unit test - inaczej testowanie jednostkowe - polega na rozbiciu kodu na jak najmniejsze części i poddawanie ich testom …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="TDD" src="https://i.pinimg.com/originals/6a/74/6c/6a746c70228203d1cbd8835bf63840b1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Unit test - inaczej testowanie jednostkowe - polega na rozbiciu kodu na jak najmniejsze części i poddawanie ich testom …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="TDD" src="https://i.pinimg.com/originals/6a/74/6c/6a746c70228203d1cbd8835bf63840b1.jpg#center"&gt;&lt;/p&gt;
 &lt;p&gt;Dlaczego warto stosować testy/Do czego służą testy?&lt;/p&gt;
 &lt;p&gt;[..........]&lt;/p&gt;
 &lt;p&gt;TDD - test driven development - testowanie aplikacji na bieżąco, podczas realizacji kolejnych kroków, może to być związane z tworzeniem testu jeszcze przed napisaniem danego bloku kodu&lt;/p&gt;
@@ -1281,9 +1457,9 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://jestjs.io/&lt;/p&gt;
-&lt;p&gt;https://jestjs.io/docs/en/mock-functions.html&lt;/p&gt;</content><category term="javascript"></category></entry><entry><title>Sass - struktura projektu</title><link href="https://kostyrko.github.io/zfrontu/saas-struktura-projektu.html" rel="alternate"></link><published>2020-06-02T10:00:00+02:00</published><updated>2020-06-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-02:/zfrontu/saas-struktura-projektu.html</id><summary type="html">&lt;p&gt;&lt;img alt="struktura-projektu-scss" height="75%" src="https://miro.medium.com/max/1400/1*MCiNLBzUI-LWK_PhVwq0xA.png" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;https://jestjs.io/docs/en/mock-functions.html&lt;/p&gt;</content><category term="javascript"></category></entry><entry><title>Sass - struktura projektu</title><link href="https://kostyrko.github.io/zfrontu/saas-struktura-projektu.html" rel="alternate"></link><published>2020-06-02T10:00:00+02:00</published><updated>2020-06-02T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-02:/zfrontu/saas-struktura-projektu.html</id><summary type="html">&lt;p&gt;&lt;img alt="struktura-projektu-scss" height="75%" src="https://miro.medium.com/max/1400/1*MCiNLBzUI-LWK_PhVwq0xA.png#center" width="100%"&gt;&lt;/p&gt;
 &lt;p&gt;Wraz z wzrostem wielkości projektu, większą rolę odgrywać będzie odpowiedni sposób strukturyzacji oraz modularyzacji plików zdefiniowanych w ramach niego stylów. Podział na odpowiednie moduły umożliwia również ponowne wykorzystanie wybranych części kodu w innych projektach.&lt;/p&gt;
-&lt;p&gt;Zwyczajowo przyjęło, się że plik, który importuje moduły (partials) a staje się łącznikiem pomiędzy nimi nazwany …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="struktura-projektu-scss" height="75%" src="https://miro.medium.com/max/1400/1*MCiNLBzUI-LWK_PhVwq0xA.png" width="100%"&gt;&lt;/p&gt;
+&lt;p&gt;Zwyczajowo przyjęło, się że plik, który importuje moduły (partials) a staje się łącznikiem pomiędzy nimi nazwany …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="struktura-projektu-scss" height="75%" src="https://miro.medium.com/max/1400/1*MCiNLBzUI-LWK_PhVwq0xA.png#center" width="100%"&gt;&lt;/p&gt;
 &lt;p&gt;Wraz z wzrostem wielkości projektu, większą rolę odgrywać będzie odpowiedni sposób strukturyzacji oraz modularyzacji plików zdefiniowanych w ramach niego stylów. Podział na odpowiednie moduły umożliwia również ponowne wykorzystanie wybranych części kodu w innych projektach.&lt;/p&gt;
 &lt;p&gt;Zwyczajowo przyjęło, się że plik, który importuje moduły (partials) a staje się łącznikiem pomiędzy nimi nazwany jest &lt;code&gt;main.scss&lt;/code&gt;. W ramach tego pliku importuje się moduł używając relatywnej ścieżki do oraz nazwy danego pliku z pominięciem rozszerzenia zawartej w apostrofach/cudz. poprzedzonej słowem kluczowym &lt;code&gt;@import&lt;/code&gt;/&lt;code&gt;@use&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Pliki modułów, które nie muszą być importowane przez kompilator bezpośrednio poprzedzone są podkreślaniem.&lt;/p&gt;
@@ -1776,12 +1952,12 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;p&gt;https://sass-lang.com/&lt;/p&gt;
 &lt;p&gt;https://sass-lang.com/documentation&lt;/p&gt;
 &lt;p&gt;https://css-tricks.com/introducing-sass-modules/&lt;/p&gt;</content><category term="saas"></category><category term="sass"></category><category term="scss"></category><category term="css"></category><category term="javascript"></category><category term="gulp"></category><category term="gulpfile"></category></entry><entry><title>Sass - wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/saas-wprowadzenie.html" rel="alternate"></link><published>2020-05-29T10:00:00+02:00</published><updated>2020-05-29T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-29:/zfrontu/saas-wprowadzenie.html</id><summary type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg#center"&gt;&lt;/p&gt;
 &lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC.&lt;/p&gt;
 &lt;p&gt;Sass pozwala na:&lt;/p&gt;
 &lt;p&gt;&lt;a href="#zmienne"&gt;* definiowanie &lt;strong&gt;zmiennych&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="#zagnieżdżanie"&gt;* pisanie składni opartej na &lt;strong&gt;zagnieżdżaniu&lt;/strong&gt; selektorów w …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;CSS na sterydach - czyli &lt;strong&gt;Syntactically Awesome Style Sheets&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sass" src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg#center"&gt;&lt;/p&gt;
 &lt;p&gt;Sass jest językiem skryptowym rozszerzającym możliwości CSS i wymaga kompilacji na CSS tak aby mógł być interpretowany przez przeglądarki w tym celu można wykorzystać Gulpa (odpowiedniej wtyczki) lun wtyczki VSC.&lt;/p&gt;
 &lt;p&gt;Sass pozwala na:&lt;/p&gt;
 &lt;p&gt;&lt;a href="#zmienne"&gt;* definiowanie &lt;strong&gt;zmiennych&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
@@ -2317,7 +2493,7 @@ map-get($mapa, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
 &lt;p&gt;https://sass-lang.com/&lt;/p&gt;
 &lt;p&gt;https://sass-lang.com/documentation&lt;/p&gt;
 &lt;p&gt;VSC:&lt;/p&gt;
-&lt;p&gt;https://github.com/ritwickdey/vscode-live-sass-com&lt;/p&gt;</content><category term="saas"></category><category term="sass"></category><category term="scss"></category><category term="css"></category><category term="javascript"></category><category term="gulp"></category><category term="gulpfile"></category></entry><entry><title>JavaScript - Gulp</title><link href="https://kostyrko.github.io/zfrontu/js-gulp.html" rel="alternate"></link><published>2020-05-28T10:00:00+02:00</published><updated>2020-05-28T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-28:/zfrontu/js-gulp.html</id><summary type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li"&gt;&lt;/p&gt;
+&lt;p&gt;https://github.com/ritwickdey/vscode-live-sass-com&lt;/p&gt;</content><category term="saas"></category><category term="sass"></category><category term="scss"></category><category term="css"></category><category term="javascript"></category><category term="gulp"></category><category term="gulpfile"></category></entry><entry><title>JavaScript - Gulp</title><link href="https://kostyrko.github.io/zfrontu/js-gulp.html" rel="alternate"></link><published>2020-05-28T10:00:00+02:00</published><updated>2020-05-28T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-28:/zfrontu/js-gulp.html</id><summary type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Instalacja globalna&lt;/h3&gt;
 &lt;p&gt;Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami&lt;/p&gt;
 &lt;p&gt;Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala&lt;/p&gt;
@@ -2331,7 +2507,7 @@ map-get($mapa, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
 
 
 &lt;p&gt;zwraca:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;CLI&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;CLI&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Instalacja globalna&lt;/h3&gt;
 &lt;p&gt;Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami&lt;/p&gt;
 &lt;p&gt;Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala&lt;/p&gt;
@@ -6022,6 +6198,9 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 
 
 &lt;hr&gt;
+&lt;p&gt;O ile styl neomorfistyczny może wydawać się miły dla oka, należy pamiętać, że nie jest on najbardziej przystępny w odbiorze dla osób z zaburzeniami wzroku - zatem należy pamiętać o stosowaniu odpowiedniego kontrastu, który znajduje się w zgodzie z wytycznymi związanymi z dostępnością/accessibility.
+Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu i dostępności&lt;/a&gt; &lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://uxplanet.org/the-ground-breaking-possibilities-with-neumorphism-9ed9e64c2513&lt;/p&gt;
 &lt;p&gt;https://uxdesign.cc/neumorphism-in-user-interfaces-b47cef3bf3a6&lt;/p&gt;
@@ -6625,9 +6804,13 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
   &lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="kc"&gt;text&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="n"&gt;after&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;after&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sx"&gt;../assets/Eye.svg&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;}&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::before&lt;/code&gt;- tworzy pseudo-element, który reprezentuje pierwsze dziecko wybranego selektora HTML, posiada właściwość &lt;code&gt;content&lt;/code&gt; analogiczną do &lt;code&gt;::after&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::selection&lt;/code&gt; - odwołuje się do podświetlenia wybranego tekstu znajdującego się w selekcji&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
@@ -6664,7 +6847,7 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements&lt;/p&gt;
 &lt;p&gt;https://www.w3schools.com/css/css_pseudo_elements.asp&lt;/p&gt;
 &lt;p&gt;https://css-tricks.com/almanac/selectors/a/after-and-before/&lt;/p&gt;
-&lt;p&gt;https://css-tricks.com/pseudo-element-roundup/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="pseudo-elementy"></category><category term="first-line"></category><category term="::before"></category><category term="::after"></category></entry><entry><title>CSS - box-sizing</title><link href="https://kostyrko.github.io/zfrontu/css-box-sizing.html" rel="alternate"></link><published>2020-04-01T10:00:00+02:00</published><updated>2020-04-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-01:/zfrontu/css-box-sizing.html</id><summary type="html">&lt;p&gt;Box-sizing&lt;/p&gt;
+&lt;p&gt;https://css-tricks.com/pseudo-element-roundup/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="pseudo-elementy"></category><category term="first-line"></category><category term="::before"></category><category term="::after"></category><category term="before"></category><category term="after"></category></entry><entry><title>CSS - box-sizing</title><link href="https://kostyrko.github.io/zfrontu/css-box-sizing.html" rel="alternate"></link><published>2020-04-01T10:00:00+02:00</published><updated>2020-04-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-01:/zfrontu/css-box-sizing.html</id><summary type="html">&lt;p&gt;Box-sizing&lt;/p&gt;
 &lt;p&gt;Możliwe wartości do zastosowania przy tej właściwości&lt;/p&gt;
 &lt;p&gt;border-box - wielkość &lt;em&gt;kontenera&lt;/em&gt; (div) jest dokładnie taka jak wskazano - definiuje wielkość kontenera po jego granicy&lt;/p&gt;
 &lt;p&gt;content-box- podstawowe, zachowanie się &lt;em&gt;kontenera&lt;/em&gt; (div) od obszaru, w którym znajduje się jego zwartość /wskazana wartość wielkość pudełka odnosi się do jego zawartości, - oznaczo to że margines …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Box-sizing&lt;/p&gt;
@@ -8275,12 +8458,33 @@ Sam plik powinien znajdować się w folderze źródłowym.&lt;/p&gt;
 &lt;p&gt;---wykreślony tekst--- (również się nie sprawdza :( )&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;italik&lt;/em&gt;&lt;/p&gt;
 &lt;h3&gt;Obrazy&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Nazwa&lt;/span&gt; &lt;span class="n"&gt;obrazu&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;obrazu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Nazwa&lt;/span&gt; &lt;span class="n"&gt;obrazu&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;alternatywny&lt;/span&gt; &lt;span class="n"&gt;tekst&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;obrazu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;można również:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Alt&lt;/span&gt; &lt;span class="n"&gt;Text&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Obraz jako link&lt;/p&gt;
+&lt;p&gt;schemat&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;alternatywny&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tekst&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;obrazu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="p"&gt;)](&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;odsylajaca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Centrowanie wybranego! obrazu wobec rodzica&lt;/p&gt;
+&lt;p&gt;markdown nie ma opcji pozwalającej na centrowanie/pozycjonowanie elementów stąd należy zrobić to albo z pozycji html i inlinowego css albo wykorzystać css i odpowiednio otagować obraz (jestem zwolennikiem tej drugiej opcji ponieważ wprowadza mniej ingerencji w sam markdown) dodając na końcu odnośnika hasztag z nazwą atrybutu np. center&lt;/p&gt;
+&lt;p&gt;Schemat &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Nazwa&lt;/span&gt; &lt;span class="n"&gt;obrazu&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;alternatywny&lt;/span&gt; &lt;span class="n"&gt;tekst&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;obrazu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W CSS należy dodać deklaracje&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nt"&gt;img&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#center&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 

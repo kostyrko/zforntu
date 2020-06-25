@@ -156,7 +156,7 @@
     <p>
       Opublikowano pon 23 marca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/markdown.html">markdown</a>
 
-        &#8226; 2 min read
+        &#8226; 3 min read
     </p>
   </header>
 
@@ -193,12 +193,33 @@
 <p>---wykreślony tekst--- (również się nie sprawdza :( )</p>
 <p><em>italik</em></p>
 <h3>Obrazy</h3>
-<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="o">/</span><span class="n">alternatywny</span> <span class="n">tekst</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span>
 </code></pre></div>
 
 
 <p>można również:</p>
 <div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">Text</span><span class="p">](</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Obraz jako link</p>
+<p>schemat</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="o">!</span><span class="p">[</span><span class="n">alternatywny</span><span class="o">-</span><span class="n">tekst</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="p">)](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">odsylajaca</span><span class="p">.</span><span class="n">html</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Centrowanie wybranego! obrazu wobec rodzica</p>
+<p>markdown nie ma opcji pozwalającej na centrowanie/pozycjonowanie elementów stąd należy zrobić to albo z pozycji html i inlinowego css albo wykorzystać css i odpowiednio otagować obraz (jestem zwolennikiem tej drugiej opcji ponieważ wprowadza mniej ingerencji w sam markdown) dodając na końcu odnośnika hasztag z nazwą atrybutu np. center</p>
+<p>Schemat </p>
+<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="o">/</span><span class="n">alternatywny</span> <span class="n">tekst</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="o">#</span><span class="n">center</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>W CSS należy dodać deklaracje</p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">img</span><span class="cp">[</span><span class="nx">src</span><span class="o">*=</span><span class="s1">&#39;#center&#39;</span><span class="cp">]</span> <span class="p">{</span> 
+    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+    <span class="p">}</span>
 </code></pre></div>
 
 

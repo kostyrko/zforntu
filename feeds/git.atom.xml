@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - git</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/git.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-03-25T22:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>.gitignore</title><link href="https://kostyrko.github.io/zfrontu/git-gitignore.html" rel="alternate"></link><published>2020-03-25T22:00:00+01:00</published><updated>2020-03-25T22:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-25:/zfrontu/git-gitignore.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - git</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/git.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-24T12:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
+&lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
+&lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard HEAD~1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;a jeśli zależy nam na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
+&lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
+&lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard HEAD~1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;a jeśli zależy nam na konkretnym commicie to wówczas&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard &amp;lt;adres commita&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zachodzi wówczas sytuacja, w której repozytorium znajdujące się na GitHubie jest "do przodu" względem tego, które znajduje się u mnie na dysku lokalnym - sygnalizuje to min. ikona w lewym dolnym rogu jeśli teraz dokonam synchronizacji (Synchronise Changes)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="synchronizacja zmian" src="https://i.stack.imgur.com/P5VKm.png"&gt;&lt;/p&gt;
+&lt;p&gt;vsc zrobi &lt;code&gt;pull&lt;/code&gt; a następnie &lt;code&gt;push&lt;/code&gt; - repo wróci do stanu sprzed cofnięcia commita. Stąd zamiast tego muszę zrobić tzw twardy (lub przy użyciu siły push) korzystając z komendy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt; &lt;span class="c1"&gt;--force&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;dzięki niej repozytorium zostanie sprowadzone ("wyzerowane") do tego stanu jaki mam u siebie na dysku lokalnym&lt;/p&gt;
+&lt;p&gt;Warto pamiętać o tym, że można dodać własne komendy do narzędzia (Synchronise Changes) przy pomocy &lt;code&gt;.gitconfig&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/1338728/delete-commits-from-a-branch-in-git&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/36878344/what-does-git-sync-do-in-vscode&lt;/p&gt;
+&lt;p&gt;https://evilmartians.com/chronicles/git-push---force-and-how-to-deal-with-it&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="cofanie commita"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category></entry><entry><title>.gitignore</title><link href="https://kostyrko.github.io/zfrontu/git-gitignore.html" rel="alternate"></link><published>2020-03-25T22:00:00+01:00</published><updated>2020-03-25T22:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-25:/zfrontu/git-gitignore.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.gitignore&lt;/code&gt; - plik o takiej dokładnie nazwie (rozszerzenie bez nazwy), które zawiera reguły wykluczające z systemu kontroli wersji - GIT konkretne pliki oraz foldery innymi słowy te, której mają być ignorowane przez git. 
 Sam plik powinien znajdować się w folderze źródłowym.&lt;/p&gt;
 &lt;p&gt;Sposoby na wykluczenie&lt;/p&gt;
