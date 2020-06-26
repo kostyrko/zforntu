@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Wstęp Webpack generuje tzw. pakiety (ang. bundles -&gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W tym sensie …" />
+<meta name="keywords" content="webpack, webpack@4, javascript, task runner, transpilacja">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript: Webpack - szybkie wprowadzenie"/>
+<meta property="og:description" content="Wstęp Webpack generuje tzw. pakiety (ang. bundles -&gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W tym sensie …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-webpack.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-26 11:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="webpack"/>
+<meta property="article:tag" content="webpack@4"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="task runner"/>
+<meta property="article:tag" content="transpilacja"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript: Webpack - szybkie wprowadzenie</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-webpack">JavaScript: Webpack - szybkie wprowadzenie</h1>
+    <p>
+      Opublikowano pią 26 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"></p>
+<h3>Wstęp</h3>
+<p><em>Webpack</em> generuje tzw. pakiety (ang. bundles -&gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W  tym sensie działą podobnie do innych tzw. <em>task runnerów</em> (narzędzie do automatyzacji działań dokonywanych na plikach) jak Gulp</p>
+<p>Istotną zaletą korzystania z <em>Webpacka</em> jest to, że każdy plik jest traktowany jako moduł (obraz, css, font, js etc). (<a href="https://flaviocopes.com/commonjs/">CommonJS</a> -&gt; po stronie node.js i moduły z ES (klient) nie są dostępne dla wszystkich przeglądarek stąd potrzeba ich transpilacji)</p>
+<p>Loader - przetwarza plik (nie-js) w ten sposób by mógł być dodane do drzewa zależności (np. css loader) -  etap transpilacji</p>
+<p>Wtyczki - różnego rodzaju wtyczki pozwalają na osiągnięcie oczekiwanego efektu np. zapisanie reguł css do osobnego pliku css/po za plik bundle.js poprzez pracę na gotowych pakietach (np. extract text plugin [wydobywa css], webpack-uglify-js-plugin[miniaturyzuje js])</p>
+<p><a href="https://webmastah.pl/kurs-vue-js-krok-po-kroku-vue-loader/"><img alt="webpack w akcji" src="https://webmastah.pl/wp-content/uploads/2017/05/what-is-webpack-1024x512.png"></a></p>
+<hr>
+<h3>Instalacja oraz użycie WebPacka</h3>
+<p>Inicjalizajca porojektu (stworzenie package.json) </p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
+</code></pre></div>
+
+
+<p>Instalacja <em>Wepacka</em> w v.4 oraz cli v.4 jako developerska zależność</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">i</span> <span class="n">webpack</span><span class="mi">@4</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">npm</span> <span class="n">i</span> <span class="n">webpack</span><span class="o">-</span><span class="n">cli</span><span class="mi">@3</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+</code></pre></div>
+
+
+<p>Narzędzie nie jest dostępne globalnie zatem aby nie wywoływać go poprzez każdorazowe wprowadzeni ścieżki <code>./node_modules/.bin/webpack</code>
+można dodać webpacka do sekcji scripts w <code>package.json</code> przypisując go do klucza np. start (powszechnie stosowana nazwa) + należy wskazać główny plik (wejścia) oraz nazwę pliku wyjścia (pod tą nazwą zostanie zapisany bundle)</p>
+<div class="highlight"><pre><span></span><code>{
+  <span class="s2">&quot;</span><span class="s">scripts</span><span class="s2">&quot;</span>: {
+    <span class="s2">&quot;</span><span class="s">test</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">echo \</span><span class="s2">&quot;</span><span class="nv">Error</span>: <span class="nv">no</span> <span class="nv">test</span> <span class="nv">specified</span>\<span class="s2">&quot;</span><span class="s"> &amp;&amp; exit 1</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">start</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">./node_modules/.bin/webpack app.js --output out.js</span><span class="s2">&quot;</span>
+  }
+}
+</code></pre></div>
+
+
+<p>Teraz wystarczy wpisać</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="k">start</span>
+</code></pre></div>
+
+
+<p>::: Istnieje możliwość przeprowadzenia globalnej instalacji Webpacka, ale ta nie jest polecana (wówczas powyższy krok jest zbędny) <code>npm i -g webpack</code> :::</p>
+<p>Budowa paczki od punktu wejścia i dołącza odnaleziony kod do pliku wyjścia, a po drodze natrafia na instrukcję require(), która wskazuje na konkretne pliki i znajdujący się w nich kod -&gt; w wyniku tego połączenia powstaje plik, który jest trudny do odczytu przez człowieka, ale jest czytelny dla node.js lub przeglądarki</p>
+<p>Przykładowe użycie</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nv">package</span>.<span class="nv">json</span>
+<span class="s2">&quot;</span><span class="s">scripts</span><span class="s2">&quot;</span>: {
+    <span class="s2">&quot;</span><span class="s">test</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">echo \</span><span class="s2">&quot;</span><span class="nv">Error</span>: <span class="nv">no</span> <span class="nv">test</span> <span class="nv">specified</span>\<span class="s2">&quot;</span><span class="s"> &amp;&amp; exit 1</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">start</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">./node_modules/.bin/webpack r2d2.js --output out.js</span><span class="s2">&quot;</span>
+  },
+
+
+<span class="o">//</span> <span class="nv">droidFinder</span>.<span class="nv">js</span>
+  <span class="nv">function</span> <span class="nv">findDroid</span><span class="ss">(</span><span class="nv">droid</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span>`<span class="nv">You</span>: <span class="nv">Is</span> <span class="nv">this</span> ${<span class="nv">droid</span>}?\<span class="nv">nObi</span> <span class="nv">Wan</span>: <span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">droid</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span>`<span class="ss">)</span><span class="c1">;</span>
+  }
+
+  <span class="nv">module</span>.<span class="nv">exports</span> <span class="o">=</span> <span class="nv">findDroid</span><span class="c1">;</span>
+
+
+<span class="o">//</span> <span class="nv">r2d2</span>.<span class="nv">js</span>
+  <span class="nv">const</span> <span class="nv">findDroidFunc</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./droidFinder</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+  <span class="nv">findDroidFunc</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">R2D2</span><span class="s2">&quot;</span><span class="ss">)</span>
+
+
+<span class="o">//</span><span class="nv">out</span>.<span class="nv">js</span>
+  <span class="o">!</span><span class="nv">function</span><span class="ss">(</span><span class="nv">e</span><span class="ss">)</span>{<span class="nv">var</span> <span class="nv">t</span><span class="o">=</span>{}<span class="c1">;function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){&quot;undefined&quot;!=typeof Symbol&amp;&amp;Symbol.toStringTag&amp;&amp;Object.defineProperty(e,Symbol.toStringTag,{value:&quot;Module&quot;}),Object.defineProperty(e,&quot;__esModule&quot;,{value:!0})},n.t=function(e,t){if(1&amp;t&amp;&amp;(e=n(e)),8&amp;t)return e;if(4&amp;t&amp;&amp;&quot;object&quot;==typeof e&amp;&amp;e&amp;&amp;e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,&quot;default&quot;,{enumerable:!0,value:e}),2&amp;t&amp;&amp;&quot;string&quot;!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&amp;&amp;e.__esModule?function(){return e.default}:function(){return e};return n.d(t,&quot;a&quot;,t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p=&quot;&quot;,n(n.s=0)}([function(e,t,n){n(1)(&quot;R2D2&quot;)},function(e,t){e.exports=function(e){console.log(`You: Is this ${e}?\nObi Wan: This is not the droid you are looking for`)}}]);</span>
+
+<span class="o">-----------</span>
+
+<span class="o">&gt;&gt;</span> <span class="nv">node</span> <span class="nv">out</span>.<span class="nv">js</span>
+<span class="o">&gt;&gt;</span> <span class="nv">You</span>: <span class="nv">Is</span> <span class="nv">this</span> <span class="nv">R2D2</span>?
+  <span class="nv">Obi</span> <span class="nv">Wan</span>: <span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">droid</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://www.youtube.com/watch?v=hE2XR4TdgXg&amp;list=PLjHmWifVUNMJZZPBRtLRta-5zkc2SXDep">Webpack 3 tutorial PL by Overment</a></p>
+<p><a href="https://www.nafrontendzie.pl/podstawy-konfiguracji-webpack">Podstawy konfiguracji Webpack</a></p>
+<p><a href="https://webpack.js.org/">webpack.js.org</a></p>
+<p><a href="https://github.com/webpack/webpack">webpack-github repo</a></p>
+<p>https://stackoverflow.com/questions/35932000/zsh-command-not-found-webpack</p>
+<p>https://stackoverflow.com/questions/38788166/webpack-command-not-working</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/webpack.html">webpack</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/webpack4.html">webpack@4</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/task-runner.html">task runner</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/transpilacja.html">transpilacja</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-babel.html">JavaScript - Babel</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

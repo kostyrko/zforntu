@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Kwestia dostępności (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać. Podstawowe zasady: W dużym skrócie polega to na stosowaniu …" />
+<meta name="description" content="Kwestia dostępności (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać. Do osób wykluczonych zaliczyć można: osoby niepełnosprawne sensorycznie osoby …" />
 <meta name="keywords" content="">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="HTML -&gt; zasady dostępności (ang. Accessibility)"/>
-<meta property="og:description" content="Kwestia dostępności (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać. Podstawowe zasady: W dużym skrócie polega to na stosowaniu …"/>
+<meta property="og:title" content="HTML -&gt; wstęp do budowy dostępnych stron (ang. Accessibility)"/>
+<meta property="og:description" content="Kwestia dostępności (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać. Do osób wykluczonych zaliczyć można: osoby niepełnosprawne sensorycznie osoby …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/html-dostepnosc.html"/>
 <meta property="og:type" content="article"/>
@@ -66,7 +66,7 @@
 <meta property="article:section" content="html"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; HTML -&gt; zasady dostępności (ang. Accessibility)</title>
+  <title>...z frontu &ndash; HTML -&gt; wstęp do budowy dostępnych stron (ang. Accessibility)</title>
 
 </head>
 <body>
@@ -148,11 +148,11 @@
 <article class="single">
   <header>
       
-    <h1 id="html-dostepnosc">HTML -> zasady dostępności (ang. Accessibility)</h1>
+    <h1 id="html-dostepnosc">HTML -> wstęp do budowy dostępnych stron (ang. Accessibility)</h1>
     <p>
       Opublikowano wto 23 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/html.html">html</a>
 
-        &#8226; 1 min read
+        &#8226; 3 min read
     </p>
   </header>
 
@@ -160,15 +160,74 @@
   <div>
     <p><img alt="accessibility" height="300px" src="https://miro.medium.com/max/1400/1*kxPPtGoUuY2EX41DbQMLOw.jpeg#center"></p>
 <p>Kwestia <em>dostępności</em> (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać.</p>
-<p>Podstawowe zasady:</p>
-<p>W dużym skrócie polega to na stosowaniu semantycznego HTML oraz przypisywania tagom odpowiednich im atrybutów informujących użytkownika o treści w nich zawartych w dodatkowy sposób.</p>
-<p>Należy również pamiętać o kwestii wizualnej - stosowanie odpowiedniego kontrastu (osoby niedowidzące) oraz o znacznym ograniczeniu animacji (zaburzenia neurologiczne - epilepsja).</p>
-<p>Treść strony internetowej również ma znaczenie - powinna być przekazana w możliwie najprostszy sposób.</p>
+<p>Do osób wykluczonych zaliczyć można:</p>
+<ul>
+<li>
+<p>osoby niepełnosprawne sensorycznie</p>
+</li>
+<li>
+<p>osoby niepełnosprawne manualnie</p>
+</li>
+<li>
+<p>osoby niepełnosprawne intelektualnie</p>
+</li>
+<li>
+<p>seniorów</p>
+</li>
+<li>
+<p>obcokrajowców</p>
+</li>
+<li>
+<p>osoby niezamożne</p>
+</li>
+</ul>
+<p>Podstawowym dokumentem jest <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a>, w którym określono wymogi jakie należy spełnić projektując możliwie szeroko dostępne strony internetowe.</p>
 <hr>
+<p>Podstawowe i najważniejsze zasady:</p>
+<p>Stosowanie <strong>semantycznego HTML</strong> oraz przypisywania tagom odpowiednich im atrybutów informujących użytkownika o treści w nich zawartych w dodatkowy sposób.</p>
+<p>Należy również pamiętać o kwestii wizualnej - stosowanie odpowiedniego kontrastu (osoby niedowidzące) oraz o znacznym ograniczeniu animacji (zaburzenia neurologiczne - epilepsja).</p>
+<p>Treść strony internetowej oraz jej układ również ma znaczenie - powinna być przekazana w możliwie najprostszy sposób.</p>
+<hr>
+<h4>Skrót ogólnych zasad</h4>
+<h4>Obraz</h4>
+<p>Jeśli obraz jest istotnym elementem tekstu powinien zostać dodany przy pomocy taga <code>img</code> i posiadać atrybut <code>alt</code> (tekst będący alternatywą dla obrazu - powinien opisywać to co się na nim znajduje). Obrazy będące jedynie ozdobnikami należy załączać przy pomocy CSS i <code>background</code>. </p>
+<p>::: Warto pamiętać, że animacje oraz jaskrawe kolory mogą użytkowników rozproszyć lub wywołać padaczkę. :::</p>
+<h4>Dźwięk i wideo</h4>
+<p>Nagrania różnego typu (sam dźwięk jak i wideo) powinny posiadać transkrypcje.</p>
+<p>Elementy strony sterujące odtwarzaniem dźwięku oraz obrazu winny być widoczne i łatwo dostępne, również przy pomocy klawiatury jak i czytnika.</p>
+<h3>Nawigacja i poruszanie się po stronie</h3>
+<p>Istotne jest to aby elementy posiadały opcję <strong>focusu</strong>, a przechodzenie pomiędzy kolejnymi elementami strony było dostępne z poziomu <strong>klawiatury</strong>. </p>
+<p>::: <code>Taindex</code> pozwala na nadanie wyższego priorytetu dostępności przy pomocy klawisza TAB. :::</p>
+<p>Sama nawigacja powinna być skonstruowana według jednej zasady.</p>
+<p>Odnośniki powinny być jasno oznaczone i zrozumiałe/wytłumaczone.</p>
+<p>Strona powinna posiadać możliwość powiększenia (np. przy pomocy przeglądarki) w sposób responsywny.</p>
+<h3>Konstrukcja strony</h3>
+<p>Strona winna posiadać odpowiedni <code>title</code> oraz oznaczenie języka <code>lang</code>, powinno stosować się nagłówki <code>h1-h6</code> mając na uwadzę znaczenie treści, którą reprezentują. Treść powinna być porządkowana przy pomocy <code>list</code> (klamra semantyczna). Tabele powinny posiadać wszystkie elementy (np. nagłówek) i służyć jedynie do prezentowania treści oraz danych. Formularze powinny posiadać podpisy <code>label</code>.</p>
+<h4>Barwy</h4>
+<p>Bardzo ważne jest stosowanie odpowiedniego kontrastu pomiędzy wykorzystanymi barwami tak aby miały odpowiedni kontarast</p>
+<p>patrz na narzędzie -&gt; <a href="https://webaim.org/resources/contrastchecker/">Contrast Checker</a> albo <a href="https://contrast-finder.tanaguru.com/">tanguru contrasst finder</a></p>
+<h4>Treść</h4>
+<p><code>visibility: hidden</code> oraz <code>display: none</code> nie powinny być stosowane do ukrywania dużej ilości tekstu (są ignorowane przez czytniki)</p>
+<p><code>&lt;b&gt;</code> - wyróżniamy tekst na stronie</p>
+<p><code>&lt;i&gt;</code>- wyróżnienie słowa w treści tekstu</p>
+<p><code>&lt;strong&gt;</code> - wzmocnienie znaczenia na stronie (całe zdanie)</p>
+<p><code>&lt;em&gt;</code>- wyróżnienie słowa w treści w tekście (część zdania)</p>
+<p><code>&lt;ins&gt;</code> - oznacza tekst dodany (insertion) zawierające atrybuty <code>cite</code> (metadane zmian) i <code>datatime</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;ins</span> <span class="na">cite=</span><span class="s">&quot;github.io...&quot;</span> <span class="na">datetime=</span><span class="s">&quot;2222-02-02&quot;</span><span class="nt">&gt;</span> Zaktualizowano 2020-06-26 <span class="nt">&lt;/ins&gt;</span>
+</code></pre></div>
+
+
+<p><code>&lt;del&gt;</code> - usunięcie - te same zasady co dla <code>&lt;ins&gt;</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;del</span> <span class="na">cite=</span><span class="s">&quot;github.io...&quot;</span> <span class="na">datetime=</span><span class="s">&quot;2222-02-02&quot;</span><span class="nt">&gt;</span> Zaktualizowano 2020-06-26 <span class="nt">&lt;/del&gt;</span>
+</code></pre></div>
+
+
+<p><code>&lt;s&gt;</code> - strike-through/przekreślenie - oznaczenie już niekatulanej informacji</p>
+<p><code>u</code> - underline/podkreślenie - imiona lub specjalnie wstawione w tekst błędy językowe</p>
 <hr>
 <h3>Atrybuty WAI-ARIA -&gt; Accessible Rich Internet Applications.</h3>
 <p>Standard mający na uwadzę dostępność i użyteczność stron internetowych dla tzw wykluczonych cyfrowo</p>
-<p>Poprzez przypisanie ról do poszczególnych elementów HTML współpracuje z czytnikami stron -&gt; te dzielą się na 4 kategorie <strong>abstract</strong>, <strong>widget</strong>, <strong>landmark roles</strong> i <strong>document structure roles</strong></p>
+<p>Poprzez przypisanie ról do poszczególnych elementów HTML współpracuje z czytnikami stron -&gt; te dzielą się na 4 kategorie <strong>abstract</strong>, <strong>widget</strong> (wszystko to co odpowiada za interaktywność strony), <strong>landmark roles</strong> (regiony dokumentu) i <strong>document structure roles</strong> (struktura dokumentu)</p>
 <p>Stany kontrolowane są przy pomocy JS - jednak istnieją atrybuty, które w przypadku niezaładowania JS działają w zbliżony i określony sposób np <code>aria-hidden=""</code></p>
 <table>
 <thead>
@@ -180,18 +239,24 @@
 <tbody>
 <tr>
 <td><code>&lt;div role="banner"&gt;</code></td>
-<td>Wartość 2</td>
+<td>przypisanie znaczenia np. banneru/dialogu/prezentacji/nawigacji</td>
 </tr>
 <tr>
 <td><code>aria-hidden="true"</code></td>
-<td>Wartość 5</td>
+<td>ukrycie elementu</td>
 </tr>
 <tr>
 <td><code>aria-haspopup="true"</code></td>
-<td>Wartość 8</td>
+<td>posiada okno wyskakujące</td>
+</tr>
+<tr>
+<td><code>aria-haspopup="true"</code></td>
+<td>posiada okno wyskakujące</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<p>Czytaj więcej tutaj <a href="https://silktide.com/blog/things-i-learned-by-pretending-to-be-blind-for-a-week/">Things I learned by pretending to be blind for a week</a></p>
 <hr>
 <p>Źródła:</p>
 <p><a href="http://wave.webaim.org/">WAVE (Web Accessibility Evaluation Tool)</a></p>
