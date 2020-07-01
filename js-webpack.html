@@ -55,7 +55,7 @@
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="JavaScript: Webpack - szybkie wprowadzenie"/>
+<meta property="og:title" content="JavaScript: Webpack - krótkie wprowadzenie"/>
 <meta property="og:description" content="Wstęp Webpack generuje tzw. pakiety (ang. bundles -&gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W tym sensie …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-webpack.html"/>
@@ -71,7 +71,7 @@
 <meta property="article:tag" content="transpilacja"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; JavaScript: Webpack - szybkie wprowadzenie</title>
+  <title>...z frontu &ndash; JavaScript: Webpack - krótkie wprowadzenie</title>
 
 </head>
 <body>
@@ -153,11 +153,11 @@
 <article class="single">
   <header>
       
-    <h1 id="js-webpack">JavaScript: Webpack - szybkie wprowadzenie</h1>
+    <h1 id="js-webpack">JavaScript: Webpack - krótkie wprowadzenie</h1>
     <p>
       Opublikowano pią 26 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
-        &#8226; 2 min read
+        &#8226; 4 min read
     </p>
   </header>
 
@@ -167,8 +167,10 @@
 <h3>Wstęp</h3>
 <p><em>Webpack</em> generuje tzw. pakiety (ang. bundles -&gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W  tym sensie działą podobnie do innych tzw. <em>task runnerów</em> (narzędzie do automatyzacji działań dokonywanych na plikach) jak Gulp</p>
 <p>Istotną zaletą korzystania z <em>Webpacka</em> jest to, że każdy plik jest traktowany jako moduł (obraz, css, font, js etc). (<a href="https://flaviocopes.com/commonjs/">CommonJS</a> -&gt; po stronie node.js i moduły z ES (klient) nie są dostępne dla wszystkich przeglądarek stąd potrzeba ich transpilacji)</p>
-<p>Loader - przetwarza plik (nie-js) w ten sposób by mógł być dodane do drzewa zależności (np. css loader) -  etap transpilacji</p>
+<p>Loader - przetwarza plik (nie-js) w ten sposób by mógł być dodane do drzewa zależności (np. css-loader, babel-loader, html-loader) -  etap transpilacji</p>
+<p>np. <strong>html-loader</strong> pozwala na modułowe tworzenie plików HTML (więcej na ten temat:<a href="https://stackoverflow.com/questions/39374187/how-can-i-provide-parameters-for-webpack-html-loader-interpolation">SO - How can I provide parameters for webpack html-loader interpolation?</a> )</p>
 <p>Wtyczki - różnego rodzaju wtyczki pozwalają na osiągnięcie oczekiwanego efektu np. zapisanie reguł css do osobnego pliku css/po za plik bundle.js poprzez pracę na gotowych pakietach (np. extract text plugin [wydobywa css], webpack-uglify-js-plugin[miniaturyzuje js])</p>
+<p>np. wtyczka <strong>purge-css</strong> pozbywa się nieużywanych klas CSS (więcej na ten temat: <a href="https://github.com/FullHuman/purgecss/tree/master/packages/purgecss-webpack-plugin">GH-repo purgecss-webpack-plugin</a>)</p>
 <p><a href="https://webmastah.pl/kurs-vue-js-krok-po-kroku-vue-loader/"><img alt="webpack w akcji" src="https://webmastah.pl/wp-content/uploads/2017/05/what-is-webpack-1024x512.png"></a></p>
 <hr>
 <h3>Instalacja oraz użycie WebPacka</h3>
@@ -235,13 +237,141 @@ można dodać webpacka do sekcji scripts w <code>package.json</code> przypisują
 
 
 <hr>
+<h3>Tworzenie pliku konfiguracyjnego dla Webpacka</h3>
+<p>Istnieje możliwość konfiguracji <code>Webpacka</code> przy pomocy odpowiedniego do tego utworzonego pliku = <code>webpack.config.js</code> w którym należy zawrzeć informacje na temat wtyczek oraz zadań jakie powinny zostać przez to narzędzie wykonane</p>
+<p>Prosta konfiguracja</p>
+<p>Instalacja</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">i</span> <span class="n">webpack</span><span class="mi">@4</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">npm</span> <span class="n">i</span> <span class="n">webpack</span><span class="o">-</span><span class="n">cli</span><span class="mi">@3</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+
+
+<span class="c1">// webpack.config.js</span>
+<span class="k">const</span> <span class="n">path</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="err">&#39;</span><span class="n">path</span><span class="err">&#39;</span><span class="p">);</span>     <span class="c1">// moduł node.js, który pozwala na pracę z module.exports</span>
+
+<span class="n">module</span><span class="p">.</span><span class="n">exports</span> <span class="o">=</span> <span class="p">{</span>    <span class="c1">// konfiguracja eksportu</span>
+  <span class="nl">entry</span><span class="p">:</span> <span class="err">&#39;</span><span class="p">.</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">index</span><span class="p">.</span><span class="n">js</span><span class="err">&#39;</span><span class="p">,</span>    <span class="c1">// wskazanie wejścia</span>
+  <span class="nl">output</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// wskazanie wyjścia</span>
+    <span class="nl">filename</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">main</span><span class="p">.</span><span class="n">js</span><span class="err">&#39;</span><span class="p">,</span>    <span class="c1">// podanie nazwy pliku wyjściowego</span>
+    <span class="nl">path</span><span class="p">:</span> <span class="n">path</span><span class="p">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">__dirname</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">dist</span><span class="err">&#39;</span><span class="p">),</span> <span class="c1">// moduł node.js wskazujący na ścieżkę pliku wyjściowego</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>więcej info na <a href="https://nodejs.org/docs/latest/api/path.html#path_path_resolve_paths">temat path.resolve()</a></p>
+<hr>
+<p>Tworzymy własną konfigurację w <code>webpack.config.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nv">package</span>.<span class="nv">json</span>
+<span class="o">&gt;&gt;</span> <span class="nv">wersja</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span>
+<span class="s2">&quot;</span><span class="s">scripts</span><span class="s2">&quot;</span>: {
+<span class="s2">&quot;</span><span class="s">test</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">echo \</span><span class="s2">&quot;</span><span class="nv">Error</span>: <span class="nv">no</span> <span class="nv">test</span> <span class="nv">specified</span>\<span class="s2">&quot;</span><span class="s"> &amp;&amp; exit 1</span><span class="s2">&quot;</span>,
+<span class="s2">&quot;</span><span class="s">start</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">webpack-dev-server --hot -d</span><span class="s2">&quot;</span>,     <span class="o">//</span> <span class="nv">flaga</span> <span class="o">--</span><span class="nv">hot</span> <span class="nv">pozwala</span> <span class="nv">na</span> <span class="nv">zmian</span>ę <span class="nv">modu</span>łó<span class="nv">w</span> <span class="nv">w</span> <span class="nv">trakcie</span> <span class="nv">pracy</span> <span class="nv">bez</span> <span class="nv">konieczno</span>ś<span class="nv">ci</span> <span class="nv">od</span>ś<span class="nv">wie</span>ż<span class="nv">ania</span> <span class="o">-</span><span class="nv">d</span> <span class="o">-&gt;</span> <span class="nv">debug</span>
+<span class="s2">&quot;</span><span class="s">build</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">webpack -p</span><span class="s2">&quot;</span> <span class="o">//</span> <span class="nv">webpack</span> <span class="nv">production</span> [<span class="nv">Minification</span> <span class="nv">using</span> <span class="nv">UglifyJsPlugin</span><span class="o">/</span><span class="nv">Runs</span> <span class="nv">the</span> <span class="nv">LoaderOptionsPlugin</span>]
+},
+<span class="o">=======================================</span>
+<span class="o">&gt;&gt;</span> <span class="nv">wersja</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span>
+<span class="s2">&quot;</span><span class="s">scripts</span><span class="s2">&quot;</span>: {
+<span class="s2">&quot;</span><span class="s">start</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">webpack --mode development --watch</span><span class="s2">&quot;</span>,
+<span class="s2">&quot;</span><span class="s">build</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">webpack --mode production</span><span class="s2">&quot;</span>,
+<span class="s2">&quot;</span><span class="s">server</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">webpack-dev-server --inline --hot</span><span class="s2">&quot;</span>
+},
+
+<span class="o">&gt;&gt;</span> <span class="nv">Zale</span>ż<span class="nv">no</span>ś<span class="nv">ci</span> <span class="o">&lt;&lt;</span>
+<span class="s2">&quot;</span><span class="s">devDependencies</span><span class="s2">&quot;</span>: {
+    <span class="s2">&quot;</span><span class="s">@babel/core</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">^7...</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">@babel/preset-env</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">^7...</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">babel-loader</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">^8...</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">webpack</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">^4...</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">webpack-cli</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">^3...</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">webpack-dev-server</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">^3...</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">style-loader</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">...</span><span class="s2">&quot;</span>, 
+    <span class="s2">&quot;</span><span class="s">css-loader</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">...</span><span class="s2">&quot;</span>,
+    <span class="s2">&quot;</span><span class="s">saas-loader</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">...</span><span class="s2">&quot;</span>
+  }
+</code></pre></div>
+
+
+<p>Umożliwia zastsowowanie komend -&gt; <strong>nmp start/ npm build/ npm server</strong></p>
+<p>więcej info na <a href="https://webpack.js.org/guides/production/">webpack production</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="nv">webpack</span>.<span class="nv">config</span>.<span class="nv">js</span>
+<span class="nv">const</span> <span class="nv">path</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">path</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">const</span> <span class="nv">entryPath</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">sciezka/folderu/z_plikami</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="nv">const</span> <span class="nv">entryFile</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">nazwa_pliku.js</span><span class="s2">&quot;</span><span class="c1">;</span>
+
+<span class="nv">module</span>.<span class="nv">exports</span> <span class="o">=</span> {
+  <span class="nv">watch</span>: <span class="nv">true</span>,    <span class="o">//</span> <span class="nv">obserwuj</span> <span class="nv">zmiany</span>
+  <span class="nv">entry</span>: `.<span class="o">/</span>${<span class="nv">entryPath</span>}<span class="o">/</span><span class="nv">js</span><span class="o">/</span>${<span class="nv">entryFile</span>}`,  <span class="o">//</span> <span class="nv">plik</span> <span class="nv">wej</span>ś<span class="nv">ciowy</span>
+  <span class="nv">output</span>: {   <span class="o">//</span> <span class="nv">plik</span> <span class="nv">wyj</span>ś<span class="nv">ciowy</span>
+    <span class="nv">filename</span>: <span class="s2">&quot;</span><span class="s">out.js</span><span class="s2">&quot;</span>,       <span class="o">//</span> <span class="nv">nazwa</span> <span class="nv">pliku</span> <span class="nv">wyj</span>ś<span class="nv">ciowego</span>
+    <span class="nv">path</span>: <span class="nv">path</span>.<span class="nv">resolve</span><span class="ss">(</span><span class="nv">__dirname</span>, `${<span class="nv">entryPath</span>}<span class="o">/</span><span class="nv">build</span>`<span class="ss">)</span> <span class="o">//</span> <span class="nv">folder</span> <span class="nv">wyj</span>ś<span class="nv">ciowy</span><span class="o">/</span><span class="nv">zapisu</span>
+  },
+  <span class="nv">devServer</span>: {    <span class="o">//</span> <span class="nv">tworzenie</span> <span class="nv">sewera</span> <span class="ss">(</span><span class="nv">tu</span> <span class="nv">u</span>ż<span class="nv">yta</span> <span class="nv">zale</span>ż<span class="nv">no</span>ść <span class="s2">&quot;</span><span class="s">webpack-dev-server</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">contentBase</span>: <span class="nv">path</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">__dirname</span>, `${<span class="nv">entryPath</span>}`<span class="ss">)</span>,
+    <span class="nv">publicPath</span>: <span class="s2">&quot;</span><span class="s">/build/</span><span class="s2">&quot;</span>,
+    <span class="nv">compress</span>: <span class="nv">true</span>,
+    <span class="nv">port</span>: <span class="mi">3001</span>
+  },
+  <span class="nv">module</span>: { <span class="o">//</span> <span class="nv">w</span>ł<span class="nv">a</span>ś<span class="nv">ciwo</span>ść <span class="nv">modules</span> <span class="nv">z</span> <span class="nv">przypisanymi</span> <span class="nv">obiektami</span> <span class="nv">posiadaj</span>ą<span class="nv">cymi</span> <span class="nv">w</span>ł<span class="nv">a</span>ś<span class="nv">ciwo</span>ść <span class="nv">rules</span> <span class="o">-</span> <span class="nv">te</span> <span class="nv">definiuj</span>ą <span class="nv">spos</span>ó<span class="nv">b</span> <span class="nv">pracy</span> <span class="nv">z</span> <span class="nv">r</span>óż<span class="nv">nymi</span> <span class="nv">typami</span> <span class="nv">plik</span>ó<span class="nv">w</span> <span class="ss">(</span><span class="nv">tu</span> <span class="nv">u</span>ż<span class="nv">yta</span> <span class="nv">zale</span>ż<span class="nv">no</span>ść <span class="s2">&quot;</span><span class="s">babel-loader</span><span class="s2">&quot;</span><span class="o">/</span><span class="s2">&quot;</span><span class="s">@babel/preset-env</span><span class="s2">&quot;</span><span class="o">/</span><span class="s2">&quot;</span><span class="s">@babel/core</span><span class="s2">&quot;</span><span class="ss">)</span>
+    <span class="nv">rules</span>: [
+      {
+        <span class="nv">test</span>: <span class="o">/</span>\.<span class="nv">js</span>$<span class="o">/</span>,  <span class="o">//</span> <span class="nv">zawiera</span> <span class="nv">wyra</span>ż<span class="nv">enie</span> <span class="nv">regularne</span> <span class="nv">wskazuj</span>ą<span class="nv">ce</span> <span class="nv">na</span> <span class="nv">rodzaj</span> <span class="nv">pliku</span> <span class="ss">(</span><span class="nv">rozszerzenia</span><span class="ss">)</span>, <span class="nv">kt</span>ó<span class="nv">re</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">obj</span>ę<span class="nv">te</span> <span class="nv">dzia</span>ł<span class="nv">aniem</span> <span class="nv">loadera</span>
+        <span class="nv">exclude</span>: <span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span>,    <span class="o">//</span> <span class="nv">wykluczenie</span> <span class="nv">plik</span>ó<span class="nv">w</span> <span class="nv">z</span> <span class="nv">folderu</span>..
+        <span class="nv">loader</span>: <span class="s2">&quot;</span><span class="s">babel-loader</span><span class="s2">&quot;</span>
+      },
+      {
+        <span class="nv">test</span>: <span class="o">/</span>\.<span class="nv">css</span>$<span class="o">/</span>,
+        <span class="nv">use</span>: [ <span class="s1">&#39;</span><span class="s">style-loader</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">css-loader</span><span class="s1">&#39;</span> ] <span class="o">//</span> <span class="nv">css</span><span class="o">-</span><span class="nv">loader</span> <span class="nv">importuje</span> <span class="nv">kod</span> <span class="nv">css</span> <span class="k">do</span> <span class="nv">JS</span> <span class="nv">a</span> <span class="nv">style</span><span class="o">-</span><span class="nv">loader</span> <span class="o">-</span> <span class="nv">wstrzykuje</span> <span class="nv">CSS</span> <span class="k">do</span> <span class="nv">HTML</span>
+      },
+      {
+        <span class="nv">test</span>: <span class="o">/</span>\.<span class="nv">scss</span>$<span class="o">/</span>,
+        <span class="nv">use</span>: [ <span class="s1">&#39;</span><span class="s">style-loader</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">css-loader</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">sass-loader</span><span class="s1">&#39;</span> ] <span class="o">//</span> <span class="nv">saas</span><span class="o">-</span><span class="nv">loader</span> <span class="nv">transpiluje</span> <span class="nv">saas</span> <span class="nv">na</span> <span class="nv">css</span>
+      }
+    ]
+  }
+  <span class="nv">plugins</span>: [      <span class="o">//</span> <span class="nv">wtyczki</span>
+    <span class="nv">new</span> <span class="nv">webpack</span>.<span class="nv">optimize</span>.<span class="nv">UglifyJsPlugin</span><span class="ss">(</span>{   <span class="o">//</span> <span class="nv">wskazanie</span> <span class="nv">wtyczki</span> 
+        <span class="nv">beautify</span>: <span class="nv">true</span>,     <span class="o">//</span> <span class="nv">konfiguracja</span>
+        <span class="nv">comments</span>: <span class="nv">false</span>
+    }<span class="ss">)</span>
+  ]
+}<span class="c1">;</span>
+</code></pre></div>
+
+
+<p>opcjonalnie:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[...]</span>
+      <span class="na">module: {</span>
+          <span class="na">rules: [</span>
+              <span class="na">{</span>
+                  <span class="na">test: /\.m?js$/,</span>
+                  <span class="na">exclude: /(node_modules|bower_components)/,</span>
+                  <span class="na">use: {</span>
+                      <span class="na">loader: &quot;babel-loader&quot;,</span>
+                      <span class="na">options: {</span>
+                          <span class="na">presets: [&quot;@babel/preset-env&quot;]</span>
+                      <span class="na">}</span>
+                  <span class="na">}</span>
+              <span class="na">}</span>
+          <span class="na">]</span>
+      <span class="na">}</span>
+<span class="k">[...]</span>
+</code></pre></div>
+
+
+<hr>
 <p>Źródła:</p>
 <p><a href="https://www.youtube.com/watch?v=hE2XR4TdgXg&amp;list=PLjHmWifVUNMJZZPBRtLRta-5zkc2SXDep">Webpack 3 tutorial PL by Overment</a></p>
 <p><a href="https://www.nafrontendzie.pl/podstawy-konfiguracji-webpack">Podstawy konfiguracji Webpack</a></p>
 <p><a href="https://webpack.js.org/">webpack.js.org</a></p>
 <p><a href="https://github.com/webpack/webpack">webpack-github repo</a></p>
-<p>https://stackoverflow.com/questions/35932000/zsh-command-not-found-webpack</p>
-<p>https://stackoverflow.com/questions/38788166/webpack-command-not-working</p>
+<p><a href="https://stackoverflow.com/questions/35932000/zsh-command-not-found-webpack">Zsh: command not found: webpack</a></p>
+<p><a href="https://stackoverflow.com/questions/38788166/webpack-command-not-working">webpack command not working</a></p>
+<p><a href="https://webpack.js.org/guides/getting-started/">webpack-getting started</a></p>
+<p><a href="https://webpack.js.org/configuration/">webpack-configuration</a></p>
+<p><a href="http://kursjs.pl/kurs/es6/webpack.php">Webpack i Babel</a></p>
+<p><a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-3-pluginy">Konfiguracja Webpack 2+ - część #3: pluginy</a></p>
+<p><a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-2-loadery">Konfiguracja Webpack 2+ – część #2: loadery</a></p>
+<p><a href="https://bedekodzic.pl/webpack-4/">Webpack 4 – Jak go skonfigurować i zacząć pracę?</a></p>
   </div>
   <div class="tag-cloud">
     <p>

@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="XMLHttpRequest XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle). Obecnie XHR został …" />
+<meta name="keywords" content="javascript, js, ajax, rest, XMLHttpRequest, github, github api, api">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript: XMLHttpRequest - wstęp (GET)"/>
+<meta property="og:description" content="XMLHttpRequest XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle). Obecnie XHR został …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-xhr.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-30 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="ajax"/>
+<meta property="article:tag" content="rest"/>
+<meta property="article:tag" content="XMLHttpRequest"/>
+<meta property="article:tag" content="github"/>
+<meta property="article:tag" content="github api"/>
+<meta property="article:tag" content="api"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript: XMLHttpRequest - wstęp (GET)</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-xhr">JavaScript: XMLHttpRequest - wstęp (GET)</h1>
+    <p>
+      Opublikowano wto 30 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"></p>
+<h3>XMLHttpRequest</h3>
+<p>XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem
+i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle).</p>
+<p>Obecnie XHR został zastąpiony Fetch API.</p>
+<hr>
+<h3>Wysyłanie żądania nastawione na odbiór danych</h3>
+<p>W pierwszej kolejności należy utworzyć obiekt XMLHttpRequest() odwołując się do notacji konstruktora typu XHR</p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+</code></pre></div>
+
+
+<p>Zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">seekUser</span><span class="p">()</span> <span class="err">{</span>
+    <span class="n">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+    <span class="p">[.........]</span>
+    <span class="err">}</span>
+</code></pre></div>
+
+
+<p>A następnie zdefiniować połączenie za pomocą metody <code>open()</code> przygotowującej żadanie i przyjmującej 3 atrybuty 1) typ (połączenia -get, post, put, patch, delete), 2) url (adres) obsługujący żądanie, 3) definicję rodzaju połączenia (synchroniczne/false lub asynchroniczne/true)</p>
+<div class="highlight"><pre><span></span><code>xhr.open(&#39;GET&#39;,`https://api.github.com/users/<span class="cp">${</span><span class="n">inputTxt</span><span class="o">.</span><span class="n">value</span><span class="cp">}</span>`, true);
+</code></pre></div>
+
+
+<p>Konfigurację należy zakończyć metodą <code>send()</code> -&gt; xhr.send(), która wysyła żądanie połączenia z serwerem, gdy dane nie są wysyłane (np. GET) wówczas argument domyślnie jest <code>null</code> / można również taką wartość wpisać, w przypadku wysyłania danych (POST) treść danych znajdzie się zamknięta pomiędzy nawiasami</p>
+<div class="highlight"><pre><span></span><code><span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span>
+</code></pre></div>
+
+
+<p>Zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
+    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+    [......]
+    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
+}
+</code></pre></div>
+
+
+<hr>
+<h3>Oczekiwanie</h3>
+<p>Oczekiwanie na informację zwrotną może trwać mniej lub więcej czasu, ale informacja zwrotna nie jest dostępna natychmiast</p>
+<p>Po przesłaniu zapytania wywołana zostaje zdarzenie <code>onload</code> (w trakcie ładowania), do którego jest przypisana funkcja anonimowa odpowiedzialna za reakcję na zwróconą informację.</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">()</span> {
+        <span class="k">if</span><span class="ss">(</span><span class="nv">this</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">200</span><span class="ss">)</span> {...
+    }
+</code></pre></div>
+
+
+<p>Istotnymi zdarzeniami są <code>load</code> (połączenie zakończone pozytywnie, zostały dane zwrócone), <code>error</code> (błąd w połączeniu), <code>progress</code> (połączenie trwa) + <strong>abort</strong>(anulowanie połączenia) <strong>timeout</strong>(przekroczenie czasu połączenia) <strong>loadstart/loadend</strong>(rozpoczęcie/zakończenie połączenia)</p>
+<p>Zwrócone dane z serwera nie koniecznie muszą oznaczać jednoznacznie pozytywny wynik -&gt; może zostać zwrócony status błędu 404(brak strony), 500(błąd serwisu), 401(forbidden), stąd walidacje. W przypadku zwrócenia danych o które zapytano status połączenia powinien wynosić <strong>200</strong>. Praktykowana jest prosta walidacja oparta na <strong>if</strong></p>
+<p>Zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nv">gdzie</span> ${<span class="nv">inputTxt</span>.<span class="nv">value</span>} <span class="nv">nazwa</span> <span class="nv">u</span>ż<span class="nv">ytkownika</span> <span class="nv">np</span>. <span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span><span class="nv">kostyrko</span>
+
+<span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
+    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">()</span> {
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">200</span><span class="ss">)</span> {
+        [...]
+        }
+    }
+    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
+}
+</code></pre></div>
+
+
+<p>Oczekując na odpowiedź można skorzystać z typu odpowiedzi metod <code>onreadystatechange</code> (wyłapuje kiedy <em>readyState</em> ulega zmianie) i <code>readyState</code>, która wskazuje na stan przesyłania danych/komunikacji z serwerem - gdzie:</p>
+<ul>
+<li>0 - oznacza zapytanie niewysłane (open() nie zostało wywołane)</li>
+<li>1 - oznacza zapytanie wysłane (open() zostało wywołane)</li>
+<li>2 - nagłówki zostały odebrane (send() zostało wywołane, są dostępne taka samo jak status połączenia)</li>
+<li>3 - trwa pobieranie odpowiedzi (responseText - zawiera częściowe informacje),</li>
+<li>4 - Operacja została zakończona</li>
+</ul>
+<p>Zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
+    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">xhr</span>.<span class="nv">onreadystatechange</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">200</span><span class="s1">&#39;</span><span class="ss">)</span> {
+            [....]
+    }
+    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
+}
+</code></pre></div>
+
+
+<hr>
+<h3>Odpowiedź</h3>
+<p>Jeśli load dokona się z sukcesem (dojdzie do połączenia z serwerem) wówczas możemy wykorzystać istniejące metody obiektu <strong>xml</strong>:</p>
+<ul>
+<li><strong>response</strong> - treść odpowiedzi (na ogół w formie tekstowej)</li>
+<li><strong>responseText</strong> - zwraca odpowiedź jako tekst</li>
+<li><strong>responseXML</strong> - - zwraca odpowiedź jako XML</li>
+<li><strong>status</strong> - status połączenia</li>
+<li><strong>statusText</strong> - status połączenia w formie tekstowej</li>
+</ul>
+<p>Treść odpowiedzi w formie tekstowej pozwala np. na konwersję do postaci JSON (<strong>JSON.parse</strong>) </p>
+<p>Zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
+    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">()</span> {
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">200</span><span class="ss">)</span> {
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">typeof</span> <span class="nv">xhr</span>.<span class="nv">response</span><span class="ss">)</span><span class="c1">; // &gt;&gt; string</span>
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">response</span><span class="ss">)</span><span class="c1">; // &lt;dane&gt;</span>
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">typeof</span> <span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">; // &gt;&gt; string</span>
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">((</span><span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">))</span>.<span class="nv">email</span><span class="ss">)</span><span class="c1">; // &lt;email&gt;</span>
+        }
+    }
+    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
+}
+</code></pre></div>
+
+
+<hr>
+<h4>Przykład zastosowania na podstawie GitHub API</h4>
+<script src="https://gist.github.com/kostyrko/fa29df00eba1d3a044323150214c73e1.js"></script>
+
+<hr>
+<p>Źródła:</p>
+<p>Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.</p>
+<p><a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php">kursjs.pl</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">MDN-Using XMLHttpRequest</a></p>
+<p><a href="https://attacomsian.com/blog/http-requests-xhr#">How to make HTTP requests using XMLHttpRequest (XHR)</a></p>
+<p><a href="http://www.medien.ifi.lmu.de/lehre/ws1920/omm/uebung/folien/OMM-02-AJAX.pdf">Online Multimedia Tutorial 02 – AJAX, Ludwig-Maximilians-Universität München</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/ajax.html">ajax</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/rest.html">rest</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/xmlhttprequest.html">XMLHttpRequest</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/github.html">github</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/github-api.html">github api</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/api.html">api</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html">JavaScript: asynchroniczność i AJAX</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

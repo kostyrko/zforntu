@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - patrz wikipedia) pozwala na różne ścieżki rozwoju przygotowywanego &#34;produktu&#34; i najbardziej ogólnie można ująć tą kwestię stwierdzając …" />
+<meta name="keywords" content="git, branch, gałąź, github, git-hub, commit, system kontroli wersji, dev">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Git - tworzenie gałęzi (branch) i angaż (commit)"/>
+<meta property="og:description" content="System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - patrz wikipedia) pozwala na różne ścieżki rozwoju przygotowywanego &#34;produktu&#34; i najbardziej ogólnie można ująć tą kwestię stwierdzając …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/git-galezie.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-07-01 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="git"/>
+<meta property="article:tag" content="git"/>
+<meta property="article:tag" content="branch"/>
+<meta property="article:tag" content="gałąź"/>
+<meta property="article:tag" content="github"/>
+<meta property="article:tag" content="git-hub"/>
+<meta property="article:tag" content="commit"/>
+<meta property="article:tag" content="system kontroli wersji"/>
+<meta property="article:tag" content="dev"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Git - tworzenie gałęzi (branch) i angaż (commit)</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="git-galezie">Git - tworzenie gałęzi (branch) i angaż (commit)</h1>
+    <p>
+      Opublikowano śro 01 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/git.html">git</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"></p>
+<p>System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - <a href="https://en.wikipedia.org/wiki/Git_(slang)">patrz wikipedia</a>) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając, że może być ona liniowa (rozwój odbywa się na jedynej gałęzi (Master/<strong>Main</strong>)) jak i nieliniowa (oparta na równoległych gałęziach pobocznych tzw. niewolniczych(slave) lub też <strong>secondary)</strong>. To właśnie ta druga historia rozwoju jest przedmiotem tego wpisu</p>
+<hr>
+<h3>Metadane</h3>
+<p>Pokaż wszystkie gałęzie</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">a</span>
+</code></pre></div>
+
+
+<p>Wynik pokazuje te lokalne oraz remotes (-a -&gt; all, jeśli mają być jedynie remotes to wówczas flaga -r)</p>
+<p>Jeśli chcemy zobaczyć dokonane commity należy wpisać</p>
+<div class="highlight"><pre><span></span><code><span class="nv">git</span> <span class="k">show</span><span class="o">-</span><span class="nv">branch</span>
+</code></pre></div>
+
+
+<p>W wyniku tego widzimy wiadomości powiązane z commitami oraz w jakich gałęziach się one znalazły</p>
+<hr>
+<h3>Trawersowanie</h3>
+<p>Jeśli chcemy przełączyć się na wybraną gałąź należy wpisać</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p>Przykładowo</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Tworzenie</h3>
+<p>Jeśli checmy stworzyć nową gałąź i się na nią również przełączyć to należy wpisać</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">głęzi</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p>np.</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">issue_1</span><span class="p">.</span><span class="mi">7</span>
+</code></pre></div>
+
+
+<p>Jeśli chcemy stworzyć gałąź z konkretnej gałęzi wówczas należy ją wskazać po nazwie nowej gałęzi</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">nowej</span> <span class="n">gałęzi</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span><span class="p">,</span> <span class="n">której</span> <span class="n">ma</span> <span class="n">wychodzić</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p>Przykładowo</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">issue_1</span><span class="p">.</span><span class="mi">7</span> <span class="n">dev</span>
+</code></pre></div>
+
+
+<p>Następnie</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">&lt;</span> <span class="n">nazwa</span> <span class="n">nowej</span> <span class="n">gałęzi</span> <span class="o">&gt;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Usuwanie</h3>
+<p>Usuwanie gałęzi</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="c1">--delete &lt;nazwa gałęzi&gt;</span>
+</code></pre></div>
+
+
+<p>Przykładowo</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="c1">--delete issue_1.5</span>
+</code></pre></div>
+
+
+<p>lub jeśli jedynie lokalnie (wcześniej należy przełączyć się na inną gałąź)</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span><span class="o">&gt;</span>
+
+<span class="n">lub</span>
+
+<span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">D</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span><span class="o">&gt;</span> <span class="o">//</span> <span class="n">jeśli</span> <span class="n">zachodzą</span> <span class="n">pojawiają</span> <span class="n">się</span> <span class="n">ostrzeżenia</span> <span class="n">ale</span> <span class="n">jesteśmy</span> <span class="n">pewnie</span> <span class="n">swojej</span> <span class="n">decyzji</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">Deleted</span> <span class="n">branch</span> <span class="n">issue_1</span><span class="p">.</span><span class="mi">5</span> <span class="p">(</span><span class="n">was</span> <span class="mi">9</span><span class="n">ef25f3</span><span class="p">).</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Angażowanie</h3>
+<p>Faza przejściowa =&gt; stage oraz komitowanie</p>
+<p>-m -&gt; --message/wiadomość
+-a -&gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )</p>
+<p>więcej wyjaśnieni skrótów można znaleźć w <a href="https://explainshell.com/explain/1/git-commit">explainshell</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;treść wiadomości&#39;</span>
+</code></pre></div>
+
+
+<p>alternatywnie można skorzystać z komendy</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
+</code></pre></div>
+
+
+<p>Spowoduje, że pliki, które do tej pory były edytowane (zawierają zmiany) trafią do stadium przejściowego (ich zmiana jest zauważona i odnotowana lokalnie) i wymagają wypchnięcia do remote repo jeśli mają być widoczne dla innych. Można tego dokonać poprzez...</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span> <span class="ss">&quot;treść wiadomości&quot;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Wizualizacja gałęzi</h3>
+<p>Wizualizacja repo przy pomocy git-grafu</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="n">log</span> <span class="c1">--all --decorate --oneline --graph</span>
+</code></pre></div>
+
+
+<p><img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"></p>
+<hr>
+<p>Źródła:</p>
+<p><a href="http://blog.pjuskiewicz.com/2019/01/26/git-branch/">Git-Branch</a></p>
+<p><a href="https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx">Easily rename your Git default branch from master to main</a></p>
+<p>https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs</p>
+<p>https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/git.html">git</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/branch.html">branch</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/galaz.html">gałąź</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/github.html">github</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/git-hub.html">git-hub</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/commit.html">commit</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/system-kontroli-wersji.html">system kontroli wersji</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/dev.html">dev</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/git-gitignore.html">.gitignore</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html">Git - cofanie commita w VSC</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

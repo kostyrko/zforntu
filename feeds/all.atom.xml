@@ -1,12 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-26T11:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript: Webpack - szybkie wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/js-webpack.html" rel="alternate"></link><published>2020-06-26T11:00:00+02:00</published><updated>2020-06-26T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-26:/zfrontu/js-webpack.html</id><summary type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-01T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - tworzenie gałęzi (branch) i angaż (commit)</title><link href="https://kostyrko.github.io/zfrontu/git-galezie.html" rel="alternate"></link><published>2020-07-01T10:00:00+02:00</published><updated>2020-07-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-01:/zfrontu/git-galezie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając, że może być ona liniowa (rozwój odbywa się na jedynej gałęzi (Master/&lt;strong&gt;Main&lt;/strong&gt;)) jak i nieliniowa (oparta na równoległych gałęziach pobocznych tzw. niewolniczych(slave) lub też &lt;strong&gt;secondary)&lt;/strong&gt;. To właśnie ta druga historia rozwoju jest przedmiotem tego wpisu&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Metadane&lt;/h3&gt;
+&lt;p&gt;Pokaż wszystkie gałęzie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wynik pokazuje te lokalne oraz remotes (-a -&amp;gt; all, jeśli mają być jedynie remotes to wówczas flaga -r)&lt;/p&gt;
+&lt;p&gt;Jeśli chcemy zobaczyć dokonane commity należy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;branch&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W wyniku tego widzimy wiadomości powiązane z commitami oraz w jakich gałęziach się one znalazły&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Trawersowanie&lt;/h3&gt;
+&lt;p&gt;Jeśli chcemy przełączyć się na wybraną gałąź należy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Tworzenie&lt;/h3&gt;
+&lt;p&gt;Jeśli checmy stworzyć nową gałąź i się na nią również przełączyć to należy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;głęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jeśli chcemy stworzyć gałąź z konkretnej gałęzi wówczas należy ją wskazać po nazwie nowej gałęzi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;której&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;wychodzić&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Usuwanie&lt;/h3&gt;
+&lt;p&gt;Usuwanie gałęzi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="c1"&gt;--delete &amp;lt;nazwa gałęzi&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="c1"&gt;--delete issue_1.5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lub jeśli jedynie lokalnie (wcześniej należy przełączyć się na inną gałąź)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;lub&lt;/span&gt;
+
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;jeśli&lt;/span&gt; &lt;span class="n"&gt;zachodzą&lt;/span&gt; &lt;span class="n"&gt;pojawiają&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;ostrzeżenia&lt;/span&gt; &lt;span class="n"&gt;ale&lt;/span&gt; &lt;span class="n"&gt;jesteśmy&lt;/span&gt; &lt;span class="n"&gt;pewnie&lt;/span&gt; &lt;span class="n"&gt;swojej&lt;/span&gt; &lt;span class="n"&gt;decyzji&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Deleted&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="n"&gt;ef25f3&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Angażowanie&lt;/h3&gt;
+&lt;p&gt;Faza przejściowa =&amp;gt; stage oraz komitowanie&lt;/p&gt;
+&lt;p&gt;-m -&amp;gt; --message/wiadomość
+-a -&amp;gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )&lt;/p&gt;
+&lt;p&gt;więcej wyjaśnieni skrótów można znaleźć w &lt;a href="https://explainshell.com/explain/1/git-commit"&gt;explainshell&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;alternatywnie można skorzystać z komendy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Spowoduje, że pliki, które do tej pory były edytowane (zawierają zmiany) trafią do stadium przejściowego (ich zmiana jest zauważona i odnotowana lokalnie) i wymagają wypchnięcia do remote repo jeśli mają być widoczne dla innych. Można tego dokonać poprzez...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;treść wiadomości&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Wizualizacja gałęzi&lt;/h3&gt;
+&lt;p&gt;Wizualizacja repo przy pomocy git-grafu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="c1"&gt;--all --decorate --oneline --graph&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.pjuskiewicz.com/2019/01/26/git-branch/"&gt;Git-Branch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx"&gt;Easily rename your Git default branch from master to main&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="branch"></category><category term="gałąź"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category><category term="dev"></category></entry><entry><title>JavaScript: XMLHttpRequest - wstęp (GET)</title><link href="https://kostyrko.github.io/zfrontu/js-xhr.html" rel="alternate"></link><published>2020-06-30T10:00:00+02:00</published><updated>2020-06-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-30:/zfrontu/js-xhr.html</id><summary type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;XMLHttpRequest&lt;/h3&gt;
+&lt;p&gt;XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem
+i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle).&lt;/p&gt;
+&lt;p&gt;Obecnie XHR został …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;XMLHttpRequest&lt;/h3&gt;
+&lt;p&gt;XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem
+i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle).&lt;/p&gt;
+&lt;p&gt;Obecnie XHR został zastąpiony Fetch API.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Wysyłanie żądania nastawione na odbiór danych&lt;/h3&gt;
+&lt;p&gt;W pierwszej kolejności należy utworzyć obiekt XMLHttpRequest() odwołując się do notacji konstruktora typu XHR&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;seekUser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;[.........]&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A następnie zdefiniować połączenie za pomocą metody &lt;code&gt;open()&lt;/code&gt; przygotowującej żadanie i przyjmującej 3 atrybuty 1) typ (połączenia -get, post, put, patch, delete), 2) url (adres) obsługujący żądanie, 3) definicję rodzaju połączenia (synchroniczne/false lub asynchroniczne/true)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;xhr.open(&amp;#39;GET&amp;#39;,`https://api.github.com/users/&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;inputTxt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`, true);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Konfigurację należy zakończyć metodą &lt;code&gt;send()&lt;/code&gt; -&amp;gt; xhr.send(), która wysyła żądanie połączenia z serwerem, gdy dane nie są wysyłane (np. GET) wówczas argument domyślnie jest &lt;code&gt;null&lt;/code&gt; / można również taką wartość wpisać, w przypadku wysyłania danych (POST) treść danych znajdzie się zamknięta pomiędzy nawiasami&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;seekUser&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;GET&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, `&lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;.&lt;span class="nv"&gt;github&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;${&lt;span class="nv"&gt;inputTxt&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;}`, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    [......]
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Oczekiwanie&lt;/h3&gt;
+&lt;p&gt;Oczekiwanie na informację zwrotną może trwać mniej lub więcej czasu, ale informacja zwrotna nie jest dostępna natychmiast&lt;/p&gt;
+&lt;p&gt;Po przesłaniu zapytania wywołana zostaje zdarzenie &lt;code&gt;onload&lt;/code&gt; (w trakcie ładowania), do którego jest przypisana funkcja anonimowa odpowiedzialna za reakcję na zwróconą informację.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {...
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Istotnymi zdarzeniami są &lt;code&gt;load&lt;/code&gt; (połączenie zakończone pozytywnie, zostały dane zwrócone), &lt;code&gt;error&lt;/code&gt; (błąd w połączeniu), &lt;code&gt;progress&lt;/code&gt; (połączenie trwa) + &lt;strong&gt;abort&lt;/strong&gt;(anulowanie połączenia) &lt;strong&gt;timeout&lt;/strong&gt;(przekroczenie czasu połączenia) &lt;strong&gt;loadstart/loadend&lt;/strong&gt;(rozpoczęcie/zakończenie połączenia)&lt;/p&gt;
+&lt;p&gt;Zwrócone dane z serwera nie koniecznie muszą oznaczać jednoznacznie pozytywny wynik -&amp;gt; może zostać zwrócony status błędu 404(brak strony), 500(błąd serwisu), 401(forbidden), stąd walidacje. W przypadku zwrócenia danych o które zapytano status połączenia powinien wynosić &lt;strong&gt;200&lt;/strong&gt;. Praktykowana jest prosta walidacja oparta na &lt;strong&gt;if&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;gdzie&lt;/span&gt; ${&lt;span class="nv"&gt;inputTxt&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;} &lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;u&lt;/span&gt;ż&lt;span class="nv"&gt;ytkownika&lt;/span&gt; &lt;span class="nv"&gt;np&lt;/span&gt;. &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;.&lt;span class="nv"&gt;github&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;kostyrko&lt;/span&gt;
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;seekUser&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;GET&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, `&lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;.&lt;span class="nv"&gt;github&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;${&lt;span class="nv"&gt;inputTxt&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;}`, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        [...]
+        }
+    }
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Oczekując na odpowiedź można skorzystać z typu odpowiedzi metod &lt;code&gt;onreadystatechange&lt;/code&gt; (wyłapuje kiedy &lt;em&gt;readyState&lt;/em&gt; ulega zmianie) i &lt;code&gt;readyState&lt;/code&gt;, która wskazuje na stan przesyłania danych/komunikacji z serwerem - gdzie:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0 - oznacza zapytanie niewysłane (open() nie zostało wywołane)&lt;/li&gt;
+&lt;li&gt;1 - oznacza zapytanie wysłane (open() zostało wywołane)&lt;/li&gt;
+&lt;li&gt;2 - nagłówki zostały odebrane (send() zostało wywołane, są dostępne taka samo jak status połączenia)&lt;/li&gt;
+&lt;li&gt;3 - trwa pobieranie odpowiedzi (responseText - zawiera częściowe informacje),&lt;/li&gt;
+&lt;li&gt;4 - Operacja została zakończona&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;seekUser&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;GET&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, `&lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;.&lt;span class="nv"&gt;github&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;${&lt;span class="nv"&gt;inputTxt&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;}`, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onreadystatechange&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;200&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            [....]
+    }
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Odpowiedź&lt;/h3&gt;
+&lt;p&gt;Jeśli load dokona się z sukcesem (dojdzie do połączenia z serwerem) wówczas możemy wykorzystać istniejące metody obiektu &lt;strong&gt;xml&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;response&lt;/strong&gt; - treść odpowiedzi (na ogół w formie tekstowej)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;responseText&lt;/strong&gt; - zwraca odpowiedź jako tekst&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;responseXML&lt;/strong&gt; - - zwraca odpowiedź jako XML&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;status&lt;/strong&gt; - status połączenia&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;statusText&lt;/strong&gt; - status połączenia w formie tekstowej&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Treść odpowiedzi w formie tekstowej pozwala np. na konwersję do postaci JSON (&lt;strong&gt;JSON.parse&lt;/strong&gt;) &lt;/p&gt;
+&lt;p&gt;Zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;seekUser&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;GET&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, `&lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;.&lt;span class="nv"&gt;github&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;${&lt;span class="nv"&gt;inputTxt&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;}`, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;response&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // &amp;gt;&amp;gt; string&lt;/span&gt;
+        &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;response&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // &amp;lt;dane&amp;gt;&lt;/span&gt;
+        &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // &amp;gt;&amp;gt; string&lt;/span&gt;
+        &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;email&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // &amp;lt;email&amp;gt;&lt;/span&gt;
+        }
+    }
+    &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Przykład zastosowania na podstawie GitHub API&lt;/h4&gt;
+&lt;script src="https://gist.github.com/kostyrko/fa29df00eba1d3a044323150214c73e1.js"&gt;&lt;/script&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php"&gt;kursjs.pl&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest"&gt;MDN-Using XMLHttpRequest&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://attacomsian.com/blog/http-requests-xhr#"&gt;How to make HTTP requests using XMLHttpRequest (XHR)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.medien.ifi.lmu.de/lehre/ws1920/omm/uebung/folien/OMM-02-AJAX.pdf"&gt;Online Multimedia Tutorial 02 – AJAX, Ludwig-Maximilians-Universität München&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="github"></category><category term="github api"></category><category term="api"></category></entry><entry><title>JavaScript: Webpack - krótkie wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/js-webpack.html" rel="alternate"></link><published>2020-06-26T11:00:00+02:00</published><updated>2020-06-26T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-26:/zfrontu/js-webpack.html</id><summary type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Webpack&lt;/em&gt; generuje tzw. pakiety (ang. bundles -&amp;gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W  tym sensie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Webpack&lt;/em&gt; generuje tzw. pakiety (ang. bundles -&amp;gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W  tym sensie działą podobnie do innych tzw. &lt;em&gt;task runnerów&lt;/em&gt; (narzędzie do automatyzacji działań dokonywanych na plikach) jak Gulp&lt;/p&gt;
 &lt;p&gt;Istotną zaletą korzystania z &lt;em&gt;Webpacka&lt;/em&gt; jest to, że każdy plik jest traktowany jako moduł (obraz, css, font, js etc). (&lt;a href="https://flaviocopes.com/commonjs/"&gt;CommonJS&lt;/a&gt; -&amp;gt; po stronie node.js i moduły z ES (klient) nie są dostępne dla wszystkich przeglądarek stąd potrzeba ich transpilacji)&lt;/p&gt;
-&lt;p&gt;Loader - przetwarza plik (nie-js) w ten sposób by mógł być dodane do drzewa zależności (np. css loader) -  etap transpilacji&lt;/p&gt;
+&lt;p&gt;Loader - przetwarza plik (nie-js) w ten sposób by mógł być dodane do drzewa zależności (np. css-loader, babel-loader, html-loader) -  etap transpilacji&lt;/p&gt;
+&lt;p&gt;np. &lt;strong&gt;html-loader&lt;/strong&gt; pozwala na modułowe tworzenie plików HTML (więcej na ten temat:&lt;a href="https://stackoverflow.com/questions/39374187/how-can-i-provide-parameters-for-webpack-html-loader-interpolation"&gt;SO - How can I provide parameters for webpack html-loader interpolation?&lt;/a&gt; )&lt;/p&gt;
 &lt;p&gt;Wtyczki - różnego rodzaju wtyczki pozwalają na osiągnięcie oczekiwanego efektu np. zapisanie reguł css do osobnego pliku css/po za plik bundle.js poprzez pracę na gotowych pakietach (np. extract text plugin [wydobywa css], webpack-uglify-js-plugin[miniaturyzuje js])&lt;/p&gt;
+&lt;p&gt;np. wtyczka &lt;strong&gt;purge-css&lt;/strong&gt; pozbywa się nieużywanych klas CSS (więcej na ten temat: &lt;a href="https://github.com/FullHuman/purgecss/tree/master/packages/purgecss-webpack-plugin"&gt;GH-repo purgecss-webpack-plugin&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://webmastah.pl/kurs-vue-js-krok-po-kroku-vue-loader/"&gt;&lt;img alt="webpack w akcji" src="https://webmastah.pl/wp-content/uploads/2017/05/what-is-webpack-1024x512.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Instalacja oraz użycie WebPacka&lt;/h3&gt;
@@ -73,13 +318,141 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 
 
 &lt;hr&gt;
+&lt;h3&gt;Tworzenie pliku konfiguracyjnego dla Webpacka&lt;/h3&gt;
+&lt;p&gt;Istnieje możliwość konfiguracji &lt;code&gt;Webpacka&lt;/code&gt; przy pomocy odpowiedniego do tego utworzonego pliku = &lt;code&gt;webpack.config.js&lt;/code&gt; w którym należy zawrzeć informacje na temat wtyczek oraz zadań jakie powinny zostać przez to narzędzie wykonane&lt;/p&gt;
+&lt;p&gt;Prosta konfiguracja&lt;/p&gt;
+&lt;p&gt;Instalacja&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;webpack&lt;/span&gt;&lt;span class="mi"&gt;@4&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;webpack&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt;&lt;span class="mi"&gt;@3&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;// webpack.config.js&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;     &lt;span class="c1"&gt;// moduł node.js, który pozwala na pracę z module.exports&lt;/span&gt;
+
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;    &lt;span class="c1"&gt;// konfiguracja eksportu&lt;/span&gt;
+  &lt;span class="nl"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;    &lt;span class="c1"&gt;// wskazanie wejścia&lt;/span&gt;
+  &lt;span class="nl"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;     &lt;span class="c1"&gt;// wskazanie wyjścia&lt;/span&gt;
+    &lt;span class="nl"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;    &lt;span class="c1"&gt;// podanie nazwy pliku wyjściowego&lt;/span&gt;
+    &lt;span class="nl"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resolve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__dirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="c1"&gt;// moduł node.js wskazujący na ścieżkę pliku wyjściowego&lt;/span&gt;
+  &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;więcej info na &lt;a href="https://nodejs.org/docs/latest/api/path.html#path_path_resolve_paths"&gt;temat path.resolve()&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Tworzymy własną konfigurację w &lt;code&gt;webpack.config.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;package&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;wersja&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;scripts&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: {
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;test&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;echo \&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;Error&lt;/span&gt;: &lt;span class="nv"&gt;no&lt;/span&gt; &lt;span class="nv"&gt;test&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;\&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &amp;amp;&amp;amp; exit 1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;start&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack-dev-server --hot -d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,     &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;flaga&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;hot&lt;/span&gt; &lt;span class="nv"&gt;pozwala&lt;/span&gt; &lt;span class="nv"&gt;na&lt;/span&gt; &lt;span class="nv"&gt;zmian&lt;/span&gt;ę &lt;span class="nv"&gt;modu&lt;/span&gt;łó&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;trakcie&lt;/span&gt; &lt;span class="nv"&gt;pracy&lt;/span&gt; &lt;span class="nv"&gt;bez&lt;/span&gt; &lt;span class="nv"&gt;konieczno&lt;/span&gt;ś&lt;span class="nv"&gt;ci&lt;/span&gt; &lt;span class="nv"&gt;od&lt;/span&gt;ś&lt;span class="nv"&gt;wie&lt;/span&gt;ż&lt;span class="nv"&gt;ania&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;debug&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;build&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack -p&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;webpack&lt;/span&gt; &lt;span class="nv"&gt;production&lt;/span&gt; [&lt;span class="nv"&gt;Minification&lt;/span&gt; &lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;UglifyJsPlugin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;Runs&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;LoaderOptionsPlugin&lt;/span&gt;]
+},
+&lt;span class="o"&gt;=======================================&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;wersja&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;scripts&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: {
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;start&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack --mode development --watch&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;build&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack --mode production&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;server&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack-dev-server --inline --hot&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+},
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;Zale&lt;/span&gt;ż&lt;span class="nv"&gt;no&lt;/span&gt;ś&lt;span class="nv"&gt;ci&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;devDependencies&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: {
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;@babel/core&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;^7...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;@babel/preset-env&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;^7...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;babel-loader&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;^8...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;^4...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack-cli&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;^3...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack-dev-server&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;^3...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;style-loader&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, 
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;css-loader&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;saas-loader&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Umożliwia zastsowowanie komend -&amp;gt; &lt;strong&gt;nmp start/ npm build/ npm server&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;więcej info na &lt;a href="https://webpack.js.org/guides/production/"&gt;webpack production&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;webpack&lt;/span&gt;.&lt;span class="nv"&gt;config&lt;/span&gt;.&lt;span class="nv"&gt;js&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;path&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;entryPath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;sciezka/folderu/z_plikami&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;entryFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;nazwa_pliku.js&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
+  &lt;span class="nv"&gt;watch&lt;/span&gt;: &lt;span class="nv"&gt;true&lt;/span&gt;,    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;obserwuj&lt;/span&gt; &lt;span class="nv"&gt;zmiany&lt;/span&gt;
+  &lt;span class="nv"&gt;entry&lt;/span&gt;: `.&lt;span class="o"&gt;/&lt;/span&gt;${&lt;span class="nv"&gt;entryPath&lt;/span&gt;}&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;js&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;${&lt;span class="nv"&gt;entryFile&lt;/span&gt;}`,  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;plik&lt;/span&gt; &lt;span class="nv"&gt;wej&lt;/span&gt;ś&lt;span class="nv"&gt;ciowy&lt;/span&gt;
+  &lt;span class="nv"&gt;output&lt;/span&gt;: {   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;plik&lt;/span&gt; &lt;span class="nv"&gt;wyj&lt;/span&gt;ś&lt;span class="nv"&gt;ciowy&lt;/span&gt;
+    &lt;span class="nv"&gt;filename&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;out.js&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,       &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;pliku&lt;/span&gt; &lt;span class="nv"&gt;wyj&lt;/span&gt;ś&lt;span class="nv"&gt;ciowego&lt;/span&gt;
+    &lt;span class="nv"&gt;path&lt;/span&gt;: &lt;span class="nv"&gt;path&lt;/span&gt;.&lt;span class="nv"&gt;resolve&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;__dirname&lt;/span&gt;, `${&lt;span class="nv"&gt;entryPath&lt;/span&gt;}&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;build&lt;/span&gt;`&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;folder&lt;/span&gt; &lt;span class="nv"&gt;wyj&lt;/span&gt;ś&lt;span class="nv"&gt;ciowy&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;zapisu&lt;/span&gt;
+  },
+  &lt;span class="nv"&gt;devServer&lt;/span&gt;: {    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;tworzenie&lt;/span&gt; &lt;span class="nv"&gt;sewera&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;tu&lt;/span&gt; &lt;span class="nv"&gt;u&lt;/span&gt;ż&lt;span class="nv"&gt;yta&lt;/span&gt; &lt;span class="nv"&gt;zale&lt;/span&gt;ż&lt;span class="nv"&gt;no&lt;/span&gt;ść &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;webpack-dev-server&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    &lt;span class="nv"&gt;contentBase&lt;/span&gt;: &lt;span class="nv"&gt;path&lt;/span&gt;.&lt;span class="nv"&gt;join&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;__dirname&lt;/span&gt;, `${&lt;span class="nv"&gt;entryPath&lt;/span&gt;}`&lt;span class="ss"&gt;)&lt;/span&gt;,
+    &lt;span class="nv"&gt;publicPath&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;/build/&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="nv"&gt;compress&lt;/span&gt;: &lt;span class="nv"&gt;true&lt;/span&gt;,
+    &lt;span class="nv"&gt;port&lt;/span&gt;: &lt;span class="mi"&gt;3001&lt;/span&gt;
+  },
+  &lt;span class="nv"&gt;module&lt;/span&gt;: { &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt;ł&lt;span class="nv"&gt;a&lt;/span&gt;ś&lt;span class="nv"&gt;ciwo&lt;/span&gt;ść &lt;span class="nv"&gt;modules&lt;/span&gt; &lt;span class="nv"&gt;z&lt;/span&gt; &lt;span class="nv"&gt;przypisanymi&lt;/span&gt; &lt;span class="nv"&gt;obiektami&lt;/span&gt; &lt;span class="nv"&gt;posiadaj&lt;/span&gt;ą&lt;span class="nv"&gt;cymi&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt;ł&lt;span class="nv"&gt;a&lt;/span&gt;ś&lt;span class="nv"&gt;ciwo&lt;/span&gt;ść &lt;span class="nv"&gt;rules&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;te&lt;/span&gt; &lt;span class="nv"&gt;definiuj&lt;/span&gt;ą &lt;span class="nv"&gt;spos&lt;/span&gt;ó&lt;span class="nv"&gt;b&lt;/span&gt; &lt;span class="nv"&gt;pracy&lt;/span&gt; &lt;span class="nv"&gt;z&lt;/span&gt; &lt;span class="nv"&gt;r&lt;/span&gt;óż&lt;span class="nv"&gt;nymi&lt;/span&gt; &lt;span class="nv"&gt;typami&lt;/span&gt; &lt;span class="nv"&gt;plik&lt;/span&gt;ó&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;tu&lt;/span&gt; &lt;span class="nv"&gt;u&lt;/span&gt;ż&lt;span class="nv"&gt;yta&lt;/span&gt; &lt;span class="nv"&gt;zale&lt;/span&gt;ż&lt;span class="nv"&gt;no&lt;/span&gt;ść &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;babel-loader&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;@babel/preset-env&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;@babel/core&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    &lt;span class="nv"&gt;rules&lt;/span&gt;: [
+      {
+        &lt;span class="nv"&gt;test&lt;/span&gt;: &lt;span class="o"&gt;/&lt;/span&gt;\.&lt;span class="nv"&gt;js&lt;/span&gt;$&lt;span class="o"&gt;/&lt;/span&gt;,  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zawiera&lt;/span&gt; &lt;span class="nv"&gt;wyra&lt;/span&gt;ż&lt;span class="nv"&gt;enie&lt;/span&gt; &lt;span class="nv"&gt;regularne&lt;/span&gt; &lt;span class="nv"&gt;wskazuj&lt;/span&gt;ą&lt;span class="nv"&gt;ce&lt;/span&gt; &lt;span class="nv"&gt;na&lt;/span&gt; &lt;span class="nv"&gt;rodzaj&lt;/span&gt; &lt;span class="nv"&gt;pliku&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;rozszerzenia&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;, &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;re&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;obj&lt;/span&gt;ę&lt;span class="nv"&gt;te&lt;/span&gt; &lt;span class="nv"&gt;dzia&lt;/span&gt;ł&lt;span class="nv"&gt;aniem&lt;/span&gt; &lt;span class="nv"&gt;loadera&lt;/span&gt;
+        &lt;span class="nv"&gt;exclude&lt;/span&gt;: &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;node_modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;,    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykluczenie&lt;/span&gt; &lt;span class="nv"&gt;plik&lt;/span&gt;ó&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;z&lt;/span&gt; &lt;span class="nv"&gt;folderu&lt;/span&gt;..
+        &lt;span class="nv"&gt;loader&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;babel-loader&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+      },
+      {
+        &lt;span class="nv"&gt;test&lt;/span&gt;: &lt;span class="o"&gt;/&lt;/span&gt;\.&lt;span class="nv"&gt;css&lt;/span&gt;$&lt;span class="o"&gt;/&lt;/span&gt;,
+        &lt;span class="nv"&gt;use&lt;/span&gt;: [ &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;style-loader&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;css-loader&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; ] &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;css&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;loader&lt;/span&gt; &lt;span class="nv"&gt;importuje&lt;/span&gt; &lt;span class="nv"&gt;kod&lt;/span&gt; &lt;span class="nv"&gt;css&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;JS&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;loader&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;wstrzykuje&lt;/span&gt; &lt;span class="nv"&gt;CSS&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;HTML&lt;/span&gt;
+      },
+      {
+        &lt;span class="nv"&gt;test&lt;/span&gt;: &lt;span class="o"&gt;/&lt;/span&gt;\.&lt;span class="nv"&gt;scss&lt;/span&gt;$&lt;span class="o"&gt;/&lt;/span&gt;,
+        &lt;span class="nv"&gt;use&lt;/span&gt;: [ &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;style-loader&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;css-loader&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;sass-loader&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; ] &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;saas&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;loader&lt;/span&gt; &lt;span class="nv"&gt;transpiluje&lt;/span&gt; &lt;span class="nv"&gt;saas&lt;/span&gt; &lt;span class="nv"&gt;na&lt;/span&gt; &lt;span class="nv"&gt;css&lt;/span&gt;
+      }
+    ]
+  }
+  &lt;span class="nv"&gt;plugins&lt;/span&gt;: [      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wtyczki&lt;/span&gt;
+    &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;webpack&lt;/span&gt;.&lt;span class="nv"&gt;optimize&lt;/span&gt;.&lt;span class="nv"&gt;UglifyJsPlugin&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;{   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wskazanie&lt;/span&gt; &lt;span class="nv"&gt;wtyczki&lt;/span&gt; 
+        &lt;span class="nv"&gt;beautify&lt;/span&gt;: &lt;span class="nv"&gt;true&lt;/span&gt;,     &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;konfiguracja&lt;/span&gt;
+        &lt;span class="nv"&gt;comments&lt;/span&gt;: &lt;span class="nv"&gt;false&lt;/span&gt;
+    }&lt;span class="ss"&gt;)&lt;/span&gt;
+  ]
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;opcjonalnie:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[...]&lt;/span&gt;
+      &lt;span class="na"&gt;module: {&lt;/span&gt;
+          &lt;span class="na"&gt;rules: [&lt;/span&gt;
+              &lt;span class="na"&gt;{&lt;/span&gt;
+                  &lt;span class="na"&gt;test: /\.m?js$/,&lt;/span&gt;
+                  &lt;span class="na"&gt;exclude: /(node_modules|bower_components)/,&lt;/span&gt;
+                  &lt;span class="na"&gt;use: {&lt;/span&gt;
+                      &lt;span class="na"&gt;loader: &amp;quot;babel-loader&amp;quot;,&lt;/span&gt;
+                      &lt;span class="na"&gt;options: {&lt;/span&gt;
+                          &lt;span class="na"&gt;presets: [&amp;quot;@babel/preset-env&amp;quot;]&lt;/span&gt;
+                      &lt;span class="na"&gt;}&lt;/span&gt;
+                  &lt;span class="na"&gt;}&lt;/span&gt;
+              &lt;span class="na"&gt;}&lt;/span&gt;
+          &lt;span class="na"&gt;]&lt;/span&gt;
+      &lt;span class="na"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;[...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hE2XR4TdgXg&amp;amp;list=PLjHmWifVUNMJZZPBRtLRta-5zkc2SXDep"&gt;Webpack 3 tutorial PL by Overment&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/podstawy-konfiguracji-webpack"&gt;Podstawy konfiguracji Webpack&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://webpack.js.org/"&gt;webpack.js.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/webpack/webpack"&gt;webpack-github repo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/35932000/zsh-command-not-found-webpack&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/38788166/webpack-command-not-working&lt;/p&gt;</content><category term="javascript"></category><category term="webpack"></category><category term="webpack@4"></category><category term="javascript"></category><category term="task runner"></category><category term="transpilacja"></category></entry><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/35932000/zsh-command-not-found-webpack"&gt;Zsh: command not found: webpack&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/38788166/webpack-command-not-working"&gt;webpack command not working&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://webpack.js.org/guides/getting-started/"&gt;webpack-getting started&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://webpack.js.org/configuration/"&gt;webpack-configuration&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/es6/webpack.php"&gt;Webpack i Babel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-3-pluginy"&gt;Konfiguracja Webpack 2+ - część #3: pluginy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-2-loadery"&gt;Konfiguracja Webpack 2+ – część #2: loadery&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bedekodzic.pl/webpack-4/"&gt;Webpack 4 – Jak go skonfigurować i zacząć pracę?&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="webpack"></category><category term="webpack@4"></category><category term="javascript"></category><category term="task runner"></category><category term="transpilacja"></category></entry><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
@@ -284,6 +657,9 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;s&amp;gt;&lt;/code&gt; - strike-through/przekreślenie - oznaczenie już niekatulanej informacji&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;u&lt;/code&gt; - underline/podkreślenie - imiona lub specjalnie wstawione w tekst błędy językowe&lt;/p&gt;
 &lt;hr&gt;
+&lt;p&gt;Wtyczka do VSC działa jak ESLint ale pod kątem dostępności sprawdzając html&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://marketplace.visualstudio.com/items?itemName=MaxvanderSchee.web-accessibility"&gt;Web Accessibility&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;h3&gt;Atrybuty WAI-ARIA -&amp;gt; Accessible Rich Internet Applications.&lt;/h3&gt;
 &lt;p&gt;Standard mający na uwadzę dostępność i użyteczność stron internetowych dla tzw wykluczonych cyfrowo&lt;/p&gt;
 &lt;p&gt;Poprzez przypisanie ról do poszczególnych elementów HTML współpracuje z czytnikami stron -&amp;gt; te dzielą się na 4 kategorie &lt;strong&gt;abstract&lt;/strong&gt;, &lt;strong&gt;widget&lt;/strong&gt; (wszystko to co odpowiada za interaktywność strony), &lt;strong&gt;landmark roles&lt;/strong&gt; (regiony dokumentu) i &lt;strong&gt;document structure roles&lt;/strong&gt; (struktura dokumentu)&lt;/p&gt;
@@ -325,7 +701,7 @@ US/docs/Web/Accessibility/ARIA&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/pl/docs/Web/Dost%C4%99pno%C5%9B%C4%87&lt;/p&gt;
 &lt;p&gt;http://users.uj.edu.pl/~konior/tech_www/disabled/dostepnosc1.html#_Toc319571640&lt;/p&gt;
 &lt;p&gt;http://www.pad.widzialni.org/narzedziownia&lt;/p&gt;
-&lt;p&gt;http://dostepnestrony.pl&lt;/p&gt;</content><category term="html"></category></entry><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;http://dostepnestrony.pl&lt;/p&gt;</content><category term="html"></category><category term="vsc"></category><category term="accessibility"></category><category term="dostępność"></category><category term="semantyczny html"></category><category term="html"></category></entry><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
 &lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
 &lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;
@@ -2577,8 +2953,9 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 &lt;hr&gt;
 &lt;h4 id="obiekt-map"&gt;Mapa&lt;/h4&gt;
 &lt;p&gt;Przypomina obiekt z JS - posiada klucze oraz wartości - również nie jest kompilowana do CSS&lt;/p&gt;
-&lt;p&gt;$mapa-kolorow: (klucz1: wartość1, klucz2: wartość2);
-map-get($mapa, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
+&lt;p&gt;$mapa-kolorow: (klucz1: wartość1, klucz2: wartość2);&lt;/p&gt;
+&lt;p&gt;map-get($mapa-kolorow, klucz1) -&amp;gt; zwraca wartość1&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.footer&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
     &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;map-get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;$mapa-kolorow&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;klucz1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;; // zwraca wartość1&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
@@ -3038,35 +3415,7 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 &lt;p&gt;Node:&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=ENrzD9HAZK4&lt;/p&gt;
 &lt;p&gt;https://github.com/nvm-sh/nvm#installing-and-updating&lt;/p&gt;
-&lt;p&gt;https://docs.npmjs.com/files/package.json&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category></entry><entry><title>HTML i CSS: Obrazy i Sprite</title><link href="https://kostyrko.github.io/zfrontu/html-css-obrazy.html" rel="alternate"></link><published>2020-05-25T10:00:00+02:00</published><updated>2020-05-25T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-25:/zfrontu/html-css-obrazy.html</id><summary type="html">&lt;p&gt;Semantyczny HTML&lt;/p&gt;
-&lt;p&gt;Znaczeniowy kod HTML - wykorzystanie tagów HTML zgodnie z przeznaczeniem&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Wstawianie obrazu&lt;/p&gt;
-&lt;p&gt;Z perspektyw css/background wtedy kiedy zdjęcie nie jest treścią - kiedy jest zaledwie lukrem&lt;/p&gt;
-&lt;p&gt;Kiedy zdjęcie jest integralną częścią (np. wykres) wówczas jest istotne by znalazło się w img. tak aby czytnik stron, mógł przeczytać treść zawartą …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Semantyczny HTML&lt;/p&gt;
-&lt;p&gt;Znaczeniowy kod HTML - wykorzystanie tagów HTML zgodnie z przeznaczeniem&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Wstawianie obrazu&lt;/p&gt;
-&lt;p&gt;Z perspektyw css/background wtedy kiedy zdjęcie nie jest treścią - kiedy jest zaledwie lukrem&lt;/p&gt;
-&lt;p&gt;Kiedy zdjęcie jest integralną częścią (np. wykres) wówczas jest istotne by znalazło się w img. tak aby czytnik stron, mógł przeczytać treść zawartą w &lt;code&gt;alt&lt;/code&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;PNG - bezstratna kompresja stosowany do ikon i logotypów, gdzie rozmycie pikseli i nie jest dopuszczalne&lt;/p&gt;
-&lt;p&gt;JPG - do zdjęć, kompresja stratna - gdzie ew. rozmycie jest dopuszczalne&lt;/p&gt;
-&lt;p&gt;CSS Sprite - tworzenie wielu obrazów w jednym pliku PNG, tak aby wychodziło jedno zapytanie do serwera a nie wiele dla każdego obrazu (oszczędza czas) - korzystanie z takiego podejścia wymaga ustawienia tła aby wyświetlało jeden obraz (będący fragmentem dużego obrazu) w danym miejscu. Z tego podejścia korzysta się w trakcie tworzenia animacji&lt;/p&gt;
-&lt;p&gt;&lt;img alt="star-wars-sprite" src="https://i.stack.imgur.com/vIyfV.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;srcset&lt;/code&gt; - pozwala na podmianę obrazu wy przypadku innej gęstości pikseli&lt;/p&gt;
-&lt;p&gt;na jeszcze więcej pozwala tag &lt;picture&gt; (warunki sprawdzane są od góry)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;picture&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;source&lt;/span&gt; &lt;span class="na"&gt;media=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;(min-width: 45em)&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;srcset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;large.jpg&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;source&lt;/span&gt; &lt;span class="na"&gt;media=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;(min-width: 32em)&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;srcset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;med.jpg&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;small.jpg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;The president giving an award.&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/picture&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;p&gt;Źródła&lt;/p&gt;
-&lt;p&gt;https://www.w3schools.com/css/css_image_sprites.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="html"></category><category term="klasy"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
+&lt;p&gt;https://docs.npmjs.com/files/package.json&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
@@ -4594,7 +4943,9 @@ aby tego uniknąć można zadeklarować funkcję po za konstruktorem, wówczas z
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/pl/docs/Web/JavaScript/Guide/Control_flow_and_error_handli&lt;/p&gt;
-&lt;p&gt;http://blog.nebula.us/13-javascript-closures-czyli-zrozumiec-i-wykorzystac-domkniecia&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="blocks"></category><category term="scopes"></category><category term="zakres"></category><category term="blok"></category></entry><entry><title>JavaScript -&gt; funkcje strzałkowe</title><link href="https://kostyrko.github.io/zfrontu/js-funckja-starzalkowa.html" rel="alternate"></link><published>2020-04-20T10:00:00+02:00</published><updated>2020-04-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-20:/zfrontu/js-funckja-starzalkowa.html</id><summary type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;http://blog.nebula.us/13-javascript-closures-czyli-zrozumiec-i-wykorzystac-domkniecia&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="blocks"></category><category term="scopes"></category><category term="zakres"></category><category term="blok"></category></entry><entry><title>JavaScript -&gt; funkcje strzałkowe</title><link href="https://kostyrko.github.io/zfrontu/js-funckja-starzalkowa.html" rel="alternate"></link><published>2020-04-20T10:00:00+02:00</published><updated>2020-04-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-20:/zfrontu/js-funckja-starzalkowa.html</id><summary type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i zmienia kontekst &lt;code&gt;this&lt;/code&gt; (jest połączony w sposób leksykalny/odowłuje się do kodu, w którym kod jest zawarty), przykładowo jest niezmienny i nie dostosowuje się do obiektu w funkcji a odwołuje się do zewnętrznego this (stąd dla DOM jest to najczęściej obiekt &lt;strong&gt;Window&lt;/strong&gt;) &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;::: Warto pamiętać, że …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i zmienia kontekst &lt;code&gt;this&lt;/code&gt; (jest połączony w sposób leksykalny/odowłuje się do kodu, w którym kod jest zawarty), przykładowo jest niezmienny i nie dostosowuje się do obiektu w funkcji a odwołuje się do zewnętrznego this (stąd dla DOM jest to najczęściej obiekt &lt;strong&gt;Window&lt;/strong&gt;) &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;::: Warto pamiętać, że funkcja w ramach JS jest obiektem ! (function(){}).constructor === Function) :::&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;słowo kluczowe &lt;code&gt;function&lt;/code&gt; zmienia się w strzałkę &lt;code&gt;=&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -4608,21 +4959,7 @@ aby tego uniknąć można zadeklarować funkcję po za konstruktorem, wówczas z
 &lt;ul&gt;
 &lt;li&gt;w przypadku &lt;strong&gt;tylko&lt;/strong&gt; jednego parametru można pominąć nawiasy / nawis pozostaje gdy funkcja nie ma parametru lub więcej niż 1&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;::: jeśli funkcja jedynie zwraca to można pominąć instrukcję &lt;code&gt;return …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu &lt;code&gt;this&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;słowo kluczowe &lt;code&gt;function&lt;/code&gt; zmienia się w strzałkę &lt;code&gt;=&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;schemat:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {...}&lt;span class="c1"&gt;;&lt;/span&gt;
-
-    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {...}&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;w przypadku &lt;strong&gt;tylko&lt;/strong&gt; jednego parametru można pominąć nawiasy / nawis pozostaje gdy funkcja nie ma parametru lub więcej niż 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;::: jeśli funkcja jedynie zwraca to można pominąć instrukcję &lt;code&gt;return&lt;/code&gt; - tzw. domniemany zwrot/return :::&lt;/p&gt;
+&lt;p&gt;::: jeśli funkcja jedynie zwraca to można pominąć instrukcję &lt;code&gt;return&lt;/code&gt; - tzw. &lt;strong&gt;domniemany zwrot/return&lt;/strong&gt; :::&lt;/p&gt;
 &lt;p&gt;::: można również pominąć &lt;code&gt;{}&lt;/code&gt; w przypadku gdy istnieje tylko jedna linia kodu :::&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;multiply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
@@ -4680,12 +5017,26 @@ aby tego uniknąć można zadeklarować funkcję po za konstruktorem, wówczas z
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;::: warto pamiętać żę funkcja strzałkowa jest zadeklarowana poprzez wyrażenie funkcyjne i oznacza, to że zmienia kontekst &lt;code&gt;this&lt;/code&gt; co może być szczególnie istotne w kontekście manipulowania elementami DOM (wówczas &lt;code&gt;this&lt;/code&gt; jest obiektem &lt;code&gt;window&lt;/code&gt;) :::&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Warto pamiętać żę funkcja strzałkowa jest zadeklarowana poprzez wyrażenie funkcyjne i oznacza, to że zmienia kontekst &lt;code&gt;this&lt;/code&gt; co może być szczególnie istotne w kontekście manipulowania elementami DOM (wówczas &lt;code&gt;this&lt;/code&gt; jest obiektem &lt;code&gt;window&lt;/code&gt;)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;W takim przypadku wewnątrz funkcji zamiast &lt;code&gt;this&lt;/code&gt; można stosować &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target"&gt;event.target/event.currentTarget&lt;/a&gt; patrz &lt;a href="https://stackoverflow.com/questions/36915875/javascript-arrow-functions-this-in-event-handler"&gt;dyskusja na ten temat na StackOverflow&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ten problem można również rozwiązać poprzez zachowanie &lt;code&gt;this&lt;/code&gt; w stworzonej zmiennej np. nazwanej &lt;code&gt;self&lt;/code&gt; (ta nazwa przyjęła się historycznie)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;calculateNum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="k"&gt;self&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+                    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;self&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;http://kursjs.pl/kurs/es6/funkcja-strzalkowa.php&lt;/p&gt;
 &lt;p&gt;https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html&lt;/p&gt;
-&lt;p&gt;http://www.algosmart.pl/powtorka-przed-reactjs-1-funkcje-strzalkowe&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="arrow functions"></category><category term="funkcja strzałkowa"></category></entry><entry><title>JavaScript - funkcje</title><link href="https://kostyrko.github.io/zfrontu/js-funkcja.html" rel="alternate"></link><published>2020-04-19T10:00:00+02:00</published><updated>2020-04-19T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-19:/zfrontu/js-funkcja.html</id><summary type="html">&lt;h3&gt;Funkcje&lt;/h3&gt;
+&lt;p&gt;http://www.algosmart.pl/powtorka-przed-reactjs-1-funkcje-strzalkowe&lt;/p&gt;
+&lt;p&gt;https://www.freecodecamp.org/news/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26/&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="arrow functions"></category><category term="funkcja strzałkowa"></category></entry><entry><title>JavaScript - funkcje</title><link href="https://kostyrko.github.io/zfrontu/js-funkcja.html" rel="alternate"></link><published>2020-04-19T10:00:00+02:00</published><updated>2020-04-19T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-19:/zfrontu/js-funkcja.html</id><summary type="html">&lt;h3&gt;Funkcje&lt;/h3&gt;
 &lt;p&gt;Zbiór zgrupowanych instrukcji, które można wywołać poprzez odwołanie się do ich nazwy, funkcja może ale nie musi przyjmować parametry/argumenty, które biorą udział w wywoływaniu się jej wewnętrznego kodu. &lt;/p&gt;
 &lt;p&gt;Funkcję można stworzyć poprzez jej deklarację przy użycia słowa kluczowego &lt;code&gt;function&lt;/code&gt; &lt;/p&gt;
 &lt;p&gt;Schemat &lt;/p&gt;
@@ -5406,7 +5757,10 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;a href="https://github.com/kostyrko/JS-apps/tree/master/1_task_list_app/2_task_app"&gt;Repo całego kodu projektu&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.some()&lt;/code&gt; - sprawdza czy w tablicy znajdują się wartość spełniające przypisany warunek (np. &lt;code&gt;console.log(array.some(even))&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.every()&lt;/code&gt; - - sprawdza czy w tablicy wszystkie wartości spełniające przypisany warunek (np. &lt;code&gt;console.log(array.every(even))&lt;/code&gt;)&lt;/p&gt;
+&lt;!-- [Repo całego kodu projektu](https://github.com/kostyrko/JS-apps/tree/master/1_task_list_app/2_task_app) --&gt;
+
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;callback&lt;/code&gt; - funkcja wywołująca się na każdym elemencie&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;forEach&lt;/code&gt;&lt;/strong&gt; - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&amp;gt; zwraca &lt;code&gt;undefined&lt;/code&gt;, ale po drodze wywołuje wynik akcji&lt;/p&gt;
@@ -7766,11 +8120,11 @@ install-jetbrains-mono-in-debian-ubuntu/&lt;/p&gt;
 &lt;p&gt;https://freebiesupply.com/blog/top-monospace-fonts-for-developers/&lt;/p&gt;</content><category term="VSC"></category><category term="vsc"></category><category term="visual studio code"></category><category term="visual studio"></category><category term="JetBrains Mono"></category><category term="Fira Code"></category><category term="font"></category></entry><entry><title>VSC - wtyczki warte polecenia</title><link href="https://kostyrko.github.io/zfrontu/vsc-wtyczki.html" rel="alternate"></link><published>2020-03-29T22:00:00+02:00</published><updated>2020-03-29T22:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-29:/zfrontu/vsc-wtyczki.html</id><summary type="html">&lt;h3&gt;Lista wtyczek wartych polecenia (alfabetycznie)&lt;/h3&gt;
 &lt;p&gt;Auto Close Tag&lt;/p&gt;
 &lt;p&gt;Auto Rename Tag&lt;/p&gt;
-&lt;p&gt;Beautify (HookQR) - szuka małych błędów w kodzie oraz poprawia ich wygląd (identacje) [podobnie działająca wtyczka Prettier - Code formatter (Esban Pereren)]&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Bracket Pair Colorizer&lt;/strong&gt; (CoenraadS) - koloruje nawiasy należące do tej samej pary odpowiednim kolorem [podobnie działająca wtyczka Rainbow Brackets (2gua …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Lista wtyczek wartych polecenia (alfabetycznie)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Bracket Pair Colorizer&lt;/strong&gt; (CoenraadS) - koloruje nawiasy należące do tej samej pary odpowiednim kolorem [podobnie działająca wtyczka Rainbow Brackets (2gua)]&lt;/p&gt;
+&lt;p&gt;Better comments (Aaron Bond) - pozwala na wprowadzanie komentarzy różnego typu do kodu JS (poprawia ich widoczność)&lt;/p&gt;
+&lt;p&gt;Code Spell Checker (Street …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Lista wtyczek wartych polecenia (alfabetycznie)&lt;/h3&gt;
 &lt;p&gt;Auto Close Tag&lt;/p&gt;
 &lt;p&gt;Auto Rename Tag&lt;/p&gt;
-&lt;p&gt;Beautify (HookQR) - szuka małych błędów w kodzie oraz poprawia ich wygląd (identacje) [podobnie działająca wtyczka Prettier - Code formatter (Esban Pereren)]&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Bracket Pair Colorizer&lt;/strong&gt; (CoenraadS) - koloruje nawiasy należące do tej samej pary odpowiednim kolorem [podobnie działająca wtyczka Rainbow Brackets (2gua)]&lt;/p&gt;
 &lt;p&gt;Better comments (Aaron Bond) - pozwala na wprowadzanie komentarzy różnego typu do kodu JS (poprawia ich widoczność)&lt;/p&gt;
 &lt;p&gt;Code Spell Checker (Street Side Software) - sprawdza błędy ortograficzne&lt;/p&gt;
@@ -7784,6 +8138,7 @@ install-jetbrains-mono-in-debian-ubuntu/&lt;/p&gt;
 &lt;p&gt;markdownlint (David Anson) - pilnuje składni języka Mark Down&lt;/p&gt;
 &lt;p&gt;Paste and Indent - zamiast tego można również &lt;code&gt;shift+alt+F&lt;/code&gt; -&amp;gt; format document&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Polish - Code Spell Checker&lt;/strong&gt; (Street Side Software) - sprawdza błędy ortograficzne w języku polskim&lt;/p&gt;
+&lt;p&gt;Prettier - Code formatter (Esban Pereren) [warto dodać w &lt;code&gt;settings.json&lt;/code&gt; "editor.formatOnSave": true - do listy wyjątków/polecań aby Prettier uruchamiał się w trakcie zapisu pliku]&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Project Manager&lt;/strong&gt; (Alessandro Fragnani) - na bocznym pasku pojawia się nowa ikona folderu i dzięki niej mamy szybki dostęp do wybranych projektów&lt;/p&gt;
 &lt;p&gt;scss intellisense&lt;/p&gt;
 &lt;p&gt;show local history (warto dodać do .gitignore frazę &lt;code&gt;.history&lt;/code&gt;)
@@ -7791,7 +8146,7 @@ Trailling Spaces&lt;/p&gt;
 &lt;p&gt;Wallaby.js/Dingo&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;==&amp;gt; Quokka.js &amp;lt;==&lt;/strong&gt; (Wallaby.js) - wymaga instalacji node.js a dzięki niej w głównym oknie VSC będzie wywoływany JS - Gorąco polecam!!!
  - sprawdź również Quokka Statusbar Buttons (Skethcbuch)&lt;/p&gt;
-&lt;p&gt;vs live share&lt;/p&gt;
+&lt;p&gt;VSC Live Share - pozwala na współdzielenie/edytowanie kodu w czasie rzeczywistym &lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródło: &lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=om4HQYXgZog&lt;/p&gt;</content><category term="VSC"></category><category term="vsc"></category><category term="visual studio code"></category><category term="visual studio"></category></entry><entry><title>Visual Studio Code - Emmet</title><link href="https://kostyrko.github.io/zfrontu/vsc-emmet.html" rel="alternate"></link><published>2020-03-28T21:00:00+01:00</published><updated>2020-03-28T21:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-03-28:/zfrontu/vsc-emmet.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Emmet&lt;/em&gt; jest zbiorem wtyczek, które pozwalają na szybkie kodowanie (html,xml,css) przy pomocy wykorzystania pojawiających się podpowiedzi rozpoznających wpisane skróty. Nazwa ma być nawiązaniem do brzmienia wyrazu mrówka w j. angielskim (Ant) - owada potrafiącego przenieść przedmioty ważące wielokrotnie więcej od niej samej.&lt;/p&gt;

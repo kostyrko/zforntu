@@ -49,27 +49,16 @@
 </script>
 <!-- End Google Analytics -->
 
-<meta name="author" content="mkostyrko" />
-<meta name="description" content="Semantyczny HTML Znaczeniowy kod HTML - wykorzystanie tagów HTML zgodnie z przeznaczeniem Wstawianie obrazu Z perspektyw css/background wtedy kiedy zdjęcie nie jest treścią - kiedy jest zaledwie lukrem Kiedy zdjęcie jest integralną częścią (np. wykres) wówczas jest istotne by znalazło się w img. tak aby czytnik stron, mógł przeczytać treść zawartą …" />
-<meta name="keywords" content="css, html, klasy">
-
-
+    <meta name="author" content="mkostyrko" />
+    <meta name="description" content="" />
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="HTML i CSS: Obrazy i Sprite"/>
-<meta property="og:description" content="Semantyczny HTML Znaczeniowy kod HTML - wykorzystanie tagów HTML zgodnie z przeznaczeniem Wstawianie obrazu Z perspektyw css/background wtedy kiedy zdjęcie nie jest treścią - kiedy jest zaledwie lukrem Kiedy zdjęcie jest integralną częścią (np. wykres) wówczas jest istotne by znalazło się w img. tak aby czytnik stron, mógł przeczytać treść zawartą …"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="...z frontu"/>
+<meta property="og:description" content=""/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/html-css-obrazy.html"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-05-25 10:00:00+02:00"/>
-<meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
-<meta property="article:section" content="css"/>
-<meta property="article:tag" content="css"/>
-<meta property="article:tag" content="html"/>
-<meta property="article:tag" content="klasy"/>
-<meta property="og:image" content="">
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu"/>
 
-  <title>...z frontu &ndash; HTML i CSS: Obrazy i Sprite</title>
+  <title>...z frontu &ndash; Tag ajax</title>
 
 </head>
 <body>
@@ -148,71 +137,35 @@
 
       </nav>
 
-<article class="single">
-  <header>
-      
-    <h1 id="html-css-obrazy">HTML i CSS: Obrazy i Sprite</h1>
-    <p>
-      Opublikowano pon 25 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
 
-        &#8226; 1 min read
+
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></h2>
+    <p>
+      Opublikowano wto 30 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/ajax.html">ajax</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/rest.html">rest</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/xmlhttprequest.html">XMLHttpRequest</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/github.html">github</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/github-api.html">github api</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/api.html">api</a>
+        &#8226; 3 min read
     </p>
   </header>
-
-
   <div>
-    <p>Semantyczny HTML</p>
-<p>Znaczeniowy kod HTML - wykorzystanie tagów HTML zgodnie z przeznaczeniem</p>
-<hr>
-<p>Wstawianie obrazu</p>
-<p>Z perspektyw css/background wtedy kiedy zdjęcie nie jest treścią - kiedy jest zaledwie lukrem</p>
-<p>Kiedy zdjęcie jest integralną częścią (np. wykres) wówczas jest istotne by znalazło się w img. tak aby czytnik stron, mógł przeczytać treść zawartą w <code>alt</code></p>
-<hr>
-<p>PNG - bezstratna kompresja stosowany do ikon i logotypów, gdzie rozmycie pikseli i nie jest dopuszczalne</p>
-<p>JPG - do zdjęć, kompresja stratna - gdzie ew. rozmycie jest dopuszczalne</p>
-<p>CSS Sprite - tworzenie wielu obrazów w jednym pliku PNG, tak aby wychodziło jedno zapytanie do serwera a nie wiele dla każdego obrazu (oszczędza czas) - korzystanie z takiego podejścia wymaga ustawienia tła aby wyświetlało jeden obraz (będący fragmentem dużego obrazu) w danym miejscu. Z tego podejścia korzysta się w trakcie tworzenia animacji</p>
-<p><img alt="star-wars-sprite" src="https://i.stack.imgur.com/vIyfV.jpg"></p>
-<p><code>srcset</code> - pozwala na podmianę obrazu wy przypadku innej gęstości pikseli</p>
-<p>na jeszcze więcej pozwala tag <picture> (warunki sprawdzane są od góry)</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;picture&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(min-width: 45em)&quot;</span> <span class="na">srcset=</span><span class="s">&quot;large.jpg&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(min-width: 32em)&quot;</span> <span class="na">srcset=</span><span class="s">&quot;med.jpg&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;small.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;The president giving an award.&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/picture&gt;</span>
-</code></pre></div>
-
-
-<hr>
-<p>Źródła</p>
-<p>https://www.w3schools.com/css/css_image_sprites.asp</p>
+      <p><img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"></p>
+<h3>XMLHttpRequest</h3>
+<p>XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem
+i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle).</p>
+<p>Obecnie XHR został …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-xhr.html">Czytaj dalej</a>
   </div>
-  <div class="tag-cloud">
-    <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/html.html">html</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/klasy.html">klasy</a>
-    </p>
-  </div>
-
-
-
-
-
-<!-- Disqus -->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'zfrontu';
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>
-    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
-</noscript>
-<!-- End Disqus -->
 </article>
+
+  <div class="pagination">
+  </div>
+
+
+
 
       <footer>
 <p>

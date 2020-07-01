@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - git</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/git.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-24T12:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - git</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/git.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-01T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - tworzenie gałęzi (branch) i angaż (commit)</title><link href="https://kostyrko.github.io/zfrontu/git-galezie.html" rel="alternate"></link><published>2020-07-01T10:00:00+02:00</published><updated>2020-07-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-01:/zfrontu/git-galezie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając, że może być ona liniowa (rozwój odbywa się na jedynej gałęzi (Master/&lt;strong&gt;Main&lt;/strong&gt;)) jak i nieliniowa (oparta na równoległych gałęziach pobocznych tzw. niewolniczych(slave) lub też &lt;strong&gt;secondary)&lt;/strong&gt;. To właśnie ta druga historia rozwoju jest przedmiotem tego wpisu&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Metadane&lt;/h3&gt;
+&lt;p&gt;Pokaż wszystkie gałęzie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wynik pokazuje te lokalne oraz remotes (-a -&amp;gt; all, jeśli mają być jedynie remotes to wówczas flaga -r)&lt;/p&gt;
+&lt;p&gt;Jeśli chcemy zobaczyć dokonane commity należy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;branch&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W wyniku tego widzimy wiadomości powiązane z commitami oraz w jakich gałęziach się one znalazły&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Trawersowanie&lt;/h3&gt;
+&lt;p&gt;Jeśli chcemy przełączyć się na wybraną gałąź należy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Tworzenie&lt;/h3&gt;
+&lt;p&gt;Jeśli checmy stworzyć nową gałąź i się na nią również przełączyć to należy wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;głęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jeśli chcemy stworzyć gałąź z konkretnej gałęzi wówczas należy ją wskazać po nazwie nowej gałęzi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;której&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;wychodzić&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Usuwanie&lt;/h3&gt;
+&lt;p&gt;Usuwanie gałęzi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="c1"&gt;--delete &amp;lt;nazwa gałęzi&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="c1"&gt;--delete issue_1.5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;lub jeśli jedynie lokalnie (wcześniej należy przełączyć się na inną gałąź)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;lub&lt;/span&gt;
+
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;jeśli&lt;/span&gt; &lt;span class="n"&gt;zachodzą&lt;/span&gt; &lt;span class="n"&gt;pojawiają&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;ostrzeżenia&lt;/span&gt; &lt;span class="n"&gt;ale&lt;/span&gt; &lt;span class="n"&gt;jesteśmy&lt;/span&gt; &lt;span class="n"&gt;pewnie&lt;/span&gt; &lt;span class="n"&gt;swojej&lt;/span&gt; &lt;span class="n"&gt;decyzji&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Deleted&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="n"&gt;ef25f3&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Angażowanie&lt;/h3&gt;
+&lt;p&gt;Faza przejściowa =&amp;gt; stage oraz komitowanie&lt;/p&gt;
+&lt;p&gt;-m -&amp;gt; --message/wiadomość
+-a -&amp;gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )&lt;/p&gt;
+&lt;p&gt;więcej wyjaśnieni skrótów można znaleźć w &lt;a href="https://explainshell.com/explain/1/git-commit"&gt;explainshell&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;alternatywnie można skorzystać z komendy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Spowoduje, że pliki, które do tej pory były edytowane (zawierają zmiany) trafią do stadium przejściowego (ich zmiana jest zauważona i odnotowana lokalnie) i wymagają wypchnięcia do remote repo jeśli mają być widoczne dla innych. Można tego dokonać poprzez...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;treść wiadomości&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Wizualizacja gałęzi&lt;/h3&gt;
+&lt;p&gt;Wizualizacja repo przy pomocy git-grafu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="c1"&gt;--all --decorate --oneline --graph&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.pjuskiewicz.com/2019/01/26/git-branch/"&gt;Git-Branch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx"&gt;Easily rename your Git default branch from master to main&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="branch"></category><category term="gałąź"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category><category term="dev"></category></entry><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;

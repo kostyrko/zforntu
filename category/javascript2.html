@@ -141,6 +141,30 @@
 
 <article>
   <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/js-konstruktor-prototyp-dziedziczenie.html">JavaScript - konstruktor, prototyp i dziedziczenie</a></h2>
+    <p>
+      Opublikowano wto 28 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p>Funkcja konstruktora pozwala na stworzenie wielu obiektów według zdefiniowanego schematu, który jest nazywany prototypem</p>
+<p>Nazwa funkcji konstruktora często zaczyna się od dużej litery</p>
+<p>Schemat:</p>
+<div class="highlight"><pre><span></span><code>  <span class="k">function</span> <span class="n">NazwaFunkcji</span> <span class="p">(</span><span class="n">właściwość</span><span class="p">)</span> <span class="err">{</span> <span class="o">//</span> <span class="n">zdefiniowanie</span> <span class="n">konstruktora</span><span class="p">,</span> <span class="n">przekazanie</span> <span class="n">właściwości</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">atrybut1</span> <span class="o">=</span> <span class="n">właściwość</span><span class="p">;</span> <span class="o">//</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">atrybut2</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="err">{</span>  <span class="o">//</span> <span class="n">funkcja</span> <span class="n">zawarta</span> <span class="n">w</span> <span class="n">ramach</span> <span class="n">obiektu</span> <span class="n">stająca</span> <span class="n">się</span> <span class="n">metodą</span> <span class="n">obiektu</span>
+              <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">this …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-konstruktor-prototyp-dziedziczenie.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://kostyrko.github.io/zfrontu/js-this.html">JavaScript "this"</a></h2>
     <p>
       Opublikowano nie 26 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
@@ -189,25 +213,12 @@
 
           &#8226; Tagi: 
               <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/arrow-functions.html">arrow functions</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/funkcja-strzalkowa.html">funkcja strzałkowa</a>
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
   <div>
-      <p>Funkcja starzałkowa skaraca zapis i.. nie zmienia kontekstu <code>this</code></p>
-<ul>
-<li>słowo kluczowe <code>function</code> zmienia się w strzałkę <code>=&gt;</code></li>
-</ul>
-<p>schemat:</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="k">show</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {...}<span class="c1">;</span>
-
-    <span class="nv">const</span> <span class="k">show</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {...}<span class="c1">;</span>
-</code></pre></div>
-
-
-<ul>
-<li>w przypadku <strong>tylko</strong> jednego parametru można pominąć nawiasy / nawis pozostaje gdy funkcja nie ma parametru lub więcej niż 1</li>
-</ul>
-<p>::: jeśli funkcja jedynie zwraca to można pominąć instrukcję <code>return …</code></p>
+      <p>Funkcja starzałkowa skaraca zapis i zmienia kontekst <code>this</code> (jest połączony w sposób leksykalny/odowłuje się do kodu, w którym kod jest zawarty), przykładowo jest niezmienny i nie dostosowuje się do obiektu w funkcji a odwołuje się do zewnętrznego this (stąd dla DOM jest to najczęściej obiekt <strong>Window</strong>) </p>
+<p><strong>::: Warto pamiętać, że …</strong></p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-funckja-starzalkowa.html">Czytaj dalej</a>
   </div>
