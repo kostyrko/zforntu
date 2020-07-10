@@ -55,7 +55,7 @@
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="Git - tworzenie gałęzi (branch) i angaż (commit)"/>
+<meta property="og:title" content="Git - odnajdowanie się w gałęziach projektowego drzewa"/>
 <meta property="og:description" content="System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - patrz wikipedia) pozwala na różne ścieżki rozwoju przygotowywanego &#34;produktu&#34; i najbardziej ogólnie można ująć tą kwestię stwierdzając …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/git-galezie.html"/>
@@ -74,7 +74,7 @@
 <meta property="article:tag" content="dev"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; Git - tworzenie gałęzi (branch) i angaż (commit)</title>
+  <title>...z frontu &ndash; Git - odnajdowanie się w gałęziach projektowego drzewa</title>
 
 </head>
 <body>
@@ -156,17 +156,17 @@
 <article class="single">
   <header>
       
-    <h1 id="git-galezie">Git - tworzenie gałęzi (branch) i angaż (commit)</h1>
+    <h1 id="git-galezie">Git - odnajdowanie się w gałęziach projektowego drzewa</h1>
     <p>
       Opublikowano śro 01 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/git.html">git</a>
 
-        &#8226; 2 min read
+        &#8226; 3 min read
     </p>
   </header>
 
 
   <div>
-    <p><img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"></p>
+    <p><img alt="git-branch" max-height="300px" src="https://i.stack.imgur.com/F00b8.png"></p>
 <p>System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - <a href="https://en.wikipedia.org/wiki/Git_(slang)">patrz wikipedia</a>) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając, że może być ona liniowa (rozwój odbywa się na jedynej gałęzi (Master/<strong>Main</strong>)) jak i nieliniowa (oparta na równoległych gałęziach pobocznych tzw. niewolniczych(slave) lub też <strong>secondary)</strong>. To właśnie ta druga historia rozwoju jest przedmiotem tego wpisu</p>
 <hr>
 <h3>Metadane</h3>
@@ -245,17 +245,17 @@
 
 
 <hr>
-<h3>Angażowanie</h3>
+<h3>Commit</h3>
 <p>Faza przejściowa =&gt; stage oraz komitowanie</p>
 <p>-m -&gt; --message/wiadomość
 -a -&gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )</p>
 <p>więcej wyjaśnieni skrótów można znaleźć w <a href="https://explainshell.com/explain/1/git-commit">explainshell</a></p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;treść wiadomości&#39;</span>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;treść wiadomości&#39;</span>
 </code></pre></div>
 
 
-<p>alternatywnie można skorzystać z komendy</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
+<p>alternatywnie można skorzystać z komendy -A (wymuszone all)</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
 </code></pre></div>
 
 
@@ -272,12 +272,60 @@
 
 
 <p><img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"></p>
+<h3>Uaktualnianie projektu lokalnego do zdalnego repo</h3>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">fetch</span> <span class="c1">--all</span>
+    <span class="n">git</span> <span class="n">pull</span> <span class="c1">--all</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Uaktualnianie i łączenie gałęzi</h3>
+<p>Uaktualnianie gałęzi do stanu innej gałęzi można wykonać korzystając z komendy rebase (pobiera wówczas ew. zmiany np. z dałęzi głównej np. dev) lub poprzez mergowanie, dodatkowo można skorzystać z opcji --no-ff -&gt; no fast forward.</p>
+<p>Kolejność działania w przypadku wypychania zmian na gałąź rozwojową 1) uaktualniamy/łączymy gałąź na której pracujemy np. poprzez mergowanie do niej gałęzi rozwojowej 2) rozwiązujemy na niej ew. konflikty, jeśli wszystko działa możemy zgłosić ją do procesu recenzji (jeśli taka możliwość istnieje) 3) Gałąź rozwojową mergujemy z gałęzią, na której do tej pory pracowaliśmy </p>
+<h4>Merge</h4>
+<div class="highlight"><pre><span></span><code><span class="nv">git</span> <span class="nv">merge</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">uaktualniona</span> <span class="nv">obecna</span><span class="o">&gt;</span>
+<span class="o">=======</span>
+<span class="nv">git</span> <span class="nv">merge</span> <span class="nv">feature_4</span>.<span class="mi">1</span> <span class="nv">develop</span>
+</code></pre></div>
+
+
+<h4>Rebase</h4>
+<p>Rebase spowoduje, że część historii zmian zostanie stracona lub inaczej rzecz ujmując gałąź przejmująca zmiany nie przejmuje historii commitów i widoczne na niej będą jedynie te, które na niej wykonano a nie innej gałęzi - plusem jest to, że struktura jest czytelniejsza.</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">git</span> <span class="nv">rebase</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">uaktualniona</span> <span class="nv">obecna</span><span class="o">&gt;</span>
+    <span class="o">======</span>
+    <span class="nv">git</span> <span class="nv">rebase</span> <span class="nv">develop</span>
+</code></pre></div>
+
+
+<h4>Fast forward vs non fast forward</h4>
+<p>Domyślnie mergowanie jest ustawione na -ff (fast forward) co oznacza - gładkie scalanie, w przypadku wykorzystania opcji --no-ff pojawia się dodatkowy węzeł wskazujący na moment połączenia się dwóch gałęzi</p>
+<p>--no-ff -&gt; no fast forward</p>
+<div class="highlight"><pre><span></span><code><span class="nv">git</span> <span class="nv">checkout</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">dodana</span> <span class="nv">tre</span>ść<span class="o">&gt;</span>
+
+<span class="nv">git</span> <span class="nv">merge</span> <span class="o">--</span><span class="nv">no</span><span class="o">-</span><span class="nv">ff</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span>, <span class="nv">kt</span>ó<span class="nv">ra</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">przy</span>łą<span class="nv">czona</span><span class="o">&gt;</span>
+
+<span class="nv">git</span> <span class="nv">add</span> <span class="o">-</span><span class="nv">A</span>
+
+<span class="nv">git</span> <span class="nv">commit</span> <span class="o">-</span><span class="nv">m</span> <span class="s2">&quot;</span><span class="s">treść wiadomości</span><span class="s2">&quot;</span>
+
+<span class="nv">git</span> <span class="nv">push</span> <span class="nv">origin</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">dodana</span> <span class="nv">tre</span>ść<span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p><img alt="Fast forward vs non fast forward" max-height="300px" src="https://i.stack.imgur.com/rTxx9.png"></p>
 <hr>
 <p>Źródła:</p>
 <p><a href="http://blog.pjuskiewicz.com/2019/01/26/git-branch/">Git-Branch</a></p>
 <p><a href="https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx">Easily rename your Git default branch from master to main</a></p>
-<p>https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs</p>
-<p>https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch</p>
+<p><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing</a></p>
+<p><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing">The golden rule of rebasing</a></p>
+<p><a href="https://panizkomputerem.pl/3-sposoby-na-git-merge/">3 sposoby na git merge</a></p>
+<h4>Stack Overflow</h4>
+<p><a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs">Pretty git branch graphs</a></p>
+<p><a href="https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch">Create a branch in Git from another branch</a></p>
+<p><a href="https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add">Difference between “git add -A” and “git add .”</a></p>
+<p><a href="https://stackoverflow.com/questions/37709298/how-to-get-changes-from-another-branch">How to get changes from another branch</a></p>
+<p><a href="https://stackoverflow.com/questions/3124601/git-getting-changes-from-another-branch">Git: getting changes from another branch</a></p>
   </div>
   <div class="tag-cloud">
     <p>

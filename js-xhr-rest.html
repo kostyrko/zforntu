@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="! REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje) Wysyłanie danych Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&gt; https://reqres.in/ (&#34;A hosted REST-API ready to respond to your AJAX requests&#34;), które pozwala na ćwiczenie funkcjonalności REST API Wysyłanie danych wymaga (1) przygotowanie danych do wysłania const …" />
+<meta name="keywords" content="javascript, js, ajax, rest, XMLHttpRequest, delete, get, put">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript: XMLHttpRequest i REST API"/>
+<meta property="og:description" content="! REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje) Wysyłanie danych Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&gt; https://reqres.in/ (&#34;A hosted REST-API ready to respond to your AJAX requests&#34;), które pozwala na ćwiczenie funkcjonalności REST API Wysyłanie danych wymaga (1) przygotowanie danych do wysłania const …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-xhr-rest.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-29 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="ajax"/>
+<meta property="article:tag" content="rest"/>
+<meta property="article:tag" content="XMLHttpRequest"/>
+<meta property="article:tag" content="delete"/>
+<meta property="article:tag" content="get"/>
+<meta property="article:tag" content="put"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript: XMLHttpRequest i REST API</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-xhr-rest">JavaScript: XMLHttpRequest i REST API</h1>
+    <p>
+      Opublikowano pon 29 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p>!<img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"></p>
+<p><strong>REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)</strong></p>
+<h3>Wysyłanie danych</h3>
+<p>Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&gt; <a href="https://reqres.in/">https://reqres.in/</a> ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API </p>
+<p>Wysyłanie danych wymaga</p>
+<p>(1) przygotowanie danych do wysłania </p>
+<div class="highlight"><pre><span></span><code>  <span class="n">const</span> <span class="k">data</span> <span class="o">=</span> <span class="err">{</span>
+    <span class="n">firstname</span> <span class="o">=</span> <span class="ss">&quot;John&quot;</span><span class="p">;</span>
+    <span class="n">lastname</span>  <span class="o">=</span> <span class="ss">&quot;Snow&quot;</span><span class="p">;</span>
+  <span class="err">}</span><span class="p">;</span>
+
+  <span class="n">const</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">(</span><span class="k">data</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>(2) stworzenie nowego obiektu XMLHttpRequest </p>
+<div class="highlight"><pre><span></span><code>  <span class="n">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+</code></pre></div>
+
+
+<p>(3) Zdefiniować połączenie za pomocą metody <code>open()</code> wykorzystując słowo kluczowe POST </p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">const</span> <span class="nt">url</span> <span class="o">=</span> <span class="nt">https</span><span class="o">://</span><span class="nt">reqres</span><span class="p">.</span><span class="nc">in</span><span class="o">/</span><span class="nt">api</span><span class="o">/</span><span class="nt">users</span><span class="err">&#39;</span><span class="o">;</span>
+  <span class="nt">xhr</span><span class="p">.</span><span class="nc">open</span><span class="o">(</span><span class="s2">&quot;POST&quot;</span><span class="o">,</span> <span class="nt">url</span><span class="o">,</span> <span class="nt">true</span><span class="o">);</span>
+</code></pre></div>
+
+
+<p>(4) ustalenie metadanych wysyłanej informacji - nagłówek (headera) będącego częścią teksty wysłanego do serwera, który jest informacją o przesyłanych danych </p>
+<div class="highlight"><pre><span></span><code>  <span class="n">setRequestHeader</span><span class="p">(</span><span class="n">nagłówek</span><span class="p">,</span> <span class="n">wartość</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Gdzie -&gt; <code>nagłówek</code>: określa nazwę nagłówka, <code>wartość</code>: określa wartość nagłówka, tu również może pojawić się informacja na temat formatu kodowania</p>
+<div class="highlight"><pre><span></span><code><span class="n">xhr</span><span class="p">.</span><span class="n">setRequestHeader</span><span class="p">(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span><span class="s1">&#39;application/json; charset=utf-8&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>(5) Ustawienie nasłuchiwania z wiadomością nastawioną na tworzenie <strong>201</strong> - Created (Utworzono – wysłany dokument został zapisany na serwerze)</p>
+<div class="highlight"><pre><span></span><code><span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+  <span class="nv">const</span> <span class="nv">users</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">201</span><span class="s2">&quot;</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">table</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  } <span class="k">else</span> {
+    <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  }
+}
+</code></pre></div>
+
+
+<p>(6) Wysłanie żądania z przekazanymi danymi</p>
+<div class="highlight"><pre><span></span><code><span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">json</span><span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Całość zapytania może prezentować się w następujący sposób:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">https://reqres.in/api/users</span><span class="s1">&#39;</span><span class="c1">;</span>
+
+<span class="nv">const</span> <span class="nv">data</span> <span class="o">=</span> {}<span class="c1">;</span>
+<span class="nv">data</span>.<span class="nv">firstname</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">John</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="nv">data</span>.<span class="nv">lastname</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Snow</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="nv">const</span> <span class="nv">json</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span><span class="c1">;</span>
+
+
+<span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">POST</span><span class="s2">&quot;</span>, <span class="nv">url</span>, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">setRequestHeader</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Content-type</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">application/json; charset=utf-8</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+  <span class="nv">const</span> <span class="nv">users</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">201</span><span class="s2">&quot;</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">table</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  } <span class="k">else</span> {
+    <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  }
+}
+<span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">json</span><span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Edytowanie/Uaktualnianie istniejących danych</h3>
+<p>Edytowanie danych istniejących na serwerze jest zbliżone do procesu wyżej przedstawionego związanego z wysyłaniem danych -&gt; główne różnice zwarte są w definiowaniu połączenia (należy użyć słowo kluczowe PUT oraz zdefiniować pozycję dla której dane powinny zostać zmienione), natomiast nasłuchiwanie zwrotnej informacji (podobnie jak w przypadku pobierania danych powinno być skierowane na 200 -połączenie zakończyło się sukcesem)</p>
+<p>Przykładowo </p>
+<div class="highlight"><pre><span></span><code><span class="n">xhr</span><span class="p">.</span><span class="k">open</span><span class="p">(</span><span class="ss">&quot;PUT&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">+</span><span class="s1">&#39;/12&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Gdzie url + 12 wyznacza konkretną część danych/obiekt zawartą na serwerze, w tym przypadku użytkownika</p>
+<p>Zapytanie może prezentować się w następujący sposób:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">url</span> <span class="o">=</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">reqres</span>.<span class="nv">in</span><span class="o">/</span><span class="nv">api</span><span class="o">/</span><span class="nv">users</span><span class="s1">&#39;</span><span class="s">;</span>
+
+<span class="nv">const</span> <span class="nv">data</span> <span class="o">=</span> {}<span class="c1">;</span>
+<span class="nv">data</span>.<span class="nv">firstname</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Jan</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="nv">data</span>.<span class="nv">lastname</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Snieg</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="nv">const</span> <span class="nv">json</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span><span class="c1">;</span>
+
+
+<span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">PUT</span><span class="s2">&quot;</span>, <span class="nv">url</span><span class="o">+</span><span class="s1">&#39;</span><span class="s">/12</span><span class="s1">&#39;</span>, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">setRequestHeader</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Content-type</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">application/json; charset=utf-8</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+  <span class="nv">const</span> <span class="nv">users</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">200</span><span class="s2">&quot;</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">table</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  } <span class="k">else</span> {
+    <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  }
+}
+<span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">json</span><span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Usuwanie danych</h3>
+<p>Usuwanie danych jest jeszcze prostsze, ponieważ wymaga jedynie wskazanie na obiekt do usunięcia oraz  poprawnego zdefiniowania połączenia, tym razem przy pomocy słowa kluczowego DELETE. Usuwanie danych nie wymaga tworzenia nagłówka.</p>
+<p>Przykładowo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">xhr</span><span class="p">.</span><span class="k">open</span><span class="p">(</span><span class="ss">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">+</span><span class="s1">&#39;/12&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Zapytanie może prezentować się w następujący sposób:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">url</span> <span class="o">=</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">reqres</span>.<span class="nv">in</span><span class="o">/</span><span class="nv">api</span><span class="o">/</span><span class="nv">users</span><span class="s1">&#39;</span><span class="s">;</span>
+<span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">DELETE</span><span class="s2">&quot;</span>, <span class="nv">url</span><span class="o">+</span><span class="s1">&#39;</span><span class="s">/12</span><span class="s1">&#39;</span>, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+  <span class="nv">const</span> <span class="nv">users</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">200</span><span class="s2">&quot;</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">table</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  } <span class="k">else</span> {
+    <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+  }
+}
+<span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Przedstawiony wyżej kod znajduje się również tutaj na <a href="https://gist.github.com/kostyrko/d04ed2eb6aa9b9d9dc87d07e5f6e0c0a">GitHub - Gist</a></p>
+<p>I małe podsumowanie:</p>
+<p><img alt="REST API CHECKLIST" src="https://usercontent.one/wp/www.kennethlange.com/wp-content/uploads/2020/04/customer_rest_api-624x314.png"></p>
+<hr>
+<p>Źródła:</p>
+<p>Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.</p>
+<p><a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php">kursjs.pl</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">MDN-Using XMLHttpRequest</a></p>
+<p><a href="https://medium.com/@giacintocarlucci/xmlhttprquest-definitive-guide-e3a2fd7a85a4">The XMLHttpRequest Definitive guide</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/ajax.html">ajax</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/rest.html">rest</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/xmlhttprequest.html">XMLHttpRequest</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/delete.html">delete</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/get.html">get</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/put.html">put</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html">JavaScript: asynchroniczność i AJAX</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

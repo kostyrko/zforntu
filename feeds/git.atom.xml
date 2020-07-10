@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - git</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/git.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-01T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - tworzenie gałęzi (branch) i angaż (commit)</title><link href="https://kostyrko.github.io/zfrontu/git-galezie.html" rel="alternate"></link><published>2020-07-01T10:00:00+02:00</published><updated>2020-07-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-01:/zfrontu/git-galezie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
-&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - git</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/git.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-01T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - odnajdowanie się w gałęziach projektowego drzewa</title><link href="https://kostyrko.github.io/zfrontu/git-galezie.html" rel="alternate"></link><published>2020-07-01T10:00:00+02:00</published><updated>2020-07-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-01:/zfrontu/git-galezie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-branch" max-height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" max-height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
 &lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając, że może być ona liniowa (rozwój odbywa się na jedynej gałęzi (Master/&lt;strong&gt;Main&lt;/strong&gt;)) jak i nieliniowa (oparta na równoległych gałęziach pobocznych tzw. niewolniczych(slave) lub też &lt;strong&gt;secondary)&lt;/strong&gt;. To właśnie ta druga historia rozwoju jest przedmiotem tego wpisu&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Metadane&lt;/h3&gt;
@@ -79,17 +79,17 @@
 
 
 &lt;hr&gt;
-&lt;h3&gt;Angażowanie&lt;/h3&gt;
+&lt;h3&gt;Commit&lt;/h3&gt;
 &lt;p&gt;Faza przejściowa =&amp;gt; stage oraz komitowanie&lt;/p&gt;
 &lt;p&gt;-m -&amp;gt; --message/wiadomość
 -a -&amp;gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )&lt;/p&gt;
 &lt;p&gt;więcej wyjaśnieni skrótów można znaleźć w &lt;a href="https://explainshell.com/explain/1/git-commit"&gt;explainshell&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;alternatywnie można skorzystać z komendy&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
+&lt;p&gt;alternatywnie można skorzystać z komendy -A (wymuszone all)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -106,12 +106,60 @@
 
 
 &lt;p&gt;&lt;img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Uaktualnianie projektu lokalnego do zdalnego repo&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt; &lt;span class="c1"&gt;--all&lt;/span&gt;
+    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;pull&lt;/span&gt; &lt;span class="c1"&gt;--all&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Uaktualnianie i łączenie gałęzi&lt;/h3&gt;
+&lt;p&gt;Uaktualnianie gałęzi do stanu innej gałęzi można wykonać korzystając z komendy rebase (pobiera wówczas ew. zmiany np. z dałęzi głównej np. dev) lub poprzez mergowanie, dodatkowo można skorzystać z opcji --no-ff -&amp;gt; no fast forward.&lt;/p&gt;
+&lt;p&gt;Kolejność działania w przypadku wypychania zmian na gałąź rozwojową 1) uaktualniamy/łączymy gałąź na której pracujemy np. poprzez mergowanie do niej gałęzi rozwojowej 2) rozwiązujemy na niej ew. konflikty, jeśli wszystko działa możemy zgłosić ją do procesu recenzji (jeśli taka możliwość istnieje) 3) Gałąź rozwojową mergujemy z gałęzią, na której do tej pory pracowaliśmy &lt;/p&gt;
+&lt;h4&gt;Merge&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;uaktualniona&lt;/span&gt; &lt;span class="nv"&gt;obecna&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;=======&lt;/span&gt;
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="nv"&gt;feature_4&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;develop&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Rebase&lt;/h4&gt;
+&lt;p&gt;Rebase spowoduje, że część historii zmian zostanie stracona lub inaczej rzecz ujmując gałąź przejmująca zmiany nie przejmuje historii commitów i widoczne na niej będą jedynie te, które na niej wykonano a nie innej gałęzi - plusem jest to, że struktura jest czytelniejsza.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;rebase&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;uaktualniona&lt;/span&gt; &lt;span class="nv"&gt;obecna&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;======&lt;/span&gt;
+    &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;rebase&lt;/span&gt; &lt;span class="nv"&gt;develop&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Fast forward vs non fast forward&lt;/h4&gt;
+&lt;p&gt;Domyślnie mergowanie jest ustawione na -ff (fast forward) co oznacza - gładkie scalanie, w przypadku wykorzystania opcji --no-ff pojawia się dodatkowy węzeł wskazujący na moment połączenia się dwóch gałęzi&lt;/p&gt;
+&lt;p&gt;--no-ff -&amp;gt; no fast forward&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;dodana&lt;/span&gt; &lt;span class="nv"&gt;tre&lt;/span&gt;ść&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;ff&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt;, &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;ra&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;przy&lt;/span&gt;łą&lt;span class="nv"&gt;czona&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;A&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;treść wiadomości&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;push&lt;/span&gt; &lt;span class="nv"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;dodana&lt;/span&gt; &lt;span class="nv"&gt;tre&lt;/span&gt;ść&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Fast forward vs non fast forward" max-height="300px" src="https://i.stack.imgur.com/rTxx9.png"&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://blog.pjuskiewicz.com/2019/01/26/git-branch/"&gt;Git-Branch&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx"&gt;Easily rename your Git default branch from master to main&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="branch"></category><category term="gałąź"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category><category term="dev"></category></entry><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing"&gt;Merging vs. Rebasing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing"&gt;The golden rule of rebasing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://panizkomputerem.pl/3-sposoby-na-git-merge/"&gt;3 sposoby na git merge&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Stack Overflow&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs"&gt;Pretty git branch graphs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch"&gt;Create a branch in Git from another branch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add"&gt;Difference between “git add -A” and “git add .”&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/37709298/how-to-get-changes-from-another-branch"&gt;How to get changes from another branch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/3124601/git-getting-changes-from-another-branch"&gt;Git: getting changes from another branch&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="branch"></category><category term="gałąź"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category><category term="dev"></category></entry><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" max-height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
@@ -119,7 +167,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;a jeśli zależy nam na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;a jeśli zależy nam na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-logo" max-height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-01T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - tworzenie gałęzi (branch) i angaż (commit)</title><link href="https://kostyrko.github.io/zfrontu/git-galezie.html" rel="alternate"></link><published>2020-07-01T10:00:00+02:00</published><updated>2020-07-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-01:/zfrontu/git-galezie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
-&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-01T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Git - odnajdowanie się w gałęziach projektowego drzewa</title><link href="https://kostyrko.github.io/zfrontu/git-galezie.html" rel="alternate"></link><published>2020-07-01T10:00:00+02:00</published><updated>2020-07-01T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-01:/zfrontu/git-galezie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-branch" max-height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
+&lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" max-height="300px" src="https://i.stack.imgur.com/F00b8.png"&gt;&lt;/p&gt;
 &lt;p&gt;System kontroli wersji jakim jest GIT (nie jest to akronim, a znaczenie tego słowa w kontekście IT jest dyskusyjne - ja trzymam się tej wersji, że jest ono połączone z brytyjskim slangiem oznaczającym bękarta - &lt;a href="https://en.wikipedia.org/wiki/Git_(slang)"&gt;patrz wikipedia&lt;/a&gt;) pozwala na różne ścieżki rozwoju przygotowywanego "produktu" i najbardziej ogólnie można ująć tą kwestię stwierdzając, że może być ona liniowa (rozwój odbywa się na jedynej gałęzi (Master/&lt;strong&gt;Main&lt;/strong&gt;)) jak i nieliniowa (oparta na równoległych gałęziach pobocznych tzw. niewolniczych(slave) lub też &lt;strong&gt;secondary)&lt;/strong&gt;. To właśnie ta druga historia rozwoju jest przedmiotem tego wpisu&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Metadane&lt;/h3&gt;
@@ -79,17 +79,17 @@
 
 
 &lt;hr&gt;
-&lt;h3&gt;Angażowanie&lt;/h3&gt;
+&lt;h3&gt;Commit&lt;/h3&gt;
 &lt;p&gt;Faza przejściowa =&amp;gt; stage oraz komitowanie&lt;/p&gt;
 &lt;p&gt;-m -&amp;gt; --message/wiadomość
 -a -&amp;gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )&lt;/p&gt;
 &lt;p&gt;więcej wyjaśnieni skrótów można znaleźć w &lt;a href="https://explainshell.com/explain/1/git-commit"&gt;explainshell&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;alternatywnie można skorzystać z komendy&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
+&lt;p&gt;alternatywnie można skorzystać z komendy -A (wymuszone all)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -106,19 +106,66 @@
 
 
 &lt;p&gt;&lt;img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Uaktualnianie projektu lokalnego do zdalnego repo&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt; &lt;span class="c1"&gt;--all&lt;/span&gt;
+    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;pull&lt;/span&gt; &lt;span class="c1"&gt;--all&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Uaktualnianie i łączenie gałęzi&lt;/h3&gt;
+&lt;p&gt;Uaktualnianie gałęzi do stanu innej gałęzi można wykonać korzystając z komendy rebase (pobiera wówczas ew. zmiany np. z dałęzi głównej np. dev) lub poprzez mergowanie, dodatkowo można skorzystać z opcji --no-ff -&amp;gt; no fast forward.&lt;/p&gt;
+&lt;p&gt;Kolejność działania w przypadku wypychania zmian na gałąź rozwojową 1) uaktualniamy/łączymy gałąź na której pracujemy np. poprzez mergowanie do niej gałęzi rozwojowej 2) rozwiązujemy na niej ew. konflikty, jeśli wszystko działa możemy zgłosić ją do procesu recenzji (jeśli taka możliwość istnieje) 3) Gałąź rozwojową mergujemy z gałęzią, na której do tej pory pracowaliśmy &lt;/p&gt;
+&lt;h4&gt;Merge&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;uaktualniona&lt;/span&gt; &lt;span class="nv"&gt;obecna&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;=======&lt;/span&gt;
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="nv"&gt;feature_4&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;develop&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Rebase&lt;/h4&gt;
+&lt;p&gt;Rebase spowoduje, że część historii zmian zostanie stracona lub inaczej rzecz ujmując gałąź przejmująca zmiany nie przejmuje historii commitów i widoczne na niej będą jedynie te, które na niej wykonano a nie innej gałęzi - plusem jest to, że struktura jest czytelniejsza.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;rebase&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;uaktualniona&lt;/span&gt; &lt;span class="nv"&gt;obecna&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;======&lt;/span&gt;
+    &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;rebase&lt;/span&gt; &lt;span class="nv"&gt;develop&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Fast forward vs non fast forward&lt;/h4&gt;
+&lt;p&gt;Domyślnie mergowanie jest ustawione na -ff (fast forward) co oznacza - gładkie scalanie, w przypadku wykorzystania opcji --no-ff pojawia się dodatkowy węzeł wskazujący na moment połączenia się dwóch gałęzi&lt;/p&gt;
+&lt;p&gt;--no-ff -&amp;gt; no fast forward&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;dodana&lt;/span&gt; &lt;span class="nv"&gt;tre&lt;/span&gt;ść&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;ff&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt;, &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;ra&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;przy&lt;/span&gt;łą&lt;span class="nv"&gt;czona&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;A&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;treść wiadomości&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;push&lt;/span&gt; &lt;span class="nv"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;dodana&lt;/span&gt; &lt;span class="nv"&gt;tre&lt;/span&gt;ść&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Fast forward vs non fast forward" max-height="300px" src="https://i.stack.imgur.com/rTxx9.png"&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://blog.pjuskiewicz.com/2019/01/26/git-branch/"&gt;Git-Branch&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx"&gt;Easily rename your Git default branch from master to main&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="branch"></category><category term="gałąź"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category><category term="dev"></category></entry><entry><title>JavaScript: XMLHttpRequest - wstęp (GET)</title><link href="https://kostyrko.github.io/zfrontu/js-xhr.html" rel="alternate"></link><published>2020-06-30T10:00:00+02:00</published><updated>2020-06-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-30:/zfrontu/js-xhr.html</id><summary type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing"&gt;Merging vs. Rebasing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing"&gt;The golden rule of rebasing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://panizkomputerem.pl/3-sposoby-na-git-merge/"&gt;3 sposoby na git merge&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Stack Overflow&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs"&gt;Pretty git branch graphs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch"&gt;Create a branch in Git from another branch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add"&gt;Difference between “git add -A” and “git add .”&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/37709298/how-to-get-changes-from-another-branch"&gt;How to get changes from another branch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/3124601/git-getting-changes-from-another-branch"&gt;Git: getting changes from another branch&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="branch"></category><category term="gałąź"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category><category term="dev"></category></entry><entry><title>JavaScript: XMLHttpRequest - wstęp (GET)</title><link href="https://kostyrko.github.io/zfrontu/js-xhr.html" rel="alternate"></link><published>2020-06-30T10:00:00+02:00</published><updated>2020-06-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-30:/zfrontu/js-xhr.html</id><summary type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;XMLHttpRequest&lt;/h3&gt;
 &lt;p&gt;XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem
-i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle).&lt;/p&gt;
-&lt;p&gt;Obecnie XHR został …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
+i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej &lt;strong&gt;UPDATE&lt;/strong&gt; 2) wysłania żadania danych do serwera po załadowaniu strony - &lt;strong&gt;REQUEST&lt;/strong&gt; 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony &lt;strong&gt;RECEIVE&lt;/strong&gt; 4) przesłania danych do serwera (w tle …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;XMLHttpRequest&lt;/h3&gt;
 &lt;p&gt;XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem
-i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej 2) wysłania żadania danych do serwera po załadowaniu strony 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony 4) przesłania danych do serwera (w tle).&lt;/p&gt;
+i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej &lt;strong&gt;UPDATE&lt;/strong&gt; 2) wysłania żadania danych do serwera po załadowaniu strony - &lt;strong&gt;REQUEST&lt;/strong&gt; 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony &lt;strong&gt;RECEIVE&lt;/strong&gt; 4) przesłania danych do serwera (w tle) - &lt;strong&gt;SEND&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Obecnie XHR został zastąpiony Fetch API.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Wysyłanie żądania nastawione na odbiór danych&lt;/h3&gt;
@@ -236,13 +283,170 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 &lt;h4&gt;Przykład zastosowania na podstawie GitHub API&lt;/h4&gt;
 &lt;script src="https://gist.github.com/kostyrko/fa29df00eba1d3a044323150214c73e1.js"&gt;&lt;/script&gt;
 
+&lt;p&gt;Rezultat&lt;/p&gt;
+&lt;p class="codepen" data-height="571" data-theme-id="light" data-default-tab="result" data-user="mkostyrko" data-slug-hash="vYLrGpm" style="height: 571px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="GitHub- User's Avatar Seeker"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/vYLrGpm"&gt;
+  GitHub- User's Avatar Seeker&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php"&gt;kursjs.pl&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest"&gt;MDN-Using XMLHttpRequest&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://attacomsian.com/blog/http-requests-xhr#"&gt;How to make HTTP requests using XMLHttpRequest (XHR)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.medien.ifi.lmu.de/lehre/ws1920/omm/uebung/folien/OMM-02-AJAX.pdf"&gt;Online Multimedia Tutorial 02 – AJAX, Ludwig-Maximilians-Universität München&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="github"></category><category term="github api"></category><category term="api"></category></entry><entry><title>JavaScript: Webpack - krótkie wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/js-webpack.html" rel="alternate"></link><published>2020-06-26T11:00:00+02:00</published><updated>2020-06-26T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-26:/zfrontu/js-webpack.html</id><summary type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.medien.ifi.lmu.de/lehre/ws1920/omm/uebung/folien/OMM-02-AJAX.pdf"&gt;Online Multimedia Tutorial 02 – AJAX, Ludwig-Maximilians-Universität München&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="github"></category><category term="github api"></category><category term="api"></category></entry><entry><title>JavaScript: XMLHttpRequest i REST API</title><link href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html" rel="alternate"></link><published>2020-06-29T10:00:00+02:00</published><updated>2020-06-29T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr-rest.html</id><summary type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
+&lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
+&lt;p&gt;Wysyłanie danych wymaga&lt;/p&gt;
+&lt;p&gt;(1) przygotowanie danych do wysłania &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
+&lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
+&lt;p&gt;Wysyłanie danych wymaga&lt;/p&gt;
+&lt;p&gt;(1) przygotowanie danych do wysłania &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;John&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Snow&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(2) stworzenie nowego obiektu XMLHttpRequest &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(3) Zdefiniować połączenie za pomocą metody &lt;code&gt;open()&lt;/code&gt; wykorzystując słowo kluczowe POST &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;https&lt;/span&gt;&lt;span class="o"&gt;://&lt;/span&gt;&lt;span class="nt"&gt;reqres&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;users&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;open&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;POST&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;true&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(4) ustalenie metadanych wysyłanej informacji - nagłówek (headera) będącego częścią teksty wysłanego do serwera, który jest informacją o przesyłanych danych &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;setRequestHeader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nagłówek&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Gdzie -&amp;gt; &lt;code&gt;nagłówek&lt;/code&gt;: określa nazwę nagłówka, &lt;code&gt;wartość&lt;/code&gt;: określa wartość nagłówka, tu również może pojawić się informacja na temat formatu kodowania&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setRequestHeader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Content-type&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;application/json; charset=utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(5) Ustawienie nasłuchiwania z wiadomością nastawioną na tworzenie &lt;strong&gt;201&lt;/strong&gt; - Created (Utworzono – wysłany dokument został zapisany na serwerze)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;201&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(6) Wysłanie żądania z przekazanymi danymi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Całość zapytania może prezentować się w następujący sposób:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;https://reqres.in/api/users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {}&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;John&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Snow&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;POST&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;setRequestHeader&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Content-type&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;application/json; charset=utf-8&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;201&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Edytowanie/Uaktualnianie istniejących danych&lt;/h3&gt;
+&lt;p&gt;Edytowanie danych istniejących na serwerze jest zbliżone do procesu wyżej przedstawionego związanego z wysyłaniem danych -&amp;gt; główne różnice zwarte są w definiowaniu połączenia (należy użyć słowo kluczowe PUT oraz zdefiniować pozycję dla której dane powinny zostać zmienione), natomiast nasłuchiwanie zwrotnej informacji (podobnie jak w przypadku pobierania danych powinno być skierowane na 200 -połączenie zakończyło się sukcesem)&lt;/p&gt;
+&lt;p&gt;Przykładowo &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;PUT&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/12&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Gdzie url + 12 wyznacza konkretną część danych/obiekt zawartą na serwerze, w tym przypadku użytkownika&lt;/p&gt;
+&lt;p&gt;Zapytanie może prezentować się w następujący sposób:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;reqres&lt;/span&gt;.&lt;span class="nv"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {}&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Jan&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Snieg&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;PUT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/12&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;setRequestHeader&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Content-type&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;application/json; charset=utf-8&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;200&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Usuwanie danych&lt;/h3&gt;
+&lt;p&gt;Usuwanie danych jest jeszcze prostsze, ponieważ wymaga jedynie wskazanie na obiekt do usunięcia oraz  poprawnego zdefiniowania połączenia, tym razem przy pomocy słowa kluczowego DELETE. Usuwanie danych nie wymaga tworzenia nagłówka.&lt;/p&gt;
+&lt;p&gt;Przykładowo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;DELETE&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/12&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zapytanie może prezentować się w następujący sposób:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;reqres&lt;/span&gt;.&lt;span class="nv"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;DELETE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/12&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;200&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przedstawiony wyżej kod znajduje się również tutaj na &lt;a href="https://gist.github.com/kostyrko/d04ed2eb6aa9b9d9dc87d07e5f6e0c0a"&gt;GitHub - Gist&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I małe podsumowanie:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="REST API CHECKLIST" src="https://usercontent.one/wp/www.kennethlange.com/wp-content/uploads/2020/04/customer_rest_api-624x314.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php"&gt;kursjs.pl&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest"&gt;MDN-Using XMLHttpRequest&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@giacintocarlucci/xmlhttprquest-definitive-guide-e3a2fd7a85a4"&gt;The XMLHttpRequest Definitive guide&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="delete"></category><category term="get"></category><category term="put"></category></entry><entry><title>JavaScript: Webpack - krótkie wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/js-webpack.html" rel="alternate"></link><published>2020-06-26T11:00:00+02:00</published><updated>2020-06-26T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-26:/zfrontu/js-webpack.html</id><summary type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Webpack&lt;/em&gt; generuje tzw. pakiety (ang. bundles -&amp;gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W  tym sensie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
@@ -452,7 +656,7 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;p&gt;&lt;a href="http://kursjs.pl/kurs/es6/webpack.php"&gt;Webpack i Babel&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-3-pluginy"&gt;Konfiguracja Webpack 2+ - część #3: pluginy&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/konfiguracja-webpack-2-czesc-2-loadery"&gt;Konfiguracja Webpack 2+ – część #2: loadery&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://bedekodzic.pl/webpack-4/"&gt;Webpack 4 – Jak go skonfigurować i zacząć pracę?&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="webpack"></category><category term="webpack@4"></category><category term="javascript"></category><category term="task runner"></category><category term="transpilacja"></category></entry><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bedekodzic.pl/webpack-4/"&gt;Webpack 4 – Jak go skonfigurować i zacząć pracę?&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="webpack"></category><category term="webpack@4"></category><category term="javascript"></category><category term="task runner"></category><category term="transpilacja"></category></entry><entry><title>Git - cofanie commita w VSC</title><link href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html" rel="alternate"></link><published>2020-06-24T12:00:00+02:00</published><updated>2020-06-24T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/git-vsc-cofanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="git-logo" max-height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
@@ -460,7 +664,7 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;a jeśli zależy nam na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-logo" height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;a jeśli zależy nam na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-logo" max-height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
@@ -486,9 +690,9 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://stackoverflow.com/questions/1338728/delete-commits-from-a-branch-in-git&lt;/p&gt;
 &lt;p&gt;https://stackoverflow.com/questions/36878344/what-does-git-sync-do-in-vscode&lt;/p&gt;
-&lt;p&gt;https://evilmartians.com/chronicles/git-push---force-and-how-to-deal-with-it&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="cofanie commita"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category></entry><entry><title>Agile &gt; Scrum &gt; Lean Management &gt; Kaban</title><link href="https://kostyrko.github.io/zfrontu/dev-agile-scrum.html" rel="alternate"></link><published>2020-06-24T11:00:00+02:00</published><updated>2020-06-24T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/dev-agile-scrum.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.pmpp.pl/hello-world/"&gt;&lt;img alt="agile" height="300px" src="http://www.pmpp.pl/wp-content/uploads/2019/02/agile-project-management-1200x850.jpg#center"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://evilmartians.com/chronicles/git-push---force-and-how-to-deal-with-it&lt;/p&gt;</content><category term="git"></category><category term="git"></category><category term="cofanie commita"></category><category term="github"></category><category term="git-hub"></category><category term="commit"></category><category term="system kontroli wersji"></category></entry><entry><title>Agile &gt; Scrum &gt; Lean Management &gt; Kaban</title><link href="https://kostyrko.github.io/zfrontu/dev-agile-scrum.html" rel="alternate"></link><published>2020-06-24T11:00:00+02:00</published><updated>2020-06-24T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-24:/zfrontu/dev-agile-scrum.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.pmpp.pl/hello-world/"&gt;&lt;img alt="agile" max-height="300px" src="http://www.pmpp.pl/wp-content/uploads/2019/02/agile-project-management-1200x850.jpg#center"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
-&lt;p&gt;W pierwszej kolejności polecam podcast &lt;strong&gt;DVLPR-WNBE #14&lt;/strong&gt; -&amp;gt; &lt;a href="https://codeboy.pl/dw14/"&gt;Scrum Master i odpowiedzi na pytania Developer Wannabe podcast #14&lt;/a&gt;, który stał się przyczynkiem do moich dalszych poszukiwań związanych z poruszonymi poniżej kwestiami i pozwolił mi na uporządkowanie wcześniej zasłyszanych pojęć, których zakres nie był mi znany - dodam, że nadal czuję się …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.pmpp.pl/hello-world/"&gt;&lt;img alt="agile" height="300px" src="http://www.pmpp.pl/wp-content/uploads/2019/02/agile-project-management-1200x850.jpg#center"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;W pierwszej kolejności polecam podcast &lt;strong&gt;DVLPR-WNBE #14&lt;/strong&gt; -&amp;gt; &lt;a href="https://codeboy.pl/dw14/"&gt;Scrum Master i odpowiedzi na pytania Developer Wannabe podcast #14&lt;/a&gt;, który stał się przyczynkiem do moich dalszych poszukiwań związanych z poruszonymi poniżej kwestiami i pozwolił mi na uporządkowanie wcześniej zasłyszanych pojęć, których zakres nie był mi znany - dodam, że nadal czuję się …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.pmpp.pl/hello-world/"&gt;&lt;img alt="agile" max-height="300px" src="http://www.pmpp.pl/wp-content/uploads/2019/02/agile-project-management-1200x850.jpg#center"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;W pierwszej kolejności polecam podcast &lt;strong&gt;DVLPR-WNBE #14&lt;/strong&gt; -&amp;gt; &lt;a href="https://codeboy.pl/dw14/"&gt;Scrum Master i odpowiedzi na pytania Developer Wannabe podcast #14&lt;/a&gt;, który stał się przyczynkiem do moich dalszych poszukiwań związanych z poruszonymi poniżej kwestiami i pozwolił mi na uporządkowanie wcześniej zasłyszanych pojęć, których zakres nie był mi znany - dodam, że nadal czuję się w nich zagubiony i wraz z upływem czasu mam nadzieję wracać do poniższej treści i ją edytować (głównie wzbogacać ją o tekst - moją własną interpretację niżej przedstawionych pojęć). &lt;/p&gt;
 &lt;p&gt;Na ogólnym poziomie rozumiem &lt;em&gt;Agile&lt;/em&gt; jako pojęcie najwyższego rzędu, ukazujące pewnego rodzaju założenia pracy zespołowej, przełamujące schematyczne myślenie liniowe oparty na szybkim wprowadzeniu danego produktu lub jego modułów do użytkowania i testowania przez klienta, tak aby móc zebrać od niego informacje zwrotną oraz dostosowanie produktu na tej podstawie (zwinne programowanie). To założenie również leży u podstaw &lt;em&gt;Scrum&lt;/em&gt;, który angażuje się głębiej w określenie zasad oraz interakcji panujących w zespole (np. poprzez założenie spotkań grupowych w trakcie, których przedstawia się wykonywane zadania ew. problemy czy tzw sprintów - czas w którym jest tworzona forma oprogramowania, która jest możliwa do użytkowania (testowania)). Zarówno &lt;em&gt;Agile&lt;/em&gt; jak i &lt;em&gt;Scrum&lt;/em&gt; się przenikają i podkreślają wagę tzw umiejętności miękkich (co wydaje się być oczywiste, ale często szybko znika za horyzontem kiedy przychodzi do działania w trakcie realizacji projektów - jest to rzecz jasna zależne od świadomości zespołu).&lt;/p&gt;
@@ -582,7 +786,7 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;p&gt;&lt;a href="https://pl.wikipedia.org/wiki/Lean_software_development"&gt;Lean software development- WIKI&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://leanactionplan.pl/zasady-lean/"&gt;Zasady lean&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Kaban&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://pl.wikipedia.org/wiki/Kanban_w_tworzeniu_oprogramowania"&gt;Kanban w tworzeniu oprogramowania&lt;/a&gt;&lt;/p&gt;</content><category term="dev"></category><category term="agile"></category><category term="scrum"></category><category term="lean management"></category><category term="kaban"></category><category term="dvlpr-wnbe"></category><category term="tablica kaban"></category><category term="agile manifesto"></category></entry><entry><title>HTML -&gt; wstęp do budowy dostępnych stron (ang. Accessibility)</title><link href="https://kostyrko.github.io/zfrontu/html-dostepnosc.html" rel="alternate"></link><published>2020-06-23T11:00:00+02:00</published><updated>2020-06-23T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-23:/zfrontu/html-dostepnosc.html</id><summary type="html">&lt;p&gt;&lt;img alt="accessibility" height="300px" src="https://miro.medium.com/max/1400/1*kxPPtGoUuY2EX41DbQMLOw.jpeg#center"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.wikipedia.org/wiki/Kanban_w_tworzeniu_oprogramowania"&gt;Kanban w tworzeniu oprogramowania&lt;/a&gt;&lt;/p&gt;</content><category term="dev"></category><category term="agile"></category><category term="scrum"></category><category term="lean management"></category><category term="kaban"></category><category term="dvlpr-wnbe"></category><category term="tablica kaban"></category><category term="agile manifesto"></category></entry><entry><title>HTML -&gt; wstęp do budowy dostępnych stron (ang. Accessibility)</title><link href="https://kostyrko.github.io/zfrontu/html-dostepnosc.html" rel="alternate"></link><published>2020-06-23T11:00:00+02:00</published><updated>2020-06-23T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-23:/zfrontu/html-dostepnosc.html</id><summary type="html">&lt;p&gt;&lt;img alt="accessibility" max-height="300px" src="https://miro.medium.com/max/1400/1*kxPPtGoUuY2EX41DbQMLOw.jpeg#center"&gt;&lt;/p&gt;
 &lt;p&gt;Kwestia &lt;em&gt;dostępności&lt;/em&gt; (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać.&lt;/p&gt;
 &lt;p&gt;Do osób wykluczonych zaliczyć można:&lt;/p&gt;
 &lt;ul&gt;
@@ -590,7 +794,7 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;p&gt;osoby niepełnosprawne sensorycznie&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;osoby …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="accessibility" height="300px" src="https://miro.medium.com/max/1400/1*kxPPtGoUuY2EX41DbQMLOw.jpeg#center"&gt;&lt;/p&gt;
+&lt;p&gt;osoby …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="accessibility" max-height="300px" src="https://miro.medium.com/max/1400/1*kxPPtGoUuY2EX41DbQMLOw.jpeg#center"&gt;&lt;/p&gt;
 &lt;p&gt;Kwestia &lt;em&gt;dostępności&lt;/em&gt; (ang. accessibility) jest związana z takim tworzeniem stron internetowych (w tym w dużej mierze odpowiedniej struktury HTML) aby osoby posiadające różnego rodzaju zaburzenia (np. widzenia) lub problemami z motoryką ciała w możliwie jak najprostszy sposób mogły z nich korzystać.&lt;/p&gt;
 &lt;p&gt;Do osób wykluczonych zaliczyć można:&lt;/p&gt;
 &lt;ul&gt;
@@ -701,7 +905,7 @@ US/docs/Web/Accessibility/ARIA&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/pl/docs/Web/Dost%C4%99pno%C5%9B%C4%87&lt;/p&gt;
 &lt;p&gt;http://users.uj.edu.pl/~konior/tech_www/disabled/dostepnosc1.html#_Toc319571640&lt;/p&gt;
 &lt;p&gt;http://www.pad.widzialni.org/narzedziownia&lt;/p&gt;
-&lt;p&gt;http://dostepnestrony.pl&lt;/p&gt;</content><category term="html"></category><category term="vsc"></category><category term="accessibility"></category><category term="dostępność"></category><category term="semantyczny html"></category><category term="html"></category></entry><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;http://dostepnestrony.pl&lt;/p&gt;</content><category term="html"></category><category term="vsc"></category><category term="accessibility"></category><category term="dostępność"></category><category term="semantyczny html"></category><category term="html"></category></entry><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" max-height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
 &lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
 &lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;
@@ -713,7 +917,7 @@ US/docs/Web/Accessibility/ARIA&lt;/p&gt;
 &lt;p&gt;zawartość (Content-based class names) -&amp;gt; klasy wskazujące na zawartość elementu &lt;code&gt;submit-button&lt;/code&gt;, &lt;code&gt;intro-text&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;prezencja (Presentational class …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="BEM" height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;prezencja (Presentational class …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="BEM" max-height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
 &lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
 &lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;
@@ -911,7 +1115,7 @@ US/docs/Web/Accessibility/ARIA&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-2-bem"&gt;Metodologia BEM. Jak pisać dobry kod CSS. Praktyczne przykłady.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/metodyki-css-2-bem"&gt;Metodyki CSS #2 – BEM&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/"&gt;css-naming-conventions-that-will-save-you-hours-of-debugging&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://en.bem.info/methodology/naming-convention/"&gt;BEM - naming conventions&lt;/a&gt;&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="html"></category><category term="klasy"></category><category term="bem"></category><category term="bemit"></category><category term="oocss"></category></entry><entry><title>HTML: semantyczny HTML</title><link href="https://kostyrko.github.io/zfrontu/html-semantyczny.html" rel="alternate"></link><published>2020-06-17T10:00:00+02:00</published><updated>2020-06-17T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-17:/zfrontu/html-semantyczny.html</id><summary type="html">&lt;p&gt;&lt;img alt="semantyczny-html" height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.bem.info/methodology/naming-convention/"&gt;BEM - naming conventions&lt;/a&gt;&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="html"></category><category term="klasy"></category><category term="bem"></category><category term="bemit"></category><category term="oocss"></category></entry><entry><title>HTML: semantyczny HTML</title><link href="https://kostyrko.github.io/zfrontu/html-semantyczny.html" rel="alternate"></link><published>2020-06-17T10:00:00+02:00</published><updated>2020-06-17T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-17:/zfrontu/html-semantyczny.html</id><summary type="html">&lt;p&gt;&lt;img alt="semantyczny-html" max-height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Znaczniki semantyczne określają znaczenie treści, która jest w ramach nich zamknięta. Nie powinny być wykorzystywane do pozycjonowania (od tego &lt;code&gt;div&lt;/code&gt;) a do określania treści.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -931,7 +1135,7 @@ US/docs/Web/Accessibility/ARIA&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;zawartość tego …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="semantyczny-html" height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png#center"&gt;&lt;/p&gt;
+&lt;td&gt;zawartość tego …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="semantyczny-html" max-height="300px" src="https://www.jungledisk.com/blog/content/images/blog/div-soup-vs-semantic-html.png#center"&gt;&lt;/p&gt;
 &lt;p&gt;Znaczniki semantyczne określają znaczenie treści, która jest w ramach nich zamknięta. Nie powinny być wykorzystywane do pozycjonowania (od tego &lt;code&gt;div&lt;/code&gt;) a do określania treści.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1099,11 +1303,11 @@ HTML Section Element (&lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt;) defines 
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hffiWUbbPFs"&gt;Znacznik label - semantyczny HTML by Comandeer&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.kurshtml.edu.pl/html/kod_poprawny_semantycznie,tekst.html"&gt;Kod poprawny semantycznie&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://codepen.io/mi-lee/post/an-overview-of-html5-semantics"&gt;An Overview of HTML5 Semantics&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.semrush.com/blog/semantic-html5-guide/"&gt;HTML5 Semantic Tags: What Are They and How To Use Them!&lt;/a&gt;&lt;/p&gt;</content><category term="html"></category><category term="css"></category><category term="html"></category><category term="semantyczny html"></category><category term="semantic"></category></entry><entry><title>Grid przy pomocy HTML i klas oraz Grid:CSS</title><link href="https://kostyrko.github.io/zfrontu/html-css-grid.html" rel="alternate"></link><published>2020-06-15T10:00:00+02:00</published><updated>2020-06-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-15:/zfrontu/html-css-grid.html</id><summary type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center" width="500px"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.semrush.com/blog/semantic-html5-guide/"&gt;HTML5 Semantic Tags: What Are They and How To Use Them!&lt;/a&gt;&lt;/p&gt;</content><category term="html"></category><category term="css"></category><category term="html"></category><category term="semantyczny html"></category><category term="semantic"></category></entry><entry><title>Grid przy pomocy HTML i klas oraz Grid:CSS</title><link href="https://kostyrko.github.io/zfrontu/html-css-grid.html" rel="alternate"></link><published>2020-06-15T10:00:00+02:00</published><updated>2020-06-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-15:/zfrontu/html-css-grid.html</id><summary type="html">&lt;p&gt;&lt;img alt="grid" max-width="500px" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Grid -&amp;gt; HTML + klasy CSS&lt;/h3&gt;
 &lt;p&gt;Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)&lt;/p&gt;
 &lt;p&gt;W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)&lt;/p&gt;
-&lt;p&gt;Kolumna ustala szerokość a wiersz "trzyma" elementy w jednej …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="grid" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center" width="500px"&gt;&lt;/p&gt;
+&lt;p&gt;Kolumna ustala szerokość a wiersz "trzyma" elementy w jednej …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="grid" max-width="500px" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Grid -&amp;gt; HTML + klasy CSS&lt;/h3&gt;
 &lt;p&gt;Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)&lt;/p&gt;
 &lt;p&gt;W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)&lt;/p&gt;
@@ -5644,8 +5848,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Metody()&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;push&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;unshift&lt;/code&gt;&lt;/strong&gt; - pozwala na …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
+&lt;p&gt;Tablice można tworzyć również z obiektów …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Tablice&lt;/h3&gt;
 &lt;p&gt;Tworzenie tablicy&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -5663,7 +5866,9 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Metody()&lt;/h4&gt;
+&lt;p&gt;Tablice można tworzyć również z obiektów do nich podobnych porzez wykorzystanie tzw. spread operatora [...obiektPodobnyDoArr] oraz &lt;strong&gt;Array.from&lt;/strong&gt;(obiektPodobnyDoArr)&lt;/p&gt;
+&lt;p&gt;Często stosowanymi metodami tablic są &lt;a href="#iteracje"&gt;forEach/reduce/filter/map&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Podstawowe metody() tablic&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;push&lt;/code&gt;&lt;/strong&gt; i &lt;strong&gt;&lt;code&gt;unshift&lt;/code&gt;&lt;/strong&gt; - pozwala na dodanie jednego lub więcej elementów na koniec/początek tablicy (zwraca nową długość tablicy a nie zmodyfikowaną tablicę)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;push&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -5762,6 +5967,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;!-- [Repo całego kodu projektu](https://github.com/kostyrko/JS-apps/tree/master/1_task_list_app/2_task_app) --&gt;
 
 &lt;hr&gt;
+&lt;h3 id="iteracje"&gt;forEach/reduce/filter/map&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;callback&lt;/code&gt; - funkcja wywołująca się na każdym elemencie&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;forEach&lt;/code&gt;&lt;/strong&gt; - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&amp;gt; zwraca &lt;code&gt;undefined&lt;/code&gt;, ale po drodze wywołuje wynik akcji&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;arrEach&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
@@ -5774,7 +5980,22 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;map&lt;/code&gt;&lt;/strong&gt; - podobny do forEach ale zmienia elementy tablicy i zwraca nową tablicę ze zmienionymi wartościami&lt;/p&gt;
+&lt;p&gt;Przedstawiona poniżej funkcja zwróci nową tablicę o nazwie &lt;em&gt;birthYear&lt;/em&gt; zwierającą aktualny rok umniejszony o każdy element z tablicy &lt;em&gt;years&lt;/em&gt;, nowa tablica będzie miała tyle samo elementów co tablica &lt;em&gt;years&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;years&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="mi"&gt;20&lt;/span&gt;,&lt;span class="mi"&gt;21&lt;/span&gt;,&lt;span class="mi"&gt;22&lt;/span&gt;]
+
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;currYear&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Date&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;.&lt;span class="nv"&gt;getFullYear&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;birthYear&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;years&lt;/span&gt;.&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;elem&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;currYear&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;elem&lt;/span&gt;
+    }&lt;span class="ss"&gt;)&lt;/span&gt;
+
+    &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/strong&gt; - zwraca &lt;strong&gt;nową tablicę&lt;/strong&gt;, z elementami dla którego wskazany argument jest prawdziwy (= True)
 :::tablica wyjściowa NIE ulega modyfikacji:::&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;newArr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;array&lt;/span&gt;.&lt;span class="nv"&gt;filter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
@@ -5797,6 +6018,7 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;reduce&lt;/code&gt;&lt;/strong&gt; - funkcja przyjmuje cztery argumenty 1) wartość inicjalizującą tzw akumulator 2) obecną wartość Opcjonalnie: 3) obecny indeks 4) źródłową tablicę na której, reduce jest stosowane&lt;/p&gt;
 &lt;p&gt;Funkcja wywołania zwrotnego przyjmuje np. 2 argumenty - element tablicy oraz aktualną wartość akumulatora i zwraca wartość, która zostanie przypisana do akumulatora i będzie jako taki użyty w kolejnej iteracji.&lt;/p&gt;
 &lt;p&gt;Redukuję tablicę do pojedynczej wartości

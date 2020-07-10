@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Tablice Tworzenie tablicy const arr = [1,2,3,4] ::: istnieje możliwość również przez funkcję konstruktora new Array() Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą Array.isArray(arr) // true (/false) Dodawanie wartości do tablicy arr[2] = 20 arr // [1,2,20,3,4] Metody() push i unshift - pozwala na …" />
+<meta name="description" content="Tablice Tworzenie tablicy const arr = [1,2,3,4] ::: istnieje możliwość również przez funkcję konstruktora new Array() Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą Array.isArray(arr) // true (/false) Dodawanie wartości do tablicy arr[2] = 20 arr // [1,2,20,3,4] Tablice można tworzyć również z obiektów …" />
 <meta name="keywords" content="javascript, js, array, tablica">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="JavaScript - metody tablic (array methods)"/>
-<meta property="og:description" content="Tablice Tworzenie tablicy const arr = [1,2,3,4] ::: istnieje możliwość również przez funkcję konstruktora new Array() Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą Array.isArray(arr) // true (/false) Dodawanie wartości do tablicy arr[2] = 20 arr // [1,2,20,3,4] Metody() push i unshift - pozwala na …"/>
+<meta property="og:description" content="Tablice Tworzenie tablicy const arr = [1,2,3,4] ::: istnieje możliwość również przez funkcję konstruktora new Array() Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą Array.isArray(arr) // true (/false) Dodawanie wartości do tablicy arr[2] = 20 arr // [1,2,20,3,4] Tablice można tworzyć również z obiektów …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-tablice-metody.html"/>
 <meta property="og:type" content="article"/>
@@ -156,7 +156,7 @@
     <p>
       Opublikowano nie 12 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
-        &#8226; 3 min read
+        &#8226; 4 min read
     </p>
   </header>
 
@@ -180,7 +180,9 @@
 </code></pre></div>
 
 
-<h4>Metody()</h4>
+<p>Tablice można tworzyć również z obiektów do nich podobnych porzez wykorzystanie tzw. spread operatora [...obiektPodobnyDoArr] oraz <strong>Array.from</strong>(obiektPodobnyDoArr)</p>
+<p>Często stosowanymi metodami tablic są <a href="#iteracje">forEach/reduce/filter/map</a></p>
+<h4>Podstawowe metody() tablic</h4>
 <p><strong><code>push</code></strong> i <strong><code>unshift</code></strong> - pozwala na dodanie jednego lub więcej elementów na koniec/początek tablicy (zwraca nową długość tablicy a nie zmodyfikowaną tablicę)</p>
 <div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">arr</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="s1">&#39;push&#39;</span><span class="p">)</span>
@@ -279,6 +281,7 @@
 <!-- [Repo całego kodu projektu](https://github.com/kostyrko/JS-apps/tree/master/1_task_list_app/2_task_app) -->
 
 <hr>
+<h3 id="iteracje">forEach/reduce/filter/map</h3>
 <p><code>callback</code> - funkcja wywołująca się na każdym elemencie</p>
 <p><strong><code>forEach</code></strong> - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&gt; zwraca <code>undefined</code>, ale po drodze wywołuje wynik akcji</p>
 <div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">arrEach</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
@@ -291,7 +294,22 @@
 </code></pre></div>
 
 
+<hr>
 <p><strong><code>map</code></strong> - podobny do forEach ale zmienia elementy tablicy i zwraca nową tablicę ze zmienionymi wartościami</p>
+<p>Przedstawiona poniżej funkcja zwróci nową tablicę o nazwie <em>birthYear</em> zwierającą aktualny rok umniejszony o każdy element z tablicy <em>years</em>, nowa tablica będzie miała tyle samo elementów co tablica <em>years</em></p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">years</span> <span class="o">=</span> [<span class="mi">20</span>,<span class="mi">21</span>,<span class="mi">22</span>]
+
+    <span class="nv">const</span> <span class="nv">currYear</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getFullYear</span><span class="ss">()</span>
+
+    <span class="nv">const</span> <span class="nv">birthYear</span> <span class="o">=</span> <span class="nv">years</span>.<span class="nv">map</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">elem</span><span class="ss">)</span>{
+    <span class="k">return</span> <span class="nv">currYear</span> <span class="o">-</span> <span class="nv">elem</span>
+    }<span class="ss">)</span>
+
+    <span class="o">&gt;&gt;</span>
+</code></pre></div>
+
+
+<hr>
 <p><strong><code>filter</code></strong> - zwraca <strong>nową tablicę</strong>, z elementami dla którego wskazany argument jest prawdziwy (= True)
 :::tablica wyjściowa NIE ulega modyfikacji:::</p>
 <div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">newArr</span> <span class="o">=</span> <span class="nv">array</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">item</span><span class="ss">)</span>{
@@ -314,6 +332,7 @@
 </code></pre></div>
 
 
+<hr>
 <p><strong><code>reduce</code></strong> - funkcja przyjmuje cztery argumenty 1) wartość inicjalizującą tzw akumulator 2) obecną wartość Opcjonalnie: 3) obecny indeks 4) źródłową tablicę na której, reduce jest stosowane</p>
 <p>Funkcja wywołania zwrotnego przyjmuje np. 2 argumenty - element tablicy oraz aktualną wartość akumulatora i zwraca wartość, która zostanie przypisana do akumulatora i będzie jako taki użyty w kolejnej iteracji.</p>
 <p>Redukuję tablicę do pojedynczej wartości
