@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako spread operator lub parametr rest. Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map. Spread Operator Dzieli kolekcję tworząc tablicę Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast …" />
+<meta name="description" content="Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako spread operator lub parametr rest. Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map. Spread Operator -&gt; Rozproszenie Dzieli kolekcję tworząc tablicę Pozwala na rozciągnięcie (rozproszenie/rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy …" />
 <meta name="keywords" content="javascript, js, array, tablica, ES6, ES2015">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="JavaScript i trzykropek (...)"/>
-<meta property="og:description" content="Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako spread operator lub parametr rest. Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map. Spread Operator Dzieli kolekcję tworząc tablicę Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast …"/>
+<meta property="og:title" content="JavaScript i trzykropek (...) -&gt; &#34;rozproszenie&#34;/&#34;reszta&#34;"/>
+<meta property="og:description" content="Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako spread operator lub parametr rest. Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map. Spread Operator -&gt; Rozproszenie Dzieli kolekcję tworząc tablicę Pozwala na rozciągnięcie (rozproszenie/rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-trzykropek.html"/>
 <meta property="og:type" content="article"/>
@@ -72,7 +72,7 @@
 <meta property="article:tag" content="ES2015"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; JavaScript i trzykropek (...)</title>
+  <title>...z frontu &ndash; JavaScript i trzykropek (...) -&gt; &#34;rozproszenie&#34;/&#34;reszta&#34;</title>
 
 </head>
 <body>
@@ -154,7 +154,7 @@
 <article class="single">
   <header>
       
-    <h1 id="js-trzykropek">JavaScript i trzykropek (...)</h1>
+    <h1 id="js-trzykropek">JavaScript i trzykropek (...) -> "rozproszenie"/"reszta"</h1>
     <p>
       Opublikowano czw 21 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
@@ -166,9 +166,9 @@
   <div>
     <p>Zastosowanie trzech kropek wprowadzonych w ES6 - pozwala na rozwinięcie wyrażenia iterowalnego (wielokorotnie powtarzalnego/przejściowego) jako <code>spread</code> operator lub parametr <code>rest</code>. </p>
 <p>Trzykropek można stosować w kontekście obiektów, tablic, stringów, zbiorów (setów) i map.</p>
-<h3>Spread Operator</h3>
+<h3>Spread Operator -&gt; Rozproszenie</h3>
 <p><em>Dzieli kolekcję tworząc tablicę</em></p>
-<p>Pozwala na rozciągnięcie (rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast tworzenia zagnieżdżonej tablicy1 w tablicy2 - tablice2 przyjmuje właściwości tablicy1)</p>
+<p>Pozwala na rozciągnięcie (rozproszenie/rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast tworzenia zagnieżdżonej tablicy1 w tablicy2 - tablice2 przyjmuje właściwości tablicy1)</p>
 <div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
 <span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
 <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">],</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
@@ -205,7 +205,44 @@
 </code></pre></div>
 
 
-<h3>Rest parameters</h3>
+<p>Shallow copy - tworzenie kopii tym samym tworząc osobne referencje</p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
+<span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[...</span><span class="n">arr1</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">arr1</span> <span class="o">===</span> <span class="n">arr2</span>
+<span class="o">&gt;&gt;</span> <span class="k">false</span>
+</code></pre></div>
+
+
+<p>W kontrze do</p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
+<span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="n">arr1</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">arr1</span> <span class="o">===</span> <span class="n">arr2</span>
+<span class="o">&gt;&gt;</span> <span class="k">true</span>
+</code></pre></div>
+
+
+<p>Jest to również przydatne w przypadku pracy z obiektami</p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">droid</span> <span class="o">=</span> <span class="err">{</span>
+  <span class="n">isActive</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+  <span class="n">inputValue</span><span class="p">:</span> <span class="ss">&quot;Droid name&quot;</span>
+<span class="err">}</span><span class="p">;</span>
+<span class="n">const</span> <span class="n">droidCopy</span> <span class="o">=</span> <span class="err">{</span><span class="p">...</span><span class="k">state</span><span class="err">}</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span> <span class="n">droidCopy</span>
+<span class="o">&gt;&gt;</span> <span class="err">{</span><span class="n">isActive</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span> <span class="n">inputValue</span><span class="p">:</span> <span class="ss">&quot;Droid name&quot;</span><span class="err">}</span>
+
+<span class="n">const</span> <span class="n">droidCopy2</span> <span class="o">=</span> <span class="err">{</span>
+  <span class="p">...</span><span class="k">state</span><span class="p">,</span> <span class="o">//</span> <span class="n">najpierw</span> <span class="n">spread</span>
+  <span class="n">isActive</span><span class="p">:</span> <span class="k">true</span> <span class="o">//</span> <span class="n">potem</span> <span class="n">podmiana</span>
+<span class="err">}</span><span class="p">;</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">droidCopy2</span>
+<span class="o">&gt;&gt;</span> <span class="err">{</span><span class="n">isActive</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span> <span class="n">inputValue</span><span class="p">:</span> <span class="ss">&quot;Droid name&quot;</span><span class="err">}</span>
+</code></pre></div>
+
+
+<h3>Rest parameters / Reszta</h3>
 <p><em>Sumuje poszczególne parametry (w) tworząc tablicę</em></p>
 <p>Pozwala na wskazanie możliwości zastosowania nieokreślonej liczby argumentów, w funkcji, które zostaną zamienione w tablicę. Pozwala również na podanie poprzedzających parametrów nazwanych (te wówczas nie znają się w tablicy).</p>
 <div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">myFunc</span><span class="ss">(</span><span class="nv">a</span>, <span class="nv">b</span>, ...<span class="nv">args</span><span class="ss">)</span> {

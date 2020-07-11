@@ -285,6 +285,7 @@
 <p><code>callback</code> - funkcja wywołująca się na każdym elemencie</p>
 <p><strong><code>forEach</code></strong> - tworzy pętlę przechodzącą przez zawartość tablicy - wymaga funkcji wywołania zwrotnego (callback), która tworzy akcję na każdym z elementów tablicy -&gt; zwraca <code>undefined</code>, ale po drodze wywołuje wynik akcji</p>
 <div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">arrEach</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
 <span class="n">arrEach</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="err">{</span>
   <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 <span class="err">}</span><span class="p">);</span>
@@ -302,10 +303,11 @@
     <span class="nv">const</span> <span class="nv">currYear</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getFullYear</span><span class="ss">()</span>
 
     <span class="nv">const</span> <span class="nv">birthYear</span> <span class="o">=</span> <span class="nv">years</span>.<span class="nv">map</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">elem</span><span class="ss">)</span>{
-    <span class="k">return</span> <span class="nv">currYear</span> <span class="o">-</span> <span class="nv">elem</span>
+        <span class="k">return</span> <span class="nv">currYear</span> <span class="o">-</span> <span class="nv">elem</span>
     }<span class="ss">)</span>
 
-    <span class="o">&gt;&gt;</span>
+    <span class="o">//</span> <span class="nv">przy</span> <span class="nv">za</span>ł<span class="nv">o</span>ż<span class="nv">eniu</span>, ż<span class="nv">e</span> <span class="nv">jest</span> <span class="nv">rok</span> <span class="mi">2020</span>
+    <span class="o">&gt;&gt;</span> [<span class="mi">2000</span>,<span class="mi">1999</span>,<span class="mi">1998</span>]
 </code></pre></div>
 
 
