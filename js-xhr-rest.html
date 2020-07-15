@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="! REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje) Wysyłanie danych Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&gt; https://reqres.in/ (&#34;A hosted REST-API ready to respond to your AJAX requests&#34;), które pozwala na ćwiczenie funkcjonalności REST API Wysyłanie danych wymaga (1) przygotowanie danych do wysłania const …" />
+<meta name="description" content="! REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje) Wysyłanie danych Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&gt; https://reqres.in/ (&#34;A hosted REST-API ready to respond to your AJAX requests&#34;), które pozwala na ćwiczenie funkcjonalności REST API Wysyłanie danych wymaga (1) przygotowanie danych do wysłania const …" />
 <meta name="keywords" content="javascript, js, ajax, rest, XMLHttpRequest, delete, get, put">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="JavaScript: XMLHttpRequest i REST API"/>
-<meta property="og:description" content="! REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje) Wysyłanie danych Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&gt; https://reqres.in/ (&#34;A hosted REST-API ready to respond to your AJAX requests&#34;), które pozwala na ćwiczenie funkcjonalności REST API Wysyłanie danych wymaga (1) przygotowanie danych do wysłania const …"/>
+<meta property="og:description" content="! REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje) Wysyłanie danych Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&gt; https://reqres.in/ (&#34;A hosted REST-API ready to respond to your AJAX requests&#34;), które pozwala na ćwiczenie funkcjonalności REST API Wysyłanie danych wymaga (1) przygotowanie danych do wysłania const …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-xhr-rest.html"/>
 <meta property="og:type" content="article"/>
@@ -169,7 +169,7 @@
     <p>!<img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"></p>
 <p><strong>REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)</strong></p>
 <h3>Wysyłanie danych</h3>
-<p>Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&gt; <a href="https://reqres.in/">https://reqres.in/</a> ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API </p>
+<p>Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&gt; <a href="https://reqres.in/">https://reqres.in/</a> ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API </p>
 <p>Wysyłanie danych wymaga</p>
 <p>(1) przygotowanie danych do wysłania </p>
 <div class="highlight"><pre><span></span><code>  <span class="n">const</span> <span class="k">data</span> <span class="o">=</span> <span class="err">{</span>
@@ -223,8 +223,8 @@
 <div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">https://reqres.in/api/users</span><span class="s1">&#39;</span><span class="c1">;</span>
 
 <span class="nv">const</span> <span class="nv">data</span> <span class="o">=</span> {}<span class="c1">;</span>
-<span class="nv">data</span>.<span class="nv">firstname</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">John</span><span class="s2">&quot;</span><span class="c1">;</span>
-<span class="nv">data</span>.<span class="nv">lastname</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Snow</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="nv">data</span>.<span class="nv">first_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">John</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="nv">data</span>.<span class="nv">last_name</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Snow</span><span class="s2">&quot;</span><span class="c1">;</span>
 <span class="nv">const</span> <span class="nv">json</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span><span class="c1">;</span>
 
 
@@ -245,7 +245,7 @@
 
 <hr>
 <h3>Edytowanie/Uaktualnianie istniejących danych</h3>
-<p>Edytowanie danych istniejących na serwerze jest zbliżone do procesu wyżej przedstawionego związanego z wysyłaniem danych -&gt; główne różnice zwarte są w definiowaniu połączenia (należy użyć słowo kluczowe PUT oraz zdefiniować pozycję dla której dane powinny zostać zmienione), natomiast nasłuchiwanie zwrotnej informacji (podobnie jak w przypadku pobierania danych powinno być skierowane na 200 -połączenie zakończyło się sukcesem)</p>
+<p>Edytowanie danych istniejących na serwerze jest zbliżone do procesu wyżej przedstawionego związanego z wysyłaniem danych -&gt; główne różnice zwarte są w definiowaniu połączenia (należy użyć słowo kluczowe PUT oraz zdefiniować pozycję dla której dane powinny zostać zmienione), tym razem status odpowiedzi zwrotnej powinien być równy <em>200</em></p>
 <p>Przykładowo </p>
 <div class="highlight"><pre><span></span><code><span class="n">xhr</span><span class="p">.</span><span class="k">open</span><span class="p">(</span><span class="ss">&quot;PUT&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">+</span><span class="s1">&#39;/12&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 </code></pre></div>
@@ -278,25 +278,21 @@
 
 <hr>
 <h3>Usuwanie danych</h3>
-<p>Usuwanie danych jest jeszcze prostsze, ponieważ wymaga jedynie wskazanie na obiekt do usunięcia oraz  poprawnego zdefiniowania połączenia, tym razem przy pomocy słowa kluczowego DELETE. Usuwanie danych nie wymaga tworzenia nagłówka.</p>
+<p>Usuwanie danych jest jeszcze prostsze, ponieważ wymaga jedynie wskazanie na obiekt do usunięcia oraz  poprawnego zdefiniowania połączenia, tym razem przy pomocy słowa kluczowego DELETE. Usuwanie danych nie wymaga tworzenia nagłówka, jednak tym razem status odpowiedzi powinien być równy <em>204</em></p>
 <p>Przykładowo:</p>
-<div class="highlight"><pre><span></span><code><span class="n">xhr</span><span class="p">.</span><span class="k">open</span><span class="p">(</span><span class="ss">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">+</span><span class="s1">&#39;/12&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-</code></pre></div>
-
-
-<p>Zapytanie może prezentować się w następujący sposób:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">url</span> <span class="o">=</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">reqres</span>.<span class="nv">in</span><span class="o">/</span><span class="nv">api</span><span class="o">/</span><span class="nv">users</span><span class="s1">&#39;</span><span class="s">;</span>
-<span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
-<span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">DELETE</span><span class="s2">&quot;</span>, <span class="nv">url</span><span class="o">+</span><span class="s1">&#39;</span><span class="s">/12</span><span class="s1">&#39;</span>, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
-  <span class="nv">const</span> <span class="nv">users</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">200</span><span class="s2">&quot;</span><span class="ss">)</span> {
-    <span class="nv">console</span>.<span class="nv">table</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
-  } <span class="k">else</span> {
-    <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">deleteUser</span> <span class="ss">()</span> {
+  <span class="nv">const</span> <span class="nv">usrId</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">querySelector</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">.delete-by-id</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">value</span>
+  <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
+  <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">DELETE</span><span class="s2">&quot;</span>, <span class="nv">url</span><span class="o">+</span>`<span class="o">/</span>${<span class="nv">usrId</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">204</span><span class="s2">&quot;</span><span class="ss">)</span> {
+      <span class="nv">userInfo</span>.<span class="nv">innerText</span> <span class="o">=</span> `<span class="nv">User</span> <span class="nv">width</span> <span class="nv">id</span>: ${<span class="nv">usrId</span>} <span class="nv">was</span> <span class="nv">deleted</span>`
+    } <span class="k">else</span> {
+      <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">users</span><span class="ss">)</span><span class="c1">;</span>
+    }
   }
+  <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
 }
-<span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
 </code></pre></div>
 
 

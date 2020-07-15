@@ -1,5 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - javascript</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/javascript.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-30T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript: XMLHttpRequest - wstęp (GET)</title><link href="https://kostyrko.github.io/zfrontu/js-xhr.html" rel="alternate"></link><published>2020-06-30T10:00:00+02:00</published><updated>2020-06-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-30:/zfrontu/js-xhr.html</id><summary type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - javascript</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/javascript.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-29T12:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript: XMLHttpRequest i REST API</title><link href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html" rel="alternate"></link><published>2020-06-29T12:00:00+02:00</published><updated>2020-06-29T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr-rest.html</id><summary type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
+&lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
+&lt;p&gt;Wysyłanie danych wymaga&lt;/p&gt;
+&lt;p&gt;(1) przygotowanie danych do wysłania &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
+&lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
+&lt;p&gt;Wysyłanie danych wymaga&lt;/p&gt;
+&lt;p&gt;(1) przygotowanie danych do wysłania &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;John&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Snow&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(2) stworzenie nowego obiektu XMLHttpRequest &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(3) Zdefiniować połączenie za pomocą metody &lt;code&gt;open()&lt;/code&gt; wykorzystując słowo kluczowe POST &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;https&lt;/span&gt;&lt;span class="o"&gt;://&lt;/span&gt;&lt;span class="nt"&gt;reqres&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;users&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;open&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;POST&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;true&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(4) ustalenie metadanych wysyłanej informacji - nagłówek (headera) będącego częścią teksty wysłanego do serwera, który jest informacją o przesyłanych danych &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;setRequestHeader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nagłówek&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Gdzie -&amp;gt; &lt;code&gt;nagłówek&lt;/code&gt;: określa nazwę nagłówka, &lt;code&gt;wartość&lt;/code&gt;: określa wartość nagłówka, tu również może pojawić się informacja na temat formatu kodowania&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setRequestHeader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Content-type&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;application/json; charset=utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(5) Ustawienie nasłuchiwania z wiadomością nastawioną na tworzenie &lt;strong&gt;201&lt;/strong&gt; - Created (Utworzono – wysłany dokument został zapisany na serwerze)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;201&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(6) Wysłanie żądania z przekazanymi danymi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Całość zapytania może prezentować się w następujący sposób:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;https://reqres.in/api/users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {}&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;first_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;John&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;last_name&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Snow&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;POST&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;setRequestHeader&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Content-type&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;application/json; charset=utf-8&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;201&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Edytowanie/Uaktualnianie istniejących danych&lt;/h3&gt;
+&lt;p&gt;Edytowanie danych istniejących na serwerze jest zbliżone do procesu wyżej przedstawionego związanego z wysyłaniem danych -&amp;gt; główne różnice zwarte są w definiowaniu połączenia (należy użyć słowo kluczowe PUT oraz zdefiniować pozycję dla której dane powinny zostać zmienione), tym razem status odpowiedzi zwrotnej powinien być równy &lt;em&gt;200&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowo &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;PUT&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/12&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Gdzie url + 12 wyznacza konkretną część danych/obiekt zawartą na serwerze, w tym przypadku użytkownika&lt;/p&gt;
+&lt;p&gt;Zapytanie może prezentować się w następujący sposób:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;reqres&lt;/span&gt;.&lt;span class="nv"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {}&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Jan&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Snieg&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;PUT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/12&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;setRequestHeader&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Content-type&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;application/json; charset=utf-8&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;200&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Usuwanie danych&lt;/h3&gt;
+&lt;p&gt;Usuwanie danych jest jeszcze prostsze, ponieważ wymaga jedynie wskazanie na obiekt do usunięcia oraz  poprawnego zdefiniowania połączenia, tym razem przy pomocy słowa kluczowego DELETE. Usuwanie danych nie wymaga tworzenia nagłówka, jednak tym razem status odpowiedzi powinien być równy &lt;em&gt;204&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;deleteUser&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;usrId&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;querySelector&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;.delete-by-id&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;DELETE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;`&lt;span class="o"&gt;/&lt;/span&gt;${&lt;span class="nv"&gt;usrId&lt;/span&gt;}`, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;204&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+      &lt;span class="nv"&gt;userInfo&lt;/span&gt;.&lt;span class="nv"&gt;innerText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; `&lt;span class="nv"&gt;User&lt;/span&gt; &lt;span class="nv"&gt;width&lt;/span&gt; &lt;span class="nv"&gt;id&lt;/span&gt;: ${&lt;span class="nv"&gt;usrId&lt;/span&gt;} &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="nv"&gt;deleted&lt;/span&gt;`
+    } &lt;span class="k"&gt;else&lt;/span&gt; {
+      &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+  }
+  &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przedstawiony wyżej kod znajduje się również tutaj na &lt;a href="https://gist.github.com/kostyrko/d04ed2eb6aa9b9d9dc87d07e5f6e0c0a"&gt;GitHub - Gist&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I małe podsumowanie:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="REST API CHECKLIST" src="https://usercontent.one/wp/www.kennethlange.com/wp-content/uploads/2020/04/customer_rest_api-624x314.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php"&gt;kursjs.pl&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest"&gt;MDN-Using XMLHttpRequest&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@giacintocarlucci/xmlhttprquest-definitive-guide-e3a2fd7a85a4"&gt;The XMLHttpRequest Definitive guide&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="delete"></category><category term="get"></category><category term="put"></category></entry><entry><title>JavaScript: XMLHttpRequest - wstęp (GET)</title><link href="https://kostyrko.github.io/zfrontu/js-xhr.html" rel="alternate"></link><published>2020-06-29T10:00:00+02:00</published><updated>2020-06-29T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr.html</id><summary type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;XMLHttpRequest&lt;/h3&gt;
 &lt;p&gt;XMLHttpRequest (XHR) służy do wykonywania dynamicznych (asynchronicznych) połączeń z serwerem
 i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie internetowej &lt;strong&gt;UPDATE&lt;/strong&gt; 2) wysłania żadania danych do serwera po załadowaniu strony - &lt;strong&gt;REQUEST&lt;/strong&gt; 3) przyjęcia informacji przesłanej przez serwer - po załadowaniu strony &lt;strong&gt;RECEIVE&lt;/strong&gt; 4) przesłania danych do serwera (w tle …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="XMLHttpRequest" src="https://domscripting.com/presentations/fowa07/slides/images/page_xhr_server.jpg"&gt;&lt;/p&gt;
@@ -138,155 +282,7 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 &lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php"&gt;kursjs.pl&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest"&gt;MDN-Using XMLHttpRequest&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://attacomsian.com/blog/http-requests-xhr#"&gt;How to make HTTP requests using XMLHttpRequest (XHR)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.medien.ifi.lmu.de/lehre/ws1920/omm/uebung/folien/OMM-02-AJAX.pdf"&gt;Online Multimedia Tutorial 02 – AJAX, Ludwig-Maximilians-Universität München&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="github"></category><category term="github api"></category><category term="api"></category></entry><entry><title>JavaScript: XMLHttpRequest i REST API</title><link href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html" rel="alternate"></link><published>2020-06-29T12:00:00+02:00</published><updated>2020-06-29T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr-rest.html</id><summary type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
-&lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
-&lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
-&lt;p&gt;Wysyłanie danych wymaga&lt;/p&gt;
-&lt;p&gt;(1) przygotowanie danych do wysłania &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
-&lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
-&lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się mock API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
-&lt;p&gt;Wysyłanie danych wymaga&lt;/p&gt;
-&lt;p&gt;(1) przygotowanie danych do wysłania &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;John&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Snow&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;(2) stworzenie nowego obiektu XMLHttpRequest &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;(3) Zdefiniować połączenie za pomocą metody &lt;code&gt;open()&lt;/code&gt; wykorzystując słowo kluczowe POST &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;https&lt;/span&gt;&lt;span class="o"&gt;://&lt;/span&gt;&lt;span class="nt"&gt;reqres&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;users&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="nt"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;open&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;POST&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;url&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;true&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;(4) ustalenie metadanych wysyłanej informacji - nagłówek (headera) będącego częścią teksty wysłanego do serwera, który jest informacją o przesyłanych danych &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;setRequestHeader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nagłówek&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Gdzie -&amp;gt; &lt;code&gt;nagłówek&lt;/code&gt;: określa nazwę nagłówka, &lt;code&gt;wartość&lt;/code&gt;: określa wartość nagłówka, tu również może pojawić się informacja na temat formatu kodowania&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setRequestHeader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Content-type&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;application/json; charset=utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;(5) Ustawienie nasłuchiwania z wiadomością nastawioną na tworzenie &lt;strong&gt;201&lt;/strong&gt; - Created (Utworzono – wysłany dokument został zapisany na serwerze)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
-  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;201&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  } &lt;span class="k"&gt;else&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;(6) Wysłanie żądania z przekazanymi danymi&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Całość zapytania może prezentować się w następujący sposób:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;https://reqres.in/api/users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {}&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;John&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Snow&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-
-
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;POST&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;setRequestHeader&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Content-type&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;application/json; charset=utf-8&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
-  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;201&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  } &lt;span class="k"&gt;else&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;h3&gt;Edytowanie/Uaktualnianie istniejących danych&lt;/h3&gt;
-&lt;p&gt;Edytowanie danych istniejących na serwerze jest zbliżone do procesu wyżej przedstawionego związanego z wysyłaniem danych -&amp;gt; główne różnice zwarte są w definiowaniu połączenia (należy użyć słowo kluczowe PUT oraz zdefiniować pozycję dla której dane powinny zostać zmienione), natomiast nasłuchiwanie zwrotnej informacji (podobnie jak w przypadku pobierania danych powinno być skierowane na 200 -połączenie zakończyło się sukcesem)&lt;/p&gt;
-&lt;p&gt;Przykładowo &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;PUT&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/12&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Gdzie url + 12 wyznacza konkretną część danych/obiekt zawartą na serwerze, w tym przypadku użytkownika&lt;/p&gt;
-&lt;p&gt;Zapytanie może prezentować się w następujący sposób:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;reqres&lt;/span&gt;.&lt;span class="nv"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;;&lt;/span&gt;
-
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {}&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Jan&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;data&lt;/span&gt;.&lt;span class="nv"&gt;lastname&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Snieg&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-
-
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;PUT&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/12&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;setRequestHeader&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Content-type&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;application/json; charset=utf-8&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
-  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;200&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  } &lt;span class="k"&gt;else&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;h3&gt;Usuwanie danych&lt;/h3&gt;
-&lt;p&gt;Usuwanie danych jest jeszcze prostsze, ponieważ wymaga jedynie wskazanie na obiekt do usunięcia oraz  poprawnego zdefiniowania połączenia, tym razem przy pomocy słowa kluczowego DELETE. Usuwanie danych nie wymaga tworzenia nagłówka.&lt;/p&gt;
-&lt;p&gt;Przykładowo:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xhr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;DELETE&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/12&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Zapytanie może prezentować się w następujący sposób:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;reqres&lt;/span&gt;.&lt;span class="nv"&gt;in&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;api&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;XMLHttpRequest&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;open&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;DELETE&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;url&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/12&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;onload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; {
-  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;parse&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;responseText&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;readyState&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;200&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;table&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  } &lt;span class="k"&gt;else&lt;/span&gt; {
-    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
-&lt;span class="nv"&gt;xhr&lt;/span&gt;.&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Przedstawiony wyżej kod znajduje się również tutaj na &lt;a href="https://gist.github.com/kostyrko/d04ed2eb6aa9b9d9dc87d07e5f6e0c0a"&gt;GitHub - Gist&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I małe podsumowanie:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="REST API CHECKLIST" src="https://usercontent.one/wp/www.kennethlange.com/wp-content/uploads/2020/04/customer_rest_api-624x314.png"&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/xmlhttprequest.php"&gt;kursjs.pl&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest"&gt;MDN-Using XMLHttpRequest&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://medium.com/@giacintocarlucci/xmlhttprquest-definitive-guide-e3a2fd7a85a4"&gt;The XMLHttpRequest Definitive guide&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="delete"></category><category term="get"></category><category term="put"></category></entry><entry><title>JavaScript: Webpack - krótkie wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/js-webpack.html" rel="alternate"></link><published>2020-06-26T11:00:00+02:00</published><updated>2020-06-26T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-26:/zfrontu/js-webpack.html</id><summary type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.medien.ifi.lmu.de/lehre/ws1920/omm/uebung/folien/OMM-02-AJAX.pdf"&gt;Online Multimedia Tutorial 02 – AJAX, Ludwig-Maximilians-Universität München&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="ajax"></category><category term="rest"></category><category term="XMLHttpRequest"></category><category term="github"></category><category term="github api"></category><category term="api"></category></entry><entry><title>JavaScript: Webpack - krótkie wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/js-webpack.html" rel="alternate"></link><published>2020-06-26T11:00:00+02:00</published><updated>2020-06-26T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-26:/zfrontu/js-webpack.html</id><summary type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Webpack&lt;/em&gt; generuje tzw. pakiety (ang. bundles -&amp;gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W  tym sensie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="webpack" src="https://miro.medium.com/max/1400/1*gdoQ1_5OID90wf1eLTFvWw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
@@ -545,7 +541,7 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;p&gt;gdzie findDroidFunc jest nazwą funkcji znajdującą się danym pliku - zwana modułem&lt;/p&gt;
 &lt;p&gt;Moduły mogą być wbudowane (stworzone w pliku) jak i zewnętrzne np udostępnione przy pomocy &lt;strong&gt;npm&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;Eksportowanie i importowanie wielu modułów z jednego pliku&lt;/h3&gt;
-&lt;p&gt;Eksport poprzez blokowanie w klamrowe nawiasy&lt;/p&gt;
+&lt;p&gt;Eksport poprzez blokowanie w klamrowe nawiasy -&amp;gt; obiekt&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;droidsFuncs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
 &lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;findDroid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -554,12 +550,22 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Import poprzez odwołanie się do nazwy plików z modułami&lt;/p&gt;
+&lt;p&gt;Import poprzez odwołanie się do nazwy plików z modułami / rozszerzenia .js najczęściej się nie podaje (tu zawarte dla czytelności)&lt;/p&gt;
 &lt;p&gt;const  droids = require("./droidsFuncs.js")&lt;/p&gt;
 &lt;p&gt;Wykorzystanie - nazwa modułu + metoda&lt;/p&gt;
 &lt;p&gt;droids.findDroid("R2D2")&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Moduły ES(6)&lt;/h3&gt;
+&lt;p&gt;Eksport jest podobne jak powyżej, ale dochodzi również opcja default&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;DroidSeeker&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;darthVader&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Importowanie zależności odbywa się poprzez wykorzystanie kluczowego słowa &lt;code&gt;import&lt;/code&gt; (całość konceptu jest podobna do tego znanego mi z Pythona ;)&lt;/p&gt;
 &lt;p&gt;Import wszystkich modułów z pojedynczego pliku&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;myModule&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/modules/my-module.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -571,7 +577,7 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Importowanie pojedynczego &lt;code&gt;importu&lt;/code&gt; / kolejne należy dodawać po przecinku&lt;/p&gt;
+&lt;p&gt;Importowanie pojedynczego &lt;code&gt;importu&lt;/code&gt; / kolejne należy dodawać po przecinku (destrukturyzacja obiektu)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;myExport&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/modules/my-module.js&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -579,6 +585,18 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
 &lt;p&gt;Importowanie z nadaniem nowej nazwy (jak w Pythonie ;) / kolejne należy dodawać po przecinku&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;bardzoBardzoDlugaNazwa&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;krotkaNazwa&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/modules/my-module.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Można również zastosować importowanie poprzez podanie nazwy bez nawiasów jeśli w innym pliku został zastosowany &lt;strong&gt;export default NazwaFunkcji&lt;/strong&gt;;
+Wówczas wystarczy zaimportować w sposób następujący -&amp;gt;  &lt;strong&gt;import NazwaModulu from './nazwaPliku'&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Przykładowo &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;DroidSeeker&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;stormTrooper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nowa&lt;/span&gt; &lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;może&lt;/span&gt; &lt;span class="n"&gt;być&lt;/span&gt; &lt;span class="n"&gt;inna&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;taka&lt;/span&gt; &lt;span class="n"&gt;jaką&lt;/span&gt; &lt;span class="n"&gt;planujemy&lt;/span&gt; &lt;span class="n"&gt;zastosować&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;droidSeeker&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./droid&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -597,6 +615,13 @@ można dodać webpacka do sekcji scripts w &lt;code&gt;package.json&lt;/code&gt;
     &lt;span class="n"&gt;await&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/modules/my-module.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Import z node modules&lt;/h3&gt;
+&lt;p&gt;Jeśli w ścieżce pliku nie znajduje się kropka, wówczas js będzie szukał danej wtyczki w node modules (po wcześniejszej instalacji modułu, do którego planujemy się odwołać)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;formatDistanceToNow&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;date-fns&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -916,7 +941,7 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 
 &lt;h4&gt;@babel/preset-env&lt;/h4&gt;
 &lt;p&gt;Najłatwiej jest jednak wskazać aby babel automatycznie instalował potrzebne mu wtyczki wykorzystując:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nmp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@babel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;preset&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--save-dev&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@babel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;preset&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--save-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 

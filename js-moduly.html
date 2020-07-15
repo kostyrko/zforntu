@@ -206,7 +206,7 @@
 <p>gdzie findDroidFunc jest nazwą funkcji znajdującą się danym pliku - zwana modułem</p>
 <p>Moduły mogą być wbudowane (stworzone w pliku) jak i zewnętrzne np udostępnione przy pomocy <strong>npm</strong></p>
 <h3>Eksportowanie i importowanie wielu modułów z jednego pliku</h3>
-<p>Eksport poprzez blokowanie w klamrowe nawiasy</p>
+<p>Eksport poprzez blokowanie w klamrowe nawiasy -&gt; obiekt</p>
 <div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">droidsFuncs</span><span class="p">.</span><span class="n">js</span>
 <span class="n">module</span><span class="p">.</span><span class="n">exports</span> <span class="o">=</span> <span class="err">{</span>
   <span class="n">findDroid</span><span class="p">;</span>
@@ -215,12 +215,22 @@
 </code></pre></div>
 
 
-<p>Import poprzez odwołanie się do nazwy plików z modułami</p>
+<p>Import poprzez odwołanie się do nazwy plików z modułami / rozszerzenia .js najczęściej się nie podaje (tu zawarte dla czytelności)</p>
 <p>const  droids = require("./droidsFuncs.js")</p>
 <p>Wykorzystanie - nazwa modułu + metoda</p>
 <p>droids.findDroid("R2D2")</p>
 <hr>
 <h3>Moduły ES(6)</h3>
+<p>Eksport jest podobne jak powyżej, ale dochodzi również opcja default</p>
+<div class="highlight"><pre><span></span><code><span class="n">export</span> <span class="k">default</span> <span class="n">DroidSeeker</span><span class="p">;</span>
+
+<span class="n">export</span> <span class="err">{</span>
+  <span class="n">droid</span><span class="p">,</span>
+  <span class="n">darthVader</span>
+<span class="err">}</span><span class="p">;</span>
+</code></pre></div>
+
+
 <p>Importowanie zależności odbywa się poprzez wykorzystanie kluczowego słowa <code>import</code> (całość konceptu jest podobna do tego znanego mi z Pythona ;)</p>
 <p>Import wszystkich modułów z pojedynczego pliku</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="o">*</span> <span class="k">as</span> <span class="n">myModule</span> <span class="kn">from</span> <span class="s1">&#39;/modules/my-module.js&#39;</span><span class="p">;</span>
@@ -232,7 +242,7 @@
 </code></pre></div>
 
 
-<p>Importowanie pojedynczego <code>importu</code> / kolejne należy dodawać po przecinku</p>
+<p>Importowanie pojedynczego <code>importu</code> / kolejne należy dodawać po przecinku (destrukturyzacja obiektu)</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span><span class="n">myExport</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;/modules/my-module.js&#39;</span>
 </code></pre></div>
 
@@ -240,6 +250,18 @@
 <p>Importowanie z nadaniem nowej nazwy (jak w Pythonie ;) / kolejne należy dodawać po przecinku</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span><span class="n">bardzoBardzoDlugaNazwa</span> <span class="k">as</span> <span class="n">krotkaNazwa</span><span class="p">}</span>
 <span class="kn">from</span> <span class="s1">&#39;/modules/my-module.js&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+
+<p>Można również zastosować importowanie poprzez podanie nazwy bez nawiasów jeśli w innym pliku został zastosowany <strong>export default NazwaFunkcji</strong>;
+Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import NazwaModulu from './nazwaPliku'</strong></p>
+<p>Przykładowo </p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">droid</span><span class="o">.</span><span class="n">js</span>
+<span class="n">export</span> <span class="n">default</span> <span class="n">DroidSeeker</span>
+
+<span class="o">//</span> <span class="n">stormTrooper</span><span class="o">.</span><span class="n">js</span> <span class="p">(</span><span class="n">nowa</span> <span class="n">nazwa</span> <span class="n">może</span> <span class="n">być</span> <span class="n">inna</span> <span class="o">-</span> <span class="n">taka</span> <span class="n">jaką</span> <span class="n">planujemy</span> <span class="n">zastosować</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">droidSeeker</span> <span class="nn">from</span> <span class="s1">&#39;./droid&#39;</span>
 </code></pre></div>
 
 
@@ -258,6 +280,13 @@
     <span class="n">await</span> <span class="n">import</span><span class="p">(</span><span class="s1">&#39;/modules/my-module.js&#39;</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">})();</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Import z node modules</h3>
+<p>Jeśli w ścieżce pliku nie znajduje się kropka, wówczas js będzie szukał danej wtyczki w node modules (po wcześniejszej instalacji modułu, do którego planujemy się odwołać)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">formatDistanceToNow</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;date-fns&quot;</span>
 </code></pre></div>
 
 
