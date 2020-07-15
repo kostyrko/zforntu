@@ -67,25 +67,26 @@ Babel loader pozwala na transpilację przy pomocy Webpacka -&amp;gt; &lt;a href=
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Przygotowanie &lt;strong&gt;webpack.config.js&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Przygotowanie &lt;strong&gt;webpack.config.js&lt;/strong&gt; więcej na ten temat patrz: &lt;a href="https://kostyrko.github.io/zfrontu/js-webpack.html"&gt;Webpack - krótkie wprowadzenie&lt;/a&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    const path = require(&amp;quot;path&amp;quot;);
-    const entryPath = &amp;quot;sciezka_folderu&amp;quot;;
-    const entryFile = &amp;quot;sciezka_pliku.js&amp;quot;;
+    const entryPath = &amp;quot;1_hello_world/js&amp;quot;;
+    const outPath = &amp;quot;1_hello_world&amp;quot;;
+    const entryFile = &amp;quot;app.js&amp;quot;;
 
     module.exports = {
     watch: true,
     entry: `./&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;entryPath&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;entryFile&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`,
-    output: {               // miejsce i nazwa zapisu pliku wyjściowego
+    output: {
         filename: &amp;quot;out.js&amp;quot;,
-        path: path.resolve(__dirname, `&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;entryPath&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/build`)
+        path: path.resolve(__dirname, `&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;outPath&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/build`) // folder wyjściowy/zapisu
     },
-    devServer: {            // konfiguracja webpack serwera
-        contentBase: path.join(__dirname, `&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;entryPath&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`),
+    devServer: {
+        contentBase: path.join(__dirname, `&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;outPath&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`),    // ścieżka gdzie znajduje się statyczna treść np. index.html (path.join by stworzyć absolutną ścieżkę)
         publicPath: &amp;quot;/build/&amp;quot;,
         compress: true,
         port: 3001
     },
-    module: {               // dodanie babel-loader&amp;#39;a
+    module: {
         rules: [
         {
             test: /\.js$/,
@@ -141,9 +142,19 @@ ReactDOM.render(element, miejsce)&lt;/p&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
 &lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Aby zobaczyć aplikację na webpackowym serverze należy wpisać w terminalu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="k"&gt;start&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lub aby wykorzystać stworzyć bundle.js        &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -244,6 +255,8 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/getting-started.html"&gt;Podstawowe informacje&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pl.reactjs.org/tutorial/tutorial.html"&gt;Samouczek: Wstęp do Reacta&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.robinwieruch.de/minimal-react-webpack-babel-setup"&gt;How to set up React with Webpack and Babel [Tutorial]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/swlh/a-complete-webpack-setup-for-react-e56a2edf78ae"&gt;A Complete Webpack Setup for React - Build a React project with Webpack 4 and Babel 7&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;YT: &lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=DN73tm89cgU"&gt;Wprowadzenie do biblioteki React.js&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=Qz7swLxNS0Y"&gt;React JS - kurs w 60 minut&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="notacje obiektów"></category><category term="react"></category></entry></feed>

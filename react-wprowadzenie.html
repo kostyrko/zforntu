@@ -205,25 +205,26 @@ Babel loader pozwala na transpilację przy pomocy Webpacka -&gt; <a href="https:
 </code></pre></div>
 
 
-<p>Przygotowanie <strong>webpack.config.js</strong></p>
+<p>Przygotowanie <strong>webpack.config.js</strong> więcej na ten temat patrz: <a href="https://kostyrko.github.io/zfrontu/js-webpack.html">Webpack - krótkie wprowadzenie</a></p>
 <div class="highlight"><pre><span></span><code>    const path = require(&quot;path&quot;);
-    const entryPath = &quot;sciezka_folderu&quot;;
-    const entryFile = &quot;sciezka_pliku.js&quot;;
+    const entryPath = &quot;1_hello_world/js&quot;;
+    const outPath = &quot;1_hello_world&quot;;
+    const entryFile = &quot;app.js&quot;;
 
     module.exports = {
     watch: true,
     entry: `./<span class="cp">${</span><span class="n">entryPath</span><span class="cp">}</span>/<span class="cp">${</span><span class="n">entryFile</span><span class="cp">}</span>`,
-    output: {               // miejsce i nazwa zapisu pliku wyjściowego
+    output: {
         filename: &quot;out.js&quot;,
-        path: path.resolve(__dirname, `<span class="cp">${</span><span class="n">entryPath</span><span class="cp">}</span>/build`)
+        path: path.resolve(__dirname, `<span class="cp">${</span><span class="n">outPath</span><span class="cp">}</span>/build`) // folder wyjściowy/zapisu
     },
-    devServer: {            // konfiguracja webpack serwera
-        contentBase: path.join(__dirname, `<span class="cp">${</span><span class="n">entryPath</span><span class="cp">}</span>`),
+    devServer: {
+        contentBase: path.join(__dirname, `<span class="cp">${</span><span class="n">outPath</span><span class="cp">}</span>`),    // ścieżka gdzie znajduje się statyczna treść np. index.html (path.join by stworzyć absolutną ścieżkę)
         publicPath: &quot;/build/&quot;,
         compress: true,
         port: 3001
     },
-    module: {               // dodanie babel-loader&#39;a
+    module: {
         rules: [
         {
             test: /\.js$/,
@@ -279,9 +280,19 @@ ReactDOM.render(element, miejsce)</p>
 <span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
 
 <span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
-<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">This</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">droid</span> <span class="n">you</span> <span class="n">are</span> <span class="n">looking</span> <span class="k">for</span><span class="err">!</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">This</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">droid</span> <span class="n">you</span> <span class="n">are</span> <span class="n">looking</span> <span class="k">for</span><span class="err">!</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
 <span class="p">);</span>
+</code></pre></div>
+
+
+<p>Aby zobaczyć aplikację na webpackowym serverze należy wpisać w terminalu</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="k">start</span>
+</code></pre></div>
+
+
+<p>Lub aby wykorzystać stworzyć bundle.js        </p>
+<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">run</span><span class="o">-</span><span class="n">script</span> <span class="n">build</span>
 </code></pre></div>
 
 
@@ -382,6 +393,8 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
 <p>Źródła:</p>
 <p><a href="https://pl.reactjs.org/docs/getting-started.html">Podstawowe informacje</a></p>
 <p><a href="https://pl.reactjs.org/tutorial/tutorial.html">Samouczek: Wstęp do Reacta</a></p>
+<p><a href="https://www.robinwieruch.de/minimal-react-webpack-babel-setup">How to set up React with Webpack and Babel [Tutorial]</a></p>
+<p><a href="https://medium.com/swlh/a-complete-webpack-setup-for-react-e56a2edf78ae">A Complete Webpack Setup for React - Build a React project with Webpack 4 and Babel 7</a></p>
 <p>YT: </p>
 <p><a href="https://www.youtube.com/watch?v=DN73tm89cgU">Wprowadzenie do biblioteki React.js</a></p>
 <p><a href="https://www.youtube.com/watch?v=Qz7swLxNS0Y">React JS - kurs w 60 minut</a></p>
