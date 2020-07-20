@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Fetch jest API/interfejsem należącym do przeglądarki, ale jest również dostępny przy pomocy node.js -&gt; import fetch from &#39;node-fetch&#39;, który pozwala na asynchroniczne pobieranie danych z serwera. Fetch bazuje na obietnicach -&gt; Zwraca zapytanie HTTP jako obietnicę tego zapytania. W momencie wykorzystania metody fetch() tworzony jest obiekt typu Promise - oznacza to …" />
+<meta name="keywords" content="javascript, js, node.js, fetch, fetch api">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript i Fetch API"/>
+<meta property="og:description" content="Fetch jest API/interfejsem należącym do przeglądarki, ale jest również dostępny przy pomocy node.js -&gt; import fetch from &#39;node-fetch&#39;, który pozwala na asynchroniczne pobieranie danych z serwera. Fetch bazuje na obietnicach -&gt; Zwraca zapytanie HTTP jako obietnicę tego zapytania. W momencie wykorzystania metody fetch() tworzony jest obiekt typu Promise - oznacza to …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-fetch-api.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-20 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="node.js"/>
+<meta property="article:tag" content="fetch"/>
+<meta property="article:tag" content="fetch api"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript i Fetch API</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-fetch-api">JavaScript i  Fetch API</h1>
+    <p>
+      Opublikowano sob 20 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="fetch-api" max-height="300px" src="https://css-tricks.com/wp-content/uploads/2018/07/dog-fetch.png"></p>
+<p>Fetch jest API/interfejsem należącym do przeglądarki, ale jest również dostępny przy pomocy node.js -&gt; <code>import fetch from 'node-fetch'</code>, który pozwala na asynchroniczne pobieranie danych z serwera.</p>
+<p>Fetch bazuje na <em>obietnicach</em> -&gt; Zwraca zapytanie HTTP jako obietnicę tego zapytania. W momencie wykorzystania metody <strong>fetch()</strong> tworzony jest obiekt typu Promise - oznacza to, że umożliwia korzystania z metod związanych z obiektami Promise np. <strong>.then()</strong> i <strong>.catch()</strong></p>
+<p>Podstawową metodą <em>Fetch API</em> jest <strong>fetch()</strong> która przyjmuje adres parametr, przyjmując, że domyślną metodą jest <strong>GET</strong> (jeśli chcemy wykorzystać inną metodę, wówczas musimy skorzystać z opcji dodatkowych argumentów, które można przekazać do metody <em>fetch</em> - o tym niżej)</p>
+<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s1">&#39;</span><span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">response</span><span class="ss">))</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Odpowiedź z serwera zawiera wiele informacji np. informacje o statusie odpowiedzi, headery, typ, url czy <strong>body</strong></p>
+<p>W pierwszej kolejności będzie to</p>
+<div class="highlight"><pre><span></span><code><span class="n">Promise</span><span class="w"> </span><span class="err">{</span><span class="o">&lt;</span><span class="n">pending</span><span class="o">&gt;</span><span class="err">}</span><span class="w"></span>
+<span class="nl">__proto__</span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="w"></span>
+<span class="o">[</span><span class="n">[PromiseStatus</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;fulfilled&quot;</span><span class="w"></span>
+<span class="o">[</span><span class="n">...</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>Następnie...</p>
+<div class="highlight"><pre><span></span><code><span class="n">Response</span> <span class="p">{</span>
+  <span class="n">body</span><span class="o">:</span> <span class="p">(</span><span class="kc">...</span><span class="p">),</span>          <span class="o">&lt;-</span> <span class="n">ciało</span> <span class="n">odpowiedzi</span>
+  <span class="n">bodyUsed</span><span class="o">:</span> <span class="n">false</span>
+  <span class="n">headers</span><span class="o">:</span> <span class="n">Headers</span> <span class="p">{}</span>
+  <span class="n">ok</span><span class="o">:</span> <span class="n">true</span>
+  <span class="n">status</span><span class="o">:</span> <span class="m">200</span><span class="p">,</span>          <span class="o">&lt;-</span> <span class="n">status</span> <span class="n">połączenia</span>
+  <span class="n">statusText</span><span class="o">:</span> <span class="s">&quot;&quot;</span>        <span class="o">&lt;-</span> <span class="n">status</span> <span class="n">połączenia</span> <span class="n">jako</span> <span class="n">tekst</span>
+  <span class="n">type</span><span class="o">:</span> <span class="s">&quot;cors&quot;</span>          <span class="o">&lt;-</span> <span class="n">typo</span> <span class="n">połączenia</span>
+  <span class="n">url</span><span class="o">:</span> <span class="s">&quot;https://jsonplaceholder.typicode.com/posts/2&quot;</span><span class="p">,</span>
+  <span class="n">__proto__</span><span class="o">:</span> <span class="n">Response</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Knyf z <strong>fetch</strong> polega na tym, że error nie będzie przechwytywany automatycznie przez metodę <strong>catch()</strong> w momencie gdy serwer działa, stąd wymaga sprawdzenia/walidacji informacji zwrotnej przy pomocy funkcji warunkowej</p>
+<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s1">&#39;</span><span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">response</span>.<span class="nv">ok</span><span class="ss">)</span> {
+      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">response</span><span class="ss">)</span>
+    } <span class="k">else</span> {
+      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">not successful</span><span class="s1">&#39;</span><span class="ss">)</span>
+    }
+  }<span class="ss">)</span>
+</code></pre></div>
+
+
+<p>Właściwość <strong>ok</strong> metody <strong>fetch()</strong> zastosowana powyżej zwraca wartość logiczną (tylko odczyt) i zwraca <strong>True</strong> jeśli treść odpowiedzi zawiera się w przedziale <strong>200-299</strong></p>
+<p>Wyżej zaprezentowany zapis może również przyjąć formę wykorzystującą <strong>obietnicę</strong> i wówczas również możemy wykorzystać metodę <strong>catch()</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s2">&quot;</span><span class="ss">)</span>
+.<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">response</span>.<span class="nv">ok</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">()</span>
+    } <span class="k">else</span> {
+        <span class="k">return</span> <span class="nv">Promise</span>.<span class="nv">reject</span><span class="ss">(</span><span class="nv">response</span><span class="ss">)</span>
+    }
+}<span class="ss">)</span>
+.<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">response</span><span class="ss">)</span>
+}<span class="ss">)</span>
+.<span class="nv">catch</span><span class="ss">(</span><span class="nv">error</span> <span class="o">=&gt;</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">error</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">404</span><span class="ss">)</span> {
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">ERROR 404</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+    }
+}<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Body i jego metody</h3>
+<p>Body jest właściwością informacji zwrotnej (ang. response) fetch i w niej zawarte są dane, na których pozyskaniu może nam zależeć.</p>
+<p><strong>.json()</strong> - przyjmuje informację zwrotną zapytania i zwraca obietnicę jako rezultat sparsowanego ciała tekstu w formacie JSON</p>
+<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s1">&#39;</span><span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">())</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">json</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">json</span><span class="ss">))</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Przy pomocy powyższego kodu, przyjmujemy dane z serwera, odpowiedź zostaje ciało odpowiedzi zostaje przemienione na obiekt json a ten zostaje przekazany do konsoli</p>
+<p><strong>.text()</strong> - zwraca odpowiedź w formie tekstu</p>
+<p><strong>.formData()</strong> - zwraca odpowiedź w formie FormData</p>
+<p><strong>.blob()</strong> - zwraca odpowiedź jako dane binarne z tyułem</p>
+<p><strong>arrayBuffer()</strong> - zwraca odpowiedź jako ArrayBuffer ("buffer z surowymi danymi binarnymi o niezmiennej długości" -&gt; <a href="https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/ArrayBuffer">ArrayBuffer - developer.mozilla.org</a>)</p>
+<hr>
+<h3>Fetch i POST/GET/PUT</h3>
+<p>Podobnie jak w przypadku XMLHttpRequest wysyłanie danych wymaga przekazanie <strong>1)</strong> słowa kluczowego wskazującego na konkterntą metodę (np. POST), <strong>2)</strong> odpowiedniego nagłówka/headers <strong>3)</strong> oraz przekazania treści w body, które zostanie zamienione w obiekt typu JSON (stringify())</p>
+<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://reqres.in.api.users</span><span class="s1">&#39;</span>, {
+  <span class="nv">method</span>: <span class="s1">&#39;</span><span class="s">POST</span><span class="s1">&#39;</span>,
+  <span class="nv">headers</span>: {
+    <span class="s1">&#39;</span><span class="s">Content-Type</span><span class="s1">&#39;</span>: <span class="s1">&#39;</span><span class="s">application/json</span><span class="s1">&#39;</span>
+  },
+  <span class="nv">body</span>: <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span>{
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">User 1</span><span class="s1">&#39;</span>
+  }<span class="ss">)</span>
+}<span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
+  <span class="k">return</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">()</span>
+}<span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">data</span><span class="ss">))</span>
+</code></pre></div>
+
+
+<p>Ten format można zapisać również w następujący sposób</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">https://reqres.in.api.users</span><span class="s1">&#39;</span>
+
+<span class="nv">const</span> <span class="nv">data</span> <span class="o">=</span> {
+  <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">User 1</span><span class="s1">&#39;</span>,
+}
+
+<span class="nv">const</span> <span class="nv">options</span> <span class="o">=</span> {
+  <span class="nv">method</span>: <span class="s1">&#39;</span><span class="s">POST</span><span class="s1">&#39;</span>,
+  <span class="nv">body</span>: <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span>,
+  <span class="nv">headers</span>: {
+      <span class="s1">&#39;</span><span class="s">Content-Type</span><span class="s1">&#39;</span>: <span class="s1">&#39;</span><span class="s">application/json</span><span class="s1">&#39;</span>
+  }
+}<span class="c1">;</span>
+
+<span class="nv">fetch</span><span class="ss">(</span><span class="nv">url</span>, <span class="nv">options</span><span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">())</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">data</span><span class="ss">))</span>
+</code></pre></div>
+
+
+<p>Fetch API posiada również interfejs Headers() -&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers - developer.mozilla.org</a></p>
+<p>Istnieje również możliwość wysyłanie danych w postaci URL jeśli serwer, z którego korzystamy nie wymaga nagłówka wówczas...</p>
+<p>Przykład za <a href="http://kursjs.pl/kurs/ajax/fetch.php">kurjs.pl - Fetch API</a></p>
+<p>fetch(url, {
+        method: "post",
+        body: uriEncode("name=Marcin&amp;surname=Nowak")
+    })
+    .then(res =&gt; res.json())
+    .then(res =&gt; {
+        console.log("Dodałem użytkownika:");
+        console.log(res);
+    })</p>
+<hr>
+<p>Źródła:</p>
+<p><a href="http://kursjs.pl/kurs/ajax/fetch.php">Fetch API - kursjs.pl</a></p>
+<p><a href="https://devenv.pl/fetch-api/#:~:text=Fetch%20API%20jest%20interfejsem%20pozwalaj%C4%85cym,z%20obiektu%20XMLHttpRequest%20(XHR)">Fetch API - devenv.pl</a></p>
+<p><a href="https://attacomsian.com/blog/javascript-fetch-api">How to use the Fetch API in JavaScript - attacomsian.com</a></p>
+<p>MDN web docs</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok">Response.ok</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Body">Body</a></p>
+<p>Filmy</p>
+<p><a href="https://www.youtube.com/watch?v=cuEtnrL9-H0">Learn Fetch API In 6 Minutes</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/nodejs.html">node.js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/fetch.html">fetch</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/fetch-api.html">fetch api</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-promises.html">JavaScript: promises</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html">JavaScript: XMLHttpRequest i REST API</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html">JavaScript: asynchroniczność i AJAX</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

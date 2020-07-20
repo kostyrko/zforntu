@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - nodejs</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/nodejs.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-19T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript: json i json-server</title><link href="https://kostyrko.github.io/zfrontu/js-json-server.html" rel="alternate"></link><published>2020-07-19T10:00:00+02:00</published><updated>2020-07-19T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-19:/zfrontu/js-json-server.html</id><summary type="html">&lt;p&gt;&lt;img alt="json" max-height="300px" src="http://www.webcyou.com/wp-content/uploads/2017/07/json-logo.png"&gt;&lt;/p&gt;
+&lt;h3&gt;JSON - JavaScript Object Notation&lt;/h3&gt;
+&lt;p&gt;Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że &lt;code&gt;nazwy kluczy wpisuje się w PODWÓJNY cudzysłów&lt;/code&gt;, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="json" max-height="300px" src="http://www.webcyou.com/wp-content/uploads/2017/07/json-logo.png"&gt;&lt;/p&gt;
+&lt;h3&gt;JSON - JavaScript Object Notation&lt;/h3&gt;
+&lt;p&gt;Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że &lt;code&gt;nazwy kluczy wpisuje się w PODWÓJNY cudzysłów&lt;/code&gt;, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z obiektów JS,  stąd odwołujemy się do obiektów oraz ich poszczególnych części stosując klucze. Wartości zawarte w JSONie mogą być zapisane w postaci &lt;strong&gt;łańcucha znaków, liczby lub wartości logicznej&lt;/strong&gt; (false, null, true), te natomiast mogą składać się na &lt;strong&gt;tablicę&lt;/strong&gt; lub &lt;strong&gt;obiekt&lt;/strong&gt;, które mogą być dowolnie zagnieżdżone&lt;/p&gt;
+&lt;p&gt;Przykład (za &lt;a href="https://pl.wikipedia.org/wiki/JSON"&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;menu&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="ss"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="ss"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;File&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="ss"&gt;&amp;quot;popup&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="ss"&gt;&amp;quot;menuitem&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+                &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;New&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;onclick&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;CreateNewDoc()&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Open&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;onclick&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;OpenDoc()&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Close&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;onclick&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;CloseDoc()&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+            &lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="err"&gt;}&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;stringify i parse&lt;/h4&gt;
+&lt;p&gt;Dwie istotne metody w kontekście JSONa, które są warte zapamiętania to &lt;code&gt;JSON.stringify()&lt;/code&gt; oraz &lt;code&gt;JSON.parse()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JSON.stringify()&lt;/strong&gt; - zmienia obiekt JS w do łańcucha znaków JSON (przyjmuje również argumenty jeśli jakieś wymiana określonych wartości jest wymagana)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stringify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;07&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;07&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="n"&gt;T15&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;05&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;000&lt;/span&gt;&lt;span class="n"&gt;Z&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;JSON.parse()&lt;/strong&gt; - zmienia/parsuje łańcuch znaków JSON tworząc wartość JS lub obiekt JS&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{&amp;quot;name&amp;quot;: &amp;quot;BB-8&amp;quot;, &amp;quot;class&amp;quot;: &amp;quot;Astromech droid&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;BB&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;JSON-server&lt;/h3&gt;
+&lt;p&gt;JSON-server jest narzędziem pozwalające na stworzenie lokalnego serwera przy pomocy, którego można symulować REST API. Rozwiązanie to w całości oparte jest na zapisanym lokalnie pliku typu JSON&lt;/p&gt;
+&lt;p&gt;Instalacja (globalna - może wymagać -&amp;gt; sudo)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wykorzystanie - uruchomienie. W terminalu należy wpisać słowo kluczowe json-server dodać flagę watch oraz podać ścieżkę zapisu pliku json&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;server&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;watch&lt;/span&gt; &lt;span class="nv"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;pliku&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="c1"&gt;--watch ./jsServer/starWars.json&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Użytkowanie. W przeglądarce należy uruchomić adres&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="n"&gt;lub&lt;/span&gt; 
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nazwa_obiektu&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;planets&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;gdzie zawartość pliku json wygląda przykładowo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;droids&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+            &lt;span class="err"&gt;{&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;id&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;D-O&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;class&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;unknown&amp;quot;&lt;/span&gt;
+            &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="err"&gt;{&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;id&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;BB-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;class&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Astromech droid&amp;quot;&lt;/span&gt;
+            &lt;span class="err"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;planets&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+            &lt;span class="err"&gt;{&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;id&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;planet&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Tatooine&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;sector&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Arkanis sector&amp;quot;&lt;/span&gt;
+            &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="err"&gt;{&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;id&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;planet&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Coruscant&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;sector&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Coruscant subsector&amp;quot;&lt;/span&gt;
+            &lt;span class="err"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;JSONPlaceholder&lt;/h3&gt;
+&lt;p&gt;Na bazie JSON-servera działa onlinowe REST API stworzone również do testowania aplikacji -&amp;gt; JSONPlaceholder&lt;/p&gt;
+&lt;p&gt;więcej na temat jego działania można przeczytać tutaj &lt;a href="http://jsonplaceholder.typicode.com/guide.html"&gt;JSONPlaceholder - Guide&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Rauschmayer, A. (2014). Speaking JavaScript: an in-depth guide for programmers. " O'Reilly Media, Inc.".&lt;/p&gt;
+&lt;p&gt;Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/server-lokalny.php"&gt;Serwer lokalny i json-server&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://blog.codingblocks.com/2018/reading-json-files-in-nodejs-require-vs-fs-readfile/"&gt;Reading json files in NodeJS: require() vs fs.readFile()&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=haY"&gt;JSON - wszystko co musisz o nim wiedzieć&lt;/a&gt;&lt;/p&gt;</content><category term="nodejs"></category><category term="js"></category><category term="javascript"></category><category term="json"></category><category term="json-server"></category><category term="readFile"></category><category term="require"></category><category term="node"></category><category term="stringify"></category><category term="parse"></category></entry><entry><title>JavaScript: promises</title><link href="https://kostyrko.github.io/zfrontu/js-promises.html" rel="alternate"></link><published>2020-07-18T10:00:00+02:00</published><updated>2020-07-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-18:/zfrontu/js-promises.html</id><summary type="html">&lt;p&gt;&lt;img alt="promises" max-height="300px" src="https://bitsofco.de/content/images/2016/06/Creating-Promises.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Obietnice/Promises&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Promises&lt;/em&gt; zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na &lt;code&gt;callbackach&lt;/code&gt;/&lt;em&gt;wywołaniach zwrotnych&lt;/em&gt;. Obiekty &lt;em&gt;Promise&lt;/em&gt; (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie. Pozwala to na stworzenie takiego łańcucha kodu, który uzależnia wykonanie kolejnej funkcji od wyniku zwrotnego poprzedniej. Obiekt Promise może znajdować …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="promises" max-height="300px" src="https://bitsofco.de/content/images/2016/06/Creating-Promises.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Obietnice/Promises&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Promises&lt;/em&gt; zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na &lt;code&gt;callbackach&lt;/code&gt;/&lt;em&gt;wywołaniach zwrotnych&lt;/em&gt;. Obiekty &lt;em&gt;Promise&lt;/em&gt; (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie. Pozwala to na stworzenie takiego łańcucha kodu, który uzależnia wykonanie kolejnej funkcji od wyniku zwrotnego poprzedniej. Obiekt Promise może znajdować się w jednym stanie jednocześnie: &lt;code&gt;Pending&lt;/code&gt; (wywołane i oczekuje), &lt;code&gt;Fulfilled&lt;/code&gt; (wykonane z powodzeniem), &lt;code&gt;Rejected&lt;/code&gt; (odrzucone z niepowodzeniem). Wprowadzenie &lt;em&gt;obietnic&lt;/em&gt; pozwala na uniknięcie stosowania dużej ilości funkcji warunkowych.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Użytkowanie.&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;W pierwszej kolejności należy stworzyć obiekt &lt;em&gt;Promise&lt;/em&gt; (odwołując się do konstruktora obiektu Promise) w ramach, którego zachodzi asynchroniczność zwracająca jedną z dwóch funkcji. W przypadku sukcesu należy wywołać funkcję &lt;strong&gt;resolve&lt;/strong&gt;, natomiast niepowodzenia &lt;strong&gt;reject&lt;/strong&gt; (w niej zostaną przekazane błędne dane).&lt;/p&gt;
+&lt;p&gt;źródło poniższych przykładów: &lt;a href="http://kursjs.pl/kurs/ajax/promise.php"&gt;kursjs.pl - Callback i Promise&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;load&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Promise&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;resolve&lt;/span&gt;, &lt;span class="nv"&gt;reject&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;readData&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            &lt;span class="nv"&gt;resolve&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        } &lt;span class="k"&gt;else&lt;/span&gt; {
+            &lt;span class="nv"&gt;reject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;error&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        }
+    }&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Po stworzeniu obiekt/instancji &lt;em&gt;Promise&lt;/em&gt; znajduje się w stanie &lt;strong&gt;Pending&lt;/strong&gt;, natomiast po wywołaniu się funkcji przechodzi w stan &lt;strong&gt;Settled&lt;/strong&gt;, który w zależności wyniku przejdzie w status &lt;strong&gt;Fulfilled&lt;/strong&gt; lub &lt;strong&gt;Rejected&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Następnie na zwróconą funkcję należy zareagować (ang. consume), w tym celu można wykorzystać metod &lt;strong&gt;.then()&lt;/strong&gt; &lt;strong&gt;.catch()&lt;/strong&gt; [opisane poniżej]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;load&lt;/span&gt;
+        .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+            &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;result&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        }&lt;span class="ss"&gt;)&lt;/span&gt;
+        .&lt;span class="nv"&gt;catch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;err&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+            &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;err&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        }&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Metody .then() i .catch()&lt;/h3&gt;
+&lt;p&gt;Metoda &lt;strong&gt;.then()&lt;/strong&gt; pozwala na &lt;em&gt;zakolejkowanie&lt;/em&gt; reakcji na status zwróconych danych (dowolnie pozytywny, negatywny lub oba). Innymi słowy jest to kod, który ma się wywołać po wywołaniu się funkcji będącej częścią obiektu &lt;em&gt;Promise&lt;/em&gt; lub jeszcze inaczej po tym jak &lt;em&gt;obietnica&lt;/em&gt; (Promise) zostanie zwrócona. &lt;em&gt;Then&lt;/em&gt; można w tym kontekście przetłumaczyć jako &lt;em&gt;potem&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;load&lt;/span&gt;.&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+        &lt;span class="nb"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;result&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;,
+        &lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Metoda &lt;strong&gt;.catch()&lt;/strong&gt; stosowana jest najczęściej do reakcji/przechwytywaniu ew. negatywnej odpowiedzi z serwera (reject)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;loadData&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+        .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;result&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+        .&lt;span class="nv"&gt;catch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="promises-advanced" max-height="400px" src="https://i.stack.imgur.com/UX8JM.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Metody .all() .race() i finally()&lt;/h3&gt;
+&lt;p&gt;Metoda &lt;strong&gt;.all()&lt;/strong&gt; pozwala na wywołanie reakcji po zwróceniu wszystkich &lt;em&gt;obietnic&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;Promise&lt;/span&gt;.&lt;span class="nv"&gt;all&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;[
+        &lt;span class="nv"&gt;checkData1&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;,
+        &lt;span class="nv"&gt;checkData2&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+    ]&lt;span class="ss"&gt;)&lt;/span&gt;
+        .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;resp&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {.....}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Metoda &lt;strong&gt;.race()&lt;/strong&gt; zwraca pierwszą zakończoną &lt;em&gt;obietnicę&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Metoda &lt;strong&gt;.finally()&lt;/strong&gt; wywołuje działanie niezależnie od statusu zwróconej &lt;em&gt;obietnicy&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+        .&lt;span class="nv"&gt;catch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;err&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;alert&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;err&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+        .&lt;span class="nv"&gt;finally&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+            &lt;span class="nv"&gt;btnLoadMore&lt;/span&gt;.&lt;span class="nv"&gt;classList&lt;/span&gt;.&lt;span class="nv"&gt;remove&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;loading&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;btnLoadMore&lt;/span&gt;.&lt;span class="nv"&gt;disabled&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bitsofco.de/javascript-promises-101/"&gt;JavaScript Promises 101&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/promise.php"&gt;kursjs.pl - Callback i Promise&lt;/a&gt;&lt;/p&gt;</content><category term="nodejs"></category><category term="js"></category><category term="javascript"></category><category term="promises"></category><category term="ajax"></category></entry><entry><title>Node.js aktualizacja (Ubuntu)</title><link href="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html" rel="alternate"></link><published>2020-06-11T11:00:00+02:00</published><updated>2020-06-11T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-nodejs-aktualizacja.html</id><summary type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
+    node -v
+    &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
+&lt;h4&gt;Moduł N z NMP&lt;/h4&gt;
+&lt;p&gt;Moduł &lt;a href="https://www.npmjs.com/package/n"&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;/a&gt; służy do interaktywnego zarządzani wersjami &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Kroki podjęte do instalacji najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Czyszczenie pamięci cache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="k"&gt;cache …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
+    node -v
+    &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
+&lt;h4&gt;Moduł N z NMP&lt;/h4&gt;
+&lt;p&gt;Moduł &lt;a href="https://www.npmjs.com/package/n"&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;/a&gt; służy do interaktywnego zarządzani wersjami &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Kroki podjęte do instalacji najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Czyszczenie pamięci cache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="n"&gt;clean&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja przy pomocy nmp modułu n (-g -&amp;gt; globalnie)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja najnowszej wersji (w domyśle &lt;em&gt;Node.js&lt;/em&gt;) oraz usunięcie poprzedniej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;latest&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;NVM - Node Version Manager&lt;/h4&gt;
+&lt;p&gt;Zalecane jest instalacja oraz zarządzanie wersją(w tym przypadku również wieloma wersjami) przy pomocy NVM (Node Version Manager)&lt;/p&gt;
+&lt;p&gt;Pobranie paczek dla Ubuntu, które pozwolą na budowę paczek źródłowych (NVM będzie je wykorzystywał w trakcie instalacji)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;essential&lt;/span&gt; &lt;span class="n"&gt;libssl&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja NVM (uwaga v0.35.3 jest aktualną wersją, która ulegnie zmianie) - pobranie skryptu install_nvm.sh przy pomocy &lt;code&gt;culr&lt;/code&gt; (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z &lt;a href="https://github.com/nvm-sh/nvm/blob/master/install.sh"&gt;repo na GitHubie&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sL&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;raw&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;githubusercontent&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;creationix&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nvm&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;install_nvm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Uruchomienie skryptu przy pomocy komendy &lt;code&gt;bash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Pobranie, kompilacja i instalacja najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nvm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zwrócenie listy dostępnych wersji &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nvm&lt;/span&gt; &lt;span class="n"&gt;ls&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;remote&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instalacja konkretnej wersji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nvm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages&lt;/p&gt;
+&lt;p&gt;https://github.com/nodesource/distributions/blob/master/README.md&lt;/p&gt;
+&lt;p&gt;https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version&lt;/p&gt;
+&lt;p&gt;https://github.com/nvm-sh/nvm&lt;/p&gt;
+&lt;p&gt;https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04&lt;/p&gt;</content><category term="nodejs"></category><category term="node.js"></category><category term="node"></category><category term="nvm"></category><category term="aktualizacja"></category><category term="linux"></category><category term="ubuntu"></category><category term="bash"></category><category term="curl"></category><category term="npm"></category></entry></feed>

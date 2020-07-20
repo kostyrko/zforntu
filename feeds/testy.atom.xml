@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - testy</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/testy.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-10T12:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript - kolejny test w JEST (TDD)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-2.html" rel="alternate"></link><published>2020-06-10T12:00:00+02:00</published><updated>2020-06-10T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-10:/zfrontu/js-jest-test-2.html</id><summary type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Poniższy wpis powstał na podstawie tego &lt;a href="https://www.youtube.com/watch?v=gX440uva4NU"&gt;materiału&lt;/a&gt;, patrz również &lt;a href="https://exercism.io/my/solutions/ca7b90c2164a49e5aed19f12518ac333"&gt;tutaj&lt;/a&gt; i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja&lt;/p&gt;
+&lt;p&gt;Zadanie stwórz funkcję spełniającą następujące warunki&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;Bob&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Sure.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;ask …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="jest" src="https://tamalweb.com/wp-content/uploads/2019/07/jest_js-700x394.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Poniższy wpis powstał na podstawie tego &lt;a href="https://www.youtube.com/watch?v=gX440uva4NU"&gt;materiału&lt;/a&gt;, patrz również &lt;a href="https://exercism.io/my/solutions/ca7b90c2164a49e5aed19f12518ac333"&gt;tutaj&lt;/a&gt; i jego założeniem jest próbą wprowadzenia do TDD (test driven development). W pierwszej kolejności znane są wytyczne/scenariusz funkcji następnie powstaje test a na jego podstawie funkcja&lt;/p&gt;
+&lt;p&gt;Zadanie stwórz funkcję spełniającą następujące warunki&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;Bob&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Sure.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;ask&lt;/span&gt; &lt;span class="nv"&gt;him&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;question&lt;/span&gt;.
+
+&lt;span class="mi"&gt;2&lt;/span&gt;. &lt;span class="nv"&gt;He&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;yell&lt;/span&gt; &lt;span class="nv"&gt;at&lt;/span&gt; &lt;span class="nv"&gt;him&lt;/span&gt;.
+
+&lt;span class="mi"&gt;3&lt;/span&gt;. &lt;span class="nv"&gt;He&lt;/span&gt; &lt;span class="nv"&gt;retorts&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="nv"&gt;doing&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt; if you yell a question at him.&lt;/span&gt;
+
+&lt;span class="mi"&gt;4&lt;/span&gt;. &lt;span class="nv"&gt;He&lt;/span&gt; &lt;span class="nv"&gt;says&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Fine. Be that way!&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;address&lt;/span&gt; &lt;span class="nv"&gt;him&lt;/span&gt; &lt;span class="nv"&gt;without&lt;/span&gt; &lt;span class="nv"&gt;actually&lt;/span&gt; &lt;span class="nv"&gt;saying&lt;/span&gt; &lt;span class="nv"&gt;anything&lt;/span&gt;.
+
+&lt;span class="mi"&gt;5&lt;/span&gt;. &lt;span class="nv"&gt;He&lt;/span&gt; &lt;span class="nv"&gt;answers&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whatever.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;anything&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Test 1&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;talkToBob.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;answers Sure, if ask him a question&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;How are You?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;talkToBob.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Test 2&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;talkToBob.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;describe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Function - talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;answers Sure, if ask him a question&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;How are You?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Answers &amp;#39;Whoa, chill out!&amp;#39; if you yell at him&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;WHAT?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;talkToBob.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Test 3&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;talkToBob.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;describe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Function - talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;answers Sure, if ask him a question&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;How are You?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Answers &amp;#39;Whoa, chill out!&amp;#39; if you yell at him&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;DON&amp;#39;T&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He retorts &amp;#39;Calm down, I know what I&amp;#39;m doing!&amp;#39; if you yell a question at him.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;WHAT?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;talkToBob.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Fine. Be that way!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whatever.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Test 4-5&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;talkToBob.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;describe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Function - talkToBob&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;answers Sure, if ask him a question&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;How are You?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Answers &amp;#39;Whoa, chill out!&amp;#39; if you yell at him&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;DON&amp;#39;T&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He retorts &amp;#39;Calm down, I know what I&amp;#39;m doing!&amp;#39; if you yell a question at him.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;WHAT?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He says &amp;#39;Fine. Be that way!&amp;#39; if you address him without actually saying anything.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Fine. Be that way!&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;He answers &amp;#39;Whatever.&amp;#39; to anything else.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;expect&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;whatever&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;.&lt;span class="nv"&gt;toBe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whatever.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;talkToBob.js&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Sure&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;toUpperCase&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Whoa, chill out!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;.&lt;span class="nv"&gt;endsWith&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;?&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Calm down, I know what I&amp;#39;m doing!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Fine. Be that way!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Whatever.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;talkToBob&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;::: Niezastosowanie przy drugim warunku  &lt;code&gt;&amp;amp;&amp;amp; info.length !== 0&lt;/code&gt; a wprowadzenie dowolnej wartości jako domyślnej wprowadzanego, który stanie się wywołaniem czwartego warunku nie spełni wymogu założonego przez piąty test:::&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://jestjs.io/&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=gX440uva4NU&lt;/p&gt;
+&lt;p&gt;https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80 --TDD&lt;/p&gt;</content><category term="testy"></category><category term="test"></category><category term="jest"></category><category term="tdd"></category><category term="node"></category><category term="npm"></category><category term="babel"></category><category term="transpilacja"></category><category term="transpilator"></category><category term="babel.js"></category><category term="babeljs"></category></entry><entry><title>JavaScript - pierwszy test w JEST (+ Babel)</title><link href="https://kostyrko.github.io/zfrontu/js-jest-test-babel.html" rel="alternate"></link><published>2020-06-08T10:00:00+02:00</published><updated>2020-06-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-08:/zfrontu/js-jest-test-babel.html</id><summary type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Do stworzenia pierwszego testu posłużyłem się &lt;a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file"&gt;dokumentacją JEST&lt;/a&gt; oraz &lt;a href="https://www.youtube.com/watch?v=_zEX9sHzqS4"&gt;tym materiałem&lt;/a&gt; (autorstwa Kacpra Kozaka)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Jest&lt;/em&gt; wyszuka pliku, w którego nazwie znajduje się słowo kluczowe &lt;code&gt;test&lt;/code&gt; poprzedzone &lt;code&gt;kropką&lt;/code&gt; o rozszerzeniu &lt;code&gt;js&lt;/code&gt; którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla &lt;code&gt;sum …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Jest" src="https://miro.medium.com/max/956/1*Ov3_LfV1tNqb0PMioxvpaw.png#center"&gt;&lt;/p&gt;
+&lt;p&gt;Do stworzenia pierwszego testu posłużyłem się &lt;a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file"&gt;dokumentacją JEST&lt;/a&gt; oraz &lt;a href="https://www.youtube.com/watch?v=_zEX9sHzqS4"&gt;tym materiałem&lt;/a&gt; (autorstwa Kacpra Kozaka)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Jest&lt;/em&gt; wyszuka pliku, w którego nazwie znajduje się słowo kluczowe &lt;code&gt;test&lt;/code&gt; poprzedzone &lt;code&gt;kropką&lt;/code&gt; o rozszerzeniu &lt;code&gt;js&lt;/code&gt; którego pierwszy człon nazwy jest taki sam jak plik, w którym przechowywany jest kod do testowania. Przykładowo test dla &lt;code&gt;sum.js&lt;/code&gt; znajdzie się w pliku &lt;code&gt;sum.test.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;W pierwszej kolejności należy stworzyć plik &lt;code&gt;sum.js&lt;/code&gt; w którym znajdzie się testowany kod, w którym należy wskazać moduł do eksportu (umożliwia wykorzystanie funkcji w innym pliki/tworzy moduł)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;sum&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;, &lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;module&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;sum&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W pliku &lt;code&gt;sum.test.js&lt;/code&gt; należy zaimportować stworzony moduł oraz napisać dla niego test&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="k"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./sum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;adds 1 + 2 to equal 3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;testująca&lt;/span&gt;
+  &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)).&lt;/span&gt;&lt;span class="n"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;oczekiwany&lt;/span&gt; &lt;span class="n"&gt;wynik&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie należy zainicjować projekt przy pomocy npm/node.js wpisując w terminal&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Oraz zainstalować framework &lt;em&gt;jest&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="c1"&gt;--save-dev jest&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W pliku &lt;code&gt;package.json&lt;/code&gt; należy wskazać &lt;em&gt;jest&lt;/em&gt; jako framework testujący&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;2_Jest&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;version&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;1.0.0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;main&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;sum.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="ss"&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;jest&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;tym&lt;/span&gt; &lt;span class="n"&gt;miejscu&lt;/span&gt; &lt;span class="n"&gt;należy&lt;/span&gt; &lt;span class="n"&gt;wpisać&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;jest&amp;quot;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;keywords&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[],&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;author&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;license&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;ISC&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="ss"&gt;&amp;quot;jest&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;^26.0.1&amp;quot;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Podstawowa konfiguracja jest już skończona, zatem wystarczy w terminalu (z pozycji folderu projektu) wpisać&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;Porządkowanie/blokowanie testów&lt;/h4&gt;
+&lt;p&gt;Porządkowanie testów odbywa się poprzez ich blokowanie wykorzystując słowo kluczowe &lt;code&gt;describe&lt;/code&gt; a następnie zamknięcie testów przypisanych do jednego modułu w anonimowej funkcji poprzedzonej krótkim opisem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;describe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Function - sum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;grupowanie&lt;/span&gt; &lt;span class="n"&gt;testów&lt;/span&gt;
+  &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;adds 1 + 2 to equal 3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)).&lt;/span&gt;&lt;span class="n"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+  &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;add negative numbers&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)).&lt;/span&gt;&lt;span class="n"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+  &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;add Infinity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt; &lt;span class="n"&gt;brzegowa&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Infinity&lt;/span&gt;&lt;span class="p"&gt;)).&lt;/span&gt;&lt;span class="n"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Infinity&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Babel X 3&lt;/h3&gt;
+&lt;p&gt;Jak widać w powyższym przykładzie zastosowano składnię ES6 oraz wcześniejszą. Ograniczeniem, które narzuca tego typu rozwiązanie jest node.js, stąd aby w pełni wykorzystać możliwości składni wprowadzonej przez ES6 należy skorzystać z &lt;code&gt;Babel.js&lt;/code&gt; - jego konfiguracja może być wykonana na parę sposobów, poniżej wykorzystam tą przedstawioną w &lt;a href="https://jestjs.io/docs/en/getting-started#generate-a-basic-configuration-file"&gt;dokumentacji JEST&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zawartość &lt;code&gt;sum.js&lt;/code&gt; ulegnie zmianie i zostanie nieco skrócona&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;add&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;,&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Podobnie stanie się z &lt;code&gt;sum.test.js&lt;/code&gt; gdzie sposób importowania modułu będzie inny&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./add&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;add two numbers&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toBe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;==================================&lt;/p&gt;
+&lt;p&gt;Wpisując jedną komendę w terminalu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;babel&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;jest&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@babel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;core&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@babel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;preset&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W ten sposób zostanie zainstalowany &lt;a href="https://pl.wikipedia.org/wiki/Babel_(transpilator)"&gt;Babel&lt;/a&gt; (transpilator konwertujący ES6&amp;lt; na ES5) wraz z niezbędnymi dodatkami. Do projektu zostaną dodane następujące zależności/wtyczki&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ss"&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;@babel/core&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;^7.10.2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;@babel/preset-env&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;^7.10.2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;babel-jest&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;^26.0.1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;jest&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;^26.0.1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W następnym kroku należy stworzyć plik &lt;code&gt;babel.config.js&lt;/code&gt; w którym należy skonfigurować narzędzie &lt;em&gt;Babel&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exports&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nl"&gt;presets&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;    [&lt;/span&gt;
+&lt;span class="n"&gt;      &amp;#39;@babel/preset-env&amp;#39;,&lt;/span&gt;
+&lt;span class="n"&gt;      {&lt;/span&gt;
+&lt;span class="n"&gt;        targets: {&lt;/span&gt;
+&lt;span class="n"&gt;          node: &amp;#39;current&amp;#39;,&lt;/span&gt;
+&lt;span class="n"&gt;        },&lt;/span&gt;
+&lt;span class="n"&gt;      },&lt;/span&gt;
+&lt;span class="n"&gt;    &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;==================================&lt;/p&gt;
+&lt;p&gt;Alternatywnie należy zainstalować &lt;code&gt;babel-cli&lt;/code&gt; oraz również &lt;code&gt;@babel/preset-env&lt;/code&gt; (patrz &lt;a href="https://babeljs.io/setup#installation"&gt;tutaj&lt;/a&gt;) w ten sposób babel zainstaluje potrzebne mu wtyczki&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--save-dev babel-cli&lt;/span&gt;
+
+&lt;span class="n"&gt;npm&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@babel&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;preset&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--save-dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;plik konfiguracyjny powinien nosić nazwę &lt;code&gt;.babelrc&lt;/code&gt; i zawierać:&lt;/p&gt;
+&lt;p&gt;{
+    "presets": ["@babel/preset-env"]
+  }&lt;/p&gt;
+&lt;p&gt;==================================&lt;/p&gt;
+&lt;p&gt;Jeśli korzystamy z VSC najprostszym rozwiązaniem może być jednak instalacja wtyczki &lt;code&gt;vscode-babel-repl&lt;/code&gt;, która dokonuje transpilacji w locie i wykorzystanie kodu wynikowego -&amp;gt; &lt;code&gt;F1&lt;/code&gt; -&amp;gt; &lt;code&gt;babel repl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/t-sauer/vscode-babel-repl/master/babel.gif"&gt;vscode-babel-repl&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;https://jestjs.io/&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=_zEX9sHzqS4&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=gX440uva4NU&lt;/p&gt;</content><category term="testy"></category><category term="test"></category><category term="jest"></category><category term="tdd"></category><category term="node"></category><category term="npm"></category><category term="babel"></category><category term="transpilacja"></category><category term="transpilator"></category><category term="babel.js"></category><category term="babeljs"></category></entry></feed>

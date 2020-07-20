@@ -51,7 +51,7 @@
 
 <meta name="author" content="mkostyrko" />
 <meta name="description" content="Wstęp JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …" />
-<meta name="keywords" content="javascript, js, asynchroniczność, call stack, Web Api, obietnice, promises">
+<meta name="keywords" content="javascript, js, asynchroniczność, call stack, Web Api, obietnice, promises, callback, promise">
 
 
 <meta property="og:site_name" content="...z frontu"/>
@@ -71,6 +71,8 @@
 <meta property="article:tag" content="Web Api"/>
 <meta property="article:tag" content="obietnice"/>
 <meta property="article:tag" content="promises"/>
+<meta property="article:tag" content="callback"/>
+<meta property="article:tag" content="promise"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; JavaScript: asynchroniczność i AJAX</title>
@@ -186,13 +188,28 @@
 <h4>Jak to działa? - istotne etapy/wyrażenia</h4>
 <p><strong>Stos wywołań</strong>/<em>Call stack</em> - miejsce, w które trafiają wywołania funkcji (kolejność, w której tam trafiają ma znaczenie na ich wywoływanie) i z którego są ściągane w momencie ich ukończenia.</p>
 <p><strong>Web API</strong> - tu trafiają asynchroniczne operacje (np. setTimeout) i są wykonywane - po wykonaniu trafia do <strong>kolejki wywołań zwrotnych</strong>/<em>Callback queue</em> oraz czeka na moment, w którym może zostać wprowadzony na stronę internetową.</p>
-<p><strong>Pętla wydarzeń</strong>/<em>Event loop</em> - funkcja sprawdzająca czy Stos wywołań jest pusty i w momencie, gdy ten warunek zostaje spełniony przenosi wywołania z kolejki <strong>wywołań zwrotnych</strong> do <em>stosu wywołań</em> i wówczas funkcja jest wywoływana</p>
+<p><strong>Pętla wydarzeń</strong>/<em>Event loop</em> - funkcja sprawdzająca czy Stos wywołań jest pusty i w momencie, gdy ten warunek zostaje spełniony przenosi wywołania z kolejki <strong>wywołań zwrotnych</strong> (ang. callback) do <em>stosu wywołań</em> i wówczas funkcja jest wywoływana</p>
 <p><img alt="event-loop" src="https://www.oreilly.com/library/view/learning-nodejs-development/9781788395540/assets/74fbf540-71b8-499a-a7cf-2da14ed034de.jpg"></p>
 <hr>
 <h3>Wyjście z piekła wywołań zwrotnych/ callback hell</h3>
-<p>Callback jest funkcją przekazywaną jako parametr innej funkcji (funkcja zagnieżdżona w wywołaniu funkcji) umożliwia to uzależnienia kolejnego działania od zwrotu działania funkcji poprzedzającej - wywołanie się funkcji wewnętrznej było uzależnione od wywołania funkcji wyższego rzędu. Wielokrotne zagnieżdżenie wywołań zwrotnych, trudne do opanowania oraz utrzymania, nazywane jest <code>callback hell</code></p>
+<p>Callback jest informacją zwrotną wynikającą z wywołania funkcji, ta może posłużyć jako parametr/agrument wywołania kolejnej funkcji (funkcja zagnieżdżona w wywołaniu funkcji) umożliwia to uzależnienia kolejnego działania od zwrotu działania funkcji poprzedzającej - wywołanie się funkcji wewnętrznej było uzależnione od wywołania funkcji wyższego rzędu. Wielokrotne zagnieżdżenie wywołań zwrotnych (ang. callback), trudne do opanowania oraz utrzymania, nazywane jest <code>callback hell</code></p>
+<div class="highlight"><pre><span></span><code>    <span class="k">function</span> <span class="n">renderPage</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
+        <span class="n">getFirstData</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="err">{</span>
+            <span class="n">getAnotherData1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="err">{</span>
+                <span class="n">getAnotherData2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="err">{</span>
+                    <span class="n">getAnotherData3</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
+                        <span class="p">[...]</span>
+                    <span class="err">}</span><span class="p">);</span>
+                <span class="err">}</span><span class="p">);</span>
+            <span class="err">}</span><span class="p">);</span>
+        <span class="err">}</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Przykład za: <a href="http://kursjs.pl/kurs/ajax/promise.php">kursjs.pl - Callback i Promise</a></p>
+<hr>
 <h4>Obietnice/Promises</h4>
-<p><em>Promises</em> zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na <code>callbackach</code>/<em>wywołaniach zwrotnych</em>. Obiekty <em>promises</em> (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie i może znajdować się w jednym stanie jednocześnie: <code>Pending</code> (wywołane i oczekuje), <code>Fulfilled</code> (wykonane z powodzeniem), <code>Rejected</code> (odrzucone z niepowodzeniem)</p>
+<p><em>Promises</em> zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na <code>callbackach</code>/<em>wywołaniach zwrotnych</em>. Obiekty <em>Promise</em> (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie i może znajdować się w jednym stanie jednocześnie: <code>Pending</code> (wywołane i oczekuje), <code>Fulfilled</code> (wykonane z powodzeniem), <code>Rejected</code> (odrzucone z niepowodzeniem). Wprowadzenie <em>obietnic</em> pozwala na uniknięcie stosowania funkcji warunkowych.</p>
 <p>Schemat kodu w przypadku Fulfilled</p>
 <div class="highlight"><pre><span></span><code><span class="nv">Promise</span><span class="ss">(</span><span class="nv">tre</span>ść<span class="o">-</span><span class="nv">obietnicy</span><span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="nb">result</span><span class="o">=&gt;</span>{
     <span class="o">//</span><span class="nv">rezultat</span> <span class="k">do</span> <span class="nv">wykonania</span>
@@ -200,13 +217,14 @@
 </code></pre></div>
 
 
-<p>Schemat kodu w przypadku Fulfilled</p>
+<p>Schemat kodu w przypadku Rejected</p>
 <div class="highlight"><pre><span></span><code><span class="n">Promise</span><span class="p">(</span><span class="n">treść</span><span class="o">-</span><span class="n">obietnicy</span><span class="p">).</span><span class="n">catch</span><span class="p">(</span><span class="n">error</span><span class="o">=&gt;</span><span class="err">{</span>
     <span class="o">//</span><span class="n">zwraca</span> <span class="n">błąd</span>
 <span class="err">}</span><span class="p">)</span>
 </code></pre></div>
 
 
+<hr>
 <h4>Async oraz await</h4>
 <p><code>async</code> oraz <code>await</code> wprowadzono w ES7 i ich zadaniem jest dalszy rozwój asynchroniczności w JavaScript -&gt; pozwala na zapis asynchronicznego kodu w sposób przypominający synchroniczny</p>
 <p><code>async</code> oznacza funkcję, która zwraca obietnicę/promise</p>
@@ -225,20 +243,63 @@
 <p><strong>Protokół HTTP </strong>- Hypertext Transfer Protocol - protokół zapewniający komunikację w sieci internet. [Zapytanie z przeglądarki (powtarzane w trakcie korzystania ze strony) trafiają na serwer DNS (Domain Name System) -&gt; serwer w Internecie -&gt; Zwracana odpowiedź (Składa się na nią Status odpowiedzi, 0 lub więcej nagłówków, Ciało odpowiedzi/body)</p>
 <p><img alt="HTTP/XML-Request" src="https://derivadow.files.wordpress.com/2007/01/ajax.png?w=506&amp;h=309"></p>
 <p>Możliwe statusy odpowiedzi (wybrane)</p>
-<p>| Numer | Znaczenie
-|---|---|---|
-| 200 | połączenie zakończyło się sukcesem |
-| 301 | strona przeniesiona na inny adres |
-| 404 | strona nie istnieje |
-| 500 | błąd serwera|</p>
+<table>
+<thead>
+<tr>
+<th>Numer</th>
+<th>Znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>połączenie zakończyło się sukcesem</td>
+</tr>
+<tr>
+<td><strong>301</strong></td>
+<td>strona przeniesiona na inny adres</td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td>strona nie istnieje</td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>błąd serwera</td>
+</tr>
+</tbody>
+</table>
 <p>Typy połączenia</p>
-<p>| Typ | Znaczenie
-|---|---|---|
-| GET | pobierani danych |
-| POST | wysyłanie danych |
-| PUT | zmiana obiektu w bazie danych |
-| PATCH | edycja pojedynczej właściwości obiektu w bazie danych |
-| DELETE | usunięcie danych |</p>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GET</strong></td>
+<td>pobierani danych</td>
+</tr>
+<tr>
+<td><strong>POST</strong></td>
+<td>wysyłanie danych</td>
+</tr>
+<tr>
+<td><strong>PUT</strong></td>
+<td>zmiana obiektu w bazie danych</td>
+</tr>
+<tr>
+<td><strong>PATCH</strong></td>
+<td>edycja pojedynczej właściwości obiektu w bazie danych</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td>usunięcie danych</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <p>Źródła:</p>
 <p>Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.</p>
@@ -262,6 +323,8 @@
       <a href="https://kostyrko.github.io/zfrontu/tag/web-api.html">Web Api</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/obietnice.html">obietnice</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/promises.html">promises</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/callback.html">callback</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/promise.html">promise</a>
     </p>
   </div>
 

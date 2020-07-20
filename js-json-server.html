@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="JSON - JavaScript Object Notation Format JSON zbliżony jest do obiektów znanych z JS, z tą zasadą, że nazwy kluczy wpisuje się w PODWÓJNY cudzysłów, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z …" />
+<meta name="keywords" content="js, javascript, json, json-server, readFile, require, node, stringify, parse">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript: json i json-server"/>
+<meta property="og:description" content="JSON - JavaScript Object Notation Format JSON zbliżony jest do obiektów znanych z JS, z tą zasadą, że nazwy kluczy wpisuje się w PODWÓJNY cudzysłów, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-json-server.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-07-19 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="nodejs"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="json"/>
+<meta property="article:tag" content="json-server"/>
+<meta property="article:tag" content="readFile"/>
+<meta property="article:tag" content="require"/>
+<meta property="article:tag" content="node"/>
+<meta property="article:tag" content="stringify"/>
+<meta property="article:tag" content="parse"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript: json i json-server</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-json-server">JavaScript: json i json-server</h1>
+    <p>
+      Opublikowano nie 19 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/nodejs.html">nodejs</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="json" max-height="300px" src="http://www.webcyou.com/wp-content/uploads/2017/07/json-logo.png"></p>
+<h3>JSON - JavaScript Object Notation</h3>
+<p>Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że <code>nazwy kluczy wpisuje się w PODWÓJNY cudzysłów</code>, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z obiektów JS,  stąd odwołujemy się do obiektów oraz ich poszczególnych części stosując klucze. Wartości zawarte w JSONie mogą być zapisane w postaci <strong>łańcucha znaków, liczby lub wartości logicznej</strong> (false, null, true), te natomiast mogą składać się na <strong>tablicę</strong> lub <strong>obiekt</strong>, które mogą być dowolnie zagnieżdżone</p>
+<p>Przykład (za <a href="https://pl.wikipedia.org/wiki/JSON">wikipedia.org</a>)</p>
+<div class="highlight"><pre><span></span><code>    <span class="err">{</span>
+        <span class="ss">&quot;menu&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="ss">&quot;file&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;File&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;popup&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;menuitem&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;New&quot;</span><span class="p">,</span> <span class="ss">&quot;onclick&quot;</span><span class="p">:</span> <span class="ss">&quot;CreateNewDoc()&quot;</span><span class="err">}</span><span class="p">,</span>
+                <span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;Open&quot;</span><span class="p">,</span> <span class="ss">&quot;onclick&quot;</span><span class="p">:</span> <span class="ss">&quot;OpenDoc()&quot;</span><span class="err">}</span><span class="p">,</span>
+                <span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;Close&quot;</span><span class="p">,</span> <span class="ss">&quot;onclick&quot;</span><span class="p">:</span> <span class="ss">&quot;CloseDoc()&quot;</span><span class="err">}</span>
+            <span class="p">]</span>
+            <span class="err">}</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+</code></pre></div>
+
+
+<h4>stringify i parse</h4>
+<p>Dwie istotne metody w kontekście JSONa, które są warte zapamiętania to <code>JSON.stringify()</code> oraz <code>JSON.parse()</code></p>
+<p><strong>JSON.stringify()</strong> - zmienia obiekt JS w do łańcucha znaków JSON (przyjmuje również argumenty jeśli jakieś wymiana określonych wartości jest wymagana)</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">07</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)));</span>
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="ss">&quot;&quot;</span><span class="mi">2020</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">20</span><span class="n">T15</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">.</span><span class="mi">000</span><span class="n">Z</span><span class="ss">&quot;&quot;</span>
+</code></pre></div>
+
+
+<p><strong>JSON.parse()</strong> - zmienia/parsuje łańcuch znaków JSON tworząc wartość JS lub obiekt JS</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">const</span> <span class="n">json</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;BB-8&quot;, &quot;class&quot;: &quot;Astromech droid&quot;&#39;</span><span class="err">}</span><span class="p">;</span>
+    <span class="n">const</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">BB</span><span class="o">-</span><span class="mi">8</span>
+</code></pre></div>
+
+
+<hr>
+<h3>JSON-server</h3>
+<p>JSON-server jest narzędziem pozwalające na stworzenie lokalnego serwera przy pomocy, którego można symulować REST API. Rozwiązanie to w całości oparte jest na zapisanym lokalnie pliku typu JSON</p>
+<p>Instalacja (globalna - może wymagać -&gt; sudo)</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">install</span> <span class="n">json</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="k">g</span>
+</code></pre></div>
+
+
+<p>Wykorzystanie - uruchomienie. W terminalu należy wpisać słowo kluczowe json-server dodać flagę watch oraz podać ścieżkę zapisu pliku json</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">json</span><span class="o">-</span><span class="nv">server</span> <span class="o">--</span><span class="nv">watch</span> <span class="nv">sciezka</span><span class="o">/</span><span class="k">do</span><span class="o">/</span><span class="nv">pliku</span>.<span class="nv">json</span>
+</code></pre></div>
+
+
+<p>Przykładowo</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">json</span><span class="o">-</span><span class="n">server</span> <span class="c1">--watch ./jsServer/starWars.json</span>
+</code></pre></div>
+
+
+<p>Użytkowanie. W przeglądarce należy uruchomić adres</p>
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span>
+<span class="n">lub</span> 
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">nazwa_obiektu</span>
+</code></pre></div>
+
+
+<p>Przykładowo</p>
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">droids</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">planets</span>
+</code></pre></div>
+
+
+<p>gdzie zawartość pliku json wygląda przykładowo:</p>
+<div class="highlight"><pre><span></span><code>    <span class="err">{</span>
+        <span class="ss">&quot;droids&quot;</span> <span class="p">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="ss">&quot;name&quot;</span> <span class="p">:</span> <span class="ss">&quot;D-O&quot;</span><span class="p">,</span>
+                <span class="ss">&quot;class&quot;</span> <span class="p">:</span> <span class="ss">&quot;unknown&quot;</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="ss">&quot;name&quot;</span> <span class="p">:</span> <span class="ss">&quot;BB-8&quot;</span><span class="p">,</span>
+                <span class="ss">&quot;class&quot;</span> <span class="p">:</span> <span class="ss">&quot;Astromech droid&quot;</span>
+            <span class="err">}</span>
+        <span class="p">],</span>
+        <span class="ss">&quot;planets&quot;</span> <span class="p">:</span> <span class="p">[</span>
+            <span class="err">{</span>
+                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="ss">&quot;planet&quot;</span> <span class="p">:</span> <span class="ss">&quot;Tatooine&quot;</span><span class="p">,</span>
+                <span class="ss">&quot;sector&quot;</span> <span class="p">:</span> <span class="ss">&quot;Arkanis sector&quot;</span>
+            <span class="err">}</span><span class="p">,</span>
+            <span class="err">{</span>
+                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="ss">&quot;planet&quot;</span> <span class="p">:</span> <span class="ss">&quot;Coruscant&quot;</span><span class="p">,</span>
+                <span class="ss">&quot;sector&quot;</span> <span class="p">:</span> <span class="ss">&quot;Coruscant subsector&quot;</span>
+            <span class="err">}</span>
+        <span class="p">]</span>
+    <span class="err">}</span>
+</code></pre></div>
+
+
+<hr>
+<h3>JSONPlaceholder</h3>
+<p>Na bazie JSON-servera działa onlinowe REST API stworzone również do testowania aplikacji -&gt; JSONPlaceholder</p>
+<p>więcej na temat jego działania można przeczytać tutaj <a href="http://jsonplaceholder.typicode.com/guide.html">JSONPlaceholder - Guide</a></p>
+<hr>
+<p>Źródła:</p>
+<p>Rauschmayer, A. (2014). Speaking JavaScript: an in-depth guide for programmers. " O'Reilly Media, Inc.".</p>
+<p>Duckett, Jon. Javascript and jquery: Interactive front-end web development. Wiley Publishing, 2014.</p>
+<p><a href="http://kursjs.pl/kurs/ajax/server-lokalny.php">Serwer lokalny i json-server</a></p>
+<p><a href="https://blog.codingblocks.com/2018/reading-json-files-in-nodejs-require-vs-fs-readfile/">Reading json files in NodeJS: require() vs fs.readFile()</a></p>
+<p><a href="https://www.youtube.com/watch?v=haY">JSON - wszystko co musisz o nim wiedzieć</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/json.html">json</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/json-server.html">json-server</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/readfile.html">readFile</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/require.html">require</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/node.html">node</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/stringify.html">stringify</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/parse.html">parse</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-promises.html">JavaScript: promises</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html">JavaScript: XMLHttpRequest i REST API</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html">JavaScript: asynchroniczność i AJAX</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/js-fetch-api.html">JavaScript i  Fetch API</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>
