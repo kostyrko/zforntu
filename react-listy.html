@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie …" />
+<meta name="keywords" content="listy, klucze, react">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React: Klucz do tworzenia wielu elementów listy"/>
+<meta property="og:description" content="Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-listy.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-07-22 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="reactjs"/>
+<meta property="article:tag" content="listy"/>
+<meta property="article:tag" content="klucze"/>
+<meta property="article:tag" content="react"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React: Klucz do tworzenia wielu elementów listy</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="react-listy">React: Klucz do tworzenia wielu elementów listy</h1>
+    <p>
+      Opublikowano śro 22 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="react" max-height="300px" src="https://daveceddia.com/images/render-a-list.png"></p>
+<p>Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie go a następnie ponownie wstawi. Klucze pozwalają na wskazanie,  które z elementów są tymi samymi, niezmienionymi. React poradzi sobie z brakiem kluczy lub gdy będą one losowe - jednak będzie to miało negatywny wpływ na wydajność.</p>
+<h3>Tablice</h3>
+<p>Proste tworzenie elementów (nie jest to lista i nie wymaga kluczy)</p>
+<div class="highlight"><pre><span></span><code>const droids = [
+  <span class="nt">&lt;span&gt;</span>C3-PO<span class="nt">&lt;/span&gt;</span>,
+  <span class="nt">&lt;span&gt;</span>R2-D2<span class="nt">&lt;/span&gt;</span>
+];
+
+
+<span class="err">&lt;</span>&gt;
+  {droids}
+<span class="err">&lt;</span>/&gt;
+</code></pre></div>
+
+
+<h3>map() i klucz</h3>
+<p>Elementom tworzonej listy przypisywane są klucze (klucz musi być unikalny w ramach rodzeństwa np. jednej listy... można do tego wykorzystać np. id, pesel etc., ew. może być to indeks z tablicy - chóć gdy tablica ulegnie zmianie może to stanowić problem)</p>
+<p>Atrybut klucza (ang. key) przekazywany Reactowi jest użytkowany wewnętrznie stąd nie jest on widoczny po wyrenderowaniu, tak samo nie będzie on widoczny/dostępny we właściwościach (props)</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+
+<span class="nv">const</span> <span class="nv">list</span> <span class="o">=</span> <span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
+    {
+      <span class="nv">droids</span>.<span class="nv">map</span><span class="ss">(</span><span class="nv">droid</span> <span class="o">=&gt;</span> {
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">droid</span>}<span class="o">&gt;</span>{<span class="nv">droid</span>}<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+      }<span class="ss">)</span>
+    }
+  <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Wersja z indeksem</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+
+<span class="nv">const</span> <span class="nv">list</span> <span class="o">=</span> <span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
+    {
+      <span class="nv">droids</span>.<span class="nv">map</span><span class="ss">((</span><span class="nv">droid</span>, <span class="nv">index</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">index</span>}<span class="o">&gt;</span>{<span class="nv">droid</span>}<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+      }<span class="ss">)</span>
+    }
+  <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+<span class="ss">)</span><span class="c1">;</span>
+
+<span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
+  {<span class="nv">list</span>}
+<span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p>Funkcja</p>
+<p>Props (właściwość) jest obiektem stąd aby dostać się do tablicy droids należy -&gt; props.droids
+Właściwość/props należy przekazać w trakcie wywoływanie komponentu</p>
+<div class="highlight"><pre><span></span><code><span class="nv">props</span> {<span class="nv">droids</span>: <span class="nv">Array</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>}
+<span class="nv">props</span>.<span class="nv">doroids</span> <span class="ss">(</span><span class="mi">2</span><span class="ss">)</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]
+
+
+
+<span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+
+<span class="nv">function</span> <span class="nv">DroidList</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+  <span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> <span class="nv">props</span>.<span class="nv">droids</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
+      {<span class="nv">droids</span>.<span class="nv">map</span><span class="ss">((</span><span class="nv">droid</span><span class="ss">)</span> <span class="o">=&gt;</span>
+        <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">droid</span>}<span class="o">&gt;</span>{<span class="nv">droid</span>}<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+      <span class="ss">)</span>}
+    <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+  <span class="ss">)</span><span class="c1">;</span>
+}
+
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">DroidList</span> <span class="nv">droids</span><span class="o">=</span>{<span class="nv">droids</span>} <span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">root</span><span class="s1">&#39;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://pl.reactjs.org/docs/lists-and-keys.html">listy i klucze - React docs</a></p>
+<p><a href="https://daveceddia.com/display-a-list-in-react/">How to Display a List in React</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/listy.html">listy</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/klucze.html">klucze</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props)</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

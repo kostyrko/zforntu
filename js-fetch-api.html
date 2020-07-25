@@ -285,16 +285,59 @@
 
 <p>Fetch API posiada również interfejs Headers() -&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers - developer.mozilla.org</a></p>
 <p>Istnieje również możliwość wysyłanie danych w postaci URL jeśli serwer, z którego korzystamy nie wymaga nagłówka wówczas...</p>
+<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="nv">url</span>, {
+      <span class="nv">method</span>: <span class="s2">&quot;</span><span class="s">post</span><span class="s2">&quot;</span>,
+      <span class="nv">body</span>: <span class="nv">uriEncode</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">name=Marcin&amp;surname=Nowak</span><span class="s2">&quot;</span><span class="ss">)</span>
+  }<span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">res</span> <span class="o">=&gt;</span> <span class="nv">res</span>.<span class="nv">json</span><span class="ss">())</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">res</span> <span class="o">=&gt;</span> {
+      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Dodałem użytkownika:</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span><span class="c1">;</span>
+  }<span class="ss">)</span>
+</code></pre></div>
+
+
 <p>Przykład za <a href="http://kursjs.pl/kurs/ajax/fetch.php">kurjs.pl - Fetch API</a></p>
-<p>fetch(url, {
-        method: "post",
-        body: uriEncode("name=Marcin&amp;surname=Nowak")
-    })
-    .then(res =&gt; res.json())
-    .then(res =&gt; {
-        console.log("Dodałem użytkownika:");
-        console.log(res);
-    })</p>
+<p><img alt="fetch diagram" src="https://storage.googleapis.com/zingchart-blog/zing-content/2017/12/fetch-diagram-1.png"></p>
+<hr>
+<h3>Łączenie plików HTML przy pomocy Fetch</h3>
+<p>Fetch API można wykorzystać również do "łączenia" plików HTML lub inaczej to ujmując modułowej budowy plików HTML (co może być szczególnie interesujące w trakcie tworzenia stron internetowych w statyczny sposób), może być to przydatne w momencie gdy zależy nam na utrzymaniu kodu w mniejszych partiach lub gdy header ma się powtarzać na paru stronach/podstronach</p>
+<p>Takie zastosowanie może się prezentować w następujący sposób</p>
+<p>Plik index.html oraz kolejny np index.2 może wyglądać w następujący sposób -&gt; plik JS jest wywoływany na początku</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  [...]
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;main.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+
+<p>Plik zawierający treść headera np. header.html powinien zawierać treść jaka powinna znaleźć się na stronie (każdej do której jest podlinkowany)</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Included Header<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+<p>Plik JS zamieszczający treść korzysta z fetch</p>
+<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">./header.html</span><span class="s2">&quot;</span><span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
+    <span class="k">return</span> <span class="nv">response</span>.<span class="nv">text</span><span class="ss">()</span>
+  }<span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span> <span class="o">=&gt;</span> {
+    <span class="nv">document</span>.<span class="nv">querySelector</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">header</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="nv">innerHTML</span> <span class="o">=</span> <span class="nv">data</span><span class="c1">;</span>
+  }<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Patrz przykład na GitHub -&gt; <a href="https://github.com/kostyrko/staticHTML-Include">staticHTML-Include</a></p>
 <hr>
 <p>Źródła:</p>
 <p><a href="http://kursjs.pl/kurs/ajax/fetch.php">Fetch API - kursjs.pl</a></p>
@@ -305,6 +348,11 @@
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Body">Body</a></p>
 <p>Filmy</p>
 <p><a href="https://www.youtube.com/watch?v=cuEtnrL9-H0">Learn Fetch API In 6 Minutes</a></p>
+<p>[10 Gbps $900/month - Global Internet Backbone
+IP Transit For Your Network, Reach More Networks With Lower Latency
+he.net</p>
+<p>0:06 / 16:01
+2.3 HTTP Post Request with fetch() - Working with Data and APIs in JavaScript](https://www.youtube.com/watch?v=Kw5tC5nQMRY&amp;feature=emb_title)</p>
   </div>
   <div class="tag-cloud">
     <p>

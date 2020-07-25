@@ -123,16 +123,59 @@
 
 &lt;p&gt;Fetch API posiada również interfejs Headers() -&amp;gt; &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers"&gt;Headers - developer.mozilla.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Istnieje również możliwość wysyłanie danych w postaci URL jeśli serwer, z którego korzystamy nie wymaga nagłówka wówczas...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;url&lt;/span&gt;, {
+      &lt;span class="nv"&gt;method&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;post&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+      &lt;span class="nv"&gt;body&lt;/span&gt;: &lt;span class="nv"&gt;uriEncode&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;name=Marcin&amp;amp;surname=Nowak&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+      &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Dodałem użytkownika:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Przykład za &lt;a href="http://kursjs.pl/kurs/ajax/fetch.php"&gt;kurjs.pl - Fetch API&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;fetch(url, {
-        method: "post",
-        body: uriEncode("name=Marcin&amp;amp;surname=Nowak")
-    })
-    .then(res =&amp;gt; res.json())
-    .then(res =&amp;gt; {
-        console.log("Dodałem użytkownika:");
-        console.log(res);
-    })&lt;/p&gt;
+&lt;p&gt;&lt;img alt="fetch diagram" src="https://storage.googleapis.com/zingchart-blog/zing-content/2017/12/fetch-diagram-1.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Łączenie plików HTML przy pomocy Fetch&lt;/h3&gt;
+&lt;p&gt;Fetch API można wykorzystać również do "łączenia" plików HTML lub inaczej to ujmując modułowej budowy plików HTML (co może być szczególnie interesujące w trakcie tworzenia stron internetowych w statyczny sposób), może być to przydatne w momencie gdy zależy nam na utrzymaniu kodu w mniejszych partiach lub gdy header ma się powtarzać na paru stronach/podstronach&lt;/p&gt;
+&lt;p&gt;Takie zastosowanie może się prezentować w następujący sposób&lt;/p&gt;
+&lt;p&gt;Plik index.html oraz kolejny np index.2 może wyglądać w następujący sposób -&amp;gt; plik JS jest wywoływany na początku&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  [...]
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;main.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;footer&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;footer&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Plik zawierający treść headera np. header.html powinien zawierać treść jaka powinna znaleźć się na stronie (każdej do której jest podlinkowany)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Included Header&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Plik JS zamieszczający treść korzysta z fetch&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;./header.html&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;querySelector&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;header&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;innerHTML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Patrz przykład na GitHub -&amp;gt; &lt;a href="https://github.com/kostyrko/staticHTML-Include"&gt;staticHTML-Include&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/fetch.php"&gt;Fetch API - kursjs.pl&lt;/a&gt;&lt;/p&gt;
@@ -142,7 +185,12 @@
 &lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok"&gt;Response.ok&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Body"&gt;Body&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Filmy&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=cuEtnrL9-H0"&gt;Learn Fetch API In 6 Minutes&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="node.js"></category><category term="fetch"></category><category term="fetch api"></category></entry><entry><title>JavaScript: XMLHttpRequest i REST API</title><link href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html" rel="alternate"></link><published>2020-06-29T12:00:00+02:00</published><updated>2020-06-29T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr-rest.html</id><summary type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=cuEtnrL9-H0"&gt;Learn Fetch API In 6 Minutes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[10 Gbps $900/month - Global Internet Backbone
+IP Transit For Your Network, Reach More Networks With Lower Latency
+he.net&lt;/p&gt;
+&lt;p&gt;0:06 / 16:01
+2.3 HTTP Post Request with fetch() - Working with Data and APIs in JavaScript](https://www.youtube.com/watch?v=Kw5tC5nQMRY&amp;amp;feature=emb_title)&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="node.js"></category><category term="fetch"></category><category term="fetch api"></category></entry><entry><title>JavaScript: XMLHttpRequest i REST API</title><link href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html" rel="alternate"></link><published>2020-06-29T12:00:00+02:00</published><updated>2020-06-29T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr-rest.html</id><summary type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
 &lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
@@ -1156,16 +1204,16 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;p&gt;Użycie metody &lt;code&gt;.pipe()&lt;/code&gt; - która pozwala na zdefiniowanie kolejnych kroków wykonywanego zadania (przepływu)&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.src()&lt;/code&gt; - metoda w ramach, której wskazuje się pliki, na których zostaje podjęte zadanie&lt;/p&gt;
 &lt;p&gt;Użycie wtyczki -&amp;gt; kompilujące Sass na CSS (o wtyczce i jej instalacji poniżej)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wskazanie&lt;/span&gt; &lt;span class="n"&gt;zależności&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wskazanie&lt;/span&gt; &lt;span class="nv"&gt;zale&lt;/span&gt;ż&lt;span class="nv"&gt;no&lt;/span&gt;ś&lt;span class="nv"&gt;ci&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/style.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pracuj&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;pliku&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="k"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;ź&lt;/span&gt;&lt;span class="n"&gt;ródło&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;uruchom&lt;/span&gt; &lt;span class="n"&gt;wtyczkę&lt;/span&gt; &lt;span class="n"&gt;kompilatora&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;tutaj&lt;/span&gt; &lt;span class="n"&gt;zwróć&lt;/span&gt; &lt;span class="n"&gt;skompilowany&lt;/span&gt; &lt;span class="n"&gt;plik&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;postaci&lt;/span&gt; &lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dest&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;folder_docelowy&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/sass/style.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;pracuj&lt;/span&gt; &lt;span class="nv"&gt;na&lt;/span&gt; &lt;span class="nv"&gt;pliku&lt;/span&gt; &lt;span class="nv"&gt;style&lt;/span&gt;.&lt;span class="nv"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;src&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;ź&lt;span class="nv"&gt;r&lt;/span&gt;ó&lt;span class="nv"&gt;d&lt;/span&gt;ł&lt;span class="nv"&gt;o&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;uruchom&lt;/span&gt; &lt;span class="nv"&gt;wtyczk&lt;/span&gt;ę &lt;span class="nv"&gt;kompilatora&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./dist/css&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;tutaj&lt;/span&gt; &lt;span class="nv"&gt;zwr&lt;/span&gt;óć &lt;span class="nv"&gt;skompilowany&lt;/span&gt; &lt;span class="nv"&gt;plik&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;postaci&lt;/span&gt; &lt;span class="nv"&gt;css&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;dest&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;folder_docelowy&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1178,7 +1226,7 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;h3&gt;Wtyczki&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Spis wtyczek gulpowych:&lt;/em&gt; https://gulpjs.com/plugins&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Spis wtyczek js:&lt;/em&gt; https://www.npmjs.com/&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;gulp-sass&lt;/code&gt; - gulpowa paczka do kompilacji Sass na CSS&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gulp-sass&lt;/code&gt; - gulpowa paczka do kompilacji sass na CSS&lt;/p&gt;
 &lt;p&gt;Instalacja paczki przy pomocy terminala (lokalnie)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1196,6 +1244,7 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Wtyczka sassowa może przyjąć dodatkowe argumenty takie jak outputStyle czy sourceComments&lt;/p&gt;
 &lt;p&gt;===========================================&lt;/p&gt;
 &lt;h4&gt;Nasłuch zmian -&amp;gt; .watch()&lt;/h4&gt;
 &lt;p&gt;// W kolejnej funkcji można ustawić nasłuch na zmiany i wykonywanie zadania
@@ -1210,18 +1259,18 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 
 
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/main.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; 
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/sass/main.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; 
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; 
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./dist/css&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;  
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;watch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;watch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/**/*.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;sass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;watch&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;watch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/**/*.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;series&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1250,16 +1299,16 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Adres:&lt;/em&gt; https://www.npmjs.com/package/gulp-autoprefixer&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Instalacja:&lt;/em&gt; npm install --save-dev gulp-autoprefixer&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;kompilator&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;autoprefixer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-autoprefixer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;wtyczki&lt;/span&gt; &lt;span class="n"&gt;prefiksującej&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt;  &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt;  &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;kompilator&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;autoprefixer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-autoprefixer&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;dodanie&lt;/span&gt; &lt;span class="nv"&gt;wtyczki&lt;/span&gt; &lt;span class="nv"&gt;prefiksuj&lt;/span&gt;ą&lt;span class="nv"&gt;cej&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/app.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;autoprefixer&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/sass/app.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;autoprefixer&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./dist/css&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1280,8 +1329,8 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 
 &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;task-name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;js/*.js&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wszystkie&lt;/span&gt; &lt;span class="nv"&gt;pliki&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;folderze&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt;
-    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykorzystaj&lt;/span&gt; &lt;span class="nv"&gt;wtyczk&lt;/span&gt;ę &lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
-    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;.&lt;span class="nv"&gt;reporter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;default&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;terminalu&lt;/span&gt; &lt;span class="nv"&gt;wydrukuj&lt;/span&gt; &lt;span class="nv"&gt;ew&lt;/span&gt;. &lt;span class="nv"&gt;problemy&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykorzystaj&lt;/span&gt; &lt;span class="nv"&gt;wtyczk&lt;/span&gt;ę &lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;.&lt;span class="nv"&gt;reporter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;default&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;terminalu&lt;/span&gt; &lt;span class="nv"&gt;wydrukuj&lt;/span&gt; &lt;span class="nv"&gt;ew&lt;/span&gt;. &lt;span class="nv"&gt;problemy&lt;/span&gt;
 }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1354,7 +1403,7 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 &lt;p&gt;Node:&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=ENrzD9HAZK4&lt;/p&gt;
 &lt;p&gt;https://github.com/nvm-sh/nvm#installing-and-updating&lt;/p&gt;
-&lt;p&gt;https://docs.npmjs.com/files/package.json&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category></entry><entry><title>JavaScript - przechowywanie danych lokalnie oraz w sesji</title><link href="https://kostyrko.github.io/zfrontu/js-przechowywanie-danych-lokalnie.html" rel="alternate"></link><published>2020-05-22T10:00:00+02:00</published><updated>2020-05-22T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-22:/zfrontu/js-przechowywanie-danych-lokalnie.html</id><summary type="html">&lt;p&gt;Lokalna pamięć przeglądarki pozwala na przechowywanie danych przy pomocy JavaScript bezterminowo.&lt;/p&gt;
+&lt;p&gt;https://docs.npmjs.com/files/packag&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category></entry><entry><title>JavaScript - przechowywanie danych lokalnie oraz w sesji</title><link href="https://kostyrko.github.io/zfrontu/js-przechowywanie-danych-lokalnie.html" rel="alternate"></link><published>2020-05-22T10:00:00+02:00</published><updated>2020-05-22T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-22:/zfrontu/js-przechowywanie-danych-lokalnie.html</id><summary type="html">&lt;p&gt;Lokalna pamięć przeglądarki pozwala na przechowywanie danych przy pomocy JavaScript bezterminowo.&lt;/p&gt;
 &lt;p&gt;Dane przechowywane w lokalnej pamięci przeglądarki nie mogą przekroczyć 5mb i nie powinny znajdować się w nich dane poufne.
 Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zapytania po kolei).&lt;/p&gt;
 &lt;p&gt;Aby korzystać z tzw &lt;code&gt;local storage&lt;/code&gt; (LS) można …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Lokalna pamięć przeglądarki pozwala na przechowywanie danych przy pomocy JavaScript bezterminowo.&lt;/p&gt;

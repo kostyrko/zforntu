@@ -154,7 +154,7 @@
     <p>
       Opublikowano pią 10 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
 
-        &#8226; 3 min read
+        &#8226; 4 min read
     </p>
   </header>
 
@@ -343,20 +343,67 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 </code></pre></div>
 
 
-<p>Atrybuty w JSX różnią się od HTML używają 1) camelCase 2) dodają kolejny wyraz określający np. <strong>class</strong> -&gt; <strong>className</strong> / <strong>background-color</strong> -&gt; <strong>backgroundColor</strong>
-W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w nawiasach klamrowych </p>
+<p>Atrybuty w JSX różnią się od HTML używają 1) camelCase 2) wykorzystując nieco zmienione słowa kluczowe np. <strong>class</strong> -&gt; <strong>className</strong> / <strong>background-color</strong> -&gt; <strong>backgroundColor</strong></p>
+<h4>Wyrażenia</h4>
+<h5>Zmienne</h5>
+<p>W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w <strong>nawiasach klamrowych -&gt; {}</strong> ale mogą się tam również znaleźć <strong>atrybuty styli</strong></p>
 <div class="highlight"><pre><span></span><code>const style {
   backgroundColor: red;
 }
 
-<span class="nt">&lt;div</span> <span class="na">style=</span> <span class="s">{style}</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">style =</span> <span class="s">{style}</span><span class="nt">&gt;&lt;/div&gt;</span>
 
-<span class="nt">&lt;div</span> <span class="na">padding=</span><span class="s">{2+2}</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">padding =</span> <span class="s">{2+2}</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre></div>
 
 
+<h5>Funkcyjne</h5>
+<div class="highlight"><pre><span></span><code>    function yodaTalk(name){
+        return `<span class="cp">${</span><span class="n">firstName</span><span class="cp">}</span>, you are the one, looking for, are we.`;
+    }
+    const name = &#39;Wookie&#39;;
+
+    <span class="nt">&lt;span&gt;</span>{ yodaTalk(name) }<span class="nt">&lt;/span&gt;</span>
+</code></pre></div>
+
+
+<h5>Tagi JSX w zmiennych</h5>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">Wookie</span><span class="s1">&#39;</span><span class="c1">;</span>
+
+<span class="nv">const</span> <span class="nv">greeting</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span> { <span class="nv">firstName</span> }, <span class="nv">you</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">one</span>, <span class="nv">looking</span> <span class="k">for</span>, <span class="nv">are</span> <span class="nv">we</span>.<span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>{ <span class="nv">greeting</span> }<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<h5>Tagi JSX w funkcjach - funkcja zwracająca element</h5>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">yodaTalk</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span>{
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span> {<span class="nv">firstName</span>}, <span class="nv">you</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">one</span>, <span class="nv">looking</span> <span class="k">for</span>, <span class="nv">are</span> <span class="nv">we</span>.<span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span><span class="c1">;</span>
+    }
+    <span class="nv">const</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">Wookie</span><span class="s1">&#39;</span><span class="c1">;</span>
+
+    <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>{ <span class="nv">yodaTalk</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span> }<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<h5>Tagi JSX na podstawie wyrażeń logicznych</h5>
+<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">dagobah</span> <span class="o">=</span> <span class="nv">true</span>
+
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">dagobah</span><span class="ss">)</span>{
+        <span class="nv">info</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span> <span class="nv">Luke</span>, <span class="nv">you</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">one</span>, <span class="nv">looking</span> <span class="k">for</span>, <span class="nv">are</span> <span class="nv">we</span>.<span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span><span class="c1">;</span>
+    } <span class="k">else</span> {
+        <span class="nv">info</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">/login</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Let</span><span class="s1">&#39;</span><span class="s">s go to Dagobah, but first Log In&lt;/a&gt;;</span>
+    }
+
+    <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>{ <span class="nv">info</span> }<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<h4>Opis procesu</h4>
+<p>Element tworzony przy pomocy tagów JSX -&gt; w trakcie kompilacji jest zmieniany na React.createElement -&gt; wywołanie zwraca obiekt -&gt; React tworzy wewnętrzne wirtualne drzewo DOM -&gt; React tworzy drzewo DOM i wstawia je do dokumentu</p>
+<hr>
 <h3>React.Fragment -&gt; o fragmentach słów parę</h3>
-<p>JSX może przyjąć tylko jeden element -&gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzstywyać tzw Fragmenty, które są elementem "klamrowym", który nie generuje kolejnego elementu <strong>&lt;&gt; element1 element2 ...element </></strong></p>
+<p>JSX może przyjąć tylko jeden element -&gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzystywać tzw. Fragmenty, które same w sobie są pewnego rodzaju elementem "klamrowym", który nie generuje kolejnego elementu <strong>&lt;&gt; element1 element2 ...element </></strong></p>
 <p>Można zaimportowania modułu "Fragment" z biblioteki "react"</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">Fragment</span><span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
 </code></pre></div>

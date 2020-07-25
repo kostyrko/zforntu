@@ -1,5 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-20T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>JavaScript i Fetch API</title><link href="https://kostyrko.github.io/zfrontu/js-fetch-api.html" rel="alternate"></link><published>2020-07-20T10:00:00+02:00</published><updated>2020-07-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-20:/zfrontu/js-fetch-api.html</id><summary type="html">&lt;p&gt;&lt;img alt="fetch-api" max-height="300px" src="https://css-tricks.com/wp-content/uploads/2018/07/dog-fetch.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-22T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React: Klucz do tworzenia wielu elementów listy</title><link href="https://kostyrko.github.io/zfrontu/react-listy.html" rel="alternate"></link><published>2020-07-22T10:00:00+02:00</published><updated>2020-07-22T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-22:/zfrontu/react-listy.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daveceddia.com/images/render-a-list.png"&gt;&lt;/p&gt;
+&lt;p&gt;Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daveceddia.com/images/render-a-list.png"&gt;&lt;/p&gt;
+&lt;p&gt;Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie go a następnie ponownie wstawi. Klucze pozwalają na wskazanie,  które z elementów są tymi samymi, niezmienionymi. React poradzi sobie z brakiem kluczy lub gdy będą one losowe - jednak będzie to miało negatywny wpływ na wydajność.&lt;/p&gt;
+&lt;h3&gt;Tablice&lt;/h3&gt;
+&lt;p&gt;Proste tworzenie elementów (nie jest to lista i nie wymaga kluczy)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droids = [
+  &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&lt;/span&gt;C3-PO&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;,
+  &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&lt;/span&gt;R2-D2&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+];
+
+
+&lt;span class="err"&gt;&amp;lt;&lt;/span&gt;&amp;gt;
+  {droids}
+&lt;span class="err"&gt;&amp;lt;&lt;/span&gt;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;map() i klucz&lt;/h3&gt;
+&lt;p&gt;Elementom tworzonej listy przypisywane są klucze (klucz musi być unikalny w ramach rodzeństwa np. jednej listy... można do tego wykorzystać np. id, pesel etc., ew. może być to indeks z tablicy - chóć gdy tablica ulegnie zmianie może to stanowić problem)&lt;/p&gt;
+&lt;p&gt;Atrybut klucza (ang. key) przekazywany Reactowi jest użytkowany wewnętrznie stąd nie jest on widoczny po wyrenderowaniu, tak samo nie będzie on widoczny/dostępny we właściwościach (props)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    {
+      &lt;span class="nv"&gt;droids&lt;/span&gt;.&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;droid&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      }&lt;span class="ss"&gt;)&lt;/span&gt;
+    }
+  &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wersja z indeksem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    {
+      &lt;span class="nv"&gt;droids&lt;/span&gt;.&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;, &lt;span class="nv"&gt;index&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;index&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      }&lt;span class="ss"&gt;)&lt;/span&gt;
+    }
+  &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  {&lt;span class="nv"&gt;list&lt;/span&gt;}
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Funkcja&lt;/p&gt;
+&lt;p&gt;Props (właściwość) jest obiektem stąd aby dostać się do tablicy droids należy -&amp;gt; props.droids
+Właściwość/props należy przekazać w trakcie wywoływanie komponentu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;props&lt;/span&gt; {&lt;span class="nv"&gt;droids&lt;/span&gt;: &lt;span class="nv"&gt;Array&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;}
+&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;doroids&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]
+
+
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;DroidList&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;droids&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      {&lt;span class="nv"&gt;droids&lt;/span&gt;.&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;droid&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="ss"&gt;)&lt;/span&gt;}
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;DroidList&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;} &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;root&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/lists-and-keys.html"&gt;listy i klucze - React docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://daveceddia.com/display-a-list-in-react/"&gt;How to Display a List in React&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="listy"></category><category term="klucze"></category><category term="react"></category></entry><entry><title>React: komponenty i właściwości (props)</title><link href="https://kostyrko.github.io/zfrontu/react-komponenty.html" rel="alternate"></link><published>2020-07-21T10:00:00+02:00</published><updated>2020-07-21T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-21:/zfrontu/react-komponenty.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-props" max-height="300px" src="https://cms-assets.tutsplus.com/uploads/users/1795/posts/29541/image/Stateful-vs-Stateless-Component-Tutorial-Component-with-prop.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Komponent to struktura będący częścią aplikacji składająca się elementów. Komponent jest interaktywny - może przyjmować dane i zwracać inne komponenty lub elementy. Komponent może składać się z innych komponentów (zagnieżdżanie) jak i elementów.&lt;/p&gt;
+&lt;p&gt;Z elementów warto stworzyć komponenty gdy te: się powtarzają i stanowią spójną całość, jeśli komponent jest duży (5-10 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react-props" max-height="300px" src="https://cms-assets.tutsplus.com/uploads/users/1795/posts/29541/image/Stateful-vs-Stateless-Component-Tutorial-Component-with-prop.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Komponent to struktura będący częścią aplikacji składająca się elementów. Komponent jest interaktywny - może przyjmować dane i zwracać inne komponenty lub elementy. Komponent może składać się z innych komponentów (zagnieżdżanie) jak i elementów.&lt;/p&gt;
+&lt;p&gt;Z elementów warto stworzyć komponenty gdy te: się powtarzają i stanowią spójną całość, jeśli komponent jest duży (5-10 elmentów) wówczas należy go podzielić na mniejsze komponenty &lt;/p&gt;
+&lt;h3&gt;Tworzenie komponentu&lt;/h3&gt;
+&lt;p&gt;Komponent jest tworzony przy pomocy funkcji lub klasy - w nazewnictwie stosujemy &lt;strong&gt;wielką literę&lt;/strong&gt; na początku&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Funkcja&lt;/strong&gt; tworząca komponent (wcześniej jedynie mogły wyświetlać strukturę JSX bez udziału logiki - to zmieniło się za sprawą React Hooks)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;HelloWookie&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;Wookie&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;albo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;HelloWookie&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;Wookie&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Klasa&lt;/strong&gt; tworząca komponent (bardziej skomplikowana struktura, trudniejszy w kod w testowaniu)
+Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia od klasy &lt;strong&gt;Components&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;HelloDroid&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;BB&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;albo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;HelloDroid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;Wookie&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="ss"&gt;)&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Renderowanie&lt;/h4&gt;
+&lt;p&gt;Bez znaczenia czy komponent powstał przy pomocy klasy czy funkcji jest on renderowany w podobny sposób&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;HelloDroid&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Zagnieżdżanie&lt;/h3&gt;
+&lt;p&gt;W ramach Greeting zagnieżdżony jest Droid.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt;, {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-Po&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;...ale takich elementów mogło by być również więcej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt;, {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+        ...
+        ...
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="ss"&gt;)&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Właściwości -&amp;gt; properties (obiekt props)&lt;/h3&gt;
+&lt;p&gt;Właściwości są tym co dodaje dynamiki komponentom - jest tym czym właściwość/argument jest dla funkcji.&lt;/p&gt;
+&lt;p&gt;Z perspektywy funkcji może to wylądać w następujący sposób&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; {&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;albo z perspektywy klasy (warto zwrócić uwagę na pojawienie się słowa kluczowego &lt;strong&gt;this&lt;/strong&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  }
+}
+
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;React pobiera atrybuty przekazane do komponentu i implementuje je do obiektu &lt;strong&gt;props&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;np. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;C3-PO&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;Obiekt&lt;/span&gt; &lt;span class="n"&gt;props&lt;/span&gt; &lt;span class="n"&gt;wygląda&lt;/span&gt; &lt;span class="n"&gt;następująco&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;C3-PO&amp;quot;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;albo &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;C3-PO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;R2-D2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;DroidList&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;Obiekt&lt;/span&gt; &lt;span class="n"&gt;props&lt;/span&gt; &lt;span class="n"&gt;wygląda&lt;/span&gt; &lt;span class="n"&gt;następująco&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;C3-PO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;R2-D2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ze względu na to, że &lt;strong&gt;props&lt;/strong&gt; jest obiektem, możemy dokonać na nim destrukturyzacji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; {&lt;span class="nv"&gt;droid1&lt;/span&gt;, &lt;span class="nv"&gt;droid2&lt;/span&gt;} &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid1&lt;/span&gt;,&lt;span class="nv"&gt;droid2&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+}
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;} &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Jako props można przekazać różnego rodzaju dane - liczby, wartości logiczne, łańcuchy szablonowe, zmienne, tablice, funkcje jednak te wówczas winny znaleźć się w &lt;strong&gt;nawiasach klamrowych&lt;/strong&gt;. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;firstDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3-PO&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;firstDroid&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;app&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przy większej ilości właściwości odwołujemy się do ich klucza i nie są oddzielane żadnymi znakami&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;protocol&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;protocol droid&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt; 
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;firstDroid&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+  &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;protocol&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;app&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W przypadku łańcucha szablonowego zmienna znajduje swoje miejsce w wywołaniu komponentu (przekazania właściwości/propsu)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const Greeting = (props) =&amp;gt; {
+  return (
+    &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Welcome!&lt;span class="nt"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+      {props.message}
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    )
+}
+
+const name = &amp;quot;C3-PO&amp;quot;
+
+&lt;span class="nt"&gt;&amp;lt;Greeting&lt;/span&gt; &lt;span class="na"&gt;message=&lt;/span&gt;&lt;span class="s"&gt;{`Hi,&lt;/span&gt; &lt;span class="err"&gt;${user}.`}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Właściwości pozwalają nam również na przekazanie funkcji, które mogą być wywołane wewnątrz komponentu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const Greeting = (props) =&amp;gt; {
+    props.func(&amp;quot;Elo&amp;quot;)         // wywołanie przkazanej funkcji z podaną właściwością
+    return &lt;span class="nt"&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Hello -&amp;gt; Elo!&lt;span class="nt"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+  }
+
+const simpleFunc = (greeting) =&amp;gt; {
+  console.log(`Hello -&amp;gt; &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;greeting&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`)
+}
+
+&lt;span class="nt"&gt;&amp;lt;Greeting&lt;/span&gt; &lt;span class="na"&gt;func=&lt;/span&gt;&lt;span class="s"&gt;{simpleFunc}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/components-and-props.html"&gt;komponenty - React docs&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="komponenty"></category><category term="props"></category><category term="react"></category><category term="components"></category></entry><entry><title>JavaScript i Fetch API</title><link href="https://kostyrko.github.io/zfrontu/js-fetch-api.html" rel="alternate"></link><published>2020-07-20T10:00:00+02:00</published><updated>2020-07-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-20:/zfrontu/js-fetch-api.html</id><summary type="html">&lt;p&gt;&lt;img alt="fetch-api" max-height="300px" src="https://css-tricks.com/wp-content/uploads/2018/07/dog-fetch.png"&gt;&lt;/p&gt;
 &lt;p&gt;Fetch jest API/interfejsem należącym do przeglądarki, ale jest również dostępny przy pomocy node.js -&amp;gt; &lt;code&gt;import fetch from 'node-fetch'&lt;/code&gt;, który pozwala na asynchroniczne pobieranie danych z serwera.&lt;/p&gt;
 &lt;p&gt;Fetch bazuje na &lt;em&gt;obietnicach&lt;/em&gt; -&amp;gt; Zwraca zapytanie HTTP jako obietnicę tego zapytania. W momencie wykorzystania metody &lt;strong&gt;fetch()&lt;/strong&gt; tworzony jest obiekt typu Promise - oznacza to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="fetch-api" max-height="300px" src="https://css-tricks.com/wp-content/uploads/2018/07/dog-fetch.png"&gt;&lt;/p&gt;
 &lt;p&gt;Fetch jest API/interfejsem należącym do przeglądarki, ale jest również dostępny przy pomocy node.js -&amp;gt; &lt;code&gt;import fetch from 'node-fetch'&lt;/code&gt;, który pozwala na asynchroniczne pobieranie danych z serwera.&lt;/p&gt;
@@ -123,16 +437,59 @@
 
 &lt;p&gt;Fetch API posiada również interfejs Headers() -&amp;gt; &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers"&gt;Headers - developer.mozilla.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Istnieje również możliwość wysyłanie danych w postaci URL jeśli serwer, z którego korzystamy nie wymaga nagłówka wówczas...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;url&lt;/span&gt;, {
+      &lt;span class="nv"&gt;method&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;post&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+      &lt;span class="nv"&gt;body&lt;/span&gt;: &lt;span class="nv"&gt;uriEncode&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;name=Marcin&amp;amp;surname=Nowak&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;res&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+      &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Dodałem użytkownika:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;res&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Przykład za &lt;a href="http://kursjs.pl/kurs/ajax/fetch.php"&gt;kurjs.pl - Fetch API&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;fetch(url, {
-        method: "post",
-        body: uriEncode("name=Marcin&amp;amp;surname=Nowak")
-    })
-    .then(res =&amp;gt; res.json())
-    .then(res =&amp;gt; {
-        console.log("Dodałem użytkownika:");
-        console.log(res);
-    })&lt;/p&gt;
+&lt;p&gt;&lt;img alt="fetch diagram" src="https://storage.googleapis.com/zingchart-blog/zing-content/2017/12/fetch-diagram-1.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Łączenie plików HTML przy pomocy Fetch&lt;/h3&gt;
+&lt;p&gt;Fetch API można wykorzystać również do "łączenia" plików HTML lub inaczej to ujmując modułowej budowy plików HTML (co może być szczególnie interesujące w trakcie tworzenia stron internetowych w statyczny sposób), może być to przydatne w momencie gdy zależy nam na utrzymaniu kodu w mniejszych partiach lub gdy header ma się powtarzać na paru stronach/podstronach&lt;/p&gt;
+&lt;p&gt;Takie zastosowanie może się prezentować w następujący sposób&lt;/p&gt;
+&lt;p&gt;Plik index.html oraz kolejny np index.2 może wyglądać w następujący sposób -&amp;gt; plik JS jest wywoływany na początku&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  [...]
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;main.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;footer&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;footer&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Plik zawierający treść headera np. header.html powinien zawierać treść jaka powinna znaleźć się na stronie (każdej do której jest podlinkowany)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Included Header&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Plik JS zamieszczający treść korzysta z fetch&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;./header.html&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;
+  .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;querySelector&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;header&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;innerHTML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Patrz przykład na GitHub -&amp;gt; &lt;a href="https://github.com/kostyrko/staticHTML-Include"&gt;staticHTML-Include&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/fetch.php"&gt;Fetch API - kursjs.pl&lt;/a&gt;&lt;/p&gt;
@@ -142,11 +499,16 @@
 &lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Response/ok"&gt;Response.ok&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Body"&gt;Body&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Filmy&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=cuEtnrL9-H0"&gt;Learn Fetch API In 6 Minutes&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="node.js"></category><category term="fetch"></category><category term="fetch api"></category></entry><entry><title>JavaScript: json i json-server</title><link href="https://kostyrko.github.io/zfrontu/js-json-server.html" rel="alternate"></link><published>2020-07-19T10:00:00+02:00</published><updated>2020-07-19T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-19:/zfrontu/js-json-server.html</id><summary type="html">&lt;p&gt;&lt;img alt="json" max-height="300px" src="http://www.webcyou.com/wp-content/uploads/2017/07/json-logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=cuEtnrL9-H0"&gt;Learn Fetch API In 6 Minutes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[10 Gbps $900/month - Global Internet Backbone
+IP Transit For Your Network, Reach More Networks With Lower Latency
+he.net&lt;/p&gt;
+&lt;p&gt;0:06 / 16:01
+2.3 HTTP Post Request with fetch() - Working with Data and APIs in JavaScript](https://www.youtube.com/watch?v=Kw5tC5nQMRY&amp;amp;feature=emb_title)&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="node.js"></category><category term="fetch"></category><category term="fetch api"></category></entry><entry><title>JavaScript: json i json-server</title><link href="https://kostyrko.github.io/zfrontu/js-json-server.html" rel="alternate"></link><published>2020-07-19T10:00:00+02:00</published><updated>2020-07-19T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-19:/zfrontu/js-json-server.html</id><summary type="html">&lt;p&gt;&lt;img alt="json" max-height="300px" src="http://www.webcyou.com/wp-content/uploads/2017/07/json-logo.png"&gt;&lt;/p&gt;
 &lt;h3&gt;JSON - JavaScript Object Notation&lt;/h3&gt;
-&lt;p&gt;Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że &lt;code&gt;nazwy kluczy wpisuje się w PODWÓJNY cudzysłów&lt;/code&gt;, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="json" max-height="300px" src="http://www.webcyou.com/wp-content/uploads/2017/07/json-logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że &lt;strong&gt;nazwy kluczy&lt;/strong&gt; wpisuje się w &lt;code&gt;PODWÓJNY cudzysłów&lt;/code&gt;, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="json" max-height="300px" src="http://www.webcyou.com/wp-content/uploads/2017/07/json-logo.png"&gt;&lt;/p&gt;
 &lt;h3&gt;JSON - JavaScript Object Notation&lt;/h3&gt;
-&lt;p&gt;Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że &lt;code&gt;nazwy kluczy wpisuje się w PODWÓJNY cudzysłów&lt;/code&gt;, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z obiektów JS,  stąd odwołujemy się do obiektów oraz ich poszczególnych części stosując klucze. Wartości zawarte w JSONie mogą być zapisane w postaci &lt;strong&gt;łańcucha znaków, liczby lub wartości logicznej&lt;/strong&gt; (false, null, true), te natomiast mogą składać się na &lt;strong&gt;tablicę&lt;/strong&gt; lub &lt;strong&gt;obiekt&lt;/strong&gt;, które mogą być dowolnie zagnieżdżone&lt;/p&gt;
+&lt;p&gt;Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że &lt;strong&gt;nazwy kluczy&lt;/strong&gt; wpisuje się w &lt;code&gt;PODWÓJNY cudzysłów&lt;/code&gt;, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z obiektów JS,  stąd odwołujemy się do obiektów oraz ich poszczególnych części stosując klucze. Wartości zawarte w JSONie mogą być zapisane w postaci &lt;strong&gt;łańcucha znaków, liczby lub wartości logicznej&lt;/strong&gt; (false, null, true), te natomiast mogą składać się na &lt;strong&gt;tablicę&lt;/strong&gt; lub &lt;strong&gt;obiekt&lt;/strong&gt;, które mogą być dowolnie zagnieżdżone&lt;/p&gt;
 &lt;p&gt;Przykład (za &lt;a href="https://pl.wikipedia.org/wiki/JSON"&gt;wikipedia.org&lt;/a&gt;)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="err"&gt;{&lt;/span&gt;
         &lt;span class="ss"&gt;&amp;quot;menu&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
@@ -531,20 +893,67 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Atrybuty w JSX różnią się od HTML używają 1) camelCase 2) dodają kolejny wyraz określający np. &lt;strong&gt;class&lt;/strong&gt; -&amp;gt; &lt;strong&gt;className&lt;/strong&gt; / &lt;strong&gt;background-color&lt;/strong&gt; -&amp;gt; &lt;strong&gt;backgroundColor&lt;/strong&gt;
-W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w nawiasach klamrowych &lt;/p&gt;
+&lt;p&gt;Atrybuty w JSX różnią się od HTML używają 1) camelCase 2) wykorzystując nieco zmienione słowa kluczowe np. &lt;strong&gt;class&lt;/strong&gt; -&amp;gt; &lt;strong&gt;className&lt;/strong&gt; / &lt;strong&gt;background-color&lt;/strong&gt; -&amp;gt; &lt;strong&gt;backgroundColor&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;Wyrażenia&lt;/h4&gt;
+&lt;h5&gt;Zmienne&lt;/h5&gt;
+&lt;p&gt;W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w &lt;strong&gt;nawiasach klamrowych -&amp;gt; {}&lt;/strong&gt; ale mogą się tam również znaleźć &lt;strong&gt;atrybuty styli&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const style {
   backgroundColor: red;
 }
 
-&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt; &lt;span class="s"&gt;{style}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;style =&lt;/span&gt; &lt;span class="s"&gt;{style}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 
-&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;padding=&lt;/span&gt;&lt;span class="s"&gt;{2+2}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;padding =&lt;/span&gt; &lt;span class="s"&gt;{2+2}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h5&gt;Funkcyjne&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    function yodaTalk(name){
+        return `&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;firstName&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;, you are the one, looking for, are we.`;
+    }
+    const name = &amp;#39;Wookie&amp;#39;;
+
+    &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&lt;/span&gt;{ yodaTalk(name) }&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;Tagi JSX w zmiennych&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Wookie&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; { &lt;span class="nv"&gt;firstName&lt;/span&gt; }, &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;one&lt;/span&gt;, &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;, &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;we&lt;/span&gt;.&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{ &lt;span class="nv"&gt;greeting&lt;/span&gt; }&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;Tagi JSX w funkcjach - funkcja zwracająca element&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;yodaTalk&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; {&lt;span class="nv"&gt;firstName&lt;/span&gt;}, &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;one&lt;/span&gt;, &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;, &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;we&lt;/span&gt;.&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Wookie&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{ &lt;span class="nv"&gt;yodaTalk&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; }&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;Tagi JSX na podstawie wyrażeń logicznych&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;dagobah&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;dagobah&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;Luke&lt;/span&gt;, &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;one&lt;/span&gt;, &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;, &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;we&lt;/span&gt;.&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    } &lt;span class="k"&gt;else&lt;/span&gt; {
+        &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;/login&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Let&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;s go to Dagobah, but first Log In&amp;lt;/a&amp;gt;;&lt;/span&gt;
+    }
+
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{ &lt;span class="nv"&gt;info&lt;/span&gt; }&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Opis procesu&lt;/h4&gt;
+&lt;p&gt;Element tworzony przy pomocy tagów JSX -&amp;gt; w trakcie kompilacji jest zmieniany na React.createElement -&amp;gt; wywołanie zwraca obiekt -&amp;gt; React tworzy wewnętrzne wirtualne drzewo DOM -&amp;gt; React tworzy drzewo DOM i wstawia je do dokumentu&lt;/p&gt;
+&lt;hr&gt;
 &lt;h3&gt;React.Fragment -&amp;gt; o fragmentach słów parę&lt;/h3&gt;
-&lt;p&gt;JSX może przyjąć tylko jeden element -&amp;gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzstywyać tzw Fragmenty, które są elementem "klamrowym", który nie generuje kolejnego elementu &lt;strong&gt;&amp;lt;&amp;gt; element1 element2 ...element &lt;/&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;JSX może przyjąć tylko jeden element -&amp;gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzystywać tzw. Fragmenty, które same w sobie są pewnego rodzaju elementem "klamrowym", który nie generuje kolejnego elementu &lt;strong&gt;&amp;lt;&amp;gt; element1 element2 ...element &lt;/&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Można zaimportowania modułu "Fragment" z biblioteki "react"&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Fragment&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -4092,16 +4501,16 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 &lt;p&gt;Użycie metody &lt;code&gt;.pipe()&lt;/code&gt; - która pozwala na zdefiniowanie kolejnych kroków wykonywanego zadania (przepływu)&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.src()&lt;/code&gt; - metoda w ramach, której wskazuje się pliki, na których zostaje podjęte zadanie&lt;/p&gt;
 &lt;p&gt;Użycie wtyczki -&amp;gt; kompilujące Sass na CSS (o wtyczce i jej instalacji poniżej)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wskazanie&lt;/span&gt; &lt;span class="n"&gt;zależności&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wskazanie&lt;/span&gt; &lt;span class="nv"&gt;zale&lt;/span&gt;ż&lt;span class="nv"&gt;no&lt;/span&gt;ś&lt;span class="nv"&gt;ci&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/style.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pracuj&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;pliku&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="k"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;ź&lt;/span&gt;&lt;span class="n"&gt;ródło&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;uruchom&lt;/span&gt; &lt;span class="n"&gt;wtyczkę&lt;/span&gt; &lt;span class="n"&gt;kompilatora&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;tutaj&lt;/span&gt; &lt;span class="n"&gt;zwróć&lt;/span&gt; &lt;span class="n"&gt;skompilowany&lt;/span&gt; &lt;span class="n"&gt;plik&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;postaci&lt;/span&gt; &lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dest&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;folder_docelowy&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/sass/style.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;pracuj&lt;/span&gt; &lt;span class="nv"&gt;na&lt;/span&gt; &lt;span class="nv"&gt;pliku&lt;/span&gt; &lt;span class="nv"&gt;style&lt;/span&gt;.&lt;span class="nv"&gt;scss&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;src&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;ź&lt;span class="nv"&gt;r&lt;/span&gt;ó&lt;span class="nv"&gt;d&lt;/span&gt;ł&lt;span class="nv"&gt;o&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;uruchom&lt;/span&gt; &lt;span class="nv"&gt;wtyczk&lt;/span&gt;ę &lt;span class="nv"&gt;kompilatora&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./dist/css&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;tutaj&lt;/span&gt; &lt;span class="nv"&gt;zwr&lt;/span&gt;óć &lt;span class="nv"&gt;skompilowany&lt;/span&gt; &lt;span class="nv"&gt;plik&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;postaci&lt;/span&gt; &lt;span class="nv"&gt;css&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;dest&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;folder_docelowy&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4114,7 +4523,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 &lt;h3&gt;Wtyczki&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Spis wtyczek gulpowych:&lt;/em&gt; https://gulpjs.com/plugins&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Spis wtyczek js:&lt;/em&gt; https://www.npmjs.com/&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;gulp-sass&lt;/code&gt; - gulpowa paczka do kompilacji Sass na CSS&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gulp-sass&lt;/code&gt; - gulpowa paczka do kompilacji sass na CSS&lt;/p&gt;
 &lt;p&gt;Instalacja paczki przy pomocy terminala (lokalnie)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -4132,6 +4541,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Wtyczka sassowa może przyjąć dodatkowe argumenty takie jak outputStyle czy sourceComments&lt;/p&gt;
 &lt;p&gt;===========================================&lt;/p&gt;
 &lt;h4&gt;Nasłuch zmian -&amp;gt; .watch()&lt;/h4&gt;
 &lt;p&gt;// W kolejnej funkcji można ustawić nasłuch na zmiany i wykonywanie zadania
@@ -4146,18 +4556,18 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. &lt;code&
 
 
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/main.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; 
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/sass/main.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; 
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; 
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./dist/css&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;  
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;watch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;watch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/**/*.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;sass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;watch&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;watch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/**/*.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;series&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4186,16 +4596,16 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Adres:&lt;/em&gt; https://www.npmjs.com/package/gulp-autoprefixer&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Instalacja:&lt;/em&gt; npm install --save-dev gulp-autoprefixer&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;kompilator&lt;/span&gt;
-&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;autoprefixer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gulp-autoprefixer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;wtyczki&lt;/span&gt; &lt;span class="n"&gt;prefiksującej&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt;  &lt;span class="nv"&gt;gulp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt;  &lt;span class="nv"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;kompilator&lt;/span&gt;
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;autoprefixer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;require&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;gulp-autoprefixer&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;dodanie&lt;/span&gt; &lt;span class="nv"&gt;wtyczki&lt;/span&gt; &lt;span class="nv"&gt;prefiksuj&lt;/span&gt;ą&lt;span class="nv"&gt;cej&lt;/span&gt;
 
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./src/sass/app.scss&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;autoprefixer&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gulp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./dist/css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;sass&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./src/sass/app.scss&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sass&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;autoprefixer&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;dest&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;./dist/css&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -4216,8 +4626,8 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 
 &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;task&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;task-name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;gulp&lt;/span&gt;.&lt;span class="nv"&gt;src&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;js/*.js&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wszystkie&lt;/span&gt; &lt;span class="nv"&gt;pliki&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;folderze&lt;/span&gt; &lt;span class="nv"&gt;js&lt;/span&gt;
-    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykorzystaj&lt;/span&gt; &lt;span class="nv"&gt;wtyczk&lt;/span&gt;ę &lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
-    .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;.&lt;span class="nv"&gt;reporter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;default&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;terminalu&lt;/span&gt; &lt;span class="nv"&gt;wydrukuj&lt;/span&gt; &lt;span class="nv"&gt;ew&lt;/span&gt;. &lt;span class="nv"&gt;problemy&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykorzystaj&lt;/span&gt; &lt;span class="nv"&gt;wtyczk&lt;/span&gt;ę &lt;span class="nv"&gt;jshint&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+        .&lt;span class="nv"&gt;pipe&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;jshint&lt;/span&gt;.&lt;span class="nv"&gt;reporter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;default&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;terminalu&lt;/span&gt; &lt;span class="nv"&gt;wydrukuj&lt;/span&gt; &lt;span class="nv"&gt;ew&lt;/span&gt;. &lt;span class="nv"&gt;problemy&lt;/span&gt;
 }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -4290,7 +4700,7 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami&lt;/p&gt;
 &lt;p&gt;Node:&lt;/p&gt;
 &lt;p&gt;https://www.youtube.com/watch?v=ENrzD9HAZK4&lt;/p&gt;
 &lt;p&gt;https://github.com/nvm-sh/nvm#installing-and-updating&lt;/p&gt;
-&lt;p&gt;https://docs.npmjs.com/files/package.json&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
+&lt;p&gt;https://docs.npmjs.com/files/packag&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="node_modules"></category><category term="node"></category><category term="gulp"></category><category term="sass"></category><category term="wtyczki"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
