@@ -3,7 +3,7 @@
 &lt;p&gt;Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daveceddia.com/images/render-a-list.png"&gt;&lt;/p&gt;
 &lt;p&gt;Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie go a następnie ponownie wstawi. Klucze pozwalają na wskazanie,  które z elementów są tymi samymi, niezmienionymi. React poradzi sobie z brakiem kluczy lub gdy będą one losowe - jednak będzie to miało negatywny wpływ na wydajność.&lt;/p&gt;
 &lt;h3&gt;Tablice&lt;/h3&gt;
-&lt;p&gt;Proste tworzenie elementów (nie jest to lista i nie wymaga kluczy)&lt;/p&gt;
+&lt;p&gt;Proste tworzenie elementów (klucz nie jest wymagany wymaga kluczy -&amp;gt; dopiero od dynamicznych elementów - np. zwykła list, która zmianie nie ulega nie będzie tego wymagać)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const droids = [
   &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&lt;/span&gt;C3-PO&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;,
   &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&lt;/span&gt;R2-D2&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
@@ -197,7 +197,7 @@ Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia o
 &lt;hr&gt;
 &lt;h3&gt;Właściwości -&amp;gt; properties (obiekt props)&lt;/h3&gt;
 &lt;p&gt;Właściwości są tym co dodaje dynamiki komponentom - jest tym czym właściwość/argument jest dla funkcji.&lt;/p&gt;
-&lt;p&gt;Z perspektywy funkcji może to wylądać w następujący sposób&lt;/p&gt;
+&lt;p&gt;Z perspektywy funkcji może to wyglądać w następujący sposób&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; {&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 }
@@ -247,18 +247,49 @@ Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia o
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Ze względu na to, że &lt;strong&gt;props&lt;/strong&gt; jest obiektem, możemy dokonać na nim destrukturyzacji&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
-
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+&lt;hr&gt;
+&lt;h3&gt;Destrukturyzacja&lt;/h3&gt;
+&lt;p&gt;Ze względu na to, że &lt;strong&gt;props&lt;/strong&gt; jest obiektem, możemy dokonać na nim destrukturyzacji na różne sposoby&lt;/p&gt;
+&lt;p&gt;destrukturyzacji dwóch obiektów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
   &lt;span class="nv"&gt;const&lt;/span&gt; {&lt;span class="nv"&gt;droid1&lt;/span&gt;, &lt;span class="nv"&gt;droid2&lt;/span&gt;} &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid1&lt;/span&gt;,&lt;span class="nv"&gt;droid2&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid1&lt;/span&gt;} {&lt;span class="nv"&gt;droid2&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 }
 
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;} &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="nv"&gt;droid1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;droid2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;destrukturyzacji przekazując arg. do Komponentu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;{&lt;span class="nv"&gt;droid1&lt;/span&gt;, &lt;span class="nv"&gt;droid2&lt;/span&gt;}&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid1&lt;/span&gt;} {&lt;span class="nv"&gt;droid2&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="nv"&gt;droid1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;droid2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wykorzystując tablicę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;}&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;]} {&lt;span class="nv"&gt;droids&lt;/span&gt;[&lt;span class="mi"&gt;1&lt;/span&gt;]}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;}&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
 &lt;p&gt;Jako props można przekazać różnego rodzaju dane - liczby, wartości logiczne, łańcuchy szablonowe, zmienne, tablice, funkcje jednak te wówczas winny znaleźć się w &lt;strong&gt;nawiasach klamrowych&lt;/strong&gt;. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;firstDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3-PO&amp;#39;&lt;/span&gt;
 

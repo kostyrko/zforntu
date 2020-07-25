@@ -156,7 +156,7 @@
     <p>
       Opublikowano wto 21 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
 
-        &#8226; 2 min read
+        &#8226; 3 min read
     </p>
   </header>
 
@@ -274,7 +274,7 @@ Wymaga zaimportowania <strong>{Component}</strong> i dziedziczenia od klasy <str
 <hr>
 <h3>Właściwości -&gt; properties (obiekt props)</h3>
 <p>Właściwości są tym co dodaje dynamiki komponentom - jest tym czym właściwość/argument jest dla funkcji.</p>
-<p>Z perspektywy funkcji może to wylądać w następujący sposób</p>
+<p>Z perspektywy funkcji może to wyglądać w następujący sposób</p>
 <div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">Droid</span><span class="o">=</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> <span class="o">=&gt;</span> {
   <span class="k">return</span> <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">I</span> <span class="nv">am</span> {<span class="nv">props</span>.<span class="nv">name</span>}<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
 }
@@ -324,18 +324,49 @@ Wymaga zaimportowania <strong>{Component}</strong> i dziedziczenia od klasy <str
 </code></pre></div>
 
 
-<p>Ze względu na to, że <strong>props</strong> jest obiektem, możemy dokonać na nim destrukturyzacji</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
-
-<span class="nv">const</span> <span class="nv">Droids</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+<hr>
+<h3>Destrukturyzacja</h3>
+<p>Ze względu na to, że <strong>props</strong> jest obiektem, możemy dokonać na nim destrukturyzacji na różne sposoby</p>
+<p>destrukturyzacji dwóch obiektów</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">Droids</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> <span class="o">=&gt;</span> {
   <span class="nv">const</span> {<span class="nv">droid1</span>, <span class="nv">droid2</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span>{<span class="nv">droid1</span>,<span class="nv">droid2</span>}<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span>{<span class="nv">droid1</span>} {<span class="nv">droid2</span>}<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
 }
 
-<span class="o">&lt;</span><span class="nv">Droids</span> <span class="nv">props</span><span class="o">=</span>{<span class="nv">droids</span>} <span class="o">/&gt;</span>
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">Droids</span> <span class="nv">droid1</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span> <span class="nv">droid2</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span><span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
 </code></pre></div>
 
 
+<p>destrukturyzacji przekazując arg. do Komponentu</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">Droids</span> <span class="o">=</span> <span class="ss">(</span>{<span class="nv">droid1</span>, <span class="nv">droid2</span>}<span class="ss">)</span> <span class="o">=&gt;</span> {
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span>{<span class="nv">droid1</span>} {<span class="nv">droid2</span>}<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+}
+
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">Droids</span> <span class="nv">droid1</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span> <span class="nv">droid2</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span><span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>Wykorzystując tablicę</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">Droids</span> <span class="o">=</span> <span class="ss">(</span>{<span class="nv">droids</span>}<span class="ss">)</span> <span class="o">=&gt;</span> {
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span>{<span class="nv">droids</span>[<span class="mi">0</span>]} {<span class="nv">droids</span>[<span class="mi">1</span>]}<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+}
+
+<span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">Droids</span> <span class="nv">droids</span><span class="o">=</span>{<span class="nv">droids</span>}<span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<hr>
 <p>Jako props można przekazać różnego rodzaju dane - liczby, wartości logiczne, łańcuchy szablonowe, zmienne, tablice, funkcje jednak te wówczas winny znaleźć się w <strong>nawiasach klamrowych</strong>. </p>
 <div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">firstDroid</span> <span class="o">=</span> <span class="s1">&#39;C3-PO&#39;</span>
 
