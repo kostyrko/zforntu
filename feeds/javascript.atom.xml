@@ -791,6 +791,13 @@ Wówczas wystarczy zaimportować w sposób następujący -&amp;gt;  &lt;strong&g
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;można również stosować taki zabieg stosując default (wówczas importując można nadać dowolną nazwę -&amp;gt; ekportuję tą tablicę - nadaj jej nazwę importując)&lt;/p&gt;
+&lt;p&gt;// plik export.js&lt;/p&gt;
+&lt;p&gt;export default = [
+    .....
+  ]&lt;/p&gt;
+&lt;p&gt;// plik import.js (nazwa tablica jest nadana dopiero w pliku gdzie dane są importowane)&lt;/p&gt;
+&lt;p&gt;import tablica from "./export.js"&lt;/p&gt;
 &lt;h4&gt;Asynchroniczny import&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;import&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/modules/my-module.js&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
   .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;module&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {

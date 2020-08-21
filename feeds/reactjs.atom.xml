@@ -1,5 +1,648 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - reactjs</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/reactjs.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-07-22T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React: Klucz do tworzenia wielu elementów listy</title><link href="https://kostyrko.github.io/zfrontu/react-listy.html" rel="alternate"></link><published>2020-07-22T10:00:00+02:00</published><updated>2020-07-22T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-22:/zfrontu/react-listy.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daveceddia.com/images/render-a-list.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - reactjs</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/reactjs.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-08-08T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React: Haki (hooks) na Reacta</title><link href="https://kostyrko.github.io/zfrontu/react-hooks.html" rel="alternate"></link><published>2020-08-08T10:00:00+02:00</published><updated>2020-08-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-08:/zfrontu/react-hooks.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://i.morioh.com/2934a8d84c.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Haki/Przyczepienia (hooks)&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Hooki&lt;/em&gt; mogą być używane jedynie w komponentach funkcyjnych i pozwalają na przechowanie stanu pomiędzy kolejnymi wywołaniami funkcji zawartych w komponentach! Podstawowe dwa z nich pozwalają na wprowadzenie stanów (&lt;strong&gt;useState&lt;/strong&gt;) podczas gdy inny pozwala na zarządzanie automatycznym zachowaniem się danego komponentu (&lt;strong&gt;useEffect&lt;/strong&gt;) - kompensując brak funkcji znanych z komponentów …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://i.morioh.com/2934a8d84c.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Haki/Przyczepienia (hooks)&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Hooki&lt;/em&gt; mogą być używane jedynie w komponentach funkcyjnych i pozwalają na przechowanie stanu pomiędzy kolejnymi wywołaniami funkcji zawartych w komponentach! Podstawowe dwa z nich pozwalają na wprowadzenie stanów (&lt;strong&gt;useState&lt;/strong&gt;) podczas gdy inny pozwala na zarządzanie automatycznym zachowaniem się danego komponentu (&lt;strong&gt;useEffect&lt;/strong&gt;) - kompensując brak funkcji znanych z komponentów klasowych jak &lt;em&gt;componentDidMount()&lt;/em&gt;, &lt;em&gt;componentDidUpdate()&lt;/em&gt; oraz &lt;em&gt;componentWillUnmount()&lt;/em&gt;. 
+Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + &lt;em&gt;hooków&lt;/em&gt; jest uproszczenie kodu.
+&lt;em&gt;Hooki&lt;/em&gt; nie mogą znaleźć się w pętlach, funkcjach, ifach etc. i powinny być zadeklarowane w określonej kolejności (najlepiej jak najwcześniej)&lt;/p&gt;
+&lt;p&gt;Hooki zaimportować z biblioteki React podobnie jak Component w przypadku komponentów klasowych.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Definiowanie stanu -&amp;gt; useState()&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;useState()&lt;/strong&gt; - zwraca tablicę elementów (parę) - przy pomocy destrukturyzacji można "wyciągnąć" poszczególne elementy do zmiennych (co jest przyjętą praktyką). Istotną konwencją, o której warto w tym kontekście pamiętać jest to, że pierwsza zmienna przechowuje stan natomiast kolejna powinna odwoływać się do funkcji, która ma wpływ na zmianę stanu. Nazwa 2. elementu powinna powielać nazwę tej, która przechowuje stan ale poprzedza ją słowem 'set'. &lt;strong&gt;useState&lt;/strong&gt; przyjmuje argument określający początkową właściwość stanu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;stanu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;funkcjaZmieniającaStan&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;początkowyStan&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;setstate&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;initialState&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;======&lt;/span&gt; &lt;span class="n"&gt;przykładowo&lt;/span&gt; &lt;span class="o"&gt;=====&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;setCounter&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Aby użyć analogii można stwierdzić, że &lt;strong&gt;useState()&lt;/strong&gt; w funkcyjnym komponencie "zastępuje" z komponentu klasowego &lt;strong&gt;konstruktor stanu&lt;/strong&gt; oraz &lt;strong&gt;setState()&lt;/strong&gt; (setState() =&amp;gt; setWybranaNazwaFunkcjiModyfikatora() np. setCounter())&lt;/p&gt;
+&lt;p&gt;Przykład&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Counter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt;[&lt;span class="nv"&gt;counter&lt;/span&gt;, &lt;span class="nv"&gt;SetCounter&lt;/span&gt;] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;setCounter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;prevCounter&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;prevCounter&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt; &lt;span class="nv"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;increment&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;counter&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Obsługa efektów ubocznych useEffect()&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;useEffect()&lt;/strong&gt; ma mieć wpływ na kod z poza zakresu wywoływanej funkcji lub inaczej rzecz ujmując odpowiada za wykonywanie efektów ubocznych w komponentach funkcyjnych. Hook &lt;strong&gt;useEffect()&lt;/strong&gt; pozwala na ustawienie zależności wywoływania się konkretnej zawartej w nim funkcji oraz na zwolnienie jej zasobów - jednak nie w każdej sytuacji jest to wymagane.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;wywoła&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;podczas&lt;/span&gt; &lt;span class="n"&gt;każdorazowego&lt;/span&gt; &lt;span class="n"&gt;renderowania&lt;/span&gt; &lt;span class="n"&gt;komponentu&lt;/span&gt;
+
+&lt;span class="n"&gt;useEffect&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Komponent zamontowany&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Podstawowy schemat prezentuje się następująco. Warto zwrócić uwagę na tablicę kończącą wyrażenie (input) w to miejsce można wpisać zależności, których zmiana spowoduje wywołanie się funkcji - brak elementów oznacza, że funkcja powinna wywołać się tylko raz, podczas pierwszego renderowania elementu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;useEffect&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;effect&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+      &lt;span class="nv"&gt;cleanup&lt;/span&gt;
+    }&lt;span class="c1"&gt;;&lt;/span&gt;
+  }, [&lt;span class="nv"&gt;input&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład 1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;uruchamia&lt;/span&gt; &lt;span class="nv"&gt;si&lt;/span&gt;ę &lt;span class="nv"&gt;tylko&lt;/span&gt; &lt;span class="nv"&gt;raz&lt;/span&gt; &lt;span class="nv"&gt;poniewa&lt;/span&gt;ż &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;arg&lt;/span&gt;. &lt;span class="nv"&gt;brak&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="nv"&gt;o&lt;/span&gt; &lt;span class="nv"&gt;tym&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;si&lt;/span&gt;ę &lt;span class="nv"&gt;uruchamia&lt;/span&gt;ł &lt;span class="nv"&gt;ponownie&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;co&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;sekund&lt;/span&gt;ę &lt;span class="nv"&gt;dodaj&lt;/span&gt; &lt;span class="nv"&gt;kropk&lt;/span&gt;ę &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;stringa&lt;/span&gt; &lt;span class="nv"&gt;zawartego&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;stanie&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;message&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;
+&lt;span class="nv"&gt;useEffect&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;intervalId&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;setInterval&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;setMessage&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;prev&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;prev&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;.&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
+  }, &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; { &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;czyszczenie&lt;/span&gt; &lt;span class="nv"&gt;interwa&lt;/span&gt;ł&lt;span class="nv"&gt;u&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;pami&lt;/span&gt;ę&lt;span class="nv"&gt;ci&lt;/span&gt;
+    &lt;span class="nv"&gt;clearInterval&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;intervalId&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  }&lt;span class="c1"&gt;;&lt;/span&gt;
+}, []&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład 2&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;uruchamia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;się&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;za&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;każdym&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;razem&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jak&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ulegnie&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;zmianie&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;useEffect&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="nl"&gt;Clicked&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;${&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="err"&gt;}`&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;kiedy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wywołać&lt;/span&gt;&lt;span class="vm"&gt;?&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jak&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ulegnie&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;zmianie&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład komponentu funkcyjnego korzystającego z &lt;strong&gt;hooków&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;import React, {useState, useEffect} from "react";
+import ReactDOM from "react-dom";&lt;/p&gt;
+&lt;p&gt;const ShowInfo = ({info}) =&amp;gt; {
+  return &lt;h1&gt;{info}&lt;/h1&gt;
+}&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const PropsToState = ({text}) =&amp;gt; {
+  const [message, setMessage] = useState(text)
+  const [click, setClick] = useState(0)
+
+  useEffect(() =&amp;gt; {
+    const intervalId = setInterval(() =&amp;gt; {
+      setMessage((prev)=&amp;gt; prev+&amp;#39;.&amp;#39;);
+    }, 1000);
+    return () =&amp;gt; {
+      clearInterval(intervalId)
+    };
+  }, []);
+
+  useEffect(() =&amp;gt; {
+    document.title = `Clicked:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
+  },[click])
+
+  const clicked = () =&amp;gt; (setClick(prev=&amp;gt;prev+1))
+
+  return (
+    &lt;span class="err"&gt;&amp;lt;&lt;/span&gt;&amp;gt;
+      &lt;span class="nt"&gt;&amp;lt;ShowInfo&lt;/span&gt; &lt;span class="na"&gt;info=&lt;/span&gt;&lt;span class="s"&gt;{message}/&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Clicked {click} times&lt;span class="nt"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;onClick=&lt;/span&gt;&lt;span class="s"&gt;{clicked}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Clicke Me&lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;lt;&lt;/span&gt;/&amp;gt;
+  )
+}
+
+ReactDOM.render(
+  &lt;span class="nt"&gt;&amp;lt;PropsToState&lt;/span&gt; &lt;span class="na"&gt;text=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Wielokropek&amp;#39;/&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;,
+  document.getElementById(&amp;quot;app&amp;quot;)
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://typeofweb.com/react-hooks-wprowadzenie-i-motywacja/"&gt;React Hooks — wprowadzenie i motywacja&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://typeofweb.com/react-hooks-usestate-czyli-stan-w-komponentach-funkcyjnych/"&gt;React Hooks: useState, czyli stan w komponentach funkcyjnych&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dev.to/pallymore/clean-up-async-requests-in-useeffect-hooks-90h"&gt;Clean Up Async Requests in &lt;code&gt;useEffect&lt;/code&gt; Hooks&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@m.kwiecien916/pl-react-hooks-wst%C4%99p-i-usestate-44784199da22"&gt;[PL]React Hooks: Wstęp + useState&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=5SgtFIiIsKk"&gt;Obsługa stanu z useState - React Hooks w 5 minut #1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.algosmart.pl/czym-sa-react-hooks"&gt;Czym są React Hooks?&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="formularze"></category><category term="hooks"></category></entry><entry><title>React: (zjednoczne) Stany React'a</title><link href="https://kostyrko.github.io/zfrontu/react-stany.html" rel="alternate"></link><published>2020-08-08T10:00:00+02:00</published><updated>2020-08-08T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-08:/zfrontu/react-stany.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://ihatetomatoes.net/wp-content/uploads/2017/08/03-state-vs-props.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Stateful components (komponenty ze stanami)&lt;/h2&gt;
+&lt;p&gt;Stan (ang. state) jest miejscem przechowywania aktualnego stanu (wewnętrznego) komponentu Reacta - jest wykorzystywany gdy komponent wymaga aktualizacji (np. licznik, godzina, ukrywanie/pokazywanie części komponentu) -&amp;gt; dla przypomnienia: Props/Informacje przekazywane do komponentu nie ulegają zmianie w ramach niego (props przekazuje informacje z góry na dół - od …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://ihatetomatoes.net/wp-content/uploads/2017/08/03-state-vs-props.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Stateful components (komponenty ze stanami)&lt;/h2&gt;
+&lt;p&gt;Stan (ang. state) jest miejscem przechowywania aktualnego stanu (wewnętrznego) komponentu Reacta - jest wykorzystywany gdy komponent wymaga aktualizacji (np. licznik, godzina, ukrywanie/pokazywanie części komponentu) -&amp;gt; dla przypomnienia: Props/Informacje przekazywane do komponentu nie ulegają zmianie w ramach niego (props przekazuje informacje z góry na dół - od rodzica do dziecka).&lt;/p&gt;
+&lt;p&gt;State - przechowuje inf. o własnym stanie komponentu - może być modyfikowany (analogia - zmienne wewnątrz funkcji). Początkowo ze stanów można było korzystać jedynie w kontekście komponentów klasowych, jednak wraz z prowadzeniem tzw. funkcji &lt;strong&gt;hooks&lt;/strong&gt; również można z nich korzystać w kontekście komponentów funkcyjnych (patrz. &lt;a href="https://kostyrko.github.io/zfrontu/react-hooks.html"&gt;React: Haki (hooks) na Reacta &lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Komponenty klasowe&lt;/h2&gt;
+&lt;h3&gt;Tworzenie stanu&lt;/h3&gt;
+&lt;p&gt;W przypadku komponentów klasowych należy odwołać się do funkcji konstruktora oraz konstruktora rodzica. &lt;strong&gt;State&lt;/strong&gt; jest słowem kluczowym i powinien być obiektem.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;=======&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;R2D2!&amp;#39;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;strzałkowa&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;
+  &lt;span class="n"&gt;helloDroid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Greet&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;clicking&lt;/span&gt; &lt;span class="n"&gt;below&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;helloDroid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;Start&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Automatyczny Inicjalizator stanu&lt;/h3&gt;
+&lt;p&gt;W prostszy sposób (skrócony) można zainicjalizować state przy pomocy wtyczki &lt;em&gt;@babel/plugin-proposal-class-properties&lt;/em&gt; (więcej na ten temat znajdziesz tutaj: &lt;a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html#plugin-proposal-class-properties"&gt;konfiguracja wtyczki Babel: plugin-proposal-class-properties&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Wówczas nie musimy odwoływać się do funkcji konstruktora a wystarczy jedynie zadeklarować obiekt przechowujący stan używając słowa kluczowego &lt;strong&gt;state&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Clock&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toLocaleTimeString&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;App&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zegar&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;ulega&lt;/span&gt; &lt;span class="n"&gt;zmianie&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Clock&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Modyfikacja stanu .setState()&lt;/h3&gt;
+&lt;p&gt;Do modyfikacji stanu odbywa się poprzez odwołanie się do metody &lt;strong&gt;.setState()&lt;/strong&gt; zwracającej obiekt - przyjmuje obiekt jak i funkcję modyfikującą poprzedni stan, zwracającą obiekt&lt;/p&gt;
+&lt;p&gt;Schemat 1 - nadpisanie stanu nową wartością&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Schemat 2 - modyfikacja poprzedniego stanu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;setState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;prevState&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; {
+    &lt;span class="nv"&gt;key&lt;/span&gt;: &lt;span class="nv"&gt;prevState&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład 1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Counter&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;countClick&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prevState&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;prevState&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="p"&gt;}});&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;countClick&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;Click&lt;/span&gt; &lt;span class="n"&gt;here&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Counter&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład 2&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;App&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+  &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C3PO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;BB8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;addUser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setState&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+      &lt;span class="n"&gt;droids&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addUser&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;,&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;R2D2&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Alternatywny zapis modyfikacji stanu w powyższym przykładzie mógłby przedstawiać się w następujący (skrócony sposób)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setState&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;prevState&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;users&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[...&lt;/span&gt;&lt;span class="n"&gt;prevState&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;users&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Marek&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Inicjowanie stanu poprzez props&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Props&lt;/strong&gt; nie ulega modyfikacji w ramach komponentu stąd aby dane przekazane przez props mogły by zostać zmodyfikowane muszą znaleźć się stanie - aby tego dokonać należy odnieść się do props w ramach deklaracji state&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Counter&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
+    &lt;span class="nv"&gt;counter&lt;/span&gt;: &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;counter&lt;/span&gt;,
+  }&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Twoje&lt;/span&gt; &lt;span class="nv"&gt;klikni&lt;/span&gt;ę&lt;span class="nv"&gt;cia&lt;/span&gt;: {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;state&lt;/span&gt;.&lt;span class="nv"&gt;counter&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  }
+}
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Counter&lt;/span&gt; &lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="mi"&gt;3&lt;/span&gt;} &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Renderowanie&lt;/h3&gt;
+&lt;p&gt;-
+State powinien się aktualizować, react jednak sam renderuje komponenty/sam decyduje kiedy jest to najoptymalniejsze&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;ColorBox&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
+    &lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;#000&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;newColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;randomColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;#&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="nv"&gt;floor&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Math&lt;/span&gt;.&lt;span class="k"&gt;random&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;16777215&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.&lt;span class="nv"&gt;toString&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;setState&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;setState&lt;/span&gt; &lt;span class="nv"&gt;musi&lt;/span&gt; &lt;span class="nv"&gt;zwr&lt;/span&gt;ó&lt;span class="nv"&gt;ci&lt;/span&gt;ć &lt;span class="nv"&gt;obiekt&lt;/span&gt;
+      {&lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="nv"&gt;randomColor&lt;/span&gt;}
+    &lt;span class="ss"&gt;))&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;redneruje&lt;/span&gt; &lt;span class="nv"&gt;styl&lt;/span&gt; &lt;span class="nv"&gt;za&lt;/span&gt; &lt;span class="nv"&gt;ka&lt;/span&gt;ż&lt;span class="nv"&gt;dym&lt;/span&gt; &lt;span class="nv"&gt;razem&lt;/span&gt; &lt;span class="nv"&gt;st&lt;/span&gt;ą&lt;span class="nv"&gt;d&lt;/span&gt; &lt;span class="nv"&gt;musi&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;definiowany&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;tym&lt;/span&gt; &lt;span class="nv"&gt;miejscu&lt;/span&gt;
+    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;style&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
+      &lt;span class="nv"&gt;backgroundColor&lt;/span&gt;: &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;state&lt;/span&gt;.&lt;span class="nv"&gt;color&lt;/span&gt;,
+      &lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;200px&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;,
+      &lt;span class="nv"&gt;height&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;200px&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+    }
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt; &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;style&lt;/span&gt;} &lt;span class="nv"&gt;onMouseEnter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;newColor&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ColorBox&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Cykle życia komponentu&lt;/h3&gt;
+&lt;p&gt;Każdy komponent posiada własny i zdefiniowany cykl życia ( zamontowanie(stworzenie),aktualizacja, odmontowanie (zniszczenie)), do którego przypisane są odpowiednie metody przy pomocy, których można kontrolować zachowanie się danego komponentu&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Nazwa metody&lt;/th&gt;
+&lt;th&gt;Opis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;constructor()&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;inicjalizacja state&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;componentDidMount()&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;uruchamia się po zamontowaniu komponentu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;componentDidUpdate()&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;uruchamia się po aktualizacji komponentu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;componentWillUnmount()&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;uruchamia się przed odmontowaniem komponentu - w tym miejscu zwalnia się zasoby&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Przykład zastosowania [w tym przypadku componentWillUnmount() nigdy nie zostanie wywołany ponieważ pomimo tego,  że shouldComponentUpdate() zablokuje aktualizację komponentu to setInterval() będzie dalej w tle pracował]&lt;/p&gt;
+&lt;p&gt;import React, {Component} from "react";
+    import ReactDOM from "react-dom";&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;FinalCountDown&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
+    &lt;span class="nv"&gt;seconds&lt;/span&gt;: &lt;span class="mi"&gt;5&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;componentDidMount&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;intervalId&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;setInterval&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+      &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;setState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;prevState&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+        &lt;span class="k"&gt;return&lt;/span&gt; {
+          &lt;span class="nv"&gt;seconds&lt;/span&gt;: &lt;span class="nv"&gt;prevState&lt;/span&gt;.&lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        }
+      }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }, &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;componentDidUpdate&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;componentDidUpdate&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;shouldComponentUpdate&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;shouldComponentUpdate&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;state&lt;/span&gt;.&lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;}
+    &lt;span class="k"&gt;else&lt;/span&gt; {&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;}&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;componentWillUnmount&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;componentWillUnmount&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;clearInterval&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;intervalId&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Pozosta&lt;/span&gt;ł&lt;span class="nv"&gt;o&lt;/span&gt; {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;state&lt;/span&gt;.&lt;span class="nv"&gt;seconds&lt;/span&gt;} &lt;span class="nv"&gt;sekund&lt;/span&gt;.&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+  }
+
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;FinalCountDown&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://typeofweb.com/state-react-js/"&gt;Stan komponentów React.js&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://css-tricks.com/understanding-react-setstate/"&gt;Understanding React &lt;code&gt;setState&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="formularze"></category></entry><entry><title>React: zdarzenia - podstawy</title><link href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html" rel="alternate"></link><published>2020-08-07T10:00:00+02:00</published><updated>2020-08-07T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-07:/zfrontu/react-zdarzenia.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2018/08/react-events.png"&gt;&lt;/p&gt;
+&lt;p&gt;Zdarzenia w React obsługiwane są  w podobny sposób jak w HTML -&amp;gt; oznacza to, że inlinowo wpisywane są "nasłuchiwacze" (używając &lt;strong&gt;camelCase&lt;/strong&gt;) do którego przekazywany jest atrybut w nawiasach klamrowych -&amp;gt; przekazywanie funkcji jako props&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;onClick=&lt;/span&gt;&lt;span class="s"&gt;{buttonClick}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Button&lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Metoda, do której się odwołujemy poprzez atrybut może znaleźć swoje miejsca w ramach …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2018/08/react-events.png"&gt;&lt;/p&gt;
+&lt;p&gt;Zdarzenia w React obsługiwane są  w podobny sposób jak w HTML -&amp;gt; oznacza to, że inlinowo wpisywane są "nasłuchiwacze" (używając &lt;strong&gt;camelCase&lt;/strong&gt;) do którego przekazywany jest atrybut w nawiasach klamrowych -&amp;gt; przekazywanie funkcji jako props&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;onClick=&lt;/span&gt;&lt;span class="s"&gt;{buttonClick}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Button&lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Metoda, do której się odwołujemy poprzez atrybut może znaleźć swoje miejsca w ramach stworzonego komponentu lub jego rodzica (istotnej jest aby była osiągalna/możliwa do wywołania).&lt;/p&gt;
+&lt;p&gt;Pozytywnie na wydajność wpływa umieszczanie funkcji po za komponentem - gdy renderowany jest komponent wielokrotnie to funkcja nie musi być tworzona na nowo.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Zdarzenia w komponentach klasowych&lt;/h3&gt;
+&lt;p&gt;W przypadku komponentów klasowych istotne jest pamiętanie o odwołaniu się do słowa kluczowego &lt;strong&gt;this&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+    &lt;span class="nv"&gt;helloDroid&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+      &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Hi R2D2!&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Greet&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;clicking&lt;/span&gt; &lt;span class="nv"&gt;below&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt; &lt;span class="nv"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;handleClick&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nv"&gt;Start&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+      &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Słowo kluczowe &lt;strong&gt;this&lt;/strong&gt; jest zależne od kontekstu, w przypadku gdy dany element powinien mieć dostęp do całości komponentu (np w celu skorzystania z &lt;em&gt;props&lt;/em&gt;) stosuje się &lt;strong&gt;funkcję strzałkową&lt;/strong&gt; [jej zastosowania wymaga użycia &lt;strong&gt;dodatkowej wtyczki&lt;/strong&gt; &lt;em&gt;@babel/plugin-proposal-class-properties&lt;/em&gt; (w klasie ES6 nie ma możliwości zastosowania funkcji strzałkowej)].&lt;/p&gt;
+&lt;h4&gt;Konfiguracja wtyczki Babel: plugin-proposal-class-properties{#plugin-proposal-class-properties}&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Konfiguracja @babel/plugin-proposal-class-properties&lt;/strong&gt; w .babelrc &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;presets&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;&amp;quot;@babel/preset-env&amp;quot;, &amp;quot;@babel/preset-react&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;plugins&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;    [&amp;quot;@babel/plugin-proposal-class-properties&amp;quot;, { &amp;quot;loose&amp;quot;: true }&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W funkcji strzałkowej &lt;strong&gt;this&lt;/strong&gt; nie ulega zmianie i odwołuje się do elementu najwyższego rzędu&lt;/p&gt;
+&lt;p&gt;Porównanie zachowania się &lt;strong&gt;this&lt;/strong&gt; - &lt;code&gt;greetDroid&lt;/code&gt; (funkcja strzałkowa) zadziała podczas gdy &lt;code&gt;helloDroid&lt;/code&gt; nie będzie w stanie odwołać się do &lt;strong&gt;props&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;helloDroid&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Hi ${this.props.droidName}`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="n"&gt;greetDroid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Hi ${this.props.droidName}`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Greet&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;clicking&lt;/span&gt; &lt;span class="n"&gt;below&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;helloDroid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;Funkcja&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;greetDroid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;Funkcja&lt;/span&gt; &lt;span class="n"&gt;strzałkowa&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;droidName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Zdarzenia w komponentach funkcyjnych&lt;/h3&gt;
+&lt;p&gt;Zdarzenia w komponentach funkcyjnych wyglądają podobnie do tych stosowanych w komponentach klasowych&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;droidName&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;greetDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Hi ${droidName}`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Greet&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;clicking&lt;/span&gt; &lt;span class="n"&gt;below&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;greetDroid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="n"&gt;Start&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;droidName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Nazwy najczęściej stosowanych wydarzeń&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Nazwa zdarzenia&lt;/th&gt;
+&lt;th&gt;Opis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onClick&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;kliknięcie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onDoubleClick&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;podwójne kliknięcie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onMouseEnter&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;najazd myszką&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onMouseLeave&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;opuszczenie myszki&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onKeyDown&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;wciśnięcie klawisza (strzałka w dół)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onKeyPress&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;wciśnięcie klawisza (dowolnego)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onKeyUp&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;wciśnięcie klawisza (strzałka w górę)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onSubmit&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;po wysłaniu formularza&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onChange&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;detekcja zmiany&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onFocus&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;skupienie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onBlur&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;zmiana skupienia&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;onLoad&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;gdy się załaduje&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3&gt;Zatrzymanie domyślnej akcji&lt;/h3&gt;
+&lt;p&gt;Zatrzymanie domyślnej akcji stosuje się poprzez odwołanie się do eventu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Link&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;clickLink&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+    &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;preventDefault&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;clickLink&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Link&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://typeofweb.com/interakcja-komponentami-react-js/"&gt;Interakcja z komponentami React.js&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/events.html"&gt;SyntheticEvent&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="formularze"></category></entry><entry><title>React: Klucz do tworzenia wielu elementów listy</title><link href="https://kostyrko.github.io/zfrontu/react-listy.html" rel="alternate"></link><published>2020-07-22T10:00:00+02:00</published><updated>2020-07-22T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-22:/zfrontu/react-listy.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daveceddia.com/images/render-a-list.png"&gt;&lt;/p&gt;
 &lt;p&gt;Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daveceddia.com/images/render-a-list.png"&gt;&lt;/p&gt;
 &lt;p&gt;Wiele elementów można tworzyć na różne sposoby. W tym kontekście należy wspomnieć o kluczach (ang key), których przypisanie do poszczególnego elementu pozwala na wskazanie Reactowi, które z elementów są stabilne (nie uległy zmianie) - jeśli React sam znajdzie zmianę (bez stosowania klucza) uzna, że każdy kolejny element również został zmieniony usunie go a następnie ponownie wstawi. Klucze pozwalają na wskazanie,  które z elementów są tymi samymi, niezmienionymi. React poradzi sobie z brakiem kluczy lub gdy będą one losowe - jednak będzie to miało negatywny wpływ na wydajność.&lt;/p&gt;
 &lt;h3&gt;Tablice&lt;/h3&gt;
@@ -83,14 +726,17 @@ Właściwość/props należy przekazać w trakcie wywoływanie komponentu&lt;/p&
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/lists-and-keys.html"&gt;listy i klucze - React docs&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://daveceddia.com/display-a-list-in-react/"&gt;How to Display a List in React&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="listy"></category><category term="klucze"></category><category term="react"></category></entry><entry><title>React: komponenty i właściwości (props)</title><link href="https://kostyrko.github.io/zfrontu/react-komponenty.html" rel="alternate"></link><published>2020-07-21T10:00:00+02:00</published><updated>2020-07-21T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-21:/zfrontu/react-komponenty.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-props" max-height="300px" src="https://cms-assets.tutsplus.com/uploads/users/1795/posts/29541/image/Stateful-vs-Stateless-Component-Tutorial-Component-with-prop.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;Komponent to struktura będący częścią aplikacji składająca się elementów. Komponent jest interaktywny - może przyjmować dane i zwracać inne komponenty lub elementy. Komponent może składać się z innych komponentów (zagnieżdżanie) jak i elementów.&lt;/p&gt;
-&lt;p&gt;Z elementów warto stworzyć komponenty gdy te: się powtarzają i stanowią spójną całość, jeśli komponent jest duży (5-10 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react-props" max-height="300px" src="https://cms-assets.tutsplus.com/uploads/users/1795/posts/29541/image/Stateful-vs-Stateless-Component-Tutorial-Component-with-prop.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;Komponent to struktura będący częścią aplikacji składająca się elementów. Komponent jest interaktywny - może przyjmować dane i zwracać inne komponenty lub elementy. Komponent może składać się z innych komponentów (zagnieżdżanie) jak i elementów.&lt;/p&gt;
-&lt;p&gt;Z elementów warto stworzyć komponenty gdy te: się powtarzają i stanowią spójną całość, jeśli komponent jest duży (5-10 elmentów) wówczas należy go podzielić na mniejsze komponenty &lt;/p&gt;
-&lt;h3&gt;Tworzenie komponentu&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://daveceddia.com/display-a-list-in-react/"&gt;How to Display a List in React&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="listy"></category><category term="klucze"></category><category term="react"></category></entry><entry><title>React: komponenty i właściwości (props) + destrukturyzacja</title><link href="https://kostyrko.github.io/zfrontu/react-komponenty.html" rel="alternate"></link><published>2020-07-21T10:00:00+02:00</published><updated>2020-07-21T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-21:/zfrontu/react-komponenty.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-props" max-height="300px" src="https://cms-assets.tutsplus.com/uploads/users/1795/posts/29541/image/Stateful-vs-Stateless-Component-Tutorial-Component-with-prop.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Aplikacje/strony tworzone przy pomocy &lt;em&gt;Reacta&lt;/em&gt; składają się z komponentów. Komponenty tworzą strukturę aplikacji i są interaktywny - mogą przyjmować dane i na ich podstawie zwracać zmienione komponenty (tworzona są przy pomocy &lt;a href="#komponent-klasy"&gt;klas&lt;/a&gt; lub &lt;a href="#komponent-funkcja"&gt;funkcji&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Komponenty są elementami strony, które się powtarzają i stanowią spójną całość, warto podzielić dany komponent na …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react-props" max-height="300px" src="https://cms-assets.tutsplus.com/uploads/users/1795/posts/29541/image/Stateful-vs-Stateless-Component-Tutorial-Component-with-prop.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Aplikacje/strony tworzone przy pomocy &lt;em&gt;Reacta&lt;/em&gt; składają się z komponentów. Komponenty tworzą strukturę aplikacji i są interaktywny - mogą przyjmować dane i na ich podstawie zwracać zmienione komponenty (tworzona są przy pomocy &lt;a href="#komponent-klasy"&gt;klas&lt;/a&gt; lub &lt;a href="#komponent-funkcja"&gt;funkcji&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Komponenty są elementami strony, które się powtarzają i stanowią spójną całość, warto podzielić dany komponent na mniejsze części (również komponenty) jeśli ten składa się z większej ilości elementów (5-10).&lt;/p&gt;
+&lt;p&gt;Istotne jest to, że każdy z tworzonych komponentów może zwracać tylko jeden element - oznacza to, że wszystkie elementy danego komponentu (w tym np. inne komponenty, na które się składa dany komponent) powinny być opakowane w &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; lub tzw. &lt;a href="#fragmenty"&gt;fragmenty&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Tworzenie komponentu - podstawy&lt;/h3&gt;
 &lt;p&gt;Komponent jest tworzony przy pomocy funkcji lub klasy - w nazewnictwie stosujemy &lt;strong&gt;wielką literę&lt;/strong&gt; na początku&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Funkcja&lt;/strong&gt; tworząca komponent (wcześniej jedynie mogły wyświetlać strukturę JSX bez udziału logiki - to zmieniło się za sprawą React Hooks)&lt;/p&gt;
+&lt;p&gt;&lt;strong id="komponent-funkcja"&gt;Funkcja&lt;/strong&gt; tworząca komponent (wcześniej jedynie mogły wyświetlać strukturę JSX bez udziału logiki - to zmieniło się za sprawą &lt;a href="https://kostyrko.github.io/zfrontu/react-hooks.html"&gt;React Hooks&lt;/a&gt; - od React v. 16.8)&lt;/p&gt;
+&lt;p&gt;Przykład komponentu funkcyjnego&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;HelloWookie&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
     &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -101,7 +747,7 @@ Właściwość/props należy przekazać w trakcie wywoływanie komponentu&lt;/p&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;albo&lt;/p&gt;
+&lt;p&gt;oraz przy pomocy ES6&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;HelloWookie&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
     &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -112,8 +758,7 @@ Właściwość/props należy przekazać w trakcie wywoływanie komponentu&lt;/p&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;Klasa&lt;/strong&gt; tworząca komponent (bardziej skomplikowana struktura, trudniejszy w kod w testowaniu)
-Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia od klasy &lt;strong&gt;Components&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong id="komponent-klasy"&gt;Klasa&lt;/strong&gt; tworząca komponent (bardziej skomplikowana struktura, trudniejszy w kod w testowaniu) wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia z klasy &lt;strong&gt;Components&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;HelloDroid&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -124,80 +769,41 @@ Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia o
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;albo&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;HelloDroid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
-  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;Wookie&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="ss"&gt;)&lt;/span&gt;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;Renderowanie&lt;/h4&gt;
-&lt;p&gt;Bez znaczenia czy komponent powstał przy pomocy klasy czy funkcji jest on renderowany w podobny sposób&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Renderowanie komponentów&lt;/h3&gt;
+&lt;p&gt;Bez znaczenia czy komponent powstał przy pomocy klasy czy funkcji jest on renderowany w podobny sposób -&amp;gt; nazwa renderowanego komponentów zamknięta jest jest pomiędzy trójkątnymi nawiasami i posiada znak zamknięcia w postaci ukośnika&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;HelloDroid&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;HelloDroid&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;hr&gt;
-&lt;h3&gt;Zagnieżdżanie&lt;/h3&gt;
-&lt;p&gt;W ramach Greeting zagnieżdżony jest Droid.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
-  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt;, {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
+&lt;h4&gt;Praktyka&lt;/h4&gt;
+&lt;p&gt;Częstą praktyką jest korzystanie pliku głównego np. app.js, w ramach którego tworzony jest komponent główny skupiający w sobie podstawowe komponenty (patrz również poniżej &lt;a href="#zagnieżdżanie"&gt;zagnieżdżanie&lt;/a&gt;), który następnie jest renderowany (wymaga to wcześniejszego zaimportowania komponentów z innych plików) - zamiast skupiania w metodzie renderującej należącej do ReactDOM, przy pomocy fragmentów wszystkich komponentów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
-  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-Po&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
-
-&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
-  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;HoverEventFunc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HoverEventClass&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./HoverEvent&amp;#39;&lt;/span&gt;
 
 
-&lt;p&gt;...ale takich elementów mogło by być również więcej&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
-  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt;, {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;HoverEventFunc&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;HoverEventClass&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
-  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
-        ...
-        ...
-      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="ss"&gt;)&lt;/span&gt;
-  }
-}
 
-&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
-  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;h3&gt;Właściwości -&amp;gt; properties (obiekt props)&lt;/h3&gt;
-&lt;p&gt;Właściwości są tym co dodaje dynamiki komponentom - jest tym czym właściwość/argument jest dla funkcji.&lt;/p&gt;
-&lt;p&gt;Z perspektywy funkcji może to wyglądać w następujący sposób&lt;/p&gt;
+&lt;p&gt;Właściwości są tym co dodaje dynamiki komponentom - jest tym czym właściwość/argument jest dla funkcji. Aby przekazać props do komponentu należy wykorzystać jego nazwę następnie wykorzystać znak równość oraz podać jego treść. Większa ilość propsów nie jest rozdzielona żadnym znakiem po za spacją.
+Argumenty do &lt;em&gt;propsu&lt;/em&gt; można przekazywać pod różną postacią -&amp;gt; string zamknięty jest w cudzysłowie np. &lt;code&gt;name='Mike'&lt;/code&gt;, natomiast wartości liczbowe w nawiasach klamrowych np. &lt;code&gt;number={5}&lt;/code&gt; (więcej na ten temat poniżej &lt;a href="#propsy-cd"&gt;propsy-cd&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Z perspektywy komponentu funkcyjnego może to wyglądać w następujący sposób&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; {&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 }
@@ -209,7 +815,7 @@ Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia o
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;albo z perspektywy klasy (warto zwrócić uwagę na pojawienie się słowa kluczowego &lt;strong&gt;this&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;albo z perspektywy komponentu klasowego (warto zwrócić uwagę na pojawienie się słowa kluczowego &lt;strong&gt;this&lt;/strong&gt;)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
   &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -224,7 +830,7 @@ Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia o
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;React pobiera atrybuty przekazane do komponentu i implementuje je do obiektu &lt;strong&gt;props&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;React pobiera atrybuty przekazane do komponentu i implementuje je do &lt;strong&gt;obiektu&lt;/strong&gt; &lt;strong&gt;props&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;np. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;C3-PO&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;
 
@@ -248,9 +854,29 @@ Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia o
 
 
 &lt;hr&gt;
-&lt;h3&gt;Destrukturyzacja&lt;/h3&gt;
-&lt;p&gt;Ze względu na to, że &lt;strong&gt;props&lt;/strong&gt; jest obiektem, możemy dokonać na nim destrukturyzacji na różne sposoby&lt;/p&gt;
-&lt;p&gt;destrukturyzacji dwóch obiektów&lt;/p&gt;
+&lt;h3&gt;Destrukturyzacja (obiektów) props&lt;/h3&gt;
+&lt;p&gt;Ze względu na to, że &lt;strong&gt;props&lt;/strong&gt; jest obiektem, możemy dokonać na nim destrukturyzacji na różne sposoby tak aby nie odwoływać się cały czas do obiektu &lt;strong&gt;props&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;Klasy&lt;/h4&gt;
+&lt;p&gt;W przypadku &lt;strong&gt;klas&lt;/strong&gt; należy dokonać destrukturyzacji &lt;strong&gt;przed return&lt;/strong&gt;em&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="nv"&gt;const&lt;/span&gt; { &lt;span class="nv"&gt;droid&lt;/span&gt; } &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        {&lt;span class="nv"&gt;droid&lt;/span&gt;.&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;elem&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;elem&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            {&lt;span class="nv"&gt;elem&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="ss"&gt;))&lt;/span&gt;}
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Funkcje&lt;/h4&gt;
+&lt;p&gt;destrukturyzacji dwóch obiektów w przypadku &lt;strong&gt;komponentów funkcyjnych&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
   &lt;span class="nv"&gt;const&lt;/span&gt; {&lt;span class="nv"&gt;droid1&lt;/span&gt;, &lt;span class="nv"&gt;droid2&lt;/span&gt;} &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droid1&lt;/span&gt;} {&lt;span class="nv"&gt;droid2&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -275,21 +901,22 @@ Wymaga zaimportowania &lt;strong&gt;{Component}&lt;/strong&gt; i dziedziczenia o
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Wykorzystując tablicę&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;}&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;]} {&lt;span class="nv"&gt;droids&lt;/span&gt;[&lt;span class="mi"&gt;1&lt;/span&gt;]}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-}
+&lt;p&gt;Wykorzystując tablicę (w przypadku prostego zwrócenia elementu słowo kluczowe &lt;strong&gt;return&lt;/strong&gt; nie jest wymagane podobnie jak nawiasy klamrowe - wynika to funkcji strzałkowej (ang. arrow function))&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const Droids = ({droids}) =&amp;gt; (
+  &lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;{droids[0]} {droids[1]}&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+)
 
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; [&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;R2-D2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+const droids = [&amp;quot;C3-PO&amp;quot;, &amp;quot;R2-D2&amp;quot;];
 
-&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droids&lt;/span&gt; &lt;span class="nv"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;droids&lt;/span&gt;}&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
-  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+ReactDOM.render(
+  &lt;span class="nt"&gt;&amp;lt;Droids&lt;/span&gt; &lt;span class="na"&gt;droids=&lt;/span&gt;&lt;span class="s"&gt;{droids}/&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;,
+  document.getElementById(&amp;quot;app&amp;quot;)
+);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
+&lt;h3 id="propsy-cd"&gt;Props cd.&lt;/h3&gt;
 &lt;p&gt;Jako props można przekazać różnego rodzaju dane - liczby, wartości logiczne, łańcuchy szablonowe, zmienne, tablice, funkcje jednak te wówczas winny znaleźć się w &lt;strong&gt;nawiasach klamrowych&lt;/strong&gt;. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;firstDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3-PO&amp;#39;&lt;/span&gt;
 
@@ -343,8 +970,61 @@ const simpleFunc = (greeting) =&amp;gt; {
 
 
 &lt;hr&gt;
+&lt;h3&gt;Zagnieżdżanie komponentów{#zagnieżdżanie}&lt;/h3&gt;
+&lt;p&gt;Komponenty mogą składać się z innych mniejszych komponentów (interaktywnych i powtarzalnych w swojej funkcjonalności bloków kodu), oznacza to, że w ramach większego komponentu zagnieżdżane są mniejsze z których się składa&lt;/p&gt;
+&lt;p&gt;W ramach Greeting zagnieżdżony jest Droid.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt;, {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-Po&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;...ale takich elementów mogło by być również więcej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Hi&lt;/span&gt;, {&lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;props&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Droid&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C3-PO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+        ...
+        ...
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="ss"&gt;)&lt;/span&gt;
+  }
+}
+
+&lt;span class="nv"&gt;ReactDOM&lt;/span&gt;.&lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Greeting&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;,
+  &lt;span class="nv"&gt;document&lt;/span&gt;.&lt;span class="nv"&gt;getElementById&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;app&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/components-and-props.html"&gt;komponenty - React docs&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="komponenty"></category><category term="props"></category><category term="react"></category><category term="components"></category></entry><entry><title>JavaScript: wprowadzenie do React'a</title><link href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html" rel="alternate"></link><published>2020-07-10T10:00:00+02:00</published><updated>2020-07-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-10:/zfrontu/react-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://teamquest.pl/img/static/blog/reactjs.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/components-and-props.html"&gt;komponenty - React docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/es6/destructuring.php"&gt;destrukturyzacja - kursjs.pl&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Destructuring_assignment"&gt;Przypisanie destrukturyzujące - MDN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=POBekn2ZL9Y"&gt;Dobre praktyki w React cz. 1⌨️ hello roman #121&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/hooks-intro.html"&gt;Wprowadzenie do hooków&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="komponenty"></category><category term="props"></category><category term="react"></category><category term="components"></category><category term="destrukturyzacja"></category><category term="fragmenty"></category></entry><entry><title>JavaScript: wprowadzenie do React'a</title><link href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html" rel="alternate"></link><published>2020-07-10T10:00:00+02:00</published><updated>2020-07-10T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-07-10:/zfrontu/react-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://teamquest.pl/img/static/blog/reactjs.jpeg"&gt;&lt;/p&gt;
 &lt;h3&gt;Konfiguracja środowiska&lt;/h3&gt;
 &lt;p&gt;Inicjalizacja projektu&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
@@ -541,7 +1221,7 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;zamiast&lt;/p&gt;
+&lt;p&gt;&amp;lt;&lt;zamiast&gt;&amp;gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;React&lt;/span&gt;.&lt;span class="nv"&gt;createElement&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;
   &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;span&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
   {&lt;span class="nv"&gt;id&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;droid&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;},
@@ -553,9 +1233,11 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 &lt;p&gt;Atrybuty w JSX różnią się od HTML używają 1) camelCase 2) wykorzystując nieco zmienione słowa kluczowe np. &lt;strong&gt;class&lt;/strong&gt; -&amp;gt; &lt;strong&gt;className&lt;/strong&gt; / &lt;strong&gt;background-color&lt;/strong&gt; -&amp;gt; &lt;strong&gt;backgroundColor&lt;/strong&gt;&lt;/p&gt;
 &lt;h4&gt;Wyrażenia&lt;/h4&gt;
 &lt;h5&gt;Zmienne&lt;/h5&gt;
-&lt;p&gt;W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w &lt;strong&gt;nawiasach klamrowych -&amp;gt; {}&lt;/strong&gt; ale mogą się tam również znaleźć &lt;strong&gt;atrybuty styli&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w &lt;strong&gt;nawiasach klamrowych -&amp;gt; {}&lt;/strong&gt; ale mogą się tam również znaleźć &lt;strong&gt;atrybuty styli&lt;/strong&gt; -&amp;gt; ich właściwości powinny być zamknięte w cudzysłowach, a kolejne deklaracje oddzielone przecinkami&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const style {
-  backgroundColor: red;
+  backgroundColor: &amp;#39;red&amp;#39;,
+  width: &amp;#39;100px&amp;#39;,
+  height: &amp;#39;100px&amp;#39;
 }
 
 &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;style =&lt;/span&gt; &lt;span class="s"&gt;{style}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -609,22 +1291,36 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 &lt;h4&gt;Opis procesu&lt;/h4&gt;
 &lt;p&gt;Element tworzony przy pomocy tagów JSX -&amp;gt; w trakcie kompilacji jest zmieniany na React.createElement -&amp;gt; wywołanie zwraca obiekt -&amp;gt; React tworzy wewnętrzne wirtualne drzewo DOM -&amp;gt; React tworzy drzewo DOM i wstawia je do dokumentu&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3&gt;React.Fragment -&amp;gt; o fragmentach słów parę&lt;/h3&gt;
-&lt;p&gt;JSX może przyjąć tylko jeden element -&amp;gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzystywać tzw. Fragmenty, które same w sobie są pewnego rodzaju elementem "klamrowym", który nie generuje kolejnego elementu &lt;strong&gt;&amp;lt;&amp;gt; element1 element2 ...element &lt;/&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;React.Fragment -&amp;gt; o fragmentach słów parę{#fragmenty}&lt;/h3&gt;
+&lt;p&gt;JSX może przyjąć tylko jeden element -&amp;gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzystywać tzw. Fragmenty, które same w sobie są pewnego rodzaju elementem "klamrowym", który nie generuje kolejnego elementu &lt;code&gt;&amp;lt;&amp;gt; element1 element2 ...element &amp;lt;/&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Można zaimportowania modułu "Fragment" z biblioteki "react"&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Fragment&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Wówczas wykorzystanie fragmentu wygląda następująco -&amp;gt; &lt;strong&gt;&lt;Fragment&gt; element1 element2 ...element &lt;/Fragment&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Wówczas wykorzystanie fragmentu wygląda następująco -&amp;gt; &lt;code&gt;&amp;lt;Fragment&amp;gt; element1 element2 ...element &amp;lt;/Fragment&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Fragmenty pozwalają na zgrupowanie wielu elementów bez konieczności dodawania dodatkowego węzła DOM (np. div) &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;HelloDroid&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Component&lt;/span&gt; {
+  &lt;span class="nv"&gt;render&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;Wookiee&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;planet&lt;/span&gt; &lt;span class="nv"&gt;Kashyyyk&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="ss"&gt;)&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;h3&gt;Notacje obiektów w ES6 w kontekście JSX&lt;/h3&gt;
 &lt;p&gt;Notacje w JS dostępnych od ES6 - ten system zapisu pozwala, na oszczędność kodu - JS potrafi odczytać zmienną jako deklarację CSS &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;
 
-&lt;span class="nt"&gt;button&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;       &lt;span class="err"&gt;zamiast&lt;/span&gt;      &lt;span class="err"&gt;button&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="nt"&gt;button&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;       &lt;span class="err"&gt;&amp;lt;&amp;lt;zamiast&amp;gt;&amp;gt;&lt;/span&gt;      &lt;span class="err"&gt;button&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
   &lt;span class="err"&gt;color&lt;/span&gt;                         &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;color&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;                            &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;                               &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -635,11 +1331,11 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
     &lt;span class="n"&gt;marginTop&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;20px&amp;#39;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;blue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;                 &lt;span class="n"&gt;zamiast&lt;/span&gt;         &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt;  &lt;span class="n"&gt;blue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;                 &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;zamiast&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;         &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
         &lt;span class="n"&gt;backgroundColor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;blue&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;                     &lt;span class="n"&gt;backgroundColor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;blue&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
         &lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="n"&gt;divSize&lt;/span&gt;                                  &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;100px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="err"&gt;}&lt;/span&gt;                                               &lt;span class="n"&gt;marginTop&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;20px&amp;#39;&lt;/span&gt;
-                                                &lt;span class="err"&gt;}&lt;/span&gt;
+                                                    &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 

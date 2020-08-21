@@ -334,7 +334,7 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 </code></pre></div>
 
 
-<p>zamiast</p>
+<p>&lt;<zamiast>&gt;</p>
 <div class="highlight"><pre><span></span><code><span class="nv">React</span>.<span class="nv">createElement</span><span class="ss">(</span>
   <span class="s2">&quot;</span><span class="s">span</span><span class="s2">&quot;</span>,
   {<span class="nv">id</span>: <span class="s2">&quot;</span><span class="s">droid</span><span class="s2">&quot;</span>},
@@ -346,9 +346,11 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 <p>Atrybuty w JSX różnią się od HTML używają 1) camelCase 2) wykorzystując nieco zmienione słowa kluczowe np. <strong>class</strong> -&gt; <strong>className</strong> / <strong>background-color</strong> -&gt; <strong>backgroundColor</strong></p>
 <h4>Wyrażenia</h4>
 <h5>Zmienne</h5>
-<p>W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w <strong>nawiasach klamrowych -&gt; {}</strong> ale mogą się tam również znaleźć <strong>atrybuty styli</strong></p>
+<p>W atrybutach mogą się również znaleźć wyrażenia JS zamknięte w <strong>nawiasach klamrowych -&gt; {}</strong> ale mogą się tam również znaleźć <strong>atrybuty styli</strong> -&gt; ich właściwości powinny być zamknięte w cudzysłowach, a kolejne deklaracje oddzielone przecinkami</p>
 <div class="highlight"><pre><span></span><code>const style {
-  backgroundColor: red;
+  backgroundColor: &#39;red&#39;,
+  width: &#39;100px&#39;,
+  height: &#39;100px&#39;
 }
 
 <span class="nt">&lt;div</span> <span class="na">style =</span> <span class="s">{style}</span><span class="nt">&gt;&lt;/div&gt;</span>
@@ -402,22 +404,36 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 <h4>Opis procesu</h4>
 <p>Element tworzony przy pomocy tagów JSX -&gt; w trakcie kompilacji jest zmieniany na React.createElement -&gt; wywołanie zwraca obiekt -&gt; React tworzy wewnętrzne wirtualne drzewo DOM -&gt; React tworzy drzewo DOM i wstawia je do dokumentu</p>
 <hr>
-<h3>React.Fragment -&gt; o fragmentach słów parę</h3>
-<p>JSX może przyjąć tylko jeden element -&gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzystywać tzw. Fragmenty, które same w sobie są pewnego rodzaju elementem "klamrowym", który nie generuje kolejnego elementu <strong>&lt;&gt; element1 element2 ...element </></strong></p>
+<h3>React.Fragment -&gt; o fragmentach słów parę{#fragmenty}</h3>
+<p>JSX może przyjąć tylko jeden element -&gt; stąd aby wyrenderować wiele elementów należy je opakować w jeden nadrzędny np. div, ale od React 1.6 można wykorzystywać tzw. Fragmenty, które same w sobie są pewnego rodzaju elementem "klamrowym", który nie generuje kolejnego elementu <code>&lt;&gt; element1 element2 ...element &lt;/&gt;</code></p>
 <p>Można zaimportowania modułu "Fragment" z biblioteki "react"</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">Fragment</span><span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 
-<p>Wówczas wykorzystanie fragmentu wygląda następująco -&gt; <strong><Fragment> element1 element2 ...element </Fragment></strong></p>
+<p>Wówczas wykorzystanie fragmentu wygląda następująco -&gt; <code>&lt;Fragment&gt; element1 element2 ...element &lt;/Fragment&gt;</code></p>
+<p>Fragmenty pozwalają na zgrupowanie wielu elementów bez konieczności dodawania dodatkowego węzła DOM (np. div) </p>
+<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">HelloDroid</span> <span class="nv">extends</span> <span class="nv">Component</span> {
+  <span class="nv">render</span><span class="ss">()</span> {
+    <span class="k">return</span> <span class="ss">(</span>
+      <span class="o">&lt;&gt;</span>
+        <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">I</span> <span class="nv">am</span> <span class="nv">a</span> <span class="nv">Wookiee</span><span class="o">!&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span><span class="c1">;</span>
+        <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">I</span> <span class="nv">am</span> <span class="nv">the</span> <span class="nv">planet</span> <span class="nv">Kashyyyk</span><span class="o">!&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span><span class="c1">;</span>
+      <span class="o">&lt;/&gt;</span>
+    <span class="ss">)</span>
+  }
+}
+</code></pre></div>
+
+
 <hr>
 <h3>Notacje obiektów w ES6 w kontekście JSX</h3>
 <p>Notacje w JS dostępnych od ES6 - ten system zapisu pozwala, na oszczędność kodu - JS potrafi odczytać zmienną jako deklarację CSS </p>
 <div class="highlight"><pre><span></span><code><span class="nt">const</span> <span class="nt">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
 
-<span class="nt">button</span> <span class="p">{</span>       <span class="err">zamiast</span>      <span class="err">button</span> <span class="err">{</span>
+<span class="nt">button</span> <span class="p">{</span>       <span class="err">&lt;&lt;zamiast&gt;&gt;</span>      <span class="err">button</span> <span class="err">{</span>
   <span class="err">color</span>                         <span class="k">color</span><span class="p">:</span> <span class="kc">color</span><span class="p">;</span>
-<span class="p">}</span>                            <span class="err">}</span>
+<span class="p">}</span>                               <span class="err">}</span>
 </code></pre></div>
 
 
@@ -428,11 +444,11 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
     <span class="n">marginTop</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span>
 <span class="err">}</span>
 
-<span class="n">const</span>  <span class="n">blue</span> <span class="o">=</span> <span class="err">{</span>                 <span class="n">zamiast</span>         <span class="n">const</span> <span class="n">blue</span> <span class="o">=</span> <span class="err">{</span>
+<span class="n">const</span>  <span class="n">blue</span> <span class="o">=</span> <span class="err">{</span>                 <span class="o">&lt;&lt;</span><span class="n">zamiast</span><span class="o">&gt;&gt;</span>         <span class="n">const</span> <span class="n">blue</span> <span class="o">=</span> <span class="err">{</span>
         <span class="n">backgroundColor</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>                     <span class="n">backgroundColor</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
         <span class="p">...</span><span class="n">divSize</span>                                  <span class="n">width</span><span class="p">:</span> <span class="s1">&#39;100px&#39;</span><span class="p">,</span>
     <span class="err">}</span>                                               <span class="n">marginTop</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span>
-                                                <span class="err">}</span>
+                                                    <span class="err">}</span>
 </code></pre></div>
 
 

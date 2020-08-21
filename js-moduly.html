@@ -265,6 +265,13 @@ Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import N
 </code></pre></div>
 
 
+<p>można również stosować taki zabieg stosując default (wówczas importując można nadać dowolną nazwę -&gt; ekportuję tą tablicę - nadaj jej nazwę importując)</p>
+<p>// plik export.js</p>
+<p>export default = [
+    .....
+  ]</p>
+<p>// plik import.js (nazwa tablica jest nadana dopiero w pliku gdzie dane są importowane)</p>
+<p>import tablica from "./export.js"</p>
 <h4>Asynchroniczny import</h4>
 <div class="highlight"><pre><span></span><code><span class="nv">import</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/modules/my-module.js</span><span class="s1">&#39;</span><span class="ss">)</span>
   .<span class="k">then</span><span class="ss">((</span><span class="nv">module</span><span class="ss">)</span> <span class="o">=&gt;</span> {
