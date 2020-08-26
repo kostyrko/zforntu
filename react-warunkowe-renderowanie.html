@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Warunkowe renderowanie pozwala na zmianie zachowania się komponentu w zależności od informacji zawartych w stanie komponentu lub w propsie. Jest parę prostych zasad, o których warto pamiętać w tym kontekście. W zależności od złożoności sytuacji, w której chcemy wykorzystać warunkowe renderowanie możemy: 1) wykorzystać operator trójargumentowy w formie in-linowej walidacji …" />
+<meta name="keywords" content="react, formularze, hooks">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React: warunkowe renderowanie"/>
+<meta property="og:description" content="Warunkowe renderowanie pozwala na zmianie zachowania się komponentu w zależności od informacji zawartych w stanie komponentu lub w propsie. Jest parę prostych zasad, o których warto pamiętać w tym kontekście. W zależności od złożoności sytuacji, w której chcemy wykorzystać warunkowe renderowanie możemy: 1) wykorzystać operator trójargumentowy w formie in-linowej walidacji …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-26 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="reactjs"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="formularze"/>
+<meta property="article:tag" content="hooks"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React: warunkowe renderowanie</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  
+  <aside>
+    <!-- intrusion by MK - not implemented -->
+    <!-- <div>
+      <input type="checkbox" class="check-box">
+      <label for="check">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+      </label>
+    </div> -->
+    <!-- END of intrusion -->
+    <div>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- intrusion by MK - ADD CHECKBOX-THEME -->
+      <!-- <input type="checkbox" name="theme" id="theme-checkbox" class="theme-checkbox">
+      <label class="theme-label" for="theme-checkbox">
+        <i class="fa fa-moon"> Ciemny motyw</i>
+        <i class="fa fa-sun"> Jasny motyw</i>
+      </label> -->
+    <!-- END of intrusion -->
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="react-warunkowe-renderowanie">React: warunkowe renderowanie</h1>
+    <p>
+      Opublikowano śro 26 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="react" max-height="300px" src="https://daqxzxzy8xq3u.cloudfront.net/wp-content/uploads/2019/06/29192442/react-conditional-types.jpg"></p>
+<p>Warunkowe renderowanie pozwala na zmianie zachowania się komponentu w zależności od informacji zawartych w stanie komponentu lub w propsie. Jest parę prostych zasad, o których warto pamiętać w tym kontekście.</p>
+<p>W zależności od złożoności sytuacji, w której chcemy wykorzystać warunkowe renderowanie możemy:</p>
+<p>1) wykorzystać operator trójargumentowy w formie in-linowej walidacji
+  2) zapisać element do zmiennej i ją modyfikować a następnie przekazywać ją do JSX 
+  3) zmieniać treść komponentu, który jest zwracany</p>
+<h3>1) Inline - operator trójargumentowy + null</h3>
+<p>Ta opcja sprawdza się najlepiej w przypadku pojedynczych zmiennych lub gdy treść danego elementu jest krótka lub jeśli zwracamy dany element lub w jego miejsce nic nie jest zwracane jeśli walidacji przechodzi negatywnie.</p>
+<p><strong>:::</strong> Istotne jest to aby pamiętać, że jeśli chcemy korzystać z warunków w ramach JSX musi być to wówczas przy pomocy operatora trójargumentowego <strong>:::</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">droids</span> <span class="o">!==</span> <span class="nv">false</span> <span class="nv">nie</span> <span class="nv">renderuj</span> <span class="nv">tego</span> <span class="nv">elementu</span>
+[...]
+<span class="k">return</span> <span class="ss">(</span>
+    {<span class="nv">droids</span><span class="o">===</span> <span class="nv">false</span> ? <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span> <span class="nv">Wybierze</span> <span class="nv">klas</span>ę <span class="nv">droid</span>ó<span class="nv">w</span> <span class="k">do</span> <span class="nv">wy</span>ś<span class="nv">wietlenia</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span> : <span class="nv">null</span>}
+  <span class="ss">)</span>
+[...]
+</code></pre></div>
+
+
+<p>Warunków może być więcej - wówczas można zastosować and <strong>&amp;&amp;</strong> lub or <strong>||</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">[...]</span>
+<span class="na">return (</span>
+    <span class="na">{droids</span><span class="o">=</span><span class="s">== false || droids.length &lt; 1  ? &lt;h2&gt; Wybierze klasę droidów do wyświetlenia&lt;/h2&gt; : null}</span>
+<span class="s">  )</span>
+<span class="k">[...]</span>
+</code></pre></div>
+
+
+<h3>2) Zmiana zmiennej</h3>
+<p>W zmiennej przechowywany jest element, na którego treść wpływa stan lub props</p>
+<div class="highlight"><pre><span></span><code><span class="k">[...]</span>
+<span class="na">let menu</span>
+<span class="na">if(droids</span> <span class="o">=</span><span class="s">== false) {</span>
+<span class="s">  info = &lt;h2&gt; Wybierze klasę droidów do wyświetlenia&lt;/h2&gt;</span>
+<span class="na">} else {</span>
+  <span class="na">info</span> <span class="o">=</span> <span class="s">&lt;h2&gt;Korzystając z powyższego menu możesz wyświetlić równiez inne klasy droidów&lt;/h2&gt;</span>
+<span class="na">}</span>
+
+<span class="na">return (</span>
+  <span class="na">&lt;&gt;</span>
+    <span class="na">{info}</span>
+    <span class="k">[....]</span>
+  <span class="na">&lt;/&gt;</span>
+<span class="na">)</span>
+</code></pre></div>
+
+
+<h3>3) Zmiana treści zwracanego komponentu</h3>
+<p>Treść zwracanego komponentu jest zależna od stanu lub propsu</p>
+<p>Przykład (element funkcyjny)</p>
+<div class="highlight"><pre><span></span><code><span class="k">[...]</span>
+
+  <span class="na">// zapisywanie elementu do zmiennej</span>
+  <span class="na">const menu</span> <span class="o">=</span> <span class="s">(&lt;select </span>
+<span class="s">    value={select} onChange={e =&gt; setSelect(e.target.value)}&gt;</span>
+<span class="s">      &lt;option value=&quot;&quot;&gt;Wybierz klasę droidów&lt;/option&gt;</span>
+<span class="s">      {droids.map((option,i)=&gt;&lt;option key={i} value={option}&gt;{option}&lt;/option&gt;)}</span>
+<span class="s">    &lt;/select&gt;)</span>
+
+  <span class="na">// warunek (droids zawiera wybór i na początek jest ustawiony jak false)</span>
+  <span class="na">if(droids</span> <span class="o">=</span><span class="s">== false) {</span>
+<span class="s">      return (</span>
+<span class="s">        menu</span>
+<span class="s">      )</span>
+<span class="s">    }</span>
+
+  <span class="na">// w momencie gdy dojdzie do wyboru danej klasy droidów to wówczas wyświetl menu + ich listę</span>
+  <span class="na">return (</span>
+    <span class="na">&lt;&gt;</span>
+    <span class="na">{menu}</span>
+    <span class="na">&lt;ul&gt;</span>
+      <span class="na">{droids.map(({id, droid, specs})</span><span class="o">=</span><span class="s">&gt; &lt;li key={id}&gt;</span>
+<span class="s">      &lt;h3&gt;{name}&lt;/h3&gt;</span>
+<span class="s">      &lt;time&gt;{specs}&lt;/time&gt;</span>
+<span class="s">      &lt;/li&gt;)}</span>
+<span class="s">    &lt;/ul&gt;</span>
+<span class="s">    &lt;/&gt;</span>
+<span class="s">  );</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://linguinecode.com/post/4-techniques-conditional-render-react-props-state">4 React conditional rendering methods with props and state</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/formularze.html">formularze</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-stany.html">React: (zjednoczne) Stany React'a</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

@@ -50,26 +50,29 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Kontroli przepływu block break continue empty if/if else/else - podstawowa instrukcja warunkowa swith - instrukcja warunkowa biorąca pod uwagę zachowanie się kodu zależnego od wariacji zmiennej throw - ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu Przykładowe zastosowanie: fetch(&#34;https://jsonplaceholder.typicode.com/posts/2&#34;) .then …" />
-<meta name="keywords" content="javascript, js, polecenia">
+<meta name="description" content="NPM Korzystając z domyślnej opcji instalacji paczki/wtyczki z NPM w przypadku Ubuntu stosując opcję instalacji globalnej należy wykorzystać uprawnienia administracyjne sudo. Aby uniknąć instalowania wtyczkę w ten sposób (i przekazywania im możliwości edytowania ustawień systemowych) należy zastosować niżej opisane kroki. 1) Należy stworzyć folder, w którym będą zapisane paczki …" />
+<meta name="keywords" content="gitignore, npm, Dependencies, devDependencies, package.json, ubuntu">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="JavaScript - polecenia"/>
-<meta property="og:description" content="Kontroli przepływu block break continue empty if/if else/else - podstawowa instrukcja warunkowa swith - instrukcja warunkowa biorąca pod uwagę zachowanie się kodu zależnego od wariacji zmiennej throw - ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu Przykładowe zastosowanie: fetch(&#34;https://jsonplaceholder.typicode.com/posts/2&#34;) .then …"/>
+<meta property="og:title" content="JavaScript - NPM"/>
+<meta property="og:description" content="NPM Korzystając z domyślnej opcji instalacji paczki/wtyczki z NPM w przypadku Ubuntu stosując opcję instalacji globalnej należy wykorzystać uprawnienia administracyjne sudo. Aby uniknąć instalowania wtyczkę w ten sposób (i przekazywania im możliwości edytowania ustawień systemowych) należy zastosować niżej opisane kroki. 1) Należy stworzyć folder, w którym będą zapisane paczki …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-polecenia.html"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-npm.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-04-09 08:00:00+02:00"/>
+<meta property="article:published_time" content="2020-05-28 11:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
 <meta property="article:section" content="javascript"/>
-<meta property="article:tag" content="javascript"/>
-<meta property="article:tag" content="js"/>
-<meta property="article:tag" content="polecenia"/>
+<meta property="article:tag" content="gitignore"/>
+<meta property="article:tag" content="npm"/>
+<meta property="article:tag" content="Dependencies"/>
+<meta property="article:tag" content="devDependencies"/>
+<meta property="article:tag" content="package.json"/>
+<meta property="article:tag" content="ubuntu"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; JavaScript - polecenia</title>
+  <title>...z frontu &ndash; JavaScript - NPM</title>
 
 </head>
 <body>
@@ -151,9 +154,9 @@
 <article class="single">
   <header>
       
-    <h1 id="js-polecenia">JavaScript - polecenia</h1>
+    <h1 id="js-npm">JavaScript - NPM</h1>
     <p>
-      Opublikowano czw 09 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+      Opublikowano czw 28 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
         &#8226; 1 min read
     </p>
@@ -161,60 +164,118 @@
 
 
   <div>
-    <h3>Kontroli przepływu</h3>
-<p>block</p>
-<p>break</p>
-<p>continue</p>
-<p>empty</p>
-<p>if/if else/else - podstawowa instrukcja warunkowa </p>
-<p>swith - instrukcja warunkowa biorąca pod uwagę zachowanie się kodu zależnego od wariacji zmiennej</p>
-<p>throw - ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu</p>
-<p>Przykładowe zastosowanie: </p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s2">&quot;</span><span class="ss">)</span>
-    .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
-        <span class="k">if</span> <span class="ss">(</span><span class="nv">response</span>.<span class="nv">ok</span><span class="ss">)</span> {
-            <span class="k">return</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">()</span>
-        } <span class="k">else</span> {
-            <span class="nv">throw</span> <span class="nv">new</span> <span class="nv">Error</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Błąd sieci</span><span class="s2">&quot;</span><span class="ss">)</span>
-        }
-    }<span class="ss">)</span>
+    <p><img alt="npm-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/800px-Npm-logo.svg.png"></p>
+<h3>NPM</h3>
+<p>Korzystając z domyślnej opcji instalacji paczki/wtyczki z NPM w przypadku Ubuntu stosując opcję instalacji globalnej należy wykorzystać uprawnienia administracyjne <strong>sudo</strong>. Aby uniknąć instalowania wtyczkę w ten sposób (i przekazywania im możliwości edytowania ustawień systemowych) należy zastosować niżej opisane kroki.</p>
+<p>1) Należy stworzyć folder, w którym będą zapisane paczki</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">mkdir</span> <span class="o">~/</span><span class="p">.</span><span class="n">npm</span><span class="o">-</span><span class="k">global</span>
 </code></pre></div>
 
 
-<p><strong>try...catch</strong> - instrukcja obsługi wyjątków - instrukcja <strong>try</strong> pozwala na zdefiniowanie wykonywania się kodu w przypadku przypadku jego nie powodzenia wykonywanie się programu powinno zostać wyłapane przez instrukcję <strong>catch</strong> i zostanie wywołany kod w niej zawarty</p>
-<hr>
-<h3>Deklaracje</h3>
-<p><strong>var</strong>/<strong>const</strong>/<strong>let</strong> - słowa kluczowe poprzedzające deklarację zmiennej oraz definiujące jej rodzaj</p>
-<hr>
-<h3>Funkcji i klas</h3>
-<p><strong>function</strong> - słowo kluczowe poprzedzające deklarację funkcji</p>
-<p><strong>async function</strong> - funkcja asynchroniczna - wykorzystuje obiekt Promise do zwrócenia wyniku</p>
-<p><strong>return</strong> </p>
-<p><strong>class</strong> - słowo kluczowe wstępujące przez zdefiniowaniem klasy (od JS &gt;= ES6) -&gt; więcej na ten temat: <a href="https://kostyrko.github.io/zfrontu/js-klasy.html">JavaScript - klasy</a></p>
-<hr>
-<h3>Iteracji</h3>
-<p><a href="https://kostyrko.github.io/zfrontu/js-for-while-loop.html">Patrz tutaj</a></p>
-<hr>
-<h3>Inne</h3>
-<p><strong>debugger</strong> - wyrażenie uruchamiające funkcjonalność debuggowania/ kod przestaje się wywoływać gdy dotrze do instrukcji debuggera</p>
-<p><strong>export</strong> - słowo kluczowe poprzedzające deklarację eksport części kodu</p>
-<p><strong>import</strong>  - słowo kluczowe poprzedzające deklarację importu części kodu z pliku</p>
-<p><strong>lable</strong></p>
+<p>2) Należy zdefiniować miejsce zapisywania paczek przez <strong>NMP</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">config</span> <span class="k">set</span> <span class="k">prefix</span> <span class="s1">&#39;~/.npm-global&#39;</span>
+</code></pre></div>
+
+
+<p>3) Otwórz lub stwórz plik ~/.profile i dodaj do niego poniższą linię</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">export</span> <span class="n">PATH</span><span class="o">=~/</span><span class="p">.</span><span class="n">npm</span><span class="o">-</span><span class="k">global</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+</code></pre></div>
+
+
+<p>4) Odśwież zmienne systemowe</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">source</span> <span class="o">~/</span><span class="p">.</span><span class="n">profile</span>
+</code></pre></div>
+
+
+<p>5) Przetestuj nową konfigurację instalując dowolną paczkę globalnie nie korzystając z <strong>sudo</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="k">g</span> <span class="n">jshint</span>
+</code></pre></div>
+
+
+<p><code>npm init</code> - inicjalizacja projekt (tworzy plik <strong>package.json </strong>lub instaluje paczki w nim zapisane)</p>
+<table>
+<thead>
+<tr>
+<th>Instalacja paczki</th>
+<th>Komenda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm i nazwa_paczki</td>
+<td>instalacja lokalnie</td>
+</tr>
+<tr>
+<td>npm i nazwa_paczki -g</td>
+<td>instalacja globalnie</td>
+</tr>
+<tr>
+<td>npm i nazwa_paczki --save-dev</td>
+<td>instalacja jako zależność deweloperska</td>
+</tr>
+<tr>
+<td>npm i nazwa_paczki@X.X.X</td>
+<td>instalacja określonej wersji paczki</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Usuwanie i aktualizowanie paczki</th>
+<th>Komenda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm uninstall nazwa_paczki</td>
+<td>usunięcie lokalnie zainstalowanej paczki</td>
+</tr>
+<tr>
+<td>npm uninstall nazwa_paczki -g</td>
+<td>usunięcie globalnie zainstalowanej paczki</td>
+</tr>
+<tr>
+<td>npm update</td>
+<td>aktualizacja paczek w projekcie</td>
+</tr>
+<tr>
+<td>npm update --dev</td>
+<td>aktualizacja paczek w deweloperskich</td>
+</tr>
+<tr>
+<td>npm update nazwa_paczki</td>
+<td>aktualizacja konkretnej paczki</td>
+</tr>
+<tr>
+<td>npm update --g</td>
+<td>aktualizacja globalnych paczek</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <p>Źródła:</p>
-<p>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math</p>
-<p>https://mathjs.org/</p>
+<p><a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally">Resolving EACCES permissions errors when installing packages globally</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/polecenia.html">polecenia</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/gitignore.html">gitignore</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/dependencies.html">Dependencies</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/devdependencies.html">devDependencies</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/packagejson.html">package.json</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/ubuntu.html">ubuntu</a>
     </p>
   </div>
 
 
 
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/js-gulp.html">JavaScript - Gulp</a></li>
+    </ul>
+  </div>
 
 
 <!-- Disqus -->

@@ -51,7 +51,7 @@
 
 <meta name="author" content="mkostyrko" />
 <meta name="description" content="Zdarzenia w React obsługiwane są w podobny sposób jak w HTML -&gt; oznacza to, że inlinowo wpisywane są &#34;nasłuchiwacze&#34; (używając camelCase) do którego przekazywany jest atrybut w nawiasach klamrowych -&gt; przekazywanie funkcji jako props &lt;button onClick={buttonClick}&gt;Button&lt;/button&gt; Metoda, do której się odwołujemy poprzez atrybut może znaleźć swoje miejsca w ramach …" />
-<meta name="keywords" content="react, formularze">
+<meta name="keywords" content="react, zdarzenia, bind, handleClick">
 
 
 <meta property="og:site_name" content="...z frontu"/>
@@ -65,7 +65,9 @@
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
 <meta property="article:section" content="reactjs"/>
 <meta property="article:tag" content="react"/>
-<meta property="article:tag" content="formularze"/>
+<meta property="article:tag" content="zdarzenia"/>
+<meta property="article:tag" content="bind"/>
+<meta property="article:tag" content="handleClick"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; React: zdarzenia - podstawy</title>
@@ -189,8 +191,21 @@
 </code></pre></div>
 
 
-<p>Słowo kluczowe <strong>this</strong> jest zależne od kontekstu, w przypadku gdy dany element powinien mieć dostęp do całości komponentu (np w celu skorzystania z <em>props</em>) stosuje się <strong>funkcję strzałkową</strong> [jej zastosowania wymaga użycia <strong>dodatkowej wtyczki</strong> <em>@babel/plugin-proposal-class-properties</em> (w klasie ES6 nie ma możliwości zastosowania funkcji strzałkowej)].</p>
-<h4>Konfiguracja wtyczki Babel: plugin-proposal-class-properties{#plugin-proposal-class-properties}</h4>
+<hr>
+<p>Słowo kluczowe <strong>this</strong> jest zależne od kontekstu, w przypadku gdy dany element powinien mieć dostęp do całości komponentu (np w celu skorzystania z <em>props</em>) można zastosować <strong>funkcję strzałkową</strong> [jej zastosowania wymaga użycia <strong>dodatkowej wtyczki</strong> <em>@babel/plugin-proposal-class-properties</em> (w klasie ES6 nie ma możliwości zastosowania funkcji strzałkowej)].</p>
+<p>W przeciwnym razie należy korzystać z wywołania <code>bind</code> - w tym przypadku funkcja odpowiadająca za dane zdarzenie będzie musiała zostać przypisana do stanu</p>
+<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">Droid</span> <span class="nv">extends</span> <span class="nv">React</span>.<span class="nv">Component</span> {
+  <span class="nv">constructor</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+    <span class="nv">super</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">this</span>.<span class="nv">state</span> <span class="o">=</span> []<span class="c1">;</span>
+    <span class="o">//</span> <span class="nv">Poni</span>ż<span class="nv">sze</span> <span class="nv">wi</span>ą<span class="nv">zanie</span> <span class="nv">jest</span> <span class="nv">niezb</span>ę<span class="nv">dne</span> <span class="k">do</span> <span class="nv">prawid</span>ł<span class="nv">owego</span> <span class="nv">przekazania</span> `<span class="nv">this</span>` <span class="nv">przy</span> <span class="nv">wywo</span>ł<span class="nv">aniu</span> <span class="nv">funkcji</span>    
+    <span class="nv">this</span>.<span class="nv">handleClick</span> <span class="o">=</span> <span class="nv">this</span>.<span class="nv">handleClick</span>.<span class="nv">bind</span><span class="ss">(</span><span class="nv">this</span><span class="ss">)</span><span class="c1">;  </span>
+    }
+  [...]
+</code></pre></div>
+
+
+<h4 id="plugin-proposal-class-properties">Konfiguracja wtyczki Babel: plugin-proposal-class-properties</h4>
 <p><strong>Konfiguracja @babel/plugin-proposal-class-properties</strong> w .babelrc </p>
 <div class="highlight"><pre><span></span><code><span class="err">{</span><span class="w"></span>
 <span class="w">  </span><span class="ss">&quot;presets&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
@@ -201,7 +216,8 @@
 </code></pre></div>
 
 
-<p>W funkcji strzałkowej <strong>this</strong> nie ulega zmianie i odwołuje się do elementu najwyższego rzędu</p>
+<hr>
+<p>!! W funkcji strzałkowej <strong>this</strong> nie ulega zmianie i odwołuje się do elementu najwyższego rzędu</p>
 <p>Porównanie zachowania się <strong>this</strong> - <code>greetDroid</code> (funkcja strzałkowa) zadziała podczas gdy <code>helloDroid</code> nie będzie w stanie odwołać się do <strong>props</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">Component</span><span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
@@ -217,13 +233,13 @@
   <span class="n">render</span><span class="p">(){</span>
     <span class="k">return</span> <span class="p">(</span>
       <span class="o">&lt;&gt;</span>
-      <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Greet</span> <span class="n">Droid</span> <span class="n">by</span> <span class="n">clicking</span> <span class="n">below</span><span class="err">!</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">helloDroid</span><span class="p">}</span><span class="o">&gt;</span>
-      <span class="n">Funkcja</span>
-      <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">greetDroid</span><span class="p">}</span><span class="o">&gt;</span>
-      <span class="n">Funkcja</span> <span class="n">strzałkowa</span>
-      <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Greet</span> <span class="n">Droid</span> <span class="n">by</span> <span class="n">clicking</span> <span class="n">below</span><span class="err">!</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">helloDroid</span><span class="p">}</span><span class="o">&gt;</span>
+          <span class="n">Funkcja</span>
+        <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">greetDroid</span><span class="p">}</span><span class="o">&gt;</span>
+          <span class="n">Funkcja</span> <span class="n">strzałkowa</span>
+        <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
       <span class="o">&lt;/&gt;</span>
     <span class="p">);</span>
   <span class="p">}</span>
@@ -259,6 +275,35 @@
 
 <span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
   <span class="o">&lt;</span><span class="n">Droid</span> <span class="n">droidName</span><span class="o">=</span><span class="s1">&#39;C3PO&#39;</span><span class="o">/&gt;</span><span class="p">,</span>
+  <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+
+
+<h3>Inlinowe wywołanie funkcji z argumentami</h3>
+<p>funkcje powiązane z konkretnymi zdarzeniami mogą być również wywoływane <em>inlinowo</em> oraz poprzez przekazanie odpowiednich argumentów</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span> <span class="nn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
+
+<span class="n">const</span> <span class="n">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">const</span> <span class="n">greetDroid</span> <span class="o">=</span> <span class="p">(</span><span class="n">droidName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">alert</span><span class="p">(</span><span class="sb">`Hi ${droidName}`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;&gt;</span>
+      <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Greet</span> <span class="n">Droid</span> <span class="n">by</span> <span class="n">clicking</span> <span class="n">below</span><span class="err">!</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span><span class="o">=&gt;</span><span class="n">greetDroid</span><span class="p">(</span><span class="s1">&#39;C3PO&#39;</span><span class="p">)}</span><span class="o">&gt;</span>
+        <span class="n">C3PO</span>
+      <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span><span class="o">=&gt;</span><span class="n">greetDroid</span><span class="p">(</span><span class="s1">&#39;R2D2&#39;</span><span class="p">)}</span><span class="o">&gt;</span>
+        <span class="n">R2D2</span>
+      <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+    <span class="o">&lt;/&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="n">App</span><span class="o">/&gt;</span><span class="p">,</span>
   <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
@@ -325,8 +370,8 @@
 </table>
 <hr>
 <h3>Zatrzymanie domyślnej akcji</h3>
-<p>Zatrzymanie domyślnej akcji stosuje się poprzez odwołanie się do eventu</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">Link</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
+<p>Zatrzymanie domyślnej akcji stosuje się poprzez odwołanie się do eventu, który musi zostać przekazany do funkcji jako argument</p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">Link</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">e</span><span class="ss">)</span> <span class="o">=&gt;</span> {
   <span class="nv">function</span> <span class="nv">clickLink</span><span class="ss">(</span><span class="nv">e</span><span class="ss">)</span>{
     <span class="nv">e</span>.<span class="nv">preventDefault</span><span class="ss">()</span><span class="c1">;</span>
   }
@@ -348,7 +393,9 @@
   <div class="tag-cloud">
     <p>
       <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/formularze.html">formularze</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/zdarzenia.html">zdarzenia</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/bind.html">bind</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/handleclick.html">handleClick</a>
     </p>
   </div>
 
@@ -360,6 +407,7 @@
       <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
       <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
       <li><a href="https://kostyrko.github.io/zfrontu/react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-stany.html">React: (zjednoczne) Stany React'a</a></li>
     </ul>
   </div>
 

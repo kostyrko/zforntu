@@ -51,7 +51,7 @@
 
 <meta name="author" content="mkostyrko" />
 <meta name="description" content="Fetch jest API/interfejsem należącym do przeglądarki, ale jest również dostępny przy pomocy node.js -&gt; import fetch from &#39;node-fetch&#39;, który pozwala na asynchroniczne pobieranie danych z serwera. Fetch bazuje na obietnicach -&gt; Zwraca zapytanie HTTP jako obietnicę tego zapytania. W momencie wykorzystania metody fetch() tworzony jest obiekt typu Promise - oznacza to …" />
-<meta name="keywords" content="javascript, js, node.js, fetch, fetch api">
+<meta name="keywords" content="javascript, js, node.js, fetch, fetch api, throw, error">
 
 
 <meta property="og:site_name" content="...z frontu"/>
@@ -69,6 +69,8 @@
 <meta property="article:tag" content="node.js"/>
 <meta property="article:tag" content="fetch"/>
 <meta property="article:tag" content="fetch api"/>
+<meta property="article:tag" content="throw"/>
+<meta property="article:tag" content="error"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; JavaScript i Fetch API</title>
@@ -157,7 +159,7 @@
     <p>
       Opublikowano pon 20 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
-        &#8226; 3 min read
+        &#8226; 4 min read
     </p>
   </header>
 
@@ -172,8 +174,9 @@
 </code></pre></div>
 
 
-<p>Odpowiedź z serwera zawiera wiele informacji np. informacje o statusie odpowiedzi, headery, typ, url czy <strong>body</strong></p>
-<p>W pierwszej kolejności będzie to</p>
+<p>Odpowiedź (ang. response - zwracana w formie obiektu) z serwera zawiera wiele informacji np. informacje o statusie odpowiedzi, headery, typ, url czy <strong>body</strong> - istotne jest to, że posiada ona również swoje metody (znaleźć je można w prototypie) -&gt; np <strong>.ok()</strong>, <strong>.json()</strong>, <strong>text()</strong> (więcej na ten temat poniżej)</p>
+<h4>Jak wygląda informacja zwrotna?</h4>
+<p>W pierwszej kolejności będzie to... [pending]:</p>
 <div class="highlight"><pre><span></span><code><span class="n">Promise</span><span class="w"> </span><span class="err">{</span><span class="o">&lt;</span><span class="n">pending</span><span class="o">&gt;</span><span class="err">}</span><span class="w"></span>
 <span class="nl">__proto__</span><span class="p">:</span><span class="w"> </span><span class="n">Response</span><span class="w"></span>
 <span class="o">[</span><span class="n">[PromiseStatus</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;fulfilled&quot;</span><span class="w"></span>
@@ -181,11 +184,11 @@
 </code></pre></div>
 
 
-<p>Następnie...</p>
+<p>Gdy promise przejdzie w status [fulfilled] to...</p>
 <div class="highlight"><pre><span></span><code><span class="n">Response</span> <span class="p">{</span>
   <span class="n">body</span><span class="o">:</span> <span class="p">(</span><span class="kc">...</span><span class="p">),</span>          <span class="o">&lt;-</span> <span class="n">ciało</span> <span class="n">odpowiedzi</span>
   <span class="n">bodyUsed</span><span class="o">:</span> <span class="n">false</span>
-  <span class="n">headers</span><span class="o">:</span> <span class="n">Headers</span> <span class="p">{}</span>
+  <span class="n">headers</span><span class="o">:</span> <span class="n">Headers</span> <span class="p">{}</span>   <span class="o">&lt;-</span> <span class="n">obiekt</span> <span class="n">zawierający</span> <span class="n">nagłówki</span>
   <span class="n">ok</span><span class="o">:</span> <span class="n">true</span>
   <span class="n">status</span><span class="o">:</span> <span class="m">200</span><span class="p">,</span>          <span class="o">&lt;-</span> <span class="n">status</span> <span class="n">połączenia</span>
   <span class="n">statusText</span><span class="o">:</span> <span class="s">&quot;&quot;</span>        <span class="o">&lt;-</span> <span class="n">status</span> <span class="n">połączenia</span> <span class="n">jako</span> <span class="n">tekst</span>
@@ -208,14 +211,14 @@
 </code></pre></div>
 
 
-<p>Właściwość <strong>ok</strong> metody <strong>fetch()</strong> zastosowana powyżej zwraca wartość logiczną (tylko odczyt) i zwraca <strong>True</strong> jeśli treść odpowiedzi zawiera się w przedziale <strong>200-299</strong></p>
+<p>Metoda <strong>.ok()</strong> <strong>fetch API</strong> zastosowana powyżej zwraca wartość logiczną (tylko odczyt) i zwraca <strong>True</strong> jeśli treść odpowiedzi zawiera się w przedziale <strong>200-299</strong></p>
 <p>Wyżej zaprezentowany zapis może również przyjąć formę wykorzystującą <strong>obietnicę</strong> i wówczas również możemy wykorzystać metodę <strong>catch()</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s2">&quot;</span><span class="ss">)</span>
 .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
     <span class="k">if</span> <span class="ss">(</span><span class="nv">response</span>.<span class="nv">ok</span><span class="ss">)</span> {
         <span class="k">return</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">()</span>
     } <span class="k">else</span> {
-        <span class="k">return</span> <span class="nv">Promise</span>.<span class="nv">reject</span><span class="ss">(</span><span class="nv">response</span><span class="ss">)</span>
+        <span class="nv">throw</span> <span class="nv">new</span> <span class="nv">Error</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Błąd sieci</span><span class="s2">&quot;</span><span class="ss">)</span>
     }
 }<span class="ss">)</span>
 .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
@@ -230,8 +233,21 @@
 
 
 <hr>
-<h3>Body i jego metody</h3>
+<h4>Throw new Error()</h4>
+<p>Zastosowana wyżej deklaracja (ang. statement) <code>throw</code> ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu w tym przypadku doszło również do stworzenia nowej obiektu <code>Error</code> na podstawie klasy oraz jego konstruktora , który przyjmuje treść błędu, który może b(new Error('treść błędu')), bez słowa kluczowego <strong>new</strong> powstaje obiekt nad podstawie funkcji</p>
+<p>Schemta:</p>
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="n">Error</span><span class="p">([</span><span class="n">message</span><span class="p">[,</span> <span class="n">fileName</span><span class="p">[,</span> <span class="n">lineNumber</span><span class="p">]]])</span>
+<span class="o">===</span> 
+<span class="k">new</span> <span class="n">Error</span><span class="p">([</span><span class="n">wiadomość</span><span class="p">[,</span> <span class="n">nazwaPliku</span><span class="p">[,</span> <span class="n">nrLiniiKodu</span><span class="p">]]]</span>
+<span class="o">===</span> <span class="n">przykładowo</span> <span class="o">===</span>
+<span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="ss">&quot;Błąd sieci&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Ciało informacji zwrotnej (ang. Body)</h3>
 <p>Body jest właściwością informacji zwrotnej (ang. response) fetch i w niej zawarte są dane, na których pozyskaniu może nam zależeć.</p>
+<p>Poniższe metody znajdują się w <strong>prototypie obiektu Response</strong></p>
 <p><strong>.json()</strong> - przyjmuje informację zwrotną zapytania i zwraca obietnicę jako rezultat sparsowanego ciała tekstu w formacie JSON</p>
 <div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s1">&#39;</span><span class="ss">)</span>
   .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">())</span>
@@ -259,6 +275,9 @@
   <span class="k">return</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">()</span>
 }<span class="ss">)</span>
   .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">data</span><span class="ss">))</span>
+.<span class="nv">catch</span><span class="ss">(</span><span class="nv">error</span> <span class="o">=&gt;</span> {
+  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">error</span><span class="ss">)</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
 </code></pre></div>
 
 
@@ -283,6 +302,25 @@
 </code></pre></div>
 
 
+<hr>
+<p>::: stringify() jest medotą obiektu JSON  i w efekcie zmienia kod na jsonowy element:::</p>
+<p>Przykładowo </p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="k">data</span> <span class="o">=</span> <span class="err">{</span>
+    <span class="n">name</span> <span class="p">:</span> <span class="ss">&quot;BB-8&quot;</span><span class="p">,</span>
+    <span class="k">class</span> <span class="p">:</span> <span class="ss">&quot;Astromech droid&quot;</span>
+  <span class="err">}</span>
+</code></pre></div>
+
+
+<p>Zamienia na</p>
+<div class="highlight"><pre><span></span><code><span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span> <span class="p">:</span> <span class="ss">&quot;BB-8&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;class&quot;</span> <span class="p">:</span> <span class="ss">&quot;Astromech droid&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<hr>
 <p>Fetch API posiada również interfejs Headers() -&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers - developer.mozilla.org</a></p>
 <p>Istnieje również możliwość wysyłanie danych w postaci URL jeśli serwer, z którego korzystamy nie wymaga nagłówka wówczas...</p>
 <div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="nv">url</span>, {
@@ -361,6 +399,8 @@ he.net</p>
       <a href="https://kostyrko.github.io/zfrontu/tag/nodejs.html">node.js</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/fetch.html">fetch</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/fetch-api.html">fetch api</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/throw.html">throw</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/error.html">error</a>
     </p>
   </div>
 

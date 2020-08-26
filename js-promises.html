@@ -190,6 +190,19 @@
 </code></pre></div>
 
 
+<p>Przykład zastosownia promisa</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">myPromise</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Promise</span><span class="ss">((</span><span class="nv">reslove</span>,<span class="nv">reject</span><span class="ss">)</span><span class="o">=&gt;</span> {
+    <span class="nv">setTimeout</span><span class="ss">(()</span><span class="o">=&gt;</span>{
+        <span class="nv">reslove</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">List posiada znaczek</span><span class="s1">&#39;</span><span class="ss">)</span>
+    },<span class="mi">2000</span><span class="ss">)</span>}<span class="ss">)</span>
+
+    <span class="nv">myPromise</span>
+    .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span><span class="o">=&gt;</span>{
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">data</span>, <span class="s1">&#39;</span><span class="s">- można go wysłać</span><span class="s1">&#39;</span><span class="ss">)</span>
+    }<span class="ss">)</span>
+</code></pre></div>
+
+
 <hr>
 <h3>Metody .then() i .catch()</h3>
 <p>Metoda <strong>.then()</strong> pozwala na <em>zakolejkowanie</em> reakcji na status zwróconych danych (dowolnie pozytywny, negatywny lub oba). Innymi słowy jest to kod, który ma się wywołać po wywołaniu się funkcji będącej częścią obiektu <em>Promise</em> lub jeszcze inaczej po tym jak <em>obietnica</em> (Promise) zostanie zwrócona. <em>Then</em> można w tym kontekście przetłumaczyć jako <em>potem</em>.</p>

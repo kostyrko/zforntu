@@ -10,8 +10,9 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Odpowiedź z serwera zawiera wiele informacji np. informacje o statusie odpowiedzi, headery, typ, url czy &lt;strong&gt;body&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;W pierwszej kolejności będzie to&lt;/p&gt;
+&lt;p&gt;Odpowiedź (ang. response - zwracana w formie obiektu) z serwera zawiera wiele informacji np. informacje o statusie odpowiedzi, headery, typ, url czy &lt;strong&gt;body&lt;/strong&gt; - istotne jest to, że posiada ona również swoje metody (znaleźć je można w prototypie) -&amp;gt; np &lt;strong&gt;.ok()&lt;/strong&gt;, &lt;strong&gt;.json()&lt;/strong&gt;, &lt;strong&gt;text()&lt;/strong&gt; (więcej na ten temat poniżej)&lt;/p&gt;
+&lt;h4&gt;Jak wygląda informacja zwrotna?&lt;/h4&gt;
+&lt;p&gt;W pierwszej kolejności będzie to... [pending]:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Promise&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;pending&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="nl"&gt;__proto__&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Response&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;[PromiseStatus&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;fulfilled&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
@@ -19,11 +20,11 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Następnie...&lt;/p&gt;
+&lt;p&gt;Gdy promise przejdzie w status [fulfilled] to...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Response&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;...&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;          &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;ciało&lt;/span&gt; &lt;span class="n"&gt;odpowiedzi&lt;/span&gt;
   &lt;span class="n"&gt;bodyUsed&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;false&lt;/span&gt;
-  &lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Headers&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+  &lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Headers&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;   &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;zawierający&lt;/span&gt; &lt;span class="n"&gt;nagłówki&lt;/span&gt;
   &lt;span class="n"&gt;ok&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;true&lt;/span&gt;
   &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;          &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="n"&gt;połączenia&lt;/span&gt;
   &lt;span class="n"&gt;statusText&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;        &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="n"&gt;połączenia&lt;/span&gt; &lt;span class="n"&gt;jako&lt;/span&gt; &lt;span class="n"&gt;tekst&lt;/span&gt;
@@ -46,14 +47,14 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Właściwość &lt;strong&gt;ok&lt;/strong&gt; metody &lt;strong&gt;fetch()&lt;/strong&gt; zastosowana powyżej zwraca wartość logiczną (tylko odczyt) i zwraca &lt;strong&gt;True&lt;/strong&gt; jeśli treść odpowiedzi zawiera się w przedziale &lt;strong&gt;200-299&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Metoda &lt;strong&gt;.ok()&lt;/strong&gt; &lt;strong&gt;fetch API&lt;/strong&gt; zastosowana powyżej zwraca wartość logiczną (tylko odczyt) i zwraca &lt;strong&gt;True&lt;/strong&gt; jeśli treść odpowiedzi zawiera się w przedziale &lt;strong&gt;200-299&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Wyżej zaprezentowany zapis może również przyjąć formę wykorzystującą &lt;strong&gt;obietnicę&lt;/strong&gt; i wówczas również możemy wykorzystać metodę &lt;strong&gt;catch()&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;https://jsonplaceholder.typicode.com/posts/2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;ok&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     } &lt;span class="k"&gt;else&lt;/span&gt; {
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;Promise&lt;/span&gt;.&lt;span class="nv"&gt;reject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        &lt;span class="nv"&gt;throw&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Błąd sieci&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     }
 }&lt;span class="ss"&gt;)&lt;/span&gt;
 .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
@@ -68,8 +69,21 @@
 
 
 &lt;hr&gt;
-&lt;h3&gt;Body i jego metody&lt;/h3&gt;
+&lt;h4&gt;Throw new Error()&lt;/h4&gt;
+&lt;p&gt;Zastosowana wyżej deklaracja (ang. statement) &lt;code&gt;throw&lt;/code&gt; ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu w tym przypadku doszło również do stworzenia nowej obiektu &lt;code&gt;Error&lt;/code&gt; na podstawie klasy oraz jego konstruktora , który przyjmuje treść błędu, który może b(new Error('treść błędu')), bez słowa kluczowego &lt;strong&gt;new&lt;/strong&gt; powstaje obiekt nad podstawie funkcji&lt;/p&gt;
+&lt;p&gt;Schemta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;fileName&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;lineNumber&lt;/span&gt;&lt;span class="p"&gt;]]])&lt;/span&gt;
+&lt;span class="o"&gt;===&lt;/span&gt; 
+&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;wiadomość&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;nazwaPliku&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;nrLiniiKodu&lt;/span&gt;&lt;span class="p"&gt;]]]&lt;/span&gt;
+&lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="n"&gt;przykładowo&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt;
+&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Błąd sieci&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Ciało informacji zwrotnej (ang. Body)&lt;/h3&gt;
 &lt;p&gt;Body jest właściwością informacji zwrotnej (ang. response) fetch i w niej zawarte są dane, na których pozyskaniu może nam zależeć.&lt;/p&gt;
+&lt;p&gt;Poniższe metody znajdują się w &lt;strong&gt;prototypie obiektu Response&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;.json()&lt;/strong&gt; - przyjmuje informację zwrotną zapytania i zwraca obietnicę jako rezultat sparsowanego ciała tekstu w formacie JSON&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;https://jsonplaceholder.typicode.com/posts/2&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
   .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
@@ -97,6 +111,9 @@
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 }&lt;span class="ss"&gt;)&lt;/span&gt;
   .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;
+.&lt;span class="nv"&gt;catch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -121,6 +138,25 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;hr&gt;
+&lt;p&gt;::: stringify() jest medotą obiektu JSON  i w efekcie zmienia kod na jsonowy element:::&lt;/p&gt;
+&lt;p&gt;Przykładowo &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;BB-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Astromech droid&amp;quot;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zamienia na&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;BB-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="ss"&gt;&amp;quot;class&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Astromech droid&amp;quot;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
 &lt;p&gt;Fetch API posiada również interfejs Headers() -&amp;gt; &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers"&gt;Headers - developer.mozilla.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Istnieje również możliwość wysyłanie danych w postaci URL jeśli serwer, z którego korzystamy nie wymaga nagłówka wówczas...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;url&lt;/span&gt;, {
@@ -190,7 +226,7 @@
 IP Transit For Your Network, Reach More Networks With Lower Latency
 he.net&lt;/p&gt;
 &lt;p&gt;0:06 / 16:01
-2.3 HTTP Post Request with fetch() - Working with Data and APIs in JavaScript](https://www.youtube.com/watch?v=Kw5tC5nQMRY&amp;amp;feature=emb_title)&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="node.js"></category><category term="fetch"></category><category term="fetch api"></category></entry><entry><title>JavaScript: XMLHttpRequest i REST API</title><link href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html" rel="alternate"></link><published>2020-06-29T12:00:00+02:00</published><updated>2020-06-29T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr-rest.html</id><summary type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
+2.3 HTTP Post Request with fetch() - Working with Data and APIs in JavaScript](https://www.youtube.com/watch?v=Kw5tC5nQMRY&amp;amp;feature=emb_title)&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="node.js"></category><category term="fetch"></category><category term="fetch api"></category><category term="throw"></category><category term="error"></category></entry><entry><title>JavaScript: XMLHttpRequest i REST API</title><link href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html" rel="alternate"></link><published>2020-06-29T12:00:00+02:00</published><updated>2020-06-29T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-29:/zfrontu/js-xhr-rest.html</id><summary type="html">&lt;p&gt;!&lt;img alt="XMLHttpRequest" max-height="300px" src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png?021019a"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;REST -&amp;gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje)&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;Wysyłanie danych&lt;/h3&gt;
 &lt;p&gt;Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&amp;gt; &lt;a href="https://reqres.in/"&gt;https://reqres.in/&lt;/a&gt; ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API &lt;/p&gt;
@@ -1119,7 +1155,101 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://jestjs.io/&lt;/p&gt;
-&lt;p&gt;https://jestjs.io/docs/en/mock-functions.html&lt;/p&gt;</content><category term="javascript"></category></entry><entry><title>JavaScript - Gulp</title><link href="https://kostyrko.github.io/zfrontu/js-gulp.html" rel="alternate"></link><published>2020-05-28T10:00:00+02:00</published><updated>2020-05-28T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-28:/zfrontu/js-gulp.html</id><summary type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li#center"&gt;&lt;/p&gt;
+&lt;p&gt;https://jestjs.io/docs/en/mock-functions.html&lt;/p&gt;</content><category term="javascript"></category></entry><entry><title>JavaScript - NPM</title><link href="https://kostyrko.github.io/zfrontu/js-npm.html" rel="alternate"></link><published>2020-05-28T11:00:00+02:00</published><updated>2020-05-28T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-28:/zfrontu/js-npm.html</id><summary type="html">&lt;p&gt;&lt;img alt="npm-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/800px-Npm-logo.svg.png"&gt;&lt;/p&gt;
+&lt;h3&gt;NPM&lt;/h3&gt;
+&lt;p&gt;Korzystając z domyślnej opcji instalacji paczki/wtyczki z NPM w przypadku Ubuntu stosując opcję instalacji globalnej należy wykorzystać uprawnienia administracyjne &lt;strong&gt;sudo&lt;/strong&gt;. Aby uniknąć instalowania wtyczkę w ten sposób (i przekazywania im możliwości edytowania ustawień systemowych) należy zastosować niżej opisane kroki.&lt;/p&gt;
+&lt;p&gt;1) Należy stworzyć folder, w którym będą zapisane paczki …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="npm-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/800px-Npm-logo.svg.png"&gt;&lt;/p&gt;
+&lt;h3&gt;NPM&lt;/h3&gt;
+&lt;p&gt;Korzystając z domyślnej opcji instalacji paczki/wtyczki z NPM w przypadku Ubuntu stosując opcję instalacji globalnej należy wykorzystać uprawnienia administracyjne &lt;strong&gt;sudo&lt;/strong&gt;. Aby uniknąć instalowania wtyczkę w ten sposób (i przekazywania im możliwości edytowania ustawień systemowych) należy zastosować niżej opisane kroki.&lt;/p&gt;
+&lt;p&gt;1) Należy stworzyć folder, w którym będą zapisane paczki&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;npm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;global&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2) Należy zdefiniować miejsce zapisywania paczek przez &lt;strong&gt;NMP&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="k"&gt;prefix&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;~/.npm-global&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3) Otwórz lub stwórz plik ~/.profile i dodaj do niego poniższą linię&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;npm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;global&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4) Odśwież zmienne systemowe&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;source&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;5) Przetestuj nową konfigurację instalując dowolną paczkę globalnie nie korzystając z &lt;strong&gt;sudo&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt; &lt;span class="n"&gt;jshint&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;npm init&lt;/code&gt; - inicjalizacja projekt (tworzy plik &lt;strong&gt;package.json &lt;/strong&gt;lub instaluje paczki w nim zapisane)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Instalacja paczki&lt;/th&gt;
+&lt;th&gt;Komenda&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;npm i nazwa_paczki&lt;/td&gt;
+&lt;td&gt;instalacja lokalnie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm i nazwa_paczki -g&lt;/td&gt;
+&lt;td&gt;instalacja globalnie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm i nazwa_paczki --save-dev&lt;/td&gt;
+&lt;td&gt;instalacja jako zależność deweloperska&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm i nazwa_paczki@X.X.X&lt;/td&gt;
+&lt;td&gt;instalacja określonej wersji paczki&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Usuwanie i aktualizowanie paczki&lt;/th&gt;
+&lt;th&gt;Komenda&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;npm uninstall nazwa_paczki&lt;/td&gt;
+&lt;td&gt;usunięcie lokalnie zainstalowanej paczki&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm uninstall nazwa_paczki -g&lt;/td&gt;
+&lt;td&gt;usunięcie globalnie zainstalowanej paczki&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm update&lt;/td&gt;
+&lt;td&gt;aktualizacja paczek w projekcie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm update --dev&lt;/td&gt;
+&lt;td&gt;aktualizacja paczek w deweloperskich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm update nazwa_paczki&lt;/td&gt;
+&lt;td&gt;aktualizacja konkretnej paczki&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;npm update --g&lt;/td&gt;
+&lt;td&gt;aktualizacja globalnych paczek&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally"&gt;Resolving EACCES permissions errors when installing packages globally&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="gitignore"></category><category term="npm"></category><category term="Dependencies"></category><category term="devDependencies"></category><category term="package.json"></category><category term="ubuntu"></category></entry><entry><title>JavaScript - Gulp</title><link href="https://kostyrko.github.io/zfrontu/js-gulp.html" rel="alternate"></link><published>2020-05-28T10:00:00+02:00</published><updated>2020-05-28T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-28:/zfrontu/js-gulp.html</id><summary type="html">&lt;p&gt;&lt;img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Instalacja globalna&lt;/h3&gt;
 &lt;p&gt;Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami&lt;/p&gt;
 &lt;p&gt;Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala&lt;/p&gt;
@@ -4547,36 +4677,55 @@ console.log(`kot &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cat
 &lt;p&gt;http://kursjs.pl/kurs/super-podstawy/zmienne.php&lt;/p&gt;
 &lt;p&gt;https://medium.com/@larry.sassainsworth/let-vs-var-vs-const-in-javascript-8b898f868394&lt;/p&gt;
 &lt;p&gt;https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var&lt;/p&gt;
-&lt;p&gt;https://www.youtube.com/watch?v=JFDScHg6Dws&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="typy"></category><category term="dane"></category><category term="data types"></category><category term="operatory"></category></entry><entry><title>JavaScript - polecenia</title><link href="https://kostyrko.github.io/zfrontu/js-polecenia.html" rel="alternate"></link><published>2020-04-09T08:00:00+02:00</published><updated>2020-04-09T08:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-polecenia.html</id><content type="html">&lt;h3&gt;Kontroli przepływu&lt;/h3&gt;
-&lt;p&gt;Block&lt;/p&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=JFDScHg6Dws&lt;/p&gt;</content><category term="javascript"></category><category term="javascript"></category><category term="js"></category><category term="typy"></category><category term="dane"></category><category term="data types"></category><category term="operatory"></category></entry><entry><title>JavaScript - polecenia</title><link href="https://kostyrko.github.io/zfrontu/js-polecenia.html" rel="alternate"></link><published>2020-04-09T08:00:00+02:00</published><updated>2020-04-09T08:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-09:/zfrontu/js-polecenia.html</id><summary type="html">&lt;h3&gt;Kontroli przepływu&lt;/h3&gt;
+&lt;p&gt;block&lt;/p&gt;
 &lt;p&gt;break&lt;/p&gt;
 &lt;p&gt;continue&lt;/p&gt;
-&lt;p&gt;Empty&lt;/p&gt;
-&lt;p&gt;if...else&lt;/p&gt;
-&lt;p&gt;swith&lt;/p&gt;
-&lt;p&gt;throw&lt;/p&gt;
-&lt;p&gt;try...catch&lt;/p&gt;
+&lt;p&gt;empty&lt;/p&gt;
+&lt;p&gt;if/if else/else - podstawowa instrukcja warunkowa &lt;/p&gt;
+&lt;p&gt;swith - instrukcja warunkowa biorąca pod uwagę zachowanie się kodu zależnego od wariacji zmiennej&lt;/p&gt;
+&lt;p&gt;throw - ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;https://jsonplaceholder.typicode.com/posts/2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    .&lt;span class="k"&gt;then …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h3&gt;Kontroli przepływu&lt;/h3&gt;
+&lt;p&gt;block&lt;/p&gt;
+&lt;p&gt;break&lt;/p&gt;
+&lt;p&gt;continue&lt;/p&gt;
+&lt;p&gt;empty&lt;/p&gt;
+&lt;p&gt;if/if else/else - podstawowa instrukcja warunkowa &lt;/p&gt;
+&lt;p&gt;swith - instrukcja warunkowa biorąca pod uwagę zachowanie się kodu zależnego od wariacji zmiennej&lt;/p&gt;
+&lt;p&gt;throw - ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu&lt;/p&gt;
+&lt;p&gt;Przykładowe zastosowanie: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;https://jsonplaceholder.typicode.com/posts/2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;ok&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+        } &lt;span class="k"&gt;else&lt;/span&gt; {
+            &lt;span class="nv"&gt;throw&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Error&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Błąd sieci&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        }
+    }&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;try...catch&lt;/strong&gt; - instrukcja obsługi wyjątków - instrukcja &lt;strong&gt;try&lt;/strong&gt; pozwala na zdefiniowanie wykonywania się kodu w przypadku przypadku jego nie powodzenia wykonywanie się programu powinno zostać wyłapane przez instrukcję &lt;strong&gt;catch&lt;/strong&gt; i zostanie wywołany kod w niej zawarty&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Deklaracje&lt;/h3&gt;
-&lt;p&gt;var&lt;/p&gt;
-&lt;p&gt;const&lt;/p&gt;
-&lt;p&gt;let&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;var&lt;/strong&gt;/&lt;strong&gt;const&lt;/strong&gt;/&lt;strong&gt;let&lt;/strong&gt; - słowa kluczowe poprzedzające deklarację zmiennej oraz definiujące jej rodzaj&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Funkcji i klas&lt;/h3&gt;
-&lt;p&gt;function&lt;/p&gt;
-&lt;p&gt;function*&lt;/p&gt;
-&lt;p&gt;async function&lt;/p&gt;
-&lt;p&gt;return&lt;/p&gt;
-&lt;p&gt;class&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;function&lt;/strong&gt; - słowo kluczowe poprzedzające deklarację funkcji&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;async function&lt;/strong&gt; - funkcja asynchroniczna - wykorzystuje obiekt Promise do zwrócenia wyniku&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;return&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; - słowo kluczowe wstępujące przez zdefiniowaniem klasy (od JS &amp;gt;= ES6) -&amp;gt; więcej na ten temat: &lt;a href="https://kostyrko.github.io/zfrontu/js-klasy.html"&gt;JavaScript - klasy&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Iteracji&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://kostyrko.github.io/zfrontu/js-for-while-loop.html"&gt;Patrz tutaj&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Inne&lt;/h3&gt;
-&lt;p&gt;debugger&lt;/p&gt;
-&lt;p&gt;export&lt;/p&gt;
-&lt;p&gt;import&lt;/p&gt;
-&lt;p&gt;lable&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;debugger&lt;/strong&gt; - wyrażenie uruchamiające funkcjonalność debuggowania/ kod przestaje się wywoływać gdy dotrze do instrukcji debuggera&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;export&lt;/strong&gt; - słowo kluczowe poprzedzające deklarację eksport części kodu&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;import&lt;/strong&gt;  - słowo kluczowe poprzedzające deklarację importu części kodu z pliku&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;lable&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math&lt;/p&gt;

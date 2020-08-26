@@ -40,7 +40,7 @@
 
 &lt;hr&gt;
 &lt;h3&gt;JSON-server&lt;/h3&gt;
-&lt;p&gt;JSON-server jest narzędziem pozwalające na stworzenie lokalnego serwera przy pomocy, którego można symulować REST API. Rozwiązanie to w całości oparte jest na zapisanym lokalnie pliku typu JSON&lt;/p&gt;
+&lt;p&gt;JSON-server jest narzędziem pozwalające na stworzenie lokalnego serwera przy pomocy, którego można symulować REST API. Rozwiązanie to w całości oparte jest na zapisanym lokalnie pliku typu JSON. Istotne jest to, że &lt;strong&gt;JSON-server&lt;/strong&gt; automatycznie nadaje&lt;/p&gt;
 &lt;p&gt;Instalacja (globalna - może wymagać -&amp;gt; sudo)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -57,9 +57,13 @@
 
 
 &lt;p&gt;Użytkowanie. W przeglądarce należy uruchomić adres&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;span class="n"&gt;lub&lt;/span&gt; 
-&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nazwa_obiektu&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;http&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;localhost&lt;/span&gt;:&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="nv"&gt;lub&lt;/span&gt;
+&lt;span class="nv"&gt;http&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;localhost&lt;/span&gt;:&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;db&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt;&lt;span class="nv"&gt;zwraca&lt;/span&gt; &lt;span class="nv"&gt;ca&lt;/span&gt;ł&lt;span class="nv"&gt;o&lt;/span&gt;ść &lt;span class="nv"&gt;bazy&lt;/span&gt; &lt;span class="nv"&gt;danych&lt;/span&gt;
+
+
+&lt;span class="nv"&gt;lub&lt;/span&gt; &lt;span class="nv"&gt;poprzez&lt;/span&gt; &lt;span class="nv"&gt;odwo&lt;/span&gt;ł&lt;span class="nv"&gt;anie&lt;/span&gt; &lt;span class="nv"&gt;si&lt;/span&gt;ę &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;konkretnego&lt;/span&gt; &lt;span class="nv"&gt;obiektu&lt;/span&gt;
+&lt;span class="nv"&gt;http&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;localhost&lt;/span&gt;:&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;nazwa_obiektu&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -69,7 +73,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;gdzie zawartość pliku json wygląda przykładowo:&lt;/p&gt;
+&lt;p&gt;Dla pliku json, którego treść wygląda następująco:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="err"&gt;{&lt;/span&gt;
         &lt;span class="ss"&gt;&amp;quot;droids&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
             &lt;span class="err"&gt;{&lt;/span&gt;
@@ -96,6 +100,13 @@
             &lt;span class="err"&gt;}&lt;/span&gt;
         &lt;span class="p"&gt;]&lt;/span&gt;
     &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;zmiana adresu hostowego&lt;/strong&gt; jest możliwa i odbywa się poprzez dodanie flagi z nr portu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;server&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;watch&lt;/span&gt; &lt;span class="nv"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;pliku&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;port&lt;/span&gt; &lt;span class="nv"&gt;Nr&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;portu&lt;/span&gt;
+    &lt;span class="o"&gt;=====&lt;/span&gt;
+    &lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;server&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;watch&lt;/span&gt; &lt;span class="nv"&gt;sciezka&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;pliku&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;3001&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -136,6 +147,19 @@
         .&lt;span class="nv"&gt;catch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;err&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
             &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;err&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         }&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład zastosownia promisa&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;myPromise&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Promise&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;reslove&lt;/span&gt;,&lt;span class="nv"&gt;reject&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;setTimeout&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;{
+        &lt;span class="nv"&gt;reslove&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;List posiada znaczek&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    },&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;}&lt;span class="ss"&gt;)&lt;/span&gt;
+
+    &lt;span class="nv"&gt;myPromise&lt;/span&gt;
+    .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;{
+        &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;- można go wysłać&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    }&lt;span class="ss"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 

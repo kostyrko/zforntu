@@ -206,7 +206,7 @@
 
 <hr>
 <h3>JSON-server</h3>
-<p>JSON-server jest narzędziem pozwalające na stworzenie lokalnego serwera przy pomocy, którego można symulować REST API. Rozwiązanie to w całości oparte jest na zapisanym lokalnie pliku typu JSON</p>
+<p>JSON-server jest narzędziem pozwalające na stworzenie lokalnego serwera przy pomocy, którego można symulować REST API. Rozwiązanie to w całości oparte jest na zapisanym lokalnie pliku typu JSON. Istotne jest to, że <strong>JSON-server</strong> automatycznie nadaje</p>
 <p>Instalacja (globalna - może wymagać -&gt; sudo)</p>
 <div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">install</span> <span class="n">json</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="k">g</span>
 </code></pre></div>
@@ -223,9 +223,13 @@
 
 
 <p>Użytkowanie. W przeglądarce należy uruchomić adres</p>
-<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span>
-<span class="n">lub</span> 
-<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">nazwa_obiektu</span>
+<div class="highlight"><pre><span></span><code><span class="nv">http</span>:<span class="o">//</span><span class="nv">localhost</span>:<span class="mi">3000</span><span class="o">/</span>
+<span class="nv">lub</span>
+<span class="nv">http</span>:<span class="o">//</span><span class="nv">localhost</span>:<span class="mi">3000</span><span class="o">/</span><span class="nv">db</span> <span class="o">&lt;-</span><span class="nv">zwraca</span> <span class="nv">ca</span>ł<span class="nv">o</span>ść <span class="nv">bazy</span> <span class="nv">danych</span>
+
+
+<span class="nv">lub</span> <span class="nv">poprzez</span> <span class="nv">odwo</span>ł<span class="nv">anie</span> <span class="nv">si</span>ę <span class="k">do</span> <span class="nv">konkretnego</span> <span class="nv">obiektu</span>
+<span class="nv">http</span>:<span class="o">//</span><span class="nv">localhost</span>:<span class="mi">3000</span><span class="o">/</span><span class="nv">nazwa_obiektu</span>
 </code></pre></div>
 
 
@@ -235,7 +239,7 @@
 </code></pre></div>
 
 
-<p>gdzie zawartość pliku json wygląda przykładowo:</p>
+<p>Dla pliku json, którego treść wygląda następująco:</p>
 <div class="highlight"><pre><span></span><code>    <span class="err">{</span>
         <span class="ss">&quot;droids&quot;</span> <span class="p">:</span> <span class="p">[</span>
             <span class="err">{</span>
@@ -262,6 +266,13 @@
             <span class="err">}</span>
         <span class="p">]</span>
     <span class="err">}</span>
+</code></pre></div>
+
+
+<p><strong>zmiana adresu hostowego</strong> jest możliwa i odbywa się poprzez dodanie flagi z nr portu</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">json</span><span class="o">-</span><span class="nv">server</span> <span class="o">--</span><span class="nv">watch</span> <span class="nv">sciezka</span><span class="o">/</span><span class="k">do</span><span class="o">/</span><span class="nv">pliku</span>.<span class="nv">json</span> <span class="o">--</span><span class="nv">port</span> <span class="nv">Nr</span><span class="o">-</span><span class="nv">portu</span>
+    <span class="o">=====</span>
+    <span class="nv">json</span><span class="o">-</span><span class="nv">server</span> <span class="o">--</span><span class="nv">watch</span> <span class="nv">sciezka</span><span class="o">/</span><span class="k">do</span><span class="o">/</span><span class="nv">pliku</span>.<span class="nv">json</span> <span class="o">--</span><span class="nv">port</span> <span class="mi">3001</span>
 </code></pre></div>
 
 

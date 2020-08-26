@@ -235,46 +235,90 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 
 
 <p>Przykład komponentu funkcyjnego korzystającego z <strong>hooków</strong></p>
-<p>import React, {useState, useEffect} from "react";
-import ReactDOM from "react-dom";</p>
-<p>const ShowInfo = ({info}) =&gt; {
-  return <h1>{info}</h1>
-}</p>
-<div class="highlight"><pre><span></span><code>const PropsToState = ({text}) =&gt; {
-  const [message, setMessage] = useState(text)
-  const [click, setClick] = useState(0)
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">useState</span><span class="p">,</span> <span class="n">useEffect</span><span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
 
-  useEffect(() =&gt; {
-    const intervalId = setInterval(() =&gt; {
-      setMessage((prev)=&gt; prev+&#39;.&#39;);
-    }, 1000);
-    return () =&gt; {
-      clearInterval(intervalId)
-    };
-  }, []);
+<span class="n">const</span> <span class="n">ShowInfo</span> <span class="o">=</span> <span class="p">({</span><span class="n">info</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="n">info</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 
-  useEffect(() =&gt; {
-    document.title = `Clicked:<span class="cp">${</span><span class="n">click</span><span class="cp">}</span>`
-  },[click])
+<span class="n">const</span> <span class="n">PropsToState</span> <span class="o">=</span> <span class="p">({</span><span class="n">text</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">const</span> <span class="p">[</span><span class="n">message</span><span class="p">,</span> <span class="n">setMessage</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+  <span class="n">const</span> <span class="p">[</span><span class="n">click</span><span class="p">,</span> <span class="n">setClick</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-  const clicked = () =&gt; (setClick(prev=&gt;prev+1))
+  <span class="n">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="n">intervalId</span> <span class="o">=</span> <span class="n">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="n">setMessage</span><span class="p">((</span><span class="n">prev</span><span class="p">)</span><span class="o">=&gt;</span> <span class="n">prev</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="n">clearInterval</span><span class="p">(</span><span class="n">intervalId</span><span class="p">)</span>
+    <span class="p">};</span>
+  <span class="p">},</span> <span class="p">[]);</span>
 
-  return (
-    <span class="err">&lt;</span>&gt;
-      <span class="nt">&lt;ShowInfo</span> <span class="na">info=</span><span class="s">{message}/</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h2&gt;</span>Clicked {click} times<span class="nt">&lt;/h2&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">onClick=</span><span class="s">{clicked}</span><span class="nt">&gt;</span>Clicke Me<span class="nt">&lt;/button&gt;</span>
-    <span class="err">&lt;</span>/&gt;
-  )
-}
+  <span class="n">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">document</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="sb">`Clicked:${click}`</span>
+  <span class="p">},[</span><span class="n">click</span><span class="p">])</span>
 
-ReactDOM.render(
-  <span class="nt">&lt;PropsToState</span> <span class="na">text=</span><span class="s">&#39;Wielokropek&#39;/</span><span class="nt">&gt;</span>,
-  document.getElementById(&quot;app&quot;)
-);
+  <span class="n">const</span> <span class="n">clicked</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">setClick</span><span class="p">(</span><span class="n">prev</span><span class="o">=&gt;</span><span class="n">prev</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;&gt;</span>
+      <span class="o">&lt;</span><span class="n">ShowInfo</span> <span class="n">info</span><span class="o">=</span><span class="p">{</span><span class="n">message</span><span class="p">}</span><span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Clicked</span> <span class="p">{</span><span class="n">click</span><span class="p">}</span> <span class="n">times</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">clicked</span><span class="p">}</span><span class="o">&gt;</span><span class="n">Clicke</span> <span class="n">Me</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+    <span class="o">&lt;/&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="n">PropsToState</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Wielokropek&#39;</span><span class="o">/&gt;</span><span class="p">,</span>
+  <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 
 
+<hr>
+<h3>Własne hooki</h3>
+<p>Haki to nic innego jak zamknięty blok kodu, który można wielokrotnie wykorzystać. Podstawową zasadą/konwencją hooka jest to, że zaczyna się od słowa kluczowego <code>use</code> i wywołuje inne <strong>hooki</strong> innymi słowy ma on za zadanie wydzielenie logiki wykorzystującej podstaowe hooki, dodatkowo można blok kodu skonstruować w ten sposób aby przyjmował dodatkowe argumenty (w zależności od zapotrzebowania)</p>
+<p>Przykład hooka który obsługuje wartość wpisaną do inputa będącego częścią formularza
+(źródło przykładu: <a href="https://serverless-stack.com/chapters/create-a-custom-react-hook-to-handle-form-fields.html">Create a Custom React Hook to Handle Form Fields</a>)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">useState</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+
+<span class="n">export</span> <span class="n">function</span> <span class="n">useFormFields</span><span class="p">(</span><span class="n">initialState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">const</span> <span class="p">[</span><span class="n">fields</span><span class="p">,</span> <span class="n">setValues</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="n">initialState</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">[</span>
+    <span class="n">fields</span><span class="p">,</span>
+    <span class="n">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">setValues</span><span class="p">({</span>
+        <span class="o">...</span><span class="n">fields</span><span class="p">,</span>
+        <span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">id</span><span class="p">]:</span> <span class="n">event</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">value</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Przykładowe użycie wygląda w następujący sposóbu</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">useFormFields</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;../ścieżka/hooksLib&quot;</span><span class="p">;</span>
+
+
+<span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">===</span> <span class="n">deklaracja</span> <span class="n">stanu</span> <span class="o">===</span>
+<span class="n">const</span> <span class="p">[</span><span class="n">fields</span><span class="p">,</span> <span class="n">handleFieldChange</span><span class="p">]</span> <span class="o">=</span> <span class="n">useFormFields</span><span class="p">({</span>
+  <span class="n">email</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">});</span>
+<span class="p">[</span><span class="o">....</span><span class="p">]</span> <span class="o">===</span> <span class="n">odowłoanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">funkcji</span> <span class="n">zmieniającej</span> <span class="n">stan</span> <span class="o">====</span>
+<span class="o">&lt;</span><span class="n">FormControl</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span>
+        <span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="n">fields</span><span class="o">.</span><span class="n">password</span><span class="p">}</span>
+        <span class="n">onChange</span><span class="o">=</span><span class="p">{</span><span class="n">handleFieldChange</span><span class="p">}</span>
+<span class="o">/&gt;</span>
+</code></pre></div>
+
+
+<p>[więcej na ten temat w kontekście opisywania formularzy]</p>
 <hr>
 <p>Źródła:</p>
 <p><a href="https://typeofweb.com/react-hooks-wprowadzenie-i-motywacja/">React Hooks — wprowadzenie i motywacja</a></p>

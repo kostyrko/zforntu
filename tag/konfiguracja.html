@@ -58,7 +58,7 @@
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu"/>
 
-  <title>...z frontu &ndash; Tag Dependencies</title>
+  <title>...z frontu &ndash; Tag konfiguracja</title>
 
 </head>
 <body>
@@ -141,54 +141,42 @@
 
 <article>
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/js-npm.html">JavaScript - NPM</a></h2>
+    <h2><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></h2>
     <p>
-      Opublikowano czw 28 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+      Opublikowano śro 22 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
 
           &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/gitignore.html">gitignore</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dependencies.html">Dependencies</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/devdependencies.html">devDependencies</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/packagejson.html">package.json</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/ubuntu.html">ubuntu</a>
-        &#8226; 1 min read
+              <a href="https://kostyrko.github.io/zfrontu/tag/notacje-obiektow.html">notacje obiektów</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/konfiguracja.html">konfiguracja</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/webpack.html">webpack</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/wtyczki.html">wtyczki</a>
+        &#8226; 5 min read
     </p>
   </header>
   <div>
-      <p><img alt="npm-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/800px-Npm-logo.svg.png"></p>
-<h3>NPM</h3>
-<p>Korzystając z domyślnej opcji instalacji paczki/wtyczki z NPM w przypadku Ubuntu stosując opcję instalacji globalnej należy wykorzystać uprawnienia administracyjne <strong>sudo</strong>. Aby uniknąć instalowania wtyczkę w ten sposób (i przekazywania im możliwości edytowania ustawień systemowych) należy zastosować niżej opisane kroki.</p>
-<p>1) Należy stworzyć folder, w którym będą zapisane paczki …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-npm.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/js-gulp.html">JavaScript - Gulp</a></h2>
-    <p>
-      Opublikowano czw 28 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/gitignore.html">gitignore</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/node_modules.html">node_modules</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/node.html">node</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/gulp.html">gulp</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/sass.html">sass</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/wtyczki.html">wtyczki</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dependencies.html">Dependencies</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/devdependencies.html">devDependencies</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/packagejson.html">package.json</a>
-        &#8226; 4 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="Gulp" src="https://www.ratioweb.pl/sites/ratioweb.pl/files/styles/blog_teaser/public/gulp_01.png?itok=KSoDI6Li#center"></p>
-<h3>Instalacja globalna</h3>
-<p>Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami</p>
-<p>Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="c1">--global gulp-cli</span>
+      <p><img alt="react" max-height="300px" src="https://teamquest.pl/img/static/blog/reactjs.jpeg"></p>
+<h3>Konfiguracja środowiska</h3>
+<p>Inicjalizacja projektu</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
 </code></pre></div>
 
 
-<p>Sprawdzanie instalacji (jej wersji)</p>
-<div class="highlight"><pre><span></span><code><span class="n">gulp</span> <span class="o">-</span><span class="n">v</span>
+<p>Przygotowanie Webpacka</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">i</span> <span class="n">webpack</span><span class="mi">@4</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">npm</span> <span class="n">i</span> <span class="n">webpack</span><span class="o">-</span><span class="n">cli</span><span class="mi">@3</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">npm</span> <span class="n">i</span> <span class="n">webpack</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">server</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
 </code></pre></div>
 
 
-<p>zwraca:</p>
-<div class="highlight"><pre><span></span><code><span class="n">CLI</span> <span class="k">version</span><span class="p">:</span> <span class="mi">2</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">1 …</span></code></pre></div>
+<p>Dodanie do package.json skrótu uruchamiającego webpack-serwer</p>
+<div class="highlight"><pre><span></span><code><span class="ss">&quot;scripts&quot;</span><span class="p">:</span> <span class="err">{</span>
+<span class="p">[..],</span>
+<span class="ss">&quot;start&quot;</span><span class="p">:</span> <span class="ss">&quot;webpack-dev-server --hot -d&quot;</span>
+</code></pre></div>
+
+
+<p>},</p>
+<p>Przygotowanie Babel (core/preset-env/loader)
+Babel loader pozwala na …</p>
         <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-gulp.html">Czytaj dalej</a>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">Czytaj dalej</a>
   </div>
 </article>
 

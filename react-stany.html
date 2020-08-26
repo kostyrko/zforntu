@@ -441,48 +441,50 @@ State powinien się aktualizować, react jednak sam renderuje komponenty/sam dec
 </tbody>
 </table>
 <p>Przykład zastosowania [w tym przypadku componentWillUnmount() nigdy nie zostanie wywołany ponieważ pomimo tego,  że shouldComponentUpdate() zablokuje aktualizację komponentu to setInterval() będzie dalej w tle pracował]</p>
-<p>import React, {Component} from "react";
-    import ReactDOM from "react-dom";</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">FinalCountDown</span> <span class="nv">extends</span> <span class="nv">Component</span> {
-  <span class="nv">state</span> <span class="o">=</span> {
-    <span class="nv">seconds</span>: <span class="mi">5</span>
-  }
-
-  <span class="nv">componentDidMount</span><span class="ss">()</span>{
-    <span class="nv">this</span>.<span class="nv">intervalId</span> <span class="o">=</span> <span class="nv">setInterval</span><span class="ss">(()</span> <span class="o">=&gt;</span> {
-      <span class="nv">this</span>.<span class="nv">setState</span><span class="ss">(</span> <span class="ss">(</span><span class="nv">prevState</span><span class="ss">)</span> <span class="o">=&gt;</span> {
-        <span class="k">return</span> {
-          <span class="nv">seconds</span>: <span class="nv">prevState</span>.<span class="nv">seconds</span> <span class="o">-</span> <span class="mi">1</span>
-        }
-      }<span class="ss">)</span><span class="c1">;</span>
-    }, <span class="mi">1000</span><span class="ss">)</span><span class="c1">;</span>
-  }
-
-  <span class="nv">componentDidUpdate</span><span class="ss">()</span>{
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">componentDidUpdate</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-  }
-
-  <span class="nv">shouldComponentUpdate</span><span class="ss">()</span>{
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">shouldComponentUpdate</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">this</span>.<span class="nv">state</span>.<span class="nv">seconds</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="ss">)</span> {<span class="k">return</span> <span class="nv">true</span>}
-    <span class="k">else</span> {<span class="k">return</span> <span class="nv">false</span>}<span class="c1">;</span>
-  }
-
-  <span class="nv">componentWillUnmount</span><span class="ss">()</span>{
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">componentWillUnmount</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">clearInterval</span><span class="ss">(</span><span class="nv">this</span>.<span class="nv">intervalId</span><span class="ss">)</span><span class="c1">;</span>
-  }
-
-  <span class="nv">render</span><span class="ss">()</span>{
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Pozosta</span>ł<span class="nv">o</span> {<span class="nv">this</span>.<span class="nv">state</span>.<span class="nv">seconds</span>} <span class="nv">sekund</span>.<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span><span class="c1">;</span>
-    }
-  }
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">Component</span><span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
 
 
-<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">FinalCountDown</span><span class="o">/&gt;</span>,
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
-<span class="ss">)</span><span class="c1">;</span>
+<span class="k">class</span> <span class="nc">FinalCountDown</span> <span class="n">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">seconds</span><span class="p">:</span> <span class="mi">5</span>
+  <span class="p">}</span>
+
+  <span class="n">componentDidMount</span><span class="p">(){</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">intervalId</span> <span class="o">=</span> <span class="n">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span> <span class="p">(</span><span class="n">prevState</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="n">seconds</span><span class="p">:</span> <span class="n">prevState</span><span class="o">.</span><span class="n">seconds</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">componentDidUpdate</span><span class="p">(){</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;componentDidUpdate&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">shouldComponentUpdate</span><span class="p">(){</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;shouldComponentUpdate&#39;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">true</span><span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span><span class="k">return</span> <span class="n">false</span><span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="n">componentWillUnmount</span><span class="p">(){</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;componentWillUnmount&#39;</span><span class="p">);</span>
+    <span class="n">clearInterval</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">intervalId</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">render</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Pozostało</span> <span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">seconds</span><span class="p">}</span> <span class="n">sekund</span><span class="o">.&lt;/</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+
+<span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="n">FinalCountDown</span><span class="o">/&gt;</span><span class="p">,</span>
+  <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 
 
