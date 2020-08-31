@@ -1,5 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-08-30T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React: kompozycja</title><link href="https://kostyrko.github.io/zfrontu/react-kompozycja.html" rel="alternate"></link><published>2020-08-30T10:00:00+02:00</published><updated>2020-08-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-30:/zfrontu/react-kompozycja.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-08-30T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React: kontekst</title><link href="https://kostyrko.github.io/zfrontu/react-kontekst.html" rel="alternate"></link><published>2020-08-30T10:00:00+02:00</published><updated>2020-08-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-30:/zfrontu/react-kontekst.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" src="https://codesource.io/wp-content/uploads/2019/12/Getting-Started-with-React-Context-API-950x500.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Context API&lt;/h3&gt;
+&lt;p&gt;Kontekst/&lt;em&gt;Context API&lt;/em&gt; pozwala komponentowi na pozyskanie danych z &lt;strong&gt;kontekstu&lt;/strong&gt; a &lt;strong&gt;nie&lt;/strong&gt; przez &lt;strong&gt;props&lt;/strong&gt; poprzez tworzenie &lt;em&gt;globalnych&lt;/em&gt; danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)].
+Na jakiego typu danych może …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" src="https://codesource.io/wp-content/uploads/2019/12/Getting-Started-with-React-Context-API-950x500.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Context API&lt;/h3&gt;
+&lt;p&gt;Kontekst/&lt;em&gt;Context API&lt;/em&gt; pozwala komponentowi na pozyskanie danych z &lt;strong&gt;kontekstu&lt;/strong&gt; a &lt;strong&gt;nie&lt;/strong&gt; przez &lt;strong&gt;props&lt;/strong&gt; poprzez tworzenie &lt;em&gt;globalnych&lt;/em&gt; danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)].
+Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. preferencje językowe, stylistyczne (np. kolorystyka) lub informacja o zalogowaniu się użytkownika.&lt;/p&gt;
+&lt;p&gt;Context API ma również swoje limity - z dokumentacji Reacta możemy dowiedzieć się, że utrudnia on "wielokrotne używanie komponentów zależnych" (zalecane rozwiązanie jest poprzez skorzystanie z możliwości kompozycji i props.children)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="react context api" src="https://www.carlrippon.com/static/0d1f722d0fe4c2bc4c3d71595dbe67dd/799d3/prop-drilling-v-context.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Praca z kontekstem&lt;/h3&gt;
+&lt;p&gt;W pierwszej kolejności należy stworzyć obiekt kontekstowy w który przekazujemy zdefiniowany kontekst/dane do przekazania &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createContext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;defaultValue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Komponent &lt;em&gt;providera&lt;/em&gt; przetrzymuje wartość jaką "konsumencki" komponent będzie wykorzystywał&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="cm"&gt;/* jakaś wartość */&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie w komponencie odbierającym/konsumenckim w odpowiedni sposób należy przypisać do niego kontekst wykorzystując właściwość &lt;code&gt;contextType&lt;/code&gt; (komponent klasowy) lub &lt;code&gt;consumer&lt;/code&gt; (komponent funkcyjny). Przypisanie odbywa się po za blokiem klasy komponentu oraz odwołując się do właściwości &lt;em&gt;consumer&lt;/em&gt; komponentu funkcyjnego.&lt;/p&gt;
+&lt;p&gt;W przypadku komponentów funkcyjnych można również skorzystać z hooka &lt;code&gt;useContext&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;==========&lt;/span&gt; &lt;span class="n"&gt;Komponent&lt;/span&gt; &lt;span class="n"&gt;klasowy&lt;/span&gt; &lt;span class="o"&gt;===========&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createContext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;defaultValue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;exampleClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./myContext&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ExampleClass&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+        &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;kontekst&lt;/span&gt;    
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;ExampleClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contextType&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przypisanie&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;ExampleClass&lt;/span&gt;
+
+
+&lt;span class="o"&gt;==========&lt;/span&gt; &lt;span class="n"&gt;Komponent&lt;/span&gt; &lt;span class="n"&gt;funkcyjny&lt;/span&gt; &lt;span class="o"&gt;===========&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt; &lt;span class="n"&gt;zależny&lt;/span&gt; &lt;span class="n"&gt;od&lt;/span&gt; &lt;span class="n"&gt;kontekstu&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;////////////&lt;/span&gt; &lt;span class="n"&gt;Przykładowe&lt;/span&gt; &lt;span class="n"&gt;zastosowanie&lt;/span&gt; &lt;span class="o"&gt;////////////&lt;/span&gt;
+
+&lt;span class="o"&gt;....&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+              &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt; &lt;span class="n"&gt;zależny&lt;/span&gt; &lt;span class="n"&gt;od&lt;/span&gt; &lt;span class="n"&gt;kontekstu&lt;/span&gt;
+          &lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;}}&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Przykład zastosowania Context API&lt;/h3&gt;
+&lt;p&gt;Poniższy przykład za &lt;a href="https://reactjs.org/docs/hooks-reference.html#usecontext"&gt;reactjs.org - Hooks API Reference&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;themes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
+  &lt;span class="nv"&gt;light&lt;/span&gt;: {
+    &lt;span class="nv"&gt;foreground&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#000000&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="nv"&gt;background&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#eeeeee&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  },
+  &lt;span class="nv"&gt;dark&lt;/span&gt;: {
+    &lt;span class="nv"&gt;foreground&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#ffffff&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="nv"&gt;background&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#222222&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  }
+}&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;ThemeContext&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;React&lt;/span&gt;.&lt;span class="nv"&gt;createContext&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;themes&lt;/span&gt;.&lt;span class="nv"&gt;light&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;App&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ThemeContext&lt;/span&gt;.&lt;span class="nv"&gt;Provider&lt;/span&gt; &lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;themes&lt;/span&gt;.&lt;span class="nv"&gt;dark&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Toolbar&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ThemeContext&lt;/span&gt;.&lt;span class="nv"&gt;Provider&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;Toolbar&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ThemedButton&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;ThemedButton&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;theme&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useContext&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ThemeContext&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt; &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{{ &lt;span class="nv"&gt;background&lt;/span&gt;: &lt;span class="nv"&gt;theme&lt;/span&gt;.&lt;span class="nv"&gt;background&lt;/span&gt;, &lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="nv"&gt;theme&lt;/span&gt;.&lt;span class="nv"&gt;foreground&lt;/span&gt; }}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;styled&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;theme&lt;/span&gt; &lt;span class="nv"&gt;context&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/context.html"&gt;pl.reactjs.org - Kontekst&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.carlrippon.com/playing-with-the-context-api-in-react-16-3/"&gt;Playing with the Context API in React 16.3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://codesource.io/getting-started-with-react-context-api/"&gt;Getting Started with React Context API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://ramonak.io/posts/react-context-api-update-from-nested-component"&gt;React Context API: updating Context from a nested component (in functional components with Hooks and class components)&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="hooks"></category><category term="props"></category><category term="props-drilling"></category><category term="kompozycja"></category></entry><entry><title>React: kompozycja</title><link href="https://kostyrko.github.io/zfrontu/react-kompozycja.html" rel="alternate"></link><published>2020-08-29T10:00:00+02:00</published><updated>2020-08-29T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-29:/zfrontu/react-kompozycja.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;props.children&lt;/code&gt; pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu&lt;/p&gt;
 &lt;p&gt;Komponent otwarty na ew. rozszerzenia o nową treść&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;TestComposition&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
@@ -226,122 +341,7 @@
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=9n9Er-NIJ_c"&gt;Kompozycja vs dziedziczenie - Wzorce w React #3&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://dev.to/bouhm/thinking-in-react-component-composition-fp5"&gt;Thinking in React: Component Composition&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://medium.com/javascript-in-plain-english/how-to-avoid-prop-drilling-in-react-using-component-composition-c42adfcdde1b"&gt;How To Avoid Prop Drilling in React Using Component Composition&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="hooks"></category><category term="props"></category><category term="props-drilling"></category><category term="kompozycja"></category></entry><entry><title>React: kontekst</title><link href="https://kostyrko.github.io/zfrontu/react-kontekst.html" rel="alternate"></link><published>2020-08-30T10:00:00+02:00</published><updated>2020-08-30T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-30:/zfrontu/react-kontekst.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" src="https://codesource.io/wp-content/uploads/2019/12/Getting-Started-with-React-Context-API-950x500.png"&gt;&lt;/p&gt;
-&lt;h3&gt;Context API&lt;/h3&gt;
-&lt;p&gt;Kontekst/&lt;em&gt;Context API&lt;/em&gt; pozwala komponentowi na pozyskanie danych z &lt;strong&gt;kontekstu&lt;/strong&gt; a &lt;strong&gt;nie&lt;/strong&gt; przez &lt;strong&gt;props&lt;/strong&gt; poprzez tworzenie &lt;em&gt;globalnych&lt;/em&gt; danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)].
-Na jakiego typu danych może …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" src="https://codesource.io/wp-content/uploads/2019/12/Getting-Started-with-React-Context-API-950x500.png"&gt;&lt;/p&gt;
-&lt;h3&gt;Context API&lt;/h3&gt;
-&lt;p&gt;Kontekst/&lt;em&gt;Context API&lt;/em&gt; pozwala komponentowi na pozyskanie danych z &lt;strong&gt;kontekstu&lt;/strong&gt; a &lt;strong&gt;nie&lt;/strong&gt; przez &lt;strong&gt;props&lt;/strong&gt; poprzez tworzenie &lt;em&gt;globalnych&lt;/em&gt; danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)].
-Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. preferencje językowe, stylistyczne (np. kolorystyka) lub informacja o zalogowaniu się użytkownika.&lt;/p&gt;
-&lt;p&gt;Context API ma również swoje limity - z dokumentacji Reacta możemy dowiedzieć się, że utrudnia on "wielokrotne używanie komponentów zależnych" (zalecane rozwiązanie jest poprzez skorzystanie z możliwości kompozycji i props.children)&lt;/p&gt;
-&lt;p&gt;&lt;img alt="react context api" src="https://www.carlrippon.com/static/0d1f722d0fe4c2bc4c3d71595dbe67dd/799d3/prop-drilling-v-context.png"&gt;&lt;/p&gt;
-&lt;h3&gt;Praca z kontekstem&lt;/h3&gt;
-&lt;p&gt;W pierwszej kolejności należy stworzyć obiekt kontekstowy w który przekazujemy zdefiniowany kontekst/dane do przekazania &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createContext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;defaultValue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Komponent &lt;em&gt;providera&lt;/em&gt; przetrzymuje wartość jaką "konsumencki" komponent będzie wykorzystywał&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="cm"&gt;/* jakaś wartość */&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Następnie w komponencie odbierającym/konsumenckim w odpowiedni sposób należy przypisać do niego kontekst wykorzystując właściwość &lt;code&gt;contextType&lt;/code&gt; (komponent klasowy) lub &lt;code&gt;consumer&lt;/code&gt; (komponent funkcyjny). Przypisanie odbywa się po za blokiem klasy komponentu oraz odwołując się do właściwości &lt;em&gt;consumer&lt;/em&gt; komponentu funkcyjnego.&lt;/p&gt;
-&lt;p&gt;W przypadku komponentów funkcyjnych można również skorzystać z hooka &lt;code&gt;useContext&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;==========&lt;/span&gt; &lt;span class="n"&gt;Komponent&lt;/span&gt; &lt;span class="n"&gt;klasowy&lt;/span&gt; &lt;span class="o"&gt;===========&lt;/span&gt;
-&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
-&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createContext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;defaultValue&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-
-
-&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;exampleClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./myContext&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ExampleClass&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-        &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;kontekst&lt;/span&gt;    
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="n"&gt;ExampleClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contextType&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przypisanie&lt;/span&gt; &lt;span class="n"&gt;MyContext&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;ExampleClass&lt;/span&gt;
-
-
-&lt;span class="o"&gt;==========&lt;/span&gt; &lt;span class="n"&gt;Komponent&lt;/span&gt; &lt;span class="n"&gt;funkcyjny&lt;/span&gt; &lt;span class="o"&gt;===========&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt; &lt;span class="n"&gt;zależny&lt;/span&gt; &lt;span class="n"&gt;od&lt;/span&gt; &lt;span class="n"&gt;kontekstu&lt;/span&gt;
-    &lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="p"&gt;}}&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class="o"&gt;////////////&lt;/span&gt; &lt;span class="n"&gt;Przykładowe&lt;/span&gt; &lt;span class="n"&gt;zastosowanie&lt;/span&gt; &lt;span class="o"&gt;////////////&lt;/span&gt;
-
-&lt;span class="o"&gt;....&lt;/span&gt;
-&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-          &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-              &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt; &lt;span class="n"&gt;zależny&lt;/span&gt; &lt;span class="n"&gt;od&lt;/span&gt; &lt;span class="n"&gt;kontekstu&lt;/span&gt;
-          &lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;}}&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;MyContext&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Consumer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;h3&gt;Przykład zastosowania Context API&lt;/h3&gt;
-&lt;p&gt;Poniższy przykład za &lt;a href="https://reactjs.org/docs/hooks-reference.html#usecontext"&gt;reactjs.org - Hooks API Reference&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;themes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
-  &lt;span class="nv"&gt;light&lt;/span&gt;: {
-    &lt;span class="nv"&gt;foreground&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#000000&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
-    &lt;span class="nv"&gt;background&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#eeeeee&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-  },
-  &lt;span class="nv"&gt;dark&lt;/span&gt;: {
-    &lt;span class="nv"&gt;foreground&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#ffffff&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
-    &lt;span class="nv"&gt;background&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;#222222&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-  }
-}&lt;span class="c1"&gt;;&lt;/span&gt;
-
-&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;ThemeContext&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;React&lt;/span&gt;.&lt;span class="nv"&gt;createContext&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;themes&lt;/span&gt;.&lt;span class="nv"&gt;light&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-
-&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;App&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ThemeContext&lt;/span&gt;.&lt;span class="nv"&gt;Provider&lt;/span&gt; &lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;themes&lt;/span&gt;.&lt;span class="nv"&gt;dark&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;Toolbar&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ThemeContext&lt;/span&gt;.&lt;span class="nv"&gt;Provider&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-}
-
-&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;Toolbar&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;props&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ThemedButton&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-}
-
-&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;ThemedButton&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
-  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;theme&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useContext&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ThemeContext&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt; &lt;span class="nv"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{{ &lt;span class="nv"&gt;background&lt;/span&gt;: &lt;span class="nv"&gt;theme&lt;/span&gt;.&lt;span class="nv"&gt;background&lt;/span&gt;, &lt;span class="nv"&gt;color&lt;/span&gt;: &lt;span class="nv"&gt;theme&lt;/span&gt;.&lt;span class="nv"&gt;foreground&lt;/span&gt; }}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;am&lt;/span&gt; &lt;span class="nv"&gt;styled&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;theme&lt;/span&gt; &lt;span class="nv"&gt;context&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;hr&gt;
-&lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/context.html"&gt;pl.reactjs.org - Kontekst&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.carlrippon.com/playing-with-the-context-api-in-react-16-3/"&gt;Playing with the Context API in React 16.3&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://codesource.io/getting-started-with-react-context-api/"&gt;Getting Started with React Context API&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://ramonak.io/posts/react-context-api-update-from-nested-component"&gt;React Context API: updating Context from a nested component (in functional components with Hooks and class components)&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="hooks"></category><category term="props"></category><category term="props-drilling"></category><category term="kompozycja"></category></entry><entry><title>React: warunkowe renderowanie</title><link href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html" rel="alternate"></link><published>2020-08-26T10:00:00+02:00</published><updated>2020-08-26T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-26:/zfrontu/react-warunkowe-renderowanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daqxzxzy8xq3u.cloudfront.net/wp-content/uploads/2019/06/29192442/react-conditional-types.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/javascript-in-plain-english/how-to-avoid-prop-drilling-in-react-using-component-composition-c42adfcdde1b"&gt;How To Avoid Prop Drilling in React Using Component Composition&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="hooks"></category><category term="props"></category><category term="props-drilling"></category><category term="kompozycja"></category></entry><entry><title>React: warunkowe renderowanie</title><link href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html" rel="alternate"></link><published>2020-08-26T10:00:00+02:00</published><updated>2020-08-26T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-26:/zfrontu/react-warunkowe-renderowanie.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daqxzxzy8xq3u.cloudfront.net/wp-content/uploads/2019/06/29192442/react-conditional-types.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Warunkowe renderowanie pozwala na zmianie zachowania się komponentu w zależności od informacji zawartych w stanie komponentu lub w propsie. Jest parę prostych zasad, o których warto pamiętać w tym kontekście.&lt;/p&gt;
 &lt;p&gt;W zależności od złożoności sytuacji, w której chcemy wykorzystać warunkowe renderowanie możemy:&lt;/p&gt;
 &lt;p&gt;1) wykorzystać operator trójargumentowy w formie in-linowej walidacji …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://daqxzxzy8xq3u.cloudfront.net/wp-content/uploads/2019/06/29192442/react-conditional-types.jpg"&gt;&lt;/p&gt;
