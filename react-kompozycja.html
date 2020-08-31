@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="props.children pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu Komponent otwarty na ew. rozszerzenia o nową treść function TestComposition(props) { let {children} = props; return (&lt;div&gt; &lt;h1&gt;Test Kompozycji&lt;/h1&gt; {children …" />
+<meta name="keywords" content="react, hooks, props, props-drilling, kompozycja">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React: kompozycja"/>
+<meta property="og:description" content="props.children pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu Komponent otwarty na ew. rozszerzenia o nową treść function TestComposition(props) { let {children} = props; return (&lt;div&gt; &lt;h1&gt;Test Kompozycji&lt;/h1&gt; {children …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-kompozycja.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-30 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="reactjs"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="hooks"/>
+<meta property="article:tag" content="props"/>
+<meta property="article:tag" content="props-drilling"/>
+<meta property="article:tag" content="kompozycja"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React: kompozycja</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="react-kompozycja">React: kompozycja</h1>
+    <p>
+      Opublikowano nie 30 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"></p>
+<p><code>props.children</code> pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu</p>
+<p>Komponent otwarty na ew. rozszerzenia o nową treść</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+  <span class="nv">let</span> {<span class="nv">children</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+      {<span class="nv">children</span>}
+      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Konice</span> <span class="nv">testu</span> <span class="nv">kompozycji</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="ss">)</span>
+}
+
+
+<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">TestComposition</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Element</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">cy</span> <span class="nv">zagnie</span>ż<span class="nv">d</span>ż<span class="nv">on</span>ą <span class="nv">tre</span>ś<span class="nv">ci</span>ą<span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Lorem</span>, <span class="nv">ipsum</span> <span class="nv">dolor</span> <span class="nv">sit</span> <span class="nv">amet</span> <span class="nv">consectetur</span> <span class="nv">adipisicing</span> <span class="nv">elit</span>. <span class="nv">Culpa</span>, <span class="nv">eum</span><span class="o">!&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">TestComposition</span><span class="o">&gt;</span>
+  <span class="ss">)</span>
+}
+
+
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">App</span><span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>W efekcie tego powstanie</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div&gt;</span>
+
+  <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+
+  <span class="nt">&lt;h3&gt;</span>Element będący zagnieżdżoną treścią<span class="nt">&lt;/h3&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, eum!<span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;h2&gt;</span>Konice testu kompozycji<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+<p><code>props.children</code> może wyrenderować inny komponent przyjęty w propsie.</p>
+<p>Powyższy przykład, może wyglądać również w poniższy sposób</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+  <span class="nv">let</span> {<span class="nv">children</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+      {<span class="nv">children</span>}
+      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Konice</span> <span class="nv">testu</span> <span class="nv">kompozycji</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="ss">)</span>
+}
+
+<span class="nv">function</span> <span class="nv">ChildComponent</span><span class="ss">()</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Element</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">cy</span> <span class="nv">zagnie</span>ż<span class="nv">d</span>ż<span class="nv">onym</span> <span class="nv">dzieckiem</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+  <span class="ss">)</span>
+}
+
+<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">TestComposition</span> <span class="nv">children</span><span class="o">=</span>{<span class="o">&lt;</span><span class="nv">ChildComponent</span><span class="o">/&gt;</span>}<span class="o">/&gt;</span>
+  <span class="ss">)</span>
+}
+
+
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">App</span><span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<hr>
+<p>A co jeśli zależy nam na tym aby dany komponent był w stanie przyjąć wiele innych komponentów lub inaczej rzecz ujmując mieć możliwość wypełnienia wielu luk. W tym przypadku należy zastosować odrębne nazewnictwo dla każdego fragmentu/luki, który ma być uzupełniony a następnie przekazać go w odpowiedni sposób w props.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+  <span class="nv">let</span> {<span class="nv">child1</span>, <span class="nv">child2</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+      {<span class="nv">child1</span>}
+      {<span class="nv">child2</span>}
+      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Konice</span> <span class="nv">testu</span> <span class="nv">kompozycji</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="ss">)</span>
+}
+
+<span class="nv">function</span> <span class="nv">ChildComponent</span><span class="ss">(</span>{<span class="nv">text</span>}<span class="ss">)</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Element</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">cy</span> <span class="nv">zagnie</span>ż<span class="nv">d</span>ż<span class="nv">onym</span> {<span class="nv">text</span>}<span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+  <span class="ss">)</span>
+}
+
+<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">TestComposition</span> <span class="nv">child1</span><span class="o">=</span>{<span class="o">&lt;</span><span class="nv">ChildComponent</span> <span class="nv">text</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dzieckiem-1</span><span class="s1">&#39;</span><span class="o">/&gt;</span>} <span class="nv">child2</span><span class="o">=</span>{<span class="o">&lt;</span><span class="nv">ChildComponent</span> <span class="nv">text</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dzieckiem-2</span><span class="s1">&#39;</span><span class="o">/&gt;</span>}<span class="o">/&gt;</span>
+  <span class="ss">)</span>
+}
+
+
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">App</span><span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>W efekcie tego powstanie</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+
+  <span class="nt">&lt;h3&gt;</span>Element będący zagnieżdżonym dzieckiem-1<span class="nt">&lt;/h3&gt;</span>
+
+  <span class="nt">&lt;h3&gt;</span>Element będący zagnieżdżonym dzieckiem-2<span class="nt">&lt;/h3&gt;</span>
+
+  <span class="nt">&lt;h2&gt;</span>Konice testu kompozycji<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+
+<h3>Ominięcie prop-drilling wykorzystując kompozycję oraz props.children</h3>
+<p>Przekazywanie propsów do elementu liściowego z pominięciem pośredników (lub tzw. prop-drilling -&gt; gdzie dane w postaci propsów są przekazywane przez komponenty które, z nich faktycznie nie korzystają) może odbyć się poprzez wykorzystanie props.children. Wymaga to jednak <em>otwartości</em> poprzednich komponentów na możliwość (włączenia) wywołania w nich dzeci.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span>{<span class="nv">children</span>,<span class="nv">i</span>}<span class="ss">)</span> {
+
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">className</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">testComposition</span><span class="s1">&#39;</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">i</span>}<span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+      {<span class="nv">children</span>}
+      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="ss">)</span>
+}
+
+<span class="nv">function</span> <span class="nv">ChildComponent</span><span class="ss">(</span>{<span class="nv">children</span>}<span class="ss">)</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">className</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">childComponent</span><span class="s1">&#39;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+      {<span class="nv">children</span>}
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+  <span class="ss">)</span>
+}
+
+<span class="nv">function</span> <span class="nv">GrandChild</span><span class="ss">(</span>{<span class="nv">text</span>}<span class="ss">)</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">className</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">grandChild</span><span class="s1">&#39;</span><span class="o">&gt;</span>{<span class="nv">text</span>}<span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+  <span class="ss">)</span>
+}
+
+<span class="nv">function</span> <span class="nv">App</span><span class="ss">(</span>{<span class="nv">grandChildren</span>}<span class="ss">)</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="nv">grandChildren</span>.<span class="nv">map</span><span class="ss">((</span><span class="nv">elem</span>,<span class="nv">i</span><span class="ss">)</span><span class="o">=&gt;</span>
+      <span class="o">&lt;</span><span class="nv">TestComposition</span> <span class="nv">id</span><span class="o">=</span>{<span class="nv">i</span>}<span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">ChildComponent</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nv">GrandChild</span> <span class="nv">text</span><span class="o">=</span>{<span class="nv">elem</span>}<span class="o">/&gt;</span>
+        <span class="o">&lt;/</span><span class="nv">ChildComponent</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="nv">TestComposition</span><span class="o">&gt;</span>  
+    <span class="ss">)</span>
+  <span class="ss">)</span>
+}
+
+
+<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
+  <span class="o">&lt;</span><span class="nv">App</span> <span class="nv">grandChildren</span> <span class="o">=</span> {[<span class="s1">&#39;</span><span class="s">Grand Child 1</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Grand Child 2</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Grand Child 3</span><span class="s1">&#39;</span>]}<span class="o">/&gt;</span>,
+  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+
+<p>W wyniku tego powstanie:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">testComposition</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">childComponent</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">grandChild</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Grand</span> <span class="nv">Child</span> <span class="mi">1</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">testComposition</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">childComponent</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">grandChild</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Grand</span> <span class="nv">Child</span> <span class="mi">2</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+
+  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">testComposition</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">childComponent</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">grandChild</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Grand</span> <span class="nv">Child</span> <span class="mi">3</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://www.youtube.com/watch?v=9n9Er-NIJ_c">Kompozycja vs dziedziczenie - Wzorce w React #3</a></p>
+<p><a href="https://dev.to/bouhm/thinking-in-react-component-composition-fp5">Thinking in React: Component Composition</a></p>
+<p><a href="https://medium.com/javascript-in-plain-english/how-to-avoid-prop-drilling-in-react-using-component-composition-c42adfcdde1b">How To Avoid Prop Drilling in React Using Component Composition</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/props-drilling.html">props-drilling</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/kompozycja.html">kompozycja</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-kontekst.html">React: kontekst</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-stany.html">React: (zjednoczne) Stany React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html">React: warunkowe renderowanie</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

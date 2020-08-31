@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Context API Kontekst/Context API pozwala komponentowi na pozyskanie danych z kontekstu a nie przez props poprzez tworzenie globalnych danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)]. Na jakiego typu danych może …" />
+<meta name="keywords" content="react, hooks, props, props-drilling, kompozycja">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React: kontekst"/>
+<meta property="og:description" content="Context API Kontekst/Context API pozwala komponentowi na pozyskanie danych z kontekstu a nie przez props poprzez tworzenie globalnych danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)]. Na jakiego typu danych może …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-kontekst.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-30 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="reactjs"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="hooks"/>
+<meta property="article:tag" content="props"/>
+<meta property="article:tag" content="props-drilling"/>
+<meta property="article:tag" content="kompozycja"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React: kontekst</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav>
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="react-kontekst">React: kontekst</h1>
+    <p>
+      Opublikowano nie 30 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="react" src="https://codesource.io/wp-content/uploads/2019/12/Getting-Started-with-React-Context-API-950x500.png"></p>
+<h3>Context API</h3>
+<p>Kontekst/<em>Context API</em> pozwala komponentowi na pozyskanie danych z <strong>kontekstu</strong> a <strong>nie</strong> przez <strong>props</strong> poprzez tworzenie <em>globalnych</em> danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)].
+Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. preferencje językowe, stylistyczne (np. kolorystyka) lub informacja o zalogowaniu się użytkownika.</p>
+<p>Context API ma również swoje limity - z dokumentacji Reacta możemy dowiedzieć się, że utrudnia on "wielokrotne używanie komponentów zależnych" (zalecane rozwiązanie jest poprzez skorzystanie z możliwości kompozycji i props.children)</p>
+<p><img alt="react context api" src="https://www.carlrippon.com/static/0d1f722d0fe4c2bc4c3d71595dbe67dd/799d3/prop-drilling-v-context.png"></p>
+<h3>Praca z kontekstem</h3>
+<p>W pierwszej kolejności należy stworzyć obiekt kontekstowy w który przekazujemy zdefiniowany kontekst/dane do przekazania </p>
+<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">MyContext</span> <span class="o">=</span> <span class="n">React</span><span class="p">.</span><span class="n">createContext</span><span class="p">(</span><span class="n">defaultValue</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Komponent <em>providera</em> przetrzymuje wartość jaką "konsumencki" komponent będzie wykorzystywał</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">MyContext</span><span class="p">.</span><span class="n">Provider</span> <span class="n">value</span><span class="o">=</span><span class="err">{</span><span class="cm">/* jakaś wartość */</span><span class="err">}</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+<p>Następnie w komponencie odbierającym/konsumenckim w odpowiedni sposób należy przypisać do niego kontekst wykorzystując właściwość <code>contextType</code> (komponent klasowy) lub <code>consumer</code> (komponent funkcyjny). Przypisanie odbywa się po za blokiem klasy komponentu oraz odwołując się do właściwości <em>consumer</em> komponentu funkcyjnego.</p>
+<p>W przypadku komponentów funkcyjnych można również skorzystać z hooka <code>useContext</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">==========</span> <span class="n">Komponent</span> <span class="n">klasowy</span> <span class="o">===========</span>
+<span class="o">//</span> <span class="n">context</span><span class="o">.</span><span class="n">js</span>
+<span class="n">let</span> <span class="n">MyContext</span> <span class="o">=</span> <span class="n">React</span><span class="o">.</span><span class="n">createContext</span><span class="p">(</span><span class="n">defaultValue</span><span class="p">);</span>
+<span class="n">export</span> <span class="p">{</span> <span class="n">MyContext</span> <span class="p">}</span>
+
+
+<span class="o">//</span> <span class="n">exampleClass</span><span class="o">.</span><span class="n">js</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">MyContext</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./myContext&#39;</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ExampleClass</span> <span class="n">extends</span> <span class="n">React</span><span class="o">.</span><span class="n">Component</span> <span class="p">{</span>
+    <span class="n">render</span><span class="p">(){</span>
+        <span class="n">let</span> <span class="n">value</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">context</span><span class="p">;</span>
+        <span class="o">//</span> <span class="n">zwraca</span> <span class="n">kontekst</span>    
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">ExampleClass</span><span class="o">.</span><span class="n">contextType</span> <span class="o">=</span> <span class="n">MyContext</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">przypisanie</span> <span class="n">MyContext</span> <span class="n">do</span> <span class="n">ExampleClass</span>
+
+
+<span class="o">==========</span> <span class="n">Komponent</span> <span class="n">funkcyjny</span> <span class="o">===========</span>
+<span class="o">&lt;</span><span class="n">MyContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="n">value</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">//</span> <span class="n">zwraca</span> <span class="n">element</span> <span class="n">zależny</span> <span class="n">od</span> <span class="n">kontekstu</span>
+    <span class="p">)</span>
+<span class="p">}}</span>
+<span class="o">&lt;/</span><span class="n">MyContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+
+<span class="o">////////////</span> <span class="n">Przykładowe</span> <span class="n">zastosowanie</span> <span class="o">////////////</span>
+
+<span class="o">....</span>
+<span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">MyContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+      <span class="p">{</span><span class="n">value</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="p">(</span>
+              <span class="o">//</span> <span class="n">zwraca</span> <span class="n">element</span> <span class="n">zależny</span> <span class="n">od</span> <span class="n">kontekstu</span>
+          <span class="p">)</span>
+      <span class="p">}}</span>
+      <span class="o">&lt;/</span><span class="n">MyContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Przykład zastosowania Context API</h3>
+<p>Poniższy przykład za <a href="https://reactjs.org/docs/hooks-reference.html#usecontext">reactjs.org - Hooks API Reference</a></p>
+<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">themes</span> <span class="o">=</span> {
+  <span class="nv">light</span>: {
+    <span class="nv">foreground</span>: <span class="s2">&quot;</span><span class="s">#000000</span><span class="s2">&quot;</span>,
+    <span class="nv">background</span>: <span class="s2">&quot;</span><span class="s">#eeeeee</span><span class="s2">&quot;</span>
+  },
+  <span class="nv">dark</span>: {
+    <span class="nv">foreground</span>: <span class="s2">&quot;</span><span class="s">#ffffff</span><span class="s2">&quot;</span>,
+    <span class="nv">background</span>: <span class="s2">&quot;</span><span class="s">#222222</span><span class="s2">&quot;</span>
+  }
+}<span class="c1">;</span>
+
+<span class="nv">const</span> <span class="nv">ThemeContext</span> <span class="o">=</span> <span class="nv">React</span>.<span class="nv">createContext</span><span class="ss">(</span><span class="nv">themes</span>.<span class="nv">light</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">ThemeContext</span>.<span class="nv">Provider</span> <span class="nv">value</span><span class="o">=</span>{<span class="nv">themes</span>.<span class="nv">dark</span>}<span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">Toolbar</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">ThemeContext</span>.<span class="nv">Provider</span><span class="o">&gt;</span>
+  <span class="ss">)</span><span class="c1">;</span>
+}
+
+<span class="nv">function</span> <span class="nv">Toolbar</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nv">ThemedButton</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+  <span class="ss">)</span><span class="c1">;</span>
+}
+
+<span class="nv">function</span> <span class="nv">ThemedButton</span><span class="ss">()</span> {
+  <span class="nv">const</span> <span class="nv">theme</span> <span class="o">=</span> <span class="nv">useContext</span><span class="ss">(</span><span class="nv">ThemeContext</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="ss">(</span>
+    <span class="o">&lt;</span><span class="nv">button</span> <span class="nv">style</span><span class="o">=</span>{{ <span class="nv">background</span>: <span class="nv">theme</span>.<span class="nv">background</span>, <span class="nv">color</span>: <span class="nv">theme</span>.<span class="nv">foreground</span> }}<span class="o">&gt;</span>
+      <span class="nv">I</span> <span class="nv">am</span> <span class="nv">styled</span> <span class="nv">by</span> <span class="nv">theme</span> <span class="nv">context</span><span class="o">!</span>
+    <span class="o">&lt;/</span><span class="nv">button</span><span class="o">&gt;</span>
+  <span class="ss">)</span><span class="c1">;</span>
+}
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://pl.reactjs.org/docs/context.html">pl.reactjs.org - Kontekst</a></p>
+<p><a href="https://www.carlrippon.com/playing-with-the-context-api-in-react-16-3/">Playing with the Context API in React 16.3</a></p>
+<p><a href="https://codesource.io/getting-started-with-react-context-api/">Getting Started with React Context API</a></p>
+<p><a href="https://ramonak.io/posts/react-context-api-update-from-nested-component">React Context API: updating Context from a nested component (in functional components with Hooks and class components)</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/props-drilling.html">props-drilling</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/kompozycja.html">kompozycja</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-kompozycja.html">React: kompozycja</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-stany.html">React: (zjednoczne) Stany React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html">React: warunkowe renderowanie</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
