@@ -467,7 +467,8 @@ Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. pr
       }&lt;span class="c1"&gt;;&lt;/span&gt;
   }
 
-  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;funkcja&lt;/span&gt; &lt;span class="nv"&gt;wykorzystuj&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;event&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;przypisuj&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;dane&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;konkretnego&lt;/span&gt; &lt;span class="nv"&gt;elementu&lt;/span&gt; &lt;span class="nv"&gt;stanu&lt;/span&gt; &lt;span class="nv"&gt;o&lt;/span&gt; &lt;span class="nv"&gt;tej&lt;/span&gt; &lt;span class="nv"&gt;samej&lt;/span&gt; &lt;span class="nv"&gt;nazwie&lt;/span&gt; &lt;span class="nv"&gt;gdzie&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;jak&lt;/span&gt; &lt;span class="nv"&gt;element&lt;/span&gt;, &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rego&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;przypisana&lt;/span&gt;
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;funkcja&lt;/span&gt; &lt;span class="nv"&gt;wykorzystuj&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;event&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;przypisuj&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;dane&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;konkretnego&lt;/span&gt; &lt;span class="nv"&gt;elementu&lt;/span&gt; &lt;span class="nv"&gt;stanu&lt;/span&gt;
+   &lt;span class="nv"&gt;o&lt;/span&gt; &lt;span class="nv"&gt;tej&lt;/span&gt; &lt;span class="nv"&gt;samej&lt;/span&gt; &lt;span class="nv"&gt;nazwie&lt;/span&gt; &lt;span class="nv"&gt;gdzie&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nv"&gt;jak&lt;/span&gt; &lt;span class="nv"&gt;element&lt;/span&gt;, &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rego&lt;/span&gt; &lt;span class="nv"&gt;warto&lt;/span&gt;ść &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;przypisana&lt;/span&gt;
   &lt;span class="nv"&gt;handleChange&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;event&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {    
     &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;setState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;{
       [&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;name&lt;/span&gt;]: &lt;span class="nv"&gt;event&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;
@@ -508,12 +509,13 @@ Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. pr
 
 
 &lt;p&gt;W przypadku stworzenia jednego stanu dla wielu elementów formularza należy pamiętać o tym, że będzie musiał być on w całości przywołany - można do tego wkorzystać operatora rozpraszającego (destrukturyzacji)&lt;/p&gt;
-&lt;p&gt;const Form = () =&amp;gt; {
-      const [form, setForm] = useState({
-        name: '',
-        surname: ''
-      });&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;handleChange&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;Form&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; [&lt;span class="nv"&gt;form&lt;/span&gt;, &lt;span class="nv"&gt;setForm&lt;/span&gt;] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;{
+    &lt;span class="nv"&gt;name&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+    &lt;span class="nv"&gt;surname&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+  }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;handleChange&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
   &lt;span class="nv"&gt;const&lt;/span&gt; {&lt;span class="nv"&gt;name&lt;/span&gt;, &lt;span class="nv"&gt;value&lt;/span&gt;} &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;&lt;span class="c1"&gt;; // destrukturyzacja obiektu e.target na imię i wartość&lt;/span&gt;
   &lt;span class="nv"&gt;setForm&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;prevState&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; { &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykorzystanie&lt;/span&gt; &lt;span class="nv"&gt;poprzedniego&lt;/span&gt; &lt;span class="nv"&gt;stanu&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;jego&lt;/span&gt; &lt;span class="nv"&gt;modyfikacji&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; {    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zwr&lt;/span&gt;ó&lt;span class="nv"&gt;cenie&lt;/span&gt; &lt;span class="nv"&gt;obiektu&lt;/span&gt;
@@ -568,13 +570,191 @@ W komponencie wykorzystującym custom hook przy pomocy destrukturyzacji należy 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h3&gt;Formularze wielokrotnego wyboru (select -&amp;gt; option)&lt;/h3&gt;
+&lt;p&gt;W pewnym sensie swoją własną specyfiką charakteryzuje się formularze wielokrotnego wyboru&lt;/p&gt;
+&lt;p&gt;W przypadku formularza wielokrotnego wyboru ten domyślnie jako wybraną opcję przyjmie pierwszą z możliwych - stąd jeśli będziemy chcieli ją wybrać zmiana nie zostanie odnotowana. W przypadku poniższego formularze nie możemy wybrać wartości &lt;em&gt;c3po&lt;/em&gt; i ta staje się dostępna dopiero wówczas gdy zostanie wybrana jako kolejna wartość - jak temu zapobiec?&lt;/p&gt;
+&lt;p class="codepen" data-height="388" data-theme-id="light" data-default-tab="js,result" data-droid="mkostyrko" data-slug-hash="MWyvRVX" style="height: 388px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="MWyvRVX"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/MWyvRVX"&gt;
+  MWyvRVX&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Rozwiązanie problemu&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; - Możemy w stanie przypisać wartość początkową, która później ulegnie zmianie i wskazuje użytkownikowi na wartość, która jest domyślną np &lt;em&gt;ms&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; - To rozwiązanie nie musi być jednak zawsze satysfakcjonujące stąd można jako pierwszą opcję wyboru dodać pozycję nie posiadającą wartości a "wypełnioną" tekstem np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;option&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Select option&lt;span class="nt"&gt;&amp;lt;/option&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;Form&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;setDroid&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;alternatywnie&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;setDroid&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;c3po&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;handleDroidChange&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;setDroid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;};&lt;/span&gt;
+
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;onChange&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;handleDroidChange&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Select&lt;/span&gt; &lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;alternatywnej&lt;/span&gt; &lt;span class="n"&gt;wersji&lt;/span&gt; &lt;span class="n"&gt;ta&lt;/span&gt; &lt;span class="n"&gt;linia&lt;/span&gt; &lt;span class="n"&gt;kodu&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;potrzebna&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;c3po&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;C3PO&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;bb-8&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;BB&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;r2d2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;R2D2&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;select&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Radio input&lt;/h3&gt;
+&lt;p&gt;W przypadku tzw inputu radiowego należy opcje wyboru zapakować w div lub inny element a następnie nasłuchiwać na zmiany jakie w nim zajdą / podobnie jak w przypadku inputu &lt;code&gt;select&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;onChange=&lt;/span&gt;&lt;span class="s"&gt;{e=&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;handleChange(e)}&amp;gt;
+    &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;radio&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;male&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;gender&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt; Male
+    &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;radio&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;female&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;gender&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt; Female
+    &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;radio&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;not given&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;gender&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt; I don&amp;#39;t wanna say
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;można również skorzystać z opcji stworzenia własnego hooka np.  &lt;code&gt;useRadioButtons&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;źródło przykładu &lt;a href="https://stackoverflow.com/questions/27784212/how-to-use-radio-buttons-in-reactjs"&gt;StackOverflow-How to use radio buttons in ReactJS?&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;useRadioButtons&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; [&lt;span class="nv"&gt;value&lt;/span&gt;, &lt;span class="nv"&gt;setState&lt;/span&gt;] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;handleChange&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;setState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;target&lt;/span&gt;.&lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }&lt;span class="c1"&gt;;&lt;/span&gt;
+
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;inputProps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; {
+    &lt;span class="nv"&gt;name&lt;/span&gt;,
+    &lt;span class="nv"&gt;type&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;radio&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+    &lt;span class="nv"&gt;onChange&lt;/span&gt;: &lt;span class="nv"&gt;handleChange&lt;/span&gt;
+  }&lt;span class="c1"&gt;;&lt;/span&gt;
+
+  &lt;span class="k"&gt;return&lt;/span&gt; [&lt;span class="nv"&gt;value&lt;/span&gt;, &lt;span class="nv"&gt;inputProps&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+}
+
+&lt;span class="nv"&gt;u&lt;/span&gt;ż&lt;span class="nv"&gt;ycie&lt;/span&gt;
+
+&lt;span class="nv"&gt;function&lt;/span&gt; &lt;span class="nv"&gt;App&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; [&lt;span class="nv"&gt;platformValue&lt;/span&gt;, &lt;span class="nv"&gt;plaftormInputProps&lt;/span&gt;] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useRadioButtons&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;platform&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;const&lt;/span&gt; [&lt;span class="nv"&gt;genderValue&lt;/span&gt;, &lt;span class="nv"&gt;genderInputProps&lt;/span&gt;] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useRadioButtons&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;gender&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;form&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;fieldset&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;fieldset&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="nv"&gt;Male&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;input&lt;/span&gt;
+            &lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;male&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+            &lt;span class="nv"&gt;checked&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;genderValue&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;male&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;}
+            {...&lt;span class="nv"&gt;genderInputProps&lt;/span&gt;}
+          &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+          &lt;span class="nv"&gt;Female&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;input&lt;/span&gt;
+            &lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;female&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+            &lt;span class="nv"&gt;checked&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;genderValue&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;female&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;}
+            {...&lt;span class="nv"&gt;genderInputProps&lt;/span&gt;}
+          &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;fieldset&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;form&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;iframe src="https://codesandbox.io/embed/6l6v9p0qkr?fontsize=14&amp;hidenavigation=1&amp;theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="6l6v9p0qkr"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Walidacja formularza&lt;/h3&gt;
+&lt;p&gt;Walidacja może odbywać się na różne sposoby, ale jednym z prostszych a przez to ulubionych moich rozwiązań jest zastosowanie tablicy zbierającej informację o poszczególnych błędach, tą można przekazać do stanu a następnie wyrenderować&lt;/p&gt;
+&lt;p&gt;Przykładowo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;validate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;errorsArr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; []
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;isNan&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt; 
+  {&lt;span class="nv"&gt;errorsArr&lt;/span&gt;.&lt;span class="nv"&gt;push&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Name must be at least 2 characters and max of 60 and not a number&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;}
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;planet&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;planet&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;planet&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;isNan&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;planet&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt; 
+  {&lt;span class="nv"&gt;errorsArr&lt;/span&gt;.&lt;span class="nv"&gt;push&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Planet must be at least 2 characters and max of 60 and not a number&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;}
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;age&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;age&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="nv"&gt;musi&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;number&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+  {&lt;span class="nv"&gt;errorsArr&lt;/span&gt;.&lt;span class="nv"&gt;push&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Droid should be at least 20 and must be a number&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;}
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;errorsArr&lt;/span&gt;.&lt;span class="nv"&gt;length&lt;/span&gt;&lt;span class="o"&gt;!==&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+    &lt;span class="nv"&gt;setError&lt;/span&gt;&lt;span class="ss"&gt;(()&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;errorsArr&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;
+  } &lt;span class="k"&gt;else&lt;/span&gt; {
+    &lt;span class="nv"&gt;setError&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Taką funkcję walidującą można wykorzystać w innym miejscu danego komponentu np. w momencie przesyłania danych do serwera&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nv"&gt;const&lt;/span&gt; [&lt;span class="nv"&gt;isSubmitted&lt;/span&gt;, &lt;span class="nv"&gt;setIsSubmitted&lt;/span&gt;] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;const&lt;/span&gt; [&lt;span class="nv"&gt;error&lt;/span&gt;, &lt;span class="nv"&gt;setError&lt;/span&gt;] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;useState&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+
+  &lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;handleClick&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;preventDefault&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;; // strona nie ma się odświeżać&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;validate&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; { &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;validate&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;
+      &lt;span class="nv"&gt;setIsSubmitted&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // odpowiada za wyświetlania informacji o poprawnym zapisie&lt;/span&gt;
+      &lt;span class="nv"&gt;fetch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;API&lt;/span&gt;, {
+        &lt;span class="nv"&gt;method&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;POST&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,
+        &lt;span class="nv"&gt;body&lt;/span&gt;: &lt;span class="nv"&gt;JSON&lt;/span&gt;.&lt;span class="nv"&gt;stringify&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;,
+        &lt;span class="nv"&gt;headers&lt;/span&gt;: {
+          &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Content-Type&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;application/json&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        }
+        }&lt;span class="ss"&gt;)&lt;/span&gt;
+        .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;response&lt;/span&gt;.&lt;span class="nv"&gt;json&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
+        .&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+          &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+          &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;typeof&lt;/span&gt; &lt;span class="nv"&gt;addDroid&lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;function&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+            &lt;span class="nv"&gt;addUser&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;droid&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+          }
+        }&lt;span class="ss"&gt;)&lt;/span&gt;
+        .&lt;span class="nv"&gt;catch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; {
+          &lt;span class="nv"&gt;console&lt;/span&gt;.&lt;span class="nv"&gt;log&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+          &lt;span class="nv"&gt;setError&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        }&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;setTimeout&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;function&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{ &lt;span class="nv"&gt;setIsSubmitted&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; }, &lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;po&lt;/span&gt; &lt;span class="nv"&gt;up&lt;/span&gt;ł&lt;span class="nv"&gt;ywie&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nv"&gt;sekund&lt;/span&gt; &lt;span class="nv"&gt;informacja&lt;/span&gt; &lt;span class="nv"&gt;znika&lt;/span&gt; 
+    } &lt;span class="k"&gt;else&lt;/span&gt; {
+      &lt;span class="nv"&gt;setIsSubmitted&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+  }
+
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      [...]
+      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;isSubmitted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;wy&lt;/span&gt;ś&lt;span class="nv"&gt;wietl&lt;/span&gt;
+      {&lt;span class="nv"&gt;isSubmitted&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;Data&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;saved&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;}
+
+      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;je&lt;/span&gt;ś&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;isSubmitted&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;false&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;wy&lt;/span&gt;ś&lt;span class="nv"&gt;wietl&lt;/span&gt;
+      {&lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;error&lt;/span&gt;.&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;error&lt;/span&gt;,&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;{&lt;span class="nv"&gt;i&lt;/span&gt;}&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;{&lt;span class="nv"&gt;error&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;}&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nv"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;}
+    &lt;span class="o"&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+  &lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;Więcej informacji na temat forms:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/forms.html"&gt;formularze - React docs&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://vegibit.com/a-simple-react-js-form-example/"&gt;A Simple React.js Form Example&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://medium.com/@bruce1049/form-validation-with-hook-in-3kb-c5414edf7d64"&gt;React form validation library built under 5kB&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/react-hook-form/react-hook-form"&gt;GitHub: react-hook-form&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=bU_eq8qyjic"&gt;YT- The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="formularze"></category></entry><entry><title>React: przekazywanie danych pomiędzy komponentami</title><link href="https://kostyrko.github.io/zfrontu/react-przekazywanie-danych.html" rel="alternate"></link><published>2020-08-20T10:00:00+02:00</published><updated>2020-08-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-20:/zfrontu/react-przekazywanie-danych.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://cdn-media-1.freecodecamp.org/images/1*Rzaf_TyulUee7xEdDs3bRw.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=bU_eq8qyjic"&gt;YT- The BEST Way To Create Forms In React - React Hook Form Tutorial - How To Create Forms In React&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/27784212/how-to-use-radio-buttons-in-reactjs"&gt;StackOverflow-How to use radio buttons in ReactJS?&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="formularze"></category><category term="walidacja"></category><category term="radio"></category><category term="select"></category></entry><entry><title>React: przekazywanie danych pomiędzy komponentami</title><link href="https://kostyrko.github.io/zfrontu/react-przekazywanie-danych.html" rel="alternate"></link><published>2020-08-20T10:00:00+02:00</published><updated>2020-08-20T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-08-20:/zfrontu/react-przekazywanie-danych.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://cdn-media-1.freecodecamp.org/images/1*Rzaf_TyulUee7xEdDs3bRw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Przekazywanie informacji pomiędzy komponentami&lt;/h3&gt;
 &lt;p&gt;W &lt;strong&gt;React&lt;/strong&gt; przekazywanie informacji pomiędzy komponentami odbywa się w dół -&amp;gt; od rodzica do dziecka (przy pomocy propsu), aby móc odwrócić ten proces należy w propsie przekazać referencję do funkcji modyfikującej stan rodzica i następnie wywołać ją w komponencie dziecka przekazując do niej odpowiedni argument - w ten …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" max-height="300px" src="https://cdn-media-1.freecodecamp.org/images/1*Rzaf_TyulUee7xEdDs3bRw.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Przekazywanie informacji pomiędzy komponentami&lt;/h3&gt;
@@ -8215,13 +8395,13 @@ Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przyp
 
 &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykonaj&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tl&lt;/span&gt;ę &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;momentu&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rym&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;nadal&lt;/span&gt; &lt;span class="nv"&gt;mniejsze&lt;/span&gt; &lt;span class="nv"&gt;ni&lt;/span&gt;ż &lt;span class="nv"&gt;y&lt;/span&gt;
 
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pętle &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;while&lt;/code&gt; pozwalają na wielokrotne wykonywanie się tego samego kodu&lt;/p&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;let …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Pętle &lt;code&gt;for&lt;/code&gt; lub &lt;code&gt;while&lt;/code&gt; pozwalają na wielokrotne wykonywanie się tego samego kodu&lt;/p&gt;
 &lt;p&gt;schemat pętli &lt;strong&gt;&lt;code&gt;for&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;const&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;zmienna&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;ę&lt;span class="nv"&gt;d&lt;/span&gt;ą&lt;span class="nv"&gt;ca&lt;/span&gt; &lt;span class="nv"&gt;wyznacznikiem&lt;/span&gt; &lt;span class="nv"&gt;granicznym&lt;/span&gt; &lt;span class="nv"&gt;wykonywania&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tli&lt;/span&gt;
 
 &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;wykonaj&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;ę&lt;span class="nv"&gt;tl&lt;/span&gt;ę &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;momentu&lt;/span&gt; &lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rym&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;jest&lt;/span&gt; &lt;span class="nv"&gt;nadal&lt;/span&gt; &lt;span class="nv"&gt;mniejsze&lt;/span&gt; &lt;span class="nv"&gt;ni&lt;/span&gt;ż &lt;span class="nv"&gt;y&lt;/span&gt;
 
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; y; i++) { // i - akumulatorem; moment do którego wykonuje się pętla; zmiana dokonywana na akumulatorze po przejściu pętli&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; y; i++) { // i - akumulatorem; moment do którego wykonuje się pętla; zmiana dokonywana na akumulatorze po przejściu pętli&lt;/span&gt;
   &lt;span class="nv"&gt;let&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;; // wykonujący się kod&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }&lt;span class="c1"&gt;;&lt;/span&gt;
