@@ -159,112 +159,112 @@
 <h3>Spread Operator -&gt; Rozproszenie</h3>
 <p><em>Dzieli kolekcję tworząc tablicę</em></p>
 <p>Pozwala na rozciągnięcie (rozproszenie/rozwinięcie) obiektu mogącego ulec iteracji wewnątrz odbiorcy (np. zamiast tworzenia zagnieżdżonej tablicy1 w tablicy2 - tablice2 przyjmuje właściwości tablicy1)</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
-<span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">],</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">],</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
 <span class="n">vs</span>
-<span class="n">const</span> <span class="n">arr3</span> <span class="o">=</span> <span class="p">[...</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;r2d2&#39;</span><span class="p">]</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr3</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">,</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">arr3</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="n">arr1</span><span class="p">,</span> <span class="s1">&#39;r2d2&#39;</span><span class="p">]</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr3</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">,</span> <span class="s1">&#39;r2dr&#39;</span><span class="p">]</span>
 </code></pre></div>
 
 
 <p>Przykładowo pozwala na stworzenie tablicy z elementów zbliżonych (argument) do tablicy lub ze stringa [argument jak i odbiorca mogą być obiektem tablicą, łańcuchem znaków (stringiem), zbiorem lub map]</p>
 <p>let arr = [...HTML-collection]</p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">sum</span><span class="ss">(</span>...<span class="nv">theArgs</span><span class="ss">)</span> {
-    <span class="k">return</span> <span class="nv">theArgs</span>.<span class="nv">reduce</span><span class="ss">((</span><span class="nv">previous</span>, <span class="nv">current</span><span class="ss">)</span> <span class="o">=&gt;</span> {
-      <span class="k">return</span> <span class="nv">previous</span> <span class="o">+</span> <span class="nv">current</span><span class="c1">;</span>
-    }<span class="ss">)</span><span class="c1">;</span>
-  }
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="k">sum</span><span class="p">(...</span><span class="n">theArgs</span><span class="p">)</span> <span class="err">{</span>
+    <span class="k">return</span> <span class="n">theArgs</span><span class="p">.</span><span class="n">reduce</span><span class="p">((</span><span class="n">previous</span><span class="p">,</span> <span class="k">current</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="err">{</span>
+      <span class="k">return</span> <span class="n">previous</span> <span class="o">+</span> <span class="k">current</span><span class="p">;</span>
+    <span class="err">}</span><span class="p">);</span>
+  <span class="err">}</span>
 
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">sum</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span><span class="ss">))</span><span class="c1">;</span>
+  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
   <span class="o">&gt;&gt;</span> <span class="mi">6</span>
 </code></pre></div>
 
 
 <p>Przy wywoływaniu funkcji i podawaniu jako argumentu tablicy pozwala na jej rozłożenie na pojedyncze argumenty (wyjmuje je z tablicy)</p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">sum</span><span class="ss">(</span><span class="nv">x</span>, <span class="nv">y</span>, <span class="nv">z</span><span class="ss">)</span> {
-  <span class="k">return</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span> <span class="o">+</span> <span class="nv">z</span><span class="c1">;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="nv">const</span> <span class="nv">numbers</span> <span class="o">=</span> [<span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span>]<span class="c1">; // tablica</span>
+<span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> <span class="o">//</span> <span class="n">tablica</span>
 
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">sum</span><span class="ss">(</span>...<span class="nv">numbers</span><span class="ss">))</span><span class="c1">; // rozłożenie tablicy na pojedyncze argumentu</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="o">...</span><span class="n">numbers</span><span class="p">));</span> <span class="o">//</span> <span class="n">rozłożenie</span> <span class="n">tablicy</span> <span class="n">na</span> <span class="n">pojedyncze</span> <span class="n">argumentu</span>
 <span class="o">&gt;&gt;</span> <span class="mi">6</span>
 </code></pre></div>
 
 
 <p>Shallow copy - tworzenie kopii tym samym tworząc osobne referencje</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
-<span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[...</span><span class="n">arr1</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="n">arr1</span><span class="p">]</span>
 
 <span class="o">&gt;&gt;</span> <span class="n">arr1</span> <span class="o">===</span> <span class="n">arr2</span>
-<span class="o">&gt;&gt;</span> <span class="k">false</span>
+<span class="o">&gt;&gt;</span> <span class="bp">false</span>
 </code></pre></div>
 
 
 <p>W kontrze do</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
-<span class="n">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="n">arr1</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r4&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">arr2</span> <span class="o">=</span> <span class="n">arr1</span>
 
 <span class="o">&gt;&gt;</span> <span class="n">arr1</span> <span class="o">===</span> <span class="n">arr2</span>
-<span class="o">&gt;&gt;</span> <span class="k">true</span>
+<span class="o">&gt;&gt;</span> <span class="bp">true</span>
 </code></pre></div>
 
 
 <p>Jest to również przydatne w przypadku pracy z obiektami</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">droid</span> <span class="o">=</span> <span class="err">{</span>
-  <span class="n">isActive</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
-  <span class="n">inputValue</span><span class="p">:</span> <span class="ss">&quot;Droid name&quot;</span>
-<span class="err">}</span><span class="p">;</span>
-<span class="n">const</span> <span class="n">droidCopy</span> <span class="o">=</span> <span class="err">{</span><span class="p">...</span><span class="k">state</span><span class="err">}</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droid</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">isActive</span><span class="p">:</span> <span class="bp">false</span><span class="p">,</span>
+  <span class="n">inputValue</span><span class="p">:</span> <span class="s2">&quot;Droid name&quot;</span>
+<span class="p">};</span>
+<span class="k">const</span> <span class="n">droidCopy</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="n">state</span><span class="p">};</span>
 <span class="o">&gt;&gt;</span> <span class="n">droidCopy</span>
-<span class="o">&gt;&gt;</span> <span class="err">{</span><span class="n">isActive</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span> <span class="n">inputValue</span><span class="p">:</span> <span class="ss">&quot;Droid name&quot;</span><span class="err">}</span>
+<span class="o">&gt;&gt;</span> <span class="p">{</span><span class="n">isActive</span><span class="p">:</span> <span class="bp">false</span><span class="p">,</span> <span class="n">inputValue</span><span class="p">:</span> <span class="s2">&quot;Droid name&quot;</span><span class="p">}</span>
 
-<span class="n">const</span> <span class="n">droidCopy2</span> <span class="o">=</span> <span class="err">{</span>
-  <span class="p">...</span><span class="k">state</span><span class="p">,</span> <span class="o">//</span> <span class="n">najpierw</span> <span class="n">spread</span>
-  <span class="n">isActive</span><span class="p">:</span> <span class="k">true</span> <span class="o">//</span> <span class="n">potem</span> <span class="n">podmiana</span>
-<span class="err">}</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">droidCopy2</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="o">...</span><span class="n">state</span><span class="p">,</span> <span class="o">//</span> <span class="n">najpierw</span> <span class="n">spread</span>
+  <span class="n">isActive</span><span class="p">:</span> <span class="bp">true</span> <span class="o">//</span> <span class="n">potem</span> <span class="n">podmiana</span>
+<span class="p">};</span>
 
 <span class="o">&gt;&gt;</span> <span class="n">droidCopy2</span>
-<span class="o">&gt;&gt;</span> <span class="err">{</span><span class="n">isActive</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span> <span class="n">inputValue</span><span class="p">:</span> <span class="ss">&quot;Droid name&quot;</span><span class="err">}</span>
+<span class="o">&gt;&gt;</span> <span class="p">{</span><span class="n">isActive</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span> <span class="n">inputValue</span><span class="p">:</span> <span class="s2">&quot;Droid name&quot;</span><span class="p">}</span>
 </code></pre></div>
 
 
 <h3>Rest parameters / Reszta</h3>
 <p><em>Sumuje poszczególne parametry (w) tworząc tablicę</em></p>
 <p>Pozwala na wskazanie możliwości zastosowania nieokreślonej liczby argumentów, w funkcji, które zostaną zamienione w tablicę. Pozwala również na podanie poprzedzających parametrów nazwanych (te wówczas nie znają się w tablicy).</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">myFunc</span><span class="ss">(</span><span class="nv">a</span>, <span class="nv">b</span>, ...<span class="nv">args</span><span class="ss">)</span> {
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span><span class="c1">; // 22</span>
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">b</span><span class="ss">)</span><span class="c1">; // 98</span>
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">args</span><span class="ss">)</span><span class="c1">; // [43, 3, 26]</span>
-}<span class="c1">;</span>
-<span class="nv">myFunc</span><span class="ss">(</span><span class="mi">22</span>, <span class="mi">98</span>, <span class="mi">43</span>, <span class="mi">3</span>, <span class="mi">26</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">myFunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">...</span><span class="n">args</span><span class="p">)</span> <span class="err">{</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="o">//</span> <span class="mi">22</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">b</span><span class="p">);</span> <span class="o">//</span> <span class="mi">98</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">args</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">26</span><span class="p">]</span>
+<span class="err">}</span><span class="p">;</span>
+<span class="n">myFunc</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">26</span><span class="p">);</span>
 
-<span class="o">-------------------</span>
+<span class="c1">-------------------</span>
 
-<span class="nv">function</span> <span class="nv">myFunc</span><span class="ss">(</span>...<span class="nv">args</span><span class="ss">)</span> {
-<span class="nv">args</span>.<span class="nv">forEach</span><span class="ss">(</span> <span class="nv">a</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">a</span><span class="ss">))</span>
-<span class="k">return</span> <span class="nv">args</span>
-}
+<span class="k">function</span> <span class="n">myFunc</span><span class="p">(...</span><span class="n">args</span><span class="p">)</span> <span class="err">{</span>
+<span class="n">args</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="k">return</span> <span class="n">args</span>
+<span class="err">}</span>
 
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span><span class="ss">))</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">myFunc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 
 <span class="o">&gt;&gt;</span> <span class="mi">1</span>
 <span class="o">&gt;&gt;</span>  <span class="mi">2</span>
 <span class="o">&gt;&gt;</span>  <span class="mi">3</span>
-<span class="o">&gt;&gt;</span>  [<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>]
+<span class="o">&gt;&gt;</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
-<span class="o">----</span>
+<span class="c1">----</span>
 
-<span class="nv">function</span> <span class="nv">myFunc</span><span class="ss">(</span>...[<span class="nv">x</span>, <span class="nv">y</span>, <span class="nv">z</span>]<span class="ss">)</span> {
-    <span class="k">return</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span> <span class="o">+</span> <span class="nv">z</span><span class="c1">;</span>
-  }
+<span class="k">function</span> <span class="n">myFunc</span><span class="p">(...[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span> <span class="err">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">;</span>
+  <span class="err">}</span>
 
-  <span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>          <span class="o">//</span> <span class="nv">NaN</span> <span class="o">-</span> <span class="nv">brak</span> <span class="nv">agrument</span>ó<span class="nv">w</span>
-  <span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span><span class="ss">)</span>    <span class="o">//</span> <span class="mi">6</span>
-  <span class="nv">myFunc</span><span class="ss">(</span><span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span>, <span class="mi">4</span><span class="ss">)</span> <span class="o">//</span> <span class="mi">6</span> <span class="o">-</span> <span class="nv">tylko</span> <span class="nv">pierwsze</span> <span class="nv">trzy</span> <span class="nv">s</span>ą <span class="nv">brane</span> <span class="nv">pod</span> <span class="nv">uwag</span>ę
+  <span class="n">myFunc</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>          <span class="o">//</span> <span class="n">NaN</span> <span class="o">-</span> <span class="n">brak</span> <span class="n">agrumentów</span>
+  <span class="n">myFunc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>    <span class="o">//</span> <span class="mi">6</span>
+  <span class="n">myFunc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">//</span> <span class="mi">6</span> <span class="o">-</span> <span class="n">tylko</span> <span class="n">pierwsze</span> <span class="n">trzy</span> <span class="n">są</span> <span class="n">brane</span> <span class="n">pod</span> <span class="n">uwagę</span>
 </code></pre></div>
 
 

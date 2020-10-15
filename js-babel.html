@@ -162,7 +162,7 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 <p><a href="https://raw.githubusercontent.com/t-sauer/vscode-babel-repl/master/babel.gif">vscode-babel-repl</a></p>
 <hr>
 <p>Instalacja lokalna</p>
-<div class="highlight"><pre><span></span><code><span class="n">nmp</span> <span class="n">install</span> <span class="n">babel</span><span class="o">-</span><span class="n">cli</span> <span class="c1">--save-dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">nmp install babel-cli --save-dev</span>
 </code></pre></div>
 
 
@@ -177,14 +177,14 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 
 <h4>@babel/preset-env</h4>
 <p>Najłatwiej jest jednak wskazać aby babel automatycznie instalował potrzebne mu wtyczki wykorzystując:</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">preset</span><span class="o">-</span><span class="n">env</span><span class="w"> </span><span class="c1">--save-dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm install @babel/preset-env --save-dev</span>
 </code></pre></div>
 
 
 <p>a następnie w pliku konfiguracyjny <code>.babelrc</code> to zaznaczyć</p>
-<div class="highlight"><pre><span></span><code><span class="err">{</span><span class="w"></span>
-<span class="w">  </span><span class="ss">&quot;presets&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;@babel/preset-env&quot;</span><span class="o">]</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">{</span>
+<span class="err">  &quot;presets&quot;: [&quot;@babel/preset-env&quot;]</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -193,7 +193,7 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 <p>@babel/node - pozwala na transpilację kodu na bieżąco</p>
 <p>https://babeljs.io/docs/en/next/babel-node.html</p>
 <p>Instalacja (jeśli brakuje @babel/core)</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">core</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">node</span><span class="w"> </span><span class="c1">--save-dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm install @babel/core @babel/node --save-dev</span>
 </code></pre></div>
 
 
@@ -201,21 +201,21 @@ Babel jest oparty na małych wtyczkach, których instalacja pozwala na wykonanie
 <h4>Automatyzacja Babel wykorzystując Gulp</h4>
 <p><img alt="babel+gulp" src="https://fernandolujan.ca/sites/default/files/styles/large/public/field/image/gulp-babel.png"></p>
 <p>Instalacja gulp + babel core + @babel/preset-env oraz <a href="https://www.npmjs.com/package/gulp-babel">gulp-babel</a></p>
-<div class="highlight"><pre><span></span><code><span class="n">nmp</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">gulp</span><span class="w"> </span><span class="n">gulp</span><span class="o">-</span><span class="n">babel</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">core</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">preset</span><span class="o">-</span><span class="n">env</span><span class="w"> </span><span class="c1">--save-dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">nmp install gulp gulp-babel @babel/core @babel/preset-env --save-dev</span>
 </code></pre></div>
 
 
 <p>W pliku konfiguracyjnym gulpfile.js definiujemy zadanie zmieniające ES5 na ES6</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">babel</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-babel</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">babel</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp-babel&#39;</span><span class="p">);</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">default</span><span class="s1">&#39;</span>, <span class="ss">()</span> <span class="o">=&gt;</span>
-  <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">src/app.js</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; /* można dodać tu cały katalog lub listę zawierającą pliki źródłowe */ </span>
-  .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">babel</span><span class="ss">(</span>{  <span class="cm">/* wykorzystując babel dokonaj transpilacji i zapisz do dist */</span>
-    <span class="nv">presets</span>: [<span class="s2">&quot;</span><span class="s">@babel/preset-env</span><span class="s2">&quot;</span>]
-  }<span class="ss">))</span>
-  .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">dist</span><span class="s1">&#39;</span><span class="ss">))</span> <span class="cm">/* destination folder */</span>
- <span class="ss">)</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span>
+  <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s1">&#39;src/app.js&#39;</span><span class="p">);</span> <span class="o">/*</span> <span class="n">można</span> <span class="n">dodać</span> <span class="n">tu</span> <span class="n">cały</span> <span class="n">katalog</span> <span class="n">lub</span> <span class="n">listę</span> <span class="n">zawierającą</span> <span class="n">pliki</span> <span class="err">ź</span><span class="n">ródłowe</span> <span class="o">*/</span> 
+  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">babel</span><span class="p">({</span>  <span class="o">/*</span> <span class="n">wykorzystując</span> <span class="n">babel</span> <span class="n">dokonaj</span> <span class="n">transpilacji</span> <span class="n">i</span> <span class="n">zapisz</span> <span class="n">do</span> <span class="n">dist</span> <span class="o">*/</span>
+    <span class="n">presets</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;@babel/preset-env&quot;</span><span class="p">]</span>
+  <span class="p">}))</span>
+  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">gulp</span><span class="o">.</span><span class="n">dest</span><span class="p">(</span><span class="s1">&#39;dist&#39;</span><span class="p">))</span> <span class="o">/*</span> <span class="n">destination</span> <span class="n">folder</span> <span class="o">*/</span>
+ <span class="p">)</span>
 </code></pre></div>
 
 

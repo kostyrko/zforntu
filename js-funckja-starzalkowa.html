@@ -158,9 +158,9 @@
 <li>słowo kluczowe <code>function</code> zmienia się w strzałkę <code>=&gt;</code></li>
 </ul>
 <p>schemat:</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="k">show</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {...}<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">show</span> <span class="o">=</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span><span class="o">...</span><span class="p">};</span>
 
-    <span class="nv">const</span> <span class="k">show</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {...}<span class="c1">;</span>
+    <span class="k">const</span> <span class="n">show</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="o">...</span><span class="p">};</span>
 </code></pre></div>
 
 
@@ -169,59 +169,59 @@
 </ul>
 <p>::: jeśli funkcja jedynie zwraca to można pominąć instrukcję <code>return</code> - tzw. <strong>domniemany zwrot/return</strong> :::</p>
 <p>::: można również pominąć <code>{}</code> w przypadku gdy istnieje tylko jedna linia kodu :::</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">multiply</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span> {
-        <span class="k">return</span> <span class="nv">a</span> <span class="o">*</span> <span class="nv">a</span><span class="c1">;</span>
-    }
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">multiply</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span class="nv">const</span> <span class="nv">multiply</span> <span class="o">=</span> <span class="nv">a</span> <span class="o">=&gt;</span> <span class="nv">a</span> <span class="o">*</span> <span class="nv">a</span><span class="c1">;</span>
+    <span class="k">const</span> <span class="n">multiply</span> <span class="o">=</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
 
-    <span class="nv">const</span> <span class="nv">waterPlant</span> <span class="o">=</span> <span class="nv">day</span> <span class="o">=&gt;</span> <span class="nv">day</span> <span class="o">===</span> <span class="s1">&#39;</span><span class="s">Tuesday</span><span class="s1">&#39;</span> ? <span class="nv">true</span> : <span class="nv">false</span><span class="c1">;</span>
+    <span class="k">const</span> <span class="n">waterPlant</span> <span class="o">=</span> <span class="n">day</span> <span class="o">=&gt;</span> <span class="n">day</span> <span class="o">===</span> <span class="s1">&#39;Tuesday&#39;</span> <span class="err">?</span> <span class="bp">true</span> <span class="p">:</span> <span class="bp">false</span><span class="p">;</span>
 </code></pre></div>
 
 
 <ul>
 <li>
 <p>jeżeli funkcja zwraca jedną instrukcję można pominąć klamry</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">multiply</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">a</span>,<span class="nv">b</span><span class="ss">)</span> <span class="o">=&gt;</span> {
-        <span class="nv">const</span> <span class="nb">result</span> <span class="o">=</span> <span class="nv">a</span> <span class="o">*</span> <span class="nv">b</span><span class="c1">;</span>
-        <span class="k">return</span> <span class="nb">result</span>
-    }
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">multiply</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="p">}</span>
 </code></pre></div>
 
 
 </li>
 <li>
 <p>jeżeli funkcja zwraca literał obiektu należy zamknąć ją w nawiasie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">retObject</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">()</span> {
-<span class="k">return</span> { <span class="nv">team</span> : <span class="s2">&quot;</span><span class="s">Kasztany</span><span class="s2">&quot;</span>, <span class="nv">score</span> : <span class="mi">0</span> }
-}
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">retObject</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">return</span> <span class="p">{</span> <span class="n">team</span> <span class="p">:</span> <span class="s2">&quot;Kasztany&quot;</span><span class="p">,</span> <span class="n">score</span> <span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="nv">const</span> <span class="nv">retObject</span> <span class="o">=</span> <span class="nv">name</span> <span class="o">=&gt;</span> <span class="ss">(</span>{ <span class="nv">team</span> : <span class="s2">&quot;</span><span class="s">Kasztany</span><span class="s2">&quot;</span>, <span class="nv">score</span> : <span class="mi">0</span> }<span class="ss">)</span>
-<span class="nv">const</span> <span class="nv">retObject</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> <span class="ss">(</span>{ <span class="nv">team</span> : <span class="s2">&quot;</span><span class="s">Kasztany</span><span class="s2">&quot;</span>, <span class="nv">score</span> : <span class="mi">0</span> }<span class="ss">)</span>
+<span class="k">const</span> <span class="n">retObject</span> <span class="o">=</span> <span class="n">name</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="n">team</span> <span class="p">:</span> <span class="s2">&quot;Kasztany&quot;</span><span class="p">,</span> <span class="n">score</span> <span class="p">:</span> <span class="mi">0</span> <span class="p">})</span>
+<span class="k">const</span> <span class="n">retObject</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="n">team</span> <span class="p">:</span> <span class="s2">&quot;Kasztany&quot;</span><span class="p">,</span> <span class="n">score</span> <span class="p">:</span> <span class="mi">0</span> <span class="p">})</span>
 </code></pre></div>
 
 
 </li>
 </ul>
 <p>Przykłady:</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">function</span> <span class="nv">getNumber</span> <span class="ss">(</span><span class="nv">num</span>,<span class="nv">arr</span><span class="ss">)</span> {
-    <span class="nv">const</span> <span class="nv">newArr</span> <span class="o">=</span> <span class="nv">arr</span>.<span class="nv">filter</span><span class="ss">((</span><span class="nv">item</span><span class="ss">)</span><span class="o">=&gt;</span> {<span class="k">return</span> <span class="nv">item</span> <span class="o">===</span> <span class="nv">num</span>}<span class="ss">)</span><span class="c1">;</span>
-    <span class="k">return</span> <span class="ss">(</span><span class="nv">newArr</span>[<span class="mi">0</span>] <span class="o">===</span> <span class="nv">num</span> ? <span class="nv">true</span> : <span class="nv">false</span><span class="ss">)</span><span class="c1">;</span>
-    }
+<div class="highlight"><pre><span></span><code>    <span class="n">function</span> <span class="n">getNumber</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">newArr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">item</span><span class="p">)</span><span class="o">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="n">item</span> <span class="o">===</span> <span class="n">num</span><span class="p">});</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">newArr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="n">num</span> <span class="err">?</span> <span class="bp">true</span> <span class="p">:</span> <span class="bp">false</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    <span class="nv">zamiast</span>
+    <span class="n">zamiast</span>
 
-    <span class="nv">function</span> <span class="nv">getNumber</span> <span class="ss">(</span><span class="nv">num</span>,<span class="nv">arr</span><span class="ss">)</span> {
-            <span class="nv">const</span> <span class="nv">newArr</span> <span class="o">=</span> <span class="nv">arr</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">item</span><span class="ss">)</span> {
-            <span class="k">return</span> <span class="nv">item</span> <span class="o">===</span> <span class="nv">num</span><span class="c1">;</span>
-            }<span class="ss">)</span><span class="c1">;</span>
-            <span class="k">if</span> <span class="ss">(</span><span class="nv">newArr</span>[<span class="mi">0</span>] <span class="o">===</span> <span class="nv">num</span><span class="ss">)</span> {
-                    <span class="k">return</span> <span class="nv">true</span>
-            }
-            <span class="k">else</span> {
-                    <span class="k">return</span> <span class="nv">false</span>
-            }
-    }<span class="c1">;</span>
+    <span class="n">function</span> <span class="n">getNumber</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">const</span> <span class="n">newArr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">item</span> <span class="o">===</span> <span class="n">num</span><span class="p">;</span>
+            <span class="p">});</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">newArr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="bp">true</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="bp">false</span>
+            <span class="p">}</span>
+    <span class="p">};</span>
 </code></pre></div>
 
 
@@ -229,13 +229,13 @@
 <p><strong>Warto pamiętać żę funkcja strzałkowa jest zadeklarowana poprzez wyrażenie funkcyjne i oznacza, to że zmienia kontekst <code>this</code> co może być szczególnie istotne w kontekście manipulowania elementami DOM (wówczas <code>this</code> jest obiektem <code>window</code>)</strong></p>
 <p>W takim przypadku wewnątrz funkcji zamiast <code>this</code> można stosować <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target">event.target/event.currentTarget</a> patrz <a href="https://stackoverflow.com/questions/36915875/javascript-arrow-functions-this-in-event-handler">dyskusja na ten temat na StackOverflow</a></p>
 <p>Ten problem można również rozwiązać poprzez zachowanie <code>this</code> w stworzonej zmiennej np. nazwanej <code>self</code> (ta nazwa przyjęła się historycznie)</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">droid</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">calculateNum</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
-            <span class="n">this</span><span class="p">.</span><span class="k">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="n">const</span> <span class="k">self</span> <span class="o">=</span> <span class="n">this</span><span class="p">;</span>
-            <span class="n">this</span><span class="p">.</span><span class="n">droid</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="err">{</span>
-                    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="k">self</span><span class="p">);</span>
-            <span class="err">}</span><span class="p">);</span>
-    <span class="err">}</span>
+<div class="highlight"><pre><span></span><code>    <span class="n">droid</span><span class="o">.</span><span class="n">prototype</span><span class="o">.</span><span class="n">calculateNum</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">this</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">const</span> <span class="bp">self</span> <span class="o">=</span> <span class="n">this</span><span class="p">;</span>
+            <span class="n">this</span><span class="o">.</span><span class="n">droid</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="p">);</span>
+            <span class="p">});</span>
+    <span class="p">}</span>
 </code></pre></div>
 
 

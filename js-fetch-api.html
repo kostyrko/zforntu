@@ -159,8 +159,8 @@
 <p>Fetch jest API/interfejsem należącym do przeglądarki, ale jest również dostępny przy pomocy node.js -&gt; <code>import fetch from 'node-fetch'</code>, który pozwala na asynchroniczne pobieranie danych z serwera.</p>
 <p>Fetch bazuje na <em>obietnicach</em> -&gt; Zwraca zapytanie HTTP jako obietnicę tego zapytania. W momencie wykorzystania metody <strong>fetch()</strong> tworzony jest obiekt typu Promise - oznacza to, że umożliwia korzystania z metod związanych z obiektami Promise np. <strong>.then()</strong> i <strong>.catch()</strong></p>
 <p>Podstawową metodą <em>Fetch API</em> jest <strong>fetch()</strong> która przyjmuje adres parametr, przyjmując, że domyślną metodą jest <strong>GET</strong> (jeśli chcemy wykorzystać inną metodę, wówczas musimy skorzystać z opcji dodatkowych argumentów, które można przekazać do metody <em>fetch</em> - o tym niżej)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s1">&#39;</span><span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">response</span><span class="ss">))</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">fetch(&#39;https://jsonplaceholder.typicode.com/posts/2&#39;)</span>
+<span class="err">  .then(response =&gt; console.log(response));</span>
 </code></pre></div>
 
 
@@ -184,64 +184,77 @@
   <span class="n">statusText</span><span class="o">:</span> <span class="s">&quot;&quot;</span>        <span class="o">&lt;-</span> <span class="n">status</span> <span class="n">połączenia</span> <span class="n">jako</span> <span class="n">tekst</span>
   <span class="n">type</span><span class="o">:</span> <span class="s">&quot;cors&quot;</span>          <span class="o">&lt;-</span> <span class="n">typo</span> <span class="n">połączenia</span>
   <span class="n">url</span><span class="o">:</span> <span class="s">&quot;https://jsonplaceholder.typicode.com/posts/2&quot;</span><span class="p">,</span>
-  <span class="n">__proto__</span><span class="o">:</span> <span class="n">Response</span>
+  __<span class="n">proto__</span><span class="o">:</span> <span class="n">Response</span>
 <span class="p">}</span>
 </code></pre></div>
 
 
-<p>Knyf z <strong>fetch</strong> polega na tym, że error nie będzie przechwytywany automatycznie przez metodę <strong>catch()</strong> w momencie gdy serwer działa, stąd wymaga sprawdzenia/walidacji informacji zwrotnej przy pomocy funkcji warunkowej</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s1">&#39;</span><span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">response</span>.<span class="nv">ok</span><span class="ss">)</span> {
-      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">response</span><span class="ss">)</span>
-    } <span class="k">else</span> {
-      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">not successful</span><span class="s1">&#39;</span><span class="ss">)</span>
-    }
-  }<span class="ss">)</span>
+<p>Knyf z <strong>fetch</strong> polega na tym, że error nie będzie przechwytywany automatycznie przez metodę <strong>catch()</strong> w momencie gdy serwer działa, stąd wymaga sprawdzenia/walidacji informacji zwrotnej przy pomocy funkcji warunkowej (w praktyce jeśli wartość nie będzie <strong>ok</strong> ustawimy nowy obietk <strong>Error</strong> - więcej na ten temat poniżej)</p>
+<div class="highlight"><pre><span></span><code><span class="err">fetch(&#39;https://jsonplaceholder.typicode.com/posts/2&#39;)</span>
+<span class="err">  .then(response =&gt; {</span>
+<span class="err">    if (response.ok) {</span>
+<span class="err">      console.log(response)</span>
+<span class="err">    } else {</span>
+<span class="err">      console.log(&#39;not successful&#39;)</span>
+<span class="err">    }</span>
+<span class="err">  })</span>
+</code></pre></div>
+
+
+<p>W innej wersji poradzenia sobie z błędami można sięgnąć do właściwością <strong>statusText</strong> obiektu <code>response</code> pod warunkiem, że serwer zwraca zawartą w nim informację a nie pusty string (wtedy taką informację możemy wykorzystać i wstawić do <code>new Error(response.statusText)</code> i wykorzystać ją w <code>catch()</code>)</p>
+<div class="highlight"><pre><span></span><code><span class="err">  fetch(&#39;https://jsonplaceholder.typicode.com/posts/2&#39;)</span>
+<span class="err">  .then(response =&gt; {</span>
+<span class="err">    if (response.ok) {</span>
+<span class="err">      console.log(response)</span>
+<span class="err">    } else {</span>
+<span class="err">      console.log(response.statusText)</span>
+<span class="err">    }</span>
+<span class="err">  })</span>
 </code></pre></div>
 
 
 <p>Metoda <strong>.ok()</strong> <strong>fetch API</strong> zastosowana powyżej zwraca wartość logiczną (tylko odczyt) i zwraca <strong>True</strong> jeśli treść odpowiedzi zawiera się w przedziale <strong>200-299</strong></p>
 <p>Wyżej zaprezentowany zapis może również przyjąć formę wykorzystującą <strong>obietnicę</strong> i wówczas również możemy wykorzystać metodę <strong>catch()</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s2">&quot;</span><span class="ss">)</span>
-.<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">response</span>.<span class="nv">ok</span><span class="ss">)</span> {
-        <span class="k">return</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">()</span>
-    } <span class="k">else</span> {
-        <span class="nv">throw</span> <span class="nv">new</span> <span class="nv">Error</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Błąd sieci</span><span class="s2">&quot;</span><span class="ss">)</span>
-    }
-}<span class="ss">)</span>
-.<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">response</span><span class="ss">)</span>
-}<span class="ss">)</span>
-.<span class="nv">catch</span><span class="ss">(</span><span class="nv">error</span> <span class="o">=&gt;</span> {
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">error</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">404</span><span class="ss">)</span> {
-        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">ERROR 404</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-    }
-}<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="nf">fetch</span><span class="p">(</span><span class="err">&quot;</span><span class="no">https</span><span class="p">:</span><span class="c1">//jsonplaceholder.typicode.com/posts/2&quot;)</span>
+<span class="na">.then</span><span class="p">(</span><span class="no">response</span> <span class="err">=&gt;</span> <span class="err">{</span>
+    <span class="nf">if</span> <span class="p">(</span><span class="no">response.ok</span><span class="p">)</span> <span class="err">{</span>
+        <span class="nf">return</span> <span class="no">response.json</span><span class="p">()</span>
+    <span class="err">}</span> <span class="nf">else</span> <span class="err">{</span>
+        <span class="nf">throw</span> <span class="no">new</span> <span class="no">Error</span><span class="p">(</span><span class="err">&quot;</span><span class="no">Błąd</span> <span class="no">sieci</span><span class="err">&quot;</span><span class="p">)</span>
+    <span class="err">}</span>
+<span class="err">})</span>
+<span class="na">.then</span><span class="p">(</span><span class="no">response</span> <span class="err">=&gt;</span> <span class="err">{</span>
+    <span class="nf">console.log</span><span class="p">(</span><span class="no">response</span><span class="p">)</span>
+<span class="err">})</span>
+<span class="na">.catch</span><span class="p">(</span><span class="no">error</span> <span class="err">=&gt;</span> <span class="err">{</span>
+    <span class="nf">if</span> <span class="p">(</span><span class="no">error.status</span> <span class="err">===</span> <span class="mi">404</span><span class="p">)</span> <span class="err">{</span>
+        <span class="nf">console.log</span><span class="p">(</span><span class="err">&quot;</span><span class="no">ERROR</span> <span class="mi">404</span><span class="err">&quot;</span><span class="p">)</span><span class="c1">;</span>
+    <span class="err">}</span>
+<span class="err">})</span><span class="c1">;</span>
 </code></pre></div>
 
 
 <hr>
 <h4>Throw new Error()</h4>
 <p>Zastosowana wyżej deklaracja (ang. statement) <code>throw</code> ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu w tym przypadku doszło również do stworzenia nowej obiektu <code>Error</code> na podstawie klasy oraz jego konstruktora , który przyjmuje treść błędu, który może b(new Error('treść błędu')), bez słowa kluczowego <strong>new</strong> powstaje obiekt nad podstawie funkcji</p>
-<p>Schemta:</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="n">Error</span><span class="p">([</span><span class="n">message</span><span class="p">[,</span> <span class="n">fileName</span><span class="p">[,</span> <span class="n">lineNumber</span><span class="p">]]])</span>
-<span class="o">===</span> 
-<span class="k">new</span> <span class="n">Error</span><span class="p">([</span><span class="n">wiadomość</span><span class="p">[,</span> <span class="n">nazwaPliku</span><span class="p">[,</span> <span class="n">nrLiniiKodu</span><span class="p">]]]</span>
-<span class="o">===</span> <span class="n">przykładowo</span> <span class="o">===</span>
-<span class="k">new</span> <span class="n">Error</span><span class="p">(</span><span class="ss">&quot;Błąd sieci&quot;</span><span class="p">)</span>
+<p>Schemat:</p>
+<div class="highlight"><pre><span></span><code><span class="err">new Error([message[, fileName[, lineNumber]]])</span>
+<span class="err">=== </span>
+<span class="err">new Error([wiadomość[, nazwaPliku[, nrLiniiKodu]]]</span>
+<span class="err">=== przykładowo ===</span>
+<span class="err">new Error(&quot;Błąd sieci&quot;)</span>
 </code></pre></div>
 
 
+<p><strong>!!!</strong> Istotne jest to, że obiektu Error nie można dodać do DOM, aby przekazać wiadomość trzeba się odwołać do właściwości <code>message</code></p>
 <hr>
 <h3>Ciało informacji zwrotnej (ang. Body)</h3>
 <p>Body jest właściwością informacji zwrotnej (ang. response) fetch i w niej zawarte są dane, na których pozyskaniu może nam zależeć.</p>
 <p>Poniższe metody znajdują się w <strong>prototypie obiektu Response</strong></p>
 <p><strong>.json()</strong> - przyjmuje informację zwrotną zapytania i zwraca obietnicę jako rezultat sparsowanego ciała tekstu w formacie JSON</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s1">&#39;</span><span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">())</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">json</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">json</span><span class="ss">))</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">fetch(&#39;https://jsonplaceholder.typicode.com/posts/2&#39;)</span>
+<span class="err">  .then(response =&gt; response.json())</span>
+<span class="err">  .then(json =&gt; console.log(json));</span>
 </code></pre></div>
 
 
@@ -253,59 +266,64 @@
 <hr>
 <h3>Fetch i POST/GET/PUT</h3>
 <p>Podobnie jak w przypadku XMLHttpRequest wysyłanie danych wymaga przekazanie <strong>1)</strong> słowa kluczowego wskazującego na konkterntą metodę (np. POST), <strong>2)</strong> odpowiedniego nagłówka/headers <strong>3)</strong> oraz przekazania treści w body, które zostanie zamienione w obiekt typu JSON (stringify())</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">https://reqres.in.api.users</span><span class="s1">&#39;</span>, {
-  <span class="nv">method</span>: <span class="s1">&#39;</span><span class="s">POST</span><span class="s1">&#39;</span>,
-  <span class="nv">headers</span>: {
-    <span class="s1">&#39;</span><span class="s">Content-Type</span><span class="s1">&#39;</span>: <span class="s1">&#39;</span><span class="s">application/json</span><span class="s1">&#39;</span>
-  },
-  <span class="nv">body</span>: <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span>{
-    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">User 1</span><span class="s1">&#39;</span>
-  }<span class="ss">)</span>
-}<span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
-  <span class="k">return</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">()</span>
-}<span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">data</span><span class="ss">))</span>
-.<span class="nv">catch</span><span class="ss">(</span><span class="nv">error</span> <span class="o">=&gt;</span> {
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">error</span><span class="ss">)</span><span class="c1">;</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="nf">fetch</span><span class="p">(</span><span class="err">&#39;</span><span class="no">https</span><span class="p">:</span><span class="c1">//reqres.in.api.users&#39;, {</span>
+  <span class="nl">method:</span> <span class="err">&#39;</span><span class="nf">POST</span><span class="err">&#39;</span><span class="p">,</span>
+  <span class="nl">headers:</span> <span class="err">{</span>
+    <span class="err">&#39;</span><span class="nf">Content-Type</span><span class="err">&#39;</span><span class="p">:</span> <span class="err">&#39;</span><span class="no">application</span><span class="err">/</span><span class="no">json</span><span class="err">&#39;</span>
+  <span class="err">},</span>
+  <span class="nl">body:</span> <span class="nf">JSON.stringify</span><span class="p">(</span><span class="err">{</span>
+    <span class="nl">name:</span> <span class="err">&#39;</span><span class="nf">User</span> <span class="mi">1</span><span class="err">&#39;</span>
+  <span class="err">})</span>
+<span class="err">})</span>
+<span class="na">.then</span><span class="p">(</span><span class="no">response</span> <span class="err">=&gt;</span> <span class="err">{</span>
+    <span class="nf">if</span> <span class="p">(</span><span class="no">response.ok</span><span class="p">)</span> <span class="err">{</span>
+        <span class="nf">return</span> <span class="no">response.json</span><span class="p">()</span>
+    <span class="err">}</span> <span class="nf">else</span> <span class="err">{</span>
+        <span class="nf">throw</span> <span class="no">new</span> <span class="no">Error</span><span class="p">(</span><span class="err">&quot;</span><span class="no">Wystąpił</span> <span class="no">błąd</span><span class="err">&quot;</span><span class="p">)</span>
+    <span class="err">}</span>
+<span class="err">})</span>
+<span class="na">.then</span><span class="p">(</span><span class="no">data</span> <span class="err">=&gt;</span> <span class="no">console.log</span><span class="p">(</span><span class="no">data</span><span class="p">))</span>
+<span class="na">.catch</span><span class="p">(</span><span class="no">error</span> <span class="err">=&gt;</span> <span class="err">{</span>
+  <span class="nf">console.log</span><span class="p">(</span><span class="no">error.message</span><span class="p">)</span><span class="c1">;</span>
+<span class="err">})</span><span class="c1">;</span>
 </code></pre></div>
 
 
 <p>Ten format można zapisać również w następujący sposób</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">https://reqres.in.api.users</span><span class="s1">&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://reqres.in.api.users&#39;</span>
 
-<span class="nv">const</span> <span class="nv">data</span> <span class="o">=</span> {
-  <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">User 1</span><span class="s1">&#39;</span>,
-}
+<span class="k">const</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;User 1&#39;</span><span class="p">,</span>
+<span class="p">}</span>
 
-<span class="nv">const</span> <span class="nv">options</span> <span class="o">=</span> {
-  <span class="nv">method</span>: <span class="s1">&#39;</span><span class="s">POST</span><span class="s1">&#39;</span>,
-  <span class="nv">body</span>: <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span>,
-  <span class="nv">headers</span>: {
-      <span class="s1">&#39;</span><span class="s">Content-Type</span><span class="s1">&#39;</span>: <span class="s1">&#39;</span><span class="s">application/json</span><span class="s1">&#39;</span>
-  }
-}<span class="c1">;</span>
+<span class="k">const</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">method</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+  <span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+  <span class="n">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
 
-<span class="nv">fetch</span><span class="ss">(</span><span class="nv">url</span>, <span class="nv">options</span><span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> <span class="nv">response</span>.<span class="nv">json</span><span class="ss">())</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">data</span><span class="ss">))</span>
+<span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">response</span> <span class="o">=&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+  <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">data</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </code></pre></div>
 
 
 <hr>
-<p>::: stringify() jest medotą obiektu JSON  i w efekcie zmienia kod na jsonowy element:::</p>
+<p>::: stringify() jest metodą obiektu JSON  i w efekcie zmienia kod na jsonowy element:::</p>
 <p>Przykładowo </p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="k">data</span> <span class="o">=</span> <span class="err">{</span>
-    <span class="n">name</span> <span class="p">:</span> <span class="ss">&quot;BB-8&quot;</span><span class="p">,</span>
-    <span class="k">class</span> <span class="p">:</span> <span class="ss">&quot;Astromech droid&quot;</span>
-  <span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="p">:</span> <span class="s2">&quot;BB-8&quot;</span><span class="p">,</span>
+    <span class="k">class</span> <span class="p">:</span> <span class="s2">&quot;Astromech droid&quot;</span>
+  <span class="p">}</span>
 </code></pre></div>
 
 
 <p>Zamienia na</p>
 <div class="highlight"><pre><span></span><code><span class="err">{</span>
-  <span class="ss">&quot;name&quot;</span> <span class="p">:</span> <span class="ss">&quot;BB-8&quot;</span><span class="p">,</span>
-  <span class="ss">&quot;class&quot;</span> <span class="p">:</span> <span class="ss">&quot;Astromech droid&quot;</span>
+<span class="err">  &quot;name&quot; : &quot;BB-8&quot;,</span>
+<span class="err">  &quot;class&quot; : &quot;Astromech droid&quot;</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -313,15 +331,15 @@
 <hr>
 <p>Fetch API posiada również interfejs Headers() -&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers - developer.mozilla.org</a></p>
 <p>Istnieje również możliwość wysyłanie danych w postaci URL jeśli serwer, z którego korzystamy nie wymaga nagłówka wówczas...</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="nv">url</span>, {
-      <span class="nv">method</span>: <span class="s2">&quot;</span><span class="s">post</span><span class="s2">&quot;</span>,
-      <span class="nv">body</span>: <span class="nv">uriEncode</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">name=Marcin&amp;surname=Nowak</span><span class="s2">&quot;</span><span class="ss">)</span>
-  }<span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">res</span> <span class="o">=&gt;</span> <span class="nv">res</span>.<span class="nv">json</span><span class="ss">())</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">res</span> <span class="o">=&gt;</span> {
-      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Dodałem użytkownika:</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">res</span><span class="ss">)</span><span class="c1">;</span>
-  }<span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">fetch(url, {</span>
+<span class="err">      method: &quot;post&quot;,</span>
+<span class="err">      body: uriEncode(&quot;name=Marcin&amp;surname=Nowak&quot;)</span>
+<span class="err">  })</span>
+<span class="err">  .then(res =&gt; res.json())</span>
+<span class="err">  .then(res =&gt; {</span>
+<span class="err">      console.log(&quot;Dodałem użytkownika:&quot;);</span>
+<span class="err">      console.log(res);</span>
+<span class="err">  })</span>
 </code></pre></div>
 
 
@@ -355,13 +373,13 @@
 
 
 <p>Plik JS zamieszczający treść korzysta z fetch</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">./header.html</span><span class="s2">&quot;</span><span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">response</span> <span class="o">=&gt;</span> {
-    <span class="k">return</span> <span class="nv">response</span>.<span class="nv">text</span><span class="ss">()</span>
-  }<span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span> <span class="o">=&gt;</span> {
-    <span class="nv">document</span>.<span class="nv">querySelector</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">header</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="nv">innerHTML</span> <span class="o">=</span> <span class="nv">data</span><span class="c1">;</span>
-  }<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">fetch(&quot;./header.html&quot;)</span>
+<span class="err">  .then(response =&gt; {</span>
+<span class="err">    return response.text()</span>
+<span class="err">  })</span>
+<span class="err">  .then(data =&gt; {</span>
+<span class="err">    document.querySelector(&quot;header&quot;).innerHTML = data;</span>
+<span class="err">  });</span>
 </code></pre></div>
 
 

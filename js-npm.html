@@ -158,27 +158,27 @@
 <h3>NPM</h3>
 <p>Korzystając z domyślnej opcji instalacji paczki/wtyczki z NPM w przypadku Ubuntu stosując opcję instalacji globalnej należy wykorzystać uprawnienia administracyjne <strong>sudo</strong>. Aby uniknąć instalowania wtyczkę w ten sposób (i przekazywania im możliwości edytowania ustawień systemowych) należy zastosować niżej opisane kroki.</p>
 <p>1) Należy stworzyć folder, w którym będą zapisane paczki</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">mkdir</span> <span class="o">~/</span><span class="p">.</span><span class="n">npm</span><span class="o">-</span><span class="k">global</span>
+<div class="highlight"><pre><span></span><code><span class="err">    mkdir ~/.npm-global</span>
 </code></pre></div>
 
 
 <p>2) Należy zdefiniować miejsce zapisywania paczek przez <strong>NMP</strong></p>
-<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">config</span> <span class="k">set</span> <span class="k">prefix</span> <span class="s1">&#39;~/.npm-global&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="err">    npm config set prefix &#39;~/.npm-global&#39;</span>
 </code></pre></div>
 
 
 <p>3) Otwórz lub stwórz plik ~/.profile i dodaj do niego poniższą linię</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">export</span> <span class="n">PATH</span><span class="o">=~/</span><span class="p">.</span><span class="n">npm</span><span class="o">-</span><span class="k">global</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">export</span> <span class="n">PATH</span><span class="o">=~/.</span><span class="n">npm</span><span class="o">-</span><span class="n">global</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
 </code></pre></div>
 
 
 <p>4) Odśwież zmienne systemowe</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">source</span> <span class="o">~/</span><span class="p">.</span><span class="n">profile</span>
+<div class="highlight"><pre><span></span><code><span class="err">    source ~/.profile</span>
 </code></pre></div>
 
 
 <p>5) Przetestuj nową konfigurację instalując dowolną paczkę globalnie nie korzystając z <strong>sudo</strong></p>
-<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="k">g</span> <span class="n">jshint</span>
+<div class="highlight"><pre><span></span><code><span class="err">    npm install -g jshint</span>
 </code></pre></div>
 
 

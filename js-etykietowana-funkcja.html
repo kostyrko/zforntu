@@ -158,64 +158,64 @@
     <p><em>Template strings</em> lub też <em>literals</em> zwane po polsku <em>łańcuchami szablonowymi</em></p>
 <p>Łańcuchy szablonowe [wcześniej wspominałem o nich <a href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html">w tym miejscu</a>] pozwalają na podstawianie zmiennych wewnątrz informacji przeznaczonymi do druku i zawartymi pomiędzy apostrofami [ warto pamiętać o tym, że stosowanie tego formatu zapisu nie wymaga używania sekwencji ucieczkowej -&gt; /n]</p>
 <p>Przykładowo:</p>
-<div class="highlight"><pre><span></span><code>const droid = &quot;r2d2&quot;
-const droid2 = &quot;c3po&quot;
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droid</span> <span class="o">=</span> <span class="s2">&quot;r2d2&quot;</span>
+<span class="k">const</span> <span class="n">droid2</span> <span class="o">=</span> <span class="s2">&quot;c3po&quot;</span>
 
-console.log(`Hello 
-<span class="cp">${</span><span class="n">droid</span><span class="cp">}</span>, 
-<span class="cp">${</span><span class="n">droid2</span><span class="cp">}</span>`)
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">Hello</span> 
+<span class="o">$</span><span class="p">{</span><span class="n">droid</span><span class="p">},</span> 
+<span class="o">$</span><span class="p">{</span><span class="n">droid2</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
 
-&gt;&gt;Hello 
-&gt;&gt;r2d2, 
-&gt;&gt;c3po
+<span class="o">&gt;&gt;</span><span class="n">Hello</span> 
+<span class="o">&gt;&gt;</span><span class="n">r2d2</span><span class="p">,</span> 
+<span class="o">&gt;&gt;</span><span class="n">c3po</span>
 </code></pre></div>
 
 
 <p>Funkcje mogą być również wywołane poprzez zastosowania <code>łańcucha szablonów</code> tzw <code>tag functions</code> - wówczas części tego łańcucha nie odwołujące się do zmiennych mogą być traktowane jako tablica (podzielona w miejscach gdzie znajdują się zmienne), która musi być  zawarta jako argument</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">droidGreeter</span> <span class="ss">(</span><span class="nv">strings</span>, <span class="nv">droidName</span><span class="ss">)</span> {
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">strings</span>[<span class="mi">0</span>] <span class="o">+</span> <span class="nv">droidName</span> <span class="o">+</span> <span class="nv">strings</span>[<span class="mi">1</span>]<span class="ss">)</span>
-<span class="k">return</span> <span class="nv">droidName</span> <span class="o">+</span> <span class="nv">strings</span>[<span class="mi">0</span>]
-}<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="n">droidGreeter</span> <span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="n">droidName</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">droidName</span> <span class="o">+</span> <span class="n">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">return</span> <span class="n">droidName</span> <span class="o">+</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">};</span>
 
-<span class="nv">const</span> <span class="nv">droid</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">c3po</span><span class="s1">&#39;</span><span class="c1">;</span>
+<span class="k">const</span> <span class="n">droid</span> <span class="o">=</span> <span class="s1">&#39;c3po&#39;</span><span class="p">;</span>
 
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">droidGreeter</span>` <span class="nv">I</span> <span class="nv">am</span> ${<span class="nv">droid</span>} <span class="o">-</span> <span class="nv">and</span> <span class="nv">you</span>? `<span class="ss">)</span><span class="c1">; // array strings = [&#39; I am &#39;, &#39; - and you? &#39;]</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droidGreeter</span><span class="err">`</span> <span class="n">I</span> <span class="n">am</span> <span class="o">$</span><span class="p">{</span><span class="n">droid</span><span class="p">}</span> <span class="o">-</span> <span class="ow">and</span> <span class="n">you</span><span class="err">?</span> <span class="err">`</span><span class="p">);</span> <span class="o">//</span> <span class="n">array</span> <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39; I am &#39;</span><span class="p">,</span> <span class="s1">&#39; - and you? &#39;</span><span class="p">]</span>
 
-<span class="o">&gt;&gt;</span>  <span class="nv">I</span> <span class="nv">am</span> <span class="nv">c3po</span> <span class="o">-</span> <span class="nv">and</span> <span class="nv">you</span>?
-<span class="o">&gt;&gt;</span> <span class="nv">c3po</span> <span class="nv">I</span> <span class="nv">am</span>
+<span class="o">&gt;&gt;</span>  <span class="n">I</span> <span class="n">am</span> <span class="n">c3po</span> <span class="o">-</span> <span class="ow">and</span> <span class="n">you</span><span class="err">?</span>
+<span class="o">&gt;&gt;</span> <span class="n">c3po</span> <span class="n">I</span> <span class="n">am</span>
 </code></pre></div>
 
 
 <p>W ten sposób można tworzyć instancje różnego rodzaju informacji wynikowych przy pomocy jednej funkcji</p>
-<div class="highlight"><pre><span></span><code>const droids = [
-  {name: &#39;C3PO&#39;, height: &#39;1.71&#39;},
-  {name: &#39;R2D2&#39;, height: &#39;1.09&#39;},
-  {name: &#39;BB8&#39;, height: &#39;0.67&#39;},
-  {name: &#39;L3-37&#39;, height: &#39;1.79&#39;},
-  {name: &#39;K-2SO&#39;, height: &#39;2.16&#39;}
-]
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droids</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="s1">&#39;1.71&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;R2D2&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="s1">&#39;1.09&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;BB8&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="s1">&#39;0.67&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;L3-37&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="s1">&#39;1.79&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;K-2SO&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="s1">&#39;2.16&#39;</span><span class="p">}</span>
+<span class="p">]</span>
 
-function showSpecs (arr, n, h) {
-  console.log(arr[0] + n + arr[1] + h + arr[2])
-}
+<span class="n">function</span> <span class="n">showSpecs</span> <span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="p">}</span>
 
-showSpecs`This <span class="cp">${</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="cp">}</span> is <span class="cp">${</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">height</span><span class="cp">}</span>`
+<span class="n">showSpecs</span><span class="err">`</span><span class="n">This</span> <span class="o">$</span><span class="p">{</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">}</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">height</span><span class="p">}</span><span class="err">`</span>
 
-&gt;&gt; This R2D2 is 1.09
+<span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">R2D2</span> <span class="k">is</span> <span class="mf">1.09</span>
 
-showSpecs`This droid&#39;s name is <span class="cp">${</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="cp">}</span> and he is <span class="cp">${</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">height</span><span class="cp">}</span> m high`
+<span class="n">showSpecs</span><span class="err">`</span><span class="n">This</span> <span class="n">droid</span><span class="s1">&#39;s name is ${droids[1].name} and he is ${droids[1].height} m high`</span>
 
-&gt;&gt; This droid&#39;s name is R2D2 and he is 1.09 m high
+<span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">droid</span><span class="s1">&#39;s name is R2D2 and he is 1.09 m high</span>
 
-droids.forEach(function(droids){
-  showSpecs`This <span class="cp">${</span><span class="n">droids</span><span class="o">.</span><span class="n">name</span><span class="cp">}</span> is <span class="cp">${</span><span class="n">droids</span><span class="o">.</span><span class="n">height</span><span class="cp">}</span> high`; 
-})
+<span class="n">droids</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">droids</span><span class="p">){</span>
+  <span class="n">showSpecs</span><span class="err">`</span><span class="n">This</span> <span class="o">$</span><span class="p">{</span><span class="n">droids</span><span class="o">.</span><span class="n">name</span><span class="p">}</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">droids</span><span class="o">.</span><span class="n">height</span><span class="p">}</span> <span class="n">high</span><span class="err">`</span><span class="p">;</span> 
+<span class="p">})</span>
 
-&gt;&gt; This C3PO is 1.71 high
-&gt;&gt; This R2D2 is 1.09 high
-&gt;&gt; This BB8 is 0.67 high
-&gt;&gt; This L3-37 is 1.79 high
-&gt;&gt; This K-2SO is 2.16 high
+<span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">C3PO</span> <span class="k">is</span> <span class="mf">1.71</span> <span class="n">high</span>
+<span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">R2D2</span> <span class="k">is</span> <span class="mf">1.09</span> <span class="n">high</span>
+<span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">BB8</span> <span class="k">is</span> <span class="mf">0.67</span> <span class="n">high</span>
+<span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">L3</span><span class="o">-</span><span class="mi">37</span> <span class="k">is</span> <span class="mf">1.79</span> <span class="n">high</span>
+<span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">K</span><span class="o">-</span><span class="mi">2</span><span class="n">SO</span> <span class="k">is</span> <span class="mf">2.16</span> <span class="n">high</span>
 </code></pre></div>
 
 

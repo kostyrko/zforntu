@@ -155,15 +155,15 @@
 <p>-&gt; nie wskazuje na funkcję wewnątrz, której jest użyte ani na zakres (scope) funkcji</p>
 <p>-&gt; wskazanie kontekstu poprzez <code>call</code>, <code>apply</code> (lub <code>bind</code>)</p>
 <p>-&gt; wywołanie funkcji z wykorzystaniem słowa kluczowego <code>new</code> sprawia, że kontekstem jest nowo stworzony obiekt</p>
-<div class="highlight"><pre><span></span><code>    <span class="nt">function</span> <span class="nt">bike</span><span class="o">()</span> <span class="p">{</span>
-    <span class="err">console.log(this.name)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="n">function</span> <span class="n">bike</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="nt">var</span> <span class="nt">name</span> <span class="o">=</span> <span class="s2">&quot;Ninja&quot;</span><span class="o">;</span>
-    <span class="nt">var</span> <span class="nt">obj1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Pulsar&quot;</span><span class="p">,</span> <span class="n">bike</span><span class="o">:</span> <span class="n">bike</span> <span class="p">}</span><span class="o">;</span>
+    <span class="k">var</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Ninja&quot;</span><span class="p">;</span>
+    <span class="k">var</span> <span class="n">obj1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Pulsar&quot;</span><span class="p">,</span> <span class="n">bike</span><span class="p">:</span> <span class="n">bike</span> <span class="p">};</span>
 
-    <span class="nt">bike</span><span class="o">();</span>           <span class="o">//</span> <span class="s2">&quot;Ninja&quot;</span>
-    <span class="nt">obj1</span><span class="p">.</span><span class="nc">bike</span><span class="o">();</span>      <span class="o">//</span> <span class="s2">&quot;Pulsar&quot;</span> <span class="o">=</span> <span class="nt">this</span><span class="p">.</span><span class="nc">name</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">obj1</span><span class="p">.</span><span class="nc">name</span>
+    <span class="n">bike</span><span class="p">();</span>           <span class="o">//</span> <span class="s2">&quot;Ninja&quot;</span>
+    <span class="n">obj1</span><span class="o">.</span><span class="n">bike</span><span class="p">();</span>      <span class="o">//</span> <span class="s2">&quot;Pulsar&quot;</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">-&gt;</span> <span class="n">obj1</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div>
 
 

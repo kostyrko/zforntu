@@ -161,13 +161,13 @@
 <hr>
 <h3>Metadane</h3>
 <p>Pokaż wszystkie gałęzie</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">a</span>
+<div class="highlight"><pre><span></span><code><span class="err">git branch -a</span>
 </code></pre></div>
 
 
 <p>Wynik pokazuje te lokalne oraz remotes (-a -&gt; all, jeśli mają być jedynie remotes to wówczas flaga -r)</p>
 <p>Jeśli chcemy zobaczyć dokonane commity należy wpisać</p>
-<div class="highlight"><pre><span></span><code><span class="nv">git</span> <span class="k">show</span><span class="o">-</span><span class="nv">branch</span>
+<div class="highlight"><pre><span></span><code><span class="err">git show-branch</span>
 </code></pre></div>
 
 
@@ -175,51 +175,51 @@
 <hr>
 <h3>Trawersowanie</h3>
 <p>Jeśli chcemy przełączyć się na wybraną gałąź należy wpisać</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout &lt;nazwa gałęzi&gt;</span>
 </code></pre></div>
 
 
 <p>Przykładowo</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout master</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Tworzenie</h3>
 <p>Jeśli checmy stworzyć nową gałąź i się na nią również przełączyć to należy wpisać</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">głęzi</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout -b &lt;nazwa głęzi&gt;</span>
 </code></pre></div>
 
 
 <p>np.</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">issue_1</span><span class="p">.</span><span class="mi">7</span>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout -b issue_1.7</span>
 </code></pre></div>
 
 
 <p>Jeśli chcemy stworzyć gałąź z konkretnej gałęzi wówczas należy ją wskazać po nazwie nowej gałęzi</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">nowej</span> <span class="n">gałęzi</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span><span class="p">,</span> <span class="n">której</span> <span class="n">ma</span> <span class="n">wychodzić</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout -b &lt;nazwa nowej gałęzi&gt; &lt;nazwa gałęzi, której ma wychodzić&gt;</span>
 </code></pre></div>
 
 
 <p>Przykładowo</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">issue_1</span><span class="p">.</span><span class="mi">7</span> <span class="n">dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">git checkout -b issue_1.7 dev</span>
 </code></pre></div>
 
 
 <p>Następnie</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">&lt;</span> <span class="n">nazwa</span> <span class="n">nowej</span> <span class="n">gałęzi</span> <span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">    git push origin &lt; nazwa nowej gałęzi &gt;</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Usuwanie</h3>
 <p>Usuwanie gałęzi</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="c1">--delete &lt;nazwa gałęzi&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">git push origin --delete &lt;nazwa gałęzi&gt;</span>
 </code></pre></div>
 
 
 <p>Przykładowo</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="c1">--delete issue_1.5</span>
+<div class="highlight"><pre><span></span><code><span class="err">git push origin --delete issue_1.5</span>
 </code></pre></div>
 
 
@@ -240,31 +240,31 @@
 <p>-m -&gt; --message/wiadomość
 -a -&gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )</p>
 <p>więcej wyjaśnieni skrótów można znaleźć w <a href="https://explainshell.com/explain/1/git-commit">explainshell</a></p>
-<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;treść wiadomości&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="err">    git commit -a -m &#39;treść wiadomości&#39;</span>
 </code></pre></div>
 
 
 <p>alternatywnie można skorzystać z komendy -A (wymuszone all)</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
+<div class="highlight"><pre><span></span><code><span class="err">    git add -A</span>
 </code></pre></div>
 
 
 <p>Spowoduje, że pliki, które do tej pory były edytowane (zawierają zmiany) trafią do stadium przejściowego (ich zmiana jest zauważona i odnotowana lokalnie) i wymagają wypchnięcia do remote repo jeśli mają być widoczne dla innych. Można tego dokonać poprzez...</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span> <span class="ss">&quot;treść wiadomości&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">    git commit -m &quot;treść wiadomości&quot;</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Wizualizacja gałęzi</h3>
 <p>Wizualizacja repo przy pomocy git-grafu</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="n">log</span> <span class="c1">--all --decorate --oneline --graph</span>
+<div class="highlight"><pre><span></span><code><span class="err">    git log --all --decorate --oneline --graph</span>
 </code></pre></div>
 
 
 <p><img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"></p>
 <h3>Uaktualnianie projektu lokalnego do zdalnego repo</h3>
-<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="k">fetch</span> <span class="c1">--all</span>
-    <span class="n">git</span> <span class="n">pull</span> <span class="c1">--all</span>
+<div class="highlight"><pre><span></span><code><span class="err">    git fetch --all</span>
+<span class="err">    git pull --all</span>
 </code></pre></div>
 
 
@@ -273,32 +273,32 @@
 <p>Uaktualnianie gałęzi do stanu innej gałęzi można wykonać korzystając z komendy rebase (pobiera wówczas ew. zmiany np. z dałęzi głównej np. dev) lub poprzez mergowanie, dodatkowo można skorzystać z opcji --no-ff -&gt; no fast forward.</p>
 <p>Kolejność działania w przypadku wypychania zmian na gałąź rozwojową 1) uaktualniamy/łączymy gałąź na której pracujemy np. poprzez mergowanie do niej gałęzi rozwojowej 2) rozwiązujemy na niej ew. konflikty, jeśli wszystko działa możemy zgłosić ją do procesu recenzji (jeśli taka możliwość istnieje) 3) Gałąź rozwojową mergujemy z gałęzią, na której do tej pory pracowaliśmy </p>
 <h4>Merge</h4>
-<div class="highlight"><pre><span></span><code><span class="nv">git</span> <span class="nv">merge</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">uaktualniona</span> <span class="nv">obecna</span><span class="o">&gt;</span>
-<span class="o">=======</span>
-<span class="nv">git</span> <span class="nv">merge</span> <span class="nv">feature_4</span>.<span class="mi">1</span> <span class="nv">develop</span>
+<div class="highlight"><pre><span></span><code><span class="err">git merge &lt;nazwa gałęzi&gt; &lt;nazwa gałęzi DO której ma być uaktualniona obecna&gt;</span>
+<span class="err">=======</span>
+<span class="err">git merge feature_4.1 develop</span>
 </code></pre></div>
 
 
 <h4>Rebase</h4>
 <p>Rebase spowoduje, że część historii zmian zostanie stracona lub inaczej rzecz ujmując gałąź przejmująca zmiany nie przejmuje historii commitów i widoczne na niej będą jedynie te, które na niej wykonano a nie innej gałęzi - plusem jest to, że struktura jest czytelniejsza.</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">git</span> <span class="nv">rebase</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">uaktualniona</span> <span class="nv">obecna</span><span class="o">&gt;</span>
-    <span class="o">======</span>
-    <span class="nv">git</span> <span class="nv">rebase</span> <span class="nv">develop</span>
+<div class="highlight"><pre><span></span><code><span class="err">    git rebase &lt;nazwa gałęzi DO której ma być uaktualniona obecna&gt;</span>
+<span class="err">    ======</span>
+<span class="err">    git rebase develop</span>
 </code></pre></div>
 
 
 <h4>Fast forward vs non fast forward</h4>
 <p>Domyślnie mergowanie jest ustawione na -ff (fast forward) co oznacza - gładkie scalanie, w przypadku wykorzystania opcji --no-ff pojawia się dodatkowy węzeł wskazujący na moment połączenia się dwóch gałęzi</p>
 <p>--no-ff -&gt; no fast forward</p>
-<div class="highlight"><pre><span></span><code><span class="nv">git</span> <span class="nv">checkout</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">dodana</span> <span class="nv">tre</span>ść<span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span> <span class="k">DO</span> <span class="n">której</span> <span class="n">ma</span> <span class="n">być</span> <span class="n">dodana</span> <span class="n">treść</span><span class="o">&gt;</span>
 
-<span class="nv">git</span> <span class="nv">merge</span> <span class="o">--</span><span class="nv">no</span><span class="o">-</span><span class="nv">ff</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span>, <span class="nv">kt</span>ó<span class="nv">ra</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">przy</span>łą<span class="nv">czona</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="c1">--no-ff &lt;nazwa gałęzi, która ma być przyłączona&gt;</span>
 
-<span class="nv">git</span> <span class="nv">add</span> <span class="o">-</span><span class="nv">A</span>
+<span class="n">git</span> <span class="k">add</span> <span class="o">-</span><span class="n">A</span>
 
-<span class="nv">git</span> <span class="nv">commit</span> <span class="o">-</span><span class="nv">m</span> <span class="s2">&quot;</span><span class="s">treść wiadomości</span><span class="s2">&quot;</span>
+<span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span> <span class="ss">&quot;treść wiadomości&quot;</span>
 
-<span class="nv">git</span> <span class="nv">push</span> <span class="nv">origin</span> <span class="o">&lt;</span><span class="nv">nazwa</span> <span class="nv">ga</span>łę<span class="nv">zi</span> <span class="k">DO</span> <span class="nv">kt</span>ó<span class="nv">rej</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">dodana</span> <span class="nv">tre</span>ść<span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">nazwa</span> <span class="n">gałęzi</span> <span class="k">DO</span> <span class="n">której</span> <span class="n">ma</span> <span class="n">być</span> <span class="n">dodana</span> <span class="n">treść</span><span class="o">&gt;</span>
 </code></pre></div>
 
 

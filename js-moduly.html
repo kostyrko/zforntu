@@ -160,36 +160,36 @@
 <hr>
 <h3>CommonJS</h3>
 <p>Importowanie zależności (w sposób synchroniczny - powinien znajdować się na początku pliku) odbywa się poprzez wykorzystanie funkcji <code>require()</code> [ analiza -&gt; wrapping -&gt; wykonanie -&gt; pamięć cache]</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">package</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="err">&#39;</span><span class="p">.</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">nazwaModulu</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">package</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;./sciezka/nazwaModulu)</span>
 </code></pre></div>
 
 
 <p>np.</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">findDroidFunc</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;./findDroid&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">findDroidFunc</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;./findDroid&#39;</span><span class="p">);</span>
 </code></pre></div>
 
 
 <p>Zanim moduł może zostać zaimportowany musi być najpierw wyeksportowany poprzez tworzenie obiektu <code>module</code> poprzez odwołanie się do właściwości <code>exports</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">module</span>.<span class="n">exports</span> = <span class="n">nazwaModulu</span>;
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="n">nazwaModulu</span><span class="p">;</span>
 </code></pre></div>
 
 
 <p>np.</p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nv">droidFinder</span>.<span class="nv">js</span>
-<span class="nv">function</span> <span class="nv">findDroid</span><span class="ss">(</span><span class="nv">droid</span><span class="ss">)</span> {
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span>`<span class="nv">You</span>: <span class="nv">Is</span> <span class="nv">this</span> ${<span class="nv">droid</span>}?\<span class="nv">nObi</span> <span class="nv">Wan</span>: <span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">droid</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span>`<span class="ss">)</span>
-}
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">droidFinder</span><span class="o">.</span><span class="n">js</span>
+<span class="n">function</span> <span class="n">findDroid</span><span class="p">(</span><span class="n">droid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">You</span><span class="p">:</span> <span class="n">Is</span> <span class="n">this</span> <span class="o">$</span><span class="p">{</span><span class="n">droid</span><span class="p">}</span><span class="err">?</span>\<span class="n">nObi</span> <span class="n">Wan</span><span class="p">:</span> <span class="n">This</span> <span class="k">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">droid</span> <span class="n">you</span> <span class="n">are</span> <span class="n">looking</span> <span class="k">for</span><span class="err">`</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="nv">module</span>.<span class="nv">exports</span> <span class="o">=</span> <span class="nv">findDroid</span><span class="c1">;</span>
+<span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="n">findDroid</span><span class="p">;</span>
 
-<span class="o">//</span> <span class="nv">r2d2</span>.<span class="nv">js</span>
-<span class="nv">const</span> <span class="nv">findDroidFunc</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./droidFinder</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">findDroidFunc</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">R2D2</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="o">//</span> <span class="n">r2d2</span><span class="o">.</span><span class="n">js</span>
+<span class="k">const</span> <span class="n">findDroidFunc</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;./droidFinder&#39;</span><span class="p">);</span>
+<span class="n">findDroidFunc</span><span class="p">(</span><span class="s2">&quot;R2D2&quot;</span><span class="p">)</span>
 
-<span class="o">&gt;&gt;</span> <span class="nv">node</span> <span class="nv">r2d2</span>.<span class="nv">js</span>
+<span class="o">&gt;&gt;</span> <span class="n">node</span> <span class="n">r2d2</span><span class="o">.</span><span class="n">js</span>
 
-<span class="o">&gt;&gt;</span> <span class="nv">You</span>: <span class="nv">Is</span> <span class="nv">this</span> <span class="nv">R2D2</span>?
-<span class="o">&gt;&gt;</span> <span class="nv">Obi</span> <span class="nv">Wan</span>: <span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">droid</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span>
+<span class="o">&gt;&gt;</span> <span class="n">You</span><span class="p">:</span> <span class="n">Is</span> <span class="n">this</span> <span class="n">R2D2</span><span class="err">?</span>
+<span class="o">&gt;&gt;</span> <span class="n">Obi</span> <span class="n">Wan</span><span class="p">:</span> <span class="n">This</span> <span class="k">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">droid</span> <span class="n">you</span> <span class="n">are</span> <span class="n">looking</span> <span class="k">for</span>
 </code></pre></div>
 
 
@@ -197,11 +197,11 @@
 <p>Moduły mogą być wbudowane (stworzone w pliku) jak i zewnętrzne np udostępnione przy pomocy <strong>npm</strong></p>
 <h3>Eksportowanie i importowanie wielu modułów z jednego pliku</h3>
 <p>Eksport poprzez blokowanie w klamrowe nawiasy -&gt; obiekt</p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">droidsFuncs</span><span class="p">.</span><span class="n">js</span>
-<span class="n">module</span><span class="p">.</span><span class="n">exports</span> <span class="o">=</span> <span class="err">{</span>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">droidsFuncs</span><span class="o">.</span><span class="n">js</span>
+<span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="p">{</span>
   <span class="n">findDroid</span><span class="p">;</span>
   <span class="n">makeDroid</span>
-<span class="err">}</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 
@@ -212,12 +212,12 @@
 <hr>
 <h3>Moduły ES(6)</h3>
 <p>Eksport jest podobne jak powyżej, ale dochodzi również opcja default</p>
-<div class="highlight"><pre><span></span><code><span class="n">export</span> <span class="k">default</span> <span class="n">DroidSeeker</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="n">default</span> <span class="n">DroidSeeker</span><span class="p">;</span>
 
-<span class="n">export</span> <span class="err">{</span>
+<span class="k">export</span> <span class="p">{</span>
   <span class="n">droid</span><span class="p">,</span>
   <span class="n">darthVader</span>
-<span class="err">}</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 
@@ -228,7 +228,7 @@
 
 
 <p>Wywołanie poprzez... (nazwa modułu + metoda)</p>
-<div class="highlight"><pre><span></span><code><span class="n">myModule</span><span class="p">.</span><span class="n">findDroid</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="err">myModule.findDroid()</span>
 </code></pre></div>
 
 
@@ -263,10 +263,10 @@ Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import N
 <p>// plik import.js (nazwa tablica jest nadana dopiero w pliku gdzie dane są importowane)</p>
 <p>import tablica from "./export.js"</p>
 <h4>Asynchroniczny import</h4>
-<div class="highlight"><pre><span></span><code><span class="nv">import</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/modules/my-module.js</span><span class="s1">&#39;</span><span class="ss">)</span>
-  .<span class="k">then</span><span class="ss">((</span><span class="nv">module</span><span class="ss">)</span> <span class="o">=&gt;</span> {
-    <span class="o">//</span> <span class="k">Do</span> <span class="nv">something</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">module</span>.
-  }<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">import(&#39;/modules/my-module.js&#39;)</span>
+<span class="err">  .then((module) =&gt; {</span>
+<span class="err">    // Do something with the module.</span>
+<span class="err">  });</span>
 </code></pre></div>
 
 

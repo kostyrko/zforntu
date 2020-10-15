@@ -164,15 +164,15 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 <hr>
 <h3>Wysyłanie żądania nastawione na odbiór danych</h3>
 <p>W pierwszej kolejności należy utworzyć obiekt XMLHttpRequest() odwołując się do notacji konstruktora typu XHR</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
 </code></pre></div>
 
 
 <p>Zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">seekUser</span><span class="p">()</span> <span class="err">{</span>
-    <span class="n">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
-    <span class="p">[.........]</span>
-    <span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="n">seekUser</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+    <span class="p">[</span><span class="o">.........</span><span class="p">]</span>
+    <span class="p">}</span>
 </code></pre></div>
 
 
@@ -182,17 +182,17 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 
 
 <p>Konfigurację należy zakończyć metodą <code>send()</code> -&gt; xhr.send(), która wysyła żądanie połączenia z serwerem, gdy dane nie są wysyłane (np. GET) wówczas argument domyślnie jest <code>null</code> / można również taką wartość wpisać, w przypadku wysyłania danych (POST) treść danych znajdzie się zamknięta pomiędzy nawiasami</p>
-<div class="highlight"><pre><span></span><code><span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">xhr.send(null)</span>
 </code></pre></div>
 
 
 <p>Zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
-    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
-    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
-    [......]
-    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="n">seekUser</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="err">`</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/$</span><span class="p">{</span><span class="n">inputTxt</span><span class="o">.</span><span class="n">value</span><span class="p">}</span><span class="err">`</span><span class="p">,</span> <span class="bp">true</span><span class="p">);</span>
+    <span class="p">[</span><span class="o">......</span><span class="p">]</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb nb-Type">null</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
@@ -200,27 +200,27 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 <h3>Oczekiwanie</h3>
 <p>Oczekiwanie na informację zwrotną może trwać mniej lub więcej czasu, ale informacja zwrotna nie jest dostępna natychmiast</p>
 <p>Po przesłaniu zapytania wywołana zostaje zdarzenie <code>onload</code> (w trakcie ładowania), do którego jest przypisana funkcja anonimowa odpowiedzialna za reakcję na zwróconą informację.</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">()</span> {
-        <span class="k">if</span><span class="ss">(</span><span class="nv">this</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">200</span><span class="ss">)</span> {...
-    }
+<div class="highlight"><pre><span></span><code>    <span class="n">xhr</span><span class="o">.</span><span class="n">onload</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span>
+    <span class="p">}</span>
 </code></pre></div>
 
 
 <p>Istotnymi zdarzeniami są <code>load</code> (połączenie zakończone pozytywnie, zostały dane zwrócone), <code>error</code> (błąd w połączeniu), <code>progress</code> (połączenie trwa) + <strong>abort</strong>(anulowanie połączenia) <strong>timeout</strong>(przekroczenie czasu połączenia) <strong>loadstart/loadend</strong>(rozpoczęcie/zakończenie połączenia)</p>
 <p>Zwrócone dane z serwera nie koniecznie muszą oznaczać jednoznacznie pozytywny wynik -&gt; może zostać zwrócony status błędu 404(brak strony), 500(błąd serwisu), 401(forbidden), stąd walidacje. W przypadku zwrócenia danych o które zapytano status połączenia powinien wynosić <strong>200</strong>. Praktykowana jest prosta walidacja oparta na <strong>if</strong></p>
 <p>Zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">gdzie</span> ${<span class="nv">inputTxt</span>.<span class="nv">value</span>} <span class="nv">nazwa</span> <span class="nv">u</span>ż<span class="nv">ytkownika</span> <span class="nv">np</span>. <span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span><span class="nv">kostyrko</span>
+<div class="highlight"><pre><span></span><code><span class="n">gdzie</span> <span class="o">$</span><span class="p">{</span><span class="n">inputTxt</span><span class="o">.</span><span class="n">value</span><span class="p">}</span> <span class="n">nazwa</span> <span class="n">użytkownika</span> <span class="n">np</span><span class="o">.</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">kostyrko</span>
 
-<span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
-    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
-    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">()</span> {
-        <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">200</span><span class="ss">)</span> {
-        [...]
-        }
-    }
-    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
-}
+<span class="n">function</span> <span class="n">seekUser</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="err">`</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/$</span><span class="p">{</span><span class="n">inputTxt</span><span class="o">.</span><span class="n">value</span><span class="p">}</span><span class="err">`</span><span class="p">,</span> <span class="bp">true</span><span class="p">);</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">onload</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">xhr</span><span class="o">.</span><span class="n">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb nb-Type">null</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
@@ -233,15 +233,15 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 <li>4 - Operacja została zakończona</li>
 </ul>
 <p>Zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
-    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
-    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">xhr</span>.<span class="nv">onreadystatechange</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">200</span><span class="s1">&#39;</span><span class="ss">)</span> {
-            [....]
-    }
-    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="n">seekUser</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="err">`</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/$</span><span class="p">{</span><span class="n">inputTxt</span><span class="o">.</span><span class="n">value</span><span class="p">}</span><span class="err">`</span><span class="p">,</span> <span class="bp">true</span><span class="p">);</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">onreadystatechange</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">xhr</span><span class="o">.</span><span class="n">readyState</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="n">xhr</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;200&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="p">[</span><span class="o">....</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb nb-Type">null</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
@@ -257,19 +257,19 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 </ul>
 <p>Treść odpowiedzi w formie tekstowej pozwala np. na konwersję do postaci JSON (<strong>JSON.parse</strong>) </p>
 <p>Zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">seekUser</span><span class="ss">()</span> {
-    <span class="nv">const</span> <span class="nv">xhr</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">;</span>
-    <span class="nv">xhr</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, `<span class="nv">https</span>:<span class="o">//</span><span class="nv">api</span>.<span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">users</span><span class="o">/</span>${<span class="nv">inputTxt</span>.<span class="nv">value</span>}`, <span class="nv">true</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">xhr</span>.<span class="nv">onload</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">()</span> {
-        <span class="k">if</span> <span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">readyState</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nv">xhr</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">200</span><span class="ss">)</span> {
-        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">typeof</span> <span class="nv">xhr</span>.<span class="nv">response</span><span class="ss">)</span><span class="c1">; // &gt;&gt; string</span>
-        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">response</span><span class="ss">)</span><span class="c1">; // &lt;dane&gt;</span>
-        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">typeof</span> <span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">; // &gt;&gt; string</span>
-        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">((</span><span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">xhr</span>.<span class="nv">responseText</span><span class="ss">))</span>.<span class="nv">email</span><span class="ss">)</span><span class="c1">; // &lt;email&gt;</span>
-        }
-    }
-    <span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="n">seekUser</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="err">`</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/$</span><span class="p">{</span><span class="n">inputTxt</span><span class="o">.</span><span class="n">value</span><span class="p">}</span><span class="err">`</span><span class="p">,</span> <span class="bp">true</span><span class="p">);</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">onload</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">xhr</span><span class="o">.</span><span class="n">readyState</span> <span class="o">===</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="n">xhr</span><span class="o">.</span><span class="n">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">typeof</span> <span class="n">xhr</span><span class="o">.</span><span class="n">response</span><span class="p">);</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">string</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">xhr</span><span class="o">.</span><span class="n">response</span><span class="p">);</span> <span class="o">//</span> <span class="o">&lt;</span><span class="n">dane</span><span class="o">&gt;</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">typeof</span> <span class="n">xhr</span><span class="o">.</span><span class="n">responseText</span><span class="p">);</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">string</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xhr</span><span class="o">.</span><span class="n">responseText</span><span class="p">))</span><span class="o">.</span><span class="n">email</span><span class="p">);</span> <span class="o">//</span> <span class="o">&lt;</span><span class="n">email</span><span class="o">&gt;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">xhr</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb nb-Type">null</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 
 

@@ -155,66 +155,66 @@
     <p>Gdy szukałem platformy do tworzenia bloga, wybór w pierwszej kolejności padł na Jakyll (Ruby on Rails), rozważałem również Hugo (Go), ostatecznie padło jednak na Pelicana bo ten "stoi" na Pythonie, choć jest dużo mniej popularny od wcześniej wspomnianych generatorów stron statycznych. W przyszłości planuję również wypróbować <a href="https://www.getlektor.com/">Lektora</a>, który również wywodzi się z Pythona</p>
 <p>W trakcie tworzenia bloga przy pomocy Pelicana korzystałem z informacji zawartych <a href="matthewdevaney.com">na tym blogu</a> posiłkując się informacjami zawartymi w dokumentacji Pelicana oraz Flexa (wybranego przeze mnie motywu) - patrz <a href="#zrodla">źródła</a>) jak i <a href="https://github.com/alexandrevicenzi/Flex/wiki/Flex-users">repozytoriów na githubie</a> wykorzystujących ten sam motyw. </p>
 <h3>Instalacja</h3>
-<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span>
+<div class="highlight"><pre><span></span><code><span class="err">pip install pelican</span>
+<span class="err">pip install markdown</span>
 </code></pre></div>
 
 
 <h3>Uruchomienie</h3>
-<div class="highlight"><pre><span></span><code><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<div class="highlight"><pre><span></span><code><span class="err">pelican-quickstart</span>
 </code></pre></div>
 
 
 <p>przygotowanie struktury folderów </p>
-<div class="highlight"><pre><span></span><code><span class="n">blog</span>
-  <span class="err">└──</span> <span class="k">output</span>
-  <span class="err">└──</span> <span class="k">source</span>
+<div class="highlight"><pre><span></span><code><span class="err">blog</span>
+<span class="err">  └── output</span>
+<span class="err">  └── source</span>
 </code></pre></div>
 
 
 <h3>Wypełnienie podstawowych informacji</h3>
-<div class="highlight"><pre><span></span><code><span class="nv">Where</span> <span class="k">do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">create</span> <span class="nv">your</span> <span class="nv">new</span> <span class="nv">web</span> <span class="nv">site</span>? [.] .
-# <span class="nv">wskazanie</span> <span class="nv">folderu</span> <span class="nv">w</span> <span class="nv">kt</span>ó<span class="nv">rym</span> <span class="nv">ma</span> <span class="nv">by</span>ć <span class="nv">zapisana</span> <span class="nv">strona</span>
-<span class="nv">What</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">title</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? ...<span class="nv">z</span> <span class="nv">frontu</span>
-# <span class="nv">nazwa</span>
-<span class="nv">Who</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">author</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? <span class="nv">kostyrko</span>
-# <span class="nv">autor</span> 
-<span class="nv">What</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">the</span> <span class="nv">default</span> <span class="nv">language</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">web</span> <span class="nv">site</span>? [<span class="nv">English</span>] <span class="nv">pl</span>
-# <span class="nv">j</span>ę<span class="nv">zyk</span>
-<span class="k">Do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">specify</span> <span class="nv">a</span> <span class="nv">URL</span> <span class="nv">prefix</span>? <span class="nv">e</span>.<span class="nv">g</span>., <span class="nv">https</span>:<span class="o">//</span><span class="nv">example</span>.<span class="nv">com</span>   <span class="ss">(</span><span class="nv">Y</span><span class="o">/</span><span class="nv">n</span><span class="ss">)</span> <span class="nv">n</span>
-# <span class="nv">wskazanie</span> <span class="nv">adresu</span> <span class="nv">strony</span>
-<span class="k">Do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">enable</span> <span class="nv">article</span> <span class="nv">pagination</span>? <span class="ss">(</span><span class="nv">Y</span><span class="o">/</span><span class="nv">n</span><span class="ss">)</span> <span class="nv">Y</span>
-# <span class="nv">ograniczona</span> <span class="nv">ilo</span>ść <span class="nv">post</span>ó<span class="nv">w</span><span class="o">/</span><span class="nv">artyku</span>łó<span class="nv">w</span> <span class="nv">na</span> <span class="nv">stronie</span> <span class="o">-</span> <span class="nv">paginacja</span>
-<span class="nv">What</span> <span class="nv">is</span> <span class="nv">your</span> <span class="nv">time</span> <span class="nv">zone</span>? [<span class="nv">Europe</span><span class="o">/</span><span class="nv">Paris</span>] <span class="nv">Europe</span><span class="o">/</span><span class="nv">Warsaw</span>
-# <span class="nv">strefa</span> <span class="nv">czasowa</span>
-<span class="k">Do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">generate</span> <span class="nv">a</span> <span class="nv">tasks</span>.<span class="nv">py</span><span class="o">/</span><span class="nv">Makefile</span> <span class="nv">to</span> <span class="nv">automate</span> <span class="nv">generation</span> <span class="nv">and</span> <span class="nv">publishing</span>? <span class="ss">(</span><span class="nv">Y</span><span class="o">/</span><span class="nv">n</span><span class="ss">)</span> <span class="nv">Y</span>
+<div class="highlight"><pre><span></span><code><span class="k">Where</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">.</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">wskazanie</span><span class="w"> </span><span class="n">folderu</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">którym</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="n">być</span><span class="w"> </span><span class="n">zapisana</span><span class="w"> </span><span class="n">strona</span><span class="w"></span>
+<span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="p">...</span><span class="n">z</span><span class="w"> </span><span class="n">frontu</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">nazwa</span><span class="w"></span>
+<span class="n">Who</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">kostyrko</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">autor</span><span class="w"> </span>
+<span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">language</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">English</span><span class="o">]</span><span class="w"> </span><span class="n">pl</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">język</span><span class="w"></span>
+<span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="k">prefix</span><span class="vm">?</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w">   </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">wskazanie</span><span class="w"> </span><span class="n">adresu</span><span class="w"> </span><span class="n">strony</span><span class="w"></span>
+<span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="n">pagination</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">Y</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">ograniczona</span><span class="w"> </span><span class="n">ilość</span><span class="w"> </span><span class="n">postów</span><span class="o">/</span><span class="n">artykułów</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="n">stronie</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">paginacja</span><span class="w"></span>
+<span class="n">What</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">zone</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">Europe/Paris</span><span class="o">]</span><span class="w"> </span><span class="n">Europe</span><span class="o">/</span><span class="n">Warsaw</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">strefa</span><span class="w"> </span><span class="n">czasowa</span><span class="w"></span>
+<span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tasks</span><span class="p">.</span><span class="n">py</span><span class="o">/</span><span class="n">Makefile</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">automate</span><span class="w"> </span><span class="n">generation</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">publishing</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">Y</span><span class="w"></span>
 </code></pre></div>
 
 
 <p>Powyżej zawarte informacje będą zawarte w pliku pelicanconf.py i można je zmienić
 Uzyskany efekt:</p>
-<div class="highlight"><pre><span></span><code><span class="n">blog</span>
-  <span class="err">├──</span>  <span class="k">output</span>
-  <span class="err">└──</span> <span class="k">source</span>
-      <span class="err">├──</span> <span class="n">content</span> <span class="p">(</span><span class="n">folder</span><span class="p">)</span>
-      <span class="err">├──</span> <span class="k">output</span> <span class="p">(</span><span class="n">folder</span><span class="p">)</span>
-      <span class="err">├──</span> <span class="n">pelicanconf</span><span class="p">.</span><span class="n">py</span>
-      <span class="err">└──</span> <span class="n">publishconf</span><span class="p">.</span><span class="n">py</span>
+<div class="highlight"><pre><span></span><code><span class="err">blog</span>
+<span class="err">  ├──  output</span>
+<span class="err">  └── source</span>
+<span class="err">      ├── content (folder)</span>
+<span class="err">      ├── output (folder)</span>
+<span class="err">      ├── pelicanconf.py</span>
+<span class="err">      └── publishconf.py</span>
 </code></pre></div>
 
 
 <p>w pliku pelicanconf.py definiujemy miejsce w którym będzie generować się statyczna strona</p>
-<div class="highlight"><pre><span></span><code><span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="s1">&#39;../output&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="err">OUTPUT_PATH = &#39;../output&#39;</span>
 </code></pre></div>
 
 
 <p>Tworzymy zawartość strony komendą:</p>
-<div class="highlight"><pre><span></span><code><span class="n">pelican</span> <span class="n">content</span>
+<div class="highlight"><pre><span></span><code><span class="err">pelican content</span>
 </code></pre></div>
 
 
 <p>Tworzymy server lokalny pozwalający na przeglądanie strony (:8000)</p>
-<div class="highlight"><pre><span></span><code><span class="n">pelican</span> <span class="c1">--listen</span>
+<div class="highlight"><pre><span></span><code><span class="err">pelican --listen</span>
 </code></pre></div>
 
 

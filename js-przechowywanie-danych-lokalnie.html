@@ -197,16 +197,16 @@ Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zap
 
 <p>Istotne jest to że pamięć lokalna przeglądarki może przechowywać jedynie łańcuchy znaków (stringi) w tym również stringi JSON
 stąd często stosuje się metody interpolujące obiekty lub tablice do tego formatu stosując metody <code>JSON.stringify()</code> zmień w JSON string oraz <code>JSON.parse()</code> (tworzy obiekt opisany przez JSON string)</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">newDroid</span> <span class="o">=</span> <span class="err">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="ss">&quot;r2d2&quot;</span><span class="p">,</span>
-  <span class="k">type</span><span class="p">:</span> <span class="ss">&quot;Astromech droid&quot;</span><span class="p">,</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">newDroid</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;r2d2&quot;</span><span class="p">,</span>
+  <span class="n">type</span><span class="p">:</span> <span class="s2">&quot;Astromech droid&quot;</span><span class="p">,</span>
+<span class="p">}</span>
 
-<span class="n">window</span><span class="p">.</span><span class="n">localStorage</span><span class="p">.</span><span class="n">setItem</span><span class="p">(</span><span class="s1">&#39;newDroid&#39;</span><span class="p">,</span> <span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">newDroid</span><span class="p">));</span>
+<span class="n">window</span><span class="o">.</span><span class="n">localStorage</span><span class="o">.</span><span class="n">setItem</span><span class="p">(</span><span class="s1">&#39;newDroid&#39;</span><span class="p">,</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">newDroid</span><span class="p">));</span>
 
-<span class="n">window</span><span class="p">.</span><span class="n">localStorage</span><span class="p">.</span><span class="n">getItem</span><span class="p">(</span><span class="s1">&#39;newDroid&#39;</span><span class="p">);</span>
+<span class="n">window</span><span class="o">.</span><span class="n">localStorage</span><span class="o">.</span><span class="n">getItem</span><span class="p">(</span><span class="s1">&#39;newDroid&#39;</span><span class="p">);</span>
 
-<span class="o">&gt;&gt;</span> <span class="ss">&quot;{&quot;</span><span class="n">name</span><span class="ss">&quot;:&quot;</span><span class="n">r2d2</span><span class="ss">&quot;,&quot;</span><span class="k">type</span><span class="ss">&quot;:&quot;</span><span class="n">Astromech</span> <span class="n">droid</span><span class="ss">&quot;}&quot;</span>
+<span class="o">&gt;&gt;</span> <span class="s2">&quot;{&quot;</span><span class="n">name</span><span class="s2">&quot;:&quot;</span><span class="n">r2d2</span><span class="s2">&quot;,&quot;</span><span class="n">type</span><span class="s2">&quot;:&quot;</span><span class="n">Astromech</span> <span class="n">droid</span><span class="s2">&quot;}&quot;</span>
 </code></pre></div>
 
 
@@ -230,28 +230,28 @@ stąd często stosuje się metody interpolujące obiekty lub tablice do tego for
       tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     tasks.push(task);</p>
-<div class="highlight"><pre><span></span><code><span class="n">localStorage</span><span class="p">.</span><span class="n">setItem</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">tasks</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="err">localStorage.setItem(&#39;tasks&#39;, JSON.stringify(tasks));</span>
 </code></pre></div>
 
 
 <p>}</p>
 <p>usunięcie elementu z lokalnej pamięci</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">removeTaskFromLocalStorage</span><span class="ss">(</span><span class="nv">taskItem</span><span class="ss">)</span> {
-  <span class="nv">let</span> <span class="nv">tasks</span><span class="c1">;</span>
-  <span class="k">if</span><span class="ss">(</span><span class="nv">localStorage</span>.<span class="nv">getItem</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">tasks</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">===</span> <span class="nv">null</span><span class="ss">)</span>{
-    <span class="nv">tasks</span> <span class="o">=</span> []<span class="c1">;</span>
-  } <span class="k">else</span> {
-    <span class="nv">tasks</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="nv">localStorage</span>.<span class="nv">getItem</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">tasks</span><span class="s1">&#39;</span><span class="ss">))</span><span class="c1">;</span>
-  }
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">removeTaskFromLocalStorage</span><span class="p">(</span><span class="n">taskItem</span><span class="p">)</span> <span class="err">{</span>
+  <span class="n">let</span> <span class="n">tasks</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">localStorage</span><span class="p">.</span><span class="n">getItem</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span><span class="err">{</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="err">}</span> <span class="k">else</span> <span class="err">{</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">localStorage</span><span class="p">.</span><span class="n">getItem</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">));</span>
+  <span class="err">}</span>
 
-  <span class="nv">tasks</span>.<span class="nv">forEach</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">task</span>, <span class="nv">index</span><span class="ss">)</span>{
-    <span class="k">if</span><span class="ss">(</span><span class="nv">taskItem</span>.<span class="nv">textContent</span> <span class="o">===</span> <span class="nv">task</span><span class="ss">)</span> {
-      <span class="nv">tasks</span>.<span class="nv">splice</span><span class="ss">(</span><span class="nv">index</span>, <span class="mi">1</span><span class="ss">)</span><span class="c1">;</span>
-    }
-  }<span class="ss">)</span><span class="c1">;</span>
+  <span class="n">tasks</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="k">index</span><span class="p">)</span><span class="err">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">taskItem</span><span class="p">.</span><span class="n">textContent</span> <span class="o">===</span> <span class="n">task</span><span class="p">)</span> <span class="err">{</span>
+      <span class="n">tasks</span><span class="p">.</span><span class="n">splice</span><span class="p">(</span><span class="k">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="err">}</span>
+  <span class="err">}</span><span class="p">);</span>
 
-  <span class="nv">localStorage</span>.<span class="nv">setItem</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">tasks</span><span class="s1">&#39;</span>, <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">tasks</span><span class="ss">))</span><span class="c1">;</span>
-}
+  <span class="n">localStorage</span><span class="p">.</span><span class="n">setItem</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">tasks</span><span class="p">));</span>
+<span class="err">}</span>
 </code></pre></div>
 
 

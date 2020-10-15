@@ -165,20 +165,20 @@
   <div>
       <p><strong><code>Object.assign()</code></strong> - kopiuje/klonuje wszystkie elementy jednego lub więcej elementu do określonego elementu</p>
 <p>Schemat:</p>
-<div class="highlight"><pre><span></span><code><span class="n">returnedTarget</span> <span class="o">=</span> <span class="k">Object</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="k">source</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">returnedTarget = Object.assign(target, source);</span>
 </code></pre></div>
 
 
 <p>Przykłady</p>
-<div class="highlight"><pre><span></span><code><span class="nt">const</span> <span class="nt">obiekt</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span><span class="o">;</span>
-<span class="nt">const</span> <span class="nt">kopia</span> <span class="o">=</span> <span class="nt">Object</span><span class="p">.</span><span class="nc">assign</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">obiekt</span><span class="o">);</span>
-<span class="o">//</span> <span class="nt">kopia</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">obiekt</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+<span class="k">const</span> <span class="n">kopia</span> <span class="o">=</span> <span class="nb nb-Type">Object</span><span class="o">.</span><span class="n">assign</span><span class="p">({},</span> <span class="n">obiekt</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">kopia</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
 
-<span class="nt">const</span> <span class="nt">o1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span><span class="o">;</span>
-<span class="nt">const</span> <span class="nt">o2</span> <span class="o">=</span> <span class="p">{</span> <span class="n">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span><span class="o">;</span>
-<span class="nt">const</span> <span class="nt">o3</span> <span class="o">=</span> <span class="p">{</span> <span class="n">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span><span class="o">;</span>
+<span class="k">const</span> <span class="n">o1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+<span class="k">const</span> <span class="n">o2</span> <span class="o">=</span> <span class="p">{</span> <span class="n">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">};</span>
+<span class="k">const</span> <span class="n">o3</span> <span class="o">=</span> <span class="p">{</span> <span class="n">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">};</span>
 
-<span class="nt">const</span> <span class="nt">obj</span> <span class="o">=</span> <span class="nt">Object</span><span class="p">.</span><span class="nc">assign</span><span class="o">(</span><span class="nt">o1</span><span class="o">,</span> <span class="nt">o2 …</span></code></pre></div>
+<span class="k">const</span> <span class="n">obj</span> <span class="o">=</span> <span class="nb nb-Type">Object</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span> <span class="n">o2 …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-obiekt-metody.html">Czytaj dalej</a>
   </div>
@@ -247,19 +247,19 @@
   <div>
       <h3>Tablice</h3>
 <p>Tworzenie tablicy</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 
 
 <p>::: istnieje możliwość również przez funkcję konstruktora <code>new Array()</code></p>
 <p>Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Array</span><span class="p">.</span><span class="n">isArray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">//</span> <span class="k">true</span> <span class="p">(</span><span class="o">/</span><span class="k">false</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">Array.isArray(arr) // true (/false)</span>
 </code></pre></div>
 
 
 <p>Dodawanie wartości do tablicy</p>
-<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">arr</span> <span class="o">//</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="err">arr[2] = 20</span>
+<span class="err">arr // [1,2,20,3,4]</span>
 </code></pre></div>
 
 
@@ -282,8 +282,8 @@
   </header>
   <div>
       <p>Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.</p>
-<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">Arr</span> <span class="o">=</span> <span class="p">[];</span> <span class="o">//</span> <span class="n">pusta</span> <span class="n">tablica</span>
-<span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="ss">&quot;Mikolaj&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="ss">&quot;kwiecień&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="err">let Arr = []; // pusta tablica</span>
+<span class="err">let arr = [&quot;Mikolaj&quot;, 2020, &quot;kwiecień&quot;, 17.04];</span>
 </code></pre></div>
 
 

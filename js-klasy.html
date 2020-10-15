@@ -153,65 +153,65 @@
 
   <div>
     <p>Klasy pozwalają na przypisanie metod bezpośrednio do (prototypów) obiektów przy pomocy jednego bloku (od ES6)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">Droid</span> {
-    <span class="nv">constructor</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span><span class="ss">)</span> {
-        <span class="nv">this</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">name</span><span class="c1">;</span>
-        <span class="nv">this</span>.<span class="nv">occupation</span> <span class="o">=</span> <span class="nv">occupation</span><span class="c1">;</span>
-    }
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="p">{</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">occupation</span> <span class="o">=</span> <span class="n">occupation</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span class="nv">logDroid</span><span class="ss">()</span> {
-        <span class="k">return</span> `<span class="nv">this</span> <span class="nv">is</span> ${<span class="nv">this</span>.<span class="nv">name</span>} <span class="nv">a</span> ${<span class="nv">this</span>.<span class="nv">occupation</span>} <span class="o">//</span> <span class="nv">metoda</span> <span class="nv">prototypowa</span> <span class="o">-&gt;</span> <span class="nv">__proto__</span>: <span class="nv">Object</span>
-    }
-}
+    <span class="n">logDroid</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="err">`</span><span class="n">this</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">}</span> <span class="n">a</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">occupation</span><span class="p">}</span> <span class="o">//</span> <span class="n">metoda</span> <span class="n">prototypowa</span> <span class="o">-&gt;</span> <span class="n">__proto__</span><span class="p">:</span> <span class="nb nb-Type">Object</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="nv">const</span> <span class="nv">c3po</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Droid</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">C-3PO</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Protocol droid</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">r2d2</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Droid</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">R2-D2</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Astromech droid</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">c3po</span><span class="ss">)</span>
-<span class="o">&gt;&gt;</span> <span class="nv">Droid</span> {
-    <span class="nv">name</span>:<span class="s2">&quot;</span><span class="s">C-3PO</span><span class="s2">&quot;</span>,
-    <span class="nv">occupation</span>:<span class="s2">&quot;</span><span class="s">Protocol droid</span><span class="s2">&quot;</span>
-    }
+<span class="k">const</span> <span class="n">c3po</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s1">&#39;C-3PO&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol droid&#39;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">r2d2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s1">&#39;R2-D2&#39;</span><span class="p">,</span> <span class="s1">&#39;Astromech droid&#39;</span><span class="p">);</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">c3po</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">Droid</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span><span class="s2">&quot;C-3PO&quot;</span><span class="p">,</span>
+    <span class="n">occupation</span><span class="p">:</span><span class="s2">&quot;Protocol droid&quot;</span>
+    <span class="p">}</span>
 </code></pre></div>
 
 
 <p>W ramach klasy można również przypisać metody statyczne - takie, które nie wymagają wprowadzenie danych do funkcji konstruktora, muszą być jednak poprzedzone słowem kluczem <code>static</code></p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">Droid</span> {
-    <span class="nv">constructor</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span><span class="ss">)</span> {
-        <span class="nv">this</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">name</span><span class="c1">;</span>
-        <span class="nv">this</span>.<span class="nv">occupation</span> <span class="o">=</span> <span class="nv">occupation</span><span class="c1">;</span>
-    }
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="p">{</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">occupation</span> <span class="o">=</span> <span class="n">occupation</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span class="nv">logDroid</span><span class="ss">()</span> {
-        <span class="k">return</span> `<span class="nv">this</span> <span class="nv">is</span> ${<span class="nv">this</span>.<span class="nv">name</span>} <span class="nv">a</span> ${<span class="nv">this</span>.<span class="nv">occupation</span>}`
-    }
-    <span class="nv">static</span> <span class="nv">greetings</span><span class="ss">(</span><span class="nv">stranger</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">you</span><span class="s2">&quot;</span><span class="ss">)</span>{
-      <span class="k">return</span> `<span class="nv">Hey</span> ${<span class="nv">stranger</span>}`<span class="c1">;</span>
-    }
+    <span class="n">logDroid</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="err">`</span><span class="n">this</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">}</span> <span class="n">a</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">occupation</span><span class="p">}</span><span class="err">`</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="n">greetings</span><span class="p">(</span><span class="n">stranger</span><span class="o">=</span><span class="s2">&quot;you&quot;</span><span class="p">){</span>
+      <span class="k">return</span> <span class="err">`</span><span class="n">Hey</span> <span class="o">$</span><span class="p">{</span><span class="n">stranger</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
+    <span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">Droid</span>.<span class="nv">greetings</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">IG-88</span><span class="s2">&quot;</span><span class="ss">))</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Droid</span><span class="o">.</span><span class="n">greetings</span><span class="p">(</span><span class="s2">&quot;IG-88&quot;</span><span class="p">))</span>
 
-<span class="o">&gt;&gt;</span> <span class="nv">Hey</span> <span class="nv">IG</span><span class="o">-</span><span class="mi">88</span>
+<span class="o">&gt;&gt;</span> <span class="n">Hey</span> <span class="n">IG</span><span class="o">-</span><span class="mi">88</span>
 </code></pre></div>
 
 
 <h4>Pod-klasy/ sub-classes</h4>
 <p>Podklasy wprowadzone od ES6 są klasami stworzonymi na podstawie istniejących już klas i od nich dziedziczą podstawowe właściwości (jest to klonowanie istniejącej klasy z dodaniem nowych właściwości)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">Droid</span> { <span class="o">//</span> <span class="nv">klasa</span> <span class="nv">wyj</span>ś<span class="nv">ciowa</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="s">rodzic</span><span class="s2">&quot;</span>
-    <span class="nv">constructor</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span><span class="ss">)</span> {
-        <span class="nv">this</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">name</span><span class="c1">;</span>
-        <span class="nv">this</span>.<span class="nv">occupation</span> <span class="o">=</span> <span class="nv">occupation</span><span class="c1">;</span>
-    }
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="p">{</span> <span class="o">//</span> <span class="n">klasa</span> <span class="n">wyjściowa</span> <span class="o">=&gt;</span> <span class="s2">&quot;rodzic&quot;</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">occupation</span> <span class="o">=</span> <span class="n">occupation</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span class="nv">logDroid</span><span class="ss">()</span> {
-        <span class="k">return</span> `<span class="nv">this</span> <span class="nv">is</span> ${<span class="nv">this</span>.<span class="nv">name</span>} <span class="nv">a</span> ${<span class="nv">this</span>.<span class="nv">occupation</span>}`
-    }
+    <span class="n">logDroid</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="err">`</span><span class="n">this</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">}</span> <span class="n">a</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">occupation</span><span class="p">}</span><span class="err">`</span>
+    <span class="p">}</span>
 
-    <span class="nv">static</span> <span class="nv">greetings</span><span class="ss">(</span><span class="nv">stranger</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">you</span><span class="s2">&quot;</span><span class="ss">)</span>{
-      <span class="k">return</span> `<span class="nv">Hey</span> ${<span class="nv">stranger</span>}`<span class="c1">;</span>
-    }
-}
+    <span class="k">static</span> <span class="n">greetings</span><span class="p">(</span><span class="n">stranger</span><span class="o">=</span><span class="s2">&quot;you&quot;</span><span class="p">){</span>
+      <span class="k">return</span> <span class="err">`</span><span class="n">Hey</span> <span class="o">$</span><span class="p">{</span><span class="n">stranger</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
@@ -219,56 +219,56 @@
 <p>Słowo kluczowe super uruchamia przy dziedziczeniu funkcjonalność prototypu/klasy -&gt; używamy argumenty, które znajdują się u rodzica = super(name, occupation) ponieważ u rodzica constructor(name, occupation) i to znajdzie się wewnątrz konstruktora dziecka, które również zawiera argumenty dla rodzica jako argumenty konstruktora = constructor(name, occupation,  height, homeWorld). To nie jest jednak wymagane w momencie gdy klasie dziedziczącej nie są przypisywane nowe właściwości np. kiedy przypisywane są jedynie nowe metody ("funkcje") - wówczas nowa klasa wykorzystuje konstruktor rodzica.</p>
 <p>Jeśli chcemy odwołać się do dziedziczonej funkcji, wówczas poprzedzamy ją słowem kluczowym super np. super.logDroid()</p>
 <p>Rozszerzenie klasy Droid klasą ProtocolDroid // tworzącym tym samym pod klasę klasy Droid</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">ProtocolDroid</span> <span class="nv">extends</span> <span class="nv">Droid</span> {
-    <span class="nv">constructor</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span>,  <span class="nv">height</span>, <span class="nv">homeWorld</span><span class="ss">)</span> {
-        <span class="nv">super</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span><span class="ss">)</span><span class="c1">; // odwołanie się do konstruktora rodzica</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">ProtocolDroid</span> <span class="k">extends</span> <span class="n">Droid</span> <span class="p">{</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">,</span>  <span class="n">height</span><span class="p">,</span> <span class="n">homeWorld</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">super</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">);</span> <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">konstruktora</span> <span class="n">rodzica</span>
 
-        <span class="nv">this</span>.<span class="nv">height</span> <span class="o">=</span> <span class="nv">height</span><span class="c1">;</span>
-        <span class="nv">this</span>.<span class="nv">homeWorld</span> <span class="o">=</span> <span class="nv">homeWorld</span><span class="c1">;</span>
-    }
-}
+        <span class="n">this</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">homeWorld</span> <span class="o">=</span> <span class="n">homeWorld</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="nv">const</span> <span class="nv">c3po</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">ProtocolDroid</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">C-3PO</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Protocol droid</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">1.75</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Tatooine</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">me8d9</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">ProtocolDroid</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">ME-8D9</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Protocol droid</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">1.72</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Takodana</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">me8d9</span><span class="ss">)</span><span class="c1">;</span>
+<span class="k">const</span> <span class="n">c3po</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ProtocolDroid</span><span class="p">(</span><span class="s1">&#39;C-3PO&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol droid&#39;</span><span class="p">,</span> <span class="s1">&#39;1.75&#39;</span><span class="p">,</span> <span class="s1">&#39;Tatooine&#39;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">me8d9</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ProtocolDroid</span><span class="p">(</span><span class="s1">&#39;ME-8D9&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol droid&#39;</span><span class="p">,</span> <span class="s1">&#39;1.72&#39;</span><span class="p">,</span> <span class="s1">&#39;Takodana&#39;</span><span class="p">);</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">me8d9</span><span class="p">);</span>
 
-<span class="o">&gt;&gt;</span> <span class="nv">ProtocolDroid</span> {
-    <span class="nv">name</span>:<span class="s2">&quot;</span><span class="s">ME-8D9</span><span class="s2">&quot;</span>,
-    <span class="nv">occupation</span>:<span class="s2">&quot;</span><span class="s">Protocol droid</span><span class="s2">&quot;</span>,
-    <span class="nv">height</span>:<span class="s2">&quot;</span><span class="s">1.72</span><span class="s2">&quot;</span>,
-    <span class="nv">homeWorld</span>:<span class="s2">&quot;</span><span class="s">Takodana</span><span class="s2">&quot;</span>
-    } <span class="o">//</span> <span class="nv">__proto__</span> : <span class="nv">Droid</span>
+<span class="o">&gt;&gt;</span> <span class="n">ProtocolDroid</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span><span class="s2">&quot;ME-8D9&quot;</span><span class="p">,</span>
+    <span class="n">occupation</span><span class="p">:</span><span class="s2">&quot;Protocol droid&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span><span class="s2">&quot;1.72&quot;</span><span class="p">,</span>
+    <span class="n">homeWorld</span><span class="p">:</span><span class="s2">&quot;Takodana&quot;</span>
+    <span class="p">}</span> <span class="o">//</span> <span class="n">__proto__</span> <span class="p">:</span> <span class="n">Droid</span>
 
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">me8d9</span>.<span class="nv">logDroid</span><span class="ss">())</span> <span class="o">//</span> <span class="nv">odwo</span>ł<span class="nv">anie</span> <span class="nv">si</span>ę <span class="k">do</span> <span class="nv">metody</span> <span class="nv">rodzica</span> <span class="o">-</span> <span class="nv">dziedziczenie</span> <span class="nv">metod</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">me8d9</span><span class="o">.</span><span class="n">logDroid</span><span class="p">())</span> <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">metody</span> <span class="n">rodzica</span> <span class="o">-</span> <span class="n">dziedziczenie</span> <span class="n">metod</span>
 
-<span class="o">&gt;&gt;</span> <span class="nv">this</span> <span class="nv">is</span> <span class="nv">ME</span><span class="o">-</span><span class="mi">8</span><span class="nv">D9</span> <span class="nv">a</span> <span class="nv">Protocol</span> <span class="nv">droid</span>
+<span class="o">&gt;&gt;</span> <span class="n">this</span> <span class="k">is</span> <span class="n">ME</span><span class="o">-</span><span class="mi">8</span><span class="n">D9</span> <span class="n">a</span> <span class="n">Protocol</span> <span class="n">droid</span>
 
-```<span class="nv">JavaScript</span>
-<span class="nv">class</span> <span class="nv">ProtocolDroid</span> <span class="nv">extends</span> <span class="nv">Droid</span> {
-    <span class="nv">constructor</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span>,  <span class="nv">height</span>, <span class="nv">homeWorld</span><span class="ss">)</span> {
-        <span class="nv">super</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span><span class="ss">)</span><span class="c1">; // odwołanie się do konstruktora rodzica</span>
+<span class="err">```</span><span class="n">JavaScript</span>
+<span class="k">class</span> <span class="n">ProtocolDroid</span> <span class="k">extends</span> <span class="n">Droid</span> <span class="p">{</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">,</span>  <span class="n">height</span><span class="p">,</span> <span class="n">homeWorld</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">super</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">);</span> <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">konstruktora</span> <span class="n">rodzica</span>
 
-        <span class="nv">this</span>.<span class="nv">height</span> <span class="o">=</span> <span class="nv">height</span><span class="c1">;</span>
-        <span class="nv">this</span>.<span class="nv">homeWorld</span> <span class="o">=</span> <span class="nv">homeWorld</span><span class="c1">;</span>
-    }
-    <span class="o">//</span> <span class="k">DO</span> <span class="nv">SPRAWDZENIA</span>
-    <span class="nv">talkToMe</span><span class="ss">()</span> {
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="s">talk to me! - </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">super</span>.<span class="nv">logDroid</span><span class="ss">()</span>
-    }
-    <span class="nv">static</span> <span class="nv">learnNewLanguage</span><span class="ss">()</span> { <span class="o">//</span> <span class="nv">stworzenie</span> <span class="nv">nowej</span> <span class="nv">w</span>ł<span class="nv">asnej</span> <span class="nv">metody</span> <span class="nv">statycznej</span>
-        <span class="k">return</span> `<span class="nv">I</span> <span class="nv">am</span> <span class="nv">unable</span> <span class="nv">to</span> <span class="nv">learn</span> <span class="nv">new</span> <span class="nv">languages</span>`
-    }
-}
+        <span class="n">this</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">homeWorld</span> <span class="o">=</span> <span class="n">homeWorld</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">//</span> <span class="n">DO</span> <span class="n">SPRAWDZENIA</span>
+    <span class="n">talkToMe</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;talk to me! - &quot;</span> <span class="o">+</span> <span class="n">super</span><span class="o">.</span><span class="n">logDroid</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="n">learnNewLanguage</span><span class="p">()</span> <span class="p">{</span> <span class="o">//</span> <span class="n">stworzenie</span> <span class="n">nowej</span> <span class="n">własnej</span> <span class="n">metody</span> <span class="n">statycznej</span>
+        <span class="k">return</span> <span class="err">`</span><span class="n">I</span> <span class="n">am</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">new</span> <span class="n">languages</span><span class="err">`</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">ProtocolDroid</span>.<span class="nv">learnNewLanguage</span><span class="ss">())</span>
-<span class="o">&gt;&gt;</span> `<span class="nv">I</span> <span class="nv">am</span> <span class="nv">unable</span> <span class="nv">to</span> <span class="nv">learn</span> <span class="nv">new</span> <span class="nv">languages</span>`
-```
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ProtocolDroid</span><span class="o">.</span><span class="n">learnNewLanguage</span><span class="p">())</span>
+<span class="o">&gt;&gt;</span> <span class="err">`</span><span class="n">I</span> <span class="n">am</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">new</span> <span class="n">languages</span><span class="err">`</span>
+<span class="err">```</span>
 </code></pre></div>
 
 
 <p>Istnieje możliwość odwołania się do dziedziczonej metody statycznej np.</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">ProtocolDroid</span><span class="p">.</span><span class="n">greetings</span><span class="p">(</span><span class="ss">&quot;IG-88&quot;</span><span class="p">))</span>
-    <span class="o">&gt;&gt;</span> <span class="n">Hey</span> <span class="n">IG</span><span class="o">-</span><span class="mi">88</span>
+<div class="highlight"><pre><span></span><code><span class="err">    console.log(ProtocolDroid.greetings(&quot;IG-88&quot;))</span>
+<span class="err">    &gt;&gt; Hey IG-88</span>
 </code></pre></div>
 
 

@@ -161,12 +161,12 @@ Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. pr
 <p><img alt="react context api" src="https://www.carlrippon.com/static/0d1f722d0fe4c2bc4c3d71595dbe67dd/799d3/prop-drilling-v-context.png"></p>
 <h3>Praca z kontekstem</h3>
 <p>W pierwszej kolejności należy stworzyć obiekt kontekstowy w który przekazujemy zdefiniowany kontekst/dane do przekazania </p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">MyContext</span> <span class="o">=</span> <span class="n">React</span><span class="p">.</span><span class="n">createContext</span><span class="p">(</span><span class="n">defaultValue</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">MyContext</span> <span class="o">=</span> <span class="n">React</span><span class="o">.</span><span class="n">createContext</span><span class="p">(</span><span class="n">defaultValue</span><span class="p">);</span>
 </code></pre></div>
 
 
 <p>Komponent <em>providera</em> przetrzymuje wartość jaką "konsumencki" komponent będzie wykorzystywał</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">MyContext</span><span class="p">.</span><span class="n">Provider</span> <span class="n">value</span><span class="o">=</span><span class="err">{</span><span class="cm">/* jakaś wartość */</span><span class="err">}</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;MyContext.Provider value={/* jakaś wartość */}&gt;</span>
 </code></pre></div>
 
 
@@ -220,42 +220,42 @@ Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. pr
 <hr>
 <h3>Przykład zastosowania Context API</h3>
 <p>Poniższy przykład za <a href="https://reactjs.org/docs/hooks-reference.html#usecontext">reactjs.org - Hooks API Reference</a></p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">themes</span> <span class="o">=</span> {
-  <span class="nv">light</span>: {
-    <span class="nv">foreground</span>: <span class="s2">&quot;</span><span class="s">#000000</span><span class="s2">&quot;</span>,
-    <span class="nv">background</span>: <span class="s2">&quot;</span><span class="s">#eeeeee</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>const themes = {
+  light: {
+    foreground: &quot;#000000&quot;,
+    background: &quot;#eeeeee&quot;
   },
-  <span class="nv">dark</span>: {
-    <span class="nv">foreground</span>: <span class="s2">&quot;</span><span class="s">#ffffff</span><span class="s2">&quot;</span>,
-    <span class="nv">background</span>: <span class="s2">&quot;</span><span class="s">#222222</span><span class="s2">&quot;</span>
+  dark: {
+    foreground: &quot;#ffffff&quot;,
+    background: &quot;#222222&quot;
   }
-}<span class="c1">;</span>
+};
 
-<span class="nv">const</span> <span class="nv">ThemeContext</span> <span class="o">=</span> <span class="nv">React</span>.<span class="nv">createContext</span><span class="ss">(</span><span class="nv">themes</span>.<span class="nv">light</span><span class="ss">)</span><span class="c1">;</span>
+const ThemeContext = React.createContext(themes.light);
 
-<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">ThemeContext</span>.<span class="nv">Provider</span> <span class="nv">value</span><span class="o">=</span>{<span class="nv">themes</span>.<span class="nv">dark</span>}<span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">Toolbar</span> <span class="o">/&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">ThemeContext</span>.<span class="nv">Provider</span><span class="o">&gt;</span>
-  <span class="ss">)</span><span class="c1">;</span>
+function App() {
+  return (
+    <span class="nt">&lt;ThemeContext.Provider</span> <span class="na">value=</span><span class="s">{themes.dark}</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Toolbar</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ThemeContext.Provider&gt;</span>
+  );
 }
 
-<span class="nv">function</span> <span class="nv">Toolbar</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">ThemedButton</span> <span class="o">/&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-  <span class="ss">)</span><span class="c1">;</span>
+function Toolbar(props) {
+  return (
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;ThemedButton</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  );
 }
 
-<span class="nv">function</span> <span class="nv">ThemedButton</span><span class="ss">()</span> {
-  <span class="nv">const</span> <span class="nv">theme</span> <span class="o">=</span> <span class="nv">useContext</span><span class="ss">(</span><span class="nv">ThemeContext</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">button</span> <span class="nv">style</span><span class="o">=</span>{{ <span class="nv">background</span>: <span class="nv">theme</span>.<span class="nv">background</span>, <span class="nv">color</span>: <span class="nv">theme</span>.<span class="nv">foreground</span> }}<span class="o">&gt;</span>
-      <span class="nv">I</span> <span class="nv">am</span> <span class="nv">styled</span> <span class="nv">by</span> <span class="nv">theme</span> <span class="nv">context</span><span class="o">!</span>
-    <span class="o">&lt;/</span><span class="nv">button</span><span class="o">&gt;</span>
-  <span class="ss">)</span><span class="c1">;</span>
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+  return (
+    <span class="nt">&lt;button</span> <span class="na">style=</span><span class="cp">{{</span> <span class="nv">background</span><span class="o">:</span> <span class="nv">theme.background</span><span class="o">,</span> <span class="nv">color</span><span class="o">:</span> <span class="nv">theme.foreground</span> <span class="cp">}}</span><span class="err">&gt;</span>
+      <span class="s">I</span> <span class="err">am</span> <span class="err">styled</span> <span class="err">by</span> <span class="err">theme</span> <span class="err">context!</span>
+    <span class="err">&lt;/button</span><span class="nt">&gt;</span>
+  );
 }
 </code></pre></div>
 

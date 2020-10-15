@@ -159,9 +159,9 @@
 <code>none</code> - nie pływaj
 <code>inherit</code></p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nt">img</span> <span class="p">{</span>
-  <span class="k">float</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">img {</span>
+<span class="err">  float: right;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -187,14 +187,14 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 <h3>Clearfix/Floatfix</h3>
 <p>Metody na pozbycie się funkcji float u dzieci pływającego rodzica</p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code>  <span class="p">.</span><span class="nc">clearfix</span><span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
-    <span class="err">&lt;!--</span> <span class="err">dodaje</span> <span class="err">niewidzialny</span> <span class="err">element/treść</span> <span class="err">--&gt;</span>
-    <span class="k">content</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-    <span class="err">&lt;!--</span> <span class="err">elementy</span> <span class="err">pływające</span> <span class="err">po</span> <span class="err">żadnej</span> <span class="err">ze</span> <span class="err">stron</span> <span class="err">--&gt;</span>
-    <span class="k">clear</span><span class="p">:</span> <span class="kc">both</span><span class="p">;</span>
-    <span class="err">&lt;!--</span> <span class="err">element</span> <span class="err">zachowuje</span> <span class="err">się</span> <span class="err">jako</span> <span class="err">tabela</span> <span class="err">--&gt;</span>
-    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="p">;</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">  .clearfix::after {</span>
+<span class="err">    &lt;!-- dodaje niewidzialny element/treść --&gt;</span>
+<span class="err">    content: &quot;&quot;;</span>
+<span class="err">    &lt;!-- elementy pływające po żadnej ze stron --&gt;</span>
+<span class="err">    clear: both;</span>
+<span class="err">    &lt;!-- element zachowuje się jako tabela --&gt;</span>
+<span class="err">    display: table;</span>
+<span class="err">  }</span>
 </code></pre></div>
 
 
@@ -202,7 +202,7 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 <p>Właściwość <code>overflow: auto</code> wpasowuje element znajdujący się w pływającym elemencie (float) tak aby nie wystawał po za niego - metoda starsza i wychodząca obecnie z użycia</p>
 <p>Przykładowe zastosowanie</p>
 <div class="highlight"><pre><span></span><code><span class="na">.clearfix</span> <span class="err">{</span>
-  <span class="nl">overflow:</span> <span class="nf">auto</span><span class="c">;</span>
+  <span class="nl">overflow:</span> <span class="nf">auto</span><span class="c1">;</span>
 <span class="err">}</span>
 </code></pre></div>
 

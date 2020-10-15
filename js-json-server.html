@@ -161,35 +161,35 @@
 <h3>JSON - JavaScript Object Notation</h3>
 <p>Format JSON zbliżony jest do obiektów znanych z JS,  z tą zasadą, że <strong>nazwy kluczy</strong> wpisuje się w <code>PODWÓJNY cudzysłów</code>, kolejne wpisy oddzielone są przecinkami a same pliki JSON przechowują jedynie dane/zmienne (żadnych funkcji/kodu wykonywalnego). Praca z plikami typu JSON przypomina te znane z obiektów JS,  stąd odwołujemy się do obiektów oraz ich poszczególnych części stosując klucze. Wartości zawarte w JSONie mogą być zapisane w postaci <strong>łańcucha znaków, liczby lub wartości logicznej</strong> (false, null, true), te natomiast mogą składać się na <strong>tablicę</strong> lub <strong>obiekt</strong>, które mogą być dowolnie zagnieżdżone</p>
 <p>Przykład (za <a href="https://pl.wikipedia.org/wiki/JSON">wikipedia.org</a>)</p>
-<div class="highlight"><pre><span></span><code>    <span class="err">{</span>
-        <span class="ss">&quot;menu&quot;</span><span class="p">:</span> <span class="err">{</span>
-            <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="ss">&quot;file&quot;</span><span class="p">,</span>
-            <span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;File&quot;</span><span class="p">,</span>
-            <span class="ss">&quot;popup&quot;</span><span class="p">:</span> <span class="err">{</span>
-            <span class="ss">&quot;menuitem&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;New&quot;</span><span class="p">,</span> <span class="ss">&quot;onclick&quot;</span><span class="p">:</span> <span class="ss">&quot;CreateNewDoc()&quot;</span><span class="err">}</span><span class="p">,</span>
-                <span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;Open&quot;</span><span class="p">,</span> <span class="ss">&quot;onclick&quot;</span><span class="p">:</span> <span class="ss">&quot;OpenDoc()&quot;</span><span class="err">}</span><span class="p">,</span>
-                <span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="p">:</span> <span class="ss">&quot;Close&quot;</span><span class="p">,</span> <span class="ss">&quot;onclick&quot;</span><span class="p">:</span> <span class="ss">&quot;CloseDoc()&quot;</span><span class="err">}</span>
-            <span class="p">]</span>
-            <span class="err">}</span>
-        <span class="err">}</span>
-    <span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">    {</span>
+<span class="err">        &quot;menu&quot;: {</span>
+<span class="err">            &quot;id&quot;: &quot;file&quot;,</span>
+<span class="err">            &quot;value&quot;: &quot;File&quot;,</span>
+<span class="err">            &quot;popup&quot;: {</span>
+<span class="err">            &quot;menuitem&quot;: [</span>
+<span class="err">                {&quot;value&quot;: &quot;New&quot;, &quot;onclick&quot;: &quot;CreateNewDoc()&quot;},</span>
+<span class="err">                {&quot;value&quot;: &quot;Open&quot;, &quot;onclick&quot;: &quot;OpenDoc()&quot;},</span>
+<span class="err">                {&quot;value&quot;: &quot;Close&quot;, &quot;onclick&quot;: &quot;CloseDoc()&quot;}</span>
+<span class="err">            ]</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
 </code></pre></div>
 
 
 <h4>stringify i parse</h4>
 <p>Dwie istotne metody w kontekście JSONa, które są warte zapamiętania to <code>JSON.stringify()</code> oraz <code>JSON.parse()</code></p>
 <p><strong>JSON.stringify()</strong> - zmienia obiekt JS w do łańcucha znaków JSON (przyjmuje również argumenty jeśli jakieś wymiana określonych wartości jest wymagana)</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">07</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)));</span>
-    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="ss">&quot;&quot;</span><span class="mi">2020</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">20</span><span class="n">T15</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">.</span><span class="mi">000</span><span class="n">Z</span><span class="ss">&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">    console.log(JSON.stringify(new Date(2020, 07, 20, 15, 4, 5)));</span>
+<span class="err">    // &gt;&gt; &quot;&quot;2020-07-20T15:04:05.000Z&quot;&quot;</span>
 </code></pre></div>
 
 
 <p><strong>JSON.parse()</strong> - zmienia/parsuje łańcuch znaków JSON tworząc wartość JS lub obiekt JS</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">const</span> <span class="n">json</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;BB-8&quot;, &quot;class&quot;: &quot;Astromech droid&quot;&#39;</span><span class="err">}</span><span class="p">;</span>
-    <span class="n">const</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">json</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;BB-8&quot;, &quot;class&quot;: &quot;Astromech droid&quot;&#39;</span><span class="p">};</span>
+    <span class="k">const</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
 
-    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
     <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">BB</span><span class="o">-</span><span class="mi">8</span>
 </code></pre></div>
 
@@ -198,71 +198,71 @@
 <h3>JSON-server</h3>
 <p>JSON-server jest narzędziem pozwalające na stworzenie lokalnego serwera przy pomocy, którego można symulować REST API. Rozwiązanie to w całości oparte jest na zapisanym lokalnie pliku typu JSON. Istotne jest to, że <strong>JSON-server</strong> automatycznie nadaje</p>
 <p>Instalacja (globalna - może wymagać -&gt; sudo)</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">install</span> <span class="n">json</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="k">g</span>
+<div class="highlight"><pre><span></span><code><span class="err">    npm install json-server -g</span>
 </code></pre></div>
 
 
 <p>Wykorzystanie - uruchomienie. W terminalu należy wpisać słowo kluczowe json-server dodać flagę watch oraz podać ścieżkę zapisu pliku json</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">json</span><span class="o">-</span><span class="nv">server</span> <span class="o">--</span><span class="nv">watch</span> <span class="nv">sciezka</span><span class="o">/</span><span class="k">do</span><span class="o">/</span><span class="nv">pliku</span>.<span class="nv">json</span>
+<div class="highlight"><pre><span></span><code><span class="err">    json-server --watch sciezka/do/pliku.json</span>
 </code></pre></div>
 
 
 <p>Przykładowo</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">json</span><span class="o">-</span><span class="n">server</span> <span class="c1">--watch ./jsServer/starWars.json</span>
+<div class="highlight"><pre><span></span><code><span class="err">    json-server --watch ./jsServer/starWars.json</span>
 </code></pre></div>
 
 
 <p>Użytkowanie. W przeglądarce należy uruchomić adres</p>
-<div class="highlight"><pre><span></span><code><span class="nv">http</span>:<span class="o">//</span><span class="nv">localhost</span>:<span class="mi">3000</span><span class="o">/</span>
-<span class="nv">lub</span>
-<span class="nv">http</span>:<span class="o">//</span><span class="nv">localhost</span>:<span class="mi">3000</span><span class="o">/</span><span class="nv">db</span> <span class="o">&lt;-</span><span class="nv">zwraca</span> <span class="nv">ca</span>ł<span class="nv">o</span>ść <span class="nv">bazy</span> <span class="nv">danych</span>
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="o">://</span><span class="n">localhost</span><span class="o">:</span><span class="m">3000</span><span class="o">/</span>
+<span class="n">lub</span>
+<span class="n">http</span><span class="o">://</span><span class="n">localhost</span><span class="o">:</span><span class="m">3000</span><span class="o">/</span><span class="n">db</span> <span class="o">&lt;-</span><span class="n">zwraca</span> <span class="n">całość</span> <span class="n">bazy</span> <span class="n">danych</span>
 
 
-<span class="nv">lub</span> <span class="nv">poprzez</span> <span class="nv">odwo</span>ł<span class="nv">anie</span> <span class="nv">si</span>ę <span class="k">do</span> <span class="nv">konkretnego</span> <span class="nv">obiektu</span>
-<span class="nv">http</span>:<span class="o">//</span><span class="nv">localhost</span>:<span class="mi">3000</span><span class="o">/</span><span class="nv">nazwa_obiektu</span>
+<span class="n">lub</span> <span class="n">poprzez</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">konkretnego</span> <span class="n">obiektu</span>
+<span class="n">http</span><span class="o">://</span><span class="n">localhost</span><span class="o">:</span><span class="m">3000</span><span class="o">/</span><span class="n">nazwa_obiektu</span>
 </code></pre></div>
 
 
 <p>Przykładowo</p>
-<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">droids</span>
-<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">planets</span>
+<div class="highlight"><pre><span></span><code><span class="c">http://localhost:3000/droids</span>
+<span class="c">http://localhost:3000/planets</span>
 </code></pre></div>
 
 
 <p>Dla pliku json, którego treść wygląda następująco:</p>
-<div class="highlight"><pre><span></span><code>    <span class="err">{</span>
-        <span class="ss">&quot;droids&quot;</span> <span class="p">:</span> <span class="p">[</span>
-            <span class="err">{</span>
-                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="ss">&quot;name&quot;</span> <span class="p">:</span> <span class="ss">&quot;D-O&quot;</span><span class="p">,</span>
-                <span class="ss">&quot;class&quot;</span> <span class="p">:</span> <span class="ss">&quot;unknown&quot;</span>
-            <span class="err">}</span><span class="p">,</span>
-            <span class="err">{</span>
-                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="ss">&quot;name&quot;</span> <span class="p">:</span> <span class="ss">&quot;BB-8&quot;</span><span class="p">,</span>
-                <span class="ss">&quot;class&quot;</span> <span class="p">:</span> <span class="ss">&quot;Astromech droid&quot;</span>
-            <span class="err">}</span>
-        <span class="p">],</span>
-        <span class="ss">&quot;planets&quot;</span> <span class="p">:</span> <span class="p">[</span>
-            <span class="err">{</span>
-                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="ss">&quot;planet&quot;</span> <span class="p">:</span> <span class="ss">&quot;Tatooine&quot;</span><span class="p">,</span>
-                <span class="ss">&quot;sector&quot;</span> <span class="p">:</span> <span class="ss">&quot;Arkanis sector&quot;</span>
-            <span class="err">}</span><span class="p">,</span>
-            <span class="err">{</span>
-                <span class="ss">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="ss">&quot;planet&quot;</span> <span class="p">:</span> <span class="ss">&quot;Coruscant&quot;</span><span class="p">,</span>
-                <span class="ss">&quot;sector&quot;</span> <span class="p">:</span> <span class="ss">&quot;Coruscant subsector&quot;</span>
-            <span class="err">}</span>
-        <span class="p">]</span>
-    <span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">    {</span>
+<span class="err">        &quot;droids&quot; : [</span>
+<span class="err">            {</span>
+<span class="err">                &quot;id&quot; : 0,</span>
+<span class="err">                &quot;name&quot; : &quot;D-O&quot;,</span>
+<span class="err">                &quot;class&quot; : &quot;unknown&quot;</span>
+<span class="err">            },</span>
+<span class="err">            {</span>
+<span class="err">                &quot;id&quot; : 1,</span>
+<span class="err">                &quot;name&quot; : &quot;BB-8&quot;,</span>
+<span class="err">                &quot;class&quot; : &quot;Astromech droid&quot;</span>
+<span class="err">            }</span>
+<span class="err">        ],</span>
+<span class="err">        &quot;planets&quot; : [</span>
+<span class="err">            {</span>
+<span class="err">                &quot;id&quot; : 0,</span>
+<span class="err">                &quot;planet&quot; : &quot;Tatooine&quot;,</span>
+<span class="err">                &quot;sector&quot; : &quot;Arkanis sector&quot;</span>
+<span class="err">            },</span>
+<span class="err">            {</span>
+<span class="err">                &quot;id&quot; : 1,</span>
+<span class="err">                &quot;planet&quot; : &quot;Coruscant&quot;,</span>
+<span class="err">                &quot;sector&quot; : &quot;Coruscant subsector&quot;</span>
+<span class="err">            }</span>
+<span class="err">        ]</span>
+<span class="err">    }</span>
 </code></pre></div>
 
 
 <p><strong>zmiana adresu hostowego</strong> jest możliwa i odbywa się poprzez dodanie flagi z nr portu</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">json</span><span class="o">-</span><span class="nv">server</span> <span class="o">--</span><span class="nv">watch</span> <span class="nv">sciezka</span><span class="o">/</span><span class="k">do</span><span class="o">/</span><span class="nv">pliku</span>.<span class="nv">json</span> <span class="o">--</span><span class="nv">port</span> <span class="nv">Nr</span><span class="o">-</span><span class="nv">portu</span>
-    <span class="o">=====</span>
-    <span class="nv">json</span><span class="o">-</span><span class="nv">server</span> <span class="o">--</span><span class="nv">watch</span> <span class="nv">sciezka</span><span class="o">/</span><span class="k">do</span><span class="o">/</span><span class="nv">pliku</span>.<span class="nv">json</span> <span class="o">--</span><span class="nv">port</span> <span class="mi">3001</span>
+<div class="highlight"><pre><span></span><code><span class="err">    json-server --watch sciezka/do/pliku.json --port Nr-portu</span>
+<span class="err">    =====</span>
+<span class="err">    json-server --watch sciezka/do/pliku.json --port 3001</span>
 </code></pre></div>
 
 

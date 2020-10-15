@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Pętle for lub while pozwalają na wielokrotne wykonywanie się tego samego kodu schemat pętli for: const y = 5 // zmienna będąca wyznacznikiem granicznym wykonywania pętli // wykonaj pętlę do momentu w którym i jest nadal mniejsze niż y for (let …" />
+<meta name="description" content="Pętle for lub while pozwalają na wielokrotne wykonywanie się tego samego kodu schemat pętli for: const y = 5 // zmienna będąca wyznacznikiem granicznym wykonywania pętli // wykonaj pętlę do momentu w którym i jest nadal mniejsze niż y for (let i=0; i &lt; y; i++) { // i - akumulatorem; moment do którego wykonuje się …" />
 <meta name="keywords" content="javascript, js, funkcja">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="JavaScript - pętle (for/while loop)"/>
-<meta property="og:description" content="Pętle for lub while pozwalają na wielokrotne wykonywanie się tego samego kodu schemat pętli for: const y = 5 // zmienna będąca wyznacznikiem granicznym wykonywania pętli // wykonaj pętlę do momentu w którym i jest nadal mniejsze niż y for (let …"/>
+<meta property="og:description" content="Pętle for lub while pozwalają na wielokrotne wykonywanie się tego samego kodu schemat pętli for: const y = 5 // zmienna będąca wyznacznikiem granicznym wykonywania pętli // wykonaj pętlę do momentu w którym i jest nadal mniejsze niż y for (let i=0; i &lt; y; i++) { // i - akumulatorem; moment do którego wykonuje się …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-for-while-loop.html"/>
 <meta property="og:type" content="article"/>
@@ -153,84 +153,84 @@
   <div>
     <p>Pętle <code>for</code> lub <code>while</code> pozwalają na wielokrotne wykonywanie się tego samego kodu</p>
 <p>schemat pętli <strong><code>for</code></strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">//</span> <span class="nv">zmienna</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">ca</span> <span class="nv">wyznacznikiem</span> <span class="nv">granicznym</span> <span class="nv">wykonywania</span> <span class="nv">p</span>ę<span class="nv">tli</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">//</span> <span class="n">zmienna</span> <span class="n">będąca</span> <span class="n">wyznacznikiem</span> <span class="n">granicznym</span> <span class="n">wykonywania</span> <span class="n">pętli</span>
 
-<span class="o">//</span> <span class="nv">wykonaj</span> <span class="nv">p</span>ę<span class="nv">tl</span>ę <span class="k">do</span> <span class="nv">momentu</span> <span class="nv">w</span> <span class="nv">kt</span>ó<span class="nv">rym</span> <span class="nv">i</span> <span class="nv">jest</span> <span class="nv">nadal</span> <span class="nv">mniejsze</span> <span class="nv">ni</span>ż <span class="nv">y</span>
+<span class="o">//</span> <span class="n">wykonaj</span> <span class="n">pętlę</span> <span class="n">do</span> <span class="n">momentu</span> <span class="n">w</span> <span class="n">którym</span> <span class="n">i</span> <span class="n">jest</span> <span class="n">nadal</span> <span class="n">mniejsze</span> <span class="n">niż</span> <span class="n">y</span>
 
-<span class="k">for</span> <span class="ss">(</span><span class="nv">let</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i &lt; y; i++) { // i - akumulatorem; moment do którego wykonuje się pętla; zmiana dokonywana na akumulatorze po przejściu pętli</span>
-  <span class="nv">let</span> <span class="nv">x</span> <span class="o">=</span> <span class="nv">y</span> <span class="o">+</span> <span class="mi">1</span><span class="c1">; // wykonujący się kod</span>
-  <span class="k">return</span> <span class="nv">x</span><span class="c1">;</span>
-}<span class="c1">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="n">i</span> <span class="o">-</span> <span class="n">akumulatorem</span><span class="p">;</span> <span class="n">moment</span> <span class="n">do</span> <span class="n">którego</span> <span class="n">wykonuje</span> <span class="n">się</span> <span class="n">pętla</span><span class="p">;</span> <span class="n">zmiana</span> <span class="n">dokonywana</span> <span class="n">na</span> <span class="n">akumulatorze</span> <span class="n">po</span> <span class="n">przejściu</span> <span class="n">pętli</span>
+  <span class="n">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span> <span class="n">wykonujący</span> <span class="n">się</span> <span class="n">kod</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 
 <p>Przykład pętli dekrementacyjnej (wykonuj pętlę w przypadku gdy i jest większe od 5): </p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="ss">(</span><span class="nv">let</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">10</span><span class="c1">; i &gt; 5 ; i-- ) {</span>
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>
-}
+<div class="highlight"><pre><span></span><code><span class="err">for (let i = 10; i &gt; 5 ; i-- ) {</span>
+<span class="err">  console.log(i)</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <p><strong><code>while</code></strong> - tworzy pętle, która wylicza wyrażenie <code>i</code> - dopóki jest ono prawdą wykonuje blok poleceń</p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="ss">(</span><span class="nv">warunek</span><span class="ss">)</span> {
-<span class="nv">polecenia</span>
-}
+<div class="highlight"><pre><span></span><code><span class="n">while</span> <span class="p">(</span><span class="n">warunek</span><span class="p">)</span> <span class="err">{</span>
+<span class="n">polecenia</span>
+<span class="err">}</span>
 
-<span class="nv">n</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">;</span>
-<span class="nv">x</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">;</span>
-<span class="k">while</span><span class="ss">(</span><span class="nv">n</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="ss">)</span> {
-  <span class="nv">n</span> <span class="o">++</span><span class="c1">;</span>
-  <span class="nv">x</span> <span class="o">+=</span> <span class="nv">n</span><span class="c1">;</span>
-}
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">while</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="err">{</span>
+  <span class="n">n</span> <span class="o">++</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <hr>
 <p><strong><code>for...in</code></strong> - - przechodzi przez wszystkie policzalne właściwości obiektu, których kluczem jest string / ignoruje te, których kluczem jest symbol</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">object</span> <span class="o">=</span> {<span class="nv">a</span>: <span class="mi">1</span>, <span class="nv">b</span>: <span class="mi">2</span>, <span class="nv">c</span>: <span class="mi">3</span>}<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="n">const</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="nl">a</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">b</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">c</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="err">}</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">for</span> <span class="ss">(</span><span class="nv">let</span> <span class="nv">property</span> <span class="nv">in</span> <span class="nv">object</span><span class="ss">)</span> {
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span>`${<span class="nv">property</span>}: ${<span class="nv">object</span>[<span class="nv">property</span>]}`<span class="ss">)</span><span class="c1">;</span>
-}
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">let</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">object</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="err">`${</span><span class="n">property</span><span class="err">}:</span><span class="w"> </span><span class="err">${</span><span class="k">object</span><span class="o">[</span><span class="n">property</span><span class="o">]</span><span class="err">}`</span><span class="p">);</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
 
-<span class="o">&gt;&gt;</span> <span class="nv">a</span>: <span class="mi">1</span>
-<span class="o">&gt;&gt;</span> <span class="nv">b</span>: <span class="mi">2</span>
-<span class="o">&gt;&gt;</span> <span class="nv">c</span>: <span class="mi">3</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nl">a</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nl">b</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nl">c</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 </code></pre></div>
 
 
 <p><strong><code>for...of</code></strong> - tworzy pętlę przechodząc przez iteracyjne obiekty (string,tablica/array)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">array1</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">b</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">c</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">array1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">];</span>
 
-<span class="k">for</span> <span class="ss">(</span><span class="nv">const</span> <span class="nv">element</span> <span class="nv">of</span> <span class="nv">array1</span><span class="ss">)</span> {
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">element</span><span class="ss">)</span><span class="c1">;</span>
-}
+<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">element</span> <span class="n">of</span> <span class="n">array1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
 <p><strong><code>for each ..in</code></strong>  - przestarzałe wyrażenie - obecnie stosuje się <code>for..of</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">each</span> <span class="ss">(</span><span class="nv">variable</span> <span class="nv">in</span> <span class="nv">object</span><span class="ss">)</span> {
-  <span class="nv">statement</span>
-}
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">each</span> <span class="p">(</span><span class="n">variable</span> <span class="ow">in</span> <span class="n">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">statement</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
 <p><strong><code>for await...of</code></strong> - asynchroniczny iterator -&gt; więcej na ten temat <a href="https://www.youtube.com/watch?v=I5oDbp_U-fQ">tutaj</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">await</span> <span class="ss">(</span><span class="nv">zmienna</span> <span class="nv">iteracyjna</span><span class="ss">)</span> {
-  <span class="nv">polecenie</span>
-}
+<div class="highlight"><pre><span></span><code><span class="err">for await (zmienna iteracyjna) {</span>
+<span class="err">  polecenie</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <p><strong><code>do...while</code></strong> - wykonuje polecenie dopóki warunek jest spełniony</p>
-<div class="highlight"><pre><span></span><code><span class="k">do</span> {
-  <span class="nv">polecenia</span>
-} <span class="k">while</span><span class="ss">(</span><span class="nv">warunek</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="err">{</span>
+  <span class="n">polecenia</span>
+<span class="err">}</span> <span class="n">while</span><span class="p">(</span><span class="n">warunek</span><span class="p">);</span>
 
-<span class="k">do</span> {
-<span class="nv">i</span><span class="o">+=</span><span class="mi">1</span><span class="c1">;</span>
-<span class="nv">document</span>.<span class="nv">write</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
-} <span class="k">while</span> <span class="ss">(</span><span class="nv">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="ss">)</span><span class="c1">;</span>
+<span class="k">do</span> <span class="err">{</span>
+<span class="n">i</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">document</span><span class="p">.</span><span class="k">write</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="err">}</span> <span class="n">while</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">);</span>
 </code></pre></div>
 
 

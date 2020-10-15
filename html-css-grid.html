@@ -170,60 +170,60 @@
 <hr>
 <h4>Warunek 3 -&gt; klasy kolumn</h4>
 <p>Należy stworzyć klasy, które wskazując na szerokość kolumn i je odpowiednio używać np. jeśli całość ma być szeroka na 12 kolumn to jedna kolumna wynosi 100%/12, zatem obiekt zajmująca połowę rodzica w poziomie  składać się będzie z 6 kolumn i winien być oznaczony <code>col-6</code> poniższy mixin to dobrze obrazuje</p>
-<div class="highlight"><pre><span></span><code>@<span class="nv">mixin</span> <span class="nv">grid</span><span class="ss">(</span><span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> {
-  <span class="nv">display</span>: <span class="nv">flex</span><span class="c1">; /* rozwiązanie oparte o flex-box */</span>
-  [<span class="nv">class</span><span class="o">*=</span><span class="s2">&quot;</span><span class="s">col-</span><span class="s2">&quot;</span>] {
-    <span class="o">//</span> <span class="nv">float</span>: <span class="nv">left</span><span class="c1">; /* rozwiązanie oparte o float */</span>
-    <span class="nv">min</span><span class="o">-</span><span class="nv">height</span>: <span class="mi">1</span><span class="nv">px</span><span class="c1">;</span>
-  }
-  @<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mh">$c</span><span class="nv">ols</span> {
-    .<span class="nv">col</span><span class="o">-</span>#{$<span class="nv">i</span>} {
-      <span class="nv">width</span>: <span class="ss">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">/</span> <span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">;</span>
-    }
-  }
-}
+<div class="highlight"><pre><span></span><code><span class="err">@mixin grid($cols) {</span>
+<span class="err">  display: flex; /* rozwiązanie oparte o flex-box */</span>
+<span class="err">  [class*=&quot;col-&quot;] {</span>
+<span class="err">    // float: left; /* rozwiązanie oparte o float */</span>
+<span class="err">    min-height: 1px;</span>
+<span class="err">  }</span>
+<span class="err">  @for $i from 1 through $cols {</span>
+<span class="err">    .col-#{$i} {</span>
+<span class="err">      width: (100% / $cols) * $i;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <p>Wynik (przykładowy fragment kodu wynikowego css):</p>
-<div class="highlight"><pre><span></span><code><span class="c">/* line 33, scss/main.scss */</span>
-<span class="p">.</span><span class="nc">container</span> <span class="p">.</span><span class="nc">row</span> <span class="p">.</span><span class="nc">col-6</span> <span class="p">{</span>
-  <span class="k">width</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/* line 33, scss/main.scss */</span>
+<span class="na">.container</span> <span class="no">.row</span> <span class="no">.col-6</span> <span class="err">{</span>
+  <span class="nl">width:</span> <span class="err">50%</span><span class="c1">;</span>
+<span class="err">}</span>
 
-<span class="c">/* line 33, scss/main.scss */</span>
-<span class="p">.</span><span class="nc">container</span> <span class="p">.</span><span class="nc">row</span> <span class="p">.</span><span class="nc">col-7</span> <span class="p">{</span>
-  <span class="k">width</span><span class="p">:</span> <span class="mf">58.33333</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="cm">/* line 33, scss/main.scss */</span>
+<span class="na">.container</span> <span class="no">.row</span> <span class="no">.col-7</span> <span class="err">{</span>
+  <span class="nl">width:</span> <span class="err">58</span><span class="nf">.33333</span><span class="err">%</span><span class="c1">;</span>
+<span class="err">}</span>
 
-<span class="c">/* line 33, scss/main.scss */</span>
-<span class="p">.</span><span class="nc">container</span> <span class="p">.</span><span class="nc">row</span> <span class="p">.</span><span class="nc">col-8</span> <span class="p">{</span>
-  <span class="k">width</span><span class="p">:</span> <span class="mf">66.66667</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="cm">/* line 33, scss/main.scss */</span>
+<span class="na">.container</span> <span class="no">.row</span> <span class="no">.col-8</span> <span class="err">{</span>
+  <span class="nl">width:</span> <span class="err">66</span><span class="nf">.66667</span><span class="err">%</span><span class="c1">;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <hr>
 <h4>Warunek 4 -&gt; wiersz</h4>
 <p>Należy odpowiednio przygotować stylizację <code>wiersza</code>/row</p>
-<div class="highlight"><pre><span></span><code>$<span class="nv">gutter</span>: <span class="mi">10</span><span class="nv">px</span><span class="c1">; /* przestrzeń pomiędzy kolumnami */</span>
+<div class="highlight"><pre><span></span><code><span class="nl">$gutter:</span> <span class="err">10</span><span class="nf">px</span><span class="c1">; /* przestrzeń pomiędzy kolumnami */</span>
 
-.<span class="nv">container</span> {
-  <span class="nv">max</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">1000</span><span class="nv">px</span><span class="c1">;</span>
-  <span class="nv">width</span>: <span class="mi">100</span><span class="o">%</span><span class="c1">;</span>
-  <span class="nv">margin</span>: <span class="mi">0</span> <span class="nv">auto</span><span class="c1">;</span>
-  .<span class="nv">row</span> {
-    <span class="o">//</span> @<span class="nv">extend</span> <span class="o">%</span><span class="nv">clearfix</span><span class="c1">; /* rozwiązanie oparte o float */</span>
-    <span class="nv">height</span>: <span class="mi">60</span><span class="nv">vh</span><span class="c1">; /* tu można podstawić dowolną wartość */</span>
-    [<span class="nv">class</span><span class="o">*=</span><span class="s2">&quot;</span><span class="s">col-</span><span class="s2">&quot;</span>] {
-      <span class="o">//</span> <span class="nv">float</span>: <span class="nv">left</span><span class="c1">; /* rozwiązanie oparte o float */</span>
-      <span class="nv">min</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">1</span><span class="nv">px</span><span class="c1">;</span>
-      <span class="nv">padding</span><span class="o">-</span><span class="nv">left</span>: $<span class="nv">gutter</span><span class="c1">;</span>
-      <span class="nv">padding</span><span class="o">-</span><span class="nv">right</span>: $<span class="nv">gutter</span><span class="c1">;</span>
-    }
-    @<span class="k">include</span> <span class="nv">grid</span><span class="ss">(</span><span class="mi">12</span><span class="ss">)</span><span class="c1">;</span>
-  }
-}
+<span class="na">.container</span> <span class="err">{</span>
+  <span class="nl">max-width:</span> <span class="err">1000</span><span class="nf">px</span><span class="c1">;</span>
+  <span class="nl">width:</span> <span class="err">100%</span><span class="c1">;</span>
+  <span class="nl">margin:</span> <span class="err">0</span> <span class="nf">auto</span><span class="c1">;</span>
+  <span class="na">.row</span> <span class="err">{</span>
+    <span class="c1">// @extend %clearfix; /* rozwiązanie oparte o float */</span>
+    <span class="nl">height:</span> <span class="err">60</span><span class="nf">vh</span><span class="c1">; /* tu można podstawić dowolną wartość */</span>
+    <span class="err">[</span><span class="nf">class</span><span class="p">*</span><span class="err">=&quot;</span><span class="no">col-</span><span class="err">&quot;</span><span class="p">]</span> <span class="err">{</span>
+      <span class="c1">// float: left; /* rozwiązanie oparte o float */</span>
+      <span class="nl">min-width:</span> <span class="err">1</span><span class="nf">px</span><span class="c1">;</span>
+      <span class="nl">padding-left:</span> <span class="nf">$gutter</span><span class="c1">;</span>
+      <span class="nl">padding-right:</span> <span class="nf">$gutter</span><span class="c1">;</span>
+    <span class="err">}</span>
+    <span class="err">@</span><span class="nf">include</span> <span class="no">grid</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="c1">;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -277,23 +277,23 @@
 <p><code>col-sm-*</code> // small - tablet ≥ 768px</p>
 <p><code>col-xs-*</code> w przypadku bootstrapu jest to odpowiednik <code>col-*</code>// extra small - telefon &lt; 768 px</p>
 <h4>@mixin z media query</h4>
-<div class="highlight"><pre><span></span><code>@<span class="nv">mixin</span> <span class="nv">grid</span><span class="ss">(</span><span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> {
-  @<span class="nv">media</span> <span class="nv">screen</span> <span class="nv">and</span> <span class="ss">(</span><span class="nv">max</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">768</span><span class="nv">px</span><span class="ss">)</span> {
-    <span class="nv">display</span>: <span class="nv">flex</span><span class="c1">;</span>
-    @<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mh">$c</span><span class="nv">ols</span> {
-      .<span class="nv">col</span><span class="o">-</span><span class="nv">sm</span><span class="o">-</span>#{$<span class="nv">i</span>} {
-        <span class="nv">flex</span>: <span class="mi">0</span> <span class="mi">0</span> <span class="ss">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">/</span> <span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">;</span>
-      }
-    }
-  }
-  @<span class="nv">media</span> <span class="nv">screen</span> <span class="nv">and</span> <span class="ss">(</span><span class="nv">min</span><span class="o">-</span><span class="nv">width</span>: <span class="mi">767</span><span class="nv">px</span><span class="ss">)</span> {
-    @<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mh">$c</span><span class="nv">ols</span> {
-      .<span class="nv">col</span><span class="o">-</span><span class="nv">md</span><span class="o">-</span>#{$<span class="nv">i</span>} {
-        <span class="nv">flex</span>: <span class="mi">0</span> <span class="mi">0</span> <span class="ss">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">/</span> <span class="mh">$c</span><span class="nv">ols</span><span class="ss">)</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">;</span>
-      }
-    }
-  }
-}
+<div class="highlight"><pre><span></span><code><span class="err">@mixin grid($cols) {</span>
+<span class="err">  @media screen and (max-width: 768px) {</span>
+<span class="err">    display: flex;</span>
+<span class="err">    @for $i from 1 through $cols {</span>
+<span class="err">      .col-sm-#{$i} {</span>
+<span class="err">        flex: 0 0 (100% / $cols) * $i;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">  @media screen and (min-width: 767px) {</span>
+<span class="err">    @for $i from 1 through $cols {</span>
+<span class="err">      .col-md-#{$i} {</span>
+<span class="err">        flex: 0 0 (100% / $cols) * $i;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -320,24 +320,30 @@
 <p>=========</p>
 <h4>grid-template-areas</h4>
 <p><code>grid-template-areas</code> - pozwala na wyznaczenie obszarów i rozmieszczenie elementów według określonego wzoru</p>
-<p>.grid-container {
-    display: grid;
-    grid-template-columns: 300px 1fr; // dwie kolumny
-    grid-template-rows: 100px 1fr 200px;
-    grid-template-areas: // wskazanie układu
-    "header header" // dwie kolumny 1 rząd
-    "sidebar main" // 2 rząd - część na sidebar (300px) a część na main (1fr/auto)
-  }</p>
-<p>aside {
-    padding: 20px;
-    background-color: orangered;
-    grid-area: header;
-  }</p>
-<p>aside {
-    padding: 20px;
-    background-color: orangered;
-    grid-area: sidebar;
-  }</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">grid-container</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
+  <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span> <span class="err">//</span> <span class="err">dwie</span> <span class="err">kolumny</span>
+  <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">grid-template-areas</span><span class="p">:</span> <span class="o">//</span> <span class="n">wskazanie</span> <span class="n">układu</span>
+  <span class="s2">&quot;header header&quot;</span> <span class="o">//</span> <span class="n">dwie</span> <span class="n">kolumny</span> <span class="mi">1</span> <span class="n">rząd</span>
+  <span class="s2">&quot;sidebar main&quot;</span> <span class="o">//</span> <span class="mi">2</span> <span class="n">rząd</span> <span class="o">-</span> <span class="n">część</span> <span class="n">na</span> <span class="n">sidebar</span> <span class="p">(</span><span class="mi">300</span><span class="kt">px</span><span class="p">)</span> <span class="n">a</span> <span class="n">część</span> <span class="n">na</span> <span class="n">main</span> <span class="p">(</span><span class="mi">1</span><span class="n">fr</span><span class="o">/</span><span class="kc">auto</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="nt">aside</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="kc">orangered</span><span class="p">;</span>
+  <span class="k">grid-area</span><span class="p">:</span> <span class="n">header</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">aside</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="kc">orangered</span><span class="p">;</span>
+  <span class="k">grid-area</span><span class="p">:</span> <span class="n">sidebar</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
 <p>====</p>
 <p><code>grid-column-start:</code> 2 // od której kolumny ma się układać element</p>
 <p><code>grid-column-end:</code> 4 // na której kolumnie ma się kończyć</p>
@@ -358,32 +364,32 @@
 
 
 <p><code>style.css</code></p>
-<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="p">.</span><span class="nc">grid-container</span> <span class="p">{</span> <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nf">html</span><span class="p">,</span> <span class="no">body</span><span class="p">,</span> <span class="no">.grid-container</span> <span class="err">{</span> <span class="no">height</span><span class="p">:</span> <span class="mi">100</span><span class="err">%</span><span class="c1">; margin: 0; }</span>
 
-<span class="p">.</span><span class="nc">grid-container</span> <span class="p">{</span>
-  <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
-  <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-  <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-  <span class="n">gap</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span><span class="p">;</span>
-  <span class="k">grid-template-areas</span><span class="p">:</span> <span class="s2">&quot;Header Header Header Header&quot;</span> <span class="s2">&quot;aside main main main&quot;</span> <span class="s2">&quot;aside main main main&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="na">.grid-container</span> <span class="err">{</span>
+  <span class="nl">display:</span> <span class="nf">grid</span><span class="c1">;</span>
+  <span class="nl">grid-template-columns:</span> <span class="err">1</span><span class="nf">fr</span> <span class="mi">1</span><span class="no">fr</span> <span class="mi">1</span><span class="no">fr</span> <span class="mi">1</span><span class="no">fr</span><span class="c1">;</span>
+  <span class="nl">grid-template-rows:</span> <span class="err">1</span><span class="nf">fr</span> <span class="mi">1</span><span class="no">fr</span> <span class="mi">1</span><span class="no">fr</span><span class="c1">;</span>
+  <span class="nl">gap:</span> <span class="err">1</span><span class="nf">px</span> <span class="mi">1</span><span class="no">px</span><span class="c1">;</span>
+  <span class="nl">grid-template-areas:</span> <span class="err">&quot;</span><span class="nf">Header</span> <span class="no">Header</span> <span class="no">Header</span> <span class="no">Header</span><span class="err">&quot;</span> <span class="err">&quot;</span><span class="no">aside</span> <span class="no">main</span> <span class="no">main</span> <span class="no">main</span><span class="err">&quot;</span> <span class="err">&quot;</span><span class="no">aside</span> <span class="no">main</span> <span class="no">main</span> <span class="no">main</span><span class="err">&quot;</span><span class="c1">;</span>
+<span class="err">}</span>
 
-<span class="p">.</span><span class="nc">Header</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">Header</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">.Header</span> <span class="err">{</span> <span class="no">grid-area</span><span class="p">:</span> <span class="no">Header</span><span class="c1">; }</span>
 
-<span class="p">.</span><span class="nc">aside</span> <span class="p">{</span>
-  <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
-  <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-  <span class="k">grid-template-rows</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-  <span class="n">gap</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span><span class="p">;</span>
-  <span class="k">grid-template-areas</span><span class="p">:</span> <span class="s2">&quot;aside-1 aside-1 aside-1&quot;</span> <span class="s2">&quot;aside-2 aside-2 aside-2&quot;</span><span class="p">;</span>
-  <span class="k">grid-area</span><span class="p">:</span> <span class="n">aside</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="na">.aside</span> <span class="err">{</span>
+  <span class="nl">display:</span> <span class="nf">grid</span><span class="c1">;</span>
+  <span class="nl">grid-template-columns:</span> <span class="err">1</span><span class="nf">fr</span> <span class="mi">1</span><span class="no">fr</span> <span class="mi">1</span><span class="no">fr</span><span class="c1">;</span>
+  <span class="nl">grid-template-rows:</span> <span class="err">1</span><span class="nf">fr</span> <span class="mi">1</span><span class="no">fr</span><span class="c1">;</span>
+  <span class="nl">gap:</span> <span class="err">1</span><span class="nf">px</span> <span class="mi">1</span><span class="no">px</span><span class="c1">;</span>
+  <span class="nl">grid-template-areas:</span> <span class="err">&quot;</span><span class="nf">aside-1</span> <span class="no">aside-1</span> <span class="no">aside-1</span><span class="err">&quot;</span> <span class="err">&quot;</span><span class="no">aside-2</span> <span class="no">aside-2</span> <span class="no">aside-2</span><span class="err">&quot;</span><span class="c1">;</span>
+  <span class="nl">grid-area:</span> <span class="nf">aside</span><span class="c1">;</span>
+<span class="err">}</span>
 
-<span class="p">.</span><span class="nc">aside-1</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">aside-1</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">.aside-1</span> <span class="err">{</span> <span class="no">grid-area</span><span class="p">:</span> <span class="no">aside-1</span><span class="c1">; }</span>
 
-<span class="p">.</span><span class="nc">aside-2</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">aside-2</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">.aside-2</span> <span class="err">{</span> <span class="no">grid-area</span><span class="p">:</span> <span class="no">aside-2</span><span class="c1">; }</span>
 
-<span class="p">.</span><span class="nc">main</span> <span class="p">{</span> <span class="k">grid-area</span><span class="p">:</span> <span class="n">main</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">.main</span> <span class="err">{</span> <span class="no">grid-area</span><span class="p">:</span> <span class="no">main</span><span class="c1">; }</span>
 </code></pre></div>
 
 
@@ -419,14 +425,14 @@ Pozycjonowanie dzieci</p>
 <p>====</p>
 <h4>Media query</h4>
 <div class="highlight"><pre><span></span><code><span class="na">.grid-container</span> <span class="err">{</span>
-  <span class="nl">display:</span> <span class="nf">grid</span><span class="c">;</span>
-  <span class="nl">min-height:</span> <span class="err">100</span><span class="nf">vh</span><span class="c">;</span>
-  <span class="nl">grid-template-columns:</span> <span class="err">1</span><span class="nf">fr</span> <span class="mi">1</span><span class="no">fr</span><span class="c">;</span>
+  <span class="nl">display:</span> <span class="nf">grid</span><span class="c1">;</span>
+  <span class="nl">min-height:</span> <span class="err">100</span><span class="nf">vh</span><span class="c1">;</span>
+  <span class="nl">grid-template-columns:</span> <span class="err">1</span><span class="nf">fr</span> <span class="mi">1</span><span class="no">fr</span><span class="c1">;</span>
   <span class="err">@</span><span class="nf">media</span> <span class="no">screen</span> <span class="no">and</span> <span class="p">(</span><span class="no">min-width</span><span class="p">:</span> <span class="mi">800</span><span class="no">px</span><span class="p">)</span> <span class="err">{</span>
-    <span class="nl">grid-template-columns:</span> <span class="na">rep</span><span class="nf">eat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="no">fr</span><span class="p">)</span><span class="c">;</span>
+    <span class="nl">grid-template-columns:</span> <span class="na">rep</span><span class="nf">eat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="no">fr</span><span class="p">)</span><span class="c1">;</span>
   <span class="err">}</span>
   <span class="err">@</span><span class="nf">media</span> <span class="no">screen</span> <span class="no">and</span> <span class="p">(</span><span class="no">min-width</span><span class="p">:</span> <span class="mi">1000</span><span class="no">px</span><span class="p">)</span> <span class="err">{</span>
-    <span class="nl">grid-template-columns:</span> <span class="na">rep</span><span class="nf">eat</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="no">fr</span><span class="p">)</span><span class="c">;</span>
+    <span class="nl">grid-template-columns:</span> <span class="na">rep</span><span class="nf">eat</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="no">fr</span><span class="p">)</span><span class="c1">;</span>
   <span class="err">}</span>
 <span class="err">}</span>
 </code></pre></div>
@@ -447,7 +453,7 @@ Pozycjonowanie dzieci</p>
 </ul>
 <h4>Wydajność?</h4>
 <p>A może by tak... flexbox + grid? -&gt; <a href="https://ishadeed.com/article/grid-layout-flexbox-components/">Grid for layout, Flexbox for components</a></p>
-<p>Grid-CSS jest relatywnie nowym dodatkiem w świecie CSS i wciąż charakteryzuje się niską wydajnością ((źródło)[https://twitter.com/brian_lovin/status/1262169865504174081?s=20]), a do tego nie wszystkie przeglądarki mogą z nim funkcjonować <a href="https://caniuse.com/#feat=css-grid">patrz tutaj</a></p>
+<p>Grid-CSS jest relatywnie nowym dodatkiem w świecie CSS i wciąż charakteryzuje się niską wydajnością (<a href="https://twitter.com/brian_lovin/status/1262169865504174081?s=20">źródło</a>), a do tego nie wszystkie przeglądarki mogą z nim funkcjonować <a href="https://caniuse.com/#feat=css-grid">patrz tutaj</a></p>
 <hr>
 <p>Źródła</p>
 <p>https://getbootstrap.com/docs/4.0/layout/grid/</p>

@@ -153,19 +153,19 @@
   <div>
     <p>Programowani obiektowego uczyłem się na podstawie Pythona i początkowo miałem problem z uchwyceniem konceptu, zrozumienie obiektu w JavaScript (porównanie tych 2 rzeczy ze sobą nie jest wskazane,ale najbliższe tego co znam) okazało się być czymś prostszym (przypomina pythonowy słownik na sterydach - choć faktycznie bliżej mu do obiektu znanego mi z tego języka, sam jednak zapis jest mniej skomplikowany - tam tworzy się tzw klasy).</p>
 <p>Obiekty zawierają właściwości, którymi są pary składające się z klucza i przypisanych im wartości, owymi wartościami mogą być wszystkie prymitywne typy, jak i tablice czy funkcje - te rozdzielone są przecinkami. Kolokacje te (key-value pairs) są rozdzielone dwukropkiem. Obiekt zadeklarowany jest poprzez użycie słowa kluczowego jak przy innych zmiennych <code>let</code> lub <code>const</code> oraz poprzez zastosowanie nawiasów klamrowych.</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">person</span> <span class="o">=</span> <span class="err">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">person</span> <span class="o">=</span> <span class="p">{</span>
 <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Mikołaj&#39;</span><span class="p">,</span>
 <span class="n">age</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
-<span class="n">animals</span> <span class="p">:</span> <span class="p">[</span><span class="ss">&quot;cat&quot;</span><span class="p">,</span><span class="ss">&quot;dog&quot;</span><span class="p">],</span>
-<span class="n">sayHello</span><span class="p">:</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
-  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="ss">&quot;hello Mikolaj&quot;</span><span class="p">)</span>
-<span class="err">}</span>
-<span class="err">}</span><span class="p">;</span>
+<span class="n">animals</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span><span class="s2">&quot;dog&quot;</span><span class="p">],</span>
+<span class="n">sayHello</span><span class="p">:</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;hello Mikolaj&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">};</span>
 
-<span class="n">person</span><span class="p">.</span><span class="n">sayHello</span><span class="p">()</span>
+<span class="n">person</span><span class="o">.</span><span class="n">sayHello</span><span class="p">()</span>
 <span class="o">&gt;</span> <span class="n">hello</span> <span class="n">Mikolaj</span>
 
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="o">&gt;</span> <span class="n">dog</span>
 </code></pre></div>
 
@@ -184,31 +184,31 @@
 
 
 <p>Poprzez odwołanie się do słów kluczowych <code>delete</code> istnieje możliwość usunięcia wybranych właściwości obiektu</p>
-<div class="highlight"><pre><span></span><code><span class="k">delete</span> <span class="n">person</span><span class="p">.</span><span class="n">height</span>
-<span class="o">&gt;</span> <span class="k">true</span> <span class="o">//</span> <span class="n">zwraca</span> <span class="k">false</span> <span class="o">-</span> <span class="n">jeśli</span> <span class="n">nie</span> <span class="n">jest</span> <span class="k">to</span> <span class="n">możliwe</span>
-<span class="k">delete</span> <span class="n">person</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span>
-<span class="o">&gt;</span> <span class="k">true</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="err">{</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Mikołaj&#39;</span><span class="p">,</span><span class="n">age</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span><span class="n">animals</span> <span class="p">:</span> <span class="p">[</span><span class="ss">&quot;cat&quot;</span><span class="p">,</span><span class="ss">&quot;dog&quot;</span><span class="p">],</span>
-<span class="n">sayHello</span><span class="p">:</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span><span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="ss">&quot;hello Mikolaj&quot;</span><span class="p">)</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">delete person.height</span>
+<span class="err">&gt; true // zwraca false - jeśli nie jest to możliwe</span>
+<span class="err">delete person[&#39;gender&#39;]</span>
+<span class="err">&gt; true</span>
+<span class="err">console.log(person)</span>
+<span class="err">&gt; {name: &#39;Mikołaj&#39;,age: 99,animals : [&quot;cat&quot;,&quot;dog&quot;],</span>
+<span class="c">sayHello: function() {console.log(&quot;hello Mikolaj&quot;)}</span>
 </code></pre></div>
 
 
 <p>Zmiana wartości, przypisanej do klucza odbywa jest prosta i również zbliżona do tego co znane jest z tablicy, jednak zamiast odwoływać się do pozycji indeksowej, należy odwołać się do klucza</p>
-<div class="highlight"><pre><span></span><code><span class="n">person</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="ss">&quot;Michał&quot;</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="err">{</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Mikołaj&#39;</span><span class="p">,</span><span class="n">age</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span><span class="n">animals</span> <span class="p">:</span> <span class="p">[</span><span class="ss">&quot;cat&quot;</span><span class="p">,</span><span class="ss">&quot;dog&quot;</span><span class="p">],</span>
-<span class="n">sayHello</span><span class="p">:</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span><span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="ss">&quot;hello Mikolaj&quot;</span><span class="p">)</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">person.name = &quot;Michał&quot;</span>
+<span class="err">console.log(person)</span>
+<span class="err">&gt; {name: &#39;Mikołaj&#39;,age: 99,animals : [&quot;cat&quot;,&quot;dog&quot;],</span>
+<span class="c">sayHello: function() {console.log(&quot;hello Mikolaj&quot;)}</span>
 </code></pre></div>
 
 
 <p>W wewnętrznej funkcji obiektu można odwołać się do wartości przypisanych do kluczy w niej zawartej w dwojaki sposób odwołując się do klucza lub słowa kluczowego <code>this</code> (który odwołuje się do obiektu okna)</p>
-<div class="highlight"><pre><span></span><code>const person2 = {
-  name: &#39;Mike&#39;,
-  sayHello: function() {
-    console.log(`hello <span class="cp">${</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="cp">}</span>`) // lub person2.name &gt; hello Mike
-  }
-  };
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">person2</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Mike&#39;</span><span class="p">,</span>
+  <span class="n">sayHello</span><span class="p">:</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">hello</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">}</span><span class="err">`</span><span class="p">)</span> <span class="o">//</span> <span class="n">lub</span> <span class="n">person2</span><span class="o">.</span><span class="n">name</span> <span class="o">&gt;</span> <span class="n">hello</span> <span class="n">Mike</span>
+  <span class="p">}</span>
+  <span class="p">};</span>
 </code></pre></div>
 
 

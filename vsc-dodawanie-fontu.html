@@ -156,30 +156,30 @@
   <div>
     <p>Początkowo w <em>Visual Studio Code</em> korzystałem z fontu <em>Monospace</em>, który ze względu na domyślny odstęp pomiędzy literami oraz sam kształt fontu jest przystępny do nauki, z czasem jednak postanowiłem przejść na inny i przyjemniejszych dla oka <strong>Fira Code </strong></p>
 <p>Instalacja na Ubuntu jest bardzo prosta, wystarczy w terminal wpisać komendę </p>
-<div class="highlight"><pre><span></span><code><span class="o">`</span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">fonts</span><span class="o">-</span><span class="n">firacode</span><span class="o">`</span>
+<div class="highlight"><pre><span></span><code><span class="err">`sudo apt install fonts-firacode`</span>
 </code></pre></div>
 
 
 <p>Następnie należy zdefiniować użycie nowego fontu (wymaga ponownego włączenie VSC!) w <code>settings.json</code></p>
-<div class="highlight"><pre><span></span><code><span class="ss">&quot;editor.fontFamily&quot;</span><span class="p">:</span> <span class="ss">&quot;Fira Code&quot;</span><span class="p">,</span>
-<span class="o">//</span> <span class="ss">&quot;editor.fontFamily&quot;</span><span class="p">:</span> <span class="ss">&quot;Fira Code Retina&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="mi">2</span><span class="p">.</span> <span class="n">opcjonalna</span> <span class="n">wersja</span> <span class="n">fontu</span> <span class="n">Fira</span> <span class="n">Code</span>
-<span class="ss">&quot;editor.fontLigatures&quot;</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;editor.fontFamily&quot;: &quot;Fira Code&quot;,</span>
+<span class="err">// &quot;editor.fontFamily&quot;: &quot;Fira Code Retina&quot;, // 2. opcjonalna wersja fontu Fira Code</span>
+<span class="err">&quot;editor.fontLigatures&quot;: true,</span>
 </code></pre></div>
 
 
 <p>Po jakimś czesie przeszedłem na <strong>JetBrains Mono</strong> aby z niego korzystać musiałem postąpić w następujący sposób</p>
 <p>Pobrać (paczkę z fontem z oficjalnej strony )[https://www.jetbrains.com/lp/mono/]</p>
 <p>Wypakowałem paczkę w odpowiednim miejscu (<code>~/.local/share/fonts)</code> przy użyciu komendy</p>
-<div class="highlight"><pre><span></span><code><span class="n">unzip</span> <span class="n">JetBrainsMono</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">.</span><span class="n">zip</span> <span class="o">-</span><span class="n">d</span> <span class="o">~/</span><span class="p">.</span><span class="k">local</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">fonts</span> <span class="o">&amp;&amp;</span> <span class="n">fc</span><span class="o">-</span><span class="k">cache</span> <span class="o">-</span><span class="n">fv</span>
-<span class="n">unzip</span> <span class="o">&lt;</span><span class="n">nazwa_katalogu</span><span class="p">.</span><span class="n">zip</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">d</span> <span class="o">~/</span><span class="p">.</span><span class="k">local</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">fonts</span> <span class="o">&amp;&amp;</span> <span class="n">fc</span><span class="o">-</span><span class="k">cache</span> <span class="o">-</span><span class="n">fv</span>
+<div class="highlight"><pre><span></span><code><span class="err">unzip JetBrainsMono-1.0.3.zip -d ~/.local/share/fonts &amp;&amp; fc-cache -fv</span>
+<span class="err">unzip &lt;nazwa_katalogu.zip&gt; -d ~/.local/share/fonts &amp;&amp; fc-cache -fv</span>
 </code></pre></div>
 
 
 <p>Następnie w pliku <code>settings.json</code> dokonałem odpowiednią zmienną</p>
-<div class="highlight"><pre><span></span><code><span class="ss">&quot;editor.fontSize&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-<span class="ss">&quot;editor.fontFamily&quot;</span><span class="p">:</span> <span class="ss">&quot;JetBrains Mono&quot;</span><span class="p">,</span>
-<span class="ss">&quot;editor.fontLigatures&quot;</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
-<span class="o">//</span> <span class="ss">&quot;editor.letterSpacing&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span> <span class="o">//</span> <span class="n">edytuje</span> <span class="n">odległość</span> <span class="n">pomiędzy</span> <span class="n">literami</span>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;editor.fontSize&quot;: 18,</span>
+<span class="err">&quot;editor.fontFamily&quot;: &quot;JetBrains Mono&quot;,</span>
+<span class="err">&quot;editor.fontLigatures&quot;: true,</span>
+<span class="err">// &quot;editor.letterSpacing&quot;: -0.05, // edytuje odległość pomiędzy literami</span>
 </code></pre></div>
 
 

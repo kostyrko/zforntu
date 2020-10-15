@@ -163,19 +163,19 @@
 <h3>Relatywne jednostki</h3>
 <p><code>rem</code>- root element odwołuje się do roota, warto wówczas zdefiniować wysokość
  w html - domyślnie wynosi 16px</p>
-<div class="highlight"><pre><span></span><code><span class="nt">html</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="p">:</span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">html {</span>
+<span class="err">    font-size:20px;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <p>Reszta w rem i html zmieniać w zależności od wielkości ekranu</p>
 <p><code>em</code> - odnosi się do rodzica, ale w przypadku rozmiaru fontu inne wartości em odwołają się do bieżącej wartości em danego elementu</p>
 <p><code>%</code> - może odwoływać się do różnych wartości, w przypadku szerokości będzie odwoływać się procentowo do rodzica. Ta sama zasada odwołuje się do wielkości fontu, jednak w przypadku wysokości obiektu wówczas będzie odwoływać się do wielkości fontu danego obiektu.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">p</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="p">:</span> <span class="mi">10</span><span class="kt">%</span><span class="p">;</span>
-    <span class="k">line-height</span><span class="p">:</span> <span class="mi">120</span><span class="kt">%</span><span class="p">;</span> <span class="err">//</span> <span class="err">12px</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">p {</span>
+<span class="err">    font-size: 10%;</span>
+<span class="err">    line-height: 120%; // 12px</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -186,7 +186,7 @@
 <p><img alt="Treść jak woda" src="https://www.weboftwo.com/wp-content/uploads/2017/12/content-is-like-water.png"></p>
 <h3>@media queries - zapytanie o media (ekran)</h3>
 <p>Ustawienia w html tagu <code>meta</code> w <code>head</code> oraz zdefiniowanie <code>content</code> na <code>width=device-width</code> oznacza, to że treść dopasuje się do szerokości ekranu, na którym dana strona jest przeglądana</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">meta</span> <span class="n">name</span><span class="o">=</span><span class="ss">&quot;viewport&quot;</span> <span class="n">content</span><span class="o">=</span><span class="ss">&quot;width=device-width, initial-scale=1.0&quot;</span> <span class="o">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</span>
 </code></pre></div>
 
 
@@ -254,11 +254,11 @@
 </tbody>
 </table>
 <p>Przykładowe zastosowanie:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">@media</span><span class="w"> </span><span class="p">(</span><span class="nf">min</span><span class="o">-</span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="n">px</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">aside</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="n">vw</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="err">}</span><span class="w"></span>
-<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">@media (min-width: 1024px) {</span>
+<span class="err">    aside {</span>
+<span class="err">        width: 16vw;</span>
+<span class="err">    }</span>
+<span class="err">    }</span>
 </code></pre></div>
 
 
@@ -279,11 +279,11 @@
 
 
 <p>Użycie operatora only oraz wskazanie na jedynie ekrany</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nv">@media</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="nf">max</span><span class="o">-</span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="n">px</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">body</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span><span class="w"> </span><span class="n">gray</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="err">}</span><span class="w"></span>
-<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">    @media only screen and (max-width: 600px) {</span>
+<span class="err">    body {</span>
+<span class="err">        background-color: gray;</span>
+<span class="err">    }</span>
+<span class="err">    }</span>
 </code></pre></div>
 
 
@@ -294,7 +294,7 @@
 <hr>
 <h4>CSS</h4>
 <p>Deklaracje dla poszczególnych szerokości ekranu można przechowywać w osobnych plikach css wówczas należy również dodać właściwość <code>media</code> i wpisanie odpowiedniego warunku w tagu <code>link</code> a następnie przypisać mu konkretny css</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="ss">&quot;stylesheet&quot;</span> <span class="n">media</span><span class="o">=</span><span class="ss">&quot;(min-width: 640px)&quot;</span> <span class="n">href</span><span class="o">=</span><span class="ss">&quot;min-640px.css&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;link rel=&quot;stylesheet&quot; media=&quot;(min-width: 640px)&quot; href=&quot;min-640px.css&quot;&gt;</span>
 </code></pre></div>
 
 

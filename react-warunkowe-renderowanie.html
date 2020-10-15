@@ -160,11 +160,11 @@
 <h3>1) Inline - operator trójargumentowy + null</h3>
 <p>Ta opcja sprawdza się najlepiej w przypadku pojedynczych zmiennych lub gdy treść danego elementu jest krótka lub jeśli zwracamy dany element lub w jego miejsce nic nie jest zwracane jeśli walidacji przechodzi negatywnie.</p>
 <p><strong>:::</strong> Istotne jest to aby pamiętać, że jeśli chcemy korzystać z warunków w ramach JSX musi być to wówczas przy pomocy operatora trójargumentowego <strong>:::</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">droids</span> <span class="o">!==</span> <span class="nv">false</span> <span class="nv">nie</span> <span class="nv">renderuj</span> <span class="nv">tego</span> <span class="nv">elementu</span>
+<div class="highlight"><pre><span></span><code>// jeśli droids !== false nie renderuj tego elementu
 [...]
-<span class="k">return</span> <span class="ss">(</span>
-    {<span class="nv">droids</span><span class="o">===</span> <span class="nv">false</span> ? <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span> <span class="nv">Wybierze</span> <span class="nv">klas</span>ę <span class="nv">droid</span>ó<span class="nv">w</span> <span class="k">do</span> <span class="nv">wy</span>ś<span class="nv">wietlenia</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span> : <span class="nv">null</span>}
-  <span class="ss">)</span>
+return (
+    {droids=== false ? <span class="nt">&lt;h2&gt;</span> Wybierze klasę droidów do wyświetlenia<span class="nt">&lt;/h2&gt;</span> : null}
+  )
 [...]
 </code></pre></div>
 

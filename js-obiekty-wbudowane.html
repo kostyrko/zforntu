@@ -168,20 +168,20 @@
 
 
 <p><code>uneval()</code> - tworzy string reprezentujący kod źródłowy obiektu</p>
-<div class="highlight"><pre><span></span><code><span class="n">uneval</span><span class="p">(</span><span class="k">function</span> <span class="n">foo</span><span class="p">()</span> <span class="err">{}</span><span class="p">);</span> <span class="o">//</span> <span class="k">returns</span> <span class="ss">&quot;(function foo(){})&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">uneval(function foo() {}); // returns &quot;(function foo(){})&quot;</span>
 </code></pre></div>
 
 
 <p><code>isFinite()</code> - sprawdza czy liczba podana (argument) jest liczbą skończoną</p>
 <p><code>isNaN()</code> - sprawdza czy podany argument jest liczbą</p>
-<div class="highlight"><pre><span></span><code><span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">milliseconds</span><span class="p">(</span><span class="s1">&#39;100F&#39;</span><span class="p">));</span>
-<span class="o">//</span> <span class="n">expected</span> <span class="k">output</span><span class="p">:</span> <span class="ss">&quot;Not a Number!&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">console.log(milliseconds(&#39;100F&#39;));</span>
+<span class="err">// expected output: &quot;Not a Number!&quot;</span>
 </code></pre></div>
 
 
 <p><code>parseFloat()</code> - analizuje argument (string?) i zwraca go jako float</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">circumference</span><span class="ss">(</span><span class="nv">r</span><span class="ss">)</span> {
-<span class="k">return</span> <span class="nv">parseFloat</span><span class="ss">(</span><span class="nv">r</span><span class="ss">)</span> <span class="o">*</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="o">*</span> <span class="nv">Math</span>.<span class="nv">PI</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">function circumference(r) {</span>
+<span class="err">return parseFloat(r) * 2.0 * Math.PI;</span>
 </code></pre></div>
 
 
@@ -215,23 +215,23 @@
 <p><strong>Metody</strong></p>
 <p><code>Date.now()</code> - wartość liczbowa aktualnego czasu</p>
 <p><code>Date.pars()</code> - "Zwraca liczbę milisekund, które upłynęły od 1 stycznia 1970, 00:00:00 czasu lokalnego do daty podanej jako argument string."</p>
-<div class="highlight"><pre><span></span><code><span class="nt">Date</span><span class="p">.</span><span class="nc">parse</span><span class="o">(</span><span class="s2">&quot;Wed, 09 Aug 1995 00:00:00&quot;</span><span class="o">);</span>
-<span class="o">//</span> <span class="nt">Zwraca</span> <span class="nt">807937200000</span> <span class="nt">w</span> <span class="nt">strefie</span> <span class="nt">czasowej</span> <span class="nt">GMT-0300</span><span class="o">,</span> <span class="nt">a</span> <span class="nt">inne</span> <span class="nt">wartości</span> <span class="nt">w</span> <span class="nt">innych</span>
+<div class="highlight"><pre><span></span><code><span class="err">Date.parse(&quot;Wed, 09 Aug 1995 00:00:00&quot;);</span>
+<span class="err">// Zwraca 807937200000 w strefie czasowej GMT-0300, a inne wartości w innych</span>
 </code></pre></div>
 
 
 <p><code>Date.UTC()</code> - "Zwraca liczbę milisekund, które upłynęły od 1 stycznia 1970, 00:00:00 czasu uniwersalnego do daty podanej jako zestaw liczb"</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">utcDate1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="n">UTC</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">utcDate1</span><span class="p">.</span><span class="n">toUTCString</span><span class="p">());</span>
-<span class="o">//</span> <span class="n">expected</span> <span class="k">output</span><span class="p">:</span> <span class="n">Fri</span><span class="p">,</span> <span class="mi">02</span> <span class="n">Feb</span> <span class="mi">1996</span> <span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span> <span class="n">GMT</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">utcDate1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">Date</span><span class="o">.</span><span class="n">UTC</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">utcDate1</span><span class="o">.</span><span class="n">toUTCString</span><span class="p">());</span>
+<span class="o">//</span> <span class="n">expected</span> <span class="n">output</span><span class="p">:</span> <span class="n">Fri</span><span class="p">,</span> <span class="mi">02</span> <span class="n">Feb</span> <span class="mi">1996</span> <span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span> <span class="n">GMT</span>
 </code></pre></div>
 
 
 <p><strong>Instancje obiektu Date (wybrane)</strong></p>
 <p><strong>Metody</strong></p>
 <p><code>Date.prototype.getDate()</code> - zwraca dzień miesiąca podanej daty</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">birthday</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">August 19, 1975 23:15:30</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">date1</span> <span class="o">=</span> <span class="nv">birthday</span>.<span class="k">getDate</span><span class="ss">()</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">birthday</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Date</span><span class="p">(</span><span class="s1">&#39;August 19, 1975 23:15:30&#39;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">date1</span> <span class="o">=</span> <span class="n">birthday</span><span class="o">.</span><span class="n">getDate</span><span class="p">();</span>
 </code></pre></div>
 
 

@@ -131,6 +131,73 @@
 
 <article>
   <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/js-destrukturyzacja.html">JavaScript - destrukturyzacja tablic i obiektów</a></h2>
+    <p>
+      Opublikowano nie 12 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/array.html">array</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/tablica.html">tablica</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/destrukturyzacja.html">destrukturyzacja</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/obiekt.html">obiekt</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <h3>Destrukturyzacja tablic</h3>
+<p>Destrukturyzacja tablic pozwala na przypisanie do zmiennych tworzących tablice kolejne elementy zawarte w tablicy (właściwości tablicy)</p>
+<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">droids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r2d2&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">]</span>
+<span class="n">let</span> <span class="p">[</span><span class="n">droid1</span><span class="p">,</span> <span class="n">droid2</span><span class="p">]</span> <span class="o">=</span> <span class="n">droids</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid2</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">c3po</span>
+
+<span class="n">zamiast</span>
+
+<span class="n">let</span> <span class="n">droid2</span> <span class="o">=</span> <span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p>Istnieje również możliwość omijania pewnych elementów w trakcie destrukturacji poprzez pozostawienie wolnej spacji pomiędzy przecinkami …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-destrukturyzacja.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/js-tablice-metody.html">JavaScript - metody tablic (array methods)</a></h2>
+    <p>
+      Opublikowano nie 12 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/array.html">array</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/tablica.html">tablica</a>
+        &#8226; 4 min read
+    </p>
+  </header>
+  <div>
+      <h3>Tablice</h3>
+<p>Tworzenie tablicy</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p>::: istnieje możliwość również przez funkcję konstruktora <code>new Array()</code></p>
+<p>Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą</p>
+<div class="highlight"><pre><span></span><code><span class="err">Array.isArray(arr) // true (/false)</span>
+</code></pre></div>
+
+
+<p>Dodawanie wartości do tablicy</p>
+<div class="highlight"><pre><span></span><code><span class="err">arr[2] = 20</span>
+<span class="err">arr // [1,2,20,3,4]</span>
+</code></pre></div>
+
+
+<p>Tablice można tworzyć również z obiektów …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-tablice-metody.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://kostyrko.github.io/zfrontu/js-tablice.html">JavaScript - tablice (obiekt array)</a></h2>
     <p>
       Opublikowano sob 11 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
@@ -142,8 +209,8 @@
   </header>
   <div>
       <p>Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.</p>
-<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">Arr</span> <span class="o">=</span> <span class="p">[];</span> <span class="o">//</span> <span class="n">pusta</span> <span class="n">tablica</span>
-<span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="ss">&quot;Mikolaj&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="ss">&quot;kwiecień&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="err">let Arr = []; // pusta tablica</span>
+<span class="err">let arr = [&quot;Mikolaj&quot;, 2020, &quot;kwiecień&quot;, 17.04];</span>
 </code></pre></div>
 
 
@@ -167,15 +234,15 @@
   <div>
       <p>Typ liczbowy (Numbers) posiada przypisane sobie metody - poniżej przedstawiona została część z nich</p>
 <p><code>toString()</code> - dokonuje konwersji na string</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">20</span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>   <span class="o">//</span> <span class="s1">&#39;120&#39;</span> <span class="o">-</span> <span class="n">zwraca</span> <span class="n">sumę</span>
+<div class="highlight"><pre><span></span><code><span class="err">(100 + 20).toString();   // &#39;120&#39; - zwraca sumę</span>
 </code></pre></div>
 
 
 <p><code>toFixed()</code> - pozwala na określenie ilości znajków liczbowych po kropce</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">.</span><span class="mi">656</span><span class="p">;</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">10</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">9</span><span class="p">.</span><span class="mi">66</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">9 …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">9.656</span><span class="p">;</span>
+<span class="n">x</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">10</span>
+<span class="n">x</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>           <span class="o">//</span> <span class="mf">9.66</span>
+<span class="n">x</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>           <span class="o">//</span> <span class="mf">9 …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-metody-liczb.html">Czytaj dalej</a>
   </div>
@@ -194,8 +261,8 @@
   </header>
   <div>
       <p>Jedną z podstawowych i często stosowanych właściwości stringów jest <strong><code>length</code></strong> który zwraca długość łańcucha znaków</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">fu</span> <span class="o">=</span> <span class="ss">&quot;bar&quot;</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">fu</span><span class="p">.</span><span class="k">length</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">fu</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fu</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="mi">3</span>
 </code></pre></div>
 
@@ -247,9 +314,10 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
   </header>
   <div>
       <p>Polecenie <code>if...else</code> pozwala na kontrolę przepływu kodu -&gt; gdy pewien warunek jest spełniony (<code>if</code>) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (<code>else if</code>) lub wykonać określony kod (<code>else</code>)</p>
-<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="ss">(</span><span class="nv">warunek</span><span class="ss">)</span> {
-        <span class="nv">kod</span> <span class="k">do</span> <span class="nv">wywo</span>ł<span class="nv">ania</span> <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">warunek</span> <span class="nv">spe</span>ł<span class="nv">niony</span>
-  } <span class="k">else</span> <span class="k">if</span> <span class="ss">(</span><span class="nv">inny</span> <span class="nv">warunek …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="p">(</span><span class="n">warunek</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">kod</span> <span class="k">do</span> <span class="n">wywołania</span> <span class="n">jeśli</span> <span class="n">warunek</span> <span class="n">spełniony</span>
+  <span class="err">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inny</span> <span class="n">warunek</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">kod</span> <span class="k">do</span> <span class="n">wywołania</span> <span class="n">jeśli</span> <span class="n">warunek</span> <span class="n">spełniony …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-kontorla-przeplywu.html">Czytaj dalej</a>
   </div>
@@ -307,8 +375,8 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 <p>swith - instrukcja warunkowa biorąca pod uwagę zachowanie się kodu zależnego od wariacji zmiennej</p>
 <p>throw - ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu</p>
 <p>Przykładowe zastosowanie: </p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s2">&quot;</span><span class="ss">)</span>
-    .<span class="k">then …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">fetch(&quot;https://jsonplaceholder.typicode.com/posts/2&quot;)</span>
+<span class="err">    .then …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-polecenia.html">Czytaj dalej</a>
   </div>
@@ -519,7 +587,7 @@ Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ:
 pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia  (<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości.</p>
 <p>Przykładowe zastosowanie</p>
 <p>50% rodzica dzielone przez 3</p>
-<div class="highlight"><pre><span></span><code><span class="nt">el …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">el …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/css-calc.html">Czytaj dalej</a>
   </div>
@@ -600,74 +668,6 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 <p>content-box- podstawowe, zachowanie się <em>kontenera</em> (div) od obszaru, w którym znajduje się jego zwartość /wskazana wartość wielkość pudełka odnosi się do jego zawartości, - oznaczo to że margines …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/css-box-sizing.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/css-selektory.html">CSS - składnia selektory</a></h2>
-    <p>
-      Opublikowano śro 01 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/selektory.html">selektory</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/znaczniki.html">znaczniki</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/potomek.html">potomek</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dziecko.html">dziecko</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p>Schemat</p>
-<div class="highlight"><pre><span></span><code><span class="nt">Lista</span> <span class="nt">dyrektyw</span>
-
-<span class="nt">selektor</span> <span class="p">{</span> 
-<span class="err">właściwość</span> <span class="err">-</span> <span class="err">wartość</span> <span class="err">właściwości</span><span class="p">;</span> <span class="c">/* razem tworzą deklarację */</span>
-<span class="p">}</span>
-
-<span class="nt">ang</span><span class="o">.</span> <span class="nt">rule</span> <span class="nt">set</span>
-
-<span class="nt">Selector</span> <span class="p">{</span>
-  <span class="n">property</span><span class="p">:</span> <span class="n">property</span> <span class="n">value</span><span class="p">;</span> <span class="c">/* declaration */</span>
-<span class="p">}</span>
-</code></pre></div>
-
-
-<p>Selektor znacznika np <code>strong</code>
-Selektor klasy poprzedzony jest kropką <code>.</code></p>
-<p>Selektor id poprzedzony jest haszem <code>#</code></p>
-<p>Selektor id nadaje priorytet regule ważniejszy od niż ten posiadający klasę, a selektor znacznika/typu ma najmniejszy priorytet …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/css-selektory.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/css-float.html">CSS - float</a></h2>
-    <p>
-      Opublikowano wto 31 marca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/float.html">float</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/clear.html">clear</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/clearfix.html">clearfix</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/overflow.html">overflow</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p>Właściwość <code>float</code> wskazuje służy do pozycjonowani oraz formatowani treści wskazuje w jaki sposób element ma pływać (float)</p>
-<p><code>left</code> - znajduj się po lewej stronie
-<code>right</code> - znajduj się po prawej stronie
-<code>none</code> - nie pływaj
-<code>inherit</code></p>
-<p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nt">img</span> <span class="p">{</span>
-  <span class="k">float</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-
-<p><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_layout_cols">Układ strony przy wykorzystaniu właściwości <code>float</code></a></p>
-<h3>Clear</h3>
-<p>Właściwość <code>clear</code> definiuje po której …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/css-float.html">Czytaj dalej</a>
   </div>
 </article>
 

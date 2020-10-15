@@ -165,11 +165,11 @@ Na jakiego typu danych może …</p>
       <p><img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"></p>
 <p><code>props.children</code> pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu</p>
 <p>Komponent otwarty na ew. rozszerzenia o nową treść</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="nv">let</span> {<span class="nv">children</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
-      {<span class="nv">children …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>function TestComposition(props) {
+  let {children} = props;
+  return (<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+      {children …</code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/react-kompozycja.html">Czytaj dalej</a>
   </div>

@@ -5,13 +5,13 @@
 &lt;hr&gt;
 &lt;h3&gt;Metadane&lt;/h3&gt;
 &lt;p&gt;Pokaż wszystkie gałęzie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git branch -a&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Wynik pokazuje te lokalne oraz remotes (-a -&amp;gt; all, jeśli mają być jedynie remotes to wówczas flaga -r)&lt;/p&gt;
 &lt;p&gt;Jeśli chcemy zobaczyć dokonane commity należy wpisać&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;branch&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git show-branch&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -19,51 +19,51 @@
 &lt;hr&gt;
 &lt;h3&gt;Trawersowanie&lt;/h3&gt;
 &lt;p&gt;Jeśli chcemy przełączyć się na wybraną gałąź należy wpisać&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git checkout &amp;lt;nazwa gałęzi&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Przykładowo&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git checkout master&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;h3&gt;Tworzenie&lt;/h3&gt;
 &lt;p&gt;Jeśli checmy stworzyć nową gałąź i się na nią również przełączyć to należy wpisać&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;głęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git checkout -b &amp;lt;nazwa głęzi&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;np.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git checkout -b issue_1.7&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Jeśli chcemy stworzyć gałąź z konkretnej gałęzi wówczas należy ją wskazać po nazwie nowej gałęzi&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;której&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;wychodzić&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git checkout -b &amp;lt;nazwa nowej gałęzi&amp;gt; &amp;lt;nazwa gałęzi, której ma wychodzić&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Przykładowo&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;issue_1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git checkout -b issue_1.7 dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Następnie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git push origin &amp;lt; nazwa nowej gałęzi &amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;h3&gt;Usuwanie&lt;/h3&gt;
 &lt;p&gt;Usuwanie gałęzi&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="c1"&gt;--delete &amp;lt;nazwa gałęzi&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git push origin --delete &amp;lt;nazwa gałęzi&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Przykładowo&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="c1"&gt;--delete issue_1.5&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git push origin --delete issue_1.5&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -84,31 +84,31 @@
 &lt;p&gt;-m -&amp;gt; --message/wiadomość
 -a -&amp;gt; --all wszystkie (pliki trafiają na stage/etap przejściowy )&lt;/p&gt;
 &lt;p&gt;więcej wyjaśnieni skrótów można znaleźć w &lt;a href="https://explainshell.com/explain/1/git-commit"&gt;explainshell&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git commit -a -m &amp;#39;treść wiadomości&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;alternatywnie można skorzystać z komendy -A (wymuszone all)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git add -A&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Spowoduje, że pliki, które do tej pory były edytowane (zawierają zmiany) trafią do stadium przejściowego (ich zmiana jest zauważona i odnotowana lokalnie) i wymagają wypchnięcia do remote repo jeśli mają być widoczne dla innych. Można tego dokonać poprzez...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;treść wiadomości&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git commit -m &amp;quot;treść wiadomości&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;h3&gt;Wizualizacja gałęzi&lt;/h3&gt;
 &lt;p&gt;Wizualizacja repo przy pomocy git-grafu&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="c1"&gt;--all --decorate --oneline --graph&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git log --all --decorate --oneline --graph&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;img alt="DOG" src="https://i.stack.imgur.com/ElVkf.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;Uaktualnianie projektu lokalnego do zdalnego repo&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt; &lt;span class="c1"&gt;--all&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;pull&lt;/span&gt; &lt;span class="c1"&gt;--all&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git fetch --all&lt;/span&gt;
+&lt;span class="err"&gt;    git pull --all&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -117,32 +117,32 @@
 &lt;p&gt;Uaktualnianie gałęzi do stanu innej gałęzi można wykonać korzystając z komendy rebase (pobiera wówczas ew. zmiany np. z dałęzi głównej np. dev) lub poprzez mergowanie, dodatkowo można skorzystać z opcji --no-ff -&amp;gt; no fast forward.&lt;/p&gt;
 &lt;p&gt;Kolejność działania w przypadku wypychania zmian na gałąź rozwojową 1) uaktualniamy/łączymy gałąź na której pracujemy np. poprzez mergowanie do niej gałęzi rozwojowej 2) rozwiązujemy na niej ew. konflikty, jeśli wszystko działa możemy zgłosić ją do procesu recenzji (jeśli taka możliwość istnieje) 3) Gałąź rozwojową mergujemy z gałęzią, na której do tej pory pracowaliśmy &lt;/p&gt;
 &lt;h4&gt;Merge&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;uaktualniona&lt;/span&gt; &lt;span class="nv"&gt;obecna&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="o"&gt;=======&lt;/span&gt;
-&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="nv"&gt;feature_4&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;develop&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git merge &amp;lt;nazwa gałęzi&amp;gt; &amp;lt;nazwa gałęzi DO której ma być uaktualniona obecna&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;=======&lt;/span&gt;
+&lt;span class="err"&gt;git merge feature_4.1 develop&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;Rebase&lt;/h4&gt;
 &lt;p&gt;Rebase spowoduje, że część historii zmian zostanie stracona lub inaczej rzecz ujmując gałąź przejmująca zmiany nie przejmuje historii commitów i widoczne na niej będą jedynie te, które na niej wykonano a nie innej gałęzi - plusem jest to, że struktura jest czytelniejsza.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;rebase&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;uaktualniona&lt;/span&gt; &lt;span class="nv"&gt;obecna&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="o"&gt;======&lt;/span&gt;
-    &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;rebase&lt;/span&gt; &lt;span class="nv"&gt;develop&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git rebase &amp;lt;nazwa gałęzi DO której ma być uaktualniona obecna&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;    ======&lt;/span&gt;
+&lt;span class="err"&gt;    git rebase develop&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;Fast forward vs non fast forward&lt;/h4&gt;
 &lt;p&gt;Domyślnie mergowanie jest ustawione na -ff (fast forward) co oznacza - gładkie scalanie, w przypadku wykorzystania opcji --no-ff pojawia się dodatkowy węzeł wskazujący na moment połączenia się dwóch gałęzi&lt;/p&gt;
 &lt;p&gt;--no-ff -&amp;gt; no fast forward&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;dodana&lt;/span&gt; &lt;span class="nv"&gt;tre&lt;/span&gt;ść&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="n"&gt;której&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;być&lt;/span&gt; &lt;span class="n"&gt;dodana&lt;/span&gt; &lt;span class="n"&gt;treść&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;merge&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;ff&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt;, &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;ra&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;przy&lt;/span&gt;łą&lt;span class="nv"&gt;czona&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="c1"&gt;--no-ff &amp;lt;nazwa gałęzi, która ma być przyłączona&amp;gt;&lt;/span&gt;
 
-&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;A&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;
 
-&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;treść wiadomości&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;treść wiadomości&amp;quot;&lt;/span&gt;
 
-&lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;push&lt;/span&gt; &lt;span class="nv"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;nazwa&lt;/span&gt; &lt;span class="nv"&gt;ga&lt;/span&gt;łę&lt;span class="nv"&gt;zi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="nv"&gt;kt&lt;/span&gt;ó&lt;span class="nv"&gt;rej&lt;/span&gt; &lt;span class="nv"&gt;ma&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt;ć &lt;span class="nv"&gt;dodana&lt;/span&gt; &lt;span class="nv"&gt;tre&lt;/span&gt;ść&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;gałęzi&lt;/span&gt; &lt;span class="k"&gt;DO&lt;/span&gt; &lt;span class="n"&gt;której&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;być&lt;/span&gt; &lt;span class="n"&gt;dodana&lt;/span&gt; &lt;span class="n"&gt;treść&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -163,7 +163,7 @@
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard HEAD~1&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git reset --hard HEAD~1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -171,19 +171,19 @@
 &lt;p&gt;Na co dzień korzystam z zestawu VSC + GitHub&lt;/p&gt;
 &lt;p&gt;Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.&lt;/p&gt;
 &lt;p&gt;Aby cofnąć daną gałąź o jeden commit wystarczy wpisać&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard HEAD~1&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git reset --hard HEAD~1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;a jeśli zależy nam na konkretnym commicie to wówczas&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="k"&gt;reset&lt;/span&gt; &lt;span class="c1"&gt;--hard &amp;lt;adres commita&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git reset --hard &amp;lt;adres commita&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Zachodzi wówczas sytuacja, w której repozytorium znajdujące się na GitHubie jest "do przodu" względem tego, które znajduje się u mnie na dysku lokalnym - sygnalizuje to min. ikona w lewym dolnym rogu jeśli teraz dokonam synchronizacji (Synchronise Changes)&lt;/p&gt;
 &lt;p&gt;&lt;img alt="synchronizacja zmian" src="https://i.stack.imgur.com/P5VKm.png"&gt;&lt;/p&gt;
 &lt;p&gt;vsc zrobi &lt;code&gt;pull&lt;/code&gt; a następnie &lt;code&gt;push&lt;/code&gt; - repo wróci do stanu sprzed cofnięcia commita. Stąd zamiast tego muszę zrobić tzw twardy (lub przy użyciu siły push) korzystając z komendy:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt; &lt;span class="c1"&gt;--force&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git push origin HEAD --force&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -214,12 +214,12 @@ Sam plik powinien znajdować się w folderze źródłowym.&lt;/p&gt;
 
 
 &lt;p&gt;pliki po rozszerzeniu tzw. dzika karta:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;*.txt&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;~&lt;/code&gt; - kończące się na daną frazę&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;index.html~&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -238,7 +238,7 @@ Sam plik powinien znajdować się w folderze źródłowym.&lt;/p&gt;
 
 
 &lt;p&gt;&lt;code&gt;#&lt;/code&gt; - komentarz&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;komentarz&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# to jest komentarz&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 

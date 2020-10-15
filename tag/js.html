@@ -207,7 +207,7 @@
 <p>Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&gt; <a href="https://reqres.in/">https://reqres.in/</a> ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API </p>
 <p>Wysyłanie danych wymaga</p>
 <p>(1) przygotowanie danych do wysłania </p>
-<div class="highlight"><pre><span></span><code>  <span class="n">const …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>  <span class="k">const …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html">Czytaj dalej</a>
   </div>
@@ -334,19 +334,19 @@ Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zap
   </header>
   <div>
       <p>Klasy pozwalają na przypisanie metod bezpośrednio do (prototypów) obiektów przy pomocy jednego bloku (od ES6)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">Droid</span> {
-    <span class="nv">constructor</span><span class="ss">(</span><span class="nv">name</span>, <span class="nv">occupation</span><span class="ss">)</span> {
-        <span class="nv">this</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">name</span><span class="c1">;</span>
-        <span class="nv">this</span>.<span class="nv">occupation</span> <span class="o">=</span> <span class="nv">occupation</span><span class="c1">;</span>
-    }
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="p">{</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occupation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">occupation</span> <span class="o">=</span> <span class="n">occupation</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    <span class="nv">logDroid</span><span class="ss">()</span> {
-        <span class="k">return</span> `<span class="nv">this</span> <span class="nv">is</span> ${<span class="nv">this</span>.<span class="nv">name</span>} <span class="nv">a</span> ${<span class="nv">this</span>.<span class="nv">occupation</span>} <span class="o">//</span> <span class="nv">metoda</span> <span class="nv">prototypowa</span> <span class="o">-&gt;</span> <span class="nv">__proto__</span>: <span class="nv">Object</span>
-    }
-}
+    <span class="n">logDroid</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="err">`</span><span class="n">this</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">}</span> <span class="n">a</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">occupation</span><span class="p">}</span> <span class="o">//</span> <span class="n">metoda</span> <span class="n">prototypowa</span> <span class="o">-&gt;</span> <span class="n">__proto__</span><span class="p">:</span> <span class="nb nb-Type">Object</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="nv">const</span> <span class="nv">c3po</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Droid</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">C-3PO</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Protocol droid</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">r2d2</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Droid …</span></code></pre></div>
+<span class="k">const</span> <span class="n">c3po</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s1">&#39;C-3PO&#39;</span><span class="p">,</span> <span class="s1">&#39;Protocol droid&#39;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">r2d2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-klasy.html">Czytaj dalej</a>
   </div>
@@ -367,7 +367,7 @@ Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zap
       <p><em>Template strings</em> lub też <em>literals</em> zwane po polsku <em>łańcuchami szablonowymi</em></p>
 <p>Łańcuchy szablonowe [wcześniej wspominałem o nich <a href="https://kostyrko.github.io/zfrontu/js-podstawowe-typy.html">w tym miejscu</a>] pozwalają na podstawianie zmiennych wewnątrz informacji przeznaczonymi do druku i zawartymi pomiędzy apostrofami [ warto pamiętać o tym, że stosowanie tego formatu zapisu nie wymaga używania sekwencji ucieczkowej -&gt; /n]</p>
 <p>Przykładowo:</p>
-<div class="highlight"><pre><span></span><code>const droid …</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droid …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-etykietowana-funkcja.html">Czytaj dalej</a>
   </div>
@@ -520,7 +520,7 @@ Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zap
       <p>Obiekt <em>document</em> jest częścią obiektu <em>window</em> i został opisany poniżej. Wybrane metody obiektu window (globalny) -&gt;</p>
 <h3>Window</h3>
 <p><code>alert()</code> - pokazuje się okienko z ostrzeżeniem</p>
-<div class="highlight"><pre><span></span><code><span class="n">window</span><span class="p">.</span><span class="n">alert</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">window.alert(&#39;Hello world&#39;)</span>
 </code></pre></div>
 
 
@@ -528,9 +528,9 @@ Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zap
 <p>alert('Hello world')</p>
 <p><code>prompt()</code> - wyskakuje okienko z informacją</p>
 <p><code>confirm()</code> - przyjmuje parametr</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="ss">(</span><span class="nv">confirm</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Are you sure?</span><span class="s1">&#39;</span><span class="ss">))</span> {
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Yes)</span>
-}
+<div class="highlight"><pre><span></span><code><span class="err">if(confirm(&#39;Are you sure?&#39;)) {</span>
+<span class="err">  console.log(&#39;Yes)</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -555,10 +555,10 @@ Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zap
       <p>Funkcja konstruktora pozwala na stworzenie wielu obiektów według zdefiniowanego schematu, który jest nazywany prototypem</p>
 <p>Nazwa funkcji konstruktora często zaczyna się od dużej litery</p>
 <p>Schemat:</p>
-<div class="highlight"><pre><span></span><code>  <span class="k">function</span> <span class="n">NazwaFunkcji</span> <span class="p">(</span><span class="n">właściwość</span><span class="p">)</span> <span class="err">{</span> <span class="o">//</span> <span class="n">zdefiniowanie</span> <span class="n">konstruktora</span><span class="p">,</span> <span class="n">przekazanie</span> <span class="n">właściwości</span>
-        <span class="n">this</span><span class="p">.</span><span class="n">atrybut1</span> <span class="o">=</span> <span class="n">właściwość</span><span class="p">;</span> <span class="o">//</span>
-        <span class="n">this</span><span class="p">.</span><span class="n">atrybut2</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="err">{</span>  <span class="o">//</span> <span class="n">funkcja</span> <span class="n">zawarta</span> <span class="n">w</span> <span class="n">ramach</span> <span class="n">obiektu</span> <span class="n">stająca</span> <span class="n">się</span> <span class="n">metodą</span> <span class="n">obiektu</span>
-              <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">this …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">  function NazwaFunkcji (właściwość) { // zdefiniowanie konstruktora, przekazanie właściwości</span>
+<span class="err">        this.atrybut1 = właściwość; //</span>
+<span class="err">        this.atrybut2 = function(argument) {  // funkcja zawarta w ramach obiektu stająca się metodą obiektu</span>
+<span class="err">              console.log(this …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-konstruktor-prototyp-dziedziczenie.html">Czytaj dalej</a>
   </div>

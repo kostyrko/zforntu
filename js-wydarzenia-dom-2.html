@@ -165,21 +165,21 @@
 <h3>Delegacja wydarzeń - event delegation</h3>
 <p>W przypadku delegacji wydarzeń dochodzi to propagacji innej niż w domyślny sposób - np.dziecko (oraz jego potomstwo etc.) dziedziczy po rodzicu lub rodzeństwie. np. akcja, która zachodzi na rodzicu może wywoływać zdarzenie na dziecku. Tego typu zachowanie można zdefiniować przy pomocy warunków. Oznacza to, że można nastawić 'nasłuchiwacz', który wykonuje określone zadanie na wybranym elemencie.</p>
 <p>Rozwiązanie 1</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">deleteItem</span><span class="ss">(</span><span class="nv">e</span><span class="ss">)</span> {
-  <span class="k">if</span><span class="ss">(</span><span class="nv">e</span>.<span class="nv">target</span>.<span class="nv">parentElement</span>.<span class="nv">className</span> <span class="o">===</span> <span class="s1">&#39;</span><span class="s">delete-item</span><span class="s1">&#39;</span><span class="ss">)</span> {
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">delete-item</span><span class="s1">&#39;</span><span class="ss">)</span>
-  }
-}
+<div class="highlight"><pre><span></span><code><span class="err">function deleteItem(e) {</span>
+<span class="err">  if(e.target.parentElement.className === &#39;delete-item&#39;) {</span>
+<span class="err">    console.log(&#39;delete-item&#39;)</span>
+<span class="err">  }</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <p>::: jeśli celem jest obiekt posiadający rodzica, który posiada dokładnie w ten sposób przypisaną klasę lub klasy 'delete-item' to wówczas wykonaj wydarzenie:::</p>
 <p>Rozwiązanie 2</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">deleteItem</span><span class="ss">(</span><span class="nv">e</span><span class="ss">)</span> {
-  <span class="k">if</span><span class="ss">(</span><span class="nv">e</span>.<span class="nv">target</span>.<span class="nv">parentElement</span>.<span class="nv">classList</span>.<span class="nv">contains</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">delete-item</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="ss">)</span> {
-    <span class="nv">e</span>.<span class="nv">target</span>.<span class="nv">parentElement</span>.<span class="nv">parentElement</span>.<span class="nv">remove</span><span class="ss">())</span>
-  }
-}
+<div class="highlight"><pre><span></span><code><span class="err">function deleteItem(e) {</span>
+<span class="err">  if(e.target.parentElement.classList.contains(&#39;delete-item&#39;) ) {</span>
+<span class="err">    e.target.parentElement.parentElement.remove())</span>
+<span class="err">  }</span>
+<span class="err">}</span>
 </code></pre></div>
 
 

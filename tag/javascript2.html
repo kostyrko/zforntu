@@ -144,10 +144,10 @@
       <p>Funkcja konstruktora pozwala na stworzenie wielu obiektów według zdefiniowanego schematu, który jest nazywany prototypem</p>
 <p>Nazwa funkcji konstruktora często zaczyna się od dużej litery</p>
 <p>Schemat:</p>
-<div class="highlight"><pre><span></span><code>  <span class="k">function</span> <span class="n">NazwaFunkcji</span> <span class="p">(</span><span class="n">właściwość</span><span class="p">)</span> <span class="err">{</span> <span class="o">//</span> <span class="n">zdefiniowanie</span> <span class="n">konstruktora</span><span class="p">,</span> <span class="n">przekazanie</span> <span class="n">właściwości</span>
-        <span class="n">this</span><span class="p">.</span><span class="n">atrybut1</span> <span class="o">=</span> <span class="n">właściwość</span><span class="p">;</span> <span class="o">//</span>
-        <span class="n">this</span><span class="p">.</span><span class="n">atrybut2</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="err">{</span>  <span class="o">//</span> <span class="n">funkcja</span> <span class="n">zawarta</span> <span class="n">w</span> <span class="n">ramach</span> <span class="n">obiektu</span> <span class="n">stająca</span> <span class="n">się</span> <span class="n">metodą</span> <span class="n">obiektu</span>
-              <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">this …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">  function NazwaFunkcji (właściwość) { // zdefiniowanie konstruktora, przekazanie właściwości</span>
+<span class="err">        this.atrybut1 = właściwość; //</span>
+<span class="err">        this.atrybut2 = function(argument) {  // funkcja zawarta w ramach obiektu stająca się metodą obiektu</span>
+<span class="err">              console.log(this …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-konstruktor-prototyp-dziedziczenie.html">Czytaj dalej</a>
   </div>
@@ -230,11 +230,11 @@
 <p>Zbiór zgrupowanych instrukcji, które można wywołać poprzez odwołanie się do ich nazwy, funkcja może ale nie musi przyjmować parametry/argumenty, które biorą udział w wywoływaniu się jej wewnętrznego kodu. </p>
 <p>Funkcję można stworzyć poprzez jej deklarację przy użycia słowa kluczowego <code>function</code> </p>
 <p>Schemat </p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">identyfikator</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="err">{</span>
-  <span class="n">kod</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">function identyfikator(argument) {</span>
+<span class="err">  kod;</span>
 <span class="err">}</span>
-<span class="o">//</span> <span class="n">wywołanie</span>
-<span class="n">identyfikator</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+<span class="err">// wywołanie</span>
+<span class="err">identyfikator(argument)</span>
 </code></pre></div>
 
 
@@ -258,11 +258,11 @@
   <div>
       <p>Pętle <code>for</code> lub <code>while</code> pozwalają na wielokrotne wykonywanie się tego samego kodu</p>
 <p>schemat pętli <strong><code>for</code></strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">//</span> <span class="nv">zmienna</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">ca</span> <span class="nv">wyznacznikiem</span> <span class="nv">granicznym</span> <span class="nv">wykonywania</span> <span class="nv">p</span>ę<span class="nv">tli</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">//</span> <span class="n">zmienna</span> <span class="n">będąca</span> <span class="n">wyznacznikiem</span> <span class="n">granicznym</span> <span class="n">wykonywania</span> <span class="n">pętli</span>
 
-<span class="o">//</span> <span class="nv">wykonaj</span> <span class="nv">p</span>ę<span class="nv">tl</span>ę <span class="k">do</span> <span class="nv">momentu</span> <span class="nv">w</span> <span class="nv">kt</span>ó<span class="nv">rym</span> <span class="nv">i</span> <span class="nv">jest</span> <span class="nv">nadal</span> <span class="nv">mniejsze</span> <span class="nv">ni</span>ż <span class="nv">y</span>
+<span class="o">//</span> <span class="n">wykonaj</span> <span class="n">pętlę</span> <span class="n">do</span> <span class="n">momentu</span> <span class="n">w</span> <span class="n">którym</span> <span class="n">i</span> <span class="n">jest</span> <span class="n">nadal</span> <span class="n">mniejsze</span> <span class="n">niż</span> <span class="n">y</span>
 
-<span class="k">for</span> <span class="ss">(</span><span class="nv">let …</span></code></pre></div>
+<span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="n">i</span> <span class="o">-</span> <span class="n">akumulatorem</span><span class="p">;</span> <span class="n">moment</span> <span class="n">do</span> <span class="n">którego</span> <span class="n">wykonuje</span> <span class="n">się …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-for-while-loop.html">Czytaj dalej</a>
   </div>
@@ -282,20 +282,20 @@
   <div>
       <p><strong><code>Object.assign()</code></strong> - kopiuje/klonuje wszystkie elementy jednego lub więcej elementu do określonego elementu</p>
 <p>Schemat:</p>
-<div class="highlight"><pre><span></span><code><span class="n">returnedTarget</span> <span class="o">=</span> <span class="k">Object</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="k">source</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">returnedTarget = Object.assign(target, source);</span>
 </code></pre></div>
 
 
 <p>Przykłady</p>
-<div class="highlight"><pre><span></span><code><span class="nt">const</span> <span class="nt">obiekt</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span><span class="o">;</span>
-<span class="nt">const</span> <span class="nt">kopia</span> <span class="o">=</span> <span class="nt">Object</span><span class="p">.</span><span class="nc">assign</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">obiekt</span><span class="o">);</span>
-<span class="o">//</span> <span class="nt">kopia</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">obiekt</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+<span class="k">const</span> <span class="n">kopia</span> <span class="o">=</span> <span class="nb nb-Type">Object</span><span class="o">.</span><span class="n">assign</span><span class="p">({},</span> <span class="n">obiekt</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">kopia</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
 
-<span class="nt">const</span> <span class="nt">o1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span><span class="o">;</span>
-<span class="nt">const</span> <span class="nt">o2</span> <span class="o">=</span> <span class="p">{</span> <span class="n">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span><span class="o">;</span>
-<span class="nt">const</span> <span class="nt">o3</span> <span class="o">=</span> <span class="p">{</span> <span class="n">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span><span class="o">;</span>
+<span class="k">const</span> <span class="n">o1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+<span class="k">const</span> <span class="n">o2</span> <span class="o">=</span> <span class="p">{</span> <span class="n">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">};</span>
+<span class="k">const</span> <span class="n">o3</span> <span class="o">=</span> <span class="p">{</span> <span class="n">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">};</span>
 
-<span class="nt">const</span> <span class="nt">obj</span> <span class="o">=</span> <span class="nt">Object</span><span class="p">.</span><span class="nc">assign</span><span class="o">(</span><span class="nt">o1</span><span class="o">,</span> <span class="nt">o2 …</span></code></pre></div>
+<span class="k">const</span> <span class="n">obj</span> <span class="o">=</span> <span class="nb nb-Type">Object</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span> <span class="n">o2 …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-obiekt-metody.html">Czytaj dalej</a>
   </div>
@@ -370,7 +370,7 @@
 
 
 <p><code>uneval()</code> - tworzy string reprezentujący kod źródłowy obiektu</p>
-<div class="highlight"><pre><span></span><code><span class="n">uneval …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">uneval …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-obiekty-wbudowane.html">Czytaj dalej</a>
   </div>
@@ -421,19 +421,19 @@
   <div>
       <h3>Tablice</h3>
 <p>Tworzenie tablicy</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 
 
 <p>::: istnieje możliwość również przez funkcję konstruktora <code>new Array()</code></p>
 <p>Sprawdzanie czy obiekt, do którego się odwołujemy jest tablicą</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Array</span><span class="p">.</span><span class="n">isArray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">//</span> <span class="k">true</span> <span class="p">(</span><span class="o">/</span><span class="k">false</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">Array.isArray(arr) // true (/false)</span>
 </code></pre></div>
 
 
 <p>Dodawanie wartości do tablicy</p>
-<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">arr</span> <span class="o">//</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="err">arr[2] = 20</span>
+<span class="err">arr // [1,2,20,3,4]</span>
 </code></pre></div>
 
 
@@ -456,8 +456,8 @@
   </header>
   <div>
       <p>Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.</p>
-<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">Arr</span> <span class="o">=</span> <span class="p">[];</span> <span class="o">//</span> <span class="n">pusta</span> <span class="n">tablica</span>
-<span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="ss">&quot;Mikolaj&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="ss">&quot;kwiecień&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="err">let Arr = []; // pusta tablica</span>
+<span class="err">let arr = [&quot;Mikolaj&quot;, 2020, &quot;kwiecień&quot;, 17.04];</span>
 </code></pre></div>
 
 
@@ -481,15 +481,15 @@
   <div>
       <p>Typ liczbowy (Numbers) posiada przypisane sobie metody - poniżej przedstawiona została część z nich</p>
 <p><code>toString()</code> - dokonuje konwersji na string</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">20</span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>   <span class="o">//</span> <span class="s1">&#39;120&#39;</span> <span class="o">-</span> <span class="n">zwraca</span> <span class="n">sumę</span>
+<div class="highlight"><pre><span></span><code><span class="err">(100 + 20).toString();   // &#39;120&#39; - zwraca sumę</span>
 </code></pre></div>
 
 
 <p><code>toFixed()</code> - pozwala na określenie ilości znajków liczbowych po kropce</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">9</span><span class="p">.</span><span class="mi">656</span><span class="p">;</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">10</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">9</span><span class="p">.</span><span class="mi">66</span>
-<span class="n">x</span><span class="p">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">9 …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">9.656</span><span class="p">;</span>
+<span class="n">x</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>           <span class="o">//</span> <span class="mi">10</span>
+<span class="n">x</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>           <span class="o">//</span> <span class="mf">9.66</span>
+<span class="n">x</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>           <span class="o">//</span> <span class="mf">9 …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-metody-liczb.html">Czytaj dalej</a>
   </div>
@@ -508,8 +508,8 @@
   </header>
   <div>
       <p>Jedną z podstawowych i często stosowanych właściwości stringów jest <strong><code>length</code></strong> który zwraca długość łańcucha znaków</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">fu</span> <span class="o">=</span> <span class="ss">&quot;bar&quot;</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">fu</span><span class="p">.</span><span class="k">length</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">fu</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fu</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="mi">3</span>
 </code></pre></div>
 
@@ -561,9 +561,10 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
   </header>
   <div>
       <p>Polecenie <code>if...else</code> pozwala na kontrolę przepływu kodu -&gt; gdy pewien warunek jest spełniony (<code>if</code>) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (<code>else if</code>) lub wykonać określony kod (<code>else</code>)</p>
-<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="ss">(</span><span class="nv">warunek</span><span class="ss">)</span> {
-        <span class="nv">kod</span> <span class="k">do</span> <span class="nv">wywo</span>ł<span class="nv">ania</span> <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">warunek</span> <span class="nv">spe</span>ł<span class="nv">niony</span>
-  } <span class="k">else</span> <span class="k">if</span> <span class="ss">(</span><span class="nv">inny</span> <span class="nv">warunek …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="p">(</span><span class="n">warunek</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">kod</span> <span class="k">do</span> <span class="n">wywołania</span> <span class="n">jeśli</span> <span class="n">warunek</span> <span class="n">spełniony</span>
+  <span class="err">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inny</span> <span class="n">warunek</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">kod</span> <span class="k">do</span> <span class="n">wywołania</span> <span class="n">jeśli</span> <span class="n">warunek</span> <span class="n">spełniony …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-kontorla-przeplywu.html">Czytaj dalej</a>
   </div>
@@ -621,8 +622,8 @@ Wszystkie metody łańcucha zwracają nową wartość nie zmieniając oryginalne
 <p>swith - instrukcja warunkowa biorąca pod uwagę zachowanie się kodu zależnego od wariacji zmiennej</p>
 <p>throw - ma za zadanie zwrócić zdefiniowane przez użytkownika wyjątek i zatrzymuje wykonywanie się kodu</p>
 <p>Przykładowe zastosowanie: </p>
-<div class="highlight"><pre><span></span><code><span class="nv">fetch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">https://jsonplaceholder.typicode.com/posts/2</span><span class="s2">&quot;</span><span class="ss">)</span>
-    .<span class="k">then …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">fetch(&quot;https://jsonplaceholder.typicode.com/posts/2&quot;)</span>
+<span class="err">    .then …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-polecenia.html">Czytaj dalej</a>
   </div>

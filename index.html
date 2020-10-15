@@ -131,6 +131,46 @@
 
 <article>
   <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/ubuntu-czyszczenie.html">Ubuntu zwalnianie i przenoszczenie pamięci</a></h2>
+    <p>
+      Opublikowano śro 14 października 2020 w <a href="https://kostyrko.github.io/zfrontu/category/ubuntu.html">ubuntu</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/ubuntu.html">ubuntu</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/linux.html">linux</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="ubuntu 20" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Desktop_Ubuntu_20.04.png"></p>
+<p>W tym artykule znajdzie się opis podstawowych kroków, które można wykonać w celu zwolnienia miejsca pracę systemu (Ubuntu)</p>
+<p>Podstawowym narzędziem, z którego korzystam jest <strong>Disk Usage Analyzer</strong>, które wizualizuje rozkład oraz zużycie miejsca na poszczególne foldery/aplikacje. U mnie w tym momencie najwięcej miejsca zajmuje anaconda3 - 4,6gb (tj 10 …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/ubuntu-czyszczenie.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/react-sourceMap.html">React: Create React App i sourceMap w trakcie produkcji</a></h2>
+    <p>
+      Opublikowano pią 18 września 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/sourcemap.html">sourceMap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/create-react-app.html">Create React App</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/crp.html">CRP</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="react" src="https://user-images.githubusercontent.com/27288406/47966049-b13a5700-e056-11e8-808e-45f2ffd4719c.png"></p>
+<p>Jedną z moich ulubionych wtyczek w Gulpie/Webpacku bez wątpienia jest ta przy pomocy której jestem wstanie w szybki sposób dojść do tego, w którym pliku/linijce znajduje się frapująca mnie deklaracja stylu -&gt; <strong>sourceMap</strong></p>
+<p>Wykorzystując opcję tworzenia aplikacji przy pomocy narzędzie Create React App nie mamy jednak możliwości skorzystania z …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-sourceMap.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://kostyrko.github.io/zfrontu/react-kontekst.html">React: kontekst</a></h2>
     <p>
       Opublikowano nie 30 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
@@ -165,11 +205,11 @@ Na jakiego typu danych może …</p>
       <p><img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"></p>
 <p><code>props.children</code> pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu</p>
 <p>Komponent otwarty na ew. rozszerzenia o nową treść</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="nv">let</span> {<span class="nv">children</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
-      {<span class="nv">children …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>function TestComposition(props) {
+  let {children} = props;
+  return (<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+      {children …</code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/react-kompozycja.html">Czytaj dalej</a>
   </div>
@@ -355,7 +395,7 @@ Na jakiego typu danych może …</p>
       <p><img alt="react" max-height="300px" src="https://teamquest.pl/img/static/blog/reactjs.jpeg"></p>
 <h3>Konfiguracja środowiska</h3>
 <p>Inicjalizacja projektu</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm init -y</span>
 </code></pre></div>
 
 
@@ -367,9 +407,9 @@ Na jakiego typu danych może …</p>
 
 
 <p>Dodanie do package.json skrótu uruchamiającego webpack-serwer</p>
-<div class="highlight"><pre><span></span><code><span class="ss">&quot;scripts&quot;</span><span class="p">:</span> <span class="err">{</span>
-<span class="p">[..],</span>
-<span class="ss">&quot;start&quot;</span><span class="p">:</span> <span class="ss">&quot;webpack-dev-server --hot -d&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;scripts&quot;: {</span>
+<span class="err">[..],</span>
+<span class="err">&quot;start&quot;: &quot;webpack-dev-server --hot -d&quot;</span>
 </code></pre></div>
 
 
@@ -478,7 +518,7 @@ Babel loader pozwala na …</p>
 <p>Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&gt; <a href="https://reqres.in/">https://reqres.in/</a> ("A hosted REST-API ready to respond to your AJAX requests"), które pozwala na ćwiczenie funkcjonalności REST API </p>
 <p>Wysyłanie danych wymaga</p>
 <p>(1) przygotowanie danych do wysłania </p>
-<div class="highlight"><pre><span></span><code>  <span class="n">const …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>  <span class="k">const …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-xhr-rest.html">Czytaj dalej</a>
   </div>
@@ -522,52 +562,6 @@ i jest wykorzystywany do 1) aktualizacji informacji zawartych na stronie interne
 <p><em>Webpack</em> generuje tzw. pakiety (ang. bundles -&gt; bundle.js) na podstawie wytworzonego tzw. drzewa zależności oraz dostosowanie ich do formatu czytelnego dla możliwie jak najszerszego zakresu przeglądarek internetowych - jest swego rodzaju kompilatorem powstałej treści na podstawie różnych formatów do takiego, który przyjmuje przeglądarka internetowa (js,html,css). W  tym sensie …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-webpack.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html">Git - cofanie commita w VSC</a></h2>
-    <p>
-      Opublikowano śro 24 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/git.html">git</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/git.html">git</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/cofanie-commita.html">cofanie commita</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/github.html">github</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/git-hub.html">git-hub</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/commit.html">commit</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/system-kontroli-wersji.html">system kontroli wersji</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="git-logo" max-height="300px" src="https://buddy.works/guides/thumbnails/cover-first-steps-git.png#center"></p>
-<p>Na co dzień korzystam z zestawu VSC + GitHub</p>
-<p>Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.</p>
-<p>Aby cofnąć daną gałąź o jeden commit wystarczy wpisać</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="k">reset</span> <span class="c1">--hard HEAD~1</span>
-</code></pre></div>
-
-
-<p>a jeśli zależy nam na …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/git-vsc-cofanie.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/dev-agile-scrum.html">Agile > Scrum > Lean Management > Kanban</a></h2>
-    <p>
-      Opublikowano śro 24 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/dev.html">dev</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/agile.html">agile</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/scrum.html">scrum</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/lean-management.html">lean management</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dvlpr-wnbe.html">dvlpr-wnbe</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/tablica-kanban.html">tablica kanban</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/agile-manifesto.html">agile manifesto</a>
-        &#8226; 3 min read
-    </p>
-  </header>
-  <div>
-      <p><a href="http://www.pmpp.pl/hello-world/"><img alt="agile" max-height="300px" src="http://www.pmpp.pl/wp-content/uploads/2019/02/agile-project-management-1200x850.jpg#center"></a></p>
-<h3>Wstęp</h3>
-<p>W pierwszej kolejności polecam podcast <strong>DVLPR-WNBE #14</strong> -&gt; <a href="https://codeboy.pl/dw14/">Scrum Master i odpowiedzi na pytania Developer Wannabe podcast #14</a>, który stał się przyczynkiem do moich dalszych poszukiwań związanych z poruszonymi poniżej kwestiami i pozwolił mi na uporządkowanie wcześniej zasłyszanych pojęć, których zakres nie był mi znany - dodam, że nadal czuję się …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/dev-agile-scrum.html">Czytaj dalej</a>
   </div>
 </article>
 

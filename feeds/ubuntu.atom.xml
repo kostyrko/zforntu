@@ -1,5 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - ubuntu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/ubuntu.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-05-12T21:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Ubuntu - zamiana gronostaja na fossę - przerwana aktualizacja</title><link href="https://kostyrko.github.io/zfrontu/ubuntu-aktualizacja-fossa.html" rel="alternate"></link><published>2020-05-12T21:00:00+02:00</published><updated>2020-05-12T21:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-12:/zfrontu/ubuntu-aktualizacja-fossa.html</id><summary type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - ubuntu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/ubuntu.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-10-14T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Ubuntu zwalnianie i przenoszczenie pamięci</title><link href="https://kostyrko.github.io/zfrontu/ubuntu-czyszczenie.html" rel="alternate"></link><published>2020-10-14T10:00:00+02:00</published><updated>2020-10-14T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-10-14:/zfrontu/ubuntu-czyszczenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="ubuntu 20" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Desktop_Ubuntu_20.04.png"&gt;&lt;/p&gt;
+&lt;p&gt;W tym artykule znajdzie się opis podstawowych kroków, które można wykonać w celu zwolnienia miejsca pracę systemu (Ubuntu)&lt;/p&gt;
+&lt;p&gt;Podstawowym narzędziem, z którego korzystam jest &lt;strong&gt;Disk Usage Analyzer&lt;/strong&gt;, które wizualizuje rozkład oraz zużycie miejsca na poszczególne foldery/aplikacje. U mnie w tym momencie najwięcej miejsca zajmuje anaconda3 - 4,6gb (tj 10 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="ubuntu 20" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Desktop_Ubuntu_20.04.png"&gt;&lt;/p&gt;
+&lt;p&gt;W tym artykule znajdzie się opis podstawowych kroków, które można wykonać w celu zwolnienia miejsca pracę systemu (Ubuntu)&lt;/p&gt;
+&lt;p&gt;Podstawowym narzędziem, z którego korzystam jest &lt;strong&gt;Disk Usage Analyzer&lt;/strong&gt;, które wizualizuje rozkład oraz zużycie miejsca na poszczególne foldery/aplikacje. U mnie w tym momencie najwięcej miejsca zajmuje anaconda3 - 4,6gb (tj 10% miejsca jakie mam przeznaczone pod Ubuntu w całości oraz ponad 1/4 jaką mam przeznaczoną na folder home). Zwykle sporo miejsca pozwala zaoszczędzić odchudzenie folderu &lt;em&gt;snap&lt;/em&gt; (tu przechowywane instalacje aplikacji snapowych/ubuntu) oraz &lt;em&gt;cache&lt;/em&gt; (podręczna pamięć).&lt;/p&gt;
+&lt;p&gt;Można również sprawdzić sprawdzić stan zapełnienia dysku przy pomocy komendy (report free disk space)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;df&lt;/span&gt;
+&lt;span class="err"&gt;df -h // human-readable&lt;/span&gt;
+&lt;span class="err"&gt;df -l // only local filesystems&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Podręczna pamięć Ubuntu vs folder Home&lt;/h2&gt;
+&lt;p&gt;Sprawdza jak duży jest folder apt-cache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;du&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;archives&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Czyści apt-cache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo apt-get clean&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;.catche (folder Home/Użytkownika)&lt;/h3&gt;
+&lt;p&gt;Znajdź pliki starsze niż 90 dni&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;find ~/.cache/ -depth -type f -atime +90&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Znajdź i i skasuj starsze niż 90 dni&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;find ~/.cache/ -type f -atime +90 -delete&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Usunięcie nieużywanych paczek/zależności&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo apt-get autoremove&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h2&gt;Instalacja Bleachbit&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo bleachbit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bleachbit jest programem, który został stworzony w celu (skanowania) zwalniania miejsca na dysku&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pozbycie się niużywanychy snapów&lt;/h2&gt;
+&lt;p&gt;W celu pozbycia się archiwalnych snapów (programów, które były aktualizowane -&amp;gt; przechowywane w folderze &lt;code&gt;/var/lib/snapd/snaps/&lt;/code&gt;) i zachowania jedynie aktualnej można wykorzystać poniższy skrypt (link do źródła poniżej), który należy wkleić do pliku (np o nazwie &lt;code&gt;remove-old-snaps&lt;/code&gt;) i zapisać w folderze &lt;strong&gt;home&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;#!/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;
+    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Removes&lt;/span&gt; &lt;span class="k"&gt;old&lt;/span&gt; &lt;span class="n"&gt;revisions&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;snaps&lt;/span&gt;
+    &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;CLOSE&lt;/span&gt; &lt;span class="k"&gt;ALL&lt;/span&gt; &lt;span class="n"&gt;SNAPS&lt;/span&gt; &lt;span class="k"&gt;BEFORE&lt;/span&gt; &lt;span class="n"&gt;RUNNING&lt;/span&gt; &lt;span class="n"&gt;THIS&lt;/span&gt;
+    &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;eu&lt;/span&gt;
+
+    &lt;span class="n"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;en_US&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UTF&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="n"&gt;snap&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="c1"&gt;--all | awk &amp;#39;/disabled/{print $1, $3}&amp;#39; |&lt;/span&gt;
+        &lt;span class="n"&gt;while&lt;/span&gt; &lt;span class="k"&gt;read&lt;/span&gt; &lt;span class="n"&gt;snapname&lt;/span&gt; &lt;span class="n"&gt;revision&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+            &lt;span class="n"&gt;snap&lt;/span&gt; &lt;span class="n"&gt;remove&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;$snapname&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;--revision=&amp;quot;$revision&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie należy nadać możliwość egzekucji skryptu poniższą komendą&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;chmod +x remove-old-snaps&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A w ostatniej kolejności wywołać jego wykonanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo ./remove-old-snaps&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Myśląc na przyszłość można również zdefiniować ilość przechowywanych snapów (2-20) korzystając z poniższej komendy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    sudo snap set system refresh.retain=2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="gparted" src="https://i.stack.imgur.com/nYWt3.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Relokacja pamięci przy dual-boocie&lt;/h2&gt;
+&lt;p&gt;Może się okazać, że powyższe kroki pomimo tego,  że zostały wykonane z sukcesem dalej nie gwarantują nam dostatecznej ilości miejsca na dysku, w przypadku dual-boota można dokonać relokacji części pamięci z Windowsa - w tym celu niezbędne jest posiadanie Ubuntu w wersji Live np na DVD i USB i skorzystać z programu &lt;strong&gt;gparted&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1) w pierwszej kolejności należy w Windowsie zwolnić miejsce -&amp;gt; "my computer" -&amp;gt; "manage" -&amp;gt; "Storage" -&amp;gt; "disk Management" -&amp;gt; NTFS -&amp;gt; Shrink Volume (stworzenie partycji która nie ma alokacji)&lt;/p&gt;
+&lt;p&gt;2) Włączenie Ubuntu wersji Live -&amp;gt; Gparted -&amp;gt; Wybranie dysku z instalacją Ubuntu -&amp;gt; "resize/move" -&amp;gt; Rozciągnięcie partycji Ubuntu o wolne miejsce -&amp;gt; Uruchomienie zmian (warto wcześniej zrobić backup danych, u mnie poszło gładko i bez problemów)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródło:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://askubuntu.com/questions/102046/is-it-okay-to-delete-the-cache-folder"&gt;Is it okay to delete the ~/.cache folder?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.linuxuprising.com/2019/04/how-to-remove-old-snap-versions-to-free.html"&gt;How To Remove Old Snap Versions To Free Up Disk Space&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://askubuntu.com/questions/871825/add-more-disk-space-for-linux-from-windows-in-a-dual-bootable-machine/871858"&gt;Add more disk space for linux from windows in a dual bootable machine&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://askubuntu.com/questions/852395/re-allocate-partition-space-from-windows-to-linux"&gt;re-allocate partition space from windows to linux&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://manpages.ubuntu.com/manpages/trusty/man1/df.1posix.html"&gt;ubuntu-manuals&lt;/a&gt;&lt;/p&gt;</content><category term="ubuntu"></category><category term="ubuntu"></category><category term="linux"></category></entry><entry><title>Ubuntu - zamiana gronostaja na fossę - przerwana aktualizacja</title><link href="https://kostyrko.github.io/zfrontu/ubuntu-aktualizacja-fossa.html" rel="alternate"></link><published>2020-05-12T21:00:00+02:00</published><updated>2020-05-12T21:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-12:/zfrontu/ubuntu-aktualizacja-fossa.html</id><summary type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="focal fossa" src="https://cdn.benchmark.pl/thumbs/uploads/article/75474/MODERNICON/5004efa885bbab2ef39843c390f113c69f5bafc4.jpg/780x0x1.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;Przerwana …&lt;/h3&gt;</summary><content type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) następnie Eonicznum Gronostaju (19.10) i gdy przyszedł czas na Skupioną Fossę (20.04) postanowiłem skorzystać z możliwości aktualizowania systemu - niestety w trakcie dokonywania się aktualizacji została ona przerwana w nieoczekiwany sposób, w wyniku czego system przestał się uruchamiać.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="focal fossa" src="https://cdn.benchmark.pl/thumbs/uploads/article/75474/MODERNICON/5004efa885bbab2ef39843c390f113c69f5bafc4.jpg/780x0x1.jpg"&gt;&lt;/p&gt;
@@ -270,18 +360,18 @@
 &lt;p&gt;Ekran ładowania (tzw. splash screen) się zawiesił, musiałem wyłączyć …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) ale gdy system zaproponował mi aktualizację na Eonicznego Gronostaja (19.10) postanowiłem z niej skorzystać. Zmiana nie obyła się bez małego zgrzytu. &lt;/p&gt;
 &lt;h3&gt;Zawieszający się ekran ładowania Ubuntu 19.10 po aktualizacji&lt;/h3&gt;
 &lt;p&gt;Ekran ładowania (tzw. splash screen) się zawiesił, musiałem wyłączyć komputer ręcznie a następnie w momencie pojawienia się Gruba wybrałęm literę 'e' - pozwalającą na edycję ustawień opcji włączania systemu. Za pierwszym razem system od razu się uruchomił bez mojej konieczności zmiany ustawień. W trakcie kolejnego włączani powtórzył się ten sam problem. Tym razem postąpiłem zgodnie z opisanymi &lt;a href="https://nezhar.com/blog/fix-ubuntu-19.10-stuck-on-splash-screen/"&gt;w tym miejscu krokami&lt;/a&gt; - opcję&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;quiet&lt;/span&gt; &lt;span class="n"&gt;splash_&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;quiet splash_&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;zmieniłem na&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nonsplash&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nonsplash&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;system uruchomił się bez większych problemów.&lt;/p&gt;
 &lt;p&gt;Po uruchomieniu się systemu nie przechodziłem kolejnych kroków opisanych w podlinkowanym wyżej poście tylko zaktualizowałem gruba&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;grub&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo update-grub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -290,7 +380,7 @@
 &lt;p&gt;Bóbr przyzwyczaił mnie do miłego dla oka ciemnego motywu oprogramowania. Fioletowy terminal z zielonymi i jasnymi literami również przypadł mi do gustu (na szczęście zmiana z podstawowego jasnego na ciemny motyw jest prosta) niestety Gronostaj już ciemnego motywu aplikacji nie posiada w trybie podstawowym i trzeba go dodać.&lt;/p&gt;
 &lt;p&gt;W pierwszej kolejności należy zainstalować program Gnome Tweaks
 Instalowanie programu do zarządzania wyglądem/skórką Ubuntu&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tweak&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tool&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tweak&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;tool&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 

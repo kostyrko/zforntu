@@ -156,28 +156,28 @@
     <h3>DOMContentLoaded</h3>
 <p>Na początek warto pamiętać o wydarzeniu <code>DOMContentLoaded</code> - nasłuchuje przeładowania przeglądarki -&gt; pozwala na wywołanie funkcji zmieniającej elementy DOM w momencie załadowania całości drzewa DOM (jest to istotne w momencie gdy plik zawierający skrypt js jest podlinkowany w <head> zamiast po </body>)</p>
 <p>Przykładowe zastosowanie "zamknięcie" zmian w bloku/funkcji -&gt; w momencie przeładowania przeglądarki (załadowania DOM) dodaj klasę 'd-none' do listy klas elementu input</p>
-<div class="highlight"><pre><span></span><code><span class="n">document</span><span class="p">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="err">{</span>
-<span class="k">input</span><span class="p">.</span><span class="n">classList</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">&#39;d-none&#39;</span><span class="p">);</span>
-<span class="err">}</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">document.addEventListener(&#39;DOMContentLoaded&#39;, function () {</span>
+<span class="err">input.classList.add(&#39;d-none&#39;);</span>
+<span class="err">});</span>
 </code></pre></div>
 
 
 <p>Zamiast ("gołej" opcji, która nie daje gwarancji powodzenia w momencie kiedy js jest podlinkowany na początku): </p>
-<div class="highlight"><pre><span></span><code><span class="k">input</span><span class="p">.</span><span class="n">classList</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">&#39;d-none&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">input.classList.add(&#39;d-none&#39;);</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Tworzenie elementów DOM</h3>
 <p><code>.createElement()</code> - stwórz element</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">li</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
-<span class="n">li</span><span class="p">.</span><span class="n">innerText</span> <span class="o">=</span> <span class="o">`</span><span class="k">To</span> <span class="n">jest</span> <span class="n">tekst</span> <span class="n">dodanego</span> <span class="n">elementu</span><span class="o">`</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">li</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="n">li</span><span class="o">.</span><span class="n">innerText</span> <span class="o">=</span> <span class="err">`</span><span class="n">To</span> <span class="n">jest</span> <span class="n">tekst</span> <span class="n">dodanego</span> <span class="n">elementu</span><span class="err">`</span>
 </code></pre></div>
 
 
 <p><code>.cloneNode(true)</code> lub <code>.cloneNode(false)</code> - klonowanie elementu true = deep /false != deep
  -&gt; tzw głębokie klonowanie zakłada tworzenie takiej samej kopii wraz z dziećmi </p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">div2</span> <span class="o">=</span> <span class="n">div1</span><span class="p">.</span><span class="n">cloneNode</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">div2</span> <span class="o">=</span> <span class="n">div1</span><span class="o">.</span><span class="n">cloneNode</span><span class="p">(</span><span class="bp">true</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -202,21 +202,21 @@ li.appendChild(link)
 
 
 <p>Dodanie wygenerowanego elementu do innego</p>
-<div class="highlight"><pre><span></span><code><span class="n">document</span><span class="p">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="n">appendChild</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">document.querySelector(&#39;ul&#39;).appendChild(li)</span>
 </code></pre></div>
 
 
 <p><code>.insertBefore(nowyElement, dziecko)</code> - wstawienie nowego elementu przed wybranym dzieckiem</p>
 <p><strong>::: Jeśli argumentem w powyższych metodach stanie się element już istniejący zostanie on wycięty (z całym dobrobytem/dziećmi) i wklejony w nowe miejsce :::</strong></p>
 <p>Przykładowo (appendChild - wkleja z nowe miejsca jak i usuwa w poprzednim // dochodzi do kopiowania przez wartość ale nie referencje - zatem powstaje nowy obiekt):</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">move</span><span class="ss">()</span> {
-    <span class="nv">let</span> <span class="nv">elemParent</span> <span class="o">=</span> <span class="nv">this</span>.<span class="nv">parentElement</span><span class="c1">;</span>
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">elemParent</span>.<span class="nv">id</span> <span class="o">===</span> <span class="s1">&#39;</span><span class="s">list1</span><span class="s1">&#39;</span><span class="ss">)</span> {
-        <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">list2</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">appendChild</span><span class="ss">(</span><span class="nv">this</span><span class="ss">)</span><span class="c1">;</span>
-    } <span class="k">else</span> {
-        <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">list1</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">appendChild</span><span class="ss">(</span><span class="nv">this</span><span class="ss">)</span><span class="c1">;</span>
-    }
-}<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">function move() {</span>
+<span class="err">    let elemParent = this.parentElement;</span>
+<span class="err">    if (elemParent.id === &#39;list1&#39;) {</span>
+<span class="err">        document.getElementById(&#39;list2&#39;).appendChild(this);</span>
+<span class="err">    } else {</span>
+<span class="err">        document.getElementById(&#39;list1&#39;).appendChild(this);</span>
+<span class="err">    }</span>
+<span class="err">};</span>
 </code></pre></div>
 
 
@@ -226,43 +226,43 @@ li.appendChild(link)
 <p><code>.replaceChild(nowyElement, staryElementDziecko)</code> - wymiana elementu</p>
 <p><code>.replace(nowyElement, dziecko)</code> - zamiana wybranego dziecka na inny element</p>
 <p>Przykładowy ciąg zdarzeń</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">newTitle</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">createElement</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">h2</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; //tworzymy element</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">newTitle</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">);</span> <span class="o">//</span><span class="n">tworzymy</span> <span class="n">element</span>
 
-<span class="nv">newTitle</span>.<span class="nv">id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">title-id</span><span class="s1">&#39;</span> <span class="o">//</span> <span class="nv">nadajemu</span> <span class="nv">mu</span> <span class="nv">id</span>
+<span class="n">newTitle</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;title-id&#39;</span> <span class="o">//</span> <span class="n">nadajemu</span> <span class="n">mu</span> <span class="n">id</span>
 
-<span class="nv">newTitle</span>.<span class="nv">appendChild</span><span class="ss">(</span><span class="nv">document</span>.<span class="nv">createTextNode</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Nowy tytuł</span><span class="s1">&#39;</span><span class="ss">))</span> <span class="o">//</span> <span class="nv">dodajemy</span> <span class="k">do</span> <span class="nv">niego</span> <span class="nv">tekst</span>
+<span class="n">newTitle</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">createTextNode</span><span class="p">(</span><span class="s1">&#39;Nowy tytuł&#39;</span><span class="p">))</span> <span class="o">//</span> <span class="n">dodajemy</span> <span class="n">do</span> <span class="n">niego</span> <span class="n">tekst</span>
 
-<span class="nv">const</span> <span class="nv">oldTitle</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">title-id</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; // &quot;złapanie&quot; elementu podlegającego wymianie</span>
+<span class="k">const</span> <span class="n">oldTitle</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;title-id&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="s2">&quot;złapanie&quot;</span> <span class="n">elementu</span> <span class="n">podlegającego</span> <span class="n">wymianie</span>
 
-<span class="nv">const</span> <span class="nv">parentDiv</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">querySelector</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">div.nav-bar</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="s2">&quot;</span><span class="s">złapanie rodzica</span><span class="s2">&quot;</span>
+<span class="k">const</span> <span class="n">parentDiv</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;div.nav-bar&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="s2">&quot;złapanie rodzica&quot;</span>
 
-<span class="nv">parentDiv</span>.<span class="nv">replaceChild</span><span class="ss">(</span><span class="nv">newTitle</span>,<span class="nv">oldTitle</span><span class="ss">)</span>
+<span class="n">parentDiv</span><span class="o">.</span><span class="n">replaceChild</span><span class="p">(</span><span class="n">newTitle</span><span class="p">,</span><span class="n">oldTitle</span><span class="p">)</span>
 </code></pre></div>
 
 
 <p><code>.remove()</code> - usuwa podany element</p>
 <p><code>.removeChild()</code> - usuwa dziecko podanego elementu</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">listItems</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">listItems</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
 
-<span class="n">listItems</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">remove</span><span class="p">()</span> <span class="o">//</span> <span class="n">usuwa</span> <span class="n">pierwszy</span> <span class="n">element</span>
+<span class="n">listItems</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span> <span class="o">//</span> <span class="n">usuwa</span> <span class="n">pierwszy</span> <span class="n">element</span>
 
-<span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
+<span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
 
-<span class="n">list</span><span class="p">.</span><span class="n">removeChild</span><span class="p">(</span><span class="n">listItems</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">//</span> <span class="n">usuwa</span> <span class="n">pierwsze</span> <span class="n">dziecko</span> <span class="n">mające</span> <span class="n">tag</span> <span class="o">*</span><span class="n">li</span><span class="o">*</span>
+<span class="n">list</span><span class="o">.</span><span class="n">removeChild</span><span class="p">(</span><span class="n">listItems</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">//</span> <span class="n">usuwa</span> <span class="n">pierwsze</span> <span class="n">dziecko</span> <span class="n">mające</span> <span class="n">tag</span> <span class="o">*</span><span class="n">li</span><span class="o">*</span>
 </code></pre></div>
 
 
 <p><strong>Usuwanie elementu poprzez odwołanie się do rodzica</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">deleteDroid</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;#c3po&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">deleteDroid</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;#c3po&#39;</span><span class="p">)</span>
 
-<span class="n">deleteDroid</span><span class="p">.</span><span class="n">parentElement</span><span class="p">.</span><span class="n">removeChild</span><span class="p">(</span><span class="n">deleteDroid</span><span class="p">)</span>
+<span class="n">deleteDroid</span><span class="o">.</span><span class="n">parentElement</span><span class="o">.</span><span class="n">removeChild</span><span class="p">(</span><span class="n">deleteDroid</span><span class="p">)</span>
 </code></pre></div>
 
 
 <hr>
 <p><strong>Zmiana klasy i atrybutu</strong></p>
 <p>Dodawanie atrybutów</p>
-<div class="highlight"><pre><span></span><code><span class="n">element</span><span class="p">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="s1">&#39;właściwość&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">element.setAttribute(&#39;attribute&#39;, &#39;właściwość&#39;)</span>
 </code></pre></div>
 
 
@@ -276,26 +276,26 @@ li.appendChild(link)
 
 
 <p><code>.removeAttribute()</code> - usuwa atrybut</p>
-<div class="highlight"><pre><span></span><code><span class="n">link</span><span class="p">.</span><span class="n">removeAttribute</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">link.removeAttribute(&#39;title&#39;)</span>
 </code></pre></div>
 
 
 <p><code>.className</code> - dodawanie klasy</p>
-<div class="highlight"><pre><span></span><code><span class="n">element</span><span class="p">.</span><span class="n">className</span> <span class="o">=</span> <span class="s1">&#39;list-item&#39;</span> <span class="o">//</span> <span class="n">można</span> <span class="n">również</span> <span class="n">dodać</span> <span class="n">id</span> <span class="n">w</span> <span class="n">podobny</span> <span class="n">sposób</span>
+<div class="highlight"><pre><span></span><code><span class="err">element.className = &#39;list-item&#39; // można również dodać id w podobny sposób</span>
 </code></pre></div>
 
 
 <p><code>.add()</code> - dodaje klasę do listy klas
 <code>.remove()</code> - usuwa klasę</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">link</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">querySelector</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">li:first-child</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">children</span>[<span class="mi">0</span>]
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">link</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;li:first-child&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="nv">let</span> <span class="nv">classLink</span> <span class="o">=</span> <span class="nv">link</span>.<span class="nv">className</span> <span class="o">//</span><span class="nv">zwraca</span> <span class="nv">klasy</span> <span class="nv">w</span> <span class="nv">postaci</span> <span class="nv">stringu</span>
+<span class="n">let</span> <span class="n">classLink</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">className</span> <span class="o">//</span><span class="n">zwraca</span> <span class="n">klasy</span> <span class="n">w</span> <span class="n">postaci</span> <span class="n">stringu</span>
 
-<span class="nv">let</span> <span class="nv">listOfClasses</span> <span class="o">=</span> <span class="nv">link</span>.<span class="nv">classList</span> <span class="o">//</span> <span class="nv">zwracam</span> <span class="nv">list</span>ę <span class="nv">klas</span> <span class="nv">w</span> <span class="nv">postaci</span> <span class="nv">DOMTokenList</span> <span class="o">-</span> <span class="nv">zbli</span>ż<span class="nv">one</span> <span class="k">do</span> <span class="nv">tablicy</span> <span class="o">-</span> <span class="nv">posiada</span> <span class="nv">indeksy</span>
+<span class="n">let</span> <span class="n">listOfClasses</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">classList</span> <span class="o">//</span> <span class="n">zwracam</span> <span class="n">listę</span> <span class="n">klas</span> <span class="n">w</span> <span class="n">postaci</span> <span class="n">DOMTokenList</span> <span class="o">-</span> <span class="n">zbliżone</span> <span class="n">do</span> <span class="n">tablicy</span> <span class="o">-</span> <span class="n">posiada</span> <span class="n">indeksy</span>
 
-<span class="nv">link</span>.<span class="nv">classList</span>.<span class="nv">add</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">second-class</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">dodaje</span> <span class="nv">klas</span>ę
+<span class="n">link</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;second-class&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">dodaje</span> <span class="n">klasę</span>
 
-<span class="nv">link</span>.<span class="nv">classList</span>.<span class="nv">remove</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">second-class</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">usuwa</span> <span class="nv">klas</span>ę
+<span class="n">link</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;second-class&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">usuwa</span> <span class="n">klasę</span>
 </code></pre></div>
 
 
@@ -310,7 +310,7 @@ li.appendChild(link)
 
 
 <p><code>.id</code> - zwraca id danego elementu</p>
-<div class="highlight"><pre><span></span><code><span class="n">document</span><span class="p">.</span><span class="n">querySelectorAll</span><span class="p">(</span><span class="ss">&quot;a&quot;</span><span class="p">)[</span><span class="mi">10</span><span class="p">].</span><span class="n">id</span> <span class="o">//</span> <span class="n">id</span> <span class="mi">11</span><span class="p">.</span> <span class="n">elementu</span> <span class="n">będący</span> <span class="n">linkiem</span>
+<div class="highlight"><pre><span></span><code><span class="err">document.querySelectorAll(&quot;a&quot;)[10].id // id 11. elementu będący linkiem</span>
 </code></pre></div>
 
 
@@ -321,8 +321,8 @@ li.appendChild(link)
 <p><code>.method</code> - metoda którą wysyłany jest formularz GET lub POST</p>
 <p><code>.elements</code> - zwraca elementy formularza</p>
 <p><code>.elements.name.value</code> - zwraca zawartość elementu będącego dziecka noszącego nazwę name</p>
-<div class="highlight"><pre><span></span><code><span class="n">form</span><span class="p">.</span><span class="n">elements</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">value</span> <span class="o">//</span> <span class="n">zwraca</span> <span class="n">wartość</span> <span class="n">elementu</span> <span class="n">który</span> <span class="n">zawiera</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> 
-<span class="ss">&quot;email&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">form.elements.email.value // zwraca wartość elementu który zawiera (name = </span>
+<span class="err">&quot;email&quot;)</span>
 </code></pre></div>
 
 
@@ -333,7 +333,7 @@ li.appendChild(link)
 <p><code>.value</code> - zwraca właściwość inputu/ to co zostało w niego wpisane/podane</p>
 <p><code>.type</code> - zwraca typ elementu input/pozwala również na jego ustawienie</p>
 <p><code>.disabled</code> - zwraca boolean, jeśli false to znaczy, że jest możliwe wprowadzenie danych jeśli ustawimy na true to wówczas będzie on nieaktywny</p>
-<div class="highlight"><pre><span></span><code><span class="k">input</span><span class="p">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="ss">&quot;true&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">input.disabled = &quot;true&quot;</span>
 </code></pre></div>
 
 

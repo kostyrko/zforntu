@@ -155,11 +155,11 @@
 <p>Zbiór zgrupowanych instrukcji, które można wywołać poprzez odwołanie się do ich nazwy, funkcja może ale nie musi przyjmować parametry/argumenty, które biorą udział w wywoływaniu się jej wewnętrznego kodu. </p>
 <p>Funkcję można stworzyć poprzez jej deklarację przy użycia słowa kluczowego <code>function</code> </p>
 <p>Schemat </p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">identyfikator</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="err">{</span>
-  <span class="n">kod</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">function identyfikator(argument) {</span>
+<span class="err">  kod;</span>
 <span class="err">}</span>
-<span class="o">//</span> <span class="n">wywołanie</span>
-<span class="n">identyfikator</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+<span class="err">// wywołanie</span>
+<span class="err">identyfikator(argument)</span>
 </code></pre></div>
 
 
@@ -167,14 +167,14 @@
 <p><strong>Hoisting/wynoszenie</strong> - funkcje tak samo jak i deklaracje zmiennych w trakcie analizowania/parsowania kodu przez przeglądarkę są wynoszone na górę aktualnego zasięgu i tam pojawiają się w zapisanej kolejności (ma to wpływ na nadpisywanie) -&gt;&gt; <code>Można wywoływać funkcje zanim zostaną zadeklarowane</code>. </p>
 <p>::: wynoszenie odbywa się przed wykonaniem kodu :::</p>
 <p>Istnieje możliwość zdefiniowania domyślnego parametru w funkcji, który zostaje użyty w przypadku gdy ten nie zostanie podany (przy pomocy operatora <code>=</code> po którym wpisujemy domyślną wartość)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">droidSeeker</span> <span class="ss">(</span><span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">droid</span><span class="s1">&#39;</span><span class="ss">)</span> {
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span>`<span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> ${<span class="nv">name</span>} <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span>`<span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>function droidSeeker (name = &#39;droid&#39;) {
+  console.log(`This is not the <span class="cp">${</span><span class="n">name</span><span class="cp">}</span> you are looking for`)
 }
 
-<span class="nv">droidSeeker</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Mike</span><span class="s1">&#39;</span><span class="ss">)</span>
-<span class="o">&gt;&gt;</span> <span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">Mike</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span>
-<span class="nv">droidSeeker</span><span class="ss">()</span>
-<span class="o">&gt;&gt;</span> <span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">droid</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span>
+droidSeeker(&#39;Mike&#39;)
+&gt;&gt; This is not the Mike you are looking for
+droidSeeker()
+&gt;&gt; This is not the droid you are looking for
 </code></pre></div>
 
 
@@ -182,37 +182,37 @@
 <h3>Funkcje pomocnicze</h3>
 <p>Funkcje pomocnicze pozwalają na rozbicie kodu na jego poszczególne części tak aby był czytelniejszy i prostszy w utrzymaniu</p>
 <p>w tym celu można stworzyć jedną funkcję cząstkową a następnie odwołać się do niej w kolejnej</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">multipNineFifth</span> <span class="ss">(</span><span class="nv">num</span><span class="ss">)</span> {
-  <span class="k">return</span> <span class="nv">num</span> <span class="o">*</span> <span class="ss">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="ss">)</span><span class="c1">; </span>
-}
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">multipNineFifth</span> <span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="err">{</span>
+  <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">);</span> 
+<span class="err">}</span>
 
-<span class="nv">function</span> <span class="nv">getFarenheit</span><span class="ss">(</span><span class="nv">celc</span><span class="ss">)</span> {
-  <span class="k">return</span> <span class="nv">multipNineFifth</span><span class="ss">(</span><span class="nv">celc</span><span class="ss">)</span> <span class="o">+</span> <span class="mi">32</span><span class="c1">;</span>
-}
+<span class="k">function</span> <span class="n">getFarenheit</span><span class="p">(</span><span class="n">celc</span><span class="p">)</span> <span class="err">{</span>
+  <span class="k">return</span> <span class="n">multipNineFifth</span><span class="p">(</span><span class="n">celc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span><span class="p">;</span>
+<span class="err">}</span>
 
-<span class="nv">getFarenheit</span><span class="ss">(</span><span class="mi">10</span><span class="ss">)</span> <span class="o">//</span> <span class="o">=</span> <span class="o">&gt;</span><span class="mi">50</span>
+<span class="n">getFarenheit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">//</span> <span class="o">=</span> <span class="o">&gt;</span><span class="mi">50</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Wyrażenia funkcyjne</h3>
 <p>Funkcje (zwykle anonimowa) można przypisać do zmiennych  - wówczas: </p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">zmienna</span> <span class="o">=</span> <span class="nv">function</span><span class="ss">(</span><span class="nv">arg1</span>,<span class="nv">arg2</span><span class="ss">)</span> {
-  <span class="k">return</span> <span class="nv">arg1</span> <span class="o">+</span> <span class="nv">arg2</span><span class="c1">;</span>
-}
-<span class="o">//</span> <span class="nv">wywo</span>ł<span class="nv">anie</span>
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">zmienna</span><span class="ss">(</span><span class="mi">1</span>,<span class="mi">2</span><span class="ss">))</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">zmienna</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">wywołanie</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">zmienna</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
 </code></pre></div>
 
 
 <p>W ten sposób zadeklarowana funkcja nie jest <strong>wynoszona</strong> </p>
 <p>::: wynoszona jest deklaracja funkcja jeśli jest poprzedzona  słowem kluczowego <strong><code>var</code></strong>:::</p>
 <p>Przypadek z nazwaną funkcją</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">zmienna</span> <span class="o">=</span> <span class="nv">function</span> <span class="nv">nazwa</span><span class="ss">(</span><span class="nv">x</span>,<span class="nv">y</span><span class="ss">)</span> {
-  <span class="k">return</span> <span class="nv">x</span><span class="o">+</span><span class="nv">y</span><span class="c1">;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">zmienna</span> <span class="o">=</span> <span class="n">function</span> <span class="n">nazwa</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">zmienna</span>.<span class="nv">name</span><span class="ss">)</span><span class="c1">; // = nazwa -&gt; pozwala na odwołanie się do f(x) w jej wnętrzu</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">zmienna</span><span class="o">.</span><span class="n">name</span><span class="p">);</span> <span class="o">//</span> <span class="o">=</span> <span class="n">nazwa</span> <span class="o">-&gt;</span> <span class="n">pozwala</span> <span class="n">na</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">w</span> <span class="n">jej</span> <span class="n">wnętrzu</span>
 </code></pre></div>
 
 
@@ -221,25 +221,25 @@
 <h3>Funkcje anonimowe</h3>
 <p>Nie posiada nazwy (identyfikatora), może ale nie musi być przypisana do zmiennej, może ale nie musi posiadać argumentu // występuje często jako funkcja występująca jako parametr w innej
 Gdy przypisana do zmiennej wywołuje się poprzez jej przywołanie w innym przypadku należy zamknąć ją w nawiasach -&gt; funkcja zostanie od razu wywołana w trakcie wykonywania kodu.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="err">{</span>
-  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-<span class="err">}</span><span class="p">)(</span><span class="ss">&quot;Argument&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">(function(arg){</span>
+<span class="err">  console.log(arg)</span>
+<span class="err">})(&quot;Argument&quot;);</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Funkcja natychmiastowa Tzw IIFE (Immediately-Invoked Function Expression)</h3>
 <p>Funkcja, która jest deklarowana i przeprowadzana "w tym samym czasie" - taka funkcja zamknięta jest w nawias (często jest anonimowa) i jest natychmiast wywoływana. Często wykorzystywana w metodach tablic.</p>
-<div class="highlight"><pre><span></span><code><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">droid</span><span class="ss">)</span>{
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">this is </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">droid</span><span class="ss">)</span><span class="c1">;</span>
-}<span class="ss">)(</span><span class="s1">&#39;</span><span class="s">r2d2</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="o">&gt;&gt;</span> <span class="nv">this</span> <span class="nv">is</span> <span class="nv">r2d2</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">droid</span><span class="p">)</span><span class="err">{</span>
+  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;this is &#39;</span> <span class="o">+</span> <span class="n">droid</span><span class="p">);</span>
+<span class="err">}</span><span class="p">)(</span><span class="s1">&#39;r2d2&#39;</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">this</span> <span class="k">is</span> <span class="n">r2d2</span>
 
-<span class="k">for</span><span class="ss">(</span><span class="nv">let</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; i &lt; 12; i++) {</span>
-      <span class="nv">setTimeout</span><span class="ss">(</span><span class="nv">function</span><span class="ss">()</span> {
-      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
-      }, <span class="mi">500</span><span class="ss">)</span><span class="c1">; </span>
-}
+<span class="k">for</span><span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="err">{</span>
+      <span class="n">setTimeout</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="err">{</span>
+      <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+      <span class="err">}</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span> 
+<span class="err">}</span>
 </code></pre></div>
 
 

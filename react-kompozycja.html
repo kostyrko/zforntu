@@ -156,31 +156,31 @@
     <p><img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"></p>
 <p><code>props.children</code> pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu</p>
 <p>Komponent otwarty na ew. rozszerzenia o nową treść</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="nv">let</span> {<span class="nv">children</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
-      {<span class="nv">children</span>}
-      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Konice</span> <span class="nv">testu</span> <span class="nv">kompozycji</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-    <span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>function TestComposition(props) {
+  let {children} = props;
+  return (<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+      {children}
+      <span class="nt">&lt;h2&gt;</span>Konice testu kompozycji<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    )
 }
 
 
-<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">TestComposition</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Element</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">cy</span> <span class="nv">zagnie</span>ż<span class="nv">d</span>ż<span class="nv">on</span>ą <span class="nv">tre</span>ś<span class="nv">ci</span>ą<span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Lorem</span>, <span class="nv">ipsum</span> <span class="nv">dolor</span> <span class="nv">sit</span> <span class="nv">amet</span> <span class="nv">consectetur</span> <span class="nv">adipisicing</span> <span class="nv">elit</span>. <span class="nv">Culpa</span>, <span class="nv">eum</span><span class="o">!&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">TestComposition</span><span class="o">&gt;</span>
-  <span class="ss">)</span>
+function App() {
+  return (
+    <span class="nt">&lt;TestComposition&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Element będący zagnieżdżoną treścią<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;p&gt;</span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, eum!<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/TestComposition&gt;</span>
+  )
 }
 
 
-<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">App</span><span class="o">/&gt;</span>,
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
-<span class="ss">)</span><span class="c1">;</span>
+ReactDOM.render(
+  <span class="nt">&lt;App/&gt;</span>,
+  document.getElementById(&quot;app&quot;)
+);
 </code></pre></div>
 
 
@@ -201,66 +201,66 @@
 
 <p><code>props.children</code> może wyrenderować inny komponent przyjęty w propsie.</p>
 <p>Powyższy przykład, może wyglądać również w poniższy sposób</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="nv">let</span> {<span class="nv">children</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
-      {<span class="nv">children</span>}
-      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Konice</span> <span class="nv">testu</span> <span class="nv">kompozycji</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-    <span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>function TestComposition(props) {
+  let {children} = props;
+  return (<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+      {children}
+      <span class="nt">&lt;h2&gt;</span>Konice testu kompozycji<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    )
 }
 
-<span class="nv">function</span> <span class="nv">ChildComponent</span><span class="ss">()</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Element</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">cy</span> <span class="nv">zagnie</span>ż<span class="nv">d</span>ż<span class="nv">onym</span> <span class="nv">dzieckiem</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-  <span class="ss">)</span>
+function ChildComponent() {
+  return (
+    <span class="nt">&lt;h3&gt;</span>Element będący zagnieżdżonym dzieckiem<span class="nt">&lt;/h3&gt;</span>
+  )
 }
 
-<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">TestComposition</span> <span class="nv">children</span><span class="o">=</span>{<span class="o">&lt;</span><span class="nv">ChildComponent</span><span class="o">/&gt;</span>}<span class="o">/&gt;</span>
-  <span class="ss">)</span>
+function App() {
+  return (
+    <span class="nt">&lt;TestComposition</span> <span class="na">children=</span><span class="s">{&lt;ChildComponent/</span><span class="nt">&gt;</span>}/&gt;
+  )
 }
 
 
-<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">App</span><span class="o">/&gt;</span>,
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
-<span class="ss">)</span><span class="c1">;</span>
+ReactDOM.render(
+  <span class="nt">&lt;App/&gt;</span>,
+  document.getElementById(&quot;app&quot;)
+);
 </code></pre></div>
 
 
 <hr>
 <p>A co jeśli zależy nam na tym aby dany komponent był w stanie przyjąć wiele innych komponentów lub inaczej rzecz ujmując mieć możliwość wypełnienia wielu luk. W tym przypadku należy zastosować odrębne nazewnictwo dla każdego fragmentu/luki, który ma być uzupełniony a następnie przekazać go w odpowiedni sposób w props.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="nv">let</span> {<span class="nv">child1</span>, <span class="nv">child2</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
-      {<span class="nv">child1</span>}
-      {<span class="nv">child2</span>}
-      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Konice</span> <span class="nv">testu</span> <span class="nv">kompozycji</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-    <span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>function TestComposition(props) {
+  let {child1, child2} = props;
+  return (<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+      {child1}
+      {child2}
+      <span class="nt">&lt;h2&gt;</span>Konice testu kompozycji<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    )
 }
 
-<span class="nv">function</span> <span class="nv">ChildComponent</span><span class="ss">(</span>{<span class="nv">text</span>}<span class="ss">)</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Element</span> <span class="nv">b</span>ę<span class="nv">d</span>ą<span class="nv">cy</span> <span class="nv">zagnie</span>ż<span class="nv">d</span>ż<span class="nv">onym</span> {<span class="nv">text</span>}<span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-  <span class="ss">)</span>
+function ChildComponent({text}) {
+  return (
+    <span class="nt">&lt;h3&gt;</span>Element będący zagnieżdżonym {text}<span class="nt">&lt;/h3&gt;</span>
+  )
 }
 
-<span class="nv">function</span> <span class="nv">App</span><span class="ss">()</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">TestComposition</span> <span class="nv">child1</span><span class="o">=</span>{<span class="o">&lt;</span><span class="nv">ChildComponent</span> <span class="nv">text</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dzieckiem-1</span><span class="s1">&#39;</span><span class="o">/&gt;</span>} <span class="nv">child2</span><span class="o">=</span>{<span class="o">&lt;</span><span class="nv">ChildComponent</span> <span class="nv">text</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dzieckiem-2</span><span class="s1">&#39;</span><span class="o">/&gt;</span>}<span class="o">/&gt;</span>
-  <span class="ss">)</span>
+function App() {
+  return (
+    <span class="nt">&lt;TestComposition</span> <span class="na">child1=</span><span class="s">{&lt;ChildComponent</span> <span class="na">text=</span><span class="s">&#39;dzieckiem-1&#39;</span><span class="nt">/&gt;</span>} child2={<span class="nt">&lt;ChildComponent</span> <span class="na">text=</span><span class="s">&#39;dzieckiem-2&#39;</span><span class="nt">/&gt;</span>}/&gt;
+  )
 }
 
 
-<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">App</span><span class="o">/&gt;</span>,
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
-<span class="ss">)</span><span class="c1">;</span>
+ReactDOM.render(
+  <span class="nt">&lt;App/&gt;</span>,
+  document.getElementById(&quot;app&quot;)
+);
 </code></pre></div>
 
 
@@ -280,92 +280,92 @@
 
 <h3>Ominięcie prop-drilling wykorzystując kompozycję oraz props.children</h3>
 <p>Przekazywanie propsów do elementu liściowego z pominięciem pośredników (lub tzw. prop-drilling -&gt; gdzie dane w postaci propsów są przekazywane przez komponenty które, z nich faktycznie nie korzystają) może odbyć się poprzez wykorzystanie props.children. Wymaga to jednak <em>otwartości</em> poprzednich komponentów na możliwość (włączenia) wywołania w nich dzeci.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span>{<span class="nv">children</span>,<span class="nv">i</span>}<span class="ss">)</span> {
+<div class="highlight"><pre><span></span><code>function TestComposition({children,i}) {
 
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">className</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">testComposition</span><span class="s1">&#39;</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">i</span>}<span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-      {<span class="nv">children</span>}
-      <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-    <span class="ss">)</span>
+  return (
+    <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">&#39;testComposition&#39;</span> <span class="na">key=</span><span class="s">{i}</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>Beginning o parent component<span class="nt">&lt;/h2&gt;</span>
+      {children}
+      <span class="nt">&lt;h2&gt;</span>End of parent component<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;p&gt;</span>--------------------<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    )
 }
 
-<span class="nv">function</span> <span class="nv">ChildComponent</span><span class="ss">(</span>{<span class="nv">children</span>}<span class="ss">)</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">className</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">childComponent</span><span class="s1">&#39;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-      {<span class="nv">children</span>}
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-  <span class="ss">)</span>
+function ChildComponent({children}) {
+  return (
+    <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">&#39;childComponent&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Beginning o child component<span class="nt">&lt;/h3&gt;</span>
+      {children}
+      <span class="nt">&lt;h3&gt;</span>End of child component<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  )
 }
 
-<span class="nv">function</span> <span class="nv">GrandChild</span><span class="ss">(</span>{<span class="nv">text</span>}<span class="ss">)</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">className</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">grandChild</span><span class="s1">&#39;</span><span class="o">&gt;</span>{<span class="nv">text</span>}<span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-  <span class="ss">)</span>
+function GrandChild({text}) {
+  return (
+    <span class="nt">&lt;h3</span> <span class="na">className=</span><span class="s">&#39;grandChild&#39;</span><span class="nt">&gt;</span>{text}<span class="nt">&lt;/h3&gt;</span>
+  )
 }
 
-<span class="nv">function</span> <span class="nv">App</span><span class="ss">(</span>{<span class="nv">grandChildren</span>}<span class="ss">)</span> {
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="nv">grandChildren</span>.<span class="nv">map</span><span class="ss">((</span><span class="nv">elem</span>,<span class="nv">i</span><span class="ss">)</span><span class="o">=&gt;</span>
-      <span class="o">&lt;</span><span class="nv">TestComposition</span> <span class="nv">id</span><span class="o">=</span>{<span class="nv">i</span>}<span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nv">ChildComponent</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nv">GrandChild</span> <span class="nv">text</span><span class="o">=</span>{<span class="nv">elem</span>}<span class="o">/&gt;</span>
-        <span class="o">&lt;/</span><span class="nv">ChildComponent</span><span class="o">&gt;</span>
-      <span class="o">&lt;/</span><span class="nv">TestComposition</span><span class="o">&gt;</span>  
-    <span class="ss">)</span>
-  <span class="ss">)</span>
+function App({grandChildren}) {
+  return (
+    grandChildren.map((elem,i)=&gt;
+      <span class="nt">&lt;TestComposition</span> <span class="na">id=</span><span class="s">{i}</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ChildComponent&gt;</span>
+          <span class="nt">&lt;GrandChild</span> <span class="na">text=</span><span class="s">{elem}/</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/ChildComponent&gt;</span>
+      <span class="nt">&lt;/TestComposition&gt;</span>  
+    )
+  )
 }
 
 
-<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">App</span> <span class="nv">grandChildren</span> <span class="o">=</span> {[<span class="s1">&#39;</span><span class="s">Grand Child 1</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Grand Child 2</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Grand Child 3</span><span class="s1">&#39;</span>]}<span class="o">/&gt;</span>,
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
-<span class="ss">)</span><span class="c1">;</span>
+ReactDOM.render(
+  <span class="nt">&lt;App</span> <span class="na">grandChildren =</span> <span class="s">{[&#39;Grand</span> <span class="err">Child</span> <span class="err">1&#39;,</span> <span class="err">&#39;Grand</span> <span class="err">Child</span> <span class="err">2&#39;,</span> <span class="err">&#39;Grand</span> <span class="err">Child</span> <span class="err">3&#39;]}</span><span class="nt">/&gt;</span>,
+  document.getElementById(&quot;app&quot;)
+);
 </code></pre></div>
 
 
 <p>W wyniku tego powstanie:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;app&quot;</span><span class="nt">&gt;</span>
 
-  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">testComposition</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">childComponent</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">grandChild</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Grand</span> <span class="nv">Child</span> <span class="mi">1</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;app&quot;</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">&quot;testComposition&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Beginning o parent component<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;childComponent&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Beginning o child component<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;grandChild&quot;</span><span class="nt">&gt;</span>Grand Child 1<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>End of child component<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>End of parent component<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;p&gt;</span>--------------------<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 
-  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">testComposition</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">childComponent</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">grandChild</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Grand</span> <span class="nv">Child</span> <span class="mi">2</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;testComposition&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Beginning o parent component<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;childComponent&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Beginning o child component<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;grandChild&quot;</span><span class="nt">&gt;</span>Grand Child 2<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>End of child component<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>End of parent component<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;p&gt;</span>--------------------<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 
 
-  <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">testComposition</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">childComponent</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Beginning</span> <span class="nv">o</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nv">h3</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">grandChild</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Grand</span> <span class="nv">Child</span> <span class="mi">3</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">child</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
-    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="k">End</span> <span class="nv">of</span> <span class="nv">parent</span> <span class="nv">component</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;--------------------&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;testComposition&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Beginning o parent component<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;childComponent&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Beginning o child component<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;grandChild&quot;</span><span class="nt">&gt;</span>Grand Child 3<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>End of child component<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>End of parent component<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;p&gt;</span>--------------------<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 
-<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 
 

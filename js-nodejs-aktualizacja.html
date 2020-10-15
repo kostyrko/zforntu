@@ -165,46 +165,46 @@
 <p>Moduł <a href="https://www.npmjs.com/package/n"><strong>n</strong></a> służy do interaktywnego zarządzani wersjami <em>Node.js</em></p>
 <p>Kroki podjęte do instalacji najnowszej wersji <em>Node.js</em></p>
 <p>Czyszczenie pamięci cache</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">npm</span> <span class="k">cache</span> <span class="n">clean</span> <span class="o">-</span><span class="n">f</span>
+<div class="highlight"><pre><span></span><code><span class="err">sudo npm cache clean -f</span>
 </code></pre></div>
 
 
 <p>Instalacja przy pomocy nmp modułu n (-g -&gt; globalnie)</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="k">g</span> <span class="n">n</span>
+<div class="highlight"><pre><span></span><code><span class="err">sudo npm install -g n</span>
 </code></pre></div>
 
 
 <p>Instalacja najnowszej wersji (w domyśle <em>Node.js</em>) oraz usunięcie poprzedniej</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">n</span> <span class="n">latest</span>
+<div class="highlight"><pre><span></span><code><span class="err">sudo n latest</span>
 </code></pre></div>
 
 
 <h4>NVM - Node Version Manager</h4>
 <p>Zalecane jest instalacja oraz zarządzanie wersją(w tym przypadku również wieloma wersjami) przy pomocy NVM (Node Version Manager)</p>
 <p>Pobranie paczek dla Ubuntu, które pozwolą na budowę paczek źródłowych (NVM będzie je wykorzystywał w trakcie instalacji)</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">sudo apt-get update</span>
+<span class="err">sudo apt-get install build-essential libssl-dev</span>
 </code></pre></div>
 
 
 <p>Instalacja NVM (uwaga v0.35.3 jest aktualną wersją, która ulegnie zmianie) - pobranie skryptu install_nvm.sh przy pomocy <code>culr</code> (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z <a href="https://github.com/nvm-sh/nvm/blob/master/install.sh">repo na GitHubie</a></p>
-<div class="highlight"><pre><span></span><code><span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">creationix</span><span class="o">/</span><span class="n">nvm</span><span class="o">/</span><span class="n">v0</span><span class="p">.</span><span class="mi">35</span><span class="p">.</span><span class="mi">3</span><span class="o">/</span><span class="n">install</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">o</span> <span class="n">install_nvm</span><span class="p">.</span><span class="n">sh</span>
+<div class="highlight"><pre><span></span><code><span class="err">curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh -o install_nvm.sh</span>
 </code></pre></div>
 
 
 <p>Uruchomienie skryptu przy pomocy komendy <code>bash</code></p>
 <p>Pobranie, kompilacja i instalacja najnowszej wersji <em>Node.js</em></p>
-<div class="highlight"><pre><span></span><code><span class="n">nvm</span> <span class="n">install</span> <span class="n">node</span>
+<div class="highlight"><pre><span></span><code><span class="err">nvm install node</span>
 </code></pre></div>
 
 
 <p>Zwrócenie listy dostępnych wersji </p>
-<div class="highlight"><pre><span></span><code><span class="n">nvm</span> <span class="n">ls</span><span class="o">-</span><span class="n">remote</span>
+<div class="highlight"><pre><span></span><code><span class="err">nvm ls-remote</span>
 </code></pre></div>
 
 
 <p>Instalacja konkretnej wersji</p>
-<div class="highlight"><pre><span></span><code><span class="n">nvm</span> <span class="n">install</span> <span class="mi">6</span><span class="p">.</span><span class="mi">14</span><span class="p">.</span><span class="mi">4</span>
+<div class="highlight"><pre><span></span><code><span class="err">nvm install 6.14.4</span>
 </code></pre></div>
 
 

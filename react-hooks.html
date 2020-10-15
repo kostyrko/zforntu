@@ -164,19 +164,19 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <hr>
 <h3>Definiowanie stanu -&gt; useState()</h3>
 <p><strong>useState()</strong> - zwraca tablicę elementów (parę) - przy pomocy destrukturyzacji można "wyciągnąć" poszczególne elementy do zmiennych (co jest przyjętą praktyką). Istotną konwencją, o której warto w tym kontekście pamiętać jest to, że pierwsza zmienna przechowuje stan natomiast kolejna powinna odwoływać się do funkcji, która ma wpływ na zmianę stanu. Nazwa 2. elementu powinna powielać nazwę tej, która przechowuje stan ale poprzedza ją słowem 'set'. <strong>useState</strong> przyjmuje argument określający początkową właściwość stanu</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span><span class="p">[</span><span class="n">stanu</span><span class="p">,</span> <span class="n">funkcjaZmieniającaStan</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="n">początkowyStan</span><span class="p">)</span>
-<span class="n">const</span> <span class="p">[</span><span class="k">state</span><span class="p">,</span> <span class="n">setstate</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="n">initialState</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="p">[</span><span class="n">stanu</span><span class="p">,</span> <span class="n">funkcjaZmieniającaStan</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="n">początkowyStan</span><span class="p">)</span>
+<span class="k">const</span> <span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">setstate</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="n">initialState</span><span class="p">);</span>
 <span class="o">======</span> <span class="n">przykładowo</span> <span class="o">=====</span>
-<span class="n">const</span> <span class="p">[</span><span class="n">counter</span><span class="p">,</span> <span class="n">setCounter</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">const</span> <span class="p">[</span><span class="n">counter</span><span class="p">,</span> <span class="n">setCounter</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
 
 <p>Aby użyć analogii można stwierdzić, że <strong>useState()</strong> w funkcyjnym komponencie "zastępuje" z komponentu klasowego <strong>konstruktor stanu</strong> oraz <strong>setState()</strong> (setState() =&gt; setWybranaNazwaFunkcjiModyfikatora() np. setCounter())</p>
 <p>Przykład</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">Counter</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
-  <span class="nv">const</span>[<span class="nv">counter</span>, <span class="nv">SetCounter</span>] <span class="o">=</span> <span class="nv">useState</span><span class="ss">(</span><span class="mi">0</span><span class="ss">)</span>
-  <span class="nv">const</span> <span class="nv">increment</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> <span class="ss">(</span><span class="nv">setCounter</span><span class="ss">(</span><span class="nv">prevCounter</span><span class="o">=&gt;</span> <span class="nv">prevCounter</span> <span class="o">+</span><span class="mi">1</span><span class="ss">)</span>
-  <span class="k">return</span> <span class="o">&lt;</span><span class="nv">button</span> <span class="nv">onClick</span><span class="o">=</span>{<span class="nv">increment</span>}<span class="o">&gt;</span>{<span class="nv">counter</span>}<span class="o">&lt;/</span><span class="nv">button</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code>const Counter = () =&gt; {
+  const[counter, SetCounter] = useState(0)
+  const increment = () =&gt; (setCounter(prevCounter=&gt; prevCounter +1)
+  return <span class="nt">&lt;button</span> <span class="na">onClick=</span><span class="s">{increment}</span><span class="nt">&gt;</span>{counter}<span class="nt">&lt;/button&gt;</span>
 }
 </code></pre></div>
 
@@ -193,26 +193,26 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 
 
 <p>Podstawowy schemat prezentuje się następująco. Warto zwrócić uwagę na tablicę kończącą wyrażenie (input) w to miejsce można wpisać zależności, których zmiana spowoduje wywołanie się funkcji - brak elementów oznacza, że funkcja powinna wywołać się tylko raz, podczas pierwszego renderowania elementu</p>
-<div class="highlight"><pre><span></span><code><span class="nv">useEffect</span><span class="ss">(()</span> <span class="o">=&gt;</span> {
-    <span class="nv">effect</span>
-    <span class="k">return</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
-      <span class="nv">cleanup</span>
-    }<span class="c1">;</span>
-  }, [<span class="nv">input</span>]<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="n">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">effect</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">cleanup</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">input</span><span class="o">]</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 
 
 <p>Przykład 1</p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nv">uruchamia</span> <span class="nv">si</span>ę <span class="nv">tylko</span> <span class="nv">raz</span> <span class="nv">poniewa</span>ż <span class="nv">w</span> <span class="nv">arg</span>. <span class="nv">brak</span> <span class="nv">info</span> <span class="nv">o</span> <span class="nv">tym</span> <span class="nv">by</span> <span class="nv">si</span>ę <span class="nv">uruchamia</span>ł <span class="nv">ponownie</span>
-<span class="o">//</span> <span class="nv">co</span> <span class="mi">1</span> <span class="nv">sekund</span>ę <span class="nv">dodaj</span> <span class="nv">kropk</span>ę <span class="k">do</span> <span class="nv">stringa</span> <span class="nv">zawartego</span> <span class="nv">w</span> <span class="nv">stanie</span> <span class="o">&gt;&gt;</span><span class="nv">message</span><span class="o">&lt;&lt;</span>
-<span class="nv">useEffect</span><span class="ss">(()</span> <span class="o">=&gt;</span> {
-<span class="nv">const</span> <span class="nv">intervalId</span> <span class="o">=</span> <span class="nv">setInterval</span><span class="ss">(()</span> <span class="o">=&gt;</span> {
-  <span class="nv">setMessage</span><span class="ss">((</span><span class="nv">prev</span><span class="ss">)</span><span class="o">=&gt;</span> <span class="nv">prev</span><span class="o">+</span><span class="s1">&#39;</span><span class="s">.</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; </span>
-  }, <span class="mi">1000</span><span class="ss">)</span><span class="c1">; </span>
-  <span class="k">return</span> <span class="ss">()</span> <span class="o">=&gt;</span> { <span class="o">//</span> <span class="nv">czyszczenie</span> <span class="nv">interwa</span>ł<span class="nv">u</span><span class="o">/</span><span class="nv">pami</span>ę<span class="nv">ci</span>
-    <span class="nv">clearInterval</span><span class="ss">(</span><span class="nv">intervalId</span><span class="ss">)</span>
-  }<span class="c1">;</span>
-}, []<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">uruchamia</span> <span class="n">się</span> <span class="n">tylko</span> <span class="n">raz</span> <span class="n">ponieważ</span> <span class="n">w</span> <span class="n">arg</span><span class="o">.</span> <span class="n">brak</span> <span class="n">info</span> <span class="n">o</span> <span class="n">tym</span> <span class="n">by</span> <span class="n">się</span> <span class="n">uruchamiał</span> <span class="n">ponownie</span>
+<span class="o">//</span> <span class="n">co</span> <span class="mi">1</span> <span class="n">sekundę</span> <span class="n">dodaj</span> <span class="n">kropkę</span> <span class="n">do</span> <span class="n">stringa</span> <span class="n">zawartego</span> <span class="n">w</span> <span class="n">stanie</span> <span class="o">&gt;&gt;</span><span class="n">message</span><span class="o">&lt;&lt;</span>
+<span class="n">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="k">const</span> <span class="n">intervalId</span> <span class="o">=</span> <span class="n">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">setMessage</span><span class="p">((</span><span class="n">prev</span><span class="p">)</span><span class="o">=&gt;</span> <span class="n">prev</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="p">);</span> 
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span> 
+  <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="o">//</span> <span class="n">czyszczenie</span> <span class="n">interwału</span><span class="o">/</span><span class="n">pamięci</span>
+    <span class="n">clearInterval</span><span class="p">(</span><span class="n">intervalId</span><span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">},</span> <span class="p">[]);</span>
 </code></pre></div>
 
 

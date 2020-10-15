@@ -159,42 +159,42 @@
 <p><em>Zakres (scope)</em> jest kontekstem, w którym dana zmienna jest zadeklarowana.
 <em>Zakres blokowy</em> odnosi się do zmiennej, która jest dostępna w ramach bloku.
 <em>Zmienne o globalnym</em> zakresie zadeklarowane są po za blokiem.</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">droid</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">R2D2</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">droid</span> <span class="o">=</span> <span class="s2">&quot;R2D2&quot;</span>
 
-    <span class="nv">const</span> <span class="nv">droidSeeker</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
-            <span class="k">return</span> <span class="nv">droid</span><span class="c1">; // R2D2</span>
-    }
+    <span class="k">const</span> <span class="n">droidSeeker</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">droid</span><span class="p">;</span> <span class="o">//</span> <span class="n">R2D2</span>
+    <span class="p">}</span>
 
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">droidSeeker</span><span class="ss">())</span> <span class="o">//</span> <span class="o">=</span> <span class="nv">R2D2</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droidSeeker</span><span class="p">())</span> <span class="o">//</span> <span class="o">=</span> <span class="n">R2D2</span>
 </code></pre></div>
 
 
 <p>Gdy zmienna jest deklarowana wewnątrz bloku, wówczas jest osiągalna jedynie tam i jest zwana lokalną zmienną. Zmienna zadeklarowana globalnie jest dostępna w trakcie całości wykonywania się programu (zużycie pamięci + możliwość zmiany), w przypadku zmiennej lokalnej tak nie jest.</p>
 <p>Zmiana zmiennej w funkcji</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">let</span> <span class="n">droid</span> <span class="o">=</span> <span class="ss">&quot;R2D2&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="n">let</span> <span class="n">droid</span> <span class="o">=</span> <span class="s2">&quot;R2D2&quot;</span><span class="p">;</span>
 
-    <span class="n">const</span> <span class="n">droidSeeker</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="err">{</span>
-    <span class="n">droid</span> <span class="o">=</span> <span class="ss">&quot;C3PO&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">Take</span> <span class="n">note</span> <span class="k">of</span> <span class="n">this</span> <span class="n">line</span> <span class="k">of</span> <span class="n">code</span>
-    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid</span><span class="p">);</span>
-    <span class="err">}</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">droidSeeker</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">droid</span> <span class="o">=</span> <span class="s2">&quot;C3PO&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">Take</span> <span class="n">note</span> <span class="n">of</span> <span class="n">this</span> <span class="n">line</span> <span class="n">of</span> <span class="n">code</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid</span><span class="p">);</span>
+    <span class="p">};</span>
 
     <span class="n">logNum</span><span class="p">();</span> <span class="o">//</span> <span class="o">&gt;</span> <span class="n">C3PO</span>
-    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">num</span><span class="p">);</span> <span class="o">//</span> <span class="o">&gt;</span> <span class="n">C3PO</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">num</span><span class="p">);</span> <span class="o">//</span> <span class="o">&gt;</span> <span class="n">C3PO</span>
 </code></pre></div>
 
 
 <p>Deklarowanie zmiennej w ramach bloku pozwala na tworzeni czystszego kodu, łatwiejszego w utrzymaniu (dana zmienna jest odpowiedzialna za wybrany fragment kodu), pozwala na tworzeni kodu w sposób modułowy.</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">droidSeeker</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
-    <span class="nv">const</span> <span class="nv">smallDroid</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
-    <span class="nv">let</span> <span class="nv">droid</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">C3PO</span><span class="s1">&#39;</span><span class="c1">; </span>
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">smallDroid</span><span class="ss">)</span> {
-    <span class="nv">let</span> <span class="nv">droid</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">R2D2</span><span class="s1">&#39;</span><span class="c1">;</span>
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">droid</span><span class="ss">)</span><span class="c1">; // R2D2</span>
-    }
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">droid</span><span class="ss">)</span><span class="c1">; // C3PO</span>
-    }<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">droidSeeker</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">smallDroid</span> <span class="o">=</span> <span class="bp">true</span><span class="p">;</span>
+    <span class="n">let</span> <span class="n">droid</span> <span class="o">=</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">;</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="n">smallDroid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">let</span> <span class="n">droid</span> <span class="o">=</span> <span class="s1">&#39;R2D2&#39;</span><span class="p">;</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid</span><span class="p">);</span> <span class="o">//</span> <span class="n">R2D2</span>
+    <span class="p">}</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid</span><span class="p">);</span> <span class="o">//</span> <span class="n">C3PO</span>
+    <span class="p">};</span>
 
-    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">droid</span><span class="ss">)</span><span class="c1">; // ReferenceError</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid</span><span class="p">);</span> <span class="o">//</span> <span class="n">ReferenceError</span>
 </code></pre></div>
 
 

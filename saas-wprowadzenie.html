@@ -171,22 +171,22 @@
 <p><a href="https://kostyrko.github.io/zfrontu/saas-moduly-metody.html">* stosowanie wbudowanych modułów oraz ich <strong>metod</strong></a></p>
 <p>Pliki sassowe mają rozszerzenie <code>.sass</code> lub <code>.scss</code>. Starsza wersja Sass nie zwierała nawiasów klamrowych i nie posiadała średników te wprowadzono od v. 3</p>
 <p>Sass</p>
-<div class="highlight"><pre><span></span><code><span class="n">nav</span>
-    <span class="n">ul</span>
-        <span class="n">color</span><span class="p">:</span> <span class="n">blue</span>
-    <span class="n">ul</span>
-        <span class="n">color</span><span class="p">:</span> <span class="n">red</span>
+<div class="highlight"><pre><span></span><code><span class="err">nav</span>
+<span class="err">    ul</span>
+<span class="err">        color: blue</span>
+<span class="err">    ul</span>
+<span class="err">        color: red</span>
 </code></pre></div>
 
 
 <p>wersja Scss</p>
-<div class="highlight"><pre><span></span><code><span class="nt">nav</span><span class="p">{</span>
-    <span class="err">ul</span> <span class="err">{</span>
-        <span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nt">li</span> <span class="p">{</span>
-        <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">nav{</span>
+<span class="err">    ul {</span>
+<span class="err">        color: blue;</span>
+<span class="err">    }</span>
+<span class="err">    li {</span>
+<span class="err">        color: red;</span>
+<span class="err">    }</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -209,7 +209,7 @@
 <p>Style definiuje się poprze użycie parametru <code>outputStyle</code> lub parametr <code>style</code></p>
 <div class="highlight"><pre><span></span><code><span class="na">.pipe</span><span class="p">(</span><span class="no">sass</span><span class="p">(</span><span class="err">{</span>
     <span class="nl">outputStyle:</span> <span class="err">&#39;</span><span class="nf">expanded</span><span class="err">&#39;</span><span class="p">,</span>
-    <span class="nl">sourceComments:</span> <span class="err">&#39;</span><span class="nf">map</span><span class="err">&#39;</span> <span class="err">//</span> <span class="no">mapowanie</span> <span class="no">pliku</span>
+    <span class="nl">sourceComments:</span> <span class="err">&#39;</span><span class="nf">map</span><span class="err">&#39;</span> <span class="c1">// mapowanie pliku</span>
 <span class="err">}))</span>
 
 <span class="nf">sass</span><span class="p">(</span><span class="err">{</span>
@@ -219,36 +219,36 @@
 
 
 <p>W terminalu poprzez flagę <code>--style</code></p>
-<div class="highlight"><pre><span></span><code><span class="n">sass</span> <span class="k">input</span><span class="p">.</span><span class="n">scss</span> <span class="k">output</span><span class="p">.</span><span class="n">css</span> <span class="c1">--style compressed</span>
+<div class="highlight"><pre><span></span><code><span class="err">sass input.scss output.css --style compressed</span>
 </code></pre></div>
 
 
 <p><code>sourceComments: 'map'</code> - w css pojawia się komentarz odwołujący się do danego pliku scss</p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gulp</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">const</span> <span class="nv">sass</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gulp-sass</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;gulp&quot;</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n">sass</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;gulp-sass&quot;</span><span class="p">);</span>
 
-    <span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sass</span><span class="s2">&quot;</span>, <span class="nv">function</span><span class="ss">()</span> {
-    <span class="k">return</span> <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">scss/main.scss</span><span class="s2">&quot;</span><span class="ss">)</span>
-    .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sass</span><span class="ss">(</span>{
-        <span class="nv">outputStyle</span>: <span class="s1">&#39;</span><span class="s">compressed</span><span class="s1">&#39;</span>,
-        <span class="nv">sourceComments</span>: <span class="s1">&#39;</span><span class="s">map</span><span class="s1">&#39;</span> 
-    }<span class="ss">)</span>.<span class="nv">on</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">error</span><span class="s2">&quot;</span>, <span class="nv">sass</span>.<span class="nv">logError</span><span class="ss">))</span>
-    .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">css</span><span class="s2">&quot;</span><span class="ss">))</span>
-    }<span class="ss">)</span><span class="c1">;</span>
+    <span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s2">&quot;sass&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s2">&quot;scss/main.scss&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sass</span><span class="p">({</span>
+        <span class="n">outputStyle</span><span class="p">:</span> <span class="s1">&#39;compressed&#39;</span><span class="p">,</span>
+        <span class="n">sourceComments</span><span class="p">:</span> <span class="s1">&#39;map&#39;</span> 
+    <span class="p">})</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">sass</span><span class="o">.</span><span class="n">logError</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">gulp</span><span class="o">.</span><span class="n">dest</span><span class="p">(</span><span class="s2">&quot;css&quot;</span><span class="p">))</span>
+    <span class="p">});</span>
 </code></pre></div>
 
 
 <p>Wynik w CSS (expanded)</p>
-<div class="highlight"><pre><span></span><code>    <span class="c">/* line 1, scss/main.scss */</span>
-    <span class="nt">body</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#692626</span><span class="p">;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">    /* line 1, scss/main.scss */</span>
+<span class="err">    body {</span>
+<span class="err">    background-color: #692626;</span>
+<span class="err">    }</span>
 </code></pre></div>
 
 
 <p>CSS (compressed)</p>
-<div class="highlight"><pre><span></span><code>    <span class="cm">/* line 1, scss/main.scss */</span><span class="n">body</span><span class="err">{</span><span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span><span class="o">#</span><span class="n">ce4242</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">    /* line 1, scss/main.scss */body{background-color:#ce4242}</span>
 </code></pre></div>
 
 
@@ -256,24 +256,24 @@
 <h4>Mapowanie SCSS</h4>
 <p>Proces <em>mapowania</em> pozwala na wskazanie przeglądarce interpretującej css z którego miejsca w pliku sass pochodzi dana deklaracja. Wymaga to dodania pakietu oraz dodania odpowiedniej komendy <code>init</code> i <code>write</code></p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gulp</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">sass</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gulp-sass</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">sourcemaps</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-sourcemaps</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; // wskazanie zależności</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;gulp&quot;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">sass</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;gulp-sass&quot;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">sourcemaps</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp-sourcemaps&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="n">wskazanie</span> <span class="n">zależności</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sass</span><span class="s2">&quot;</span>, <span class="nv">function</span><span class="ss">()</span> {
-<span class="k">return</span> <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">scss/main.scss</span><span class="s2">&quot;</span><span class="ss">)</span>
-.<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sourcemaps</span>.<span class="nv">init</span><span class="ss">())</span> <span class="o">//</span> <span class="nv">inicjalizacja</span>
-.<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sass</span><span class="ss">(</span>{
-    <span class="nv">outputStyle</span>: <span class="s1">&#39;</span><span class="s">expanded</span><span class="s1">&#39;</span>,
-    <span class="nv">sourceComments</span>: <span class="s1">&#39;</span><span class="s">map</span><span class="s1">&#39;</span> 
-}<span class="ss">)</span>.<span class="nv">on</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">error</span><span class="s2">&quot;</span>, <span class="nv">sass</span>.<span class="nv">logError</span><span class="ss">))</span> <span class="o">//</span> <span class="nv">alternatywnie</span> .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sass</span><span class="ss">(</span>{<span class="nv">errLogToConsole</span>: <span class="nv">true</span>}<span class="ss">))</span>
-.<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sourcemaps</span>.<span class="nv">write</span><span class="ss">())</span> <span class="o">//</span> <span class="nv">zapis</span>
-.<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">css</span><span class="s2">&quot;</span><span class="ss">))</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s2">&quot;sass&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">return</span> <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s2">&quot;scss/main.scss&quot;</span><span class="p">)</span>
+<span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sourcemaps</span><span class="o">.</span><span class="n">init</span><span class="p">())</span> <span class="o">//</span> <span class="n">inicjalizacja</span>
+<span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sass</span><span class="p">({</span>
+    <span class="n">outputStyle</span><span class="p">:</span> <span class="s1">&#39;expanded&#39;</span><span class="p">,</span>
+    <span class="n">sourceComments</span><span class="p">:</span> <span class="s1">&#39;map&#39;</span> 
+<span class="p">})</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">sass</span><span class="o">.</span><span class="n">logError</span><span class="p">))</span> <span class="o">//</span> <span class="n">alternatywnie</span> <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sass</span><span class="p">({</span><span class="n">errLogToConsole</span><span class="p">:</span> <span class="bp">true</span><span class="p">}))</span>
+<span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sourcemaps</span><span class="o">.</span><span class="n">write</span><span class="p">())</span> <span class="o">//</span> <span class="n">zapis</span>
+<span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">gulp</span><span class="o">.</span><span class="n">dest</span><span class="p">(</span><span class="s2">&quot;css&quot;</span><span class="p">))</span>
+<span class="p">});</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">watch</span><span class="s2">&quot;</span>, <span class="nv">function</span><span class="ss">()</span>{
-<span class="nv">gulp</span>.<span class="nv">watch</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">scss/**/*.scss</span><span class="s2">&quot;</span>, <span class="nv">gulp</span>.<span class="nv">series</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sass</span><span class="s2">&quot;</span><span class="ss">))</span><span class="c1">;</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s2">&quot;watch&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s2">&quot;scss/**/*.scss&quot;</span><span class="p">,</span> <span class="n">gulp</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="s2">&quot;sass&quot;</span><span class="p">));</span>
+<span class="p">});</span>
 </code></pre></div>
 
 
@@ -302,7 +302,7 @@
 
 <h4>@error i @warn</h4>
 <p>użycie @warn ma za zadanie informowaniu o zajściu pewnego warunku granicznego jednak nie przerywa wykonywania się kodu jak to powinno nastąpić w przypadku @error</p>
-<div class="highlight"><pre><span></span><code><span class="nv">@warn</span><span class="w"> </span><span class="ss">&quot;Unknown prefix #{$prefix}.&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">@warn &quot;Unknown prefix #{$prefix}.&quot;;</span>
 </code></pre></div>
 
 
@@ -320,11 +320,11 @@
 
 
 <p>CSS</p>
-<div class="highlight"><pre><span></span><code><span class="c">/* line 2, scss/main.scss */</span>
-<span class="nt">body</span> <span class="p">{</span>
-    <span class="k">font</span><span class="p">:</span><span class="n">Helvetica</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">/* line 2, scss/main.scss */</span>
+<span class="err">body {</span>
+<span class="err">    font:Helvetica, sans-serif;</span>
+<span class="err">    background-color: #333;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -376,13 +376,13 @@
 
 <p><code>&amp;</code> - jest stosowane w przypadku pseudoklas (zapewnia powtórzenie selektora =&gt; rodzica sassowego)</p>
 <p>Scss</p>
-<div class="highlight"><pre><span></span><code><span class="nt">a</span><span class="p">{</span>
-    <span class="err">&amp;:visited{</span>
-        <span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="o">&amp;</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span>
-        <span class="k">color</span><span class="p">:</span> <span class="kc">green</span><span class="p">;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">a{</span>
+<span class="err">    &amp;:visited{</span>
+<span class="err">        color: blue;</span>
+<span class="err">    }</span>
+<span class="err">    &amp;:hover{</span>
+<span class="err">        color: green;</span>
+<span class="err">    }</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -446,27 +446,27 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 <p>Pozwalają na użycie kodu, który jest powtarzany (może ale nie musi przyjmować jeden lub więcej argumentów - argumenty oddzielone są przecinkami) - argument może odnosić się zarówno do właściwości (np. display/padding) jak i przypisanej do niej wartości (np. flex/40px) danego obiektu - jest to tzw. <strong>interpolacja</strong>. W przypadku właściwości stosuje się zapis <code>#{$nazwa_właściwości}</code> w przypadku wartości <code>$wartość</code>. Istnieje również możliwość deklaracji tzw. argumentów opcjonalnych - bez ich podania danej właściwości zostanie przypisana domyślna wartość (domyślną wartość wpisuje się po dwukropku! --&gt; <code>$y: 50%</code>)</p>
 <p>Zmienna która pozwala na przetrzymywanie wielu deklaracji styli.</p>
 <p>$value... - trzykropek pozwala na dodanie listy jako argumentu, która ma być traktowana jako jeden parametr</p>
-<div class="highlight"><pre><span></span><code><span class="nv">@mixin</span><span class="w"> </span><span class="n">boxShadow</span><span class="p">(</span><span class="err">$</span><span class="n">color</span><span class="p">)</span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">box</span><span class="o">-</span><span class="nl">shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="n">px</span><span class="w"> </span><span class="err">$</span><span class="n">color</span><span class="p">;</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">@mixin boxShadow($color){</span>
+<span class="err">    box-shadow: 10px $color;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <p><code>@include</code> - słowo kluczowe, które pozwala na wykorzystanie mixina</p>
-<div class="highlight"><pre><span></span><code>.<span class="nv">box</span> {
-    @<span class="k">include</span> <span class="nv">boxShadow</span><span class="ss">(</span><span class="nv">red</span><span class="ss">)</span><span class="c1">;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="na">.box</span> <span class="err">{</span>
+    <span class="err">@</span><span class="nf">include</span> <span class="no">boxShadow</span><span class="p">(</span><span class="no">red</span><span class="p">)</span><span class="c1">;</span>
+<span class="err">}</span>
 
 
-@<span class="nv">mixin</span> <span class="nv">divMixin</span><span class="ss">(</span><span class="mh">$c</span><span class="nv">olor</span>, <span class="mh">$f</span><span class="nv">ont</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">1</span><span class="nv">rem</span>, $<span class="nv">translate</span><span class="ss">)</span>{
-        <span class="nv">box</span><span class="o">-</span><span class="nv">shadow</span>: <span class="mi">10</span><span class="nv">px</span> <span class="mh">$c</span><span class="nv">olor</span><span class="c1">;</span>
-        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mh">$f</span><span class="nv">ont</span><span class="o">-</span><span class="nv">size</span><span class="c1">;</span>
-        #{$<span class="nv">translate</span>} : $<span class="nv">translate</span><span class="o">-</span><span class="nv">val</span><span class="c1">;</span>
-    }
+<span class="err">@</span><span class="nf">mixin</span> <span class="no">divMixin</span><span class="p">(</span><span class="no">$color</span><span class="p">,</span> <span class="no">$font-size</span><span class="p">:</span> <span class="mi">1</span><span class="no">rem</span><span class="p">,</span> <span class="no">$translate</span><span class="p">)</span><span class="err">{</span>
+        <span class="nl">box-shadow:</span> <span class="err">10</span><span class="nf">px</span> <span class="no">$color</span><span class="c1">;</span>
+        <span class="nl">font-size:</span> <span class="nf">$font-size</span><span class="c1">;</span>
+        <span class="c1">#{$translate} : $translate-val;</span>
+    <span class="err">}</span>
 
-<span class="nv">div</span> {
-    @<span class="k">include</span> <span class="nv">divMixin</span><span class="ss">(</span><span class="nv">black</span>, <span class="nv">translate</span><span class="o">-</span><span class="nv">Y</span>, <span class="mi">10</span><span class="nv">px</span><span class="ss">)</span>
-}
+<span class="nf">div</span> <span class="err">{</span>
+    <span class="err">@</span><span class="nf">include</span> <span class="no">divMixin</span><span class="p">(</span><span class="no">black</span><span class="p">,</span> <span class="no">translate-Y</span><span class="p">,</span> <span class="mi">10</span><span class="no">px</span><span class="p">)</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -523,7 +523,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 <p>map-get($mapa-kolorow, klucz1) -&gt; zwraca wartość1</p>
 <p>Przykładowe zastosowanie:</p>
 <div class="highlight"><pre><span></span><code><span class="na">.footer</span> <span class="err">{</span>
-    <span class="nl">background-color:</span> <span class="nf">map-get</span><span class="p">(</span><span class="no">$mapa-kolorow</span><span class="p">,</span> <span class="no">klucz1</span><span class="p">)</span><span class="c">; // zwraca wartość1</span>
+    <span class="nl">background-color:</span> <span class="nf">map-get</span><span class="p">(</span><span class="no">$mapa-kolorow</span><span class="p">,</span> <span class="no">klucz1</span><span class="p">)</span><span class="c1">; // zwraca wartość1</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -537,7 +537,7 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 <p>Zastosowanie okrągłych nawiasów pozwala na wymuszenie kolejności działań</p>
 <p>Pozwala również na stosowanie operatorów w kontekście <strong>stringów</strong> - </p>
 <p>np. dodawanie ze sobą stringów skutkuje w ich łączeniu</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">+</span> <span class="o">-</span><span class="n">zmien</span>  <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">zmien</span>
+<div class="highlight"><pre><span></span><code><span class="err">b + -zmien  = b-zmien</span>
 </code></pre></div>
 
 
@@ -557,117 +557,117 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 
 
 <p>Operatory stosowane przypadku <strong>wyrażeń logicznych</strong> -&gt; <code>not</code>, <code>and</code>, <code>or</code></p>
-<div class="highlight"><pre><span></span><code><span class="nv">@debug</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">false</span><span class="w"></span>
-<span class="nv">@debug</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
-<span class="nv">@debug</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
-<span class="nv">@debug</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">@debug not true; // false</span>
+<span class="err">@debug not false; // true</span>
+<span class="err">@debug true or false; // true</span>
+<span class="err">@debug true and true; // true</span>
 </code></pre></div>
 
 
 <hr>
 <h4 id="if">Instrukcja warunkowa @if</h4>
-<div class="highlight"><pre><span></span><code>$<span class="nv">type</span>: <span class="nv">droid</span><span class="c1">;</span>
-<span class="nv">p</span> {
-    @<span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">c3po</span> {
-        <span class="nv">color</span>: <span class="nv">gold</span><span class="c1">;</span>
-    } @<span class="k">else</span> <span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">r2d2</span> {
-        <span class="nv">color</span>: <span class="nv">blue</span><span class="c1">;</span>
-    } @<span class="k">else</span> <span class="k">if</span> $<span class="nv">type</span> <span class="o">==</span> <span class="nv">d</span><span class="o">-</span><span class="nv">o</span> {
-        <span class="nv">color</span>: <span class="nv">green</span><span class="c1">;</span>
-    } @<span class="k">else</span> {
-        <span class="nv">color</span>: <span class="nv">black</span><span class="c1">;</span>
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="err">$type: droid;</span>
+<span class="err">p {</span>
+<span class="err">    @if $type == c3po {</span>
+<span class="err">        color: gold;</span>
+<span class="err">    } @else if $type == r2d2 {</span>
+<span class="err">        color: blue;</span>
+<span class="err">    } @else if $type == d-o {</span>
+<span class="err">        color: green;</span>
+<span class="err">    } @else {</span>
+<span class="err">        color: black;</span>
+<span class="err">    }</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <h4 id="for">Pętla @for i @each</h4>
 <p>Generacja selektorów z powtarzalną wartością</p>
-<div class="highlight"><pre><span></span><code>@<span class="k">for</span> $<span class="nv">var</span> <span class="nv">from</span> <span class="o">&lt;</span><span class="nv">start</span><span class="o">&gt;</span> <span class="nv">through</span> <span class="o">&lt;</span><span class="k">end</span><span class="o">&gt;</span> <span class="o">//</span> <span class="nv">warto</span>ść <span class="nv">ko</span>ń<span class="nv">cowa</span> <span class="nv">jest</span> <span class="nv">wliczana</span>
+<div class="highlight"><pre><span></span><code><span class="err">@</span><span class="k">for</span> <span class="o">$</span><span class="k">var</span> <span class="n">from</span> <span class="o">&lt;</span><span class="n">start</span><span class="o">&gt;</span> <span class="n">through</span> <span class="o">&lt;</span><span class="n">end</span><span class="o">&gt;</span> <span class="o">//</span> <span class="n">wartość</span> <span class="n">końcowa</span> <span class="n">jest</span> <span class="n">wliczana</span>
 
-@<span class="k">for</span> $<span class="nv">var</span> <span class="nv">from</span> <span class="o">&lt;</span><span class="nv">start</span><span class="o">&gt;</span> <span class="nv">to</span> <span class="o">&lt;</span><span class="k">end</span><span class="o">&gt;</span> <span class="o">//</span> <span class="nv">warto</span>ść <span class="nv">ko</span>ń<span class="nv">cowa</span> <span class="nv">jest</span> <span class="nv">pomijana</span>
+<span class="err">@</span><span class="k">for</span> <span class="o">$</span><span class="k">var</span> <span class="n">from</span> <span class="o">&lt;</span><span class="n">start</span><span class="o">&gt;</span> <span class="n">to</span> <span class="o">&lt;</span><span class="n">end</span><span class="o">&gt;</span> <span class="o">//</span> <span class="n">wartość</span> <span class="n">końcowa</span> <span class="n">jest</span> <span class="n">pomijana</span>
 
-<span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">1</span>:
+<span class="n">Przykład</span> <span class="mi">1</span><span class="p">:</span>
 
-@<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mi">3</span> {
-    <span class="nv">h</span>#{$<span class="nv">i</span>} {
-        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">120</span><span class="nv">px</span><span class="c1">;</span>
-    }
-}
+<span class="err">@</span><span class="k">for</span> <span class="o">$</span><span class="n">i</span> <span class="n">from</span> <span class="mi">1</span> <span class="n">through</span> <span class="mi">3</span> <span class="p">{</span>
+    <span class="n">h</span><span class="c1">#{$i} {</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">120</span><span class="n">px</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-    <span class="nv">WYNIK</span> <span class="nv">CSS</span>:
+    <span class="n">WYNIK</span> <span class="n">CSS</span><span class="p">:</span>
 
-        <span class="nv">h1</span> {
-        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">100</span><span class="nv">px</span><span class="c1">;</span>
-        }
+        <span class="n">h1</span> <span class="p">{</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        <span class="nv">h2</span> {
-        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">100</span><span class="nv">px</span><span class="c1">;</span>
-        }
+        <span class="n">h2</span> <span class="p">{</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        <span class="nv">h3</span> {
-        <span class="nv">font</span><span class="o">-</span><span class="nv">size</span>: <span class="mi">100</span><span class="nv">px</span><span class="c1">;</span>
-        }
+        <span class="n">h3</span> <span class="p">{</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+        <span class="p">}</span>
 
-<span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">2</span>
+<span class="n">Przykład</span> <span class="mi">2</span>
 
-@<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mi">3</span> {
-    .<span class="nv">item</span><span class="o">-</span>#{$<span class="nv">i</span>} { <span class="nv">width</span>: <span class="mi">2</span><span class="nv">em</span> <span class="o">*</span> $<span class="nv">i</span><span class="c1">; }</span>
-}
+<span class="err">@</span><span class="k">for</span> <span class="o">$</span><span class="n">i</span> <span class="n">from</span> <span class="mi">1</span> <span class="n">through</span> <span class="mi">3</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">item</span><span class="o">-</span><span class="c1">#{$i} { width: 2em * $i; }</span>
+<span class="p">}</span>
 
-<span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">3</span>
+<span class="n">Przykład</span> <span class="mi">3</span>
 
-<span class="mh">$f</span><span class="nv">ont</span><span class="o">-</span><span class="nv">color</span>: <span class="ss">(</span>
-    <span class="nv">color1</span>: <span class="nv">red</span>,
-    <span class="nv">color2</span>: <span class="nv">green</span>,
-    <span class="nv">color3</span>: <span class="nv">blue</span>
-<span class="ss">)</span><span class="c1">;</span>
+<span class="o">$</span><span class="n">font</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="p">(</span>
+    <span class="n">color1</span><span class="p">:</span> <span class="n">red</span><span class="p">,</span>
+    <span class="n">color2</span><span class="p">:</span> <span class="n">green</span><span class="p">,</span>
+    <span class="n">color3</span><span class="p">:</span> <span class="n">blue</span>
+<span class="p">);</span>
 
-@<span class="k">for</span> $<span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">through</span> <span class="mi">3</span> {
-    <span class="nv">h</span>#{$<span class="nv">i</span>} {
-        <span class="nv">color</span>: <span class="nv">nth</span><span class="ss">(</span><span class="nv">map</span><span class="o">-</span><span class="nv">values</span><span class="ss">(</span><span class="mh">$f</span><span class="nv">ont</span><span class="o">-</span><span class="nv">color</span><span class="ss">)</span>, $<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
-    }
-}
+<span class="err">@</span><span class="k">for</span> <span class="o">$</span><span class="n">i</span> <span class="n">from</span> <span class="mi">1</span> <span class="n">through</span> <span class="mi">3</span> <span class="p">{</span>
+    <span class="n">h</span><span class="c1">#{$i} {</span>
+        <span class="n">color</span><span class="p">:</span> <span class="n">nth</span><span class="p">(</span><span class="n">map</span><span class="o">-</span><span class="n">values</span><span class="p">(</span><span class="o">$</span><span class="n">font</span><span class="o">-</span><span class="n">color</span><span class="p">),</span> <span class="o">$</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 
 <p>Pętla @each pracuje na zbiorze danych - iteruje po liście wartości</p>
-<div class="highlight"><pre><span></span><code><span class="nv">@each</span><span class="w"> </span><span class="err">$</span><span class="nf">var</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">&lt;</span><span class="n">lista</span><span class="o">&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">@</span><span class="n">each</span> <span class="o">$</span><span class="k">var</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">lista</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="p">}</span>
 
-<span class="o">//</span><span class="w"> </span><span class="n">PRZYKŁAD</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="o">//</span> <span class="n">PRZYKŁAD</span> <span class="mi">1</span>
 
-<span class="nv">@each</span><span class="w"> </span><span class="err">$</span><span class="n">num</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="n">h</span><span class="err">#{$</span><span class="n">num</span><span class="err">}</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
-<span class="err">}</span><span class="p">;</span><span class="w"></span>
+<span class="err">@</span><span class="n">each</span> <span class="o">$</span><span class="n">num</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span> <span class="p">{</span>
+<span class="n">h</span><span class="c1">#{$num} {</span>
+    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">};</span>
 
-<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">WYNIK</span><span class="w"> </span><span class="nl">CSS</span><span class="p">:</span><span class="w"></span>
+    <span class="o">//</span> <span class="n">WYNIK</span> <span class="n">CSS</span><span class="p">:</span>
 
-<span class="w">        </span><span class="n">h1</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"></span>
+        <span class="n">h1</span> <span class="p">{</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+        <span class="p">}</span>
 
-<span class="w">        </span><span class="n">h2</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"></span>
+        <span class="n">h2</span> <span class="p">{</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+        <span class="p">}</span>
 
-<span class="w">        </span><span class="n">h3</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">font</span><span class="o">-</span><span class="k">size</span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="n">px</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"></span>
+        <span class="n">h3</span> <span class="p">{</span>
+        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+        <span class="p">}</span>
 
 
 
-<span class="o">//</span><span class="w"> </span><span class="n">PRZYKŁAD</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="o">//</span> <span class="n">PRZYKŁAD</span> <span class="mi">2</span>
 
-<span class="nv">@each</span><span class="w"> </span><span class="err">$</span><span class="n">animal</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">puma</span><span class="p">,</span><span class="w"> </span><span class="n">sea</span><span class="o">-</span><span class="n">slug</span><span class="p">,</span><span class="w"> </span><span class="n">egret</span><span class="p">,</span><span class="w"> </span><span class="n">salamander</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">.</span><span class="err">#{$</span><span class="n">animal</span><span class="err">}</span><span class="o">-</span><span class="n">icon</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">background</span><span class="o">-</span><span class="nc">image</span><span class="err">:</span><span class="w"> </span><span class="n">url</span><span class="p">(</span><span class="s1">&#39;/images/#{$animal}.png&#39;</span><span class="p">);</span><span class="err">}</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<span class="err">@</span><span class="n">each</span> <span class="o">$</span><span class="n">animal</span> <span class="ow">in</span> <span class="n">puma</span><span class="p">,</span> <span class="n">sea</span><span class="o">-</span><span class="n">slug</span><span class="p">,</span> <span class="n">egret</span><span class="p">,</span> <span class="n">salamander</span> <span class="p">{</span>
+    <span class="o">.</span><span class="c1">#{$animal}-icon {</span>
+        <span class="n">background</span><span class="o">-</span><span class="n">image</span><span class="p">:</span> <span class="n">url</span><span class="p">(</span><span class="s1">&#39;/images/#{$animal}.png&#39;</span><span class="p">);}</span>
+<span class="p">}</span>
 
-<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">WYNIK</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="nl">CSS</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p">.</span><span class="n">puma</span><span class="o">-</span><span class="n">icon</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">background</span><span class="o">-</span><span class="nc">image</span><span class="err">:</span><span class="w"> </span><span class="n">url</span><span class="p">(</span><span class="ss">&quot;/images/puma.png&quot;</span><span class="p">);</span><span class="err">}</span><span class="w"></span>
+    <span class="o">//</span> <span class="n">WYNIK</span><span class="o">-</span><span class="mi">1</span> <span class="n">CSS</span><span class="p">:</span>
+    <span class="o">.</span><span class="n">puma</span><span class="o">-</span><span class="n">icon</span> <span class="p">{</span> <span class="n">background</span><span class="o">-</span><span class="n">image</span><span class="p">:</span> <span class="n">url</span><span class="p">(</span><span class="s2">&quot;/images/puma.png&quot;</span><span class="p">);}</span>
 </code></pre></div>
 
 
@@ -677,9 +677,9 @@ Wszystkie pliki cząstkowe powinny być poprzedzone podkreślaniem np. <code>_bu
 <p>https://sass-lang.com/documentation/at-rules/function</p>
 <p>Zdefiniowane</p>
 <p>Funkcja wyznacza i zwraca zdefiniowaną wartość</p>
-<div class="highlight"><pre><span></span><code>@<span class="nv">funkcja</span> <span class="nv">nazwa_funkcji</span><span class="ss">(</span>$<span class="nv">parametr</span><span class="ss">)</span> {
-    @<span class="k">return</span> $<span class="nv">parametr</span><span class="o">/</span><span class="mi">2</span><span class="c1">;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="err">@funkcja nazwa_funkcji($parametr) {</span>
+<span class="err">    @return $parametr/2;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 

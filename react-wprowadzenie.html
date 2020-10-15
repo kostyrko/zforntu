@@ -156,7 +156,7 @@
     <p><img alt="react" max-height="300px" src="https://teamquest.pl/img/static/blog/reactjs.jpeg"></p>
 <h3>Konfiguracja środowiska</h3>
 <p>Inicjalizacja projektu</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm init -y</span>
 </code></pre></div>
 
 
@@ -168,28 +168,28 @@
 
 
 <p>Dodanie do package.json skrótu uruchamiającego webpack-serwer</p>
-<div class="highlight"><pre><span></span><code><span class="ss">&quot;scripts&quot;</span><span class="p">:</span> <span class="err">{</span>
-<span class="p">[..],</span>
-<span class="ss">&quot;start&quot;</span><span class="p">:</span> <span class="ss">&quot;webpack-dev-server --hot -d&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;scripts&quot;: {</span>
+<span class="err">[..],</span>
+<span class="err">&quot;start&quot;: &quot;webpack-dev-server --hot -d&quot;</span>
 </code></pre></div>
 
 
 <p>},</p>
 <p>Przygotowanie Babel (core/preset-env/loader)
 Babel loader pozwala na transpilację przy pomocy Webpacka -&gt; <a href="https://www.npmjs.com/package/babel-loader">npm: babel-loader</a></p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">D</span><span class="w"> </span><span class="n">babel</span><span class="o">-</span><span class="n">loader</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">core</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">preset</span><span class="o">-</span><span class="n">env</span><span class="w"> </span><span class="n">webpack</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">D</span> <span class="n">babel</span><span class="o">-</span><span class="n">loader</span> <span class="err">@</span><span class="n">babel</span><span class="o">/</span><span class="n">core</span> <span class="err">@</span><span class="n">babel</span><span class="o">/</span><span class="n">preset</span><span class="o">-</span><span class="n">env</span> <span class="n">webpack</span>
 </code></pre></div>
 
 
 <p>Instalacja bable pod Reacta (nie jest wymagany jeśli nie używamy JSX)</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="nv">@babel</span><span class="o">/</span><span class="n">preset</span><span class="o">-</span><span class="n">react</span><span class="w"> </span><span class="c1">--save-dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm i @babel/preset-react --save-dev</span>
 </code></pre></div>
 
 
 <p>Konfiguracja pliku konfiguracyjnego dla Bable -&gt; .babelrc </p>
-<div class="highlight"><pre><span></span><code><span class="err">{</span><span class="w"></span>
-<span class="ss">&quot;presets&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;</span><span class="o">]</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">{</span>
+<span class="err">&quot;presets&quot;: [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;]</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -199,34 +199,34 @@ Babel loader pozwala na transpilację przy pomocy Webpacka -&gt; <a href="https:
 
 
 <p>Przygotowanie <strong>webpack.config.js</strong> więcej na ten temat patrz: <a href="https://kostyrko.github.io/zfrontu/js-webpack.html">Webpack - krótkie wprowadzenie</a></p>
-<div class="highlight"><pre><span></span><code>    const path = require(&quot;path&quot;);
-    const entryPath = &quot;1_hello_world/js&quot;;
-    const outPath = &quot;1_hello_world&quot;;
-    const entryFile = &quot;app.js&quot;;
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">path</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n">entryPath</span> <span class="o">=</span> <span class="s2">&quot;1_hello_world/js&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">outPath</span> <span class="o">=</span> <span class="s2">&quot;1_hello_world&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">entryFile</span> <span class="o">=</span> <span class="s2">&quot;app.js&quot;</span><span class="p">;</span>
 
-    module.exports = {
-    watch: true,
-    entry: `./<span class="cp">${</span><span class="n">entryPath</span><span class="cp">}</span>/<span class="cp">${</span><span class="n">entryFile</span><span class="cp">}</span>`,
-    output: {
-        filename: &quot;out.js&quot;,
-        path: path.resolve(__dirname, `<span class="cp">${</span><span class="n">outPath</span><span class="cp">}</span>/build`) // folder wyjściowy/zapisu
-    },
-    devServer: {
-        contentBase: path.join(__dirname, `<span class="cp">${</span><span class="n">outPath</span><span class="cp">}</span>`),    // ścieżka gdzie znajduje się statyczna treść np. index.html (path.join by stworzyć absolutną ścieżkę)
-        publicPath: &quot;/build/&quot;,
-        compress: true,
-        port: 3001
-    },
-    module: {
-        rules: [
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: &quot;babel-loader&quot;
-        }
-        ]
-    }
-    };
+    <span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">watch</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span>
+    <span class="n">entry</span><span class="p">:</span> <span class="err">`</span><span class="o">./$</span><span class="p">{</span><span class="n">entryPath</span><span class="p">}</span><span class="o">/$</span><span class="p">{</span><span class="n">entryFile</span><span class="p">}</span><span class="err">`</span><span class="p">,</span>
+    <span class="n">output</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">filename</span><span class="p">:</span> <span class="s2">&quot;out.js&quot;</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="n">path</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">__dirname</span><span class="p">,</span> <span class="err">`</span><span class="o">$</span><span class="p">{</span><span class="n">outPath</span><span class="p">}</span><span class="o">/</span><span class="n">build</span><span class="err">`</span><span class="p">)</span> <span class="o">//</span> <span class="n">folder</span> <span class="n">wyjściowy</span><span class="o">/</span><span class="n">zapisu</span>
+    <span class="p">},</span>
+    <span class="n">devServer</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">contentBase</span><span class="p">:</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__dirname</span><span class="p">,</span> <span class="err">`</span><span class="o">$</span><span class="p">{</span><span class="n">outPath</span><span class="p">}</span><span class="err">`</span><span class="p">),</span>    <span class="o">//</span> <span class="err">ś</span><span class="n">cieżka</span> <span class="n">gdzie</span> <span class="n">znajduje</span> <span class="n">się</span> <span class="n">statyczna</span> <span class="n">treść</span> <span class="n">np</span><span class="o">.</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span> <span class="n">by</span> <span class="n">stworzyć</span> <span class="n">absolutną</span> <span class="err">ś</span><span class="n">cieżkę</span><span class="p">)</span>
+        <span class="n">publicPath</span><span class="p">:</span> <span class="s2">&quot;/build/&quot;</span><span class="p">,</span>
+        <span class="n">compress</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span>
+        <span class="n">port</span><span class="p">:</span> <span class="mi">3001</span>
+    <span class="p">},</span>
+    <span class="n">module</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">rules</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="n">test</span><span class="p">:</span> <span class="o">/</span>\<span class="o">.</span><span class="n">js</span><span class="o">$/</span><span class="p">,</span>
+            <span class="n">exclude</span><span class="p">:</span> <span class="o">/</span><span class="n">node_modules</span><span class="o">/</span><span class="p">,</span>
+            <span class="n">loader</span><span class="p">:</span> <span class="s2">&quot;babel-loader&quot;</span>
+        <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="p">};</span>
 </code></pre></div>
 
 
@@ -259,12 +259,12 @@ Babel loader pozwala na transpilację przy pomocy Webpacka -&gt; <a href="https:
 <p>ReactDOM - renderuje/tworzy stronę</p>
 <p>Schemat:
 ReactDOM.render(element, miejsce)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">np</span>.
+<div class="highlight"><pre><span></span><code>np.
 
-  <span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">droid</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span><span class="o">!&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>,  <span class="o">//</span> <span class="nv">JSX</span>
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>  <span class="o">//</span> <span class="nv">Miejsce</span>
-<span class="ss">)</span><span class="c1">;</span>
+  ReactDOM.render(
+  <span class="nt">&lt;h1&gt;</span>This is not the droid you are looking for!<span class="nt">&lt;/h1&gt;</span>,  // JSX
+  document.getElementById(&quot;app&quot;)  // Miejsce
+);
 </code></pre></div>
 
 
@@ -280,20 +280,20 @@ ReactDOM.render(element, miejsce)</p>
 
 
 <p>Aby zobaczyć aplikację na webpackowym serverze należy wpisać w terminalu</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="k">start</span>
+<div class="highlight"><pre><span></span><code><span class="err">    npm start</span>
 </code></pre></div>
 
 
 <p>Lub aby wykorzystać stworzyć bundle.js        </p>
-<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">run</span><span class="o">-</span><span class="n">script</span> <span class="n">build</span>
+<div class="highlight"><pre><span></span><code><span class="err">    npm run-script build</span>
 </code></pre></div>
 
 
 <hr>
 <h4>React i VSC</h4>
 <p>Dla tych co korzystają z VSC polecam dodać również bardzo przydatną informację do settings.json, która powoduje, że emmet działa również w plikach js</p>
-<div class="highlight"><pre><span></span><code><span class="ss">&quot;emmet.includeLanguages&quot;</span><span class="p">:</span> <span class="err">{</span>
-    <span class="ss">&quot;javascript&quot;</span><span class="p">:</span> <span class="ss">&quot;javascriptreact&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;emmet.includeLanguages&quot;: {</span>
+<span class="err">    &quot;javascript&quot;: &quot;javascriptreact&quot;</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -372,16 +372,16 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 <hr>
 <h3>Parę słówo o JSX</h3>
 <p>JSX nie jest ekskluzywny dla Reacta, ale został stworzony przez developerów z nim związanych - jest rozszerzeniem możliwości JS w tworzeniu HTML. Jest bardzo do niego zbliżony, ale też wybacza mniej błędów przy pisaniu tagów -&gt; przykładowo każdy z nich musi być zamknięty a wartości muszą znajdować się pomiędzy apostrofami.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nv">span</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">droid</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">droid</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">looking</span> <span class="k">for</span><span class="o">!&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;droid&quot;</span><span class="nt">&gt;</span>This is not the droid you are looking for!<span class="nt">&lt;/span&gt;</span>
 </code></pre></div>
 
 
 <p>&lt;<zamiast>&gt;</p>
-<div class="highlight"><pre><span></span><code><span class="nv">React</span>.<span class="nv">createElement</span><span class="ss">(</span>
-  <span class="s2">&quot;</span><span class="s">span</span><span class="s2">&quot;</span>,
-  {<span class="nv">id</span>: <span class="s2">&quot;</span><span class="s">droid</span><span class="s2">&quot;</span>},
-  <span class="s2">&quot;</span><span class="s">This is not the droid you are looking for!</span><span class="s2">&quot;</span>
-<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">React.createElement(</span>
+<span class="err">  &quot;span&quot;,</span>
+<span class="err">  {id: &quot;droid&quot;},</span>
+<span class="err">  &quot;This is not the droid you are looking for!&quot;</span>
+<span class="err">);</span>
 </code></pre></div>
 
 
@@ -412,34 +412,34 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 
 
 <h5>Tagi JSX w zmiennych</h5>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">Wookie</span><span class="s1">&#39;</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>const name = &#39;Wookie&#39;;
 
-<span class="nv">const</span> <span class="nv">greeting</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span> { <span class="nv">firstName</span> }, <span class="nv">you</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">one</span>, <span class="nv">looking</span> <span class="k">for</span>, <span class="nv">are</span> <span class="nv">we</span>.<span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+const greeting = <span class="nt">&lt;span&gt;</span> { firstName }, you are the one, looking for, are we.<span class="nt">&lt;/span&gt;</span>
 
-<span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>{ <span class="nv">greeting</span> }<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+<span class="nt">&lt;div&gt;</span>{ greeting }<span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 
 
 <h5>Tagi JSX w funkcjach - funkcja zwracająca element</h5>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">yodaTalk</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span>{
-        <span class="k">return</span> <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span> {<span class="nv">firstName</span>}, <span class="nv">you</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">one</span>, <span class="nv">looking</span> <span class="k">for</span>, <span class="nv">are</span> <span class="nv">we</span>.<span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>function yodaTalk(name){
+        return <span class="nt">&lt;span&gt;</span> {firstName}, you are the one, looking for, are we.<span class="nt">&lt;/span&gt;</span>;
     }
-    <span class="nv">const</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">Wookie</span><span class="s1">&#39;</span><span class="c1">;</span>
+    const name = &#39;Wookie&#39;;
 
-    <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>{ <span class="nv">yodaTalk</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span> }<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>{ yodaTalk(name) }<span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 
 
 <h5>Tagi JSX na podstawie wyrażeń logicznych</h5>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">dagobah</span> <span class="o">=</span> <span class="nv">true</span>
+<div class="highlight"><pre><span></span><code>    const dagobah = true
 
-    <span class="k">if</span> <span class="ss">(</span><span class="nv">dagobah</span><span class="ss">)</span>{
-        <span class="nv">info</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span> <span class="nv">Luke</span>, <span class="nv">you</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">one</span>, <span class="nv">looking</span> <span class="k">for</span>, <span class="nv">are</span> <span class="nv">we</span>.<span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span><span class="c1">;</span>
-    } <span class="k">else</span> {
-        <span class="nv">info</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">/login</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Let</span><span class="s1">&#39;</span><span class="s">s go to Dagobah, but first Log In&lt;/a&gt;;</span>
+    if (dagobah){
+        info = <span class="nt">&lt;span&gt;</span> Luke, you are the one, looking for, are we.<span class="nt">&lt;/span&gt;</span>;
+    } else {
+        info = <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/login&quot;</span><span class="nt">&gt;</span>Let&#39;s go to Dagobah, but first Log In<span class="nt">&lt;/a&gt;</span>;
     }
 
-    <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>{ <span class="nv">info</span> }<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>{ info }<span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 
 
@@ -455,14 +455,14 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 
 <p>Wówczas wykorzystanie fragmentu wygląda następująco -&gt; <code>&lt;Fragment&gt; element1 element2 ...element &lt;/Fragment&gt;</code></p>
 <p>Fragmenty pozwalają na zgrupowanie wielu elementów bez konieczności dodawania dodatkowego węzła DOM (np. div) </p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">HelloDroid</span> <span class="nv">extends</span> <span class="nv">Component</span> {
-  <span class="nv">render</span><span class="ss">()</span> {
-    <span class="k">return</span> <span class="ss">(</span>
-      <span class="o">&lt;&gt;</span>
-        <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">I</span> <span class="nv">am</span> <span class="nv">a</span> <span class="nv">Wookiee</span><span class="o">!&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span><span class="c1">;</span>
-        <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">I</span> <span class="nv">am</span> <span class="nv">the</span> <span class="nv">planet</span> <span class="nv">Kashyyyk</span><span class="o">!&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span><span class="c1">;</span>
-      <span class="o">&lt;/&gt;</span>
-    <span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>class HelloDroid extends Component {
+  render() {
+    return (
+      <span class="err">&lt;</span>&gt;
+        <span class="nt">&lt;h1&gt;</span>I am a Wookiee!<span class="nt">&lt;/h1&gt;</span>;
+        <span class="nt">&lt;h2&gt;</span>I am the planet Kashyyyk!<span class="nt">&lt;/h2&gt;</span>;
+      <span class="err">&lt;</span>/&gt;
+    )
   }
 }
 </code></pre></div>
@@ -471,26 +471,26 @@ Warto jednak pamiętać, że są to zminifikowana wersja biblioteki React przygo
 <hr>
 <h3>Notacje obiektów w ES6 w kontekście JSX</h3>
 <p>Notacje w JS dostępnych od ES6 - ten system zapisu pozwala, na oszczędność kodu - JS potrafi odczytać zmienną jako deklarację CSS </p>
-<div class="highlight"><pre><span></span><code><span class="nt">const</span> <span class="nt">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
 
-<span class="nt">button</span> <span class="p">{</span>       <span class="err">&lt;&lt;zamiast&gt;&gt;</span>      <span class="err">button</span> <span class="err">{</span>
-  <span class="err">color</span>                         <span class="k">color</span><span class="p">:</span> <span class="kc">color</span><span class="p">;</span>
-<span class="p">}</span>                               <span class="err">}</span>
+<span class="n">button</span> <span class="p">{</span>       <span class="o">&lt;&lt;</span><span class="n">zamiast</span><span class="o">&gt;&gt;</span>      <span class="n">button</span> <span class="p">{</span>
+  <span class="n">color</span>                         <span class="n">color</span><span class="p">:</span> <span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>                               <span class="p">}</span>
 </code></pre></div>
 
 
 <p>Inną cechą, o której warto sobie przypomnieć w kontekście JSX jest operator spread/rozproszenia,
 który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie, tak samo jak i obiektów np.</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">divSize</span> <span class="o">=</span> <span class="err">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">divSize</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">width</span><span class="p">:</span> <span class="s1">&#39;100px&#39;</span><span class="p">,</span>
     <span class="n">marginTop</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span>
-<span class="err">}</span>
+<span class="p">}</span>
 
-<span class="n">const</span>  <span class="n">blue</span> <span class="o">=</span> <span class="err">{</span>                 <span class="o">&lt;&lt;</span><span class="n">zamiast</span><span class="o">&gt;&gt;</span>         <span class="n">const</span> <span class="n">blue</span> <span class="o">=</span> <span class="err">{</span>
+<span class="k">const</span>  <span class="n">blue</span> <span class="o">=</span> <span class="p">{</span>                 <span class="o">&lt;&lt;</span><span class="n">zamiast</span><span class="o">&gt;&gt;</span>         <span class="k">const</span> <span class="n">blue</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">backgroundColor</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>                     <span class="n">backgroundColor</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
-        <span class="p">...</span><span class="n">divSize</span>                                  <span class="n">width</span><span class="p">:</span> <span class="s1">&#39;100px&#39;</span><span class="p">,</span>
-    <span class="err">}</span>                                               <span class="n">marginTop</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span>
-                                                    <span class="err">}</span>
+        <span class="o">...</span><span class="n">divSize</span>                                  <span class="n">width</span><span class="p">:</span> <span class="s1">&#39;100px&#39;</span><span class="p">,</span>
+    <span class="p">}</span>                                               <span class="n">marginTop</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span>
+                                                    <span class="p">}</span>
 </code></pre></div>
 
 

@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Polecenie if...else pozwala na kontrolę przepływu kodu -&gt; gdy pewien warunek jest spełniony (if) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (else if) lub wykonać określony kod (else) if (warunek) { kod do wywołania jeśli warunek spełniony } else if (inny warunek …" />
+<meta name="description" content="Polecenie if...else pozwala na kontrolę przepływu kodu -&gt; gdy pewien warunek jest spełniony (if) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (else if) lub wykonać określony kod (else) if (warunek) { kod do wywołania jeśli warunek spełniony } else if (inny warunek) { kod do wywołania jeśli warunek spełniony …" />
 <meta name="keywords" content="javascript, js, if...else, switch, else...if">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="JavaScript - kontrola przepływu (if...else/switch/operator warunkowy)"/>
-<meta property="og:description" content="Polecenie if...else pozwala na kontrolę przepływu kodu -&gt; gdy pewien warunek jest spełniony (if) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (else if) lub wykonać określony kod (else) if (warunek) { kod do wywołania jeśli warunek spełniony } else if (inny warunek …"/>
+<meta property="og:description" content="Polecenie if...else pozwala na kontrolę przepływu kodu -&gt; gdy pewien warunek jest spełniony (if) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (else if) lub wykonać określony kod (else) if (warunek) { kod do wywołania jeśli warunek spełniony } else if (inny warunek) { kod do wywołania jeśli warunek spełniony …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-kontorla-przeplywu.html"/>
 <meta property="og:type" content="article"/>
@@ -154,35 +154,35 @@
 
   <div>
     <p>Polecenie <code>if...else</code> pozwala na kontrolę przepływu kodu -&gt; gdy pewien warunek jest spełniony (<code>if</code>) kod jest wykonywany a jeśli nie to może sprawdzić kolejny warunek (<code>else if</code>) lub wykonać określony kod (<code>else</code>)</p>
-<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="ss">(</span><span class="nv">warunek</span><span class="ss">)</span> {
-        <span class="nv">kod</span> <span class="k">do</span> <span class="nv">wywo</span>ł<span class="nv">ania</span> <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">warunek</span> <span class="nv">spe</span>ł<span class="nv">niony</span>
-  } <span class="k">else</span> <span class="k">if</span> <span class="ss">(</span><span class="nv">inny</span> <span class="nv">warunek</span><span class="ss">)</span> {
-        <span class="nv">kod</span> <span class="k">do</span> <span class="nv">wywo</span>ł<span class="nv">ania</span> <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">warunek</span> <span class="nv">spe</span>ł<span class="nv">niony</span>
-  } <span class="k">else</span> {
-        <span class="nv">kod</span> <span class="k">do</span> <span class="nv">wywo</span>ł<span class="nv">ania</span> <span class="nv">je</span>ś<span class="nv">li</span> ż<span class="nv">aden</span> <span class="nv">z</span> <span class="nv">powy</span>ż<span class="nv">szych</span> <span class="nv">warunk</span>ó<span class="nv">w</span> <span class="nv">nie</span> <span class="nv">jest</span> <span class="nv">spe</span>ł<span class="nv">niony</span>
-  }
+<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="p">(</span><span class="n">warunek</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">kod</span> <span class="k">do</span> <span class="n">wywołania</span> <span class="n">jeśli</span> <span class="n">warunek</span> <span class="n">spełniony</span>
+  <span class="err">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inny</span> <span class="n">warunek</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">kod</span> <span class="k">do</span> <span class="n">wywołania</span> <span class="n">jeśli</span> <span class="n">warunek</span> <span class="n">spełniony</span>
+  <span class="err">}</span> <span class="k">else</span> <span class="err">{</span>
+        <span class="n">kod</span> <span class="k">do</span> <span class="n">wywołania</span> <span class="n">jeśli</span> <span class="err">ż</span><span class="n">aden</span> <span class="n">z</span> <span class="n">powyższych</span> <span class="n">warunków</span> <span class="n">nie</span> <span class="n">jest</span> <span class="n">spełniony</span>
+  <span class="err">}</span>
 
-  <span class="k">if</span> <span class="ss">(</span><span class="nv">time</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="ss">)</span> {
-  <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Good morning</span><span class="s2">&quot;</span><span class="c1">;</span>
-  } <span class="k">else</span> <span class="k">if</span> <span class="ss">(</span><span class="nv">time</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="ss">)</span> {
-  <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Good day</span><span class="s2">&quot;</span><span class="c1">;</span>
-  } <span class="k">else</span> {
-  <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Good evening</span><span class="s2">&quot;</span><span class="c1">;</span>
-  }
+  <span class="k">if</span> <span class="p">(</span><span class="k">time</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="err">{</span>
+  <span class="n">greeting</span> <span class="o">=</span> <span class="ss">&quot;Good morning&quot;</span><span class="p">;</span>
+  <span class="err">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">time</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span> <span class="err">{</span>
+  <span class="n">greeting</span> <span class="o">=</span> <span class="ss">&quot;Good day&quot;</span><span class="p">;</span>
+  <span class="err">}</span> <span class="k">else</span> <span class="err">{</span>
+  <span class="n">greeting</span> <span class="o">=</span> <span class="ss">&quot;Good evening&quot;</span><span class="p">;</span>
+  <span class="err">}</span>
 </code></pre></div>
 
 
 <p>:::w JS - nie zawsze wymagane jest stosowanie polecania <code>else</code> i samo <code>if</code> jest czasem wystarczające np. jeśli sprawdzamy pewien warunek w pętli, wówczas w domyśle <code>continue</code> :::</p>
-<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="ss">(</span><span class="nv">hour</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="ss">)</span> {
-  <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Good day</span><span class="s2">&quot;</span><span class="c1">;</span>
-  }
+<div class="highlight"><pre><span></span><code>  <span class="k">if</span> <span class="p">(</span><span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Good day&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
 
 
-  <span class="k">if</span> <span class="ss">(</span><span class="nv">typeof</span> <span class="nv">droid</span> <span class="o">!==</span> <span class="s1">&#39;</span><span class="s">undefined</span><span class="s1">&#39;</span><span class="ss">)</span> {
-        <span class="nv">console</span> <span class="nv">log</span><span class="ss">(</span>`<span class="nv">this</span> <span class="nv">is</span> ${<span class="nv">droid</span>}`<span class="ss">)</span>
-  } <span class="k">else</span> {
-        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">droid variable was not defined</span><span class="s1">&#39;</span><span class="ss">)</span>
-  }
+  <span class="k">if</span> <span class="p">(</span><span class="nb">typeof</span> <span class="n">droid</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">console</span> <span class="nb">log</span><span class="p">(</span><span class="err">`</span><span class="n">this</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">droid</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;droid variable was not defined&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
 </code></pre></div>
 
 
@@ -190,50 +190,50 @@
 <h3>Operator warunkowy/ Ternary operator</h3>
 <p>W przypadku prostej kontroli przepływu opierającej się na sprawdzaniu dwóch warunków można oprzeć się na operatorze warunkowym</p>
 <p>Gdzie po spisaniu warunku stawia się znak zapytania a następnie rozdziela się wyrażenie1 od wyrażenie2 dwukropkiem</p>
-<div class="highlight"><pre><span></span><code>  <span class="nv">warunek</span> ? <span class="nv">wyra</span>ż<span class="nv">enie1</span> : <span class="nv">wyra</span>ż<span class="nv">enie2</span>
+<div class="highlight"><pre><span></span><code>  <span class="n">warunek</span> <span class="o">?</span> <span class="n">wyrażenie1</span> <span class="p">:</span> <span class="n">wyrażenie2</span>
 
-  <span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">1</span>:
+  <span class="n">Przykład</span> <span class="mi">1</span><span class="p">:</span>
 
-  <span class="nv">let</span> <span class="nv">time</span> <span class="o">=</span> <span class="mi">11</span>
-  <span class="nv">time</span> <span class="o">&lt;</span> <span class="mi">10</span> ? <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Good morning</span><span class="s2">&quot;</span> : <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Good day</span><span class="s2">&quot;</span>
-  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">greeting</span><span class="ss">)</span>
-  <span class="o">&gt;&gt;</span> <span class="nv">Good</span> <span class="nv">day</span>
+  <span class="n">let</span> <span class="k">time</span> <span class="o">=</span> <span class="mi">11</span>
+  <span class="k">time</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="n">greeting</span> <span class="o">=</span> <span class="ss">&quot;Good morning&quot;</span> <span class="p">:</span> <span class="n">greeting</span> <span class="o">=</span> <span class="ss">&quot;Good day&quot;</span>
+  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+  <span class="o">&gt;&gt;</span> <span class="n">Good</span> <span class="k">day</span>
 
 
-  <span class="nv">Przyk</span>ł<span class="nv">ad</span> <span class="mi">2</span>:
+  <span class="n">Przykład</span> <span class="mi">2</span><span class="p">:</span>
 
-  <span class="o">//</span> <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">w</span> <span class="nv">tablicy</span> <span class="nv">nic</span> <span class="nv">nie</span> <span class="nv">ma</span> <span class="nv">zwr</span>óć <span class="nv">null</span> <span class="nv">w</span> <span class="nv">przeciwnym</span> <span class="nv">wypadku</span> <span class="nv">wykonaj</span> <span class="nv">na</span> <span class="nv">tablicy</span> <span class="nv">metod</span>ę <span class="nv">reduce</span>...
+  <span class="o">//</span> <span class="n">jeśli</span> <span class="n">w</span> <span class="n">tablicy</span> <span class="n">nic</span> <span class="n">nie</span> <span class="n">ma</span> <span class="n">zwróć</span> <span class="k">null</span> <span class="n">w</span> <span class="n">przeciwnym</span> <span class="n">wypadku</span> <span class="n">wykonaj</span> <span class="n">na</span> <span class="n">tablicy</span> <span class="n">metodę</span> <span class="n">reduce</span><span class="p">...</span>
 
-  <span class="k">return</span> <span class="nv">newArr</span>.<span class="nv">length</span> <span class="o">===</span> <span class="mi">0</span>
-  ? <span class="nv">null</span>
-  : <span class="nv">newArr</span>.<span class="nv">reduce</span><span class="ss">((</span><span class="nv">acc</span>, <span class="nv">elem</span><span class="ss">)</span> <span class="o">=&gt;</span> <span class="nv">acc</span> <span class="o">+</span> <span class="nv">elem</span>, <span class="mi">0</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="n">newArr</span><span class="p">.</span><span class="k">length</span> <span class="o">===</span> <span class="mi">0</span>
+  <span class="o">?</span> <span class="k">null</span>
+  <span class="p">:</span> <span class="n">newArr</span><span class="p">.</span><span class="n">reduce</span><span class="p">((</span><span class="n">acc</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">elem</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Switch</h3>
 <p>Polecenie if jest używane wówczas gdy należy wywołać określony kod przy zaistnieniu odpowiednich warunków</p>
-<div class="highlight"><pre><span></span><code>  <span class="nv">switch</span><span class="ss">(</span><span class="nv">wyra</span>ż<span class="nv">enie_zwracaj</span>ą<span class="nv">ce_warunek</span><span class="ss">)</span> {
-        <span class="nv">case</span> <span class="nv">warunek1</span>:
-              <span class="nv">kod1</span><span class="c1">;</span>
-              <span class="k">break</span><span class="c1">;</span>
-        <span class="nv">case</span> <span class="nv">warunek2</span>:
-              <span class="nv">kod2</span><span class="c1">;</span>
-              <span class="k">break</span><span class="c1">;</span>
-        <span class="nv">default</span>:
-              <span class="nv">je</span>ś<span class="nv">li</span> <span class="nv">powy</span>ż<span class="nv">sze</span> <span class="nv">nie</span> <span class="nv">s</span>ą <span class="nv">spe</span>ł<span class="nv">nione</span>
-  }
+<div class="highlight"><pre><span></span><code>  <span class="n">switch</span><span class="p">(</span><span class="n">wyrażenie_zwracające_warunek</span><span class="p">)</span> <span class="err">{</span>
+        <span class="k">case</span> <span class="n">warunek1</span><span class="p">:</span>
+              <span class="n">kod1</span><span class="p">;</span>
+              <span class="n">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">warunek2</span><span class="p">:</span>
+              <span class="n">kod2</span><span class="p">;</span>
+              <span class="n">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="p">:</span>
+              <span class="n">jeśli</span> <span class="n">powyższe</span> <span class="n">nie</span> <span class="n">są</span> <span class="n">spełnione</span>
+  <span class="err">}</span>
 
-        <span class="nv">switch</span> <span class="ss">(</span><span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getDay</span><span class="ss">())</span> {
-        <span class="nv">default</span>:
-              <span class="nv">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Looking forward to the Weekend</span><span class="s2">&quot;</span><span class="c1">;</span>
-              <span class="k">break</span><span class="c1">;</span>
-        <span class="nv">case</span> <span class="mi">6</span>:
-              <span class="nv">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Today is Saturday</span><span class="s2">&quot;</span><span class="c1">;</span>
-              <span class="k">break</span><span class="c1">;</span>
-        <span class="nv">case</span> <span class="mi">0</span>:
-              <span class="nv">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Today is Sunday</span><span class="s2">&quot;</span><span class="c1">;</span>
-        }
+        <span class="n">switch</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="n">getDay</span><span class="p">())</span> <span class="err">{</span>
+        <span class="k">default</span><span class="p">:</span>
+              <span class="nb">text</span> <span class="o">=</span> <span class="ss">&quot;Looking forward to the Weekend&quot;</span><span class="p">;</span>
+              <span class="n">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+              <span class="nb">text</span> <span class="o">=</span> <span class="ss">&quot;Today is Saturday&quot;</span><span class="p">;</span>
+              <span class="n">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="nb">text</span> <span class="o">=</span> <span class="ss">&quot;Today is Sunday&quot;</span><span class="p">;</span>
+        <span class="err">}</span>
 </code></pre></div>
 
 

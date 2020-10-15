@@ -153,8 +153,8 @@
 
   <div>
     <p>Tablica (array) jest uporządkowaną listą zawierająca elementy, gdzie każdy z elementów ma dowolną wartość (są heterogeniczne). Tablica jest definiowana poprzez umieszczenie wartości pomiędzy kwadratowymi nawiasami (literałami tablicy), które nazywają się jej elementami.</p>
-<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">Arr</span> <span class="o">=</span> <span class="p">[];</span> <span class="o">//</span> <span class="n">pusta</span> <span class="n">tablica</span>
-<span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="ss">&quot;Mikolaj&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="ss">&quot;kwiecień&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="err">let Arr = []; // pusta tablica</span>
+<span class="err">let arr = [&quot;Mikolaj&quot;, 2020, &quot;kwiecień&quot;, 17.04];</span>
 </code></pre></div>
 
 
@@ -162,42 +162,42 @@
 <p>W przypadku użycia słowa kluczowego <strong><code>let</code></strong> istnieje możliwość nadpisania tablicy</p>
 <p>Każdemu elementowi przyporządkowana jest liczba indeksowa, pozwalająca na odwołanie się do niego.
 Tablica może zawierać również obiekty jak i tablice.</p>
-<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="o">&gt;</span> <span class="n">Mikolaj</span>
+<div class="highlight"><pre><span></span><code><span class="err">arr[0]</span>
+<span class="err">&gt; Mikolaj</span>
 </code></pre></div>
 
 
 <p>Właściwość <code>length</code> zwraca "długość" tablicy</p>
-<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">.</span><span class="k">length</span>
-<span class="o">&gt;</span> <span class="mi">4</span>
+<div class="highlight"><pre><span></span><code><span class="err">arr.length</span>
+<span class="err">&gt; 4</span>
 </code></pre></div>
 
 
 <p>Aby odwołać się do ostatniego elementu należy zastosować <code>length - 1</code></p>
-<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">.</span><span class="k">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<span class="o">&gt;</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span>
+<div class="highlight"><pre><span></span><code><span class="err">arr[arr.length - 1]</span>
+<span class="err">&gt; 17.04</span>
 </code></pre></div>
 
 
 <h3>Zmiana elementów</h3>
 <p>Przy wykorzystaniu operator składającego się z kwadratowych nawiasów <code>[]</code> oraz wpisanego w nie indeksu można zmieniać wybrany element tablicy</p>
-<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="ss">&quot;maj&quot;</span>
-<span class="p">[</span><span class="ss">&quot;Mikolaj&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="ss">&quot;maj&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="err">arr[2] = &quot;maj&quot;</span>
+<span class="err">[&quot;Mikolaj&quot;, 2020, &quot;maj&quot;, 17.04]</span>
 </code></pre></div>
 
 
 <h3>"Długość" tablicy</h3>
 <p>Wykorzystując właściwość <code>length</code> można również dodać element do końca tablicy</p>
-<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">.</span><span class="k">length</span><span class="p">]</span>  <span class="o">=</span> <span class="ss">&quot;ostatnia&quot;</span>
-<span class="o">&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="ss">&quot;Mikolaj&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="ss">&quot;kwiecień&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span><span class="p">.</span> <span class="ss">&quot;ostatnia&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="err">arr[arr.length]  = &quot;ostatnia&quot;</span>
+<span class="err">&gt; arr = [&quot;Mikolaj&quot;, 2020, &quot;kwiecień&quot;, 17.04. &quot;ostatnia&quot;]</span>
 </code></pre></div>
 
 
 <h3>Undefined</h3>
 <p>Jeśli dana tablica nie zawiera elementu pod indeksem do którego się odwołujemy wówczas zwraca <code>undefined</code></p>
-<div class="highlight"><pre><span></span><code>    <span class="n">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="ss">&quot;Mikolaj&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="ss">&quot;kwiecień&quot;</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">04</span><span class="p">];</span>
-    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-    <span class="o">&gt;</span> <span class="n">undefined</span>
+<div class="highlight"><pre><span></span><code><span class="err">    let arr = [&quot;Mikolaj&quot;, 2020, &quot;kwiecień&quot;, 17.04];</span>
+<span class="err">    console.log(arr[4])</span>
+<span class="err">    &gt; undefined</span>
 </code></pre></div>
 
 

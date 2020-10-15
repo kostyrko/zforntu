@@ -210,8 +210,8 @@
 <h3>Automatyczny Inicjalizator stanu</h3>
 <p>W prostszy sposób (skrócony) można zainicjalizować state przy pomocy wtyczki <em>@babel/plugin-proposal-class-properties</em> (więcej na ten temat znajdziesz tutaj: <a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html#plugin-proposal-class-properties">konfiguracja wtyczki Babel: plugin-proposal-class-properties</a>)</p>
 <p>Wówczas nie musimy odwoływać się do funkcji konstruktora a wystarczy jedynie zadeklarować obiekt przechowujący stan używając słowa kluczowego <strong>state</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">state</span> <span class="o">=</span> <span class="err">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="err">state = {</span>
+<span class="err">  name: &#39;&#39;</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -252,17 +252,17 @@
 <h3>Modyfikacja stanu .setState()</h3>
 <p>Do modyfikacji stanu odbywa się poprzez odwołanie się do metody <strong>.setState()</strong> zwracającej obiekt - przyjmuje obiekt jak i funkcję modyfikującą poprzedni stan, zwracającą obiekt</p>
 <p>Schemat 1 - nadpisanie stanu nową wartością</p>
-<div class="highlight"><pre><span></span><code><span class="n">this</span><span class="p">.</span><span class="n">setState</span><span class="p">(</span><span class="err">{</span>
-  <span class="k">key</span><span class="p">:</span> <span class="n">value</span>
-<span class="err">}</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">this.setState({</span>
+<span class="err">  key: value</span>
+<span class="err">});</span>
 </code></pre></div>
 
 
 <p>Schemat 2 - modyfikacja poprzedniego stanu</p>
-<div class="highlight"><pre><span></span><code><span class="nv">this</span>.<span class="nv">setState</span><span class="ss">(</span><span class="nv">prevState</span><span class="o">=&gt;</span> {
-  <span class="k">return</span> {
-    <span class="nv">key</span>: <span class="nv">prevState</span>.<span class="nv">value</span> <span class="o">+</span> <span class="mi">1</span><span class="c1">;</span>
-}}<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="err">this.setState(prevState=&gt; {</span>
+<span class="err">  return {</span>
+<span class="err">    key: prevState.value + 1;</span>
+<span class="err">}});</span>
 </code></pre></div>
 
 
@@ -344,25 +344,25 @@
 
 
 <p>Alternatywny zapis modyfikacji stanu w powyższym przykładzie mógłby przedstawiać się w następujący (skrócony sposób)</p>
-<div class="highlight"><pre><span></span><code><span class="n">this</span><span class="p">.</span><span class="n">setState</span><span class="p">((</span><span class="n">prevState</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="err">{</span>
-  <span class="n">users</span><span class="p">:</span> <span class="p">[...</span><span class="n">prevState</span><span class="p">.</span><span class="n">users</span><span class="p">,</span> <span class="ss">&quot;Marek&quot;</span><span class="p">]</span>
-<span class="err">}</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="err">this.setState((prevState) =&gt; ({</span>
+<span class="err">  users: [...prevState.users, &quot;Marek&quot;]</span>
+<span class="err">}));</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Inicjowanie stanu poprzez props</h3>
 <p><strong>Props</strong> nie ulega modyfikacji w ramach komponentu stąd aby dane przekazane przez props mogły by zostać zmodyfikowane muszą znaleźć się stanie - aby tego dokonać należy odnieść się do props w ramach deklaracji state</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">Counter</span> <span class="nv">extends</span> <span class="nv">Component</span> {
-  <span class="nv">state</span> <span class="o">=</span> {
-    <span class="nv">counter</span>: <span class="nv">this</span>.<span class="nv">props</span>.<span class="nv">counter</span>,
-  }<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>class Counter extends Component {
+  state = {
+    counter: this.props.counter,
+  };
   }
-  <span class="nv">render</span><span class="ss">()</span>{
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Twoje</span> <span class="nv">klikni</span>ę<span class="nv">cia</span>: {<span class="nv">this</span>.<span class="nv">state</span>.<span class="nv">counter</span>}<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+  render(){
+    return <span class="nt">&lt;h1&gt;</span>Twoje kliknięcia: {this.state.counter}<span class="nt">&lt;/h1&gt;</span>
   }
 }
-<span class="o">&lt;</span><span class="nv">Counter</span> <span class="nv">counter</span><span class="o">=</span>{<span class="mi">3</span>} <span class="o">/&gt;</span>
+<span class="nt">&lt;Counter</span> <span class="na">counter=</span><span class="s">{3}</span> <span class="nt">/&gt;</span>
 </code></pre></div>
 
 
@@ -370,34 +370,34 @@
 <h3>Renderowanie</h3>
 <p>-
 State powinien się aktualizować, react jednak sam renderuje komponenty/sam decyduje kiedy jest to najoptymalniejsze</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">ColorBox</span> <span class="nv">extends</span> <span class="nv">Component</span> {
-  <span class="nv">state</span> <span class="o">=</span> {
-    <span class="nv">color</span>: <span class="s1">&#39;</span><span class="s">#000</span><span class="s1">&#39;</span>
-  }
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">ColorBox</span> <span class="k">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="s1">&#39;#000&#39;</span>
+  <span class="p">}</span>
 
-  <span class="nv">newColor</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> {
-    <span class="nv">const</span> <span class="nv">randomColor</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">#</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">Math</span>.<span class="nv">floor</span><span class="ss">(</span><span class="nv">Math</span>.<span class="k">random</span><span class="ss">()</span><span class="o">*</span><span class="mi">16777215</span><span class="ss">)</span>.<span class="nv">toString</span><span class="ss">(</span><span class="mi">16</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">this</span>.<span class="nv">setState</span><span class="ss">(()</span><span class="o">=&gt;</span> <span class="ss">(</span>
-      <span class="o">//</span> <span class="nv">setState</span> <span class="nv">musi</span> <span class="nv">zwr</span>ó<span class="nv">ci</span>ć <span class="nv">obiekt</span>
-      {<span class="nv">color</span>: <span class="nv">randomColor</span>}
-    <span class="ss">))</span>
-  }
+  <span class="n">newColor</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">randomColor</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mi">16777215</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">(()</span><span class="o">=&gt;</span> <span class="p">(</span>
+      <span class="o">//</span> <span class="n">setState</span> <span class="n">musi</span> <span class="n">zwrócić</span> <span class="n">obiekt</span>
+      <span class="p">{</span><span class="n">color</span><span class="p">:</span> <span class="n">randomColor</span><span class="p">}</span>
+    <span class="p">))</span>
+  <span class="p">}</span>
 
-  <span class="nv">render</span><span class="ss">()</span>{
-    <span class="o">//</span><span class="nv">redneruje</span> <span class="nv">styl</span> <span class="nv">za</span> <span class="nv">ka</span>ż<span class="nv">dym</span> <span class="nv">razem</span> <span class="nv">st</span>ą<span class="nv">d</span> <span class="nv">musi</span> <span class="nv">by</span>ć <span class="nv">definiowany</span> <span class="nv">w</span> <span class="nv">tym</span> <span class="nv">miejscu</span>
-    <span class="nv">const</span> <span class="nv">style</span> <span class="o">=</span> {
-      <span class="nv">backgroundColor</span>: <span class="nv">this</span>.<span class="nv">state</span>.<span class="nv">color</span>,
-      <span class="nv">width</span>: <span class="s1">&#39;</span><span class="s">200px</span><span class="s1">&#39;</span>,
-      <span class="nv">height</span>: <span class="s1">&#39;</span><span class="s">200px</span><span class="s1">&#39;</span>
-    }
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">style</span><span class="o">=</span>{<span class="nv">style</span>} <span class="nv">onMouseEnter</span><span class="o">=</span>{<span class="nv">this</span>.<span class="nv">newColor</span>}<span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
-  }
-}
+  <span class="n">render</span><span class="p">(){</span>
+    <span class="o">//</span><span class="n">redneruje</span> <span class="n">styl</span> <span class="n">za</span> <span class="n">każdym</span> <span class="n">razem</span> <span class="n">stąd</span> <span class="n">musi</span> <span class="n">być</span> <span class="n">definiowany</span> <span class="n">w</span> <span class="n">tym</span> <span class="n">miejscu</span>
+    <span class="k">const</span> <span class="n">style</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">backgroundColor</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">color</span><span class="p">,</span>
+      <span class="n">width</span><span class="p">:</span> <span class="s1">&#39;200px&#39;</span><span class="p">,</span>
+      <span class="n">height</span><span class="p">:</span> <span class="s1">&#39;200px&#39;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="n">style</span><span class="p">}</span> <span class="n">onMouseEnter</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">newColor</span><span class="p">}</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">ColorBox</span><span class="o">/&gt;</span>,
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">app</span><span class="s2">&quot;</span><span class="ss">)</span>
-<span class="ss">)</span>
+<span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="n">ColorBox</span><span class="o">/&gt;</span><span class="p">,</span>
+  <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
+<span class="p">)</span>
 </code></pre></div>
 
 

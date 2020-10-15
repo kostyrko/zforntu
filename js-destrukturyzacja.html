@@ -168,71 +168,71 @@
 
 
 <p>Istnieje również możliwość omijania pewnych elementów w trakcie destrukturacji poprzez pozostawienie wolnej spacji pomiędzy przecinkami</p>
-<div class="highlight"><pre><span></span><code><span class="o">```</span><span class="n">JavaScript</span>
-  <span class="n">let</span> <span class="n">droids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r2d2&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">,</span> <span class="s1">&#39;bb8&#39;</span><span class="p">]</span>
-  <span class="n">let</span> <span class="p">[</span><span class="n">droid1</span><span class="p">,</span> <span class="p">,</span> <span class="n">droid3</span><span class="p">]</span> <span class="o">=</span> <span class="n">droids</span>
-  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid3</span><span class="p">)</span>
-  <span class="o">&gt;&gt;</span> <span class="n">bb8</span><span class="o">````</span>
+<div class="highlight"><pre><span></span><code><span class="err">```JavaScript</span>
+<span class="err">  let droids = [&#39;r2d2&#39;, &#39;c3po&#39;, &#39;bb8&#39;]</span>
+<span class="err">  let [droid1, , droid3] = droids</span>
+<span class="err">  console.log(droid3)</span>
+<span class="err">  &gt;&gt; bb8````</span>
 </code></pre></div>
 
 
 <p>Przy pomocy operatora spread można również wydzielić jeden element zwracając z reszty tablicę</p>
-<div class="highlight"><pre><span></span><code><span class="o">```</span><span class="n">JavaScript</span>
-  <span class="n">let</span> <span class="n">droids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r2d2&#39;</span><span class="p">,</span> <span class="s1">&#39;c3po&#39;</span><span class="p">,</span> <span class="s1">&#39;bb8&#39;</span><span class="p">]</span>
-  <span class="n">let</span> <span class="p">[</span><span class="n">droid1</span><span class="p">,</span> <span class="p">...</span><span class="n">droid2</span><span class="p">]</span> <span class="o">=</span> <span class="n">droids</span>
-  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid2</span><span class="p">)</span>
-  <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;c3po&#39;</span><span class="p">,</span> <span class="s1">&#39;bb8&#39;</span><span class="p">]</span><span class="o">```</span>
-  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid1</span><span class="p">)</span>
-  <span class="o">&gt;&gt;</span> <span class="n">r2d2</span><span class="o">````</span>
+<div class="highlight"><pre><span></span><code><span class="err">```JavaScript</span>
+<span class="err">  let droids = [&#39;r2d2&#39;, &#39;c3po&#39;, &#39;bb8&#39;]</span>
+<span class="err">  let [droid1, ...droid2] = droids</span>
+<span class="err">  console.log(droid2)</span>
+<span class="err">  &gt;&gt; [&#39;c3po&#39;, &#39;bb8&#39;]```</span>
+<span class="err">  console.log(droid1)</span>
+<span class="err">  &gt;&gt; r2d2````</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Destrukturyzacja obiektów</h3>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">protocolDroid</span> <span class="o">=</span> <span class="err">{</span>
-    <span class="n">name</span><span class="p">:</span><span class="ss">&quot;ME-8D9&quot;</span><span class="p">,</span>
-    <span class="n">occupation</span><span class="p">:</span><span class="ss">&quot;Protocol droid&quot;</span><span class="p">,</span>
-    <span class="n">height</span><span class="p">:</span><span class="ss">&quot;1.72&quot;</span><span class="p">,</span>
-    <span class="n">homeWorld</span><span class="p">:</span><span class="ss">&quot;Takodana&quot;</span>
-    <span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">protocolDroid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span><span class="s2">&quot;ME-8D9&quot;</span><span class="p">,</span>
+    <span class="n">occupation</span><span class="p">:</span><span class="s2">&quot;Protocol droid&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span><span class="s2">&quot;1.72&quot;</span><span class="p">,</span>
+    <span class="n">homeWorld</span><span class="p">:</span><span class="s2">&quot;Takodana&quot;</span>
+    <span class="p">}</span>
 
-<span class="n">let</span> <span class="err">{</span><span class="n">name</span><span class="p">,</span> <span class="n">homeWorld</span><span class="err">}</span> <span class="o">=</span>  <span class="n">protocolDroid</span>
+<span class="n">let</span> <span class="p">{</span><span class="n">name</span><span class="p">,</span> <span class="n">homeWorld</span><span class="p">}</span> <span class="o">=</span>  <span class="n">protocolDroid</span>
 
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="n">ME</span><span class="o">-</span><span class="mi">8</span><span class="n">D9</span>
-<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">homeWorld</span><span class="p">)</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">homeWorld</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="n">Takodana</span>
 </code></pre></div>
 
 
 <p>Pozwala to na wykorzystanie w funkcji tylko tych elementów obiektu, które są nam potrzebne</p>
-<div class="highlight"><pre><span></span><code><span class="nt">const</span> <span class="nt">createDroid</span> <span class="o">=</span> <span class="o">(</span><span class="p">{</span> <span class="err">name,</span> <span class="err">homeWorld</span> <span class="p">}</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="err">console.log(name,</span> <span class="err">homeWorld)</span><span class="p">;</span>
-<span class="p">}</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">createDroid</span> <span class="o">=</span> <span class="p">({</span> <span class="n">name</span><span class="p">,</span> <span class="n">homeWorld</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">homeWorld</span><span class="p">);</span>
+<span class="p">};</span>
 
-<span class="nt">createDroid</span><span class="o">(</span><span class="nt">protocolDroid</span><span class="o">);</span>
+<span class="n">createDroid</span><span class="p">(</span><span class="n">protocolDroid</span><span class="p">);</span>
 
-<span class="nt">const</span> <span class="nt">protocolDroid</span> <span class="o">=</span> <span class="p">{</span>
+<span class="k">const</span> <span class="n">protocolDroid</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">name</span><span class="p">:</span><span class="s2">&quot;ME-8D9&quot;</span><span class="p">,</span>
-    <span class="n">occupation</span><span class="o">:</span><span class="s2">&quot;Protocol droid&quot;</span><span class="p">,</span>
-    <span class="k">height</span><span class="o">:</span><span class="s2">&quot;1.72&quot;</span><span class="p">,</span>
-    <span class="n">homeWorld</span><span class="o">:</span><span class="s2">&quot;Takodana&quot;</span>
-    <span class="n">address</span><span class="o">:</span> <span class="err">{</span>
-      <span class="n">city</span><span class="o">:</span> <span class="s2">&quot;Takodana&quot;</span>
+    <span class="n">occupation</span><span class="p">:</span><span class="s2">&quot;Protocol droid&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span><span class="s2">&quot;1.72&quot;</span><span class="p">,</span>
+    <span class="n">homeWorld</span><span class="p">:</span><span class="s2">&quot;Takodana&quot;</span>
+    <span class="n">address</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">city</span><span class="p">:</span> <span class="s2">&quot;Takodana&quot;</span>
       <span class="p">}</span>
-    <span class="err">}</span>
+    <span class="p">}</span>
 
-<span class="nt">const</span> <span class="p">{</span><span class="err">name,</span> <span class="n">address</span><span class="p">:</span> <span class="err">{</span><span class="n">city</span><span class="p">}</span><span class="err">}</span> <span class="o">=</span> <span class="nt">protocolDroid</span><span class="o">;</span>
+<span class="k">const</span> <span class="p">{</span><span class="n">name</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="p">{</span><span class="n">city</span><span class="p">}}</span> <span class="o">=</span> <span class="n">protocolDroid</span><span class="p">;</span>
 
-<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">city</span><span class="o">)</span>
-<span class="o">&gt;&gt;</span> <span class="nt">Takodana</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">Takodana</span>
 </code></pre></div>
 
 
 <p>Istnieje również możliwość nadpisania przypisania wartości do zmiennej/nadawanie zmiennej nowej wartości</p>
-<div class="highlight"><pre><span></span><code><span class="nt">const</span> <span class="nt">droid</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;ME-8D9&quot;</span> <span class="p">}</span><span class="o">;</span>
-<span class="nt">const</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">protocolDroid</span> <span class="p">}</span> <span class="o">=</span> <span class="nt">droid</span><span class="o">;</span>
-<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">protocolDroid</span><span class="o">);</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="nt">ME-8D9</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droid</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;ME-8D9&quot;</span> <span class="p">};</span>
+<span class="k">const</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">protocolDroid</span> <span class="p">}</span> <span class="o">=</span> <span class="n">droid</span><span class="p">;</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">protocolDroid</span><span class="p">);</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">ME</span><span class="o">-</span><span class="mi">8</span><span class="n">D9</span>
 </code></pre></div>
   </div>
   <div class="tag-cloud">

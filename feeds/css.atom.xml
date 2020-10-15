@@ -231,60 +231,60 @@
 &lt;hr&gt;
 &lt;h4&gt;Warunek 3 -&amp;gt; klasy kolumn&lt;/h4&gt;
 &lt;p&gt;Należy stworzyć klasy, które wskazując na szerokość kolumn i je odpowiednio używać np. jeśli całość ma być szeroka na 12 kolumn to jedna kolumna wynosi 100%/12, zatem obiekt zajmująca połowę rodzica w poziomie  składać się będzie z 6 kolumn i winien być oznaczony &lt;code&gt;col-6&lt;/code&gt; poniższy mixin to dobrze obrazuje&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@&lt;span class="nv"&gt;mixin&lt;/span&gt; &lt;span class="nv"&gt;grid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-  &lt;span class="nv"&gt;display&lt;/span&gt;: &lt;span class="nv"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o flex-box */&lt;/span&gt;
-  [&lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;col-&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] {
-    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;float&lt;/span&gt;: &lt;span class="nv"&gt;left&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o float */&lt;/span&gt;
-    &lt;span class="nv"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;height&lt;/span&gt;: &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-  @&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt; {
-    .&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;#{$&lt;span class="nv"&gt;i&lt;/span&gt;} {
-      &lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-    }
-  }
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;@mixin grid($cols) {&lt;/span&gt;
+&lt;span class="err"&gt;  display: flex; /* rozwiązanie oparte o flex-box */&lt;/span&gt;
+&lt;span class="err"&gt;  [class*=&amp;quot;col-&amp;quot;] {&lt;/span&gt;
+&lt;span class="err"&gt;    // float: left; /* rozwiązanie oparte o float */&lt;/span&gt;
+&lt;span class="err"&gt;    min-height: 1px;&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
+&lt;span class="err"&gt;  @for $i from 1 through $cols {&lt;/span&gt;
+&lt;span class="err"&gt;    .col-#{$i} {&lt;/span&gt;
+&lt;span class="err"&gt;      width: (100% / $cols) * $i;&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Wynik (przykładowy fragment kodu wynikowego css):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;container&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;row&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;col-6&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cm"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
+&lt;span class="na"&gt;.container&lt;/span&gt; &lt;span class="no"&gt;.row&lt;/span&gt; &lt;span class="no"&gt;.col-6&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="c"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;container&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;row&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;col-7&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;58.33333&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
+&lt;span class="na"&gt;.container&lt;/span&gt; &lt;span class="no"&gt;.row&lt;/span&gt; &lt;span class="no"&gt;.col-7&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;58&lt;/span&gt;&lt;span class="nf"&gt;.33333&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="c"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;container&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;row&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;col-8&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;66.66667&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* line 33, scss/main.scss */&lt;/span&gt;
+&lt;span class="na"&gt;.container&lt;/span&gt; &lt;span class="no"&gt;.row&lt;/span&gt; &lt;span class="no"&gt;.col-8&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;66&lt;/span&gt;&lt;span class="nf"&gt;.66667&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;h4&gt;Warunek 4 -&amp;gt; wiersz&lt;/h4&gt;
 &lt;p&gt;Należy odpowiednio przygotować stylizację &lt;code&gt;wiersza&lt;/code&gt;/row&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="nv"&gt;gutter&lt;/span&gt;: &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;; /* przestrzeń pomiędzy kolumnami */&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nl"&gt;$gutter:&lt;/span&gt; &lt;span class="err"&gt;10&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;; /* przestrzeń pomiędzy kolumnami */&lt;/span&gt;
 
-.&lt;span class="nv"&gt;container&lt;/span&gt; {
-  &lt;span class="nv"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="nv"&gt;margin&lt;/span&gt;: &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;auto&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  .&lt;span class="nv"&gt;row&lt;/span&gt; {
-    &lt;span class="o"&gt;//&lt;/span&gt; @&lt;span class="nv"&gt;extend&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nv"&gt;clearfix&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o float */&lt;/span&gt;
-    &lt;span class="nv"&gt;height&lt;/span&gt;: &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="nv"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;; /* tu można podstawić dowolną wartość */&lt;/span&gt;
-    [&lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="o"&gt;*=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;col-&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] {
-      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;float&lt;/span&gt;: &lt;span class="nv"&gt;left&lt;/span&gt;&lt;span class="c1"&gt;; /* rozwiązanie oparte o float */&lt;/span&gt;
-      &lt;span class="nv"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-      &lt;span class="nv"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;left&lt;/span&gt;: $&lt;span class="nv"&gt;gutter&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-      &lt;span class="nv"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;right&lt;/span&gt;: $&lt;span class="nv"&gt;gutter&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-    }
-    @&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;grid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  }
-}
+&lt;span class="na"&gt;.container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;max-width:&lt;/span&gt; &lt;span class="err"&gt;1000&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;100%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="err"&gt;0&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="na"&gt;.row&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// @extend %clearfix; /* rozwiązanie oparte o float */&lt;/span&gt;
+    &lt;span class="nl"&gt;height:&lt;/span&gt; &lt;span class="err"&gt;60&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;; /* tu można podstawić dowolną wartość */&lt;/span&gt;
+    &lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nf"&gt;class&lt;/span&gt;&lt;span class="p"&gt;*&lt;/span&gt;&lt;span class="err"&gt;=&amp;quot;&lt;/span&gt;&lt;span class="no"&gt;col-&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+      &lt;span class="c1"&gt;// float: left; /* rozwiązanie oparte o float */&lt;/span&gt;
+      &lt;span class="nl"&gt;min-width:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="nl"&gt;padding-left:&lt;/span&gt; &lt;span class="nf"&gt;$gutter&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="nl"&gt;padding-right:&lt;/span&gt; &lt;span class="nf"&gt;$gutter&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;include&lt;/span&gt; &lt;span class="no"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -338,23 +338,23 @@
 &lt;p&gt;&lt;code&gt;col-sm-*&lt;/code&gt; // small - tablet ≥ 768px&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;col-xs-*&lt;/code&gt; w przypadku bootstrapu jest to odpowiednik &lt;code&gt;col-*&lt;/code&gt;// extra small - telefon &amp;lt; 768 px&lt;/p&gt;
 &lt;h4&gt;@mixin z media query&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@&lt;span class="nv"&gt;mixin&lt;/span&gt; &lt;span class="nv"&gt;grid&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-  @&lt;span class="nv"&gt;media&lt;/span&gt; &lt;span class="nv"&gt;screen&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;768&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    &lt;span class="nv"&gt;display&lt;/span&gt;: &lt;span class="nv"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-    @&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt; {
-      .&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;sm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;#{$&lt;span class="nv"&gt;i&lt;/span&gt;} {
-        &lt;span class="nv"&gt;flex&lt;/span&gt;: &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-      }
-    }
-  }
-  @&lt;span class="nv"&gt;media&lt;/span&gt; &lt;span class="nv"&gt;screen&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;: &lt;span class="mi"&gt;767&lt;/span&gt;&lt;span class="nv"&gt;px&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
-    @&lt;span class="k"&gt;for&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt; {
-      .&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;md&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;#{$&lt;span class="nv"&gt;i&lt;/span&gt;} {
-        &lt;span class="nv"&gt;flex&lt;/span&gt;: &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mh"&gt;$c&lt;/span&gt;&lt;span class="nv"&gt;ols&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; $&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-      }
-    }
-  }
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;@mixin grid($cols) {&lt;/span&gt;
+&lt;span class="err"&gt;  @media screen and (max-width: 768px) {&lt;/span&gt;
+&lt;span class="err"&gt;    display: flex;&lt;/span&gt;
+&lt;span class="err"&gt;    @for $i from 1 through $cols {&lt;/span&gt;
+&lt;span class="err"&gt;      .col-sm-#{$i} {&lt;/span&gt;
+&lt;span class="err"&gt;        flex: 0 0 (100% / $cols) * $i;&lt;/span&gt;
+&lt;span class="err"&gt;      }&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
+&lt;span class="err"&gt;  @media screen and (min-width: 767px) {&lt;/span&gt;
+&lt;span class="err"&gt;    @for $i from 1 through $cols {&lt;/span&gt;
+&lt;span class="err"&gt;      .col-md-#{$i} {&lt;/span&gt;
+&lt;span class="err"&gt;        flex: 0 0 (100% / $cols) * $i;&lt;/span&gt;
+&lt;span class="err"&gt;      }&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -381,24 +381,30 @@
 &lt;p&gt;=========&lt;/p&gt;
 &lt;h4&gt;grid-template-areas&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;grid-template-areas&lt;/code&gt; - pozwala na wyznaczenie obszarów i rozmieszczenie elementów według określonego wzoru&lt;/p&gt;
-&lt;p&gt;.grid-container {
-    display: grid;
-    grid-template-columns: 300px 1fr; // dwie kolumny
-    grid-template-rows: 100px 1fr 200px;
-    grid-template-areas: // wskazanie układu
-    "header header" // dwie kolumny 1 rząd
-    "sidebar main" // 2 rząd - część na sidebar (300px) a część na main (1fr/auto)
-  }&lt;/p&gt;
-&lt;p&gt;aside {
-    padding: 20px;
-    background-color: orangered;
-    grid-area: header;
-  }&lt;/p&gt;
-&lt;p&gt;aside {
-    padding: 20px;
-    background-color: orangered;
-    grid-area: sidebar;
-  }&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;grid-container&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-columns&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;dwie&lt;/span&gt; &lt;span class="err"&gt;kolumny&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-rows&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-template-areas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wskazanie&lt;/span&gt; &lt;span class="n"&gt;układu&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;header header&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dwie&lt;/span&gt; &lt;span class="n"&gt;kolumny&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;rząd&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;sidebar main&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;rząd&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;część&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;sidebar&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;część&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="kc"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="nt"&gt;aside&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;orangered&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;aside&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;orangered&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sidebar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;====&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;grid-column-start:&lt;/code&gt; 2 // od której kolumny ma się układać element&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;grid-column-end:&lt;/code&gt; 4 // na której kolumnie ma się kończyć&lt;/p&gt;
@@ -419,32 +425,32 @@
 
 
 &lt;p&gt;&lt;code&gt;style.css&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;grid-container&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nf"&gt;html&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;body&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;.grid-container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="no"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="c1"&gt;; margin: 0; }&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;grid-container&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;grid-template-columns&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;grid-template-rows&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;gap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;grid-template-areas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Header Header Header Header&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside main main main&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside main main main&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.grid-container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-rows:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;gap:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-areas:&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nf"&gt;Header&lt;/span&gt; &lt;span class="no"&gt;Header&lt;/span&gt; &lt;span class="no"&gt;Header&lt;/span&gt; &lt;span class="no"&gt;Header&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="no"&gt;aside&lt;/span&gt; &lt;span class="no"&gt;main&lt;/span&gt; &lt;span class="no"&gt;main&lt;/span&gt; &lt;span class="no"&gt;main&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="no"&gt;aside&lt;/span&gt; &lt;span class="no"&gt;main&lt;/span&gt; &lt;span class="no"&gt;main&lt;/span&gt; &lt;span class="no"&gt;main&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;Header&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Header&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.Header&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="no"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;Header&lt;/span&gt;&lt;span class="c1"&gt;; }&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;aside&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;grid-template-columns&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;grid-template-rows&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;gap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;grid-template-areas&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside-1 aside-1 aside-1&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aside-2 aside-2 aside-2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;aside&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.aside&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-rows:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;gap:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-areas:&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nf"&gt;aside-1&lt;/span&gt; &lt;span class="no"&gt;aside-1&lt;/span&gt; &lt;span class="no"&gt;aside-1&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="no"&gt;aside-2&lt;/span&gt; &lt;span class="no"&gt;aside-2&lt;/span&gt; &lt;span class="no"&gt;aside-2&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-area:&lt;/span&gt; &lt;span class="nf"&gt;aside&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;aside-1&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;aside-1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.aside-1&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="no"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;aside-1&lt;/span&gt;&lt;span class="c1"&gt;; }&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;aside-2&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;aside-2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.aside-2&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="no"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;aside-2&lt;/span&gt;&lt;span class="c1"&gt;; }&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;main&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.main&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="no"&gt;grid-area&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;main&lt;/span&gt;&lt;span class="c1"&gt;; }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -480,14 +486,14 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;p&gt;====&lt;/p&gt;
 &lt;h4&gt;Media query&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.grid-container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;min-height:&lt;/span&gt; &lt;span class="err"&gt;100&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;min-height:&lt;/span&gt; &lt;span class="err"&gt;100&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;fr&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;media&lt;/span&gt; &lt;span class="no"&gt;screen&lt;/span&gt; &lt;span class="no"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;min-width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;800&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="na"&gt;rep&lt;/span&gt;&lt;span class="nf"&gt;eat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+    &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="na"&gt;rep&lt;/span&gt;&lt;span class="nf"&gt;eat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   &lt;span class="err"&gt;}&lt;/span&gt;
   &lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;media&lt;/span&gt; &lt;span class="no"&gt;screen&lt;/span&gt; &lt;span class="no"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;min-width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="na"&gt;rep&lt;/span&gt;&lt;span class="nf"&gt;eat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+    &lt;span class="nl"&gt;grid-template-columns:&lt;/span&gt; &lt;span class="na"&gt;rep&lt;/span&gt;&lt;span class="nf"&gt;eat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="no"&gt;fr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -508,20 +514,20 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h4&gt;Wydajność?&lt;/h4&gt;
 &lt;p&gt;A może by tak... flexbox + grid? -&amp;gt; &lt;a href="https://ishadeed.com/article/grid-layout-flexbox-components/"&gt;Grid for layout, Flexbox for components&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Grid-CSS jest relatywnie nowym dodatkiem w świecie CSS i wciąż charakteryzuje się niską wydajnością ((źródło)[https://twitter.com/brian_lovin/status/1262169865504174081?s=20]), a do tego nie wszystkie przeglądarki mogą z nim funkcjonować &lt;a href="https://caniuse.com/#feat=css-grid"&gt;patrz tutaj&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Grid-CSS jest relatywnie nowym dodatkiem w świecie CSS i wciąż charakteryzuje się niską wydajnością (&lt;a href="https://twitter.com/brian_lovin/status/1262169865504174081?s=20"&gt;źródło&lt;/a&gt;), a do tego nie wszystkie przeglądarki mogą z nim funkcjonować &lt;a href="https://caniuse.com/#feat=css-grid"&gt;patrz tutaj&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła&lt;/p&gt;
 &lt;p&gt;https://getbootstrap.com/docs/4.0/layout/grid/&lt;/p&gt;
 &lt;p&gt;https://www.w3schools.com/css/css_grid.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="grid"></category><category term="layout"></category><category term="rwd"></category></entry><entry><title>CSS - max(), min(), clamp()</title><link href="https://kostyrko.github.io/zfrontu/css-max-min-clamp.html" rel="alternate"></link><published>2020-05-24T10:00:00+02:00</published><updated>2020-05-24T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-05-24:/zfrontu/css-max-min-clamp.html</id><summary type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Przykładowo powyższy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;code&gt;min()&lt;/code&gt; - jest funkcją CSS i pozwala na oznaczenie najmniejszej wartości w przypadku szerokości obiektu i przyjmuje jedno lub więcej wyrażeń rozgraniczonych przecinkami jako parametry (istnieje możliwość mieszania jednostek np. px, vw,  %) - najmniejszy z dwóch podanych parametrów w danym momencie jest obowiązujący.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -532,7 +538,7 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;max()&lt;/code&gt; - jest funkcją podobną do min() jednak odnosi się do maksymalnej wartości danego elementu - również przyjmuje jedną lub więcej wyrażeń jako parametr. Za wartość, ustawiającą szerokość przyjmuje największą wartość z podanych parametrów&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.second-level&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+    &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="nf"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="no"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -540,16 +546,16 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 &lt;p&gt;Powyższe wyrażenie zakłada, że dany element o klasie &lt;code&gt;second-level&lt;/code&gt; będzie miał szerokość 400px do momentu, w którym połowa ekranu nie będzie większa niż 800 px i wówczas przyjmie wartość połowy szerokości ekranu (50vw). Dla ekranu węższego niż 400px zajmie 100% rodzica.&lt;/p&gt;
 &lt;p&gt;Innymi słowy max() oznacza podanie minimalnej (największej w danym momencie) wartości jaką może mieć dany element&lt;/p&gt;
 &lt;p&gt;Inny przykład oznacza maksymalną wielkość fontu na stronie, który będzie zależny od jego rozmiaru np.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;em&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;p {&lt;/span&gt;
+&lt;span class="err"&gt;  font-size: max(4vw, 2em, 2rem)&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;clamp()&lt;/code&gt; - pozwala na zdefiniowanie przedziału, w ramach, które powinien zamknąć się dany element. Przyjmuje trzy wartości - minimalną, preferowaną oraz maksymalną -&amp;gt; clamp(MIN, VAL, MAX). Tym samym istnieje możliwość ustawienia wielkości elementu, który zmieniać się będzie razem z wielkością ekranu ale nie będzie mniejsza niż dana wartość ani większa od innej podanej.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;p {&lt;/span&gt;
+&lt;span class="err"&gt;  font-size: max(1rem, 2.5vw, 2rem)&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -561,8 +567,8 @@ Ubierając to w inne słowa, dany element będzie zajmował połowę szerokości
 &lt;p&gt;https://css-tricks.com/snippets/css/fluid-typography/&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="max"></category><category term="min"></category><category term="clamp"></category><category term="funkcje"></category></entry><entry><title>CSS - neumorphism</title><link href="https://kostyrko.github.io/zfrontu/css-neumorphism.html" rel="alternate"></link><published>2020-04-07T11:00:00+02:00</published><updated>2020-04-07T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-04-07:/zfrontu/css-neumorphism.html</id><summary type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neoumorphism jest sposobem stylizacji elementów stron nawiązujący swoją estetyką znaną z środowiska różnego rodzaju smartfonów, choć w duże mierze przymina mi głównie te z nadgryzionym jabłkiem. Poprzez grę cieni ten styl stara się wywołać efekt estetycznej trójwymiarowości gdzie poszczególne elementy są wypukłe lub wklęsłe a ich kształty są obłe lub też zaokrąglone. Neoumorphism wywodzi się z skeuromorfizmu (gr. skeúos "naczynie, przedmiot" + morphé "postać, kształt") stylistyki, ktra miałą nawiązać do istniejących w świecie realnym przedmiotów.&lt;/p&gt;
 &lt;p&gt;Polecam &lt;a href="https://neumorphism.io/#55b9f3"&gt;generator tego stylu&lt;/a&gt; do zapoznania się z tym w jaki sposób można uzyskać wyżej opisany efekt&lt;/p&gt;
 &lt;p&gt;Zwróć uwagę, że również ja ten styl zastosowałem na tej stronie. Używając poniższej deklaracji wystylizowałem pasek wyszukiwania&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;f5f5f5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-&lt;span class="nt"&gt;box-shadow&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;inset&lt;/span&gt; &lt;span class="nt"&gt;4px&lt;/span&gt; &lt;span class="nt"&gt;4px&lt;/span&gt; &lt;span class="nt"&gt;4px&lt;/span&gt; &lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;d0d0d0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;inset&lt;/span&gt; &lt;span class="nt"&gt;-4px&lt;/span&gt; &lt;span class="nt"&gt;-4px&lt;/span&gt; &lt;span class="nt"&gt;4px&lt;/span&gt; &lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;ffffff&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;background: #f5f5f5;&lt;/span&gt;
+&lt;span class="c"&gt;box-shadow: inset 4px 4px 4px #d0d0d0, inset -4px -4px 4px #ffffff;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -580,29 +586,29 @@ Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu 
 &lt;p&gt;Można to zrobić łątwo przy pomocy flexboxa, ale gdy nie chcemy zmieniać deklaracji 'rodzeństwa' (rodzica) danego elementu wówczas nie będzie to możliwe.&lt;/p&gt;
 &lt;p&gt;Bez jakiejkolwiek ingerencji w deklaracje przypisaną do rodzica możemy skorzystać z pomocy marginesów oraz jednostek relatywnych np.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.centered_text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;-50&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;; //  powinna być połowa wysokości obiektu &lt;/span&gt;
-&lt;span class="nl"&gt;margin-left:&lt;/span&gt; &lt;span class="err"&gt;-100&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;; // połowa szerokości obiektu&lt;/span&gt;
-&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-&lt;span class="nl"&gt;margin-lef:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;-50&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;; //  powinna być połowa wysokości obiektu &lt;/span&gt;
+&lt;span class="nl"&gt;margin-left:&lt;/span&gt; &lt;span class="err"&gt;-100&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;; // połowa szerokości obiektu&lt;/span&gt;
+&lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nl"&gt;margin-lef:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;lub można również wykorzystać pozycjonować przy pomocy absolute&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.&lt;span class="nv"&gt;centered_text&lt;/span&gt; {
-  &lt;span class="nv"&gt;position&lt;/span&gt;: &lt;span class="nv"&gt;absolutne&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
-  &lt;span class="nv"&gt;top&lt;/span&gt;: &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="nv"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
-  &lt;span class="nv"&gt;left&lt;/span&gt;: &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="nv"&gt;vw&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
-  &lt;span class="nv"&gt;transform&lt;/span&gt;: &lt;span class="nv"&gt;translate&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;, &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // zmień pozycję o połowę rozmiaru wysokość i szerokość&lt;/span&gt;
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.centered_text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;position:&lt;/span&gt; &lt;span class="nf"&gt;absolutne&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;top:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
+  &lt;span class="nl"&gt;left:&lt;/span&gt; &lt;span class="err"&gt;50&lt;/span&gt;&lt;span class="nf"&gt;vw&lt;/span&gt;&lt;span class="c1"&gt;; // ew. 50% jeśli do rodzica&lt;/span&gt;
+  &lt;span class="nl"&gt;transform:&lt;/span&gt; &lt;span class="nf"&gt;translate&lt;/span&gt;&lt;span class="p"&gt;(-&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;-50&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // zmień pozycję o połowę rozmiaru wysokość i szerokość&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;W obu przypadkach wymagana jest transformacja pozycjonowanego elementu w taki sposób aby znajdował się on na środku ponieważ powyższymi deklaracjami wskazujemy na lewy górny róg danego elementu - stąd należy od odpowiednio wyrównać aby znalazł się na środku a nie był przesunięty w prawo i w dół o własną wysokość i szerokość.&lt;/p&gt;
 &lt;p&gt;Być może lepszy rozwiązaniem jest zatem ustawienie marginesu na auto i jedynie kontrola marginesu od góry:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.centered_text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin-top:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -650,93 +656,93 @@ Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu 
 
 
 &lt;p&gt;style.css&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;importowanie&lt;/span&gt; &lt;span class="n"&gt;fontów&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-&lt;span class="nd"&gt;@import&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@500&amp;amp;family=Indie+Flower&amp;amp;family=Shadows+Into+Light&amp;amp;display=swap&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cm"&gt;/* importowanie fontów */&lt;/span&gt;
+&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;import&lt;/span&gt; &lt;span class="no"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="no"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@500&amp;amp;family=Indie+Flower&amp;amp;family=Shadows+Into+Light&amp;amp;display=swap&amp;#39;);&lt;/span&gt;
 
-&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;padding&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;margin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* reset */&lt;/span&gt;
+&lt;span class="err"&gt;*&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;padding:&lt;/span&gt; &lt;span class="err"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="err"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;1.5&lt;/span&gt;&lt;span class="n"&gt;rem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;html&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;font-size:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;.5rem&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;kontener&lt;/span&gt; &lt;span class="n"&gt;zawierający&lt;/span&gt; &lt;span class="n"&gt;wyśrodkowaną&lt;/span&gt; &lt;span class="n"&gt;treść&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;container&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;white&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt; &lt;span class="n"&gt;rgb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;margin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;wyśrodkowanie&lt;/span&gt; &lt;span class="n"&gt;zawartości&lt;/span&gt; &lt;span class="n"&gt;kontenera&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-  &lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;space&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;evenly&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* kontener zawierający wyśrodkowaną treść */&lt;/span&gt;
+&lt;span class="na"&gt;.container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;60%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;min-width:&lt;/span&gt; &lt;span class="err"&gt;200&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;white&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;border:&lt;/span&gt; &lt;span class="err"&gt;2&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt; &lt;span class="no"&gt;solid&lt;/span&gt; &lt;span class="no"&gt;rgb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="err"&gt;5&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="cm"&gt;/* wyśrodkowanie zawartości kontenera */&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;align-items:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-content:&lt;/span&gt; &lt;span class="nf"&gt;space-evenly&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;flex-wrap:&lt;/span&gt; &lt;span class="nf"&gt;wrap&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="n"&gt;wyśrodkowujący&lt;/span&gt; &lt;span class="n"&gt;kontener&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-&lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;border&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;vh&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* header wyśrodkowujący kontener */&lt;/span&gt;
+&lt;span class="nf"&gt;header&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-content:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;background:&lt;/span&gt; &lt;span class="nf"&gt;green&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;border-bottom:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt; &lt;span class="no"&gt;solid&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;height:&lt;/span&gt; &lt;span class="err"&gt;10&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;mian&lt;/span&gt; &lt;span class="n"&gt;wyśrodkowujący&lt;/span&gt; &lt;span class="n"&gt;kontener&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-&lt;span class="n"&gt;main&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="n"&gt;vh&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* mian wyśrodkowujący kontener */&lt;/span&gt;
+&lt;span class="nf"&gt;main&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-content:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;blue&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;height:&lt;/span&gt; &lt;span class="err"&gt;80&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="n"&gt;footer&lt;/span&gt; &lt;span class="n"&gt;wyśrodkowujący&lt;/span&gt; &lt;span class="n"&gt;kontener&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-&lt;span class="n"&gt;footer&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;orange&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;border&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;solid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;vh&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* footer wyśrodkowujący kontener */&lt;/span&gt;
+&lt;span class="nf"&gt;footer&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-content:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;orange&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;border-top:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt; &lt;span class="no"&gt;solid&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;height:&lt;/span&gt; &lt;span class="err"&gt;10&lt;/span&gt;&lt;span class="nf"&gt;vh&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Indie Flower&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cursive&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt; &lt;span class="n"&gt;dashed&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rgb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;115&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;65&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;font-family:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nf"&gt;Indie&lt;/span&gt; &lt;span class="no"&gt;Flower&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;cursive&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;border:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt; &lt;span class="no"&gt;dashed&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;rgb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;115&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;65%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;text-align:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;/*&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="n"&gt;lub&lt;/span&gt; &lt;span class="o"&gt;*/&lt;/span&gt;
-&lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Baloo Thambi 2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cursive&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cm"&gt;/* .header-text lub */&lt;/span&gt;
+&lt;span class="nf"&gt;header&lt;/span&gt; &lt;span class="no"&gt;.text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;font-family:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nf"&gt;Baloo&lt;/span&gt; &lt;span class="no"&gt;Thambi&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;cursive&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;height:&lt;/span&gt; &lt;span class="err"&gt;60%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;250&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;footer&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Shadows Into Light&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cursive&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.main-text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;250&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;height:&lt;/span&gt; &lt;span class="err"&gt;25%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="na"&gt;.footer-text&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;font-family:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nf"&gt;Shadows&lt;/span&gt; &lt;span class="no"&gt;Into&lt;/span&gt; &lt;span class="no"&gt;Light&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;cursive&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;chartreuse&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nl"&gt;.main-text:&lt;/span&gt;&lt;span class="nf"&gt;first-of-type&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;chartreuse&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;nth&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nl"&gt;.main-text:&lt;/span&gt;&lt;span class="nf"&gt;nth-of-type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;yellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;white&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;black&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nl"&gt;.main-text:&lt;/span&gt;&lt;span class="nf"&gt;last-of-type&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;color:&lt;/span&gt; &lt;span class="nf"&gt;white&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;black&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -757,19 +763,19 @@ Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu 
 &lt;h3&gt;Relatywne jednostki&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;rem&lt;/code&gt;- root element odwołuje się do roota, warto wówczas zdefiniować wysokość
  w html - domyślnie wynosi 16px&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;html {&lt;/span&gt;
+&lt;span class="err"&gt;    font-size:20px;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Reszta w rem i html zmieniać w zależności od wielkości ekranu&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;em&lt;/code&gt; - odnosi się do rodzica, ale w przypadku rozmiaru fontu inne wartości em odwołają się do bieżącej wartości em danego elementu&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;%&lt;/code&gt; - może odwoływać się do różnych wartości, w przypadku szerokości będzie odwoływać się procentowo do rodzica. Ta sama zasada odwołuje się do wielkości fontu, jednak w przypadku wysokości obiektu wówczas będzie odwoływać się do wielkości fontu danego obiektu.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;line-height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;120&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;12px&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;p {&lt;/span&gt;
+&lt;span class="err"&gt;    font-size: 10%;&lt;/span&gt;
+&lt;span class="err"&gt;    line-height: 120%; // 12px&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -780,7 +786,7 @@ Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu 
 &lt;p&gt;&lt;img alt="Treść jak woda" src="https://www.weboftwo.com/wp-content/uploads/2017/12/content-is-like-water.png"&gt;&lt;/p&gt;
 &lt;h3&gt;@media queries - zapytanie o media (ekran)&lt;/h3&gt;
 &lt;p&gt;Ustawienia w html tagu &lt;code&gt;meta&lt;/code&gt; w &lt;code&gt;head&lt;/code&gt; oraz zdefiniowanie &lt;code&gt;content&lt;/code&gt; na &lt;code&gt;width=device-width&lt;/code&gt; oznacza, to że treść dopasuje się do szerokości ekranu, na którym dana strona jest przeglądana&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;meta&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -848,11 +854,11 @@ Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu 
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Przykładowe zastosowanie:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;@media&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;aside&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="n"&gt;vw&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;@media (min-width: 1024px) {&lt;/span&gt;
+&lt;span class="err"&gt;    aside {&lt;/span&gt;
+&lt;span class="err"&gt;        width: 16vw;&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -873,11 +879,11 @@ Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu 
 
 
 &lt;p&gt;Użycie operatora only oraz wskazanie na jedynie ekrany&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@media&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;only&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;600&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    @media only screen and (max-width: 600px) {&lt;/span&gt;
+&lt;span class="err"&gt;    body {&lt;/span&gt;
+&lt;span class="err"&gt;        background-color: gray;&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -888,7 +894,7 @@ Więcej na temat &lt;a href="https://axesslab.com/neumorphism/"&gt;neumorphismu 
 &lt;hr&gt;
 &lt;h4&gt;CSS&lt;/h4&gt;
 &lt;p&gt;Deklaracje dla poszczególnych szerokości ekranu można przechowywać w osobnych plikach css wówczas należy również dodać właściwość &lt;code&gt;media&lt;/code&gt; i wpisanie odpowiedniego warunku w tagu &lt;code&gt;link&lt;/code&gt; a następnie przypisać mu konkretny css&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;(min-width: 640px)&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;min-640px.css&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; media=&amp;quot;(min-width: 640px)&amp;quot; href=&amp;quot;min-640px.css&amp;quot;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -948,9 +954,9 @@ lub stworzenie mixina, który zastępuje media-query (@content)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Dodać do style.css&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;outline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;* {&lt;/span&gt;
+&lt;span class="err"&gt;  outline: 1px solid red;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -986,10 +992,10 @@ W ramach niej wpisane są pary procentów oddzielone przecinkami określającymi
 &lt;/ul&gt;
 &lt;p&gt;Poniżej znajdziesz również link do on-linowego generatora poligonów, z którego można skopiować css&lt;/p&gt;
 &lt;p&gt;Przykładowa zawartość klasy style.css&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;      &lt;span class="nt"&gt;header&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="k"&gt;text-align&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="k"&gt;clip-path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;polygon&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;65&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;65&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;      header {&lt;/span&gt;
+&lt;span class="err"&gt;        background-color: red;&lt;/span&gt;
+&lt;span class="err"&gt;        text-align: center;&lt;/span&gt;
+&lt;span class="err"&gt;        clip-path: polygon(50% 0%, 100% 0, 100% 65%,50% 100%, 0 65%, 0 0);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1024,22 +1030,22 @@ Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ:
 pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia  (&lt;code&gt;+&lt;/code&gt;,&lt;code&gt;-&lt;/code&gt;,&lt;code&gt;*&lt;/code&gt;,&lt;code&gt;/&lt;/code&gt;)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości.&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;p&gt;50% rodzica dzielone przez 3&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;el …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Właściwość &lt;code&gt;calc()&lt;/code&gt; jest funkcją której mogą być przypisane wartości:
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;el …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Właściwość &lt;code&gt;calc()&lt;/code&gt; jest funkcją której mogą być przypisane wartości:
 &lt;code&gt;length&lt;/code&gt;, &lt;code&gt;angles&lt;/code&gt;, &lt;code&gt;time&lt;/code&gt;, &lt;code&gt;number&lt;/code&gt;, &lt;code&gt;integer&lt;/code&gt;. 
 Jest szczególnie przydatna w obliczaniu wartości relatywnych - ponieważ: 
 pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożenia, dzielenia  (&lt;code&gt;+&lt;/code&gt;,&lt;code&gt;-&lt;/code&gt;,&lt;code&gt;*&lt;/code&gt;,&lt;code&gt;/&lt;/code&gt;)i wykorzystuje wynik jako wartość CSS, która przyjmuje wcześniej wspomniane wartości.&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;p&gt;50% rodzica dzielone przez 3&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;el&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;calc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;el {&lt;/span&gt;
+&lt;span class="c"&gt;width: calc(100% - 50% / 3);&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;10% rodzica + dodatkowe 10px&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;el&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;margin-left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;calc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    .el {&lt;/span&gt;
+&lt;span class="err"&gt;    margin-left: calc(10% + 10px);&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1086,8 +1092,8 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
   1) checkbox musi znajdować się na poziomie wyżej niż obiekt, na który planujemy mieć wpływ&lt;/p&gt;
 &lt;p&gt;2) zależność należy oznaczyć znakiem "poprzedzony" -&amp;gt; &lt;code&gt;~&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;CSS&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;theme-checkbox&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;checked&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="nt"&gt;article&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nf"&gt;var&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="kc"&gt;gray&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;darker&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#theme-checkbox:checked ~article {&lt;/span&gt;
+  &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;darker&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1156,10 +1162,10 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 &lt;li&gt;wstawianie nowego elementu (np. obrazu)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;first-line&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;text-transform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;uppercase&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;p::first-line {&lt;/span&gt;
+&lt;span class="c"&gt;  color: blue;&lt;/span&gt;
+&lt;span class="c"&gt;  text-transform: uppercase;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1169,13 +1175,13 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 &lt;p&gt;&lt;code&gt;::first-letter&lt;/code&gt; - zadeklarowanie konkretnej cechy dla pierwszej litery&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::after&lt;/code&gt; - reprezentuje ostatnie dziecko wybranego elementu/ podstawową właściwością jest &lt;code&gt;content&lt;/code&gt; w ramach, której definiowana jest zawartość dodawanego elementu np. tekst lub link do obrazu&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie dodające określony tekst po tekście zawartym w wybranym paragrafie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;after&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="kc"&gt;text&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="n"&gt;after&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nl"&gt;p:&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="nf"&gt;after&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;content:&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="nf"&gt;this&lt;/span&gt; &lt;span class="no"&gt;text&lt;/span&gt; &lt;span class="no"&gt;will&lt;/span&gt; &lt;span class="no"&gt;be&lt;/span&gt; &lt;span class="no"&gt;added&lt;/span&gt; &lt;span class="no"&gt;after&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;color:&lt;/span&gt; &lt;span class="nf"&gt;blue&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;after&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sx"&gt;../assets/Eye.svg&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="nl"&gt;.eye:&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="nf"&gt;after&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="nl"&gt;content:&lt;/span&gt; &lt;span class="nf"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(..&lt;/span&gt;&lt;span class="err"&gt;/&lt;/span&gt;&lt;span class="no"&gt;assets&lt;/span&gt;&lt;span class="err"&gt;/&lt;/span&gt;&lt;span class="no"&gt;Eye.svg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1183,29 +1189,29 @@ pozwala na wykonywanie matematycznych wyrażeń dodawania, odejmowania, mnożeni
 &lt;p&gt;&lt;code&gt;::before&lt;/code&gt;- tworzy pseudo-element, który reprezentuje pierwsze dziecko wybranego selektora HTML, posiada właściwość &lt;code&gt;content&lt;/code&gt; analogiczną do &lt;code&gt;::after&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::selection&lt;/code&gt; - odwołuje się do podświetlenia wybranego tekstu znajdującego się w selekcji&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;selection&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;p::selection {&lt;/span&gt;
+&lt;span class="c"&gt;  background-color: red;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;ale może zawierać również: &lt;code&gt;color&lt;/code&gt;, &lt;code&gt;background-color&lt;/code&gt;, &lt;code&gt;cursor&lt;/code&gt;, &lt;code&gt;caret-color&lt;/code&gt;, &lt;code&gt;outline&lt;/code&gt;, &lt;code&gt;text-decoration&lt;/code&gt;, &lt;code&gt;text-emphasis-color,&lt;/code&gt; &lt;code&gt;text-shadow&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;::marker&lt;/code&gt; - pozwala na stylowanie markera listy&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;marker&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ul li::marker {&lt;/span&gt;
+&lt;span class="err"&gt;  color: red;&lt;/span&gt;
+&lt;span class="err"&gt;  font-size: 150%;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;::placeholder&lt;/code&gt; - pozwala na stylowanie fragmentu formularza który przyjmuje input &lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;input&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;placeholder&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;red&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;1.2&lt;/span&gt;&lt;span class="kt"&gt;em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="k"&gt;font-style&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;italic&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;input::placeholder {&lt;/span&gt;
+&lt;span class="c"&gt;color: red;&lt;/span&gt;
+&lt;span class="c"&gt;font-size: 1.2em;&lt;/span&gt;
+&lt;span class="c"&gt;font-style: italic;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1337,9 +1343,9 @@ Selektor klasy poprzedzony jest kropką &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
 &lt;code&gt;none&lt;/code&gt; - nie pływaj
 &lt;code&gt;inherit&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;right&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;img {&lt;/span&gt;
+&lt;span class="err"&gt;  float: right;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1351,9 +1357,9 @@ Selektor klasy poprzedzony jest kropką &lt;code&gt;.&lt;/code&gt;&lt;/p&gt;
 &lt;code&gt;none&lt;/code&gt; - nie pływaj
 &lt;code&gt;inherit&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;right&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;img {&lt;/span&gt;
+&lt;span class="err"&gt;  float: right;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1379,14 +1385,14 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;h3&gt;Clearfix/Floatfix&lt;/h3&gt;
 &lt;p&gt;Metody na pozbycie się funkcji float u dzieci pływającego rodzica&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clearfix&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;after&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;&amp;lt;!--&lt;/span&gt; &lt;span class="err"&gt;dodaje&lt;/span&gt; &lt;span class="err"&gt;niewidzialny&lt;/span&gt; &lt;span class="err"&gt;element/treść&lt;/span&gt; &lt;span class="err"&gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class="k"&gt;content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="err"&gt;&amp;lt;!--&lt;/span&gt; &lt;span class="err"&gt;elementy&lt;/span&gt; &lt;span class="err"&gt;pływające&lt;/span&gt; &lt;span class="err"&gt;po&lt;/span&gt; &lt;span class="err"&gt;żadnej&lt;/span&gt; &lt;span class="err"&gt;ze&lt;/span&gt; &lt;span class="err"&gt;stron&lt;/span&gt; &lt;span class="err"&gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class="k"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;both&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="err"&gt;&amp;lt;!--&lt;/span&gt; &lt;span class="err"&gt;element&lt;/span&gt; &lt;span class="err"&gt;zachowuje&lt;/span&gt; &lt;span class="err"&gt;się&lt;/span&gt; &lt;span class="err"&gt;jako&lt;/span&gt; &lt;span class="err"&gt;tabela&lt;/span&gt; &lt;span class="err"&gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;table&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;  .clearfix::after {&lt;/span&gt;
+&lt;span class="err"&gt;    &amp;lt;!-- dodaje niewidzialny element/treść --&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;    content: &amp;quot;&amp;quot;;&lt;/span&gt;
+&lt;span class="err"&gt;    &amp;lt;!-- elementy pływające po żadnej ze stron --&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;    clear: both;&lt;/span&gt;
+&lt;span class="err"&gt;    &amp;lt;!-- element zachowuje się jako tabela --&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;    display: table;&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1394,7 +1400,7 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;Właściwość &lt;code&gt;overflow: auto&lt;/code&gt; wpasowuje element znajdujący się w pływającym elemencie (float) tak aby nie wystawał po za niego - metoda starsza i wychodząca obecnie z użycia&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.clearfix&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;overflow:&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;overflow:&lt;/span&gt; &lt;span class="nf"&gt;auto&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1414,17 +1420,17 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;Deklaracja &lt;strong&gt;&lt;code&gt;place-items&lt;/code&gt;&lt;/strong&gt; jest połączeniem &lt;code&gt;align-items&lt;/code&gt; oraz &lt;code&gt;justify-items&lt;/code&gt; i przyjmuje podwójne wartości w odpowiadające kolejno za &lt;code&gt;align-items&lt;/code&gt; o następnie za &lt;code&gt;justify-items&lt;/code&gt;. Wymaga wcześniejszej deklaracji &lt;code&gt;floatbox&lt;/code&gt; lub &lt;code&gt;grid&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;place-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt; &lt;span class="no"&gt;center&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;place-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt; &lt;span class="no"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;i odpowiada to:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;align-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;justify-items:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;grid&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;align-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-items:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1432,17 +1438,17 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;W momencie kidy jedna wartość jest wskazana, wówczas przyjęta jest ona jako wspólna dla obu właściwości&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;place-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;place-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;i odpowiada to:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.item&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;align-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;justify-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;align-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;justify-items:&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1473,26 +1479,28 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;li&gt;&lt;code&gt;top&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt; &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;relative&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;relative&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#73AD21&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;  div.relative {&lt;/span&gt;
+&lt;span class="err"&gt;    position: relative;&lt;/span&gt;
+&lt;span class="err"&gt;    left: 30px;&lt;/span&gt;
+&lt;span class="err"&gt;    border: 3px solid #73AD21;&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;fixed&lt;/code&gt;&lt;/strong&gt; - pozycja relatywna do wyświetlacza (viewport) - zawsze w tym samym …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Podstawowe właściwości &lt;strong&gt;&lt;code&gt;position&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;fixed&lt;/code&gt;&lt;/strong&gt; - pozycja relatywna do wyświetlacza (viewport) - zawsze w tym samym miejscu&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;top …&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Podstawowe właściwości &lt;strong&gt;&lt;code&gt;position&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;static&lt;/code&gt;&lt;/strong&gt; - wartość domyślna, pozycja zgodna z układem strony&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;relative&lt;/code&gt;&lt;/strong&gt; - relatywnie do swojej domyślnej pozycji przesunięty o zdefiniowaną właściwość/wartość&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;top&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt; &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;relative&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;relative&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#73AD21&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;  div.relative {&lt;/span&gt;
+&lt;span class="err"&gt;    position: relative;&lt;/span&gt;
+&lt;span class="err"&gt;    left: 30px;&lt;/span&gt;
+&lt;span class="err"&gt;    border: 3px solid #73AD21;&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1503,16 +1511,16 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;absolute&lt;/code&gt;&lt;/strong&gt; - pozycja relatywna do najbliższego spozycjonowanego rodzica (rodzic musi mieć zdefiniowaną właściwość &lt;code&gt;position: relative/fixed&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.container&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;position:&lt;/span&gt; &lt;span class="nf"&gt;relative&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;position:&lt;/span&gt; &lt;span class="nf"&gt;relative&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 
 &lt;span class="na"&gt;.center&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;position:&lt;/span&gt; &lt;span class="nf"&gt;absolute&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;left:&lt;/span&gt; &lt;span class="err"&gt;0&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;top:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;100%&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;text-align:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
-  &lt;span class="nl"&gt;font-size:&lt;/span&gt; &lt;span class="err"&gt;18&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;position:&lt;/span&gt; &lt;span class="nf"&gt;absolute&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;left:&lt;/span&gt; &lt;span class="err"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;top:&lt;/span&gt; &lt;span class="err"&gt;50%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;100%&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;text-align:&lt;/span&gt; &lt;span class="nf"&gt;center&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;font-size:&lt;/span&gt; &lt;span class="err"&gt;18&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1520,13 +1528,13 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;sticky&lt;/code&gt;&lt;/strong&gt; - pozycja zależna od pozycji scrolla i łączy w sobie cechy &lt;code&gt;relative&lt;/code&gt; oraz &lt;code&gt;fixed&lt;/code&gt;. Element jest pozycjonowany w sposób &lt;code&gt;relative&lt;/code&gt; do momentu, w którym określone kryterium (scrolla) nie jest spełnione, wówczas spełnia cechy &lt;code&gt;fixed&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;inherit&lt;/code&gt;&lt;/strong&gt; - pozycja jest dziedziczona / domyślnie nie jest&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;sticky&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;-webkit-&lt;/span&gt;&lt;span class="kc"&gt;sticky&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c"&gt;/* Safari */&lt;/span&gt;
-  &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;sticky&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;green&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt; &lt;span class="kc"&gt;solid&lt;/span&gt; &lt;span class="mh"&gt;#4CAF50&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;div.sticky {&lt;/span&gt;
+&lt;span class="err"&gt;  position: -webkit-sticky; /* Safari */&lt;/span&gt;
+&lt;span class="err"&gt;  position: sticky;&lt;/span&gt;
+&lt;span class="err"&gt;  top: 0;&lt;/span&gt;
+&lt;span class="err"&gt;  background-color: green;&lt;/span&gt;
+&lt;span class="err"&gt;  border: 2px solid #4CAF50;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1534,12 +1542,12 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;&lt;strong&gt;Bonus&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;z-index&lt;/code&gt; - wskazuje na której pozycji ma się wyświetlić dany element - ma to szczególne znaczenie w kontekście obiektów które się zakrywają lub częściowo pokrywają&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie, obiekt ustawiony na pozycję -1 będzie pod spodem&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;absolute&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;z-index&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;img {&lt;/span&gt;
+&lt;span class="err"&gt;  position: absolute;&lt;/span&gt;
+&lt;span class="err"&gt;  left: 0px;&lt;/span&gt;
+&lt;span class="err"&gt;  top: 0px;&lt;/span&gt;
+&lt;span class="err"&gt;  z-index: -1;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1564,9 +1572,9 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;h3&gt;display: flex&lt;/h3&gt;
 &lt;p&gt;Zdefiniowanie układu opartego o flexboxa dokonujemy poprzez deklarację &lt;code&gt;display: flex&lt;/code&gt; i oznacza to, że dzieci danego &lt;code&gt;div&lt;/code&gt;'a (dzielnika/kontenera) będą zachowywały się w sposób &lt;em&gt;elastyczny&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;div {&lt;/span&gt;
+&lt;span class="err"&gt;  display: flex;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1584,10 +1592,10 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;&lt;code&gt;column&lt;/code&gt; - układ kolumnowy/pionowy zaczynający się od góry&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;column-revers&lt;/code&gt; - układ kolumnowy/pionowy zaczynający się od dołu&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;flex-direction&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;row&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;div {&lt;/span&gt;
+&lt;span class="err"&gt;  display: flex;&lt;/span&gt;
+&lt;span class="err"&gt;  flex-direction: row;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1625,11 +1633,11 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;h3&gt;flex-wrap&lt;/h3&gt;
 &lt;p&gt;Deklaracja &lt;code&gt;flex-wrap&lt;/code&gt; definiuje zawijanie się zawartych w rodzicu elementów.&lt;/p&gt;
 &lt;p&gt;Przykładowe zastosowanie&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;flex-direction&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;row&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;flex-wrap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;div {&lt;/span&gt;
+&lt;span class="err"&gt;    display: flex;&lt;/span&gt;
+&lt;span class="err"&gt;    flex-direction: row;&lt;/span&gt;
+&lt;span class="err"&gt;    flex-wrap: wrap;&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1638,9 +1646,9 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;hr&gt;
 &lt;h3&gt;flex-flow&lt;/h3&gt;
 &lt;p&gt;flex-direction + flex-wrap = flex-flow np.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="k"&gt;flex-flow&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;column&lt;/span&gt; &lt;span class="kc"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;div {&lt;/span&gt;
+&lt;span class="err"&gt;  flex-flow: column wrap;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1658,11 +1666,11 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;h3&gt;flex-grow/shrink&lt;/h3&gt;
 &lt;p&gt;Definiuję współczynnik (factor) w jakim poszczególne elementy kurczą (grow) się lub rozrastają (shrink)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.obiekt&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-    &lt;span class="nl"&gt;flex-shrink:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+    &lt;span class="nl"&gt;flex-shrink:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   &lt;span class="err"&gt;}&lt;/span&gt;
 
 &lt;span class="nl"&gt;.obiekt:&lt;/span&gt;&lt;span class="nf"&gt;nth-of-type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;flex:&lt;/span&gt; &lt;span class="err"&gt;2&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;flex:&lt;/span&gt; &lt;span class="err"&gt;2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1671,7 +1679,7 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;h3&gt;flex-basis&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;flex-basis&lt;/code&gt; definiuje wielkość danego elementu, np.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.obiekt&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;flex-basis:&lt;/span&gt; &lt;span class="err"&gt;20%&lt;/span&gt;&lt;span class="c"&gt;;  &amp;lt;podstawową wartością jest: auto&amp;gt;&lt;/span&gt;
+  &lt;span class="nl"&gt;flex-basis:&lt;/span&gt; &lt;span class="err"&gt;20%&lt;/span&gt;&lt;span class="c1"&gt;;  &amp;lt;podstawową wartością jest: auto&amp;gt;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1682,11 +1690,11 @@ right/left - żaden z elementów pływający nie może znajdować się po lewej/
 &lt;p&gt;Deklaracja &lt;code&gt;flex&lt;/code&gt; w ramach dziecka może być użyta w kontekście potrzeby zdefiniowania jego wielkości oraz istotności w rozrastaniu-kurczeniu się wobec jego rodzeństwa - gdzie liczba na początku definiuje skalę a kolejna wielkość wyrażoną w px.
 Przykładowe zastosowanie:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.obiekt&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;flex:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt; &lt;span class="err"&gt;200&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;flex:&lt;/span&gt; &lt;span class="err"&gt;1&lt;/span&gt; &lt;span class="err"&gt;200&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 
 &lt;span class="nl"&gt;.obiekt:&lt;/span&gt;&lt;span class="nf"&gt;nth-of-type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;flex:&lt;/span&gt; &lt;span class="err"&gt;2&lt;/span&gt; &lt;span class="err"&gt;200&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;flex:&lt;/span&gt; &lt;span class="err"&gt;2&lt;/span&gt; &lt;span class="err"&gt;200&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1702,7 +1710,7 @@ Przykładowe zastosowanie:&lt;/p&gt;
 &lt;h3&gt;inline-flex / inline flex-block&lt;/h3&gt;
 &lt;p&gt;Display &lt;code&gt;inline-flex&lt;/code&gt; lub &lt;code&gt;inline flex-box&lt;/code&gt; odnosi się do kontenera a nie jego elementów - kolejno do wyświetlania w linii lub w formie blokowej&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.kontener&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;inline-flex&lt;/span&gt;&lt;span class="c"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;inline-flex&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 

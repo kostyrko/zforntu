@@ -155,29 +155,29 @@
 <p>Można to zrobić łątwo przy pomocy flexboxa, ale gdy nie chcemy zmieniać deklaracji 'rodzeństwa' (rodzica) danego elementu wówczas nie będzie to możliwe.</p>
 <p>Bez jakiejkolwiek ingerencji w deklaracje przypisaną do rodzica możemy skorzystać z pomocy marginesów oraz jednostek relatywnych np.</p>
 <div class="highlight"><pre><span></span><code><span class="na">.centered_text</span> <span class="err">{</span>
-<span class="nl">margin-top:</span> <span class="err">-50</span><span class="nf">px</span><span class="c">; //  powinna być połowa wysokości obiektu </span>
-<span class="nl">margin-left:</span> <span class="err">-100</span><span class="nf">px</span><span class="c">; // połowa szerokości obiektu</span>
-<span class="nl">margin-top:</span> <span class="err">50</span><span class="nf">vw</span><span class="c">;</span>
-<span class="nl">margin-lef:</span> <span class="err">50</span><span class="nf">vw</span><span class="c">;</span>
+<span class="nl">margin-top:</span> <span class="err">-50</span><span class="nf">px</span><span class="c1">; //  powinna być połowa wysokości obiektu </span>
+<span class="nl">margin-left:</span> <span class="err">-100</span><span class="nf">px</span><span class="c1">; // połowa szerokości obiektu</span>
+<span class="nl">margin-top:</span> <span class="err">50</span><span class="nf">vw</span><span class="c1">;</span>
+<span class="nl">margin-lef:</span> <span class="err">50</span><span class="nf">vw</span><span class="c1">;</span>
 <span class="err">}</span>
 </code></pre></div>
 
 
 <p>lub można również wykorzystać pozycjonować przy pomocy absolute</p>
-<div class="highlight"><pre><span></span><code>.<span class="nv">centered_text</span> {
-  <span class="nv">position</span>: <span class="nv">absolutne</span><span class="c1">;</span>
-  <span class="nv">top</span>: <span class="mi">50</span><span class="nv">vh</span><span class="c1">; // ew. 50% jeśli do rodzica</span>
-  <span class="nv">left</span>: <span class="mi">50</span><span class="nv">vw</span><span class="c1">; // ew. 50% jeśli do rodzica</span>
-  <span class="nv">transform</span>: <span class="nv">translate</span><span class="ss">(</span><span class="o">-</span><span class="mi">50</span><span class="o">%</span>, <span class="o">-</span><span class="mi">50</span><span class="o">%</span><span class="ss">)</span><span class="c1">; // zmień pozycję o połowę rozmiaru wysokość i szerokość</span>
-}
+<div class="highlight"><pre><span></span><code><span class="na">.centered_text</span> <span class="err">{</span>
+  <span class="nl">position:</span> <span class="nf">absolutne</span><span class="c1">;</span>
+  <span class="nl">top:</span> <span class="err">50</span><span class="nf">vh</span><span class="c1">; // ew. 50% jeśli do rodzica</span>
+  <span class="nl">left:</span> <span class="err">50</span><span class="nf">vw</span><span class="c1">; // ew. 50% jeśli do rodzica</span>
+  <span class="nl">transform:</span> <span class="nf">translate</span><span class="p">(-</span><span class="mi">50</span><span class="err">%</span><span class="p">,</span> <span class="mi">-50</span><span class="err">%</span><span class="p">)</span><span class="c1">; // zmień pozycję o połowę rozmiaru wysokość i szerokość</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
 <p>W obu przypadkach wymagana jest transformacja pozycjonowanego elementu w taki sposób aby znajdował się on na środku ponieważ powyższymi deklaracjami wskazujemy na lewy górny róg danego elementu - stąd należy od odpowiednio wyrównać aby znalazł się na środku a nie był przesunięty w prawo i w dół o własną wysokość i szerokość.</p>
 <p>Być może lepszy rozwiązaniem jest zatem ustawienie marginesu na auto i jedynie kontrola marginesu od góry:</p>
 <div class="highlight"><pre><span></span><code><span class="na">.centered_text</span> <span class="err">{</span>
-  <span class="nl">margin:</span> <span class="nf">auto</span><span class="c">;</span>
-  <span class="nl">margin-top:</span> <span class="err">50%</span><span class="c">;</span>
+  <span class="nl">margin:</span> <span class="nf">auto</span><span class="c1">;</span>
+  <span class="nl">margin-top:</span> <span class="err">50%</span><span class="c1">;</span>
 <span class="err">}</span>
 </code></pre></div>
 

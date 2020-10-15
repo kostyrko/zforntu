@@ -155,12 +155,12 @@
     <p>Markdown jest lekkim językiem znaczników  (Lightweight markup language - LML) służącym do formatowanie tekstu (za: <a href="https://pl.wikipedia.org/wiki/Markdown">Wikipedia</a> oraz <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">Ang. - Wikipedia</a>). Wprowadzono go po raz pierwszy w 2004 i celem autorów było stworzenie języka, który jest prosty do pisania oraz czytania, a przy okazji miał być prosty w konwersji to języka XHTML lub HTML.</p>
 <p>Szybkie wprowadzenie do języka <strong>Markdown</strong></p>
 <h3>Nagłówki/Headers</h3>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">H1</span>
-<span class="o">##</span> <span class="n">H2</span>
-<span class="o">###</span> <span class="n">H3</span>
-<span class="o">####</span> <span class="n">H4</span>
-<span class="o">#####</span> <span class="n">H5</span>
-<span class="o">######</span> <span class="n">H6</span>
+<div class="highlight"><pre><span></span><code><span class="err"># H1</span>
+<span class="err">## H2</span>
+<span class="err">### H3</span>
+<span class="err">#### H4</span>
+<span class="err">##### H5</span>
+<span class="err">###### H6</span>
 </code></pre></div>
 
 
@@ -171,10 +171,10 @@
 <h5>Nagłówek5</h5>
 <h6>Nagłówek6</h6>
 <h3>Style liniowe/inlinowe</h3>
-<div class="highlight"><pre><span></span><code><span class="o">**</span><span class="n">bold</span><span class="o">**</span>
-<span class="o">~~</span><span class="n">crossed</span><span class="o">~~</span>
-<span class="c1">---strikethrough text---</span>
-<span class="o">*</span><span class="n">italics</span><span class="o">*</span>
+<div class="highlight"><pre><span></span><code><span class="err">**bold**</span>
+<span class="err">~~crossed~~</span>
+<span class="err">---strikethrough text---</span>
+<span class="err">*italics*</span>
 </code></pre></div>
 
 
@@ -183,7 +183,7 @@
 <p>---wykreślony tekst--- (również się nie sprawdza :( )</p>
 <p><em>italik</em></p>
 <h3>Obrazy</h3>
-<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="o">/</span><span class="n">alternatywny</span> <span class="n">tekst</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">![Nazwa obrazu/alternatywny tekst](/sciezka/obrazu.jpg)</span>
 </code></pre></div>
 
 
@@ -194,22 +194,22 @@
 
 <p>Obraz jako link</p>
 <p>schemat</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="o">!</span><span class="p">[</span><span class="n">alternatywny</span><span class="o">-</span><span class="n">tekst</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="p">)](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">odsylajaca</span><span class="p">.</span><span class="n">html</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">[![alternatywny-tekst](/sciezka/obrazu.jpg)](/sciezka/odsylajaca.html)</span>
 </code></pre></div>
 
 
 <p>Centrowanie wybranego! obrazu wobec rodzica</p>
 <p>markdown nie ma opcji pozwalającej na centrowanie/pozycjonowanie elementów stąd należy zrobić to albo z pozycji html i inlinowego css albo wykorzystać css i odpowiednio otagować obraz (jestem zwolennikiem tej drugiej opcji ponieważ wprowadza mniej ingerencji w sam markdown) dodając na końcu odnośnika hasztag z nazwą atrybutu np. center</p>
 <p>Schemat </p>
-<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="n">Nazwa</span> <span class="n">obrazu</span><span class="o">/</span><span class="n">alternatywny</span> <span class="n">tekst</span><span class="p">](</span><span class="o">/</span><span class="n">sciezka</span><span class="o">/</span><span class="n">obrazu</span><span class="p">.</span><span class="n">jpg</span><span class="o">#</span><span class="n">center</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">![Nazwa obrazu/alternatywny tekst](/sciezka/obrazu.jpg#center)</span>
 </code></pre></div>
 
 
 <p>W CSS należy dodać deklaracje</p>
-<div class="highlight"><pre><span></span><code>    <span class="nt">img</span><span class="cp">[</span><span class="nx">src</span><span class="o">*=</span><span class="s1">&#39;#center&#39;</span><span class="cp">]</span> <span class="p">{</span> 
-    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-    <span class="k">margin</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">    img[src*=&#39;#center&#39;] { </span>
+<span class="err">    display: block;</span>
+<span class="err">    margin: auto;</span>
+<span class="err">    }</span>
 </code></pre></div>
 
 
@@ -233,14 +233,14 @@
 
 <h3>Linki</h3>
 <h4>Zewnętrzne</h4>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">nazwa</span> <span class="n">obiektu</span><span class="o">/</span><span class="n">strony</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">przykladowy</span><span class="p">.</span><span class="n">link</span><span class="p">.</span><span class="n">com</span><span class="p">)</span>
-<span class="p">[</span><span class="n">Notatki</span> <span class="n">z</span> <span class="n">frontu</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">kostyrko</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">zfrontu</span><span class="o">/</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">[nazwa obiektu/strony](http://przykladowy.link.com)</span>
+<span class="err">[Notatki z frontu](https://kostyrko.github.io/zfrontu/)</span>
 </code></pre></div>
 
 
 <p><a href="https://kostyrko.github.io/zfrontu/">Notatki z frontu</a></p>
 <p>można również:</p>
-<div class="highlight"><pre><span></span><code><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">kostyrko</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">zfrontu</span><span class="o">/</span>
+<div class="highlight"><pre><span></span><code><span class="c">https://kostyrko.github.io/zfrontu/</span>
 </code></pre></div>
 
 
@@ -248,9 +248,9 @@
 <p>:::tu akurat nie działa za to np. w VSC się sprawdza :::</p>
 <h4>Wewnętrzne</h4>
 <p>link działający w ramach strony</p>
-<div class="highlight"><pre><span></span><code>[<span class="nv">Strony</span> <span class="nv">warte</span> <span class="nv">odwiedzenia</span>]<span class="ss">(</span>#<span class="nv">strony</span><span class="ss">)</span>
-<span class="nv">gdzie</span> <span class="nv">nag</span>łó<span class="nv">wek</span> <span class="k">do</span> <span class="nv">kt</span>ó<span class="nv">rego</span> <span class="nv">jest</span> <span class="nv">odwo</span>ł<span class="nv">anie</span>:
-### <span class="nv">Strony</span> <span class="nv">warte</span> <span class="nv">odwiedzenia</span> {#<span class="nv">strony</span>}
+<div class="highlight"><pre><span></span><code><span class="err">[Strony warte odwiedzenia](#strony)</span>
+<span class="err">gdzie nagłówek do którego jest odwołanie:</span>
+<span class="err">### Strony warte odwiedzenia {#strony}</span>
 </code></pre></div>
 
 
@@ -265,9 +265,9 @@ gdzie:
 
 
 <p>kolejna możliwość</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">sprawdź</span> <span class="n">również</span> <span class="n">tą</span> <span class="n">część</span> <span class="n">tekstu</span><span class="p">](</span><span class="o">#</span><span class="n">strony</span><span class="p">)</span>
-<span class="n">gdzie</span><span class="p">:</span>
-<span class="o">####</span> <span class="n">Strony</span> <span class="n">warte</span> <span class="n">odwiedzenia</span>
+<div class="highlight"><pre><span></span><code><span class="err">[sprawdź również tą część tekstu](#strony)</span>
+<span class="c">gdzie:</span>
+<span class="err">#### Strony warte odwiedzenia</span>
 </code></pre></div>
 
 
@@ -275,43 +275,43 @@ gdzie:
 <hr>
 <h3>Wstawianie kodu</h3>
 <p>Kod w lini tekstu</p>
-<div class="highlight"><pre><span></span><code><span class="o">`</span><span class="n">back</span> <span class="n">quote</span><span class="o">`</span>
+<div class="highlight"><pre><span></span><code><span class="err">`back quote`</span>
 </code></pre></div>
 
 
 <p><code>odwrotny apostrof</code> - na lewo od 1 (tam gdzie lambda)</p>
 <p>Kod blokowy</p>
 <p>Potrójny zwrotny apostrof</p>
-<div class="highlight"><pre><span></span><code>    <span class="o">```</span>
-    <span class="k">no</span> <span class="o">=</span> <span class="ss">&quot;Python syntax highlighting&quot;</span>
-    <span class="n">print</span> <span class="n">s</span>
-    <span class="o">```</span>
+<div class="highlight"><pre><span></span><code><span class="err">    ```</span>
+<span class="err">    no = &quot;Python syntax highlighting&quot;</span>
+<span class="err">    print s</span>
+<span class="err">    ```</span>
 </code></pre></div>
 
 
-<div class="highlight"><pre><span></span><code><span class="k">no</span> <span class="o">=</span> <span class="ss">&quot;Python syntax highlighting&quot;</span>
-<span class="n">print</span> <span class="n">s</span>
+<div class="highlight"><pre><span></span><code><span class="err">no = &quot;Python syntax highlighting&quot;</span>
+<span class="err">print s</span>
 </code></pre></div>
 
 
 <p>Ze wskazaniem języka :)</p>
-<div class="highlight"><pre><span></span><code>    ```<span class="nv">python</span>
-    <span class="nv">yes</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Python syntax highlighting</span><span class="s2">&quot;</span>
-    <span class="nv">print</span> <span class="nv">s</span>
-    <span class="nv">nice</span> <span class="k">for</span> <span class="o">&lt;</span><span class="nv">bold</span><span class="o">&gt;</span><span class="nv">html</span><span class="o">&lt;/</span><span class="nv">bold</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code>    ```python
+    yes = &quot;Python syntax highlighting&quot;
+    print s
+    nice for <span class="nt">&lt;bold&gt;</span>html<span class="nt">&lt;/bold&gt;</span>
     ```
-    ```<span class="nv">javascript</span>
-    <span class="nv">var</span> <span class="nv">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">JavaScript syntax highlighting</span><span class="s2">&quot;</span><span class="c1">;</span>
-    <span class="nv">alert</span><span class="ss">(</span><span class="nv">s</span><span class="ss">)</span><span class="c1">;</span>
+    ```javascript
+    var s = &quot;JavaScript syntax highlighting&quot;;
+    alert(s);
     ```
-    ```<span class="nv">html</span>
-    <span class="nv">nice</span> <span class="k">for</span> <span class="o">&lt;</span><span class="nv">bold</span><span class="o">&gt;</span><span class="nv">html</span><span class="o">&lt;/</span><span class="nv">bold</span><span class="o">&gt;</span>
+    ```html
+    nice for <span class="nt">&lt;bold&gt;</span>html<span class="nt">&lt;/bold&gt;</span>
     ```
 </code></pre></div>
 
 
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Python syntax highlighting&quot;</span>
-<span class="k">print</span> <span class="n">s</span>
+<span class="nb">print</span> <span class="n">s</span>
 </code></pre></div>
 
 
@@ -325,7 +325,7 @@ gdzie:
 
 
 <h3>Blokowe cytaty</h3>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">Blokowe</span> <span class="n">cytowanie</span> <span class="n">wybranego</span> <span class="n">fragmentu</span> <span class="n">tekstu</span>
+<div class="highlight"><pre><span></span><code><span class="err">&gt; Blokowe cytowanie wybranego fragmentu tekstu</span>
 </code></pre></div>
 
 
@@ -373,22 +373,22 @@ gdzie:
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>    <span class="o">|</span> <span class="n">Kolumna</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Kolumna</span> <span class="mi">2</span> <span class="o">|</span> 
-    <span class="o">|</span><span class="c1">---|---|</span>
-    <span class="o">|</span> <span class="n">Wartość</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Wartość</span> <span class="mi">2</span> <span class="o">|</span> 
-    <span class="o">|</span> <span class="n">Wartość</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Wartość</span> <span class="mi">4</span> <span class="o">|</span> 
-    <span class="o">|</span> <span class="n">Wartość</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">Wartość</span> <span class="mi">6</span> <span class="o">|</span>
+<div class="highlight"><pre><span></span><code><span class="err">    | Kolumna 1 | Kolumna 2 | </span>
+<span class="err">    |---|---|</span>
+<span class="err">    | Wartość 1 | Wartość 2 | </span>
+<span class="err">    | Wartość 3 | Wartość 4 | </span>
+<span class="err">    | Wartość 5 | Wartość 6 |</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Tworzenie list</h3>
 <p>Uporządkowana lista</p>
-<div class="highlight"><pre><span></span><code><span class="mi">1</span><span class="p">.</span> <span class="n">Obiekt</span> <span class="mi">1</span>
-<span class="mi">1</span><span class="p">.</span> <span class="n">Obiekt</span> <span class="mi">2</span>
-<span class="mi">1</span><span class="p">.</span> <span class="n">Obiekt</span> <span class="mi">3</span>
-    <span class="mi">1</span><span class="p">.</span> <span class="n">Obiekt</span> <span class="mi">3</span><span class="n">a</span>
-    <span class="mi">1</span><span class="p">.</span> <span class="n">Obiekt</span> <span class="mi">3</span><span class="n">b</span>
+<div class="highlight"><pre><span></span><code><span class="err">1. Obiekt 1</span>
+<span class="err">1. Obiekt 2</span>
+<span class="err">1. Obiekt 3</span>
+<span class="err">    1. Obiekt 3a</span>
+<span class="err">    1. Obiekt 3b</span>
 </code></pre></div>
 
 
@@ -402,11 +402,11 @@ gdzie:
 </li>
 </ol>
 <p>Nieuporządkowana:</p>
-<div class="highlight"><pre><span></span><code><span class="o">*</span> <span class="n">Obiekt</span> <span class="mi">1</span>
-<span class="o">*</span> <span class="n">Obiekt</span> <span class="mi">2</span>
-<span class="o">*</span> <span class="n">Obiekt</span> <span class="mi">3</span>
-    <span class="o">*</span> <span class="n">obiekt</span> <span class="mi">3</span><span class="p">.</span><span class="mi">1</span>
-    <span class="o">*</span> <span class="n">obiekt</span> <span class="mi">3</span><span class="p">.</span><span class="mi">2</span>
+<div class="highlight"><pre><span></span><code><span class="err">* Obiekt 1</span>
+<span class="err">* Obiekt 2</span>
+<span class="err">* Obiekt 3</span>
+<span class="err">    * obiekt 3.1</span>
+<span class="err">    * obiekt 3.2</span>
 </code></pre></div>
 
 
@@ -420,9 +420,9 @@ gdzie:
 </li>
 </ul>
 <p>Styl mieszany:</p>
-<div class="highlight"><pre><span></span><code><span class="mi">1</span><span class="p">.</span> <span class="n">Obiekt1</span>
-<span class="mi">2</span><span class="p">.</span> <span class="n">Obiekt2</span>
-    <span class="o">*</span> <span class="n">Obiekt3</span>
+<div class="highlight"><pre><span></span><code><span class="err">1. Obiekt1</span>
+<span class="err">2. Obiekt2</span>
+<span class="err">    * Obiekt3</span>
 </code></pre></div>
 
 
@@ -435,8 +435,8 @@ gdzie:
 </ol>
 <h3>Tworzenie linii</h3>
 <p>Dwa z możliwych sposobów (potrójne znaki):</p>
-<div class="highlight"><pre><span></span><code><span class="n">___</span> <span class="p">(</span><span class="n">podkreślnik</span><span class="p">)</span>
-<span class="c1">--- (łącznik)</span>
+<div class="highlight"><pre><span></span><code><span class="err">___ (podkreślnik)</span>
+<span class="err">--- (łącznik)</span>
 </code></pre></div>
 
 

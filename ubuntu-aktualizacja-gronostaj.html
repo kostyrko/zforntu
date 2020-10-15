@@ -156,18 +156,18 @@
     <p>Do tej pory pracowałem na Bionicznym Bobrze (Ubuntu 18.04) ale gdy system zaproponował mi aktualizację na Eonicznego Gronostaja (19.10) postanowiłem z niej skorzystać. Zmiana nie obyła się bez małego zgrzytu. </p>
 <h3>Zawieszający się ekran ładowania Ubuntu 19.10 po aktualizacji</h3>
 <p>Ekran ładowania (tzw. splash screen) się zawiesił, musiałem wyłączyć komputer ręcznie a następnie w momencie pojawienia się Gruba wybrałęm literę 'e' - pozwalającą na edycję ustawień opcji włączania systemu. Za pierwszym razem system od razu się uruchomił bez mojej konieczności zmiany ustawień. W trakcie kolejnego włączani powtórzył się ten sam problem. Tym razem postąpiłem zgodnie z opisanymi <a href="https://nezhar.com/blog/fix-ubuntu-19.10-stuck-on-splash-screen/">w tym miejscu krokami</a> - opcję</p>
-<div class="highlight"><pre><span></span><code><span class="n">quiet</span> <span class="n">splash_</span>
+<div class="highlight"><pre><span></span><code><span class="err">quiet splash_</span>
 </code></pre></div>
 
 
 <p>zmieniłem na</p>
-<div class="highlight"><pre><span></span><code><span class="n">nonsplash</span>
+<div class="highlight"><pre><span></span><code><span class="err">nonsplash</span>
 </code></pre></div>
 
 
 <p>system uruchomił się bez większych problemów.</p>
 <p>Po uruchomieniu się systemu nie przechodziłem kolejnych kroków opisanych w podlinkowanym wyżej poście tylko zaktualizowałem gruba</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="k">update</span><span class="o">-</span><span class="n">grub</span>
+<div class="highlight"><pre><span></span><code><span class="err">sudo update-grub</span>
 </code></pre></div>
 
 
@@ -176,7 +176,7 @@
 <p>Bóbr przyzwyczaił mnie do miłego dla oka ciemnego motywu oprogramowania. Fioletowy terminal z zielonymi i jasnymi literami również przypadł mi do gustu (na szczęście zmiana z podstawowego jasnego na ciemny motyw jest prosta) niestety Gronostaj już ciemnego motywu aplikacji nie posiada w trybie podstawowym i trzeba go dodać.</p>
 <p>W pierwszej kolejności należy zainstalować program Gnome Tweaks
 Instalowanie programu do zarządzania wyglądem/skórką Ubuntu</p>
-<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">gnome</span><span class="o">-</span><span class="n">tweak</span><span class="o">-</span><span class="n">tool</span>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">gnome</span><span class="o">-</span><span class="n">tweak</span><span class="o">-</span><span class="k">tool</span>
 </code></pre></div>
 
 

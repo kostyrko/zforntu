@@ -165,9 +165,9 @@
 <h3>display: flex</h3>
 <p>Zdefiniowanie układu opartego o flexboxa dokonujemy poprzez deklarację <code>display: flex</code> i oznacza to, że dzieci danego <code>div</code>'a (dzielnika/kontenera) będą zachowywały się w sposób <em>elastyczny</em></p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nt">div</span> <span class="p">{</span>
-  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">div {</span>
+<span class="err">  display: flex;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -185,10 +185,10 @@
 <p><code>column</code> - układ kolumnowy/pionowy zaczynający się od góry</p>
 <p><code>column-revers</code> - układ kolumnowy/pionowy zaczynający się od dołu</p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nt">div</span> <span class="p">{</span>
-  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">div {</span>
+<span class="err">  display: flex;</span>
+<span class="err">  flex-direction: row;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -226,11 +226,11 @@
 <h3>flex-wrap</h3>
 <p>Deklaracja <code>flex-wrap</code> definiuje zawijanie się zawartych w rodzicu elementów.</p>
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nt">div</span> <span class="p">{</span>
-    <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-    <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
-    <span class="k">flex-wrap</span><span class="p">:</span> <span class="kc">wrap</span><span class="p">;</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">div {</span>
+<span class="err">    display: flex;</span>
+<span class="err">    flex-direction: row;</span>
+<span class="err">    flex-wrap: wrap;</span>
+<span class="err">  }</span>
 </code></pre></div>
 
 
@@ -239,9 +239,9 @@
 <hr>
 <h3>flex-flow</h3>
 <p>flex-direction + flex-wrap = flex-flow np.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">div</span> <span class="p">{</span>
-  <span class="k">flex-flow</span><span class="p">:</span> <span class="kc">column</span> <span class="kc">wrap</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="err">div {</span>
+<span class="err">  flex-flow: column wrap;</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -259,11 +259,11 @@
 <h3>flex-grow/shrink</h3>
 <p>Definiuję współczynnik (factor) w jakim poszczególne elementy kurczą (grow) się lub rozrastają (shrink)</p>
 <div class="highlight"><pre><span></span><code><span class="na">.obiekt</span> <span class="err">{</span>
-    <span class="nl">flex-shrink:</span> <span class="err">1</span><span class="c">;</span>
+    <span class="nl">flex-shrink:</span> <span class="err">1</span><span class="c1">;</span>
   <span class="err">}</span>
 
 <span class="nl">.obiekt:</span><span class="nf">nth-of-type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="err">{</span>
-  <span class="nl">flex:</span> <span class="err">2</span><span class="c">;</span>
+  <span class="nl">flex:</span> <span class="err">2</span><span class="c1">;</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -272,7 +272,7 @@
 <h3>flex-basis</h3>
 <p><code>flex-basis</code> definiuje wielkość danego elementu, np.</p>
 <div class="highlight"><pre><span></span><code><span class="na">.obiekt</span> <span class="err">{</span>
-  <span class="nl">flex-basis:</span> <span class="err">20%</span><span class="c">;  &lt;podstawową wartością jest: auto&gt;</span>
+  <span class="nl">flex-basis:</span> <span class="err">20%</span><span class="c1">;  &lt;podstawową wartością jest: auto&gt;</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -283,11 +283,11 @@
 <p>Deklaracja <code>flex</code> w ramach dziecka może być użyta w kontekście potrzeby zdefiniowania jego wielkości oraz istotności w rozrastaniu-kurczeniu się wobec jego rodzeństwa - gdzie liczba na początku definiuje skalę a kolejna wielkość wyrażoną w px.
 Przykładowe zastosowanie:</p>
 <div class="highlight"><pre><span></span><code><span class="na">.obiekt</span> <span class="err">{</span>
-  <span class="nl">flex:</span> <span class="err">1</span> <span class="err">200</span><span class="nf">px</span><span class="c">;</span>
+  <span class="nl">flex:</span> <span class="err">1</span> <span class="err">200</span><span class="nf">px</span><span class="c1">;</span>
 <span class="err">}</span>
 
 <span class="nl">.obiekt:</span><span class="nf">nth-of-type</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="err">{</span>
-  <span class="nl">flex:</span> <span class="err">2</span> <span class="err">200</span><span class="nf">px</span><span class="c">;</span>
+  <span class="nl">flex:</span> <span class="err">2</span> <span class="err">200</span><span class="nf">px</span><span class="c1">;</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -303,7 +303,7 @@ Przykładowe zastosowanie:</p>
 <h3>inline-flex / inline flex-block</h3>
 <p>Display <code>inline-flex</code> lub <code>inline flex-box</code> odnosi się do kontenera a nie jego elementów - kolejno do wyświetlania w linii lub w formie blokowej</p>
 <div class="highlight"><pre><span></span><code><span class="na">.kontener</span> <span class="err">{</span>
-  <span class="nl">display:</span> <span class="nf">inline-flex</span><span class="c">;</span>
+  <span class="nl">display:</span> <span class="nf">inline-flex</span><span class="c1">;</span>
 <span class="err">}</span>
 </code></pre></div>
 

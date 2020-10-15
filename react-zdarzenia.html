@@ -163,19 +163,19 @@
 <hr>
 <h3>Zdarzenia w komponentach klasowych</h3>
 <p>W przypadku komponentów klasowych istotne jest pamiętanie o odwołaniu się do słowa kluczowego <strong>this</strong></p>
-<div class="highlight"><pre><span></span><code>  <span class="nv">class</span> <span class="nv">Droid</span> <span class="nv">extends</span> <span class="nv">Component</span> {
-    <span class="nv">helloDroid</span><span class="ss">()</span> {
-      <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Hi R2D2!</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>  class Droid extends Component {
+    helloDroid() {
+      console.log(&quot;Hi R2D2!&quot;);
     }
-    <span class="nv">render</span><span class="ss">()</span>{
-      <span class="k">return</span> <span class="ss">(</span>
-        <span class="o">&lt;&gt;</span>
-        <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">Greet</span> <span class="nv">Droid</span> <span class="nv">by</span> <span class="nv">clicking</span> <span class="nv">below</span><span class="o">!&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nv">button</span> <span class="nv">onClick</span><span class="o">=</span>{<span class="nv">this</span>.<span class="nv">handleClick</span>}<span class="o">&gt;</span>
-        <span class="nv">Start</span><span class="o">!</span>
-        <span class="o">&lt;/</span><span class="nv">button</span><span class="o">&gt;</span>
-        <span class="o">&lt;/&gt;</span>
-      <span class="ss">)</span><span class="c1">;</span>
+    render(){
+      return (
+        <span class="err">&lt;</span>&gt;
+        <span class="nt">&lt;h2&gt;</span>Greet Droid by clicking below!<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">onClick=</span><span class="s">{this.handleClick}</span><span class="nt">&gt;</span>
+        Start!
+        <span class="nt">&lt;/button&gt;</span>
+        <span class="err">&lt;</span>/&gt;
+      );
     }
   }
 </code></pre></div>
@@ -184,25 +184,25 @@
 <hr>
 <p>Słowo kluczowe <strong>this</strong> jest zależne od kontekstu, w przypadku gdy dany element powinien mieć dostęp do całości komponentu (np w celu skorzystania z <em>props</em>) można zastosować <strong>funkcję strzałkową</strong> [jej zastosowania wymaga użycia <strong>dodatkowej wtyczki</strong> <em>@babel/plugin-proposal-class-properties</em> (w klasie ES6 nie ma możliwości zastosowania funkcji strzałkowej)].</p>
 <p>W przeciwnym razie należy korzystać z wywołania <code>bind</code> - w tym przypadku funkcja odpowiadająca za dane zdarzenie będzie musiała zostać przypisana do stanu</p>
-<div class="highlight"><pre><span></span><code><span class="nv">class</span> <span class="nv">Droid</span> <span class="nv">extends</span> <span class="nv">React</span>.<span class="nv">Component</span> {
-  <span class="nv">constructor</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-    <span class="nv">super</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span><span class="c1">;</span>
-    <span class="nv">this</span>.<span class="nv">state</span> <span class="o">=</span> []<span class="c1">;</span>
-    <span class="o">//</span> <span class="nv">Poni</span>ż<span class="nv">sze</span> <span class="nv">wi</span>ą<span class="nv">zanie</span> <span class="nv">jest</span> <span class="nv">niezb</span>ę<span class="nv">dne</span> <span class="k">do</span> <span class="nv">prawid</span>ł<span class="nv">owego</span> <span class="nv">przekazania</span> `<span class="nv">this</span>` <span class="nv">przy</span> <span class="nv">wywo</span>ł<span class="nv">aniu</span> <span class="nv">funkcji</span>    
-    <span class="nv">this</span>.<span class="nv">handleClick</span> <span class="o">=</span> <span class="nv">this</span>.<span class="nv">handleClick</span>.<span class="nv">bind</span><span class="ss">(</span><span class="nv">this</span><span class="ss">)</span><span class="c1">;  </span>
-    }
-  [...]
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="k">extends</span> <span class="n">React</span><span class="o">.</span><span class="n">Component</span> <span class="p">{</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">super</span><span class="p">(</span><span class="n">props</span><span class="p">);</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="o">//</span> <span class="n">Poniższe</span> <span class="n">wiązanie</span> <span class="n">jest</span> <span class="n">niezbędne</span> <span class="n">do</span> <span class="n">prawidłowego</span> <span class="n">przekazania</span> <span class="err">`</span><span class="n">this</span><span class="err">`</span> <span class="n">przy</span> <span class="n">wywołaniu</span> <span class="n">funkcji</span>    
+    <span class="n">this</span><span class="o">.</span><span class="n">handleClick</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">this</span><span class="p">);</span>  
+    <span class="p">}</span>
+  <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 </code></pre></div>
 
 
 <h4 id="plugin-proposal-class-properties">Konfiguracja wtyczki Babel: plugin-proposal-class-properties</h4>
 <p><strong>Konfiguracja @babel/plugin-proposal-class-properties</strong> w .babelrc </p>
-<div class="highlight"><pre><span></span><code><span class="err">{</span><span class="w"></span>
-<span class="w">  </span><span class="ss">&quot;presets&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="ss">&quot;plugins&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
-<span class="n">    [&quot;@babel/plugin-proposal-class-properties&quot;, { &quot;loose&quot;: true }</span><span class="o">]</span><span class="w"></span>
-<span class="w">  </span><span class="err">]</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">{</span>
+<span class="err">  &quot;presets&quot;: [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;],</span>
+<span class="err">  &quot;plugins&quot;: [</span>
+<span class="err">    [&quot;@babel/plugin-proposal-class-properties&quot;, { &quot;loose&quot;: true }]</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
 </code></pre></div>
 
 
@@ -361,16 +361,16 @@
 <hr>
 <h3>Zatrzymanie domyślnej akcji</h3>
 <p>Zatrzymanie domyślnej akcji stosuje się poprzez odwołanie się do eventu, który musi zostać przekazany do funkcji jako argument</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">Link</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">e</span><span class="ss">)</span> <span class="o">=&gt;</span> {
-  <span class="nv">function</span> <span class="nv">clickLink</span><span class="ss">(</span><span class="nv">e</span><span class="ss">)</span>{
-    <span class="nv">e</span>.<span class="nv">preventDefault</span><span class="ss">()</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>const Link = (e) =&gt; {
+  function clickLink(e){
+    e.preventDefault();
   }
 
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;&gt;</span>
-      <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span> <span class="nv">onClick</span><span class="o">=</span>{<span class="nv">clickLink</span>}<span class="o">&gt;</span><span class="nv">Link</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
-    <span class="o">&lt;/&gt;</span>
-  <span class="ss">)</span><span class="c1">;</span>
+  return (
+    <span class="err">&lt;</span>&gt;
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">onClick=</span><span class="s">{clickLink}</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+    <span class="err">&lt;</span>/&gt;
+  );
 }
 </code></pre></div>
 

@@ -158,55 +158,55 @@
 <p><strong>Użytkowanie.</strong> </p>
 <p>W pierwszej kolejności należy stworzyć obiekt <em>Promise</em> (odwołując się do konstruktora obiektu Promise) w ramach, którego zachodzi asynchroniczność zwracająca jedną z dwóch funkcji. W przypadku sukcesu należy wywołać funkcję <strong>resolve</strong>, natomiast niepowodzenia <strong>reject</strong> (w niej zostaną przekazane błędne dane).</p>
 <p>źródło poniższych przykładów: <a href="http://kursjs.pl/kurs/ajax/promise.php">kursjs.pl - Callback i Promise</a></p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">load</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Promise</span><span class="ss">((</span><span class="nv">resolve</span>, <span class="nv">reject</span><span class="ss">)</span>{
-        <span class="k">if</span> <span class="ss">(</span><span class="nv">readData</span><span class="ss">)</span> {
-            <span class="nv">resolve</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span>
-        } <span class="k">else</span> {
-            <span class="nv">reject</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">error</span><span class="s1">&#39;</span><span class="ss">)</span>
-        }
-    }<span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="nb">load</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Promise</span><span class="p">((</span><span class="n">resolve</span><span class="p">,</span> <span class="n">reject</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">readData</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">resolve</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">reject</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
 </code></pre></div>
 
 
 <p>Po stworzeniu obiekt/instancji <em>Promise</em> znajduje się w stanie <strong>Pending</strong>, natomiast po wywołaniu się funkcji przechodzi w stan <strong>Settled</strong>, który w zależności wyniku przejdzie w status <strong>Fulfilled</strong> lub <strong>Rejected</strong></p>
 <p>Następnie na zwróconą funkcję należy zareagować (ang. consume), w tym celu można wykorzystać metod <strong>.then()</strong> <strong>.catch()</strong> [opisane poniżej]</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">load</span>
-        .<span class="k">then</span><span class="ss">(</span><span class="nb">result</span> <span class="o">=&gt;</span> {
-            <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nb">result</span><span class="ss">)</span>
-        }<span class="ss">)</span>
-        .<span class="nv">catch</span><span class="ss">(</span><span class="nv">err</span> <span class="o">=&gt;</span> {
-            <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">err</span><span class="ss">)</span>
-        }<span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>    <span class="nb">load</span>
+        <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">result</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="o">.</span><span class="n">catch</span><span class="p">(</span><span class="n">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+        <span class="p">})</span>
 </code></pre></div>
 
 
 <p>Przykład zastosownia promisa</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">const</span> <span class="nv">myPromise</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Promise</span><span class="ss">((</span><span class="nv">reslove</span>,<span class="nv">reject</span><span class="ss">)</span><span class="o">=&gt;</span> {
-    <span class="nv">setTimeout</span><span class="ss">(()</span><span class="o">=&gt;</span>{
-        <span class="nv">reslove</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">List posiada znaczek</span><span class="s1">&#39;</span><span class="ss">)</span>
-    },<span class="mi">2000</span><span class="ss">)</span>}<span class="ss">)</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">myPromise</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Promise</span><span class="p">((</span><span class="n">reslove</span><span class="p">,</span><span class="n">reject</span><span class="p">)</span><span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">setTimeout</span><span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="n">reslove</span><span class="p">(</span><span class="s1">&#39;List posiada znaczek&#39;</span><span class="p">)</span>
+    <span class="p">},</span><span class="mi">2000</span><span class="p">)})</span>
 
-    <span class="nv">myPromise</span>
-    .<span class="k">then</span><span class="ss">(</span><span class="nv">data</span><span class="o">=&gt;</span>{
-        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">data</span>, <span class="s1">&#39;</span><span class="s">- można go wysłać</span><span class="s1">&#39;</span><span class="ss">)</span>
-    }<span class="ss">)</span>
+    <span class="n">myPromise</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">data</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;- można go wysłać&#39;</span><span class="p">)</span>
+    <span class="p">})</span>
 </code></pre></div>
 
 
 <hr>
 <h3>Metody .then() i .catch()</h3>
 <p>Metoda <strong>.then()</strong> pozwala na <em>zakolejkowanie</em> reakcji na status zwróconych danych (dowolnie pozytywny, negatywny lub oba). Innymi słowy jest to kod, który ma się wywołać po wywołaniu się funkcji będącej częścią obiektu <em>Promise</em> lub jeszcze inaczej po tym jak <em>obietnica</em> (Promise) zostanie zwrócona. <em>Then</em> można w tym kontekście przetłumaczyć jako <em>potem</em>.</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">load</span>.<span class="k">then</span><span class="ss">(</span>
-        <span class="nb">result</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nb">result</span><span class="ss">)</span>,
-        <span class="nv">error</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">error</span><span class="ss">)</span>
-    <span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="nb">load</span><span class="o">.</span><span class="n">then</span><span class="p">(</span>
+        <span class="n">result</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">),</span>
+        <span class="n">error</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">);</span>
 </code></pre></div>
 
 
 <p>Metoda <strong>.catch()</strong> stosowana jest najczęściej do reakcji/przechwytywaniu ew. negatywnej odpowiedzi z serwera (reject)</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">loadData</span><span class="ss">()</span>
-        .<span class="k">then</span><span class="ss">(</span><span class="nb">result</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nb">result</span><span class="ss">))</span>
-        .<span class="nv">catch</span><span class="ss">(</span><span class="nv">error</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">error</span><span class="ss">))</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="n">loadData</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">result</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">catch</span><span class="p">(</span><span class="n">error</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">error</span><span class="p">));</span>
 </code></pre></div>
 
 
@@ -214,22 +214,22 @@
 <hr>
 <h3>Metody .all() .race() i finally()</h3>
 <p>Metoda <strong>.all()</strong> pozwala na wywołanie reakcji po zwróceniu wszystkich <em>obietnic</em></p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">Promise</span>.<span class="nv">all</span><span class="ss">(</span>[
-        <span class="nv">checkData1</span><span class="ss">()</span>,
-        <span class="nv">checkData2</span><span class="ss">()</span>
-    ]<span class="ss">)</span>
-        .<span class="k">then</span><span class="ss">(</span><span class="nv">resp</span> <span class="o">=&gt;</span> {.....}
+<div class="highlight"><pre><span></span><code><span class="err">    Promise.all([</span>
+<span class="err">        checkData1(),</span>
+<span class="err">        checkData2()</span>
+<span class="err">    ])</span>
+<span class="err">        .then(resp =&gt; {.....}</span>
 </code></pre></div>
 
 
 <p>Metoda <strong>.race()</strong> zwraca pierwszą zakończoną <em>obietnicę</em></p>
 <p>Metoda <strong>.finally()</strong> wywołuje działanie niezależnie od statusu zwróconej <em>obietnicy</em></p>
-<div class="highlight"><pre><span></span><code>    .<span class="k">then</span><span class="ss">(</span><span class="nv">res</span> <span class="o">=&gt;</span> <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">res</span><span class="ss">))</span>
-        .<span class="nv">catch</span><span class="ss">(</span><span class="nv">err</span> <span class="o">=&gt;</span> <span class="nv">alert</span><span class="ss">(</span><span class="nv">err</span><span class="ss">))</span>
-        .<span class="nv">finally</span><span class="ss">(()</span> <span class="o">=&gt;</span> {
-            <span class="nv">btnLoadMore</span>.<span class="nv">classList</span>.<span class="nv">remove</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">loading</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-            <span class="nv">btnLoadMore</span>.<span class="nv">disabled</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
-        }<span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">res</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">catch</span><span class="p">(</span><span class="n">err</span> <span class="o">=&gt;</span> <span class="n">alert</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">finally</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">btnLoadMore</span><span class="o">.</span><span class="n">classList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;loading&quot;</span><span class="p">);</span>
+            <span class="n">btnLoadMore</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="bp">false</span><span class="p">;</span>
+        <span class="p">});</span>
 </code></pre></div>
 
 

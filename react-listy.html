@@ -170,64 +170,64 @@
 <h3>map() i klucz</h3>
 <p>Elementom tworzonej listy przypisywane są klucze (klucz musi być unikalny w ramach rodzeństwa np. jednej listy... można do tego wykorzystać np. id, pesel etc., ew. może być to indeks z tablicy - chóć gdy tablica ulegnie zmianie może to stanowić problem)</p>
 <p>Atrybut klucza (ang. key) przekazywany Reactowi jest użytkowany wewnętrznie stąd nie jest on widoczny po wyrenderowaniu, tak samo nie będzie on widoczny/dostępny we właściwościach (props)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>const droids = [&quot;C3-PO&quot;, &quot;R2-D2&quot;];
 
-<span class="nv">const</span> <span class="nv">list</span> <span class="o">=</span> <span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
+const list = (
+  <span class="nt">&lt;ul&gt;</span>
     {
-      <span class="nv">droids</span>.<span class="nv">map</span><span class="ss">(</span><span class="nv">droid</span> <span class="o">=&gt;</span> {
-        <span class="k">return</span> <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">droid</span>}<span class="o">&gt;</span>{<span class="nv">droid</span>}<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
-      }<span class="ss">)</span>
+      droids.map(droid =&gt; {
+        return <span class="nt">&lt;li</span> <span class="na">key=</span><span class="s">{droid}</span><span class="nt">&gt;</span>{droid}<span class="nt">&lt;/li&gt;</span>
+      })
     }
-  <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
-<span class="ss">)</span><span class="c1">;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+);
 </code></pre></div>
 
 
 <p>Wersja z indeksem</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+<div class="highlight"><pre><span></span><code>const droids = [&quot;C3-PO&quot;, &quot;R2-D2&quot;];
 
-<span class="nv">const</span> <span class="nv">list</span> <span class="o">=</span> <span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
+const list = (
+  <span class="nt">&lt;ul&gt;</span>
     {
-      <span class="nv">droids</span>.<span class="nv">map</span><span class="ss">((</span><span class="nv">droid</span>, <span class="nv">index</span><span class="ss">)</span> <span class="o">=&gt;</span> {
-        <span class="k">return</span> <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">index</span>}<span class="o">&gt;</span>{<span class="nv">droid</span>}<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
-      }<span class="ss">)</span>
+      droids.map((droid, index) =&gt; {
+        return <span class="nt">&lt;li</span> <span class="na">key=</span><span class="s">{index}</span><span class="nt">&gt;</span>{droid}<span class="nt">&lt;/li&gt;</span>
+      })
     }
-  <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
-<span class="ss">)</span><span class="c1">;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+);
 
-<span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
-  {<span class="nv">list</span>}
-<span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+  {list}
+<span class="nt">&lt;/ul&gt;</span>
 </code></pre></div>
 
 
 <p>Funkcja</p>
 <p>Props (właściwość) jest obiektem stąd aby dostać się do tablicy droids należy -&gt; props.droids
 Właściwość/props należy przekazać w trakcie wywoływanie komponentu</p>
-<div class="highlight"><pre><span></span><code><span class="nv">props</span> {<span class="nv">droids</span>: <span class="nv">Array</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>}
-<span class="nv">props</span>.<span class="nv">doroids</span> <span class="ss">(</span><span class="mi">2</span><span class="ss">)</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]
+<div class="highlight"><pre><span></span><code>props {droids: Array(2)}
+props.doroids (2) [&quot;C3-PO&quot;, &quot;R2-D2&quot;]
 
 
 
-<span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> [<span class="s2">&quot;</span><span class="s">C3-PO</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">R2-D2</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+const droids = [&quot;C3-PO&quot;, &quot;R2-D2&quot;];
 
-<span class="nv">function</span> <span class="nv">DroidList</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="nv">const</span> <span class="nv">droids</span> <span class="o">=</span> <span class="nv">props</span>.<span class="nv">droids</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span>
-    <span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
-      {<span class="nv">droids</span>.<span class="nv">map</span><span class="ss">((</span><span class="nv">droid</span><span class="ss">)</span> <span class="o">=&gt;</span>
-        <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">key</span><span class="o">=</span>{<span class="nv">droid</span>}<span class="o">&gt;</span>{<span class="nv">droid</span>}<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
-      <span class="ss">)</span>}
-    <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
-  <span class="ss">)</span><span class="c1">;</span>
+function DroidList(props) {
+  const droids = props.droids;
+  return (
+    <span class="nt">&lt;ul&gt;</span>
+      {droids.map((droid) =&gt;
+        <span class="nt">&lt;li</span> <span class="na">key=</span><span class="s">{droid}</span><span class="nt">&gt;</span>{droid}<span class="nt">&lt;/li&gt;</span>
+      )}
+    <span class="nt">&lt;/ul&gt;</span>
+  );
 }
 
-<span class="nv">ReactDOM</span>.<span class="nv">render</span><span class="ss">(</span>
-  <span class="o">&lt;</span><span class="nv">DroidList</span> <span class="nv">droids</span><span class="o">=</span>{<span class="nv">droids</span>} <span class="o">/&gt;</span>,
-  <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">root</span><span class="s1">&#39;</span><span class="ss">)</span>
-<span class="ss">)</span><span class="c1">;</span>
+ReactDOM.render(
+  <span class="nt">&lt;DroidList</span> <span class="na">droids=</span><span class="s">{droids}</span> <span class="nt">/&gt;</span>,
+  document.getElementById(&#39;root&#39;)
+);
 </code></pre></div>
 
 

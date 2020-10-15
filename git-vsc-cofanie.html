@@ -158,19 +158,19 @@
 <p>Na co dzień korzystam z zestawu VSC + GitHub</p>
 <p>Bywa tak, że chcę usunąć ostatni dodany przez nas commit lub cofnąć daną gałąź do określonego commita usuwając wszystkie, które po nim nastąpiły.</p>
 <p>Aby cofnąć daną gałąź o jeden commit wystarczy wpisać</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="k">reset</span> <span class="c1">--hard HEAD~1</span>
+<div class="highlight"><pre><span></span><code><span class="err">git reset --hard HEAD~1</span>
 </code></pre></div>
 
 
 <p>a jeśli zależy nam na konkretnym commicie to wówczas</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="k">reset</span> <span class="c1">--hard &lt;adres commita&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="err">git reset --hard &lt;adres commita&gt;</span>
 </code></pre></div>
 
 
 <p>Zachodzi wówczas sytuacja, w której repozytorium znajdujące się na GitHubie jest "do przodu" względem tego, które znajduje się u mnie na dysku lokalnym - sygnalizuje to min. ikona w lewym dolnym rogu jeśli teraz dokonam synchronizacji (Synchronise Changes)</p>
 <p><img alt="synchronizacja zmian" src="https://i.stack.imgur.com/P5VKm.png"></p>
 <p>vsc zrobi <code>pull</code> a następnie <code>push</code> - repo wróci do stanu sprzed cofnięcia commita. Stąd zamiast tego muszę zrobić tzw twardy (lub przy użyciu siły push) korzystając z komendy:</p>
-<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">HEAD</span> <span class="c1">--force</span>
+<div class="highlight"><pre><span></span><code><span class="err">git push origin HEAD --force</span>
 </code></pre></div>
 
 

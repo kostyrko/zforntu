@@ -183,16 +183,16 @@
 <hr>
 <h3>Wyjście z piekła wywołań zwrotnych/ callback hell</h3>
 <p>Callback jest informacją zwrotną wynikającą z wywołania funkcji, ta może posłużyć jako parametr/agrument wywołania kolejnej funkcji (funkcja zagnieżdżona w wywołaniu funkcji) umożliwia to uzależnienia kolejnego działania od zwrotu działania funkcji poprzedzającej - wywołanie się funkcji wewnętrznej było uzależnione od wywołania funkcji wyższego rzędu. Wielokrotne zagnieżdżenie wywołań zwrotnych (ang. callback), trudne do opanowania oraz utrzymania, nazywane jest <code>callback hell</code></p>
-<div class="highlight"><pre><span></span><code>    <span class="k">function</span> <span class="n">renderPage</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
-        <span class="n">getFirstData</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="err">{</span>
-            <span class="n">getAnotherData1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="err">{</span>
-                <span class="n">getAnotherData2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="err">{</span>
-                    <span class="n">getAnotherData3</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
-                        <span class="p">[...]</span>
-                    <span class="err">}</span><span class="p">);</span>
-                <span class="err">}</span><span class="p">);</span>
-            <span class="err">}</span><span class="p">);</span>
-        <span class="err">}</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">    function renderPage = function() {</span>
+<span class="err">        getFirstData(function(x) {</span>
+<span class="err">            getAnotherData1(x, function(y) {</span>
+<span class="err">                getAnotherData2(y, function(z) {</span>
+<span class="err">                    getAnotherData3(z, function() {</span>
+<span class="err">                        [...]</span>
+<span class="err">                    });</span>
+<span class="err">                });</span>
+<span class="err">            });</span>
+<span class="err">        });</span>
 </code></pre></div>
 
 
@@ -201,16 +201,16 @@
 <h4>Obietnice/Promises</h4>
 <p><em>Promises</em> zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na <code>callbackach</code>/<em>wywołaniach zwrotnych</em>. Obiekty <em>Promise</em> (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie i może znajdować się w jednym stanie jednocześnie: <code>Pending</code> (wywołane i oczekuje), <code>Fulfilled</code> (wykonane z powodzeniem), <code>Rejected</code> (odrzucone z niepowodzeniem). Wprowadzenie <em>obietnic</em> pozwala na uniknięcie stosowania funkcji warunkowych.</p>
 <p>Schemat kodu w przypadku Fulfilled</p>
-<div class="highlight"><pre><span></span><code><span class="nv">Promise</span><span class="ss">(</span><span class="nv">tre</span>ść<span class="o">-</span><span class="nv">obietnicy</span><span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="nb">result</span><span class="o">=&gt;</span>{
-    <span class="o">//</span><span class="nv">rezultat</span> <span class="k">do</span> <span class="nv">wykonania</span>
-}<span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">Promise(treść-obietnicy).then(result=&gt;{</span>
+<span class="err">    //rezultat do wykonania</span>
+<span class="err">})</span>
 </code></pre></div>
 
 
 <p>Schemat kodu w przypadku Rejected</p>
-<div class="highlight"><pre><span></span><code><span class="n">Promise</span><span class="p">(</span><span class="n">treść</span><span class="o">-</span><span class="n">obietnicy</span><span class="p">).</span><span class="n">catch</span><span class="p">(</span><span class="n">error</span><span class="o">=&gt;</span><span class="err">{</span>
-    <span class="o">//</span><span class="n">zwraca</span> <span class="n">błąd</span>
-<span class="err">}</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="err">Promise(treść-obietnicy).catch(error=&gt;{</span>
+<span class="err">    //zwraca błąd</span>
+<span class="err">})</span>
 </code></pre></div>
 
 

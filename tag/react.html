@@ -131,6 +131,26 @@
 
 <article>
   <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/react-sourceMap.html">React: Create React App i sourceMap w trakcie produkcji</a></h2>
+    <p>
+      Opublikowano pią 18 września 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/sourcemap.html">sourceMap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/create-react-app.html">Create React App</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/crp.html">CRP</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="react" src="https://user-images.githubusercontent.com/27288406/47966049-b13a5700-e056-11e8-808e-45f2ffd4719c.png"></p>
+<p>Jedną z moich ulubionych wtyczek w Gulpie/Webpacku bez wątpienia jest ta przy pomocy której jestem wstanie w szybki sposób dojść do tego, w którym pliku/linijce znajduje się frapująca mnie deklaracja stylu -&gt; <strong>sourceMap</strong></p>
+<p>Wykorzystując opcję tworzenia aplikacji przy pomocy narzędzie Create React App nie mamy jednak możliwości skorzystania z …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-sourceMap.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://kostyrko.github.io/zfrontu/react-kontekst.html">React: kontekst</a></h2>
     <p>
       Opublikowano nie 30 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
@@ -165,11 +185,11 @@ Na jakiego typu danych może …</p>
       <p><img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"></p>
 <p><code>props.children</code> pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu</p>
 <p>Komponent otwarty na ew. rozszerzenia o nową treść</p>
-<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">TestComposition</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
-  <span class="nv">let</span> {<span class="nv">children</span>} <span class="o">=</span> <span class="nv">props</span><span class="c1">;</span>
-  <span class="k">return</span> <span class="ss">(</span><span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">Test</span> <span class="nv">Kompozycji</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
-      {<span class="nv">children …</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>function TestComposition(props) {
+  let {children} = props;
+  return (<span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
+      {children …</code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/react-kompozycja.html">Czytaj dalej</a>
   </div>
@@ -355,7 +375,7 @@ Na jakiego typu danych może …</p>
       <p><img alt="react" max-height="300px" src="https://teamquest.pl/img/static/blog/reactjs.jpeg"></p>
 <h3>Konfiguracja środowiska</h3>
 <p>Inicjalizacja projektu</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm init -y</span>
 </code></pre></div>
 
 
@@ -367,9 +387,9 @@ Na jakiego typu danych może …</p>
 
 
 <p>Dodanie do package.json skrótu uruchamiającego webpack-serwer</p>
-<div class="highlight"><pre><span></span><code><span class="ss">&quot;scripts&quot;</span><span class="p">:</span> <span class="err">{</span>
-<span class="p">[..],</span>
-<span class="ss">&quot;start&quot;</span><span class="p">:</span> <span class="ss">&quot;webpack-dev-server --hot -d&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;scripts&quot;: {</span>
+<span class="err">[..],</span>
+<span class="err">&quot;start&quot;: &quot;webpack-dev-server --hot -d&quot;</span>
 </code></pre></div>
 
 

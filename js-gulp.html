@@ -162,18 +162,18 @@
 <h3>Instalacja globalna</h3>
 <p>Gulp - jest narzędziem pozwalającym na zarządzanie wieloma zadaniami</p>
 <p>Instalacja globalna Gulpa (wymaga wcześniejszej instalacji npm np. korzystając z nvm - Node Version Manager), która pozwala na wywoływanie komendy gulp globalnie przy pomocy terminala</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="c1">--global gulp-cli</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm install --global gulp-cli</span>
 </code></pre></div>
 
 
 <p>Sprawdzanie instalacji (jej wersji)</p>
-<div class="highlight"><pre><span></span><code><span class="n">gulp</span> <span class="o">-</span><span class="n">v</span>
+<div class="highlight"><pre><span></span><code><span class="err">gulp -v</span>
 </code></pre></div>
 
 
 <p>zwraca:</p>
-<div class="highlight"><pre><span></span><code><span class="n">CLI</span> <span class="k">version</span><span class="p">:</span> <span class="mi">2</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">Local</span> <span class="k">version</span><span class="p">:</span> <span class="k">Unknown</span>
+<div class="highlight"><pre><span></span><code><span class="err">CLI version: 2.2.1</span>
+<span class="err">Local version: Unknown</span>
 </code></pre></div>
 
 
@@ -182,12 +182,12 @@
 <p>Inicjalizujaca lokalna zaczyna się od stworzenia pliku, w którym zawarte są informacje na temat projektu -&gt; <code>package.json</code> (w folderze, w którym znajduje się projekt) - przechowywane w nim podstawowe informacje na temat projektu oraz jego zależności (np. wymaganych wtyczek)</p>
 <p>Plik tworzony jest przy pomocy komend</p>
 <p>1) Z odpowiedzią na pytania / w trakcie kolejnych kroków należy odpowiedzieć na podstawowe pytania i stworzyć metadane projektu</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm init</span>
 </code></pre></div>
 
 
 <p>2) lub (bez konieczności odpowiedzi - zostawia puste pola)</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">init</span> <span class="o">-</span><span class="n">y</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm init -y</span>
 </code></pre></div>
 
 
@@ -196,29 +196,29 @@
 <p>3) Instalacja zależności - wtyczka Gulp </p>
 <h4>devDependencies a Dependencies</h4>
 <p>dodanie flagi <code>--save-dev</code> przy instalacji sprawia, że paczka zostaje dodana do zależności deweloperskich devDependencies (wtyczka znajdzie się w spisie znajdującym się w <code>package.json</code>, również bez podania flagi ale wówczas trafi do spisu Dependencies) tu powinny trafić te zależności (paczki), które pozwalają na rozwój/budowę aplikacji, ale nie są niezbędne do jej pełnego funkcjonowania np. związane z transpilacją (np. Saas) lub testowanie. W Dependencies powinny znaleźć niezbędne wtyczki do działania aplikacji (instalacja tylko tych z pominięciem devDependencies odbywa się poprzez <code>npm install --production</code> zamiast zwykłego <code>npm install</code> - można też dodać, że zawartość devDependencies jest formą dokumentacji projektu/jego metadanymi)</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="n">gulp</span> <span class="c1">--save-dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm install gulp --save-dev</span>
 </code></pre></div>
 
 
 <p><strong>:::</strong> tworzy folder <code>node_modules</code> (z pobranymi modułami) + <code>package-lock.json</code> (blokuje wersję używanych paczek - zawiera listę pobranych modułów oraz informację o ich wersji) ten folder nie będzie i nie powinien być przenoszony wraz z innymi plikami stąd warto dla niego stworzyć  <code>.gitignore</code> i wpisać w niego <code>node_modules/</code> aby GIT do ignorował <strong>:::</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">gulp</span> <span class="o">-</span><span class="n">v</span>
+<div class="highlight"><pre><span></span><code><span class="err">gulp -v</span>
 </code></pre></div>
 
 
 <p>// powinno zwrócić informację o wersji globalnej (CLI) oraz lokalnej (wersje mogą się różnić)</p>
-<div class="highlight"><pre><span></span><code><span class="n">CLI</span> <span class="k">version</span><span class="p">:</span> <span class="mi">2</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">Local</span> <span class="k">version</span><span class="p">:</span> <span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
+<div class="highlight"><pre><span></span><code><span class="err">CLI version: 2.2.1</span>
+<span class="err">Local version: 4.0.2</span>
 </code></pre></div>
 
 
 <p>Następnie należy stworzyć plik <code>gulpfile.js</code> i w ramach niego wpisywać gulpowe polecenia</p>
 <p>Przykładowe zastosowanie (użycie metody <code>task()</code> - zdefiniowanie zadania oraz <code>done()</code> - wskazuje zakończenie zadania)</p>
-<div class="highlight"><pre><span></span><code><span class="n">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">)</span>
 
-<span class="n">gulp</span><span class="p">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">done</span><span class="p">)</span> <span class="err">{</span>
-    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="ss">&quot;HTTP Server Started&quot;</span><span class="p">);</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;HTTP Server Started&quot;</span><span class="p">);</span>
     <span class="n">done</span><span class="p">();</span>
-    <span class="err">}</span><span class="p">);</span>
+    <span class="p">});</span>
 </code></pre></div>
 
 
@@ -236,21 +236,21 @@
 <p>Użycie metody <code>.pipe()</code> - która pozwala na zdefiniowanie kolejnych kroków wykonywanego zadania (przepływu)</p>
 <p><code>.src()</code> - metoda w ramach, której wskazuje się pliki, na których zostaje podjęte zadanie</p>
 <p>Użycie wtyczki -&gt; kompilujące Sass na CSS (o wtyczce i jej instalacji poniżej)</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp</span><span class="s1">&#39;</span><span class="ss">)</span>
-<span class="nv">const</span> <span class="nv">sass</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-sass</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">wskazanie</span> <span class="nv">zale</span>ż<span class="nv">no</span>ś<span class="nv">ci</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">)</span>
+<span class="k">const</span> <span class="n">sass</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp-sass&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">wskazanie</span> <span class="n">zależności</span> <span class="p">(</span><span class="n">jej</span> <span class="n">instalacja</span> <span class="o">-&gt;</span> <span class="n">patrz</span> <span class="n">niżej</span><span class="p">)</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">sass</span><span class="s1">&#39;</span>, <span class="nv">function</span><span class="ss">()</span>{
-    <span class="k">return</span> <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./src/sass/style.scss</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">pracuj</span> <span class="nv">na</span> <span class="nv">pliku</span> <span class="nv">style</span>.<span class="nv">scss</span> <span class="o">//</span> <span class="nv">src</span> <span class="o">-</span> <span class="nv">source</span><span class="o">/</span>ź<span class="nv">r</span>ó<span class="nv">d</span>ł<span class="nv">o</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sass</span><span class="ss">())</span> <span class="o">//</span> <span class="nv">uruchom</span> <span class="nv">wtyczk</span>ę <span class="nv">kompilatora</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./dist/css</span><span class="s1">&#39;</span><span class="ss">))</span> <span class="o">//</span> <span class="nv">tutaj</span> <span class="nv">zwr</span>óć <span class="nv">skompilowany</span> <span class="nv">plik</span> <span class="nv">w</span> <span class="nv">postaci</span> <span class="nv">css</span> <span class="o">//</span> <span class="nv">dest</span> <span class="o">-</span> <span class="nv">destination</span><span class="o">/</span><span class="nv">folder_docelowy</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;sass&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s1">&#39;./src/sass/style.scss&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">pracuj</span> <span class="n">na</span> <span class="n">pliku</span> <span class="n">style</span><span class="o">.</span><span class="n">scss</span> <span class="o">//</span> <span class="n">src</span> <span class="o">-</span> <span class="n">source</span><span class="o">/</span><span class="err">ź</span><span class="n">ródło</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sass</span><span class="p">())</span> <span class="o">//</span> <span class="n">uruchom</span> <span class="n">wtyczkę</span> <span class="n">kompilatora</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">gulp</span><span class="o">.</span><span class="n">dest</span><span class="p">(</span><span class="s1">&#39;./dist/css&#39;</span><span class="p">))</span> <span class="o">//</span> <span class="n">tutaj</span> <span class="n">zwróć</span> <span class="n">skompilowany</span> <span class="n">plik</span> <span class="n">w</span> <span class="n">postaci</span> <span class="n">css</span> <span class="o">//</span> <span class="n">dest</span> <span class="o">-</span> <span class="n">destination</span><span class="o">/</span><span class="n">folder_docelowy</span>
+<span class="p">});</span>
 
-<span class="o">&gt;&gt;</span> <span class="nv">gulp</span> <span class="nv">sass</span>
+<span class="o">&gt;&gt;</span> <span class="n">gulp</span> <span class="n">sass</span>
 </code></pre></div>
 
 
 <p>można również wykorzystać metodę <code>.on</code> i dodać</p>
-<div class="highlight"><pre><span></span><code><span class="na">.pipe</span><span class="p">(</span><span class="no">sass</span><span class="p">().</span><span class="no">on</span><span class="p">(</span><span class="s">&quot;error&quot;</span><span class="p">,</span> <span class="no">sass.logError</span><span class="p">))</span> <span class="err">//</span> <span class="no">wypisz</span> <span class="no">error</span> <span class="no">w</span> <span class="no">przypadku</span> <span class="no">jego</span> <span class="no">wystąpienia</span>
+<div class="highlight"><pre><span></span><code><span class="na">.pipe</span><span class="p">(</span><span class="no">sass</span><span class="p">().</span><span class="no">on</span><span class="p">(</span><span class="s">&quot;error&quot;</span><span class="p">,</span> <span class="no">sass.logError</span><span class="p">))</span> <span class="c1">// wypisz error w przypadku jego wystąpienia</span>
 </code></pre></div>
 
 
@@ -260,18 +260,18 @@
 <p><em>Spis wtyczek js:</em> https://www.npmjs.com/</p>
 <p><code>gulp-sass</code> - gulpowa paczka do kompilacji sass na CSS</p>
 <p>Instalacja paczki przy pomocy terminala (lokalnie)</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="n">gulp</span><span class="o">-</span><span class="n">sass</span> <span class="n">node</span><span class="o">-</span><span class="n">sass</span> <span class="c1">--save-dev</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm install gulp-sass node-sass --save-dev</span>
 </code></pre></div>
 
 
 <p>::: paczki można instalować z pozycji podfolderów ale i tak trafią do nadrzędnego folderu (node_modules oraz package.json nie jest tworzony ponownie - ten odpowiada za własny folder oraz podfoldery)</p>
 <p>paczki zostały dodane do pliku package.json</p>
-<div class="highlight"><pre><span></span><code><span class="ss">&quot;author&quot;</span><span class="p">:</span> <span class="ss">&quot;MK&quot;</span><span class="p">,</span>
-<span class="ss">&quot;license&quot;</span><span class="p">:</span> <span class="ss">&quot;ISC&quot;</span><span class="p">,</span>
-<span class="ss">&quot;dependencies&quot;</span><span class="p">:</span> <span class="err">{</span>
-    <span class="ss">&quot;gulp&quot;</span><span class="p">:</span> <span class="ss">&quot;^4.0.2&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;gulp-sass&quot;</span><span class="p">:</span> <span class="ss">&quot;^4.1.0&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;node-sass&quot;</span><span class="p">:</span> <span class="ss">&quot;^4.14.1&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;author&quot;: &quot;MK&quot;,</span>
+<span class="err">&quot;license&quot;: &quot;ISC&quot;,</span>
+<span class="err">&quot;dependencies&quot;: {</span>
+<span class="err">    &quot;gulp&quot;: &quot;^4.0.2&quot;,</span>
+<span class="err">    &quot;gulp-sass&quot;: &quot;^4.1.0&quot;,</span>
+<span class="err">    &quot;node-sass&quot;: &quot;^4.14.1&quot;</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -284,41 +284,41 @@
 <p><code>*</code> - dowolny ciąg znaków (wszystkie pliki z rozszerzeniem np. scss)
 <code>**</code> - dotyczy wszystkich podfolderów oraz folderu początkowego</p>
 <p><code>gulp.series()</code> - wykonuj synchronicznie jedno po 2.</p>
-<div class="highlight"><pre><span></span><code><span class="n">gulp</span><span class="p">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;watch&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="err">{</span>
-    <span class="n">gulp</span><span class="p">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;./src/**/*.scss&#39;</span><span class="p">,</span> <span class="n">gulp</span><span class="p">.</span><span class="n">series</span><span class="p">(</span><span class="ss">&quot;sass&quot;</span><span class="p">);</span>
-<span class="err">}</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">gulp.task(&#39;watch&#39;, function() {</span>
+<span class="err">    gulp.watch(&#39;./src/**/*.scss&#39;, gulp.series(&quot;sass&quot;);</span>
+<span class="err">});</span>
 </code></pre></div>
 
 
 <p>Przykładowe zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp</span><span class="s1">&#39;</span><span class="ss">)</span>
-<span class="nv">const</span> <span class="nv">sass</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-sass</span><span class="s1">&#39;</span><span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">)</span>
+<span class="k">const</span> <span class="n">sass</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp-sass&#39;</span><span class="p">)</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">sass</span><span class="s1">&#39;</span>, <span class="nv">function</span><span class="ss">()</span>{
-    <span class="k">return</span> <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./src/sass/main.scss</span><span class="s1">&#39;</span><span class="ss">)</span> 
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sass</span><span class="ss">())</span> 
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./dist/css</span><span class="s1">&#39;</span><span class="ss">))</span>  
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;sass&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s1">&#39;./src/sass/main.scss&#39;</span><span class="p">)</span> 
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sass</span><span class="p">())</span> 
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">gulp</span><span class="o">.</span><span class="n">dest</span><span class="p">(</span><span class="s1">&#39;./dist/css&#39;</span><span class="p">))</span>  
+<span class="p">});</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">watch</span><span class="s1">&#39;</span>, <span class="nv">function</span><span class="ss">()</span> {
-    <span class="nv">gulp</span>.<span class="nv">watch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./src/**/*.scss</span><span class="s1">&#39;</span>, <span class="nv">gulp</span>.<span class="nv">series</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sass</span><span class="s2">&quot;</span><span class="ss">))</span><span class="c1">;</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;watch&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">gulp</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;./src/**/*.scss&#39;</span><span class="p">,</span> <span class="n">gulp</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="s2">&quot;sass&quot;</span><span class="p">));</span>
+<span class="p">});</span>
 </code></pre></div>
 
 
 <p>dla Gulp w wersji poniżej 4 (bez gulp.series())</p>
-<div class="highlight"><pre><span></span><code><span class="n">gulp</span><span class="p">.</span><span class="n">watch</span><span class="p">(</span><span class="s1">&#39;./src/**/*.scss&#39;</span><span class="p">,</span> <span class="p">[</span><span class="ss">&quot;sass&quot;</span><span class="p">]);</span>
+<div class="highlight"><pre><span></span><code><span class="err">gulp.watch(&#39;./src/**/*.scss&#39;, [&quot;sass&quot;]);</span>
 </code></pre></div>
 
 
 <p>W terminalu </p>
-<div class="highlight"><pre><span></span><code><span class="n">gulp</span> <span class="n">watch</span>
+<div class="highlight"><pre><span></span><code><span class="err">gulp watch</span>
 </code></pre></div>
 
 
 <p>Po zmianie zawartości pliku main.scss wywołuje się funkcja sass</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">46</span><span class="p">]</span> <span class="n">Starting</span> <span class="s1">&#39;sass&#39;</span><span class="p">...</span>
-<span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">46</span><span class="p">]</span> <span class="n">Finished</span> <span class="s1">&#39;sass&#39;</span> <span class="k">after</span> <span class="mi">28</span> <span class="n">ms</span>
+<div class="highlight"><pre><span></span><code><span class="err">[10:57:46] Starting &#39;sass&#39;...</span>
+<span class="err">[10:57:46] Finished &#39;sass&#39; after 28 ms</span>
 </code></pre></div>
 
 
@@ -331,16 +331,16 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami</p>
 <p><em>Adres:</em> https://www.npmjs.com/package/gulp-autoprefixer</p>
 <p><em>Instalacja:</em> npm install --save-dev gulp-autoprefixer</p>
 <p>Przykładowe zastosowanie:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span>  <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp</span><span class="s1">&#39;</span><span class="ss">)</span>
-<span class="nv">const</span>  <span class="nv">sass</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-sass</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">kompilator</span>
-<span class="nv">const</span> <span class="nv">autoprefixer</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-autoprefixer</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">dodanie</span> <span class="nv">wtyczki</span> <span class="nv">prefiksuj</span>ą<span class="nv">cej</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span>  <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">)</span>
+<span class="k">const</span>  <span class="n">sass</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp-sass&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">kompilator</span>
+<span class="k">const</span> <span class="n">autoprefixer</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp-autoprefixer&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">dodanie</span> <span class="n">wtyczki</span> <span class="n">prefiksującej</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">sass</span><span class="s1">&#39;</span>, <span class="nv">function</span><span class="ss">()</span>{
-    <span class="k">return</span> <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./src/sass/app.scss</span><span class="s1">&#39;</span><span class="ss">)</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">sass</span><span class="ss">())</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">autoprefixer</span><span class="ss">())</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">./dist/css</span><span class="s1">&#39;</span><span class="ss">))</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;sass&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s1">&#39;./src/sass/app.scss&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">sass</span><span class="p">())</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">autoprefixer</span><span class="p">())</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">gulp</span><span class="o">.</span><span class="n">dest</span><span class="p">(</span><span class="s1">&#39;./dist/css&#39;</span><span class="p">))</span>
+<span class="p">});</span>
 </code></pre></div>
 
 
@@ -351,19 +351,19 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami</p>
 </ul>
 <p>https://www.npmjs.com/package/gulp-jshint</p>
 <p>::: Wiele wtyczek naraz można instalować poprzez rozgraniczenie ich nazw spacją</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="n">jshint</span> <span class="n">gulp</span><span class="o">-</span><span class="n">jshint</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm install jshint gulp-jshint</span>
 </code></pre></div>
 
 
 <p>Wykorzystanie wtyczki jshint</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gulp</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">const</span> <span class="nv">jshint</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">gulp-jshint</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;gulp&quot;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">jshint</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;gulp-jshint&quot;</span><span class="p">);</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">task-name</span><span class="s2">&quot;</span>, <span class="nv">function</span><span class="ss">()</span> {
-    <span class="k">return</span> <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">js/*.js</span><span class="s2">&quot;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">wszystkie</span> <span class="nv">pliki</span> <span class="nv">js</span> <span class="nv">w</span> <span class="nv">folderze</span> <span class="nv">js</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">jshint</span><span class="ss">())</span> <span class="o">//</span> <span class="nv">wykorzystaj</span> <span class="nv">wtyczk</span>ę <span class="nv">jshint</span><span class="ss">()</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">jshint</span>.<span class="nv">reporter</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">default</span><span class="s2">&quot;</span><span class="ss">))</span> <span class="o">//</span> <span class="nv">w</span> <span class="nv">terminalu</span> <span class="nv">wydrukuj</span> <span class="nv">ew</span>. <span class="nv">problemy</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s2">&quot;task-name&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s2">&quot;js/*.js&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">wszystkie</span> <span class="n">pliki</span> <span class="n">js</span> <span class="n">w</span> <span class="n">folderze</span> <span class="n">js</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">jshint</span><span class="p">())</span> <span class="o">//</span> <span class="n">wykorzystaj</span> <span class="n">wtyczkę</span> <span class="n">jshint</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">jshint</span><span class="o">.</span><span class="n">reporter</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">))</span> <span class="o">//</span> <span class="n">w</span> <span class="n">terminalu</span> <span class="n">wydrukuj</span> <span class="n">ew</span><span class="o">.</span> <span class="n">problemy</span>
+<span class="p">});</span>
 </code></pre></div>
 
 
@@ -402,19 +402,19 @@ upewnia się by CSS był kompatybilny ze wszystkimi przeglądarkami</p>
 
 
 <p>Instalacja:</p>
-<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="c1">--save-dev gulp-useref</span>
+<div class="highlight"><pre><span></span><code><span class="err">npm install --save-dev gulp-useref</span>
 </code></pre></div>
 
 
 <p>Zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nv">const</span> <span class="nv">gulp</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp</span><span class="s1">&#39;</span><span class="ss">)</span>,
-    <span class="nv">useref</span> <span class="o">=</span> <span class="nv">require</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">gulp-useref</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">gulp</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">),</span>
+    <span class="n">useref</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;gulp-useref&#39;</span><span class="p">);</span>
 
-<span class="nv">gulp</span>.<span class="nv">task</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">default</span><span class="s1">&#39;</span>, <span class="nv">function</span> <span class="ss">()</span> {
-    <span class="k">return</span> <span class="nv">gulp</span>.<span class="nv">src</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">app/*.html</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="o">//</span> <span class="nv">wszystkie</span> <span class="nv">pliki</span> <span class="nv">html</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">useref</span><span class="ss">())</span>
-        .<span class="nv">pipe</span><span class="ss">(</span><span class="nv">gulp</span>.<span class="nv">dest</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">dist</span><span class="s1">&#39;</span><span class="ss">))</span><span class="c1">; // distribution</span>
-}<span class="ss">)</span><span class="c1">;</span>
+<span class="n">gulp</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">gulp</span><span class="o">.</span><span class="n">src</span><span class="p">(</span><span class="s1">&#39;app/*.html&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">wszystkie</span> <span class="n">pliki</span> <span class="n">html</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">useref</span><span class="p">())</span>
+        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">gulp</span><span class="o">.</span><span class="n">dest</span><span class="p">(</span><span class="s1">&#39;dist&#39;</span><span class="p">));</span> <span class="o">//</span> <span class="n">distribution</span>
+<span class="p">});</span>
 </code></pre></div>
 
 
