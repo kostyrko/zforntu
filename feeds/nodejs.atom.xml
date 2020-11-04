@@ -206,22 +206,21 @@
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://bitsofco.de/javascript-promises-101/"&gt;JavaScript Promises 101&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/promise.php"&gt;kursjs.pl - Callback i Promise&lt;/a&gt;&lt;/p&gt;</content><category term="nodejs"></category><category term="js"></category><category term="javascript"></category><category term="promises"></category><category term="ajax"></category></entry><entry><title>Node.js aktualizacja (Ubuntu)</title><link href="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html" rel="alternate"></link><published>2020-06-11T11:00:00+02:00</published><updated>2020-06-11T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-nodejs-aktualizacja.html</id><summary type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kursjs.pl/kurs/ajax/promise.php"&gt;kursjs.pl - Callback i Promise&lt;/a&gt;&lt;/p&gt;</content><category term="nodejs"></category><category term="js"></category><category term="javascript"></category><category term="promises"></category><category term="ajax"></category></entry><entry><title>Node.js aktualizacja (Ubuntu) oraz Node Version Manager!</title><link href="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html" rel="alternate"></link><published>2020-06-11T11:00:00+02:00</published><updated>2020-06-11T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-nodejs-aktualizacja.html</id><summary type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
 &lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
     node -v
     &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
 &lt;h4&gt;Moduł N z NMP&lt;/h4&gt;
 &lt;p&gt;Moduł &lt;a href="https://www.npmjs.com/package/n"&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;/a&gt; służy do interaktywnego zarządzani wersjami &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Kroki podjęte do instalacji najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Czyszczenie pamięci cache&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo npm cache …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
+&lt;p&gt;Czyszczenie pamięci cache (aby nie korzystać …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="node" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1024px-Node.js_logo.svg.png#center" width="50%"&gt;&lt;/p&gt;
 &lt;p&gt;Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki &lt;a href="https://nodejs.org/en/download/"&gt;Linux Binaries&lt;/a&gt; 
     node -v
     &amp;gt;&amp;gt; v10.19.0&lt;/p&gt;
 &lt;h4&gt;Moduł N z NMP&lt;/h4&gt;
 &lt;p&gt;Moduł &lt;a href="https://www.npmjs.com/package/n"&gt;&lt;strong&gt;n&lt;/strong&gt;&lt;/a&gt; służy do interaktywnego zarządzani wersjami &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Kroki podjęte do instalacji najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Czyszczenie pamięci cache&lt;/p&gt;
+&lt;p&gt;Czyszczenie pamięci cache (aby nie korzystać z sudo - innymi słowy by instalowane paczki nie miały dostępu do roota, należy korzystać z NVM - więcej na ten temat poniżej)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo npm cache clean -f&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -244,18 +243,18 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Instalacja NVM (uwaga v0.35.3 jest aktualną wersją, która ulegnie zmianie) - pobranie skryptu install_nvm.sh przy pomocy &lt;code&gt;culr&lt;/code&gt; (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z &lt;a href="https://github.com/nvm-sh/nvm/blob/master/install.sh"&gt;repo na GitHubie&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh -o install_nvm.sh&lt;/span&gt;
+&lt;p&gt;Instalacja NVM - pobranie skryptu install_nvm.sh przy pomocy &lt;code&gt;culr&lt;/code&gt; (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z &lt;a href="https://github.com/nvm-sh/nvm/blob/master/install.sh"&gt;repo na GitHubie&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Uruchomienie skryptu przy pomocy komendy &lt;code&gt;bash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;[być może będzie wymagane &lt;code&gt;. ~/nvm/nvm.sh&lt;/code&gt; - wskazanie na interpretację skryptu w danym procesie]&lt;/p&gt;
 &lt;p&gt;Pobranie, kompilacja i instalacja najnowszej wersji &lt;em&gt;Node.js&lt;/em&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nvm install node&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Zwrócenie listy dostępnych wersji &lt;/p&gt;
+&lt;p&gt;Zwrócenie listy dostępnych wersji&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nvm ls-remote&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -265,10 +264,45 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;lub ostatniej stablinej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nvm install stable&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Aby node działał właśnie poprzez NVM pozbyłem się wcześniej zainstalowanego noda&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo apt-get purge --auto-remove nodejs&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Znalezienie lokalizacji node.js&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;which node&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wykasowanie folderu z nodem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo rm -rf /usr/local/bin/node&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wskazanie nvm na używanie konkretnej wersji noda&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nvm use 12.19.0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Komenda &lt;code&gt;nvm current&lt;/code&gt;powinna zrówić wersję noda&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;nvm&lt;/span&gt; &lt;span class="k"&gt;current&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;  &lt;span class="n"&gt;v12&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages&lt;/p&gt;
-&lt;p&gt;https://github.com/nodesource/distributions/blob/master/README.md&lt;/p&gt;
-&lt;p&gt;https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version&lt;/p&gt;
-&lt;p&gt;https://github.com/nvm-sh/nvm&lt;/p&gt;
-&lt;p&gt;https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04&lt;/p&gt;</content><category term="nodejs"></category><category term="node.js"></category><category term="node"></category><category term="nvm"></category><category term="aktualizacja"></category><category term="linux"></category><category term="ubuntu"></category><category term="bash"></category><category term="curl"></category><category term="npm"></category></entry></feed>
+&lt;p&gt;&lt;a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages"&gt;Installing Node.js via package manager&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/nodesource/distributions/blob/master/README.md"&gt;NodeSource Node.js Binary Distributions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version"&gt;How can I update my nodeJS to the latest version?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/nvm-sh/nvm"&gt;Node Version Manager&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/30666177/jshint-is-not-working"&gt;JSHint is not working&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.liquidweb.com/kb/how-to-install-node-js-via-nvm-node-version-manager-on-ubuntu-14-04-lts/"&gt;How to Install Node.js via NVM on Ubuntu 14.04 LTS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://askubuntu.com/questions/786015/how-to-remove-nodejs-from-ubuntu-16-04"&gt;How to remove nodejs from Ubuntu 16.04?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://askubuntu.com/questions/217893/how-to-delete-a-non-empty-directory-in-terminal"&gt;How to delete a non-empty directory in Terminal?&lt;/a&gt;&lt;/p&gt;</content><category term="nodejs"></category><category term="node.js"></category><category term="node"></category><category term="nvm"></category><category term="aktualizacja"></category><category term="linux"></category><category term="ubuntu"></category><category term="bash"></category><category term="curl"></category><category term="npm"></category><category term="node version manager"></category></entry></feed>

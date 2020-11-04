@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki Linux Binaries node -v &gt;&gt; v10.19.0 Moduł N z NMP Moduł n służy do interaktywnego zarządzani wersjami Node.js Kroki podjęte do instalacji najnowszej wersji Node.js Czyszczenie pamięci cache sudo npm cache …" />
-<meta name="keywords" content="node.js, node, nvm, aktualizacja, linux, ubuntu, bash, curl, npm">
+<meta name="description" content="Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki Linux Binaries node -v &gt;&gt; v10.19.0 Moduł N z NMP Moduł n służy do interaktywnego zarządzani wersjami Node.js Kroki podjęte do instalacji najnowszej wersji Node.js Czyszczenie pamięci cache (aby nie korzystać …" />
+<meta name="keywords" content="node.js, node, nvm, aktualizacja, linux, ubuntu, bash, curl, npm, node version manager">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="Node.js aktualizacja (Ubuntu)"/>
-<meta property="og:description" content="Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki Linux Binaries node -v &gt;&gt; v10.19.0 Moduł N z NMP Moduł n służy do interaktywnego zarządzani wersjami Node.js Kroki podjęte do instalacji najnowszej wersji Node.js Czyszczenie pamięci cache sudo npm cache …"/>
+<meta property="og:title" content="Node.js aktualizacja (Ubuntu) oraz Node Version Manager!"/>
+<meta property="og:description" content="Moja pierwsza instalacja node.js na Ubuntu odbyła się poprzez pobranie paczki i instalację zawartości paczki Linux Binaries node -v &gt;&gt; v10.19.0 Moduł N z NMP Moduł n służy do interaktywnego zarządzani wersjami Node.js Kroki podjęte do instalacji najnowszej wersji Node.js Czyszczenie pamięci cache (aby nie korzystać …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-nodejs-aktualizacja.html"/>
 <meta property="og:type" content="article"/>
@@ -73,9 +73,10 @@
 <meta property="article:tag" content="bash"/>
 <meta property="article:tag" content="curl"/>
 <meta property="article:tag" content="npm"/>
+<meta property="article:tag" content="node version manager"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; Node.js aktualizacja (Ubuntu)</title>
+  <title>...z frontu &ndash; Node.js aktualizacja (Ubuntu) oraz Node Version Manager!</title>
 
 </head>
 <body>
@@ -147,11 +148,11 @@
 <article class="single">
   <header>
       
-    <h1 id="js-nodejs-aktualizacja">Node.js aktualizacja (Ubuntu)</h1>
+    <h1 id="js-nodejs-aktualizacja">Node.js aktualizacja (Ubuntu) oraz Node Version Manager!</h1>
     <p>
       Opublikowano czw 11 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/nodejs.html">nodejs</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
@@ -164,7 +165,7 @@
 <h4>Moduł N z NMP</h4>
 <p>Moduł <a href="https://www.npmjs.com/package/n"><strong>n</strong></a> służy do interaktywnego zarządzani wersjami <em>Node.js</em></p>
 <p>Kroki podjęte do instalacji najnowszej wersji <em>Node.js</em></p>
-<p>Czyszczenie pamięci cache</p>
+<p>Czyszczenie pamięci cache (aby nie korzystać z sudo - innymi słowy by instalowane paczki nie miały dostępu do roota, należy korzystać z NVM - więcej na ten temat poniżej)</p>
 <div class="highlight"><pre><span></span><code><span class="err">sudo npm cache clean -f</span>
 </code></pre></div>
 
@@ -187,18 +188,18 @@
 </code></pre></div>
 
 
-<p>Instalacja NVM (uwaga v0.35.3 jest aktualną wersją, która ulegnie zmianie) - pobranie skryptu install_nvm.sh przy pomocy <code>culr</code> (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z <a href="https://github.com/nvm-sh/nvm/blob/master/install.sh">repo na GitHubie</a></p>
-<div class="highlight"><pre><span></span><code><span class="err">curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh -o install_nvm.sh</span>
+<p>Instalacja NVM - pobranie skryptu install_nvm.sh przy pomocy <code>culr</code> (klonuje repozytorium nvm do ~/.nvm) lub bezpośrednio z <a href="https://github.com/nvm-sh/nvm/blob/master/install.sh">repo na GitHubie</a></p>
+<div class="highlight"><pre><span></span><code><span class="err">curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash</span>
 </code></pre></div>
 
 
-<p>Uruchomienie skryptu przy pomocy komendy <code>bash</code></p>
+<p>[być może będzie wymagane <code>. ~/nvm/nvm.sh</code> - wskazanie na interpretację skryptu w danym procesie]</p>
 <p>Pobranie, kompilacja i instalacja najnowszej wersji <em>Node.js</em></p>
 <div class="highlight"><pre><span></span><code><span class="err">nvm install node</span>
 </code></pre></div>
 
 
-<p>Zwrócenie listy dostępnych wersji </p>
+<p>Zwrócenie listy dostępnych wersji</p>
 <div class="highlight"><pre><span></span><code><span class="err">nvm ls-remote</span>
 </code></pre></div>
 
@@ -208,13 +209,48 @@
 </code></pre></div>
 
 
+<p>lub ostatniej stablinej</p>
+<div class="highlight"><pre><span></span><code><span class="err">nvm install stable</span>
+</code></pre></div>
+
+
+<p>Aby node działał właśnie poprzez NVM pozbyłem się wcześniej zainstalowanego noda</p>
+<div class="highlight"><pre><span></span><code><span class="err">sudo apt-get purge --auto-remove nodejs</span>
+</code></pre></div>
+
+
+<p>Znalezienie lokalizacji node.js</p>
+<div class="highlight"><pre><span></span><code><span class="err">which node</span>
+</code></pre></div>
+
+
+<p>Wykasowanie folderu z nodem</p>
+<div class="highlight"><pre><span></span><code><span class="err">sudo rm -rf /usr/local/bin/node</span>
+</code></pre></div>
+
+
+<p>Wskazanie nvm na używanie konkretnej wersji noda</p>
+<div class="highlight"><pre><span></span><code><span class="err">nvm use 12.19.0</span>
+</code></pre></div>
+
+
+<p>Komenda <code>nvm current</code>powinna zrówić wersję noda</p>
+<div class="highlight"><pre><span></span><code><span class="n">nvm</span> <span class="k">current</span>
+
+<span class="o">&gt;&gt;</span>  <span class="n">v12</span><span class="p">.</span><span class="mi">19</span><span class="p">.</span><span class="mi">0</span>
+</code></pre></div>
+
+
 <hr>
 <p>Źródła:</p>
-<p>https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages</p>
-<p>https://github.com/nodesource/distributions/blob/master/README.md</p>
-<p>https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version</p>
-<p>https://github.com/nvm-sh/nvm</p>
-<p>https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04</p>
+<p><a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages">Installing Node.js via package manager</a></p>
+<p><a href="https://github.com/nodesource/distributions/blob/master/README.md">NodeSource Node.js Binary Distributions</a></p>
+<p><a href="https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version">How can I update my nodeJS to the latest version?</a></p>
+<p><a href="https://github.com/nvm-sh/nvm">Node Version Manager</a></p>
+<p><a href="https://stackoverflow.com/questions/30666177/jshint-is-not-working">JSHint is not working</a></p>
+<p><a href="https://www.liquidweb.com/kb/how-to-install-node-js-via-nvm-node-version-manager-on-ubuntu-14-04-lts/">How to Install Node.js via NVM on Ubuntu 14.04 LTS</a></p>
+<p><a href="https://askubuntu.com/questions/786015/how-to-remove-nodejs-from-ubuntu-16-04">How to remove nodejs from Ubuntu 16.04?</a></p>
+<p><a href="https://askubuntu.com/questions/217893/how-to-delete-a-non-empty-directory-in-terminal">How to delete a non-empty directory in Terminal?</a></p>
   </div>
   <div class="tag-cloud">
     <p>
@@ -227,6 +263,7 @@
       <a href="https://kostyrko.github.io/zfrontu/tag/bash.html">bash</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/curl.html">curl</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/npm.html">npm</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/node-version-manager.html">node version manager</a>
     </p>
   </div>
 

@@ -147,7 +147,7 @@
     <p>
       Opublikowano nie 30 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
 
-        &#8226; 2 min read
+        &#8226; 3 min read
     </p>
   </header>
 
@@ -170,8 +170,14 @@ Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. pr
 </code></pre></div>
 
 
+<p>Wskazanie <em>konsumenta</em> odbywa się poprzez opakowanie go w kompontent wyżeszgo tympanus</p>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;MyContext.Consumer&gt;</span>
+</code></pre></div>
+
+
 <p>Następnie w komponencie odbierającym/konsumenckim w odpowiedni sposób należy przypisać do niego kontekst wykorzystując właściwość <code>contextType</code> (komponent klasowy) lub <code>consumer</code> (komponent funkcyjny). Przypisanie odbywa się po za blokiem klasy komponentu oraz odwołując się do właściwości <em>consumer</em> komponentu funkcyjnego.</p>
-<p>W przypadku komponentów funkcyjnych można również skorzystać z hooka <code>useContext</code></p>
+<p>W przypadku komponentów funkcyjnych można również skorzystać z hooka <code>useContext</code> i tą opcję uważam za najprostszą</p>
+<p>(<a href="https://reactjs.org/docs/context.html">źródło poniższych przykładów</a>)</p>
 <div class="highlight"><pre><span></span><code><span class="o">==========</span> <span class="n">Komponent</span> <span class="n">klasowy</span> <span class="o">===========</span>
 <span class="o">//</span> <span class="n">context</span><span class="o">.</span><span class="n">js</span>
 <span class="n">let</span> <span class="n">MyContext</span> <span class="o">=</span> <span class="n">React</span><span class="o">.</span><span class="n">createContext</span><span class="p">(</span><span class="n">defaultValue</span><span class="p">);</span>
@@ -192,6 +198,7 @@ Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. pr
 
 
 <span class="o">==========</span> <span class="n">Komponent</span> <span class="n">funkcyjny</span> <span class="o">===========</span>
+
 <span class="o">&lt;</span><span class="n">MyContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
 <span class="p">{</span><span class="n">value</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
@@ -218,7 +225,7 @@ Na jakiego typu danych może nam zależeć aby były dostępne globalnie? Np. pr
 
 
 <hr>
-<h3>Przykład zastosowania Context API</h3>
+<h3>Przykład zastosowania Context API - jednostronne</h3>
 <p>Poniższy przykład za <a href="https://reactjs.org/docs/hooks-reference.html#usecontext">reactjs.org - Hooks API Reference</a></p>
 <div class="highlight"><pre><span></span><code>const themes = {
   light: {
@@ -249,6 +256,7 @@ function Toolbar(props) {
   );
 }
 
+// komponent będący konsumentem
 function ThemedButton() {
   const theme = useContext(ThemeContext);
   return (
@@ -261,11 +269,180 @@ function ThemedButton() {
 
 
 <hr>
+<h3>Dynamiczny kontekst</h3>
+<p>Aby kontekst edytować, podobnie jak w przypadku dziedziczenia oraz przekazywania właściwości przy pomocy drylowania również i tutaj należy stworzyć funkcję/metodę, która pozwoli na jego edycję a następnie należy ją przekazać lub rozpakować (w zależności od wybranego podejścia zastosowania) w komponencie będącym providerem/dostawcą.</p>
+<p>Przykładowo </p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">theme</span><span class="o">-</span><span class="n">context</span><span class="o">.</span><span class="n">js</span> <span class="p">(</span><span class="n">plik</span> <span class="n">przechowujący</span> <span class="n">kontekst</span><span class="p">)</span>
+
+  <span class="n">const</span> <span class="n">themes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">light</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">foreground</span><span class="p">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span>
+      <span class="n">background</span><span class="p">:</span> <span class="s1">&#39;#eeeeee&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">dark</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">foreground</span><span class="p">:</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">,</span>
+      <span class="n">background</span><span class="p">:</span> <span class="s1">&#39;#222222&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+
+<span class="n">export</span> <span class="n">const</span> <span class="n">ThemeContext</span> <span class="o">=</span> <span class="n">React</span><span class="o">.</span><span class="n">createContext</span><span class="p">({</span>
+  <span class="n">theme</span><span class="p">:</span> <span class="n">themes</span><span class="o">.</span><span class="n">dark</span><span class="p">,</span>  
+  <span class="n">toggleTheme</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{},})</span>
+
+<span class="o">=================================</span>
+
+<span class="o">//</span> <span class="n">theme</span><span class="o">-</span><span class="n">toggler</span><span class="o">-</span><span class="n">button</span><span class="o">.</span><span class="n">js</span> <span class="p">(</span><span class="n">tu</span> <span class="n">wykorzystywany</span> <span class="n">jest</span> <span class="n">kontekst</span><span class="p">)</span>
+  <span class="o">&lt;</span><span class="n">ThemeContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+  <span class="p">{({</span><span class="n">theme</span><span class="p">,</span> <span class="n">toggleTheme</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">(</span>        
+    <span class="o">&lt;</span><span class="n">button</span>
+      <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">toggleTheme</span><span class="p">}</span>
+      <span class="n">style</span><span class="o">=</span><span class="p">{{</span><span class="n">backgroundColor</span><span class="p">:</span> <span class="n">theme</span><span class="o">.</span><span class="n">background</span><span class="p">}}</span><span class="o">&gt;</span>
+      <span class="n">Toggle</span> <span class="n">Theme</span>
+    <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+  <span class="p">)}</span>
+<span class="o">&lt;/</span><span class="n">ThemeContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+
+
+<span class="o">=================</span>
+<span class="o">//</span> <span class="n">app</span><span class="o">.</span><span class="n">js</span> <span class="p">(</span><span class="n">aplikacja</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="p">{</span><span class="n">ThemeContext</span><span class="p">,</span> <span class="n">themes</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./theme-context&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ThemeTogglerButton</span> <span class="nn">from</span> <span class="s1">&#39;./theme-toggler-button&#39;</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">App</span> <span class="n">extends</span> <span class="n">React</span><span class="o">.</span><span class="n">Component</span> <span class="p">{</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">props</span><span class="p">);</span>
+
+    <span class="n">this</span><span class="o">.</span><span class="n">toggleTheme</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">state</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="n">theme</span><span class="p">:</span>
+          <span class="n">state</span><span class="o">.</span><span class="n">theme</span> <span class="o">===</span> <span class="n">themes</span><span class="o">.</span><span class="n">dark</span>
+            <span class="err">?</span> <span class="n">themes</span><span class="o">.</span><span class="n">light</span>
+            <span class="p">:</span> <span class="n">themes</span><span class="o">.</span><span class="n">dark</span><span class="p">,</span>
+      <span class="p">}));</span>
+    <span class="p">};</span>
+
+    <span class="o">//</span> <span class="n">State</span> <span class="n">also</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">updater</span> <span class="n">function</span> <span class="n">so</span> <span class="n">it</span> <span class="n">will</span>    <span class="o">//</span> <span class="n">be</span> <span class="n">passed</span> <span class="n">down</span> <span class="n">into</span> <span class="n">the</span> <span class="n">context</span> <span class="n">provider</span>    <span class="n">this</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">theme</span><span class="p">:</span> <span class="n">themes</span><span class="o">.</span><span class="n">light</span><span class="p">,</span>
+      <span class="n">toggleTheme</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">toggleTheme</span><span class="p">,</span>    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">The</span> <span class="n">entire</span> <span class="n">state</span> <span class="ow">is</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">provider</span>    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="n">ThemeContext</span><span class="o">.</span><span class="n">Provider</span> <span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="p">}</span><span class="o">&gt;</span>        <span class="o">&lt;</span><span class="n">Content</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="n">ThemeContext</span><span class="o">.</span><span class="n">Provider</span><span class="o">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">function</span> <span class="n">Content</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">ThemeTogglerButton</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">&lt;</span><span class="n">App</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="n">document</span><span class="o">.</span><span class="n">root</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>=================================</p>
+<p>Inny przykład - wykorzystyjący hook useContext (<a href="https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component">źródło przykładu</a>)</p>
+<div class="highlight"><pre><span></span><code>// context.js
+const LanguageContext = React.createContext({
+  language: &quot;en&quot;,
+  setLanguage: () =&gt; {}
+});
+
+
+//LanguageSwitcher.js Context Consumer
+const LanguageSwitcher = () =&gt; {
+  const { language, setLanguage } = useContext(LanguageContext);
+  return (
+    <span class="nt">&lt;button</span> <span class="na">onClick=</span><span class="s">{()</span> <span class="err">=</span><span class="nt">&gt;</span> setLanguage(&quot;jp&quot;)}&gt;
+      Switch Language (Current: {language})
+    <span class="nt">&lt;/button&gt;</span>
+  );
+};
+
+// App.js
+const App = () =&gt; {
+  const [language, setLanguage] = useState(&quot;en&quot;);
+  const value = { language, setLanguage };
+
+  return (
+    <span class="nt">&lt;LanguageContext.Provider</span> <span class="na">value=</span><span class="s">{value}</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>Current Language: {language}<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;p&gt;</span>Click button to change to jp<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;div&gt;</span>
+        {/* Can be nested */}
+        <span class="nt">&lt;LanguageSwitcher</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/LanguageContext.Provider&gt;</span>
+  );
+};
+</code></pre></div>
+
+
+<p>Ten sam przykład klasowo -&gt;</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">context</span><span class="o">.</span><span class="n">js</span>
+<span class="k">const</span> <span class="n">LanguageContext</span> <span class="o">=</span> <span class="n">React</span><span class="o">.</span><span class="n">createContext</span><span class="p">({</span>
+  <span class="n">language</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+  <span class="n">setLanguage</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+<span class="p">});</span>
+
+<span class="o">//</span> <span class="n">konsumer</span> <span class="n">LanguageSwitcher</span><span class="o">.</span><span class="n">js</span>
+
+<span class="k">class</span> <span class="n">LanguageSwitcher</span> <span class="k">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="n">LanguageContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+        <span class="p">{({</span> <span class="n">language</span><span class="p">,</span> <span class="n">setLanguage</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="n">setLanguage</span><span class="p">(</span><span class="s2">&quot;jp&quot;</span><span class="p">)}</span><span class="o">&gt;</span>
+            <span class="n">Switch</span> <span class="n">Language</span> <span class="p">(</span><span class="n">Current</span><span class="p">:</span> <span class="p">{</span><span class="n">language</span><span class="p">})</span>
+          <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+        <span class="p">)}</span>
+      <span class="o">&lt;/</span><span class="n">LanguageContext</span><span class="o">.</span><span class="n">Consumer</span><span class="o">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">App</span><span class="o">.</span><span class="n">js</span> <span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">App</span> <span class="k">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="n">setLanguage</span> <span class="o">=</span> <span class="n">language</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">({</span> <span class="n">language</span> <span class="p">});</span>
+  <span class="p">};</span>
+
+  <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">language</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+    <span class="n">setLanguage</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">setLanguage</span>
+  <span class="p">};</span>
+
+  <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="n">LanguageContext</span><span class="o">.</span><span class="n">Provider</span> <span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Current</span> <span class="n">Language</span><span class="p">:</span> <span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">language</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Click</span> <span class="n">button</span> <span class="n">to</span> <span class="n">change</span> <span class="n">to</span> <span class="n">jp</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+          <span class="p">{</span><span class="o">/*</span> <span class="n">Can</span> <span class="n">be</span> <span class="n">nested</span> <span class="o">*/</span><span class="p">}</span>
+          <span class="o">&lt;</span><span class="n">LanguageSwitcher</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">LanguageContext</span><span class="o">.</span><span class="n">Provider</span><span class="o">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<hr>
 <p>Źródła:</p>
 <p><a href="https://pl.reactjs.org/docs/context.html">pl.reactjs.org - Kontekst</a></p>
 <p><a href="https://www.carlrippon.com/playing-with-the-context-api-in-react-16-3/">Playing with the Context API in React 16.3</a></p>
 <p><a href="https://codesource.io/getting-started-with-react-context-api/">Getting Started with React Context API</a></p>
 <p><a href="https://ramonak.io/posts/react-context-api-update-from-nested-component">React Context API: updating Context from a nested component (in functional components with Hooks and class components)</a></p>
+<p><a href="https://www.youtube.com/watch?v=SpG3NUMiPwA">Context API - React.js dla początkujących</a></p>
   </div>
   <div class="tag-cloud">
     <p>
