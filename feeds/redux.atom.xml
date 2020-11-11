@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - redux</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/redux.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-08T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React + Redux: prosty przykład zastosowania</title><link href="https://kostyrko.github.io/zfrontu/redux-prosty-przyklad.html" rel="alternate"></link><published>2020-11-08T10:00:00+01:00</published><updated>2020-11-08T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-08:/zfrontu/redux-prosty-przyklad.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/1838/0*95tBOgxEPQAVq9YO.png"&gt;&lt;/p&gt;
+&lt;p&gt;Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1)&lt;/strong&gt; Instalacja narzędzi/zależności&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    npx create-react-app &amp;lt;nazwa_projektu&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;    npm i redux react-redux&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;2)&lt;/strong&gt; Struktura projektu (istotne pliki/te które są edytowane oraz które zostaną/ły dodane)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    {public}&lt;/span&gt;
+&lt;span class="err"&gt;    |&lt;/span&gt;
+&lt;span class="err"&gt;    |_ [...]&lt;/span&gt;
+&lt;span class="err"&gt;    {src}&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |_ {actions …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/1838/0*95tBOgxEPQAVq9YO.png"&gt;&lt;/p&gt;
+&lt;p&gt;Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1)&lt;/strong&gt; Instalacja narzędzi/zależności&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    npx create-react-app &amp;lt;nazwa_projektu&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;    npm i redux react-redux&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;2)&lt;/strong&gt; Struktura projektu (istotne pliki/te które są edytowane oraz które zostaną/ły dodane)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    {public}&lt;/span&gt;
+&lt;span class="err"&gt;    |&lt;/span&gt;
+&lt;span class="err"&gt;    |_ [...]&lt;/span&gt;
+&lt;span class="err"&gt;    {src}&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |_ {actions}&lt;/span&gt;
+&lt;span class="err"&gt;        |    |&lt;/span&gt;
+&lt;span class="err"&gt;        |    | --- index.js&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |_ {reducers}&lt;/span&gt;
+&lt;span class="err"&gt;        |    |&lt;/span&gt;
+&lt;span class="err"&gt;        |    | --- index.js&lt;/span&gt;
+&lt;span class="err"&gt;        |    | --- counter.js&lt;/span&gt;
+&lt;span class="err"&gt;        |    | --- isLogged.js&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |---App.js&lt;/span&gt;
+&lt;span class="err"&gt;        |---index.js&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        [...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;3)&lt;/strong&gt; &lt;strong&gt;&amp;gt;&amp;gt;index.js&amp;lt;&amp;lt;&lt;/strong&gt;
+- tutaj należy stworzyć store oraz zaimportować reduktory 
+- window.&lt;strong&gt;REDUX_DEVTOOLS_EXTENSION&lt;/strong&gt; &amp;amp;&amp;amp; window.&lt;strong&gt;REDUX_DEVTOOLS_EXTENSION&lt;/strong&gt;() [wcześniej window.devToolsExtension] jest przydatne w momencie tworzenia układu stanu za pomocą Reduxa, gdy nie jest jeszcze podpięty z Reactem (umożliwia komunikację z Redux Dev Tools, więcej na ten temat tutaj: &lt;a href="http://extension.remotedev.io/"&gt;Redux DevTools Extension&lt;/a&gt;)
+- App jest wskazany jako Provider (komponent wyższego rzędu) gdzie jako props przekazywany jest store&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ReactDOM&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-dom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;./index.css&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;App&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;./App&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;createStore&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;redux&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;allReducers&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./reducers&amp;#39;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react-redux&amp;#39;&lt;/span&gt;
+
+
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;createStore&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;allReducers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__REDUX_DEVTOOLS_EXTENSION__&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__REDUX_DEVTOOLS_EXTENSION__&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+
+    &lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;root&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;4)&lt;/strong&gt; &lt;strong&gt;&amp;gt;&amp;gt;{reducers}&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;w tym folderze w poszczególnych plikach przechowywane są reduktory - funkcje tworzące nowy stan&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;isLogged.js&lt;/strong&gt; - loggedReducer przyjmuje 2 arg. 1. stan = false oraz akcję, jeśli typ akcji będzie równy SIGN_IN wówczas stan zostanie zmieniony na True&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;loggedReducer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;switch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SIGN_IN&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;loggedReducer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;counter.js&lt;/strong&gt; - counterReducer przyjmuje 2 arg. 1 stan = 0 oraz akcję (będącą obiektem) jeśli typ akcji jest równy INCREMENT wówczas należy stan zwiększyć o wartość zawartą w &lt;strong&gt;action.payload&lt;/strong&gt; a jeśli DECREMENT - odjąć 1.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;counterReducer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;switch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;INCREMENT&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;payload&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;DECREMENT&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;index.js&lt;/strong&gt; - skupie w sobie reduktory (przy pomocy combineReducers) i eksportuje w postaci obiektu &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;counterReducer&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./counter&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;loggedReducer&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./isLogged&amp;#39;&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;combineReducers&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;redux&amp;#39;&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;allReducers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;combineReducers&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+    &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;counterReducer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;isLogged&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;loggedReducer&lt;/span&gt; 
+&lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;allReducers&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;5)&lt;/strong&gt; &lt;strong&gt;&amp;gt;&amp;gt;{actions}&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;index.js&lt;/strong&gt; - zawiera akcje (faktyczne funkcje zwracające obiekty do których należy odwołać się w komponentach), funkcja &lt;em&gt;increment&lt;/em&gt; przyjmuje jeden argument, którego wartość przechowywana jest w zmiennej o nazwie &lt;strong&gt;payload&lt;/strong&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;INCREMENT&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;payload&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;decrement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;DECREMENT&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;6)&lt;/strong&gt; &lt;strong&gt;&amp;gt;&amp;gt;App.js&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;aplikacja - wymaga zaimportowania akcji oraz 2 hooków &lt;strong&gt;useSelectors&lt;/strong&gt; oraz &lt;strong&gt;useDispatch&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;useSelectors&lt;/strong&gt; jest wykorzystywany do stworzenia funkcji zmieniającej stan przy użyciu akcji&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;useDispatch&lt;/strong&gt; jest wykorzystywany do aktualizacji stanu&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;./App.css&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;useSelector&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;useDispatch&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;react-redux&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;decrement&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;./actions&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;counter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useSelector&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;isLogged&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useSelector&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isLogged&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useDispatch&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt; &lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;App&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Counter&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{()&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;+&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{()&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;decrement&lt;/span&gt;&lt;span class="p"&gt;())}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;-&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;isLogged&lt;/span&gt; &lt;span class="err"&gt;?&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Info&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;seen&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;logged&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Źródła&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=CVpUuw9XSjY&amp;amp;ab_channel=DevEd"&gt;Redux For Beginners | React Redux Tutorial - Dev Ed&lt;/a&gt;&lt;/p&gt;</content><category term="redux"></category><category term="react"></category><category term="redux"></category><category term="Redux DevTools Extension"></category></entry><entry><title>Redux: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/redux-wprowadzenie.html" rel="alternate"></link><published>2020-11-06T10:00:00+01:00</published><updated>2020-11-06T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-06:/zfrontu/redux-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-logo" src="https://chriscourses.com/img/blog/redux/redux.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Redux - kontener stanu&lt;/h2&gt;
+&lt;p&gt;Redux jest biblioteką do zarządzania stanem dla całej aplikacji ("kontenerem stanu") w sposób ponadkomponentowy (współpracuje min. z Reactem oraz Angularem)&lt;/p&gt;
+&lt;p&gt;Poniżej opiszę parę kluczowych pojęć do pracy z Reduxem&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Store - miejsce przechowywania stanu&lt;/h3&gt;
+&lt;p&gt;Store (przechowalnia) - jest obiektem przechowującym stan aplikacji i jest tworzony przez reduktora/reducera&lt;/p&gt;
+&lt;p&gt;Store …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="redux-logo" src="https://chriscourses.com/img/blog/redux/redux.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Redux - kontener stanu&lt;/h2&gt;
+&lt;p&gt;Redux jest biblioteką do zarządzania stanem dla całej aplikacji ("kontenerem stanu") w sposób ponadkomponentowy (współpracuje min. z Reactem oraz Angularem)&lt;/p&gt;
+&lt;p&gt;Poniżej opiszę parę kluczowych pojęć do pracy z Reduxem&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Store - miejsce przechowywania stanu&lt;/h3&gt;
+&lt;p&gt;Store (przechowalnia) - jest obiektem przechowującym stan aplikacji i jest tworzony przez reduktora/reducera&lt;/p&gt;
+&lt;p&gt;Store posiada metodę &lt;code&gt;getState&lt;/code&gt; które zwraca aktualną wartość stanu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;configureStore&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@reduxjs/toolkit&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;configureStore&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt; &lt;span class="n"&gt;reducer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;counterReducer&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Dispatch - wywołanie wydarzenia&lt;/h3&gt;
+&lt;p&gt;Metoda należąca do obiektu kontenera stanu - &lt;em&gt;store&lt;/em&gt;, która jest odpowiedzialna za aktualizację stanu -&amp;gt; Należy odwołać się do &lt;code&gt;store.dispatch()&lt;/code&gt; i przekazać do niej obiekt akcji (przedstawiony poniżej) - wywoła akcję reduktora&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Akcje - zmiany stanu aplikacji&lt;/h3&gt;
+&lt;p&gt;obiekt JS, który posiada pole typu &lt;code&gt;type&lt;/code&gt; -&amp;gt; zawiera opis danej akcji (event), która zachodzi w ramach aplikacji. Do pola &lt;code&gt;type&lt;/code&gt; powinien być przypisany string opisujący/nazywający dane wydarzenie. Zwyczajowo stosuje się wzór "domain/eventName" ("kategoria/konkretneWydarzenieKtóreZachodzi") np. "todos/todoAdded". Do pola o nazwie &lt;code&gt;payload&lt;/code&gt; (przyjęta konwencja/ faktycznie nazwa może być dowolna)&lt;/p&gt;
+&lt;p&gt;(źródło przykładów &lt;a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts"&gt;Redux Essentials, Part 1: Redux Overview and Concepts&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;addTodoAction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;todos/todoAdded&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;payload&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Buy milk&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Kreator akcji&lt;/strong&gt; - jest funkcją która tworzy i zwraca obiekt akcji (zwalnia z każdorazowego pisania obiektu akcji)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;addTodo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;todos/todoAdded&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;payload&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Reducer/Reduktor: (state, action) =&amp;gt; newState&lt;/h3&gt;
+&lt;p&gt;Funkcja przyjmująca &lt;strong&gt;stan&lt;/strong&gt; aplikacji oraz &lt;strong&gt;akcję&lt;/strong&gt; - na tej podstawie wytwarza nowy stan. Reduktor Reduxa jest porównywany do event listenera, który zajmuje się wydarzeniami w zależności od wykonywanego zdarzenia.&lt;/p&gt;
+&lt;p&gt;Zasady reduktora:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;oblicza nowy stan na podstawie akcji oraz stanu&lt;/li&gt;
+&lt;li&gt;nie modyfikuje stanu a kopiuje stan pracuje na tej kopiowania&lt;/li&gt;
+&lt;li&gt;nie zajmuje się logiką asynchroniczną&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Zwyczajowe zasady pracy reduktora
+- sprawdza czy reduktor jest powiązany ze zdażeniem
+- jeśli tak to tworzy kopię stanu i zmienia kopię w zależności od nowych wartości a następnie zwraca zmienioną kopię
+- w przeciwnym przypadku zwraca stan niezmieniony&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;initialState&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+
+  &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;counterReducer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;initialState&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;action&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;Check&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;see&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;reducer&lt;/span&gt; &lt;span class="n"&gt;cares&lt;/span&gt; &lt;span class="n"&gt;about&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="k"&gt;action&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;action&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;counter/increment&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+      &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;`state`&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt;
+        &lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;value&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+      &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;otherwise&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;existing&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="n"&gt;unchanged&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Selectors - selektor części informacji&lt;/h3&gt;
+&lt;p&gt;funkcje, które pozwalają na pozyskanie części informacji przechowywanych przez kontener (&lt;em&gt;store&lt;/em&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;selectCounterValue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;currentValue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;selectCounterValue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;currentValue&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Connect - łącznik Reacta z Reduxem&lt;/h3&gt;
+&lt;p&gt;Funkcja łącząca Redux z Reactem więcej na ten temat tutaj: &lt;a href="https://react-redux.js.org/api/connect"&gt;connect() - API Reference&lt;/a&gt; lub w dalszych postach.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Redux Toolkit - zestaw narzędzi do stworzenia środowiska Reduxowego&lt;/h3&gt;
+&lt;p&gt;więcej informacji tutaj: &lt;a href="https://redux-toolkit.js.org/tutorials/basic-tutorial"&gt;Redux Toolkit&lt;/a&gt; lub w dalszych postach&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Grafika przedstawiająca relacje pomiędzy opisanymi powyżej częściami środowiska Redux&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="redux-relacje grafika" src="https://res.cloudinary.com/practicaldev/image/fetch/s--V1XmAEPc--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://i.stack.imgur.com/LNQwH.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Redux DevTools&lt;/h3&gt;
+&lt;p&gt;Narzędzie przeglądarki do pracy z Reduxem
+&lt;a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en"&gt;dla Chroma&lt;/a&gt; oraz &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/"&gt;FireFoxa&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Parę obrazów z użycia narzędzia oraz ich, krótki opis&lt;/p&gt;
+&lt;p&gt;&lt;img alt="redux-trace" src="https://redux.js.org/assets/images/devtools-done-clicking-8826e622b87734ea2a0044233a2a642f.png"&gt;&lt;/p&gt;
+&lt;p&gt;Zakładka &lt;strong&gt;action&lt;/strong&gt; - ukazuje rodzaj aktualizacji
+&lt;strong&gt;State&lt;/strong&gt; zachowanie się stanu oraz &lt;strong&gt;Diff&lt;/strong&gt; wskazuje na różnicę jaka się wykonała&lt;/p&gt;
+&lt;p&gt;&lt;img alt="redux-trace" src="https://redux.js.org/assets/images/devtools-action-stacktrace-8ee180838c97840a749b9209e80c8a72.png"&gt;&lt;/p&gt;
+&lt;p&gt;Redux trace - ukazuje w którym miejscu kod, wysyła dane żądanie (ma wpływ na zmianę stanu)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Więcej na powyższy temat: &lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://redux.js.org/tutorials/essentials/part-2-app-structure"&gt;Redux-dokumentacja-tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts"&gt;Redux Essentials, Part 1: Redux Overview and Concepts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://typeofweb.com/react-redux-kurs-wprowadzenie-i-podstawy/"&gt;React + Redux — kurs: wprowadzenie i podstawy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dev.to/ibrahima92/7-steps-to-understand-react-redux-121j"&gt;7 steps to understand React Redux&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dev.to/ibrahima92/redux-vs-react-context-which-one-should-you-choose-2hhh"&gt;Redux VS React Context: Which one should you choose?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.valentinog.com/blog/redux/"&gt;React Redux Tutorial for Beginners: The Complete Guide (2020)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;YT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=qIaLloDosxs&amp;amp;list=PLOzzvlJKwOdWIKw_f1-3l15bODB1CcUPh"&gt;Podstawy Redux -&amp;gt; Artur Chmaro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=I43TnTk0zFc&amp;amp;ab_channel=Edugrafia"&gt;Kurs Redux - Wprowadzenie -&amp;gt; Edugrafia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=-9pnktOsxAw&amp;amp;t=1s&amp;amp;ab_channel=AlgoSmart-MarcinCzarkowski"&gt;Architektura Flux - Redux od podstaw #1 -&amp;gt; AlgoSmart - Marcin Czarkowski&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=TGcICHEMwbs&amp;amp;ab_channel=AlgoSmart-MarcinCzarkowski"&gt;Czym jest Redux? - Redux od podstaw #2 -&amp;gt; AlgoSmart - Marcin Czarkowski&lt;/a&gt;&lt;/p&gt;</content><category term="redux"></category><category term="react"></category><category term="redux"></category></entry></feed>

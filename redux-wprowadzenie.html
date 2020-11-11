@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Redux - kontener stanu Redux jest biblioteką do zarządzania stanem dla całej aplikacji (&#34;kontenerem stanu&#34;) w sposób ponadkomponentowy (współpracuje min. z Reactem oraz Angularem) Poniżej opiszę parę kluczowych pojęć do pracy z Reduxem Store - miejsce przechowywania stanu Store (przechowalnia) - jest obiektem przechowującym stan aplikacji i jest tworzony przez reduktora/reducera Store …" />
+<meta name="keywords" content="react, redux">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Redux: wprowadzenie"/>
+<meta property="og:description" content="Redux - kontener stanu Redux jest biblioteką do zarządzania stanem dla całej aplikacji (&#34;kontenerem stanu&#34;) w sposób ponadkomponentowy (współpracuje min. z Reactem oraz Angularem) Poniżej opiszę parę kluczowych pojęć do pracy z Reduxem Store - miejsce przechowywania stanu Store (przechowalnia) - jest obiektem przechowującym stan aplikacji i jest tworzony przez reduktora/reducera Store …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/redux-wprowadzenie.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-06 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="redux"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="redux"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Redux: wprowadzenie</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="redux-wprowadzenie">Redux: wprowadzenie</h1>
+    <p>
+      Opublikowano pią 06 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/redux.html">redux</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="redux-logo" src="https://chriscourses.com/img/blog/redux/redux.jpg"></p>
+<h2>Redux - kontener stanu</h2>
+<p>Redux jest biblioteką do zarządzania stanem dla całej aplikacji ("kontenerem stanu") w sposób ponadkomponentowy (współpracuje min. z Reactem oraz Angularem)</p>
+<p>Poniżej opiszę parę kluczowych pojęć do pracy z Reduxem</p>
+<hr>
+<h3>Store - miejsce przechowywania stanu</h3>
+<p>Store (przechowalnia) - jest obiektem przechowującym stan aplikacji i jest tworzony przez reduktora/reducera</p>
+<p>Store posiada metodę <code>getState</code> które zwraca aktualną wartość stanu</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">configureStore</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@reduxjs/toolkit&#39;</span>
+
+<span class="n">const</span> <span class="n">store</span> <span class="o">=</span> <span class="n">configureStore</span><span class="p">({</span> <span class="n">reducer</span><span class="p">:</span> <span class="n">counterReducer</span> <span class="p">})</span>
+
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">getState</span><span class="p">())</span>
+<span class="o">//</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Dispatch - wywołanie wydarzenia</h3>
+<p>Metoda należąca do obiektu kontenera stanu - <em>store</em>, która jest odpowiedzialna za aktualizację stanu -&gt; Należy odwołać się do <code>store.dispatch()</code> i przekazać do niej obiekt akcji (przedstawiony poniżej) - wywoła akcję reduktora</p>
+<hr>
+<h3>Akcje - zmiany stanu aplikacji</h3>
+<p>obiekt JS, który posiada pole typu <code>type</code> -&gt; zawiera opis danej akcji (event), która zachodzi w ramach aplikacji. Do pola <code>type</code> powinien być przypisany string opisujący/nazywający dane wydarzenie. Zwyczajowo stosuje się wzór "domain/eventName" ("kategoria/konkretneWydarzenieKtóreZachodzi") np. "todos/todoAdded". Do pola o nazwie <code>payload</code> (przyjęta konwencja/ faktycznie nazwa może być dowolna)</p>
+<p>(źródło przykładów <a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts">Redux Essentials, Part 1: Redux Overview and Concepts</a>)</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">addTodoAction</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;todos/todoAdded&#39;</span><span class="p">,</span>
+  <span class="n">payload</span><span class="p">:</span> <span class="s1">&#39;Buy milk&#39;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>Kreator akcji</strong> - jest funkcją która tworzy i zwraca obiekt akcji (zwalnia z każdorazowego pisania obiektu akcji)</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">addTodo</span> <span class="o">=</span> <span class="n">text</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;todos/todoAdded&#39;</span><span class="p">,</span>
+    <span class="n">payload</span><span class="p">:</span> <span class="n">text</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Reducer/Reduktor: (state, action) =&gt; newState</h3>
+<p>Funkcja przyjmująca <strong>stan</strong> aplikacji oraz <strong>akcję</strong> - na tej podstawie wytwarza nowy stan. Reduktor Reduxa jest porównywany do event listenera, który zajmuje się wydarzeniami w zależności od wykonywanego zdarzenia.</p>
+<p>Zasady reduktora:</p>
+<ul>
+<li>oblicza nowy stan na podstawie akcji oraz stanu</li>
+<li>nie modyfikuje stanu a kopiuje stan pracuje na tej kopiowania</li>
+<li>nie zajmuje się logiką asynchroniczną</li>
+</ul>
+<p>Zwyczajowe zasady pracy reduktora
+- sprawdza czy reduktor jest powiązany ze zdażeniem
+- jeśli tak to tworzy kopię stanu i zmienia kopię w zależności od nowych wartości a następnie zwraca zmienioną kopię
+- w przeciwnym przypadku zwraca stan niezmieniony</p>
+<div class="highlight"><pre><span></span><code>  <span class="n">const</span> <span class="n">initialState</span> <span class="o">=</span> <span class="err">{</span> <span class="k">value</span><span class="o">:</span> <span class="mi">0</span> <span class="err">}</span>
+
+  <span class="k">function</span> <span class="n">counterReducer</span><span class="p">(</span><span class="n">state</span> <span class="o">=</span> <span class="n">initialState</span><span class="p">,</span> <span class="k">action</span><span class="p">)</span> <span class="err">{</span>
+    <span class="o">//</span> <span class="k">Check</span> <span class="k">to</span> <span class="n">see</span> <span class="k">if</span> <span class="n">the</span> <span class="n">reducer</span> <span class="n">cares</span> <span class="n">about</span> <span class="n">this</span> <span class="k">action</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">action</span><span class="p">.</span><span class="k">type</span> <span class="o">===</span> <span class="s1">&#39;counter/increment&#39;</span><span class="p">)</span> <span class="err">{</span>
+      <span class="o">//</span> <span class="k">If</span> <span class="n">so</span><span class="p">,</span> <span class="n">make</span> <span class="n">a</span> <span class="n">copy</span> <span class="k">of</span> <span class="n">`state`</span>
+      <span class="k">return</span> <span class="err">{</span>
+        <span class="p">...</span><span class="n">state</span><span class="p">,</span>
+        <span class="o">//</span> <span class="k">and</span> <span class="k">update</span> <span class="n">the</span> <span class="n">copy</span> <span class="k">with</span> <span class="n">the</span> <span class="k">new</span> <span class="k">value</span>
+        <span class="k">value</span><span class="o">:</span> <span class="n">state</span><span class="p">.</span><span class="k">value</span> <span class="o">+</span> <span class="mi">1</span>
+      <span class="err">}</span>
+    <span class="err">}</span>
+    <span class="o">//</span> <span class="n">otherwise</span> <span class="k">return</span> <span class="n">the</span> <span class="n">existing</span> <span class="n">state</span> <span class="n">unchanged</span>
+    <span class="k">return</span> <span class="n">state</span>
+  <span class="err">}</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Selectors - selektor części informacji</h3>
+<p>funkcje, które pozwalają na pozyskanie części informacji przechowywanych przez kontener (<em>store</em>)</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">selectCounterValue</span> <span class="o">=</span> <span class="n">state</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="o">.</span><span class="n">value</span>
+
+<span class="k">const</span> <span class="n">currentValue</span> <span class="o">=</span> <span class="n">selectCounterValue</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">getState</span><span class="p">())</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">currentValue</span><span class="p">)</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Connect - łącznik Reacta z Reduxem</h3>
+<p>Funkcja łącząca Redux z Reactem więcej na ten temat tutaj: <a href="https://react-redux.js.org/api/connect">connect() - API Reference</a> lub w dalszych postach.</p>
+<hr>
+<h3>Redux Toolkit - zestaw narzędzi do stworzenia środowiska Reduxowego</h3>
+<p>więcej informacji tutaj: <a href="https://redux-toolkit.js.org/tutorials/basic-tutorial">Redux Toolkit</a> lub w dalszych postach</p>
+<hr>
+<p><strong>Grafika przedstawiająca relacje pomiędzy opisanymi powyżej częściami środowiska Redux</strong></p>
+<p><img alt="redux-relacje grafika" src="https://res.cloudinary.com/practicaldev/image/fetch/s--V1XmAEPc--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://i.stack.imgur.com/LNQwH.png"></p>
+<hr>
+<h3>Redux DevTools</h3>
+<p>Narzędzie przeglądarki do pracy z Reduxem
+<a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en">dla Chroma</a> oraz <a href="https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/">FireFoxa</a></p>
+<p>Parę obrazów z użycia narzędzia oraz ich, krótki opis</p>
+<p><img alt="redux-trace" src="https://redux.js.org/assets/images/devtools-done-clicking-8826e622b87734ea2a0044233a2a642f.png"></p>
+<p>Zakładka <strong>action</strong> - ukazuje rodzaj aktualizacji
+<strong>State</strong> zachowanie się stanu oraz <strong>Diff</strong> wskazuje na różnicę jaka się wykonała</p>
+<p><img alt="redux-trace" src="https://redux.js.org/assets/images/devtools-action-stacktrace-8ee180838c97840a749b9209e80c8a72.png"></p>
+<p>Redux trace - ukazuje w którym miejscu kod, wysyła dane żądanie (ma wpływ na zmianę stanu)</p>
+<hr>
+<p><strong>Więcej na powyższy temat: </strong>:</p>
+<p><a href="https://redux.js.org/tutorials/essentials/part-2-app-structure">Redux-dokumentacja-tutorial</a></p>
+<p><a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts">Redux Essentials, Part 1: Redux Overview and Concepts</a></p>
+<p><a href="https://typeofweb.com/react-redux-kurs-wprowadzenie-i-podstawy/">React + Redux — kurs: wprowadzenie i podstawy</a></p>
+<p><a href="https://dev.to/ibrahima92/7-steps-to-understand-react-redux-121j">7 steps to understand React Redux</a></p>
+<p><a href="https://dev.to/ibrahima92/redux-vs-react-context-which-one-should-you-choose-2hhh">Redux VS React Context: Which one should you choose?</a></p>
+<p><a href="https://www.valentinog.com/blog/redux/">React Redux Tutorial for Beginners: The Complete Guide (2020)</a></p>
+<p><strong>YT</strong></p>
+<p><a href="https://www.youtube.com/watch?v=qIaLloDosxs&amp;list=PLOzzvlJKwOdWIKw_f1-3l15bODB1CcUPh">Podstawy Redux -&gt; Artur Chmaro</a></p>
+<p><a href="https://www.youtube.com/watch?v=I43TnTk0zFc&amp;ab_channel=Edugrafia">Kurs Redux - Wprowadzenie -&gt; Edugrafia</a></p>
+<p><a href="https://www.youtube.com/watch?v=-9pnktOsxAw&amp;t=1s&amp;ab_channel=AlgoSmart-MarcinCzarkowski">Architektura Flux - Redux od podstaw #1 -&gt; AlgoSmart - Marcin Czarkowski</a></p>
+<p><a href="https://www.youtube.com/watch?v=TGcICHEMwbs&amp;ab_channel=AlgoSmart-MarcinCzarkowski">Czym jest Redux? - Redux od podstaw #2 -&gt; AlgoSmart - Marcin Czarkowski</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/redux.html">redux</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

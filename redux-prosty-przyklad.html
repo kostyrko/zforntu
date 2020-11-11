@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA). 1) Instalacja narzędzi/zależności npx create-react-app &lt;nazwa_projektu&gt; npm i redux react-redux 2) Struktura projektu (istotne pliki/te które są edytowane oraz które zostaną/ły dodane) {public} | |_ [...] {src} | |_ {actions …" />
+<meta name="keywords" content="react, redux, Redux DevTools Extension">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React + Redux: prosty przykład zastosowania"/>
+<meta property="og:description" content="Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA). 1) Instalacja narzędzi/zależności npx create-react-app &lt;nazwa_projektu&gt; npm i redux react-redux 2) Struktura projektu (istotne pliki/te które są edytowane oraz które zostaną/ły dodane) {public} | |_ [...] {src} | |_ {actions …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/redux-prosty-przyklad.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-08 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="redux"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="redux"/>
+<meta property="article:tag" content="Redux DevTools Extension"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React + Redux: prosty przykład zastosowania</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="redux-prosty-przyklad">React + Redux: prosty przykład zastosowania</h1>
+    <p>
+      Opublikowano nie 08 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/redux.html">redux</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="redux-react" src="https://miro.medium.com/max/1838/0*95tBOgxEPQAVq9YO.png"></p>
+<p>Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA).</p>
+<p><strong>1)</strong> Instalacja narzędzi/zależności</p>
+<div class="highlight"><pre><span></span><code><span class="err">    npx create-react-app &lt;nazwa_projektu&gt;</span>
+<span class="err">    npm i redux react-redux</span>
+</code></pre></div>
+
+
+<hr>
+<p><strong>2)</strong> Struktura projektu (istotne pliki/te które są edytowane oraz które zostaną/ły dodane)</p>
+<div class="highlight"><pre><span></span><code><span class="err">    {public}</span>
+<span class="err">    |</span>
+<span class="err">    |_ [...]</span>
+<span class="err">    {src}</span>
+<span class="err">        |</span>
+<span class="err">        |_ {actions}</span>
+<span class="err">        |    |</span>
+<span class="err">        |    | --- index.js</span>
+<span class="err">        |</span>
+<span class="err">        |_ {reducers}</span>
+<span class="err">        |    |</span>
+<span class="err">        |    | --- index.js</span>
+<span class="err">        |    | --- counter.js</span>
+<span class="err">        |    | --- isLogged.js</span>
+<span class="err">        |</span>
+<span class="err">        |---App.js</span>
+<span class="err">        |---index.js</span>
+<span class="err">        |</span>
+<span class="err">        [...]</span>
+</code></pre></div>
+
+
+<hr>
+<p><strong>3)</strong> <strong>&gt;&gt;index.js&lt;&lt;</strong>
+- tutaj należy stworzyć store oraz zaimportować reduktory 
+- window.<strong>REDUX_DEVTOOLS_EXTENSION</strong> &amp;&amp; window.<strong>REDUX_DEVTOOLS_EXTENSION</strong>() [wcześniej window.devToolsExtension] jest przydatne w momencie tworzenia układu stanu za pomocą Reduxa, gdy nie jest jeszcze podpięty z Reactem (umożliwia komunikację z Redux Dev Tools, więcej na ten temat tutaj: <a href="http://extension.remotedev.io/">Redux DevTools Extension</a>)
+- App jest wskazany jako Provider (komponent wyższego rzędu) gdzie jako props przekazywany jest store</p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">React</span> <span class="nn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="s2">&quot;./index.css&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">App</span> <span class="nn">from</span> <span class="s2">&quot;./App&quot;</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="p">{</span> <span class="n">createStore</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;redux&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">allReducers</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+
+    <span class="kn">import</span> <span class="p">{</span><span class="n">Provider</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
+
+
+
+    <span class="n">const</span> <span class="n">store</span> <span class="o">=</span> <span class="n">createStore</span><span class="p">(</span><span class="n">allReducers</span><span class="p">,</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span> <span class="o">&amp;&amp;</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span><span class="p">())</span>
+
+
+    <span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">Provider</span> <span class="n">store</span><span class="o">=</span><span class="p">{</span><span class="n">store</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">App</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">Provider</span><span class="o">&gt;</span>
+    <span class="p">,</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">)</span>
+    <span class="p">);</span>
+</code></pre></div>
+
+
+<hr>
+<p><strong>4)</strong> <strong>&gt;&gt;{reducers}&lt;&lt;</strong></p>
+<ul>
+<li>
+<p>w tym folderze w poszczególnych plikach przechowywane są reduktory - funkcje tworzące nowy stan</p>
+</li>
+<li>
+<p><strong>isLogged.js</strong> - loggedReducer przyjmuje 2 arg. 1. stan = false oraz akcję, jeśli typ akcji będzie równy SIGN_IN wówczas stan zostanie zmieniony na True</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">loggedReducer</span> <span class="o">=</span> <span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="bp">false</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="o">=&gt;</span><span class="p">{</span>
+<span class="n">switch</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">case</span> <span class="s2">&quot;SIGN_IN&quot;</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="o">!</span><span class="n">state</span><span class="p">;</span>
+    <span class="n">default</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">state</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="n">default</span> <span class="n">loggedReducer</span>
+</code></pre></div>
+
+
+</li>
+<li>
+<p><strong>counter.js</strong> - counterReducer przyjmuje 2 arg. 1 stan = 0 oraz akcję (będącą obiektem) jeśli typ akcji jest równy INCREMENT wówczas należy stan zwiększyć o wartość zawartą w <strong>action.payload</strong> a jeśli DECREMENT - odjąć 1.</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">counterReducer</span> <span class="o">=</span> <span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="o">=&gt;</span><span class="p">{</span>
+<span class="n">switch</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">case</span> <span class="s2">&quot;INCREMENT&quot;</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">state</span> <span class="o">+</span> <span class="n">action</span><span class="o">.</span><span class="n">payload</span><span class="p">;</span>
+    <span class="n">case</span> <span class="s2">&quot;DECREMENT&quot;</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">state</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">default</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">state</span><span class="p">;</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+<span class="k">export</span> <span class="n">default</span>
+</code></pre></div>
+
+
+</li>
+<li>
+<p><strong>index.js</strong> - skupie w sobie reduktory (przy pomocy combineReducers) i eksportuje w postaci obiektu </p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">counterReducer</span> <span class="nn">from</span> <span class="s1">&#39;./counter&#39;</span>
+<span class="kn">import</span> <span class="nn">loggedReducer</span> <span class="nn">from</span> <span class="s1">&#39;./isLogged&#39;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">combineReducers</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;redux&#39;</span>
+
+<span class="o">//</span><span class="n">function</span> <span class="k">with</span> <span class="nb">object</span>
+<span class="n">const</span> <span class="n">allReducers</span> <span class="o">=</span> <span class="n">combineReducers</span><span class="p">({</span>
+    <span class="n">counter</span><span class="p">:</span> <span class="n">counterReducer</span><span class="p">,</span>
+    <span class="n">isLogged</span><span class="p">:</span> <span class="n">loggedReducer</span> 
+<span class="p">})</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">allReducers</span>
+</code></pre></div>
+
+
+</li>
+</ul>
+<hr>
+<p><strong>5)</strong> <strong>&gt;&gt;{actions}&lt;&lt;</strong></p>
+<ul>
+<li><strong>index.js</strong> - zawiera akcje (faktyczne funkcje zwracające obiekty do których należy odwołać się w komponentach), funkcja <em>increment</em> przyjmuje jeden argument, którego wartość przechowywana jest w zmiennej o nazwie <strong>payload</strong><div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">const</span> <span class="n">increment</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="n">type</span><span class="p">:</span> <span class="s2">&quot;INCREMENT&quot;</span><span class="p">,</span>
+        <span class="n">payload</span><span class="p">:</span> <span class="n">num</span><span class="p">,</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">const</span> <span class="n">decrement</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="n">type</span><span class="p">:</span> <span class="s2">&quot;DECREMENT&quot;</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+</li>
+</ul>
+<hr>
+<p><strong>6)</strong> <strong>&gt;&gt;App.js&lt;&lt;</strong></p>
+<ul>
+<li>aplikacja - wymaga zaimportowania akcji oraz 2 hooków <strong>useSelectors</strong> oraz <strong>useDispatch</strong></li>
+<li><strong>useSelectors</strong> jest wykorzystywany do stworzenia funkcji zmieniającej stan przy użyciu akcji</li>
+<li><strong>useDispatch</strong> jest wykorzystywany do aktualizacji stanu<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="s2">&quot;./App.css&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">useSelector</span><span class="p">,</span> <span class="n">useDispatch</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react-redux&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">increment</span><span class="p">,</span> <span class="n">decrement</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;./actions&quot;</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="n">App</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">const</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">useSelector</span><span class="p">((</span><span class="n">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="o">.</span><span class="n">counter</span><span class="p">);</span>
+<span class="n">const</span> <span class="n">isLogged</span> <span class="o">=</span> <span class="n">useSelector</span><span class="p">((</span><span class="n">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="o">.</span><span class="n">isLogged</span><span class="p">);</span>
+<span class="n">const</span> <span class="n">dispatch</span> <span class="o">=</span> <span class="n">useDispatch</span><span class="p">();</span>
+
+<span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;App&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Counter</span><span class="p">:</span> <span class="p">{</span><span class="n">counter</span><span class="p">}</span> <span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span><span class="o">=&gt;</span><span class="n">dispatch</span><span class="p">(</span><span class="n">increment</span><span class="p">(</span><span class="mi">5</span><span class="p">))}</span><span class="o">&gt;+&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{()</span><span class="o">=&gt;</span><span class="n">dispatch</span><span class="p">(</span><span class="n">decrement</span><span class="p">())}</span><span class="o">&gt;-&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+
+    <span class="p">{</span><span class="n">isLogged</span> <span class="err">?</span> <span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="n">Info</span> <span class="n">only</span> <span class="n">seen</span> <span class="k">if</span> <span class="n">logged</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">App</span><span class="p">;</span>
+</code></pre></div>
+
+
+</li>
+</ul>
+<hr>
+<p><strong>Źródła</strong>:</p>
+<p><a href="https://www.youtube.com/watch?v=CVpUuw9XSjY&amp;ab_channel=DevEd">Redux For Beginners | React Redux Tutorial - Dev Ed</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/redux.html">redux</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/redux-devtools-extension.html">Redux DevTools Extension</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,5 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - reactjs</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/reactjs.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-09-18T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React: Create React App i sourceMap w trakcie produkcji</title><link href="https://kostyrko.github.io/zfrontu/react-sourceMap.html" rel="alternate"></link><published>2020-09-18T10:00:00+02:00</published><updated>2020-09-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-09-18:/zfrontu/react-sourceMap.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" src="https://user-images.githubusercontent.com/27288406/47966049-b13a5700-e056-11e8-808e-45f2ffd4719c.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - reactjs</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/reactjs.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-04T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React i GitHub Pages</title><link href="https://kostyrko.github.io/zfrontu/react-routing.html" rel="alternate"></link><published>2020-11-04T10:00:00+01:00</published><updated>2020-11-04T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-04:/zfrontu/react-routing.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" src="https://res.cloudinary.com/practicaldev/image/fetch/s--klrLsGeS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://completejavascript.com/wp-content/uploads/2018/08/tao-va-deploy-ung-dung-react-len-github-pages-create-react-app-completejavascript.com_.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wymagania wstępne:&lt;/strong&gt; git, GitHub, Create React App, Node.js, NPM&lt;/p&gt;
+&lt;p&gt;Poniżej wypunktuje jak w prosty sposób można opublikować na GitHub-Pages swoją aplikację reactową stworzoną przy pomocy narzędzia Create React App &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;!&lt;/strong&gt; W pierwszej kolejności warto ustawić środowisko Routera aby dopasowało się do hostującego środowiska (PUBLIC_URL zostanie podstawione przez ścieżkę absolutną folderu …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" src="https://res.cloudinary.com/practicaldev/image/fetch/s--klrLsGeS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://completejavascript.com/wp-content/uploads/2018/08/tao-va-deploy-ung-dung-react-len-github-pages-create-react-app-completejavascript.com_.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wymagania wstępne:&lt;/strong&gt; git, GitHub, Create React App, Node.js, NPM&lt;/p&gt;
+&lt;p&gt;Poniżej wypunktuje jak w prosty sposób można opublikować na GitHub-Pages swoją aplikację reactową stworzoną przy pomocy narzędzia Create React App &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;!&lt;/strong&gt; W pierwszej kolejności warto ustawić środowisko Routera aby dopasowało się do hostującego środowiska (PUBLIC_URL zostanie podstawione przez ścieżkę absolutną folderu)
+[process.env.PUBLIC_URL można również wykorzystać w kontekście odwołania się do ścieżki pliku znajdującego się w folderze po za src]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="nt"&gt;&amp;lt;BrowserRouter&lt;/span&gt; &lt;span class="na"&gt;basename=&lt;/span&gt;&lt;span class="s"&gt;{process.env.PUBLIC_URL}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+
+
+    // może się to przedstawiać w następujący sposób - App.js
+
+    [...]
+     &lt;span class="nt"&gt;&amp;lt;BrowserRouter&lt;/span&gt; &lt;span class="na"&gt;basename=&lt;/span&gt;&lt;span class="s"&gt;{process.env.PUBLIC_URL}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;UserContext.Provider&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;email&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;content.email&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="s"&gt;&amp;lt;Switch&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;Route&lt;/span&gt; &lt;span class="err"&gt;exact&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;{ROUTES.LANDING}&lt;/span&gt; &lt;span class="na"&gt;component=&lt;/span&gt;&lt;span class="s"&gt;{HomePage}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+            {content.email ? &lt;span class="nt"&gt;&amp;lt;Route&lt;/span&gt; &lt;span class="err"&gt;exact&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;{ROUTES.DONATE}&lt;/span&gt; &lt;span class="na"&gt;component=&lt;/span&gt;&lt;span class="s"&gt;{DonatePage}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt; : null}
+            &lt;span class="nt"&gt;&amp;lt;Route&lt;/span&gt; &lt;span class="err"&gt;exact&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;{ROUTES.LOG_IN}&lt;/span&gt; &lt;span class="na"&gt;component=&lt;/span&gt;&lt;span class="s"&gt;{LogInPage}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;Route&lt;/span&gt; &lt;span class="err"&gt;exact&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;{ROUTES.SIGN_UP}&lt;/span&gt; &lt;span class="na"&gt;component=&lt;/span&gt;&lt;span class="s"&gt;{SignUpPage}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;Route&lt;/span&gt; &lt;span class="err"&gt;exact&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;{ROUTES.LOG_OUT}&lt;/span&gt; &lt;span class="na"&gt;component=&lt;/span&gt;&lt;span class="s"&gt;{LogOutPage}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;Route&lt;/span&gt; &lt;span class="err"&gt;exact&lt;/span&gt; &lt;span class="na"&gt;path=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;component=&lt;/span&gt;&lt;span class="s"&gt;{NotFoundPage}&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/Switch&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/UserContext.Provider&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/BrowserRouter&amp;gt;&lt;/span&gt;
+    [...]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;1) W pliku (package.json) pod &lt;strong&gt;name&lt;/strong&gt; (jedna z pierwszych linijek) należy podać adres home/strony domowej&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;nazwa_projektu&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;homepage&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;http://{nazwa_użytkownika}.github.io/{nazwa_repo}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mnie&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jednym&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;projektów&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;przedstawia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;się&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sposób&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;następujący&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;donate-to-charity&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;homepage&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;https://kostyrko.github.io/donate-to-charity&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;version&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;0.1.0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;private&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;@testing-library/jest-dom&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;^4.2.4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;...&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2) Dodanie w pliku package.json do scripts należy dodać -&amp;gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="ss"&gt;&amp;quot;predeploy&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;npm run build&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="ss"&gt;&amp;quot;deploy&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;gh-pages -d build&amp;quot;&lt;/span&gt;
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;mnie&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;jednym&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;projektów&lt;/span&gt; &lt;span class="n"&gt;przedstawia&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;sposób&lt;/span&gt; &lt;span class="n"&gt;następujący&lt;/span&gt;
+    &lt;span class="p"&gt;[...]&lt;/span&gt;
+    &lt;span class="ss"&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;start&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;react-scripts start&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;build&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;react-scripts build&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;react-scripts test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;eject&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;react-scripts eject&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;postinstall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;node ./scripts/enable-css-sourcemaps.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;predeploy&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;npm run build&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="ss"&gt;&amp;quot;deploy&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;gh-pages -d build&amp;quot;&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;[...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3) należy zainstalować narzędzie gh-pages &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt; &lt;span class="c1"&gt;--save-dev&lt;/span&gt;
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="n"&gt;powinna&lt;/span&gt; &lt;span class="n"&gt;pojawić&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;informacja&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;tej&lt;/span&gt; &lt;span class="n"&gt;zależności&lt;/span&gt;
+    &lt;span class="p"&gt;[...]&lt;/span&gt;
+                &lt;span class="ss"&gt;&amp;quot;devDependencies&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="ss"&gt;&amp;quot;gh-pages&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;^3.1.0&amp;quot;&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4) Gdy powyżesz warunki zostaną spełnione wystarczy wywołać skrypt (&lt;code&gt;npm run deploy&lt;/code&gt;), który wypuszuje zawartość builda na gałąź gh-pages (ustawi ją też jako domyślną, z której gh-pages mają być tworzone), zmianę należy nastepnie wypushować na remota&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    npm run deploy&lt;/span&gt;
+&lt;span class="err"&gt;    git add .&lt;/span&gt;
+&lt;span class="err"&gt;    git commit -m &amp;quot;first deploy&amp;quot;&lt;/span&gt;
+&lt;span class="err"&gt;    git push origin master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f"&gt;How to deploy React App to GitHub Pages&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/57572259/react-router-with-relative-path-deployment"&gt;React Router with relative path deployment&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://create-react-app.dev/docs/using-the-public-folder/"&gt;Create React App - Using Public Folder&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="hooks"></category><category term="props"></category></entry><entry><title>React: Create React App i sourceMap w trakcie produkcji</title><link href="https://kostyrko.github.io/zfrontu/react-sourceMap.html" rel="alternate"></link><published>2020-09-18T10:00:00+02:00</published><updated>2020-09-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-09-18:/zfrontu/react-sourceMap.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" src="https://user-images.githubusercontent.com/27288406/47966049-b13a5700-e056-11e8-808e-45f2ffd4719c.png"&gt;&lt;/p&gt;
 &lt;p&gt;Jedną z moich ulubionych wtyczek w Gulpie/Webpacku bez wątpienia jest ta przy pomocy której jestem wstanie w szybki sposób dojść do tego, w którym pliku/linijce znajduje się frapująca mnie deklaracja stylu -&amp;gt; &lt;strong&gt;sourceMap&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Wykorzystując opcję tworzenia aplikacji przy pomocy narzędzie Create React App nie mamy jednak możliwości skorzystania z …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" src="https://user-images.githubusercontent.com/27288406/47966049-b13a5700-e056-11e8-808e-45f2ffd4719c.png"&gt;&lt;/p&gt;
 &lt;p&gt;Jedną z moich ulubionych wtyczek w Gulpie/Webpacku bez wątpienia jest ta przy pomocy której jestem wstanie w szybki sposób dojść do tego, w którym pliku/linijce znajduje się frapująca mnie deklaracja stylu -&amp;gt; &lt;strong&gt;sourceMap&lt;/strong&gt;&lt;/p&gt;
