@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Istotne pojęcia Thunk jest innym słowem na funkcję, która jest zwrócona przez inną funkcję. function wrapper_function() { // &gt;&gt; to jest &#34;thunk&#34; ponieważ odracza wykonanie kodu na później: return function thunk() { // &gt;&gt; anonimowa lub nazwana console.log(&#39;do stuff now&#39;); }; } W Reduxie akcje/actions są jedynie obiektami, z kolei reduktory/reducers są &#34;czyste&#34; (nie …" />
+<meta name="keywords" content="react, redux, Redux DevTools Extension, useDispatch, useSelector">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Redux: Duck + Redux-thunk"/>
+<meta property="og:description" content="Istotne pojęcia Thunk jest innym słowem na funkcję, która jest zwrócona przez inną funkcję. function wrapper_function() { // &gt;&gt; to jest &#34;thunk&#34; ponieważ odracza wykonanie kodu na później: return function thunk() { // &gt;&gt; anonimowa lub nazwana console.log(&#39;do stuff now&#39;); }; } W Reduxie akcje/actions są jedynie obiektami, z kolei reduktory/reducers są &#34;czyste&#34; (nie …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/redux-thunk.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-13 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="redux"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="redux"/>
+<meta property="article:tag" content="Redux DevTools Extension"/>
+<meta property="article:tag" content="useDispatch"/>
+<meta property="article:tag" content="useSelector"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Redux: Duck + Redux-thunk</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="redux-thunk">Redux: Duck + Redux-thunk</h1>
+    <p>
+      Opublikowano pią 13 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/redux.html">redux</a>
+
+        &#8226; 5 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="redux-react" src="https://miro.medium.com/max/700/1*uHumlKU6fado6sOF2eHVwg.jpeg"></p>
+<h3>Istotne pojęcia</h3>
+<p><strong>Thunk</strong> jest innym słowem na funkcję, która jest zwrócona przez inną funkcję.</p>
+<div class="highlight"><pre><span></span><code><span class="err">    function wrapper_function() {</span>
+<span class="err">            // &gt;&gt; to jest &quot;thunk&quot; ponieważ odracza wykonanie kodu na później:</span>
+<span class="err">            return function thunk() {   // &gt;&gt; anonimowa lub nazwana</span>
+<span class="err">            console.log(&#39;do stuff now&#39;);</span>
+<span class="err">            };</span>
+<span class="err">    }</span>
+</code></pre></div>
+
+
+<p>W Reduxie <strong>akcje/actions</strong> są jedynie obiektami, z kolei <strong>reduktory/reducers</strong> są "czyste" (nie zmieniają nic co znajduje się po za ich własnym zakresem).</p>
+<p>Zatem aby akcja w reduxie miała być funkcyjna powinna wewnątrz wywoływać funkcję -&gt; innymi słowy <strong>thunk</strong></p>
+<p><strong>Redux-thunk</strong> jest kodem/oprogramowaniem pośredniczącym (biblioteką) - sprawdza każdą przekazywaną akcję, przechodzącą przez aplikację i jeśli ta jest funkcją, wówczas ją wywołuje. Redux przekaże do Redux-thunk dwa argumenty: <code>dispatch</code> oraz <code>getState</code> (pozyskanie stanu)</p>
+<hr>
+<p><strong>Ducks</strong> - nazwa pochodzi od ostatniej sylaby Redux  i jest propozycją konwencji strukturyzowania plików związanych ze stanem komponentów oraz Reduxem. Duck ma tworzyć pakiet reduktorowy Reduxa i zawierać takie pliki jak =&gt; {actionTypes, actions, reducer} [więcej na ten temat <a href="https://github.com/erikras/ducks-modular-redux">Ducks: Redux Reducer Bundles</a>]</p>
+<p><img alt="duck" src="https://raw.githubusercontent.com/erikras/ducks-modular-redux/master/duck.jpg"></p>
+<hr>
+<hr>
+<p><strong>1.</strong> Faza projektu (App.js) - brak rozbudowanej struktury</p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="s1">&#39;./App.css&#39;</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="p">{</span><span class="n">createStore</span><span class="p">,</span> <span class="n">combineReducers</span><span class="p">,</span> <span class="n">bindActionCreators</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;redux&#39;</span>
+
+
+    <span class="o">//</span> <span class="o">----------</span> <span class="n">Zmienne</span> <span class="n">przechowujące</span> <span class="n">stan</span> <span class="n">wyjściowy</span> <span class="o">----------</span>
+
+    <span class="o">//</span> <span class="n">wyjściowy</span> <span class="n">state</span>
+
+    <span class="n">const</span> <span class="n">initialDroids</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">droidsName</span><span class="p">:</span> <span class="s1">&#39;Favorite&#39;</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;R2D2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span> <span class="s1">&#39;BB8&#39;</span>
+            <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="n">const</span> <span class="n">initialDroidClasses</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">listName</span><span class="p">:</span> <span class="s1">&#39;working droids&#39;</span><span class="p">,</span>
+            <span class="nb">list</span> <span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;Protocol droid&quot;</span><span class="p">,</span> <span class="s2">&quot;Astromech droid&quot;</span><span class="p">,</span> <span class="s2">&quot;Power droid&quot;</span><span class="p">,</span> <span class="s2">&quot;Utility droid&quot;</span>
+            <span class="p">]</span>
+    <span class="p">}</span>
+
+
+    <span class="o">//</span> <span class="o">----------------------------</span> <span class="n">Reduktory</span> <span class="p">(</span><span class="n">stan</span><span class="p">)</span> <span class="o">-----------------------</span>
+
+    <span class="o">//</span> <span class="n">reduktory</span> <span class="p">(</span><span class="n">reducers</span><span class="p">)</span>
+
+    <span class="n">function</span> <span class="n">droids</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">initialDroids</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">switch</span> <span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">sprawdza</span> <span class="n">typ</span> <span class="n">akcji</span>
+            <span class="n">case</span> <span class="s1">&#39;RESET_DROIDS&#39;</span><span class="p">:</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">nazwa</span> <span class="n">wywołania</span> <span class="n">akcji</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;RESET&#39;</span><span class="p">})</span> <span class="n">przy</span> <span class="n">założeniu</span> <span class="err">ż</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">zwraca</span> <span class="n">pustą</span> <span class="n">tablicę</span>
+                <span class="k">return</span> <span class="p">{</span>
+                    <span class="o">...</span><span class="n">state</span><span class="p">,</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">kopiowanie</span> <span class="n">atrybutów</span><span class="p">,</span> <span class="n">które</span> <span class="n">nie</span> <span class="n">mają</span> <span class="n">zostać</span> <span class="n">zmienione</span>
+                    <span class="nb">list</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">}</span>
+                <span class="n">case</span> <span class="s1">&#39;ADD_DROID&#39;</span><span class="p">:</span> <span class="o">//</span> <span class="o">&gt;&gt;</span><span class="n">nazwy</span> <span class="n">akcji</span> <span class="n">nie</span> <span class="n">mogą</span> <span class="n">się</span> <span class="n">pokrywać</span>
+                    <span class="k">return</span> <span class="p">{</span>
+                        <span class="o">...</span><span class="n">state</span><span class="p">,</span>
+                        <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="n">state</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="n">action</span><span class="o">.</span><span class="n">item</span><span class="p">]</span>
+                        <span class="o">//</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;ADD&#39;</span><span class="p">,</span> <span class="n">droid</span><span class="p">:</span> <span class="s1">&#39;D-O&#39;</span><span class="p">})</span> <span class="n">przy</span> <span class="n">założeniu</span> <span class="err">ż</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="p">)</span> <span class="o">-</span> <span class="n">spowoduje</span> <span class="n">dodanie</span> <span class="n">nowego</span> <span class="n">droida</span>
+                    <span class="p">}</span>
+                <span class="n">default</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">state</span>
+                <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="n">droidClasses</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">initialDroidClasses</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">switch</span> <span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">case</span> <span class="s1">&#39;RESET_DROID_CLASS&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span>
+                    <span class="o">...</span><span class="n">state</span><span class="p">,</span>
+                    <span class="nb">list</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">}</span>
+            <span class="n">case</span> <span class="s1">&#39;ADD_DROID_CLASS&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span>
+                    <span class="o">...</span><span class="n">state</span><span class="p">,</span>
+                    <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="n">state</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="n">action</span><span class="o">.</span><span class="n">item</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="n">default</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">state</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="err">łą</span><span class="n">cznie</span> <span class="n">reduktorów</span> <span class="n">w</span> <span class="n">obiekt</span> <span class="n">mapujący</span> <span class="n">akcje</span> <span class="n">reduktorów</span>
+    <span class="n">const</span> <span class="n">allReducers</span> <span class="o">=</span> <span class="n">combineReducers</span><span class="p">({</span><span class="n">droids</span><span class="p">,</span> <span class="n">droidClasses</span><span class="p">})</span> <span class="o">//</span>  <span class="n">obiekt</span> <span class="n">mapujący</span> <span class="n">akcje</span> <span class="n">stora</span> <span class="n">na</span> <span class="n">reducer</span>
+
+    <span class="o">//</span> <span class="o">----------------------------</span> <span class="n">Store</span> <span class="o">-----------------------</span>
+
+    <span class="o">//</span> <span class="o">&gt;&gt;</span><span class="n">store</span> <span class="o">+</span> <span class="n">REDUX_DEVTOOLS_EXTENSION</span>
+
+    <span class="n">const</span> <span class="n">store</span> <span class="o">=</span> <span class="n">createStore</span><span class="p">(</span><span class="n">allReducers</span><span class="p">,</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span> <span class="o">&amp;&amp;</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span><span class="p">())</span>
+
+
+    <span class="o">//</span> <span class="o">----------------------------</span> <span class="n">Kreator</span> <span class="n">akcji</span> <span class="o">-----------------------</span>
+
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">kreator</span> <span class="n">akcji</span> <span class="o">-</span> <span class="n">funkcja</span><span class="p">,</span> <span class="n">która</span> <span class="n">opakowuje</span> <span class="n">obiekt</span> <span class="n">przekazywany</span> <span class="n">do</span> <span class="n">dispatch</span><span class="s1">&#39;a</span>
+    <span class="n">const</span> <span class="n">addDroid</span> <span class="o">=</span> <span class="n">item</span> <span class="o">=&gt;</span> <span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;ADD_DROID&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">})</span>
+    <span class="n">const</span> <span class="n">reset</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;RESET_DROIDS&#39;</span><span class="p">})</span>
+
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">wywołanie</span> <span class="n">kreatora</span> <span class="n">akcji</span>
+    <span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">addDroid</span><span class="p">(</span><span class="s1">&#39;ME-8D9&#39;</span><span class="p">))</span>
+
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="err">łą</span><span class="n">czenie</span> <span class="n">kreatorów</span> <span class="n">akcji</span> <span class="o">-</span> <span class="n">obiekt</span> <span class="n">w</span> <span class="n">którym</span> <span class="n">przekazywane</span> <span class="n">są</span> <span class="n">różne</span> <span class="n">funkcje</span> <span class="o">+</span> <span class="n">obiekt</span> <span class="n">dispatch</span>
+    <span class="n">const</span> <span class="n">droidActions</span> <span class="o">=</span> <span class="n">bindActionCreators</span><span class="p">({</span><span class="n">add</span><span class="p">:</span> <span class="n">addDroid</span><span class="p">,</span> <span class="n">reset</span><span class="p">},</span> <span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">)</span>
+
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">metody</span> <span class="err">łą</span><span class="n">czącej</span> <span class="n">w</span> <span class="n">sobie</span> <span class="n">akcje</span> <span class="p">(</span><span class="n">dispatch</span> <span class="n">już</span> <span class="n">jest</span> <span class="n">wpisany</span><span class="p">)</span>
+    <span class="n">droidActions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;DN-LD&#39;</span><span class="p">)</span>
+    <span class="n">droidActions</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+
+
+    <span class="o">//</span> <span class="o">----------------------------</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">-----------------------</span>
+
+    <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span> <span class="o">//</span> <span class="n">przypisuje</span> <span class="n">wyżej</span> <span class="n">stworzenie</span> <span class="n">store</span> <span class="n">do</span> <span class="n">obiektu</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="n">pozwala</span> <span class="n">na</span> <span class="n">wpisanie</span> <span class="n">w</span> <span class="n">konsolę</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span> <span class="p">(</span><span class="n">zwraca</span> <span class="n">wtedy</span> <span class="n">state</span><span class="p">)</span>
+
+
+
+    <span class="n">function</span> <span class="n">App</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="o">&lt;</span><span class="n">div</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;App&quot;</span><span class="o">&gt;</span>
+                        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+                <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+            <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">export</span> <span class="n">default</span> <span class="n">App</span><span class="p">;</span>
+</code></pre></div>
+
+
+<hr>
+<p><strong>2.</strong> Faza projektu i jego struktura (istotne pliki/te które są edytowane oraz które zostaną/ły dodane są zilustrowane poniżej). 
+W tej fazie logika projektu zostaje rozłożona pomiędzy poszczególnymi plikami. Główna logika odpowiedzialna za pracę ze stanem przy pomocy Reduxa znajduje się w folderach <code>duck</code>
+Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują ją według przyjętego wzoru, zapewniając czytelność kodu.</p>
+<div class="highlight"><pre><span></span><code><span class="err">    {public}</span>
+<span class="err">    |</span>
+<span class="err">    |_ [...]</span>
+<span class="err">    {src}</span>
+<span class="err">        |</span>
+<span class="err">        |</span>
+<span class="err">        |---App.js</span>
+<span class="err">        |--- reducers.js</span>
+<span class="err">        |---[...]</span>
+<span class="err">        |</span>
+<span class="err">        |_{app}</span>
+<span class="err">            |</span>
+<span class="err">            |_ {droids}</span>
+<span class="err">            |    |</span>
+<span class="err">            |    |_ {duck}</span>
+<span class="err">            |       |</span>
+<span class="err">            |       | --- actions.js</span>
+<span class="err">            |       | --- index.js</span>
+<span class="err">            |       | --- reducers.js</span>
+<span class="err">            |       | --- types.js</span>
+<span class="err">            |_ {droidClasses}</span>
+<span class="err">            |    |</span>
+<span class="err">            |    |_ {duck}</span>
+<span class="err">            |       |</span>
+<span class="err">            |       | --- actions.js</span>
+<span class="err">            |       | --- index.js</span>
+<span class="err">            |       | --- reducers.js</span>
+<span class="err">            |       | --- types.js</span>
+<span class="err">        [...]</span>
+</code></pre></div>
+
+
+<p><strong>Przykładowa zawartość &gt;&gt;ducks&lt;&lt;</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="o">//</span><span class="n">types</span><span class="o">.</span><span class="n">js</span>
+    <span class="n">const</span> <span class="n">ADD_DROID</span> <span class="o">=</span> <span class="s1">&#39;ADD_DROID&#39;</span>
+    <span class="n">const</span> <span class="n">RESET_DROIDS</span> <span class="o">=</span> <span class="s1">&#39;RESET_DROIDS&#39;</span>
+
+    <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">ADD_DROID</span><span class="p">,</span>
+        <span class="n">RESET_DROIDS</span>
+    <span class="p">}</span>
+
+
+    <span class="o">//</span><span class="n">reducers</span><span class="o">.</span><span class="n">js</span>
+    <span class="kn">import</span> <span class="nn">types</span> <span class="nn">from</span> <span class="s1">&#39;./types&#39;</span>
+
+    <span class="n">const</span> <span class="n">INITIAL_STATE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">droidsName</span><span class="p">:</span> <span class="s2">&quot;Favorite&quot;</span><span class="p">,</span>
+    <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;R2D2&quot;</span><span class="p">,</span> <span class="s2">&quot;C3PO&quot;</span><span class="p">,</span> <span class="s2">&quot;BB8&quot;</span><span class="p">],</span>
+    <span class="p">};</span>
+
+    <span class="n">const</span> <span class="n">droidsReducer</span> <span class="o">=</span> <span class="p">(</span><span class="n">state</span> <span class="o">=</span> <span class="n">INITIAL_STATE</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">switch</span> <span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">case</span> <span class="n">types</span><span class="o">.</span><span class="n">RESET_DROIDS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="o">...</span><span class="n">state</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="p">};</span>
+        <span class="n">case</span> <span class="n">types</span><span class="o">.</span><span class="n">ADD_DROID</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+            <span class="o">...</span><span class="n">state</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="n">state</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="n">action</span><span class="o">.</span><span class="n">item</span><span class="p">],</span>
+            <span class="p">};</span>
+        <span class="n">default</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">state</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="n">export</span> <span class="n">default</span> <span class="n">droidsReducer</span>
+
+    <span class="o">//</span> <span class="n">action</span><span class="o">.</span><span class="n">js</span>
+
+    <span class="kn">import</span> <span class="nn">types</span> <span class="nn">from</span> <span class="s1">&#39;./types&#39;</span>
+
+    <span class="n">const</span> <span class="n">add</span> <span class="o">=</span> <span class="n">item</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">ADD_DROID</span><span class="p">,</span> <span class="n">item</span>
+    <span class="p">})</span>
+
+    <span class="n">const</span> <span class="n">reset</span> <span class="o">=</span> <span class="n">item</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">RESET_DROIDS</span><span class="p">,</span> <span class="n">item</span>
+    <span class="p">})</span>
+
+    <span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+        <span class="n">add</span><span class="p">,</span>
+        <span class="n">reset</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">index</span><span class="o">.</span><span class="n">js</span> <span class="o">-</span> <span class="n">integruje</span> <span class="n">oraz</span> <span class="n">eksportuje</span> <span class="n">logikę</span> <span class="n">z</span> <span class="n">duck</span>
+    <span class="kn">import</span> <span class="nn">droidsReducer</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+    <span class="n">export</span> <span class="p">{</span><span class="n">default</span> <span class="k">as</span> <span class="n">droidTypes</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./types&#39;</span>
+    <span class="n">export</span> <span class="p">{</span><span class="n">default</span> <span class="k">as</span> <span class="n">droidActions</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./actions&#39;</span>
+    <span class="n">export</span> <span class="n">default</span> <span class="n">droidsReducer</span>
+</code></pre></div>
+
+
+<p>W pliku <strong>&gt;&gt;reducers.js&lt;&lt;</strong> łączone są reduktory i eksportowane jako jeden obiekt</p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span> <span class="n">combineReducers</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;redux&quot;</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="nn">droidsReducer</span> <span class="nn">from</span> <span class="s1">&#39;./app/droids/duck&#39;</span>
+    <span class="kn">import</span> <span class="nn">droidsClassReducer</span> <span class="nn">from</span> <span class="s1">&#39;./app/droidClasses/duck&#39;</span>
+
+    <span class="n">const</span> <span class="n">rootReducer</span> <span class="o">=</span> <span class="n">combineReducers</span><span class="p">({</span>
+        <span class="n">droids</span><span class="p">:</span> <span class="n">droidsReducer</span><span class="p">,</span>
+        <span class="n">classes</span><span class="p">:</span> <span class="n">droidsClassReducer</span>
+    <span class="p">})</span>
+
+    <span class="n">export</span> <span class="n">default</span> <span class="n">rootReducer</span>
+</code></pre></div>
+
+
+<p>Do pliku <strong>&gt;&gt;App.js&lt;&lt;</strong> należy zaimportować połączone reduktory (rootReducer)</p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span><span class="n">createStore</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;redux&#39;</span>
+    <span class="kn">import</span> <span class="nn">rootReducer</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+    <span class="kn">import</span> <span class="p">{</span><span class="n">droidActions</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app/droids/duck&#39;</span>
+
+    <span class="n">const</span> <span class="n">store</span> <span class="o">=</span> <span class="n">createStore</span><span class="p">(</span><span class="n">rootReducer</span><span class="p">,</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span> <span class="o">&amp;&amp;</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span><span class="p">())</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span>
+
+    <span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">droidActions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;D-O&#39;</span><span class="p">))</span>
+
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p>wszystkie zmiany jakie zaszły na tym etapie projektu można znaleźć w tym miejscu: <a href="https://github.com/kostyrko/JS-sandbox/commit/d73069b2b79e8b28e3f965d3ec6ac555ca3e2f65">2_redux-thunk-&gt; distribution of logic</a></p>
+<hr>
+<p><strong>3.</strong> Faza projektu oparta jest na podłączeniu Reduxa do Reacta oraz zastosowaniu Redux-Thunk</p>
+<p>W tym celu należy zainstalować react-redux oraz redux-thunk</p>
+<div class="highlight"><pre><span></span><code><span class="err"> npm i react-redux redux-thunk</span>
+</code></pre></div>
+
+
+<p>Pliki, które uległy zmianie lub zostąły dodane:</p>
+<div class="highlight"><pre><span></span><code>    <span class="err">{</span><span class="k">public</span><span class="err">}</span>
+            <span class="o">|</span>
+            <span class="o">|</span><span class="n">_</span> <span class="p">[...]</span>
+            <span class="err">{</span><span class="n">src</span><span class="err">}</span>
+                <span class="o">|</span>
+                <span class="o">|</span><span class="c1">---index.js // &lt;Provider&gt; - tu jest podpięta logika Reduxa</span>
+                <span class="o">|</span><span class="c1">---App.js // store zostaje usunięty</span>
+                <span class="o">|</span><span class="c1">---store.js // plik przechowujący konfigurację stora</span>
+                <span class="o">|</span><span class="c1">---[...]</span>
+                <span class="o">|</span>
+                <span class="o">|</span><span class="n">_</span><span class="err">{</span><span class="n">app</span><span class="err">}</span>
+                    <span class="o">|</span>
+                    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">droids</span><span class="err">}</span>
+                    <span class="o">|</span>    <span class="o">|</span>
+                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">components</span><span class="err">}</span>
+                    <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span>
+                    <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span> <span class="c1">--- DroidsContainer.js // &quot;smart&quot; component połączony z Redux</span>
+                    <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span> <span class="c1">--- DroidsForm.js // input - dodawanie droida to stanu  / zastoswanie akcji</span>
+                    <span class="o">|</span>    <span class="o">|</span>
+                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">duck</span><span class="err">}</span>
+                    <span class="o">|</span>         <span class="o">|</span>
+                    <span class="o">|</span>         <span class="o">|</span><span class="n">_operations</span><span class="p">.</span><span class="n">js</span> <span class="o">//</span> <span class="o">!!</span> <span class="n">pobieranie</span> <span class="n">wysyłanie</span> <span class="n">danych</span> <span class="n">z</span> <span class="n">API</span>
+                    <span class="o">|</span>         <span class="p">[...]</span>
+
+                    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">droidClasses</span><span class="err">}</span>
+                    <span class="o">|</span>    <span class="o">|</span>
+                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">duck</span><span class="err">}</span>
+                    <span class="o">|</span>       <span class="o">|</span>
+                    <span class="o">|</span>       <span class="p">[...]</span>
+                    <span class="o">|</span>
+                    <span class="o">|</span><span class="n">_</span><span class="err">{</span><span class="n">jsServer</span><span class="err">}</span>
+                    <span class="o">|</span>     <span class="o">|</span>
+                    <span class="o">|</span>     <span class="o">|</span><span class="n">_db</span><span class="p">.</span><span class="n">json</span> <span class="p">(</span><span class="n">baza</span> <span class="n">danych</span> <span class="n">w</span> <span class="n">formacie</span> <span class="n">json</span> <span class="o">-&gt;</span> <span class="n">Json</span> <span class="n">Server</span><span class="p">)</span>
+                  <span class="p">[...]</span>
+</code></pre></div>
+
+
+<p><strong>&gt;&gt;index.js&lt;&lt;</strong> - tu zostaje przeniesiony store i App.js jest opakowany w <Provider> tak aby cała aplikacja miała dostęp do Reduxa</p>
+<div class="highlight"><pre><span></span><code>    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="kn">import</span> <span class="p">{</span><span class="n">Provider</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
+    <span class="kn">import</span> <span class="nn">store</span> <span class="nn">from</span> <span class="s1">&#39;./store&#39;</span>
+
+    <span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">Provider</span> <span class="n">store</span><span class="o">=</span><span class="p">{</span><span class="n">store</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">App</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">Provider</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+    <span class="p">);</span>
+</code></pre></div>
+
+
+<p><strong>&gt;&gt;DroidsContainer.js&lt;&lt;</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span><span class="n">connect</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
+    <span class="kn">import</span> <span class="p">{</span><span class="n">getAllDroids</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../duck/operations&#39;</span>
+
+    <span class="n">const</span> <span class="n">DroidsContainer</span> <span class="o">=</span> <span class="p">({</span><span class="n">droids</span><span class="p">,</span><span class="n">getAllDroids</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+        <span class="n">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">getAllDroids</span><span class="p">());</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;ComponentDidMount&quot;</span><span class="p">);</span>
+        <span class="p">},[])</span>
+
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="n">droids</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">map</span><span class="p">((</span><span class="n">droid</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">=&gt;</span> 
+                    <span class="o">&lt;</span><span class="n">li</span> <span class="n">key</span><span class="o">=</span><span class="p">{</span><span class="n">i</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">droid</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+                    <span class="p">)}</span>
+            <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="o">//</span> <span class="n">przyjmuje</span> <span class="n">stan</span> <span class="n">i</span> <span class="n">zwraca</span> <span class="n">obiekt</span> <span class="n">z</span> <span class="n">zawartością</span> <span class="n">stanu</span> <span class="n">znajdującą</span> <span class="n">się</span> <span class="n">pod</span> <span class="n">kluczem</span> <span class="n">droids</span>
+    <span class="n">const</span> <span class="n">mapStateToProps</span> <span class="o">=</span> <span class="n">state</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="n">droids</span> <span class="p">:</span> <span class="n">state</span><span class="o">.</span><span class="n">droids</span>
+    <span class="p">})</span>
+
+    <span class="o">//</span> <span class="n">funkcja</span> <span class="n">wywołująca</span> <span class="n">funkcję</span> <span class="n">dispatch</span> <span class="n">z</span> <span class="n">parametrem</span> <span class="n">funkcji</span><span class="p">,</span> <span class="n">która</span> <span class="n">ma</span> <span class="n">być</span> <span class="n">wykonana</span>
+    <span class="n">const</span> <span class="n">mapDispatchToProps</span> <span class="o">=</span> <span class="n">dispatch</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="n">getAllDroids</span> <span class="p">:</span> <span class="p">()</span><span class="o">=&gt;</span> <span class="n">dispatch</span><span class="p">(</span><span class="n">getAllDroids</span><span class="p">())</span>
+    <span class="p">})</span>
+
+
+    <span class="o">//</span> <span class="n">funkcja</span> <span class="n">connect</span>
+    <span class="o">//</span> <span class="mf">1.</span> <span class="n">argument</span> <span class="o">-</span> <span class="n">mapowanie</span> <span class="n">elementów</span> <span class="n">ze</span> <span class="n">stora</span><span class="p">,</span> <span class="n">które</span> <span class="n">mają</span> <span class="n">być</span> <span class="n">przyjęte</span> <span class="n">w</span> <span class="n">komponencie</span> <span class="n">jako</span> <span class="n">propsy</span>
+    <span class="o">//</span> <span class="mf">2.</span> <span class="n">obiekt</span> <span class="n">przyjmujący</span> <span class="n">dane</span> <span class="n">z</span> <span class="n">API</span>
+    <span class="n">export</span> <span class="n">default</span> <span class="n">connect</span><span class="p">(</span><span class="n">mapStateToProps</span><span class="p">,</span> <span class="n">mapDispatchToProps</span><span class="p">)(</span><span class="n">DroidsContainer</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p><strong>&gt;&gt;DroidsForm.js&lt;&lt;</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">React</span> <span class="nn">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="p">{</span><span class="n">connect</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
+    <span class="kn">import</span> <span class="nn">actions</span> <span class="nn">from</span> <span class="s1">&#39;../duck/actions&#39;</span>
+
+    <span class="n">const</span> <span class="n">DroidsForm</span> <span class="o">=</span> <span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+        <span class="n">const</span> <span class="n">droidInput</span> <span class="o">=</span> <span class="n">React</span><span class="o">.</span><span class="n">createRef</span><span class="p">()</span>
+
+        <span class="n">const</span> <span class="n">addDroid</span> <span class="o">=</span> <span class="n">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">preventDefault</span><span class="p">()</span>
+            <span class="o">//</span> <span class="n">podanie</span> <span class="n">stora</span> <span class="n">na</span> <span class="n">którym</span> <span class="n">ma</span> <span class="n">się</span> <span class="n">dokonać</span> <span class="n">operacja</span> <span class="n">dodania</span>
+            <span class="o">//</span> <span class="n">add</span> <span class="n">jest</span> <span class="n">kluczem</span> <span class="n">w</span> <span class="n">obiekcie</span> <span class="n">zwróconym</span> <span class="n">przez</span> <span class="n">mapDispatchToProps</span>
+            <span class="n">props</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">droidInput</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="n">droidInput</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">droidInput</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="n">form</span> <span class="n">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="n">addDroid</span><span class="p">}</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nb">input</span> <span class="n">ref</span><span class="o">=</span><span class="p">{</span><span class="n">droidInput</span><span class="p">}</span><span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">button</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span><span class="n">Add</span> <span class="n">droid</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">przygotowanie</span> <span class="n">obiektu</span><span class="p">,</span> <span class="n">który</span> <span class="n">zawiera</span> <span class="n">funkcje</span> <span class="n">jakie</span> <span class="n">należy</span> <span class="n">wywołać</span> <span class="n">na</span> <span class="n">storze</span>
+    <span class="n">const</span> <span class="n">mapDispatchToProps</span> <span class="o">=</span> <span class="n">dispatch</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="n">add</span><span class="p">:</span> <span class="n">droid</span> <span class="o">=&gt;</span> <span class="n">dispatch</span><span class="p">(</span><span class="n">actions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">droid</span><span class="p">))</span>
+    <span class="p">})</span>
+
+    <span class="o">//</span> <span class="n">null</span> <span class="n">ponieważ</span> <span class="n">state</span> <span class="n">nie</span> <span class="n">jest</span> <span class="n">sczytywany</span>
+    <span class="n">export</span> <span class="n">default</span> <span class="n">connect</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="n">mapDispatchToProps</span><span class="p">)(</span><span class="n">DroidsForm</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p><strong>&gt;&gt;operations.js&lt;&lt;</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="o">//</span> <span class="n">akcje</span> <span class="n">generują</span> <span class="n">state</span>
+    <span class="kn">import</span> <span class="nn">actions</span> <span class="nn">from</span> <span class="s2">&quot;./actions&quot;</span><span class="p">;</span>
+
+    <span class="n">const</span> <span class="n">fetchDroids</span> <span class="o">=</span> <span class="n">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="n">const</span> <span class="n">response</span> <span class="o">=</span> <span class="n">await</span> <span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3001/droidsTypes&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">method</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span> <span class="p">})</span>
+        <span class="n">const</span> <span class="n">json</span> <span class="o">=</span> <span class="n">await</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">json</span>
+    <span class="p">};</span>
+
+    <span class="o">//</span> <span class="n">thunk</span> <span class="o">-</span> <span class="n">zwraca</span> <span class="n">funkcję</span> <span class="n">asynchroniczną</span> <span class="n">i</span> <span class="n">przekaże</span> <span class="n">w</span> <span class="n">niej</span> <span class="n">dispatcha</span> <span class="n">powodując</span> <span class="n">zmianę</span> <span class="n">statu</span>
+    <span class="o">//</span> <span class="n">export</span> <span class="n">const</span> <span class="n">getAllDroids</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="n">export</span> <span class="n">const</span> <span class="n">getAllDroids</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
+    <span class="n">async</span> <span class="p">(</span><span class="n">dispatch</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="n">const</span> <span class="n">droids</span> <span class="o">=</span> <span class="n">await</span> <span class="n">fetchDroids</span><span class="p">()</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droids</span><span class="p">);</span>
+        <span class="n">droids</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">droid</span> <span class="o">=&gt;</span> <span class="n">dispatch</span><span class="p">(</span><span class="n">actions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">droid</span><span class="p">)))</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>&gt;&gt;store.js&lt;&lt;</strong> - redux-thunk =&gt; applyMiddleware(thunk)
+więcej na temat composeEnhancers patrz tutaj: <a href="https://github.com/zalmoxisus/redux-devtools-extension#usage">Redux DevTools Extension - 1.2 Advanced store setup</a></p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span><span class="n">createStore</span><span class="p">,</span> <span class="n">applyMiddleware</span><span class="p">,</span> <span class="n">compose</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;redux&#39;</span>
+    <span class="kn">import</span> <span class="nn">rootReducer</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+    <span class="kn">import</span> <span class="nn">thunk</span> <span class="nn">from</span> <span class="s1">&#39;redux-thunk&#39;</span>
+
+    <span class="n">const</span> <span class="n">composeEnhancers</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span> <span class="o">||</span> <span class="n">compose</span>
+
+    <span class="n">const</span> <span class="n">store</span> <span class="o">=</span> <span class="n">createStore</span><span class="p">(</span><span class="n">rootReducer</span><span class="p">,</span> <span class="n">composeEnhancers</span><span class="p">(</span><span class="n">applyMiddleware</span><span class="p">(</span><span class="n">thunk</span><span class="p">)))</span>
+
+
+    <span class="n">export</span> <span class="n">default</span> <span class="n">store</span>
+</code></pre></div>
+
+
+<p>wszystkie zmiany jakie zaszły na tym etapie projektu można znaleźć w tym miejscu: <a href="https://github.com/kostyrko/JS-sandbox/commit/2ccfcedbb19f1e4acdce5543fff4139e8bc10e08">2_redux-thunk-&gt; Connect to React + Thunk</a></p>
+<p><strong>4.</strong> faza zastosowanie hooków <code>useDispatch/useSelector</code> (wszystkie operacje zachodzą na pliku <strong>DroidsContainer.js</strong>)</p>
+<p>co zostało zastąpione? -&gt; <strong>connect, mapStateToProps, mapDispatchToProps</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="o">//</span> <span class="n">DroidsContainer</span><span class="o">.</span><span class="n">js</span>
+    <span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">useEffect</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="p">{</span><span class="n">useSelector</span><span class="p">,</span> <span class="n">useDispatch</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
+    <span class="kn">import</span> <span class="p">{</span><span class="n">getAllDroids</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../duck/operations&#39;</span>
+
+    <span class="n">const</span> <span class="n">DroidsContainer</span> <span class="o">=</span> <span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+        <span class="o">//</span> <span class="n">deklarowania</span> <span class="n">dispatch</span> <span class="n">i</span> <span class="n">użycie</span> <span class="n">hooka</span>
+        <span class="n">const</span> <span class="n">dispatch</span> <span class="o">=</span> <span class="n">useDispatch</span><span class="p">()</span>
+        <span class="n">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">dispatch</span><span class="p">(</span><span class="n">getAllDroids</span><span class="p">())</span>
+
+            <span class="o">//</span> <span class="n">dla</span> <span class="n">przypomnienie</span> <span class="o">-</span> <span class="n">co</span> <span class="n">się</span> <span class="n">tam</span> <span class="n">dzieje</span><span class="err">?</span>
+            <span class="o">//</span> <span class="n">dispatch</span><span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;ADD_DROID&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="s1">&#39;D-O&#39;</span><span class="p">})</span>
+        <span class="p">},</span> <span class="p">[])</span>
+
+
+        <span class="o">//</span> <span class="n">pobranie</span> <span class="n">wycinka</span> <span class="n">statu</span> <span class="n">przy</span> <span class="n">pomocy</span> <span class="o">-&gt;</span> <span class="n">useSelector</span>
+        <span class="n">const</span> <span class="n">droids</span> <span class="o">=</span> <span class="n">useSelector</span><span class="p">((</span><span class="n">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">state</span><span class="o">.</span><span class="n">droids</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="n">droids</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">map</span><span class="p">((</span><span class="n">droid</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">=&gt;</span> 
+                    <span class="o">&lt;</span><span class="n">li</span> <span class="n">key</span><span class="o">=</span><span class="p">{</span><span class="n">i</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="n">droid</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+                    <span class="p">)}</span>
+            <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">export</span> <span class="n">default</span> <span class="n">DroidsContainer</span><span class="p">;</span>
+</code></pre></div>
+
+
+<hr>
+<p><strong>Źródła</strong>:</p>
+<p>Podstawowe:</p>
+<p><a href="https://www.youtube.com/watch?v=qIaLloDosxs&amp;list=PLOzzvlJKwOdWIKw_f1-3l15bODB1CcUPh">Podstawy Redux - Artur Chmaro</a></p>
+<p><a href="https://github.com/reduxjs/redux-thunk/issues/146">Actions must be plain objects. Use custom middleware for async actions. #146</a></p>
+<p>Dodatkowe:</p>
+<p><a href="https://medium.com/@matthew.holman/what-is-redux-ducks-46bcb1ad04b7">What is Redux Ducks?</a></p>
+<p><a href="https://soshace.com/react-lesson-13/">React Lesson 13. Part 1: Asynchronous actions</a></p>
+<p><a href="https://medium.com/swlh/handling-asynchronous-actions-with-redux-thunk-86b8d8e0b83e">Handling Asynchronous Actions with Redux Thunk</a></p>
+<p><a href="https://designingforscale.com/understanding-redux-middleware-and-writing-custom-ones/">Understanding Redux Middleware And Writing Custom Ones</a></p>
+<p><a href="https://daveceddia.com/what-is-a-thunk/">What the heck is a 'thunk'?</a></p>
+<p><a href="https://github.com/reduxjs/redux-thunk">GH - Redux Thunk (Thunk middleware for Redux.)</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/redux.html">redux</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/redux-devtools-extension.html">Redux DevTools Extension</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/usedispatch.html">useDispatch</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/useselector.html">useSelector</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

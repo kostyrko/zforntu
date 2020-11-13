@@ -50,17 +50,17 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Wymagania wstępne: git, GitHub, Create React App, Node.js, NPM Poniżej wypunktuje jak w prosty sposób można opublikować na GitHub-Pages swoją aplikację reactową stworzoną przy pomocy narzędzia Create React App ! W pierwszej kolejności warto ustawić środowisko Routera aby dopasowało się do hostującego środowiska (PUBLIC_URL zostanie podstawione przez ścieżkę absolutną folderu …" />
+<meta name="description" content="Routing - &#34;ścieżkowanie&#34;, rozpoznawanie na podstawie ścieżki zasobów jaki serwer może zwrócić, inaczej to określając jest procesem rozpoznawania zasobów serwera React Router jest tzw high order component i dostarcza nam szereg innych komponentów, które można wykorzystać w trakcie tworzenia nawigacji tworzonej aplikacji HashRouter lub BrowserRouter - główny komponent &#34;opakowujący&#34; nawigację Route, - komponent …" />
 <meta name="keywords" content="react, hooks, props">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="React i GitHub Pages"/>
-<meta property="og:description" content="Wymagania wstępne: git, GitHub, Create React App, Node.js, NPM Poniżej wypunktuje jak w prosty sposób można opublikować na GitHub-Pages swoją aplikację reactową stworzoną przy pomocy narzędzia Create React App ! W pierwszej kolejności warto ustawić środowisko Routera aby dopasowało się do hostującego środowiska (PUBLIC_URL zostanie podstawione przez ścieżkę absolutną folderu …"/>
+<meta property="og:title" content="React: routing"/>
+<meta property="og:description" content="Routing - &#34;ścieżkowanie&#34;, rozpoznawanie na podstawie ścieżki zasobów jaki serwer może zwrócić, inaczej to określając jest procesem rozpoznawania zasobów serwera React Router jest tzw high order component i dostarcza nam szereg innych komponentów, które można wykorzystać w trakcie tworzenia nawigacji tworzonej aplikacji HashRouter lub BrowserRouter - główny komponent &#34;opakowujący&#34; nawigację Route, - komponent …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-routing.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-11-04 10:00:00+01:00"/>
+<meta property="article:published_time" content="2020-09-14 10:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
 <meta property="article:section" content="reactjs"/>
@@ -69,7 +69,7 @@
 <meta property="article:tag" content="props"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; React i GitHub Pages</title>
+  <title>...z frontu &ndash; React: routing</title>
 
 </head>
 <body>
@@ -141,106 +141,203 @@
 <article class="single">
   <header>
       
-    <h1 id="react-routing">React i GitHub Pages</h1>
+    <h1 id="react-routing">React: routing</h1>
     <p>
-      Opublikowano śro 04 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+      Opublikowano pon 14 września 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
 
-        &#8226; 2 min read
+        &#8226; 3 min read
     </p>
   </header>
 
 
   <div>
-    <p><img alt="react" src="https://res.cloudinary.com/practicaldev/image/fetch/s--klrLsGeS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://completejavascript.com/wp-content/uploads/2018/08/tao-va-deploy-ung-dung-react-len-github-pages-create-react-app-completejavascript.com_.png"></p>
-<p><strong>Wymagania wstępne:</strong> git, GitHub, Create React App, Node.js, NPM</p>
-<p>Poniżej wypunktuje jak w prosty sposób można opublikować na GitHub-Pages swoją aplikację reactową stworzoną przy pomocy narzędzia Create React App </p>
-<p><strong>!</strong> W pierwszej kolejności warto ustawić środowisko Routera aby dopasowało się do hostującego środowiska (PUBLIC_URL zostanie podstawione przez ścieżkę absolutną folderu)
-[process.env.PUBLIC_URL można również wykorzystać w kontekście odwołania się do ścieżki pliku znajdującego się w folderze po za src]</p>
-<div class="highlight"><pre><span></span><code>    <span class="nt">&lt;BrowserRouter</span> <span class="na">basename=</span><span class="s">{process.env.PUBLIC_URL}</span><span class="nt">&gt;</span>
+    <p><img alt="react" src="https://www.educative.io/api/page/4807683539468288/image/download/5379198832082944"></p>
+<p>Routing - "ścieżkowanie", rozpoznawanie na podstawie ścieżki zasobów jaki serwer może zwrócić, inaczej to określając jest procesem rozpoznawania zasobów serwera</p>
+<p>React Router jest tzw <strong>high order component</strong> i dostarcza nam szereg innych komponentów, które można wykorzystać w trakcie tworzenia nawigacji tworzonej aplikacji</p>
+<div class="highlight"><pre><span></span><code><span class="err">    HashRouter lub BrowserRouter - główny komponent &quot;opakowujący&quot; nawigację</span>
+<span class="err">    Route, - komponent &quot;wywołujący&quot; inny komponent jeśli warunek podanego linku zostaje spełniony (powiązuje scieżkę z komponentem)</span>
+<span class="err">    Link, - link</span>
+<span class="err">    Switch, - komponent &quot;opakowujący&quot; linki w nawigacji</span>
+<span class="err">    NavLink, - Komponent linku nawigacji</span>
+</code></pre></div>
 
 
-    // może się to przedstawiać w następujący sposób - App.js
+<p>Component HashRouter (lub BrowserRouter) posiada dzieci Route, które posiadają propsy path, gdzie można zdefiniować ścieżkę do którego dany komponent może się odwoływać, posiada również props component w który należy przekazać komponent do wyrenderowania.
+Jego zadaniem jest wyrenderowanie jedynie tych komponentów, które w danym momencie są wskazane, a nie wszystkie możliwe. Natomiast renderowanie jest zależne od ścieżki.</p>
+<h4>HashRouter</h4>
+<p><strong>HashRouter</strong> - wszystkie ścieżki poprzedzane są # (wie,że korzystać z aliasów # a nie brać z miejsca zapisania całej strony) ww.wp.pl/#/kalkulator. HashRouter jest wykorzystywany do celów deweloperskich (BrowserRouter jest podstawowy do prod. skończonych)</p>
+<p>W ramach komponentu Route można użyć słowa kluczowego exact (a dokładnie exact={true})
+tak aby sprawdzał dokładnie podaną ścieżkę np. rozróżnić od /about /about-us
+bez exact sprawdza czy ścieżka posiada taki sam element = -1</p>
+<div class="highlight"><pre><span></span><code><span class="err">    &lt;Component exact path=&quot;/calculator&quot; component={calculator}&gt;</span>
+</code></pre></div>
 
+
+<h4>Switch</h4>
+<p>Komponent <strong>Switch</strong> wyświetla pierwszy możliwy komponent, który spełnia warunek lub jakiekolwiek jeśli warunek nie został podany (w ten sposób zwykle zamieszcza się informację o błędzie 404). Komponent odpowiedzialny za 404 powinien być dodany jako ostatnie dziecko.</p>
+<div class="highlight"><pre><span></span><code><span class="err">    &lt;HashRouter&gt;</span>
+<span class="err">        // komponent zawsze wyświetlany ponieważ nie posiada warunku (pod postacią propsu path)</span>
+<span class="err">        &lt;Clock/&gt;</span>
+<span class="err">        &lt;Switch&gt;</span>
+<span class="err">            &lt;Route exact path=&#39;/&#39; component={Main}&gt;</span>
+<span class="err">            // jeśli ścieżka jest poprawna kolejny komponent się nie wyświetla</span>
+<span class="err">            // w przeciwnym razie &lt;Switch&gt; szuka kolejnego, który może się wyświetlić</span>
+<span class="err">            &lt;Reoute component={NotFound}&gt;</span>
+<span class="err">        &lt;Switch/&gt;</span>
+<span class="err">    &lt;HashRouter/&gt;</span>
+</code></pre></div>
+
+
+<h4>Link</h4>
+<p>Komponent Linki w React Routerze - ma domyślnie event.preventDefault() jego zastosowanie jest podobne do <code>&lt;a&gt;</code> - odnośnik do cześci przeglądanej strony lub odsyłacz do innej</p>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;Link to=&#39;./&#39;&gt;Home&lt;Link/&gt;</span>
+</code></pre></div>
+
+
+<h4>Placeholder i cd linku</h4>
+<p>Routning "placeholder" -&gt; :userId (zmienna) - zawsze po dwukropku (React tworzy z tego klucz w obiekcie przypisywany do params props.match.userId)
+<Route path='/user/:userId' component={UserInfo}/></p>
+<div class="highlight"><pre><span></span><code>    // component UserInfo ma dostęp do userId
+
+    <span class="nt">&lt;li&gt;</span>
+        <span class="nt">&lt;Link</span> <span class="na">to=</span><span class="s">{&quot;/hello/jan&quot;}</span><span class="nt">&gt;</span>Say Hello<span class="nt">&lt;/Link&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+
+    // umożliwia dodanie informacji, która będzie przekazana jako props
+    <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">&#39;/hello/:name&#39;</span> <span class="na">component=</span><span class="s">{HelloYou}/</span><span class="nt">&gt;</span>
+
+    const CheckAge = (props) =&gt; {
+    const {age} = props.match.params
+    return (
+        <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Your age is {age}
+        , you are: { age &gt;= 18 ? &#39;an adult&#39;:&#39;a child&#39;}<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    );
+    }
+</code></pre></div>
+
+
+<h4>active (stylowanie aktywnego komponentu)</h4>
+<p>Styl aktywny dla komponentów NavLink -&gt; <code>activeStyle={activeStyle}</code> klasa <strong>active</strong> jest przypisywany do komponentu gdy zostanie spełniony warunek (exact)</p>
+<div class="highlight"><pre><span></span><code>// zastosowanie
+<span class="nt">&lt;NavLink</span> <span class="na">activeStyle=</span><span class="s">{activeStyle}</span><span class="nt">&gt;&lt;/NavLink&gt;</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Instalacja + ract-scroll</h3>
+<p>Instalacja instalacja wtyczki React-Router</p>
+<div class="highlight"><pre><span></span><code><span class="err">npm i react-router-dom --save</span>
+</code></pre></div>
+
+
+<p>Popularną biblioteką stosowaną w kontekście wewnętrznej nawigacji jest react-scroll (patrz przykład 2 na zastosowanie) - pozwala min. na gładkie przejścia pomiędzy częściami strony</p>
+<div class="highlight"><pre><span></span><code><span class="err">npm install react-scroll</span>
+</code></pre></div>
+
+
+<hr>
+<p><strong>Przykład zastosowania 1</strong></p>
+<div class="highlight"><pre><span></span><code>    // App.js
     [...]
-     <span class="nt">&lt;BrowserRouter</span> <span class="na">basename=</span><span class="s">{process.env.PUBLIC_URL}</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;UserContext.Provider</span> <span class="na">value=</span><span class="cp">{{</span> <span class="nv">email</span><span class="o">:</span> <span class="nv">content.email</span> <span class="cp">}}</span><span class="err">&gt;</span>
-            <span class="s">&lt;Switch</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">{ROUTES.LANDING}</span> <span class="na">component=</span><span class="s">{HomePage}</span> <span class="nt">/&gt;</span>
-            {content.email ? <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">{ROUTES.DONATE}</span> <span class="na">component=</span><span class="s">{DonatePage}</span> <span class="nt">/&gt;</span> : null}
-            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">{ROUTES.LOG_IN}</span> <span class="na">component=</span><span class="s">{LogInPage}</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">{ROUTES.SIGN_UP}</span> <span class="na">component=</span><span class="s">{SignUpPage}</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">{ROUTES.LOG_OUT}</span> <span class="na">component=</span><span class="s">{LogOutPage}</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">&quot;&quot;</span> <span class="na">component=</span><span class="s">{NotFoundPage}</span> <span class="nt">/&gt;</span>
+    const App = () =&gt; {
+    return (
+        <span class="nt">&lt;BrowserRouter</span> <span class="na">basename=</span><span class="s">{process.env.PUBLIC_URL}</span><span class="nt">&gt;</span>
+        {/* <span class="nt">&lt;BrowserRouter&gt;</span> */}
+            <span class="nt">&lt;NavWithRouter/&gt;</span>
+            <span class="nt">&lt;Switch&gt;</span>
+            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">&#39;/uslugi&#39;</span> <span class="na">component=</span><span class="s">{ServicesPage}/</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">&#39;/projekty&#39;</span> <span class="na">component=</span><span class="s">{PortfolioPage}/</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">&#39;/kalkulator&#39;</span> <span class="na">component=</span><span class="s">{CalculatorPage}/</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">&#39;/onas&#39;</span> <span class="na">component=</span><span class="s">{AboutPage}/</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Route</span> <span class="err">exact</span> <span class="na">path=</span><span class="s">&#39;/kontakt&#39;</span> <span class="na">component=</span><span class="s">{ContactPage}/</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Route</span> <span class="na">component=</span><span class="s">{process.env.PUBLIC_URL</span> <span class="err">?</span> <span class="err">undefined:NotFoundPage}</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;/Switch&gt;</span>
-        <span class="nt">&lt;/UserContext.Provider&gt;</span>
-    <span class="nt">&lt;/BrowserRouter&gt;</span>
+            <span class="nt">&lt;Footer/&gt;</span>
+        <span class="nt">&lt;/BrowserRouter&gt;</span>
+    );
+    }
+
+    //Fragment Nav.js - zastosowanie NavLink
     [...]
+    return (
+        <span class="nt">&lt;nav</span> <span class="na">className=</span><span class="s">{location.pathname===&#39;/&#39;</span> <span class="err">||</span> <span class="na">location.pathname=</span><span class="s">==&#39;/flacky-meble/&#39;</span> <span class="err">?</span> <span class="err">&quot;home&quot;:</span> <span class="err">&#39;main-nav&#39;}</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">&quot;logo-container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1</span> <span class="na">className=</span><span class="s">&quot;logo&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;NavLink</span> <span class="err">exact</span> <span class="na">to=</span><span class="s">&#39;/&#39;</span><span class="nt">&gt;</span> <span class="nt">&lt;span</span> <span class="na">className=</span><span class="s">&quot;name-1&quot;</span><span class="nt">&gt;</span>FLACKY<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">className=</span><span class="s">&quot;name-2&quot;</span><span class="nt">&gt;</span> COMBINATION MEBLE<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;p</span> <span class="na">className=</span><span class="s">&quot;logo-desc&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;span&gt;</span>MEBLE na MIARĘ<span class="nt">&lt;/span&gt;</span> Twoich potrzeb<span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/NavLink&gt;</span>
+            <span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            [...]
 </code></pre></div>
 
 
-<p>1) W pliku (package.json) pod <strong>name</strong> (jedna z pierwszych linijek) należy podać adres home/strony domowej</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;nazwa_projektu&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;homepage&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;http://{nazwa_użytkownika}.github.io/{nazwa_repo}&quot;</span><span class="p">,</span><span class="w"></span>
+<hr>
+<p><strong>Przykład zastosowanie 2</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="o">//</span> <span class="n">App</span><span class="o">.</span><span class="n">js</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="kn">import</span> <span class="o">*</span> <span class="k">as</span> <span class="n">ROUTES</span> <span class="kn">from</span> <span class="s2">&quot;./constants/routers&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="n">BrowserRouter</span> <span class="n">basename</span><span class="o">=</span><span class="p">{</span><span class="n">process</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">PUBLIC_URL</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">UserContext</span><span class="o">.</span><span class="n">Provider</span> <span class="n">value</span><span class="o">=</span><span class="p">{{</span> <span class="n">email</span><span class="p">:</span> <span class="n">content</span><span class="o">.</span><span class="n">email</span> <span class="p">}}</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">Switch</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">Route</span> <span class="n">exact</span> <span class="n">path</span><span class="o">=</span><span class="p">{</span><span class="n">ROUTES</span><span class="o">.</span><span class="n">LANDING</span><span class="p">}</span> <span class="n">component</span><span class="o">=</span><span class="p">{</span><span class="n">HomePage</span><span class="p">}</span> <span class="o">/&gt;</span>
+                <span class="p">{</span><span class="n">content</span><span class="o">.</span><span class="n">email</span> <span class="err">?</span> <span class="o">&lt;</span><span class="n">Route</span> <span class="n">exact</span> <span class="n">path</span><span class="o">=</span><span class="p">{</span><span class="n">ROUTES</span><span class="o">.</span><span class="n">DONATE</span><span class="p">}</span> <span class="n">component</span><span class="o">=</span><span class="p">{</span><span class="n">DonatePage</span><span class="p">}</span> <span class="o">/&gt;</span> <span class="p">:</span> <span class="n">null</span><span class="p">}</span>
+                <span class="o">&lt;</span><span class="n">Route</span> <span class="n">exact</span> <span class="n">path</span><span class="o">=</span><span class="p">{</span><span class="n">ROUTES</span><span class="o">.</span><span class="n">LOG_IN</span><span class="p">}</span> <span class="n">component</span><span class="o">=</span><span class="p">{</span><span class="n">LogInPage</span><span class="p">}</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">Route</span> <span class="n">exact</span> <span class="n">path</span><span class="o">=</span><span class="p">{</span><span class="n">ROUTES</span><span class="o">.</span><span class="n">SIGN_UP</span><span class="p">}</span> <span class="n">component</span><span class="o">=</span><span class="p">{</span><span class="n">SignUpPage</span><span class="p">}</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">Route</span> <span class="n">exact</span> <span class="n">path</span><span class="o">=</span><span class="p">{</span><span class="n">ROUTES</span><span class="o">.</span><span class="n">LOG_OUT</span><span class="p">}</span> <span class="n">component</span><span class="o">=</span><span class="p">{</span><span class="n">LogOutPage</span><span class="p">}</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">Route</span> <span class="n">exact</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="n">component</span><span class="o">=</span><span class="p">{</span><span class="n">NotFoundPage</span><span class="p">}</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;/</span><span class="n">Switch</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">UserContext</span><span class="o">.</span><span class="n">Provider</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">BrowserRouter</span><span class="o">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
 
+    <span class="o">//</span> <span class="n">NavMain</span><span class="o">.</span><span class="n">js</span>
+    <span class="kn">import</span> <span class="p">{</span> <span class="n">Link</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react-scroll&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="p">{</span> <span class="n">NavLink</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react-router-dom&quot;</span><span class="p">;</span>
 
-<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">mnie</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">jednym</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">projektów</span><span class="w"> </span><span class="n">przedstawia</span><span class="w"> </span><span class="n">się</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">sposób</span><span class="w"> </span><span class="n">następujący</span><span class="w"></span>
-<span class="w">    </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;donate-to-charity&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;homepage&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;https://kostyrko.github.io/donate-to-charity&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;version&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;0.1.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;private&quot;</span><span class="err">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="ss">&quot;dependencies&quot;</span><span class="err">:</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="ss">&quot;@testing-library/jest-dom&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;^4.2.4&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="o">[</span><span class="n">...</span><span class="o">]</span><span class="w"></span>
-</code></pre></div>
+    <span class="n">const</span> <span class="n">NavMain</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="n">nav</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;nav-main&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">NavLink</span> <span class="n">className</span><span class="o">=</span><span class="s2">&quot;nav-link&quot;</span> <span class="n">exact</span> <span class="n">to</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="o">&gt;</span>
+            <span class="n">Start</span>
+        <span class="o">&lt;/</span><span class="n">NavLink</span><span class="o">&gt;</span>
 
+        <span class="o">&lt;</span><span class="n">Link</span>
+            <span class="n">className</span><span class="o">=</span><span class="s2">&quot;nav-link&quot;</span>
+            <span class="n">activeClass</span><span class="o">=</span><span class="s2">&quot;active&quot;</span>
+            <span class="n">to</span><span class="o">=</span><span class="s2">&quot;about-project&quot;</span>
+            <span class="n">spy</span><span class="o">=</span><span class="p">{</span><span class="n">true</span><span class="p">}</span>
+            <span class="n">smooth</span><span class="o">=</span><span class="p">{</span><span class="n">true</span><span class="p">}</span>
+            <span class="n">offset</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span>
+            <span class="n">duration</span><span class="o">=</span><span class="p">{</span><span class="mi">500</span><span class="p">}</span>
+        <span class="o">&gt;</span>
+            <span class="n">O</span> <span class="n">co</span> <span class="n">chodzi</span><span class="err">?</span>
+        <span class="o">&lt;/</span><span class="n">Link</span><span class="o">&gt;</span>
 
-<p>2) Dodanie w pliku package.json do scripts należy dodać -&gt;</p>
-<div class="highlight"><pre><span></span><code>    <span class="ss">&quot;predeploy&quot;</span><span class="p">:</span> <span class="ss">&quot;npm run build&quot;</span><span class="p">,</span>
-    <span class="ss">&quot;deploy&quot;</span><span class="p">:</span> <span class="ss">&quot;gh-pages -d build&quot;</span>
-
-
-    <span class="o">//</span> <span class="n">u</span> <span class="n">mnie</span> <span class="n">w</span> <span class="n">jednym</span> <span class="n">z</span> <span class="n">projektów</span> <span class="n">przedstawia</span> <span class="n">się</span> <span class="k">to</span> <span class="n">w</span> <span class="n">sposób</span> <span class="n">następujący</span>
-    <span class="p">[...]</span>
-    <span class="ss">&quot;scripts&quot;</span><span class="p">:</span> <span class="err">{</span>
-        <span class="ss">&quot;start&quot;</span><span class="p">:</span> <span class="ss">&quot;react-scripts start&quot;</span><span class="p">,</span>
-        <span class="ss">&quot;build&quot;</span><span class="p">:</span> <span class="ss">&quot;react-scripts build&quot;</span><span class="p">,</span>
-        <span class="ss">&quot;test&quot;</span><span class="p">:</span> <span class="ss">&quot;react-scripts test&quot;</span><span class="p">,</span>
-        <span class="ss">&quot;eject&quot;</span><span class="p">:</span> <span class="ss">&quot;react-scripts eject&quot;</span><span class="p">,</span>
-        <span class="ss">&quot;postinstall&quot;</span><span class="p">:</span> <span class="ss">&quot;node ./scripts/enable-css-sourcemaps.js&quot;</span><span class="p">,</span>
-        <span class="ss">&quot;predeploy&quot;</span><span class="p">:</span> <span class="ss">&quot;npm run build&quot;</span><span class="p">,</span>
-        <span class="ss">&quot;deploy&quot;</span><span class="p">:</span> <span class="ss">&quot;gh-pages -d build&quot;</span>
-    <span class="err">}</span><span class="p">,</span>
-    <span class="p">[...]</span>
-</code></pre></div>
-
-
-<p>3) należy zainstalować narzędzie gh-pages </p>
-<div class="highlight"><pre><span></span><code>    <span class="n">npm</span> <span class="n">install</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span> <span class="c1">--save-dev</span>
-
-
-    <span class="o">//</span> <span class="n">w</span> <span class="n">package</span><span class="p">.</span><span class="n">json</span> <span class="n">powinna</span> <span class="n">pojawić</span> <span class="n">się</span> <span class="n">informacja</span> <span class="n">o</span> <span class="n">tej</span> <span class="n">zależności</span>
-    <span class="p">[...]</span>
-                <span class="ss">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="err">{</span>
-            <span class="ss">&quot;gh-pages&quot;</span><span class="p">:</span> <span class="ss">&quot;^3.1.0&quot;</span>
-        <span class="err">}</span>
-    <span class="err">}</span>
-</code></pre></div>
-
-
-<p>4) Gdy powyżesz warunki zostaną spełnione wystarczy wywołać skrypt (<code>npm run deploy</code>), który wypuszuje zawartość builda na gałąź gh-pages (ustawi ją też jako domyślną, z której gh-pages mają być tworzone), zmianę należy nastepnie wypushować na remota</p>
-<div class="highlight"><pre><span></span><code><span class="err">    npm run deploy</span>
-<span class="err">    git add .</span>
-<span class="err">    git commit -m &quot;first deploy&quot;</span>
-<span class="err">    git push origin master</span>
+        <span class="o">&lt;</span><span class="n">Link</span>
+            <span class="n">className</span><span class="o">=</span><span class="s2">&quot;nav-link&quot;</span>
+            <span class="n">activeClass</span><span class="o">=</span><span class="s2">&quot;active&quot;</span>
+            <span class="n">to</span><span class="o">=</span><span class="s2">&quot;about-us&quot;</span>
+            <span class="n">spy</span><span class="o">=</span><span class="p">{</span><span class="n">true</span><span class="p">}</span>
+            <span class="n">smooth</span><span class="o">=</span><span class="p">{</span><span class="n">true</span><span class="p">}</span>
+            <span class="n">offset</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span>
+            <span class="n">duration</span><span class="o">=</span><span class="p">{</span><span class="mi">500</span><span class="p">}</span>
+        <span class="o">&gt;</span>
+        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 </code></pre></div>
 
 
 <hr>
 <p>Źródła:</p>
-<p><a href="https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f">How to deploy React App to GitHub Pages</a></p>
-<p><a href="https://stackoverflow.com/questions/57572259/react-router-with-relative-path-deployment">React Router with relative path deployment</a></p>
-<p><a href="https://create-react-app.dev/docs/using-the-public-folder/">Create React App - Using Public Folder</a></p>
+<p><a href="https://www.nafrontendzie.pl/react-router-wersji-4-wszystko-nowa">React-router w wersji 4 czyli wszystko od nowa...</a></p>
+<p><a href="https://www.educative.io/blog/react-router-tutorial">React Router Tutorial: Adding Navigation to your React App</a></p>
   </div>
   <div class="tag-cloud">
     <p>

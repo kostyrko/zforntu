@@ -49,16 +49,27 @@
 </script>
 <!-- End Google Analytics -->
 
-    <meta name="author" content="mkostyrko" />
-    <meta name="description" content="" />
-<meta property="og:site_name" content="...z frontu"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="...z frontu"/>
-<meta property="og:description" content=""/>
-<meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu"/>
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Przy pomocy Create React APP oraz jednej komendy tworzymy repopozytorium z szkielet aplikacji, instalacją zależności oraz inicjalizujemy git npx create-react-app &lt;nazwa-aplikacji/projektu&gt; Jeśli chcemy wypushować do GitHuba to odwiedzamy własne konto tworzymy nowe repo nadajemy mu nazwę (licencję, readme i inne informacje pomijamy) następnie kopiujemy link do wypuszowania (wyprzchnięcia na …" />
+<meta name="keywords" content="react, hooks, props">
 
-  <title>...z frontu &ndash; Tag git init</title>
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React: create APP"/>
+<meta property="og:description" content="Przy pomocy Create React APP oraz jednej komendy tworzymy repopozytorium z szkielet aplikacji, instalacją zależności oraz inicjalizujemy git npx create-react-app &lt;nazwa-aplikacji/projektu&gt; Jeśli chcemy wypushować do GitHuba to odwiedzamy własne konto tworzymy nowe repo nadajemy mu nazwę (licencję, readme i inne informacje pomijamy) następnie kopiujemy link do wypuszowania (wyprzchnięcia na …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-cra.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-09-10 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="reactjs"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="hooks"/>
+<meta property="article:tag" content="props"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React: create APP</title>
 
 </head>
 <body>
@@ -127,98 +138,101 @@
 
       </nav>
 
-
-
-<article>
+<article class="single">
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/git-aktualizacja-forka.html">Git - aktualizacja sforkowanego repo</a></h2>
+      
+    <h1 id="react-cra">React: create APP</h1>
     <p>
-      Opublikowano sob 11 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/git.html">git</a>
+      Opublikowano czw 10 września 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
 
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/git.html">git</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/branch.html">branch</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/galaz.html">gałąź</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/github.html">github</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/git-hub.html">git-hub</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/commit.html">commit</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/system-kontroli-wersji.html">system kontroli wersji</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dev.html">dev</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/git-init.html">git init</a>
         &#8226; 1 min read
     </p>
   </header>
+
+
   <div>
-      <p><img alt="git-branch" src="https://i.morioh.com/2019/11/11/1f265e2d4c43.jpg"></p>
-<h3>Aktualizacja sklonowanego repozytorium</h3>
-<p>Sprawdzenie remotów</p>
-<div class="highlight"><pre><span></span><code><span class="err">    git remote -v</span>
+    <p><img alt="react" src="https://create-react-app.dev/img/logo.svg"></p>
+<p>Przy pomocy Create React APP oraz jednej komendy tworzymy repopozytorium z szkielet aplikacji, instalacją zależności oraz <strong>inicjalizujemy git</strong></p>
+<div class="highlight"><pre><span></span><code><span class="err">npx create-react-app &lt;nazwa-aplikacji/projektu&gt;</span>
 </code></pre></div>
 
 
-<p>Dodanie remota</p>
-<div class="highlight"><pre><span></span><code><span class="err">    git remote add upstream &lt;link do remota&gt;</span>
+<p>Jeśli chcemy wypushować do GitHuba to odwiedzamy własne konto tworzymy nowe repo nadajemy mu nazwę (licencję, readme i inne informacje pomijamy) następnie kopiujemy link do wypuszowania (wyprzchnięcia na zdalne repo)</p>
+<p>git remote add origin https://github.com/kostyrko/<nazwa-repopozytorium></p>
+<p>Sprawdzam wersję repo</p>
+<div class="highlight"><pre><span></span><code><span class="err">git remote -v</span>
 </code></pre></div>
 
 
-<p>Pobieranie info z dodanego/upstream remota</p>
-<div class="highlight"><pre><span></span><code><span class="err">    git fetch upstream</span>
+<p>A następnie wypycham na zdalne repozytorium</p>
+<div class="highlight"><pre><span></span><code><span class="err">git push -u origin master</span>
 </code></pre></div>
 
 
-<p>Łączenie mastera (maina) lub innego głównego repo z upstreamem</p>
-<p>git merge upstream/master</p>
-<p>Zaakceptowanie konfliktów na korzyść zmian zewnętrznych</p>
-<div class="highlight"><pre><span></span><code><span class="err">    git checkout --theirs .</span>
-<span class="err">    git add …</span></code></pre></div>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/git-aktualizacja-forka.html">Czytaj dalej</a>
+<p>Aplikacja będzie dostępna na localhost:8000 po wpisaniu komendy </p>
+<div class="highlight"><pre><span></span><code><span class="err">npm start</span>
+</code></pre></div>
+
+
+<p>Uruchomienie się serwera jest zdefiniowane w pliku package.json -&gt; wystarczy w terminalu wpisać <code>npm start</code></p>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;scripts&quot;: {</span>
+<span class="err">    &quot;start&quot;: &quot;react-scripts start&quot;,</span>
+<span class="err">    &quot;build&quot;: &quot;react-scripts build&quot;,</span>
+<span class="err">    &quot;test&quot;: &quot;react-scripts test&quot;,</span>
+<span class="err">    &quot;eject&quot;: &quot;react-scripts eject&quot;</span>
+<span class="err">  }</span>
+</code></pre></div>
+
+
+<p><code>npm build</code> - przygotowuje projekt/pliki do umieszczenia na serwerze</p>
+<hr>
+<h3>Parę przydatnych narzędzi</h3>
+<p>Instalacja <strong>Sass</strong> (bezpośrednio wczytanie do pliku App.js) // css plik tworzy się dopiero przy buildzie </p>
+<p>npm install node-sass --save</p>
+<p>Instalacja <strong>React-router</strong></p>
+<p>npm install react-router-dom</p>
+<hr>
+<p>Źródła:</p>
+<p><a href="https://create-react-app.dev/">Create React App</a></p>
   </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/git-pierwsze-kroki.html">Git - pierwsze kroki</a></h2>
+  <div class="tag-cloud">
     <p>
-      Opublikowano pią 10 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/git.html">git</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/git.html">git</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/branch.html">branch</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/galaz.html">gałąź</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/github.html">github</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/git-hub.html">git-hub</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/commit.html">commit</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/system-kontroli-wersji.html">system kontroli wersji</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dev.html">dev</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/git-init.html">git init</a>
-        &#8226; 1 min read
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
     </p>
-  </header>
-  <div>
-      <p><img alt="git-branch" src="https://i.morioh.com/2019/11/11/1f265e2d4c43.jpg"></p>
-<h3>Git lokalnie</h3>
-<ol>
-<li>
-<p>Instalacja GITa</p>
-</li>
-<li>
-<p>Stworzenie folderu na dysku</p>
-</li>
-<li>
-<p>Wewnątrz folderu zainicjowanie projektu GIT wpisując w linię komend</p>
-<div class="highlight"><pre><span></span><code><span class="err">git init</span>
-</code></pre></div>
-
-
-</li>
-</ol>
-<p>Istnieje parę możliwości rozegrania kolejnych kroków</p>
-<ol>
-<li>
-<p>Można najpierw sprawdzić czy w danym repozytorium posiadamy pliki, które nie są zapisane (untracked)</p>
-<div class="highlight"><pre><span></span><code><span class="err">git status</span>
-</code></pre></div>
-
-
-</li>
-<li>
-<p>Następnie dodać pliki do przestrzeni roboczej (stage)</p>
-<div class="highlight"><pre><span></span><code><span class="err">git add …</span></code></pre></div></li></ol>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/git-pierwsze-kroki.html">Czytaj dalej</a>
   </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-stany.html">React: (zjednoczne) Stany React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html">React: warunkowe renderowanie</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
 </article>
-
-  <div class="pagination">
-  </div>
-
-
-
       <a href="#nav" class='to-top'>
         <i class="fa fa-angle-double-up"></i>
       </a>

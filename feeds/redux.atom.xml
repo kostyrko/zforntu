@@ -1,5 +1,495 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - redux</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/redux.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-08T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React + Redux: prosty przykład zastosowania</title><link href="https://kostyrko.github.io/zfrontu/redux-prosty-przyklad.html" rel="alternate"></link><published>2020-11-08T10:00:00+01:00</published><updated>2020-11-08T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-08:/zfrontu/redux-prosty-przyklad.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/1838/0*95tBOgxEPQAVq9YO.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - redux</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/redux.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-13T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Redux: Duck + Redux-thunk</title><link href="https://kostyrko.github.io/zfrontu/redux-thunk.html" rel="alternate"></link><published>2020-11-13T10:00:00+01:00</published><updated>2020-11-13T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-13:/zfrontu/redux-thunk.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/700/1*uHumlKU6fado6sOF2eHVwg.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;Istotne pojęcia&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Thunk&lt;/strong&gt; jest innym słowem na funkcję, która jest zwrócona przez inną funkcję.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    function wrapper_function() {&lt;/span&gt;
+&lt;span class="err"&gt;            // &amp;gt;&amp;gt; to jest &amp;quot;thunk&amp;quot; ponieważ odracza wykonanie kodu na później:&lt;/span&gt;
+&lt;span class="err"&gt;            return function thunk() {   // &amp;gt;&amp;gt; anonimowa lub nazwana&lt;/span&gt;
+&lt;span class="err"&gt;            console.log(&amp;#39;do stuff now&amp;#39;);&lt;/span&gt;
+&lt;span class="err"&gt;            };&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W Reduxie &lt;strong&gt;akcje/actions&lt;/strong&gt; są jedynie obiektami, z kolei &lt;strong&gt;reduktory/reducers&lt;/strong&gt; są "czyste" (nie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/700/1*uHumlKU6fado6sOF2eHVwg.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;Istotne pojęcia&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Thunk&lt;/strong&gt; jest innym słowem na funkcję, która jest zwrócona przez inną funkcję.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    function wrapper_function() {&lt;/span&gt;
+&lt;span class="err"&gt;            // &amp;gt;&amp;gt; to jest &amp;quot;thunk&amp;quot; ponieważ odracza wykonanie kodu na później:&lt;/span&gt;
+&lt;span class="err"&gt;            return function thunk() {   // &amp;gt;&amp;gt; anonimowa lub nazwana&lt;/span&gt;
+&lt;span class="err"&gt;            console.log(&amp;#39;do stuff now&amp;#39;);&lt;/span&gt;
+&lt;span class="err"&gt;            };&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W Reduxie &lt;strong&gt;akcje/actions&lt;/strong&gt; są jedynie obiektami, z kolei &lt;strong&gt;reduktory/reducers&lt;/strong&gt; są "czyste" (nie zmieniają nic co znajduje się po za ich własnym zakresem).&lt;/p&gt;
+&lt;p&gt;Zatem aby akcja w reduxie miała być funkcyjna powinna wewnątrz wywoływać funkcję -&amp;gt; innymi słowy &lt;strong&gt;thunk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Redux-thunk&lt;/strong&gt; jest kodem/oprogramowaniem pośredniczącym (biblioteką) - sprawdza każdą przekazywaną akcję, przechodzącą przez aplikację i jeśli ta jest funkcją, wówczas ją wywołuje. Redux przekaże do Redux-thunk dwa argumenty: &lt;code&gt;dispatch&lt;/code&gt; oraz &lt;code&gt;getState&lt;/code&gt; (pozyskanie stanu)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Ducks&lt;/strong&gt; - nazwa pochodzi od ostatniej sylaby Redux  i jest propozycją konwencji strukturyzowania plików związanych ze stanem komponentów oraz Reduxem. Duck ma tworzyć pakiet reduktorowy Reduxa i zawierać takie pliki jak =&amp;gt; {actionTypes, actions, reducer} [więcej na ten temat &lt;a href="https://github.com/erikras/ducks-modular-redux"&gt;Ducks: Redux Reducer Bundles&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;img alt="duck" src="https://raw.githubusercontent.com/erikras/ducks-modular-redux/master/duck.jpg"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Faza projektu (App.js) - brak rozbudowanej struktury&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./App.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;createStore&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;combineReducers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bindActionCreators&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;redux&amp;#39;&lt;/span&gt;
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;----------&lt;/span&gt; &lt;span class="n"&gt;Zmienne&lt;/span&gt; &lt;span class="n"&gt;przechowujące&lt;/span&gt; &lt;span class="n"&gt;stan&lt;/span&gt; &lt;span class="n"&gt;wyjściowy&lt;/span&gt; &lt;span class="o"&gt;----------&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wyjściowy&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;initialDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;droidsName&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Favorite&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;R2D2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;BB8&amp;#39;&lt;/span&gt;
+            &lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;initialDroidClasses&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;listName&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;working droids&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nb"&gt;list&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;Protocol droid&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Astromech droid&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Power droid&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Utility droid&amp;quot;&lt;/span&gt;
+            &lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;----------------------------&lt;/span&gt; &lt;span class="n"&gt;Reduktory&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stan&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-----------------------&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;reduktory&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reducers&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;initialDroids&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;sprawdza&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt; &lt;span class="n"&gt;akcji&lt;/span&gt;
+            &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;RESET_DROIDS&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;nazwa&lt;/span&gt; &lt;span class="n"&gt;wywołania&lt;/span&gt; &lt;span class="n"&gt;akcji&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;RESET&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="n"&gt;przy&lt;/span&gt; &lt;span class="n"&gt;założeniu&lt;/span&gt; &lt;span class="err"&gt;ż&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;pustą&lt;/span&gt; &lt;span class="n"&gt;tablicę&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;kopiowanie&lt;/span&gt; &lt;span class="n"&gt;atrybutów&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;które&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;mają&lt;/span&gt; &lt;span class="n"&gt;zostać&lt;/span&gt; &lt;span class="n"&gt;zmienione&lt;/span&gt;
+                    &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+                &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ADD_DROID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;nazwy&lt;/span&gt; &lt;span class="n"&gt;akcji&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;mogą&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;pokrywać&lt;/span&gt;
+                    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                        &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                        &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+                        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ADD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;D-O&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="n"&gt;przy&lt;/span&gt; &lt;span class="n"&gt;założeniu&lt;/span&gt; &lt;span class="err"&gt;ż&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;spowoduje&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;nowego&lt;/span&gt; &lt;span class="n"&gt;droida&lt;/span&gt;
+                    &lt;span class="p"&gt;}&lt;/span&gt;
+                &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;droidClasses&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;initialDroidClasses&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;RESET_DROID_CLASS&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ADD_DROID_CLASS&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;łą&lt;/span&gt;&lt;span class="n"&gt;cznie&lt;/span&gt; &lt;span class="n"&gt;reduktorów&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;mapujący&lt;/span&gt; &lt;span class="n"&gt;akcje&lt;/span&gt; &lt;span class="n"&gt;reduktorów&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;allReducers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;combineReducers&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;droidClasses&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;  &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;mapujący&lt;/span&gt; &lt;span class="n"&gt;akcje&lt;/span&gt; &lt;span class="n"&gt;stora&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;reducer&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;----------------------------&lt;/span&gt; &lt;span class="n"&gt;Store&lt;/span&gt; &lt;span class="o"&gt;-----------------------&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;REDUX_DEVTOOLS_EXTENSION&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;createStore&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;allReducers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__REDUX_DEVTOOLS_EXTENSION__&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__REDUX_DEVTOOLS_EXTENSION__&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;----------------------------&lt;/span&gt; &lt;span class="n"&gt;Kreator&lt;/span&gt; &lt;span class="n"&gt;akcji&lt;/span&gt; &lt;span class="o"&gt;-----------------------&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;kreator&lt;/span&gt; &lt;span class="n"&gt;akcji&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;która&lt;/span&gt; &lt;span class="n"&gt;opakowuje&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;przekazywany&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;a&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;addDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ADD_DROID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;RESET_DROIDS&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;wywołanie&lt;/span&gt; &lt;span class="n"&gt;kreatora&lt;/span&gt; &lt;span class="n"&gt;akcji&lt;/span&gt;
+    &lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;addDroid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ME-8D9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;łą&lt;/span&gt;&lt;span class="n"&gt;czenie&lt;/span&gt; &lt;span class="n"&gt;kreatorów&lt;/span&gt; &lt;span class="n"&gt;akcji&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;którym&lt;/span&gt; &lt;span class="n"&gt;przekazywane&lt;/span&gt; &lt;span class="n"&gt;są&lt;/span&gt; &lt;span class="n"&gt;różne&lt;/span&gt; &lt;span class="n"&gt;funkcje&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droidActions&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bindActionCreators&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;addDroid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;odwołanie&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;metody&lt;/span&gt; &lt;span class="err"&gt;łą&lt;/span&gt;&lt;span class="n"&gt;czącej&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;sobie&lt;/span&gt; &lt;span class="n"&gt;akcje&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt; &lt;span class="n"&gt;już&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;wpisany&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;droidActions&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;DN-LD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;droidActions&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reset&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;----------------------------&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;-----------------------&lt;/span&gt;
+
+    &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przypisuje&lt;/span&gt; &lt;span class="n"&gt;wyżej&lt;/span&gt; &lt;span class="n"&gt;stworzenie&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;obiektu&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="n"&gt;pozwala&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;wpisanie&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;konsolę&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;wtedy&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+
+    &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt; &lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;App&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Faza projektu i jego struktura (istotne pliki/te które są edytowane oraz które zostaną/ły dodane są zilustrowane poniżej). 
+W tej fazie logika projektu zostaje rozłożona pomiędzy poszczególnymi plikami. Główna logika odpowiedzialna za pracę ze stanem przy pomocy Reduxa znajduje się w folderach &lt;code&gt;duck&lt;/code&gt;
+Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują ją według przyjętego wzoru, zapewniając czytelność kodu.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    {public}&lt;/span&gt;
+&lt;span class="err"&gt;    |&lt;/span&gt;
+&lt;span class="err"&gt;    |_ [...]&lt;/span&gt;
+&lt;span class="err"&gt;    {src}&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |---App.js&lt;/span&gt;
+&lt;span class="err"&gt;        |--- reducers.js&lt;/span&gt;
+&lt;span class="err"&gt;        |---[...]&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |_{app}&lt;/span&gt;
+&lt;span class="err"&gt;            |&lt;/span&gt;
+&lt;span class="err"&gt;            |_ {droids}&lt;/span&gt;
+&lt;span class="err"&gt;            |    |&lt;/span&gt;
+&lt;span class="err"&gt;            |    |_ {duck}&lt;/span&gt;
+&lt;span class="err"&gt;            |       |&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- actions.js&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- index.js&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- reducers.js&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- types.js&lt;/span&gt;
+&lt;span class="err"&gt;            |_ {droidClasses}&lt;/span&gt;
+&lt;span class="err"&gt;            |    |&lt;/span&gt;
+&lt;span class="err"&gt;            |    |_ {duck}&lt;/span&gt;
+&lt;span class="err"&gt;            |       |&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- actions.js&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- index.js&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- reducers.js&lt;/span&gt;
+&lt;span class="err"&gt;            |       | --- types.js&lt;/span&gt;
+&lt;span class="err"&gt;        [...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Przykładowa zawartość &amp;gt;&amp;gt;ducks&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;ADD_DROID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ADD_DROID&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;RESET_DROIDS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;RESET_DROIDS&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;ADD_DROID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;RESET_DROIDS&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;reducers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;types&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./types&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;INITIAL_STATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;droidsName&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Favorite&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;R2D2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;C3PO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;BB8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droidsReducer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;INITIAL_STATE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RESET_DROIDS&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[],&lt;/span&gt;
+        &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="n"&gt;case&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ADD_DROID&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+            &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;droidsReducer&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;types&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./types&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ADD_DROID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;
+    &lt;span class="p"&gt;})&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;types&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RESET_DROIDS&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;
+    &lt;span class="p"&gt;})&lt;/span&gt;
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;reset&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;integruje&lt;/span&gt; &lt;span class="n"&gt;oraz&lt;/span&gt; &lt;span class="n"&gt;eksportuje&lt;/span&gt; &lt;span class="n"&gt;logikę&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;duck&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;droidsReducer&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./reducers&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;droidTypes&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./types&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;droidActions&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./actions&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;droidsReducer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W pliku &lt;strong&gt;&amp;gt;&amp;gt;reducers.js&amp;lt;&amp;lt;&lt;/strong&gt; łączone są reduktory i eksportowane jako jeden obiekt&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;combineReducers&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;redux&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;droidsReducer&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./app/droids/duck&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;droidsClassReducer&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./app/droidClasses/duck&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;rootReducer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;combineReducers&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;droidsReducer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;droidsClassReducer&lt;/span&gt;
+    &lt;span class="p"&gt;})&lt;/span&gt;
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;rootReducer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Do pliku &lt;strong&gt;&amp;gt;&amp;gt;App.js&amp;lt;&amp;lt;&lt;/strong&gt; należy zaimportować połączone reduktory (rootReducer)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;createStore&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;redux&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;rootReducer&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./reducers&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droidActions&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./app/droids/duck&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;createStore&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rootReducer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__REDUX_DEVTOOLS_EXTENSION__&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__REDUX_DEVTOOLS_EXTENSION__&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt;
+
+    &lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droidActions&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;D-O&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;wszystkie zmiany jakie zaszły na tym etapie projektu można znaleźć w tym miejscu: &lt;a href="https://github.com/kostyrko/JS-sandbox/commit/d73069b2b79e8b28e3f965d3ec6ac555ca3e2f65"&gt;2_redux-thunk-&amp;gt; distribution of logic&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Faza projektu oparta jest na podłączeniu Reduxa do Reacta oraz zastosowaniu Redux-Thunk&lt;/p&gt;
+&lt;p&gt;W tym celu należy zainstalować react-redux oraz redux-thunk&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt; npm i react-redux redux-thunk&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pliki, które uległy zmianie lub zostąły dodane:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+            &lt;span class="o"&gt;|&lt;/span&gt;
+            &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="p"&gt;[...]&lt;/span&gt;
+            &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                &lt;span class="o"&gt;|&lt;/span&gt;
+                &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="c1"&gt;---index.js // &amp;lt;Provider&amp;gt; - tu jest podpięta logika Reduxa&lt;/span&gt;
+                &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="c1"&gt;---App.js // store zostaje usunięty&lt;/span&gt;
+                &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="c1"&gt;---store.js // plik przechowujący konfigurację stora&lt;/span&gt;
+                &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="c1"&gt;---[...]&lt;/span&gt;
+                &lt;span class="o"&gt;|&lt;/span&gt;
+                &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;components&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="c1"&gt;--- DroidsContainer.js // &amp;quot;smart&amp;quot; component połączony z Redux&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="c1"&gt;--- DroidsForm.js // input - dodawanie droida to stanu  / zastoswanie akcji&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;duck&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;         &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;         &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_operations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;!!&lt;/span&gt; &lt;span class="n"&gt;pobieranie&lt;/span&gt; &lt;span class="n"&gt;wysyłanie&lt;/span&gt; &lt;span class="n"&gt;danych&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;API&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;         &lt;span class="p"&gt;[...]&lt;/span&gt;
+
+                    &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droidClasses&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;duck&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;       &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;       &lt;span class="p"&gt;[...]&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;jsServer&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;     &lt;span class="o"&gt;|&lt;/span&gt;
+                    &lt;span class="o"&gt;|&lt;/span&gt;     &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;_db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;baza&lt;/span&gt; &lt;span class="n"&gt;danych&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;formacie&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Json&lt;/span&gt; &lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                  &lt;span class="p"&gt;[...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&amp;gt;&amp;gt;index.js&amp;lt;&amp;lt;&lt;/strong&gt; - tu zostaje przeniesiony store i App.js jest opakowany w &lt;Provider&gt; tak aby cała aplikacja miała dostęp do Reduxa&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react-redux&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;store&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./store&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;ReactDOM&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;Provider&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;root&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&amp;gt;&amp;gt;DroidsContainer.js&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react-redux&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;getAllDroids&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;../duck/operations&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;DroidsContainer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;getAllDroids&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+        &lt;span class="n"&gt;useEffect&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;getAllDroids&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+            &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ComponentDidMount&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;},[])&lt;/span&gt;
+
+
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; 
+                    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class="p"&gt;)}&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przyjmuje&lt;/span&gt; &lt;span class="n"&gt;stan&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;zawartością&lt;/span&gt; &lt;span class="n"&gt;stanu&lt;/span&gt; &lt;span class="n"&gt;znajdującą&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;pod&lt;/span&gt; &lt;span class="n"&gt;kluczem&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;mapStateToProps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;
+    &lt;span class="p"&gt;})&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;wywołująca&lt;/span&gt; &lt;span class="n"&gt;funkcję&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;parametrem&lt;/span&gt; &lt;span class="n"&gt;funkcji&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;która&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;być&lt;/span&gt; &lt;span class="n"&gt;wykonana&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;mapDispatchToProps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="n"&gt;getAllDroids&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;getAllDroids&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="p"&gt;})&lt;/span&gt;
+
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;connect&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mf"&gt;1.&lt;/span&gt; &lt;span class="n"&gt;argument&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;mapowanie&lt;/span&gt; &lt;span class="n"&gt;elementów&lt;/span&gt; &lt;span class="n"&gt;ze&lt;/span&gt; &lt;span class="n"&gt;stora&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;które&lt;/span&gt; &lt;span class="n"&gt;mają&lt;/span&gt; &lt;span class="n"&gt;być&lt;/span&gt; &lt;span class="n"&gt;przyjęte&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;komponencie&lt;/span&gt; &lt;span class="n"&gt;jako&lt;/span&gt; &lt;span class="n"&gt;propsy&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;przyjmujący&lt;/span&gt; &lt;span class="n"&gt;dane&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;API&lt;/span&gt;
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mapStateToProps&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mapDispatchToProps&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;DroidsContainer&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&amp;gt;&amp;gt;DroidsForm.js&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react-redux&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;actions&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;../duck/actions&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;DroidsForm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+        &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droidInput&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;createRef&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+        &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;addDroid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;preventDefault&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;podanie&lt;/span&gt; &lt;span class="n"&gt;stora&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;którym&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;dokonać&lt;/span&gt; &lt;span class="n"&gt;operacja&lt;/span&gt; &lt;span class="n"&gt;dodania&lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;kluczem&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;obiekcie&lt;/span&gt; &lt;span class="n"&gt;zwróconym&lt;/span&gt; &lt;span class="n"&gt;przez&lt;/span&gt; &lt;span class="n"&gt;mapDispatchToProps&lt;/span&gt;
+            &lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droidInput&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;current&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;form&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;droidInput&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;current&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;droidInput&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;current&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="n"&gt;onSubmit&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;addDroid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt; &lt;span class="n"&gt;ref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droidInput&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;submit&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Add&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przygotowanie&lt;/span&gt; &lt;span class="n"&gt;obiektu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;który&lt;/span&gt; &lt;span class="n"&gt;zawiera&lt;/span&gt; &lt;span class="n"&gt;funkcje&lt;/span&gt; &lt;span class="n"&gt;jakie&lt;/span&gt; &lt;span class="n"&gt;należy&lt;/span&gt; &lt;span class="n"&gt;wywołać&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;storze&lt;/span&gt;
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;mapDispatchToProps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;actions&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="p"&gt;})&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt; &lt;span class="n"&gt;ponieważ&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;sczytywany&lt;/span&gt;
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mapDispatchToProps&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;DroidsForm&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&amp;gt;&amp;gt;operations.js&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;akcje&lt;/span&gt; &lt;span class="n"&gt;generują&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;actions&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;./actions&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;fetchDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;async&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;await&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://localhost:3001/droidsTypes&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;GET&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+        &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;await&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;json&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;thunk&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;funkcję&lt;/span&gt; &lt;span class="n"&gt;asynchroniczną&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;przekaże&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;niej&lt;/span&gt; &lt;span class="n"&gt;dispatcha&lt;/span&gt; &lt;span class="n"&gt;powodując&lt;/span&gt; &lt;span class="n"&gt;zmianę&lt;/span&gt; &lt;span class="n"&gt;statu&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;getAllDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;getAllDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;
+    &lt;span class="n"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;await&lt;/span&gt; &lt;span class="n"&gt;fetchDroids&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;actions&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&amp;gt;&amp;gt;store.js&amp;lt;&amp;lt;&lt;/strong&gt; - redux-thunk =&amp;gt; applyMiddleware(thunk)
+więcej na temat composeEnhancers patrz tutaj: &lt;a href="https://github.com/zalmoxisus/redux-devtools-extension#usage"&gt;Redux DevTools Extension - 1.2 Advanced store setup&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;createStore&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;applyMiddleware&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;compose&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;redux&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;rootReducer&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./reducers&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;thunk&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;redux-thunk&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;composeEnhancers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__REDUX_DEVTOOLS_EXTENSION_COMPOSE__&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="n"&gt;compose&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;createStore&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rootReducer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;composeEnhancers&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;applyMiddleware&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;thunk&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;wszystkie zmiany jakie zaszły na tym etapie projektu można znaleźć w tym miejscu: &lt;a href="https://github.com/kostyrko/JS-sandbox/commit/2ccfcedbb19f1e4acdce5543fff4139e8bc10e08"&gt;2_redux-thunk-&amp;gt; Connect to React + Thunk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; faza zastosowanie hooków &lt;code&gt;useDispatch/useSelector&lt;/code&gt; (wszystkie operacje zachodzą na pliku &lt;strong&gt;DroidsContainer.js&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;co zostało zastąpione? -&amp;gt; &lt;strong&gt;connect, mapStateToProps, mapDispatchToProps&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;DroidsContainer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;React&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;useEffect&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;useSelector&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;useDispatch&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;react-redux&amp;#39;&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;getAllDroids&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;../duck/operations&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;DroidsContainer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;deklarowania&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;użycie&lt;/span&gt; &lt;span class="n"&gt;hooka&lt;/span&gt;
+        &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useDispatch&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;useEffect&lt;/span&gt;&lt;span class="p"&gt;(()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;getAllDroids&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dla&lt;/span&gt; &lt;span class="n"&gt;przypomnienie&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;co&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;tam&lt;/span&gt; &lt;span class="n"&gt;dzieje&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ADD_DROID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;D-O&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;
+
+
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pobranie&lt;/span&gt; &lt;span class="n"&gt;wycinka&lt;/span&gt; &lt;span class="n"&gt;statu&lt;/span&gt; &lt;span class="n"&gt;przy&lt;/span&gt; &lt;span class="n"&gt;pomocy&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;useSelector&lt;/span&gt;
+        &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useSelector&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; 
+                    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class="p"&gt;)}&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;DroidsContainer&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Źródła&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Podstawowe:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=qIaLloDosxs&amp;amp;list=PLOzzvlJKwOdWIKw_f1-3l15bODB1CcUPh"&gt;Podstawy Redux - Artur Chmaro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/reduxjs/redux-thunk/issues/146"&gt;Actions must be plain objects. Use custom middleware for async actions. #146&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dodatkowe:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@matthew.holman/what-is-redux-ducks-46bcb1ad04b7"&gt;What is Redux Ducks?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://soshace.com/react-lesson-13/"&gt;React Lesson 13. Part 1: Asynchronous actions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/swlh/handling-asynchronous-actions-with-redux-thunk-86b8d8e0b83e"&gt;Handling Asynchronous Actions with Redux Thunk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://designingforscale.com/understanding-redux-middleware-and-writing-custom-ones/"&gt;Understanding Redux Middleware And Writing Custom Ones&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://daveceddia.com/what-is-a-thunk/"&gt;What the heck is a 'thunk'?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/reduxjs/redux-thunk"&gt;GH - Redux Thunk (Thunk middleware for Redux.)&lt;/a&gt;&lt;/p&gt;</content><category term="redux"></category><category term="react"></category><category term="redux"></category><category term="Redux DevTools Extension"></category><category term="useDispatch"></category><category term="useSelector"></category></entry><entry><title>React + Redux: prosty przykład zastosowania</title><link href="https://kostyrko.github.io/zfrontu/redux-prosty-przyklad.html" rel="alternate"></link><published>2020-11-08T10:00:00+01:00</published><updated>2020-11-08T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-08:/zfrontu/redux-prosty-przyklad.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/1838/0*95tBOgxEPQAVq9YO.png"&gt;&lt;/p&gt;
 &lt;p&gt;Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1)&lt;/strong&gt; Instalacja narzędzi/zależności&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    npx create-react-app &amp;lt;nazwa_projektu&amp;gt;&lt;/span&gt;
@@ -79,8 +569,9 @@
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;4)&lt;/strong&gt; &lt;strong&gt;&amp;gt;&amp;gt;{reducers}&amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;w tym folderze w poszczególnych plikach przechowywane są reduktory - funkcje tworzące nowy stan&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;w tym folderze w poszczególnych plikach przechowywane są reduktory - funkcje tworzące nowy stan&lt;/p&gt;
+&lt;p&gt;ogólnie przyjęta zasada 1 plik = 1 stan (innymi słowy każdy stan posiada własny plik)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;isLogged.js&lt;/strong&gt; - loggedReducer przyjmuje 2 arg. 1. stan = false oraz akcję, jeśli typ akcji będzie równy SIGN_IN wówczas stan zostanie zmieniony na True&lt;/p&gt;
@@ -186,7 +677,7 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;Źródła&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=CVpUuw9XSjY&amp;amp;ab_channel=DevEd"&gt;Redux For Beginners | React Redux Tutorial - Dev Ed&lt;/a&gt;&lt;/p&gt;</content><category term="redux"></category><category term="react"></category><category term="redux"></category><category term="Redux DevTools Extension"></category></entry><entry><title>Redux: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/redux-wprowadzenie.html" rel="alternate"></link><published>2020-11-06T10:00:00+01:00</published><updated>2020-11-06T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-06:/zfrontu/redux-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-logo" src="https://chriscourses.com/img/blog/redux/redux.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=CVpUuw9XSjY&amp;amp;ab_channel=DevEd"&gt;Redux For Beginners | React Redux Tutorial - Dev Ed&lt;/a&gt;&lt;/p&gt;</content><category term="redux"></category><category term="react"></category><category term="redux"></category><category term="Redux DevTools Extension"></category><category term="redux-hooks"></category><category term="hooks"></category><category term="useSelector"></category><category term="useDispatch"></category></entry><entry><title>Redux: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/redux-wprowadzenie.html" rel="alternate"></link><published>2020-11-06T10:00:00+01:00</published><updated>2020-11-06T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-06:/zfrontu/redux-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-logo" src="https://chriscourses.com/img/blog/redux/redux.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;Redux - kontener stanu&lt;/h2&gt;
 &lt;p&gt;Redux jest biblioteką do zarządzania stanem dla całej aplikacji ("kontenerem stanu") w sposób ponadkomponentowy (współpracuje min. z Reactem oraz Angularem)&lt;/p&gt;
 &lt;p&gt;Poniżej opiszę parę kluczowych pojęć do pracy z Reduxem&lt;/p&gt;
