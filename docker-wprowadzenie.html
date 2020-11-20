@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&gt; docker tworzy &#34;odizolowane mikrokomputery&#34; Docker-file - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image Docker-image - środowisko obsługujące docker-kontenerów/ niezmienne &#34;snapshot&#34; środowiska Docker-Container - proces/pracujący (running process) Docker-imag&#39;a Podstawowe komendy docker ps …" />
+<meta name="keywords" content="docker, containers, kontenery, nodejs, expressjs, express">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Docker: wprowadzenie"/>
+<meta property="og:description" content="Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&gt; docker tworzy &#34;odizolowane mikrokomputery&#34; Docker-file - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image Docker-image - środowisko obsługujące docker-kontenerów/ niezmienne &#34;snapshot&#34; środowiska Docker-Container - proces/pracujący (running process) Docker-imag&#39;a Podstawowe komendy docker ps …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/docker-wprowadzenie.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-18 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="containers"/>
+<meta property="article:tag" content="docker"/>
+<meta property="article:tag" content="containers"/>
+<meta property="article:tag" content="kontenery"/>
+<meta property="article:tag" content="nodejs"/>
+<meta property="article:tag" content="expressjs"/>
+<meta property="article:tag" content="express"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Docker: wprowadzenie</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="docker-wprowadzenie">Docker: wprowadzenie</h1>
+    <p>
+      Opublikowano śro 18 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/containers.html">containers</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="docker-logo" src="https://www.cloudsavvyit.com/thumbcache/0/0/576bdb68675c300a17d82c131b23c927/p/uploads/2019/06/c454d054.png"></p>
+<p>Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&gt; docker tworzy "odizolowane mikrokomputery"</p>
+<p><img alt="docker-vs-vm" src="https://miro.medium.com/max/700/0*5zQfr6j2fAeNPy-H.png"></p>
+<p><strong>Docker-file</strong> - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image</p>
+<p><strong>Docker-image</strong> - środowisko obsługujące docker-kontenerów/ niezmienne "snapshot" środowiska</p>
+<p><strong>Docker-Container</strong> - proces/pracujący (running process) Docker-imag'a</p>
+<hr>
+<h3>Podstawowe komendy</h3>
+<p><code>docker ps</code> -&gt; docker process - ukazuje działające dockery (ukazuje min. powiązanie z obrazem oraz portem)</p>
+<p><code>docker build -t userName_dockerHub/nazwa_aplikacji:numer.wersji ścieżkaDoPlikuDockerfile</code> -&gt; switch -t = <strong>tag</strong> pozwala na przypisanie tagu do dockera w trakcie jego budowy (<strong>build</strong>), umożliwia to jego proste odnalezienia / (nazwa użytkownika jest opcjonalna)</p>
+<div class="highlight"><pre><span></span><code><span class="err">// np.</span>
+<span class="err">docker build -t userName_dockerHub/nazwa_aplikacji:1.0 .</span>
+</code></pre></div>
+
+
+<p><code>docker push/pull</code> - komendy pozwalające na wypychanie i pobieranie dockera z remota</p>
+<p><code>docker run</code> - uruchomienie Dockera</p>
+<p><code>docker stop $(docker ps -aq)</code> - zatrzymuje wszystkie pracujące dockery</p>
+<p><code>docker compose down</code> - zamyka wszystkie dockery stworzone przez <code>up</code></p>
+<hr>
+<h2>Prosta nodejs Express Aplikacja</h2>
+<p><strong>źródło poniższego kodu</strong>: <a href="https://github.com/fireship-io/docker-nodejs-basic-demo">GH-  fireship-io/docker-nodejs-basic-demo </a></p>
+<p>wyjściowa aplikacja -&gt; <strong>src/index.js</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="o">//</span> <span class="n">index</span><span class="o">.</span><span class="n">js</span>
+    <span class="k">const</span> <span class="n">app</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)();</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">res</span> <span class="p">)</span> <span class="o">=&gt;</span> 
+        <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">({</span> <span class="n">message</span><span class="p">:</span> <span class="s1">&#39;Docker jest prosty 🐳&#39;</span> <span class="p">})</span> 
+    <span class="p">);</span>
+
+    <span class="k">const</span> <span class="n">port</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">PORT</span> <span class="o">||</span> <span class="mi">8080</span><span class="p">;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">app</span> <span class="n">listening</span> <span class="n">on</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="o">$</span><span class="p">{</span><span class="n">port</span><span class="p">}</span><span class="err">`</span><span class="p">)</span> <span class="p">);</span>
+</code></pre></div>
+
+
+<h3>&gt;&gt;&gt; Dockerfile &lt;&lt;&lt;</h3>
+<p><strong>1</strong> stworzenie <strong>Dockerfile</strong></p>
+<p><strong>--------------- dodanie instrukcji (zwanych warstwami) -----------------</strong></p>
+<p><strong>2</strong> wskazanie środowiska -&gt; np. <code>FROM node:12</code> (wersja 12 node.js)</p>
+<p><strong>3</strong> Dodanie źródła kodu poprzez zdefiniowanie Working Directory -&gt; np. <code>WORKDIR /app</code></p>
+<p><strong>4</strong> Wskazanie ścieżki pozwalającej na skopiowanie zależności -&gt; <code>COPY package*.json ./</code> (1. skąd 2. dokąd)</p>
+<p><strong>5</strong> Wskazanie instrukcji wykonania istalacji pakietów node.js -&gt; <code>RUN np install</code></p>
+<p><strong>6.1</strong> Wskazanie lokalnych modułów nodejs do zignorowania w trakcie kopiowania plików lokalnych -&gt; stworzenie <strong>.dockerignore</strong> -&gt; dodanie <code>node_modules</code></p>
+<p><strong>6.2</strong> Skopiowanie kodu źródłowego (skopowanie plików lokalnych do CWD, wskazanie lokalnych modułów do zignorowania w trakcie kopiowania) -&gt; <code>COPY . .</code> </p>
+<p><strong>7</strong> Wskazanie zmienna środowiskowa pracy -&gt; <code>ENV PORT=8080</code></p>
+<p><strong>8</strong> Zdefiniowanie nasłuchiwania (port) -&gt; <code>EXPOSE 8080</code></p>
+<p><strong>9</strong> Command/komenda wskazuje w jaki sposób ma pracować (run) docker -&gt; <code>CMD ["npm", "start"]</code></p>
+<h3>Docker Image</h3>
+<p><strong>1</strong> Wpisanie komendy w <strong>terminalu</strong> -&gt; <code>docker build -t nazwa_aplikacji</code> lub <code>docker build -t userName_dockerHub/nazwa_aplikacji:1.0 .</code></p>
+<p><strong>2</strong> Wypchnięcie do remota -&gt; <code>docker push adres_repozytorium_na_np.DockerHub</code></p>
+<p><strong>3</strong> Uruchomienie dockera <code>docker run idDockera/tagDockera</code></p>
+<p><strong>4</strong> Uruchomienie dockera jeśli port jest niewidoczny - wówczas należy przekierować port na dostępny <code>docker run -p 5000:8080 idDockera/tagDockera</code> (p-&gt;port forwarding local:container -&gt; 5000:8080)</p>
+<p><strong>5</strong> Zamknięcie Dockera -&gt; <code>docker stop kluczDockera/id</code> np <code>docker stop 11da141426d3a0</code> <code>docker stop tagDockera</code></p>
+<h3>Volumes</h3>
+<ul>
+<li>
+<p>folder do przechowywania informacji/plików, które zostaną zapisane po wyłączeniu dockera</p>
+<p>// stworzenie
+docker volume create nazwaFolderu</p>
+<p>// użycie
+--mount source=nazwaFolderu,nazwaKolejnegoFolderu</p>
+</li>
+</ul>
+<hr>
+<h3>Docker Hub</h3>
+<p><a href="https://hub.docker.com/search?q=&amp;type=image">Docker-Hub</a> - miejsce (strona) która pozwoli na przechowywanie, rozpowszechnianie obrazów Dockera oraz na kolaborację nad/z nimi </p>
+<hr>
+<h3>Moby Project - tool to build container-base system przykładowo ten przy użyciu LinuxKit</h3>
+<p>przy użyciu Mobiego można pracować z LinuxKit w celu stworzenia własnej dystrybucji Linuxa</p>
+<p><img alt="moby i docker" src="https://collabnix.com/wp-content/uploads/2017/05/moby.png"></p>
+<hr>
+<p>Źródła:</p>
+<p><a href="https://docs.docker.com/">docs.docker.com</a></p>
+<p><a href="https://www.youtube.com/watch?v=gAkwW2tuIqE">Learn Docker in 7 Easy Steps - Full Beginner's Tutorial</a></p>
+<p><a href="https://www.youtube.com/watch?v=d-PPOS-VsC8">Docker - Complete Tutorial [Docker For Everyone In 2 Hours]</a></p>
+<p><a href="https://www.youtube.com/watch?v=eGz9DS-aIeY">you need to learn Docker RIGHT NOW!! // Docker Containers 101</a></p>
+<p><a href="https://collabnix.com/demystifying-the-relationship-between-moby-docker/">Demystifying the Relationship Between Moby &amp; Docker</a></p>
+<p><a href="https://www.mirantis.com/blog/ok-i-give-up-is-docker-now-moby-and-what-is-linuxkit/">OK, I give up. Is Docker now Moby? And what is LinuxKit?</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/docker.html">docker</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/containers.html">containers</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/kontenery.html">kontenery</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/nodejs.html">nodejs</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/expressjs.html">expressjs</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/express.html">express</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

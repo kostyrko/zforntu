@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="TypeScript jest supersetem JavaScript Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi ) Instalacja i użytkowanie -&gt; &#34;Hello world&#34; // terminal npm i -g typescript Należy stworzyć plik index.ts // index.ts console.log(&#39;Hello world&#39;); Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą …" />
+<meta name="keywords" content="rts, typescript">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="TypeScript: wprowadzenie"/>
+<meta property="og:description" content="TypeScript jest supersetem JavaScript Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi ) Instalacja i użytkowanie -&gt; &#34;Hello world&#34; // terminal npm i -g typescript Należy stworzyć plik index.ts // index.ts console.log(&#39;Hello world&#39;); Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-19 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="typescript"/>
+<meta property="article:tag" content="rts"/>
+<meta property="article:tag" content="typescript"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; TypeScript: wprowadzenie</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="typescript-wprowadzenie">TypeScript: wprowadzenie</h1>
+    <p>
+      Opublikowano czw 19 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"></p>
+<p>TypeScript jest supersetem JavaScript</p>
+<ol>
+<li>Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )</li>
+</ol>
+<h3>Instalacja i użytkowanie -&gt; "Hello world"</h3>
+<div class="highlight"><pre><span></span><code><span class="err">// terminal</span>
+<span class="err">npm i -g typescript</span>
+</code></pre></div>
+
+
+<p>Należy stworzyć plik <strong>index.ts</strong></p>
+<div class="highlight"><pre><span></span><code><span class="err">// index.ts</span>
+<span class="err">console.log(&#39;Hello world&#39;);</span>
+</code></pre></div>
+
+
+<p>Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą na plik</p>
+<div class="highlight"><pre><span></span><code><span class="err">tsc index.ts</span>
+</code></pre></div>
+
+
+<p>W folderze pojawi się nowy plik js po transpilacji -&gt; <code>index.js</code> jego zawartość jest w JS/ES3 (w tym przypadku treść będzie taka sama)</p>
+<p>W celu wprowadzenia zmian w zachowaniu kompilatora można dodać flagi do komendy do niego się odwołującej w terminalu lub zawrzeć odpowiednie informacje w osobnym pliku <code>tsconfig.json</code></p>
+<div class="highlight"><pre><span></span><code><span class="err">    //tsconfig.json</span>
+<span class="err">    {</span>
+<span class="err">        &quot;compilerOptions&quot;: {</span>
+<span class="err">            &quot;target&quot;: &quot;esnext&quot;, // kompilacja do najnowszej wersji JS</span>
+<span class="err">            &quot;watch&quot;: true, // nasłuchiwanie na zmiany i kompilacja</span>
+<span class="err">            &quot;lib&quot;: [&quot;dom&quot;, &quot;es2017&quot;] // biblioteki np. &quot;pilnujące&quot; poprawności z klasami/obiektami DOM - trakcie pisania kodu</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+</code></pre></div>
+
+
+<h3>Pisanie kodu w sposób domniemany (implicit)</h3>
+<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">23</span> <span class="o">//</span> <span class="k">type</span><span class="p">:</span> <span class="nb">number</span>
+
+<span class="o">//</span> <span class="n">nie</span> <span class="n">jest</span> <span class="n">możliwe</span> <span class="n">bo</span> <span class="n">wcześniej</span> <span class="n">zadeklarowane</span> <span class="n">jest</span> <span class="nb">number</span>
+<span class="n">num</span> <span class="o">=</span> <span class="s1">&#39;22&#39;</span>
+</code></pre></div>
+
+
+<p>Podobnie</p>
+<div class="highlight"><pre><span></span><code><span class="err">let num</span>
+<span class="err">num = 22</span>
+<span class="err">num = &#39;33&#39; // będzie niepoprawne ponieważ inny typ został wyżej przypisany</span>
+</code></pre></div>
+
+
+<h3>Pisanie kodu w sposób wskazany</h3>
+<div class="highlight"><pre><span></span><code><span class="err">let num:number // wskazanie typu bez przypisania wartości</span>
+</code></pre></div>
+
+
+<p>let może odnosić się jedynie do liczb jeśli typ został zadeklarowany</p>
+<h3>"Strong typing" tworzenie własnych typów</h3>
+<p>Tworzenie własnego <strong>typu</strong> - Zmienna</p>
+<div class="highlight"><pre><span></span><code><span class="nt">type</span> <span class="nt">Style</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span> <span class="o">|</span> <span class="s1">&#39;italic&#39;</span>
+
+<span class="nt">let</span> <span class="nt">font</span><span class="o">:</span> <span class="nt">Style</span><span class="o">;</span>
+
+<span class="nt">font</span> <span class="o">=</span> <span class="s1">&#39;cursive&#39;</span> <span class="o">//</span> <span class="nt">błąd</span> <span class="nt">ponieważ</span> <span class="nt">może</span> <span class="nt">być</span> <span class="nt">jedynie</span> <span class="s1">&#39;bold&#39;</span> <span class="nt">albo</span> <span class="s1">&#39;italic&#39;</span>
+</code></pre></div>
+
+
+<p><strong>Interface</strong> - tworzenie wzoru Obiektów</p>
+<div class="highlight"><pre><span></span><code><span class="n">interface</span> <span class="n">Droid</span> <span class="p">{</span>
+    <span class="n">first</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span> <span class="o">//</span> <span class="n">wypełnienie</span> <span class="n">podanych</span> <span class="n">tutaj</span> <span class="n">kluczy</span> <span class="n">jest</span> <span class="n">obowiązkowe</span>
+    <span class="k">class</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">key</span><span class="p">:</span> <span class="n">string</span><span class="p">]:</span> <span class="n">any</span> <span class="o">//</span> <span class="n">pozostawia</span> <span class="n">furtkę</span> <span class="n">na</span> <span class="n">dodanie</span> <span class="n">ew</span><span class="o">.</span> <span class="n">kluczy</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="n">droid</span><span class="p">:</span> <span class="n">Droid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span>
+    <span class="k">class</span><span class="p">:</span> <span class="s1">&#39;Protocol&#39;</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="n">droid2</span><span class="p">:</span> <span class="n">Droid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;R2-D2&#39;</span><span class="p">,</span>
+    <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;Astromech droid&#39;</span><span class="p">,</span>
+    <span class="n">planet</span><span class="p">:</span> <span class="s1">&#39;Naboo&#39;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>Funkcje</strong></p>
+<p>Pilnuje, żeby jako arg. podana była jedynie liczba</p>
+<div class="highlight"><pre><span></span><code><span class="err">function pow (x: number, y: number) {</span>
+<span class="err">    return March.pow(x,y)</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>Pilnuje, żeby jako arg. podana była jedynie liczba ale zwraca wartość w postaci <code>stringa</code> - wymaga wskazania <strong>toString()</strong></p>
+<div class="highlight"><pre><span></span><code><span class="err">function pow (x: number, y: number):string {</span>
+<span class="err">    return March.pow(x,y).toString()</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>Używa się <code>void</code> w przypadku braku zwracania wartości</p>
+<div class="highlight"><pre><span></span><code><span class="err">function pow (x: number, y: number):void {</span>
+<span class="err">    March.pow(x,y).toString()</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p><strong>Tablice</strong></p>
+<p>// wskazanie tablicy przechowującej jedynie liczby</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr</span><span class="p">:</span><span class="n">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;23&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">error</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="bp">false</span><span class="p">)</span> <span class="o">//</span> <span class="n">error</span>
+</code></pre></div>
+
+
+<p>// wskazanie tablicy, która przyjmuje jedynie obiekty powstałe na podstawie wcześniej wskazanego wzoru Droid/interfejsu</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr</span><span class="p">:</span> <span class="n">Droid</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div>
+
+
+<p><strong>Krotki</strong></p>
+<p>// dodanie <strong>znaku zapytania -&gt; ?</strong> sprawia, że są to wartości opcjonalne</p>
+<div class="highlight"><pre><span></span><code><span class="err">type MyList = [number?, string?, boolean?]</span>
+</code></pre></div>
+
+
+<p><strong>Generics</strong></p>
+<p>Stosowane wtedy kiedy chcemy użyć typu albo funkcji wewnątrz klasy</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">public</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="n">let</span> <span class="n">x</span><span class="p">:</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span>
+
+<span class="n">let</span> <span class="n">y</span><span class="p">:</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">Droid</span><span class="o">&gt;</span>
+
+<span class="n">let</span> <span class="n">z</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Observable</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">TypeScript for JavaScript Programmers</a></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">The TypeScript Handbook</a></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">Basic Types</a></p>
+<p><a href="https://medium.com/jspoint/typescript-a-beginners-guide-6956fe8bcf9e">A beginner’s guide to TypeScript (with some history of the TypeScript)</a></p>
+<p>YT</p>
+<p><a href="https://www.youtube.com/watch?v=ahCwqrYpIuM&amp;t=1s&amp;ab_channel=Fireship">Fireship -&gt; TypeScript - The Basics</a></p>
+<p><a href="https://www.youtube.com/watch?v=nRdR6xAgGvw">React i TypeScript - jak zacząć? | Przeprogramowani.ts #7</a></p>
+<p><a href="https://www.youtube.com/watch?v=BwuLxPH8IDs">TypeScript Course for Beginners 2020 - Learn TypeScript from Scratch!</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

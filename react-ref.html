@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="React.createRef()/useREf React.createRef() oraz hook useRef pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji - zarządzanie focusem, wyborem tekstu, uruchamianiem mediów - zarządzanie animacjami - integracja z bibliotekami (DOM) -&gt; patrz: przekazywanie …" />
+<meta name="keywords" content="react, Create React App, ref, referencje, instancja">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React - Ref (referencje)"/>
+<meta property="og:description" content="React.createRef()/useREf React.createRef() oraz hook useRef pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji - zarządzanie focusem, wyborem tekstu, uruchamianiem mediów - zarządzanie animacjami - integracja z bibliotekami (DOM) -&gt; patrz: przekazywanie …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-ref.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-15 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="reactjs"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="Create React App"/>
+<meta property="article:tag" content="ref"/>
+<meta property="article:tag" content="referencje"/>
+<meta property="article:tag" content="instancja"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React - Ref (referencje)</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="react-ref">React - Ref (referencje)</h1>
+    <p>
+      Opublikowano nie 15 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="react-ref" src="https://miro.medium.com/max/700/1*CeJhWybkgGBVwH3gHo7QTg.jpeg"></p>
+<h3>React.createRef()/useREf</h3>
+<p><strong>React.createRef()</strong> oraz hook <strong>useRef</strong> pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni</p>
+<p>Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji
+- zarządzanie focusem, wyborem tekstu, uruchamianiem mediów
+- zarządzanie animacjami
+- integracja z bibliotekami (DOM) -&gt; patrz: przekazywanie referencji</p>
+<h3>Działanie</h3>
+<p>Możemy uzyskać referencje do węzła DOM poprzez stworzenie oraz przekazania odpowiedniego odwołania do wybranego elementu/dziecka danego komponentu i w ten sposób uzyskać dostęp do jego atrybutu poprzez odwołanie się do metody <strong>current</strong> np. <code>this.exampleRef.current</code>. W ten sposób możemy uzyskać również dostęp do wartości "przechowywanej" przez dany węzeł drzewa DOM -&gt; np. <code>this.textInput.current.value</code></p>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="VwjNxOJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React Ref - createRef">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/VwjNxOJ">
+  React Ref - createRef</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>(źródło wyżej zamieszczonego przykładu <a href="https://css-tricks.com/working-with-refs-in-react/">CSS-Tricks Working with refs in React</a>)</p>
+<hr>
+<p><strong>Ref jako funkcja zwrotna (callback)</strong></p>
+<p><strong>:: Instancja ::</strong> - pojedyncze wystąpienie niezależnego kodu zgodnego z danym wzorcem (za: wikipedia) np. klasa (samochód) oraz instancje (polo, mini, golf)</p>
+<p>Istnieje możliwość przekazania jako atrybut ref funkcji zwrotnej, która będzie przechowywała referencję do danego węzła drzewa DOM we właściwości danej instacji</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">ref</span><span class="o">=</span><span class="p">{</span><span class="n">element</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">textInput</span> <span class="o">=</span> <span class="n">element</span><span class="p">}</span> <span class="o">/&gt;</span>
+
+<span class="o">//</span> <span class="n">komponent</span> <span class="n">Input</span> <span class="o">-&gt;</span> <span class="n">input</span><span class="o">.</span><span class="n">js</span>
+<span class="k">const</span> <span class="n">Input</span> <span class="o">=</span> <span class="n">props</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">ref</span><span class="o">=</span><span class="p">{</span><span class="n">props</span><span class="o">.</span><span class="n">inputRef</span><span class="p">}</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="o">//</span> <span class="n">App</span><span class="o">.</span><span class="n">js</span>
+<span class="k">class</span> <span class="n">App</span> <span class="k">extends</span> <span class="n">React</span><span class="o">.</span><span class="n">Component</span> <span class="p">{</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">value</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">};</span>
+
+    <span class="n">handleSubmit</span> <span class="o">=</span> <span class="n">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">({</span> <span class="n">value</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">inputElement</span><span class="o">.</span><span class="n">value</span> <span class="p">});</span>
+    <span class="p">};</span>
+
+    <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">React</span> <span class="n">Ref</span> <span class="o">-</span> <span class="n">Callback</span> <span class="n">Ref</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="n">Value</span><span class="p">:</span> <span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">value</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">Input</span> <span class="n">inputRef</span><span class="o">=</span><span class="p">{</span><span class="n">el</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">inputElement</span> <span class="o">=</span> <span class="n">el</span><span class="p">)}</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span><span class="n">Submit</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>(źródło poniżej zamieszczonego przykładu <a href="https://css-tricks.com/working-with-refs-in-react/">CSS-Tricks Working with refs in React</a>)</p>
+<hr>
+<h3><strong>React.forwardRef()</strong> - Przekazywanie referencji</h3>
+<p>Przekazywanie referencji na jej podaniu z rodzica do dziecka w celu dostępu przez rodzica do jego atrybutów (np. w celu aktualizacji stanu)</p>
+<p>źródło poniżeszgo przykładu oraz cytatu: <a href="https://pl.reactjs.org/docs/forwarding-refs.html">reactjs.org- Przekazywanie referencji</a></p>
+<div class="highlight"><pre><span></span><code>function FancyButton(props) {
+return (
+    <span class="nt">&lt;button</span> <span class="na">className=</span><span class="s">&quot;FancyButton&quot;</span><span class="nt">&gt;</span>
+    {props.children}
+    <span class="nt">&lt;/button&gt;</span>
+);
+}
+</code></pre></div>
+
+
+<p><em>"FancyButton używa React.forwardRef, by przejąć przekazaną do niego referencję i przekazać ją dalej do elementu button"</em></p>
+<div class="highlight"><pre><span></span><code>const FancyButton = React.forwardRef((props, ref) =&gt; (
+<span class="nt">&lt;button</span> <span class="na">ref=</span><span class="s">{ref}</span> <span class="na">className=</span><span class="s">&quot;FancyButton&quot;</span><span class="nt">&gt;</span>
+    {props.children}
+<span class="nt">&lt;/button&gt;</span>
+));
+
+// Możesz teraz otrzymać bezpośrednią referencję do elementu „button”:
+const ref = React.createRef();
+<span class="nt">&lt;FancyButton</span> <span class="na">ref=</span><span class="s">{ref}</span><span class="nt">&gt;</span>Kliknij mnie!<span class="nt">&lt;/FancyButton&gt;</span>;
+</code></pre></div>
+
+
+<p>(więcej na ten temat tutaj: <a href="https://pl.reactjs.org/docs/forwarding-refs.html">reactjs.org- Przekazywanie referencji</a>)</p>
+<hr>
+<h3>Ref vs State</h3>
+<p><strong>refs:</strong></p>
+<ul>
+<li>
+<p>manipulacja drzewem DOM</p>
+</li>
+<li>
+<p>render opisuje jak formularz wyglądał jakiś czas temu</p>
+</li>
+</ul>
+<p><strong>stan:</strong></p>
+<ul>
+<li>
+<p>wykorzystanie setState/informacje zapisane w stanie/komponencie</p>
+</li>
+<li>
+<p>render opisuje jak wygląda formularz/komponent</p>
+</li>
+</ul>
+<p><img alt="props-ref" src="https://i.stack.imgur.com/3pkGz.jpg"></p>
+<hr>
+<p>Źródła:</p>
+<p><a href="https://pl.reactjs.org/docs/refs-and-the-dom.html#gatsby-focus-wrapper">reactjs.org - Refs and the DOM</a></p>
+<p><a href="https://www.youtube.com/watch?v=rDcxrI6tq3E&amp;ab_channel=ArturChmaro">Co to jest Ref? (React.createRef) - Podstawy React JS -&gt; Artur Chmaro</a></p>
+<p><a href="https://pl.reactjs.org/docs/forwarding-refs.html#gatsby-focus-wrapper">React dokumentacja - Przekazywanie referencji</a></p>
+<p><a href="https://css-tricks.com/working-with-refs-in-react/">Working with refs in React</a></p>
+<p><a href="https://simbathesailor.dev/useismounted-ref-vs-state-approach%20/">Ref vs State approach for useIsMounted</a></p>
+<p><a href="https://medium.com/@rossbulat/how-to-use-react-refs-4541a7501663">How to Use React Refs</a></p>
+<p><a href="https://malcoded.com/posts/react-dom-refs/">React DOM Refs</a></p>
+<p><a href="https://stackoverflow.com/questions/29503213/use-state-or-refs-in-react-js-form-components">SO - Use state or refs in React.js form components?</a></p>
+<p><a href="https://stackoverflow.com/questions/31770007/what-are-the-difference-between-reactjs-props-and-refs">SO - What are the difference between reactJS props and refs?</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/create-react-app.html">Create React App</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/ref.html">ref</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/referencje.html">referencje</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/instancja.html">instancja</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

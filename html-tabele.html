@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Sekcje Tabeli HTML Tabela &lt;table&gt;&lt;/table&gt; Sekcja nagłówka &lt;thead&gt;&lt;/thead&gt; Sekcja główna &lt;tbody&gt;&lt;/tbody&gt; Stopka &lt;tfoot&gt;&lt;/tfoot&gt; ---- ---- Wiersz &lt;tr&gt;&lt;/tr&gt; Komórka &lt;td&gt;&lt;/td&gt; Nagłówek tabeli &lt;th&gt;&lt;/th&gt; ---- ---- Zasięg (columna/wiersz) &lt;th scope=&#34;col/row&#34;&gt; Łączenie (liczba kolumn) &lt;th rowspan=&#34;2&#34;&gt; Przykładowa tabela Model Planet Class 1 R2D2 Naboo Droid 2 …" />
+<meta name="keywords" content="css, html, semantyczny html, semantic">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="HTML: podstawy tabel"/>
+<meta property="og:description" content="Sekcje Tabeli HTML Tabela &lt;table&gt;&lt;/table&gt; Sekcja nagłówka &lt;thead&gt;&lt;/thead&gt; Sekcja główna &lt;tbody&gt;&lt;/tbody&gt; Stopka &lt;tfoot&gt;&lt;/tfoot&gt; ---- ---- Wiersz &lt;tr&gt;&lt;/tr&gt; Komórka &lt;td&gt;&lt;/td&gt; Nagłówek tabeli &lt;th&gt;&lt;/th&gt; ---- ---- Zasięg (columna/wiersz) &lt;th scope=&#34;col/row&#34;&gt; Łączenie (liczba kolumn) &lt;th rowspan=&#34;2&#34;&gt; Przykładowa tabela Model Planet Class 1 R2D2 Naboo Droid 2 …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/html-tabele.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-16 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="html"/>
+<meta property="article:tag" content="css"/>
+<meta property="article:tag" content="html"/>
+<meta property="article:tag" content="semantyczny html"/>
+<meta property="article:tag" content="semantic"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; HTML: podstawy tabel</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="html-tabele">HTML: podstawy tabel</h1>
+    <p>
+      Opublikowano wto 16 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/html.html">html</a>
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="html-tabele" src="https://i.imgur.com/uIwzEfS.png"></p>
+<table>
+<thead>
+<tr>
+<th>Sekcje Tabeli</th>
+<th>HTML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tabela</td>
+<td><code>&lt;table&gt;&lt;/table&gt;</code></td>
+</tr>
+<tr>
+<td>Sekcja nagłówka</td>
+<td><code>&lt;thead&gt;&lt;/thead&gt;</code></td>
+</tr>
+<tr>
+<td>Sekcja główna</td>
+<td><code>&lt;tbody&gt;&lt;/tbody&gt;</code></td>
+</tr>
+<tr>
+<td>Stopka</td>
+<td><code>&lt;tfoot&gt;&lt;/tfoot&gt;</code></td>
+</tr>
+<tr>
+<td>----</td>
+<td>----</td>
+</tr>
+<tr>
+<td>Wiersz</td>
+<td><code>&lt;tr&gt;&lt;/tr&gt;</code></td>
+</tr>
+<tr>
+<td>Komórka</td>
+<td><code>&lt;td&gt;&lt;/td&gt;</code></td>
+</tr>
+<tr>
+<td>Nagłówek tabeli</td>
+<td><code>&lt;th&gt;&lt;/th&gt;</code></td>
+</tr>
+<tr>
+<td>----</td>
+<td>----</td>
+</tr>
+<tr>
+<td>Zasięg (columna/wiersz)</td>
+<td><code>&lt;th scope="col/row"&gt;</code></td>
+</tr>
+<tr>
+<td>Łączenie (liczba kolumn)</td>
+<td><code>&lt;th rowspan="2"&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Przykładowa tabela</h3>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th scope="col">Model</th>
+            <th scope="col">Planet</th>
+            <th scope="col">Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>R2D2</td>
+            <td>Naboo</td>
+            <td>Droid</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>C3PO</td>
+            <td>Tatooine</td>
+            <td rowspan="2">Protocol droid</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>ME-8D9</td>
+            <td>Takodana</td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"> Star wars</td>
+            </tr>
+        </tfoot>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;table&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">&quot;col&quot;</span><span class="nt">&gt;</span>Model<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">&quot;col&quot;</span><span class="nt">&gt;</span>Planet<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">&quot;col&quot;</span><span class="nt">&gt;</span>Class<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>R2D2<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Naboo<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Droid<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>C3PO<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Tatooine<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">rowspan=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>Protocol droid<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span>ME-8D9<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Takodana<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+        <span class="nt">&lt;tfoot&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+                <span class="nt">&lt;td</span> <span class="na">colspan=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span> Star wars<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;/tfoot&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div>
+
+
+<hr>
+<p><strong>Przykładowa tabela z zagnieżdżonymi tabelami</strong></p>
+<p class="codepen" data-height="465" data-theme-id="light" data-default-tab="html,result" data-user="mkostyrko" data-slug-hash="dyXEKGL" style="height: 465px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Neste Table">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/dyXEKGL">
+  Neste Table</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<p>Źródła</p>
+<p><a href="http://how2html.pl/tabela-html/">Kurs Html5 - tabela HTML</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/html.html">html</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/semantyczny-html.html">semantyczny html</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/semantic.html">semantic</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/html-semantyczny.html">HTML: semantyczny HTML</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

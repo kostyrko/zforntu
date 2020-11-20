@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - containers</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/containers.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-18T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Docker: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/docker-wprowadzenie.html" rel="alternate"></link><published>2020-11-18T10:00:00+01:00</published><updated>2020-11-18T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-18:/zfrontu/docker-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="docker-logo" src="https://www.cloudsavvyit.com/thumbcache/0/0/576bdb68675c300a17d82c131b23c927/p/uploads/2019/06/c454d054.png"&gt;&lt;/p&gt;
+&lt;p&gt;Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&amp;gt; docker tworzy "odizolowane mikrokomputery"&lt;/p&gt;
+&lt;p&gt;&lt;img alt="docker-vs-vm" src="https://miro.medium.com/max/700/0*5zQfr6j2fAeNPy-H.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-file&lt;/strong&gt; - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-image&lt;/strong&gt; - środowisko obsługujące docker-kontenerów/ niezmienne "snapshot" środowiska&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-Container&lt;/strong&gt; - proces/pracujący (running process) Docker-imag'a&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Podstawowe komendy&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;docker ps …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="docker-logo" src="https://www.cloudsavvyit.com/thumbcache/0/0/576bdb68675c300a17d82c131b23c927/p/uploads/2019/06/c454d054.png"&gt;&lt;/p&gt;
+&lt;p&gt;Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&amp;gt; docker tworzy "odizolowane mikrokomputery"&lt;/p&gt;
+&lt;p&gt;&lt;img alt="docker-vs-vm" src="https://miro.medium.com/max/700/0*5zQfr6j2fAeNPy-H.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-file&lt;/strong&gt; - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-image&lt;/strong&gt; - środowisko obsługujące docker-kontenerów/ niezmienne "snapshot" środowiska&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-Container&lt;/strong&gt; - proces/pracujący (running process) Docker-imag'a&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Podstawowe komendy&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;docker ps&lt;/code&gt; -&amp;gt; docker process - ukazuje działające dockery (ukazuje min. powiązanie z obrazem oraz portem)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker build -t userName_dockerHub/nazwa_aplikacji:numer.wersji ścieżkaDoPlikuDockerfile&lt;/code&gt; -&amp;gt; switch -t = &lt;strong&gt;tag&lt;/strong&gt; pozwala na przypisanie tagu do dockera w trakcie jego budowy (&lt;strong&gt;build&lt;/strong&gt;), umożliwia to jego proste odnalezienia / (nazwa użytkownika jest opcjonalna)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// np.&lt;/span&gt;
+&lt;span class="err"&gt;docker build -t userName_dockerHub/nazwa_aplikacji:1.0 .&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;docker push/pull&lt;/code&gt; - komendy pozwalające na wypychanie i pobieranie dockera z remota&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run&lt;/code&gt; - uruchomienie Dockera&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker stop $(docker ps -aq)&lt;/code&gt; - zatrzymuje wszystkie pracujące dockery&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker compose down&lt;/code&gt; - zamyka wszystkie dockery stworzone przez &lt;code&gt;up&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Prosta nodejs Express Aplikacja&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;źródło poniższego kodu&lt;/strong&gt;: &lt;a href="https://github.com/fireship-io/docker-nodejs-basic-demo"&gt;GH-  fireship-io/docker-nodejs-basic-demo &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;wyjściowa aplikacja -&amp;gt; &lt;strong&gt;src/index.js&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)();&lt;/span&gt;
+
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; 
+        &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Docker jest prosty 🐳&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt; 
+    &lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PORT&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;8080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="n"&gt;listening&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;&amp;gt;&amp;gt;&amp;gt; Dockerfile &amp;lt;&amp;lt;&amp;lt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; stworzenie &lt;strong&gt;Dockerfile&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;--------------- dodanie instrukcji (zwanych warstwami) -----------------&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; wskazanie środowiska -&amp;gt; np. &lt;code&gt;FROM node:12&lt;/code&gt; (wersja 12 node.js)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; Dodanie źródła kodu poprzez zdefiniowanie Working Directory -&amp;gt; np. &lt;code&gt;WORKDIR /app&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4&lt;/strong&gt; Wskazanie ścieżki pozwalającej na skopiowanie zależności -&amp;gt; &lt;code&gt;COPY package*.json ./&lt;/code&gt; (1. skąd 2. dokąd)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5&lt;/strong&gt; Wskazanie instrukcji wykonania istalacji pakietów node.js -&amp;gt; &lt;code&gt;RUN np install&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.1&lt;/strong&gt; Wskazanie lokalnych modułów nodejs do zignorowania w trakcie kopiowania plików lokalnych -&amp;gt; stworzenie &lt;strong&gt;.dockerignore&lt;/strong&gt; -&amp;gt; dodanie &lt;code&gt;node_modules&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.2&lt;/strong&gt; Skopiowanie kodu źródłowego (skopowanie plików lokalnych do CWD, wskazanie lokalnych modułów do zignorowania w trakcie kopiowania) -&amp;gt; &lt;code&gt;COPY . .&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7&lt;/strong&gt; Wskazanie zmienna środowiskowa pracy -&amp;gt; &lt;code&gt;ENV PORT=8080&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8&lt;/strong&gt; Zdefiniowanie nasłuchiwania (port) -&amp;gt; &lt;code&gt;EXPOSE 8080&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9&lt;/strong&gt; Command/komenda wskazuje w jaki sposób ma pracować (run) docker -&amp;gt; &lt;code&gt;CMD ["npm", "start"]&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Docker Image&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; Wpisanie komendy w &lt;strong&gt;terminalu&lt;/strong&gt; -&amp;gt; &lt;code&gt;docker build -t nazwa_aplikacji&lt;/code&gt; lub &lt;code&gt;docker build -t userName_dockerHub/nazwa_aplikacji:1.0 .&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; Wypchnięcie do remota -&amp;gt; &lt;code&gt;docker push adres_repozytorium_na_np.DockerHub&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; Uruchomienie dockera &lt;code&gt;docker run idDockera/tagDockera&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4&lt;/strong&gt; Uruchomienie dockera jeśli port jest niewidoczny - wówczas należy przekierować port na dostępny &lt;code&gt;docker run -p 5000:8080 idDockera/tagDockera&lt;/code&gt; (p-&amp;gt;port forwarding local:container -&amp;gt; 5000:8080)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5&lt;/strong&gt; Zamknięcie Dockera -&amp;gt; &lt;code&gt;docker stop kluczDockera/id&lt;/code&gt; np &lt;code&gt;docker stop 11da141426d3a0&lt;/code&gt; &lt;code&gt;docker stop tagDockera&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Volumes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;folder do przechowywania informacji/plików, które zostaną zapisane po wyłączeniu dockera&lt;/p&gt;
+&lt;p&gt;// stworzenie
+docker volume create nazwaFolderu&lt;/p&gt;
+&lt;p&gt;// użycie
+--mount source=nazwaFolderu,nazwaKolejnegoFolderu&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Docker Hub&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://hub.docker.com/search?q=&amp;amp;type=image"&gt;Docker-Hub&lt;/a&gt; - miejsce (strona) która pozwoli na przechowywanie, rozpowszechnianie obrazów Dockera oraz na kolaborację nad/z nimi &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Moby Project - tool to build container-base system przykładowo ten przy użyciu LinuxKit&lt;/h3&gt;
+&lt;p&gt;przy użyciu Mobiego można pracować z LinuxKit w celu stworzenia własnej dystrybucji Linuxa&lt;/p&gt;
+&lt;p&gt;&lt;img alt="moby i docker" src="https://collabnix.com/wp-content/uploads/2017/05/moby.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.docker.com/"&gt;docs.docker.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=gAkwW2tuIqE"&gt;Learn Docker in 7 Easy Steps - Full Beginner's Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=d-PPOS-VsC8"&gt;Docker - Complete Tutorial [Docker For Everyone In 2 Hours]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=eGz9DS-aIeY"&gt;you need to learn Docker RIGHT NOW!! // Docker Containers 101&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://collabnix.com/demystifying-the-relationship-between-moby-docker/"&gt;Demystifying the Relationship Between Moby &amp;amp; Docker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.mirantis.com/blog/ok-i-give-up-is-docker-now-moby-and-what-is-linuxkit/"&gt;OK, I give up. Is Docker now Moby? And what is LinuxKit?&lt;/a&gt;&lt;/p&gt;</content><category term="containers"></category><category term="docker"></category><category term="containers"></category><category term="kontenery"></category><category term="nodejs"></category><category term="expressjs"></category><category term="express"></category></entry></feed>

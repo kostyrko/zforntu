@@ -1,5 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - reactjs</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/reactjs.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-04T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React i GitHub Pages</title><link href="https://kostyrko.github.io/zfrontu/react-gh-pages.html" rel="alternate"></link><published>2020-11-04T10:00:00+01:00</published><updated>2020-11-04T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-04:/zfrontu/react-gh-pages.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" src="https://res.cloudinary.com/practicaldev/image/fetch/s--klrLsGeS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://completejavascript.com/wp-content/uploads/2018/08/tao-va-deploy-ung-dung-react-len-github-pages-create-react-app-completejavascript.com_.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - reactjs</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/reactjs.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-15T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>React - Ref (referencje)</title><link href="https://kostyrko.github.io/zfrontu/react-ref.html" rel="alternate"></link><published>2020-11-15T10:00:00+01:00</published><updated>2020-11-15T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-15:/zfrontu/react-ref.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-ref" src="https://miro.medium.com/max/700/1*CeJhWybkgGBVwH3gHo7QTg.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;React.createRef()/useREf&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;React.createRef()&lt;/strong&gt; oraz hook &lt;strong&gt;useRef&lt;/strong&gt; pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni&lt;/p&gt;
+&lt;p&gt;Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji
+- zarządzanie focusem, wyborem tekstu, uruchamianiem mediów
+- zarządzanie animacjami
+- integracja z bibliotekami (DOM) -&amp;gt; patrz: przekazywanie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react-ref" src="https://miro.medium.com/max/700/1*CeJhWybkgGBVwH3gHo7QTg.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;React.createRef()/useREf&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;React.createRef()&lt;/strong&gt; oraz hook &lt;strong&gt;useRef&lt;/strong&gt; pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni&lt;/p&gt;
+&lt;p&gt;Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji
+- zarządzanie focusem, wyborem tekstu, uruchamianiem mediów
+- zarządzanie animacjami
+- integracja z bibliotekami (DOM) -&amp;gt; patrz: przekazywanie referencji&lt;/p&gt;
+&lt;h3&gt;Działanie&lt;/h3&gt;
+&lt;p&gt;Możemy uzyskać referencje do węzła DOM poprzez stworzenie oraz przekazania odpowiedniego odwołania do wybranego elementu/dziecka danego komponentu i w ten sposób uzyskać dostęp do jego atrybutu poprzez odwołanie się do metody &lt;strong&gt;current&lt;/strong&gt; np. &lt;code&gt;this.exampleRef.current&lt;/code&gt;. W ten sposób możemy uzyskać również dostęp do wartości "przechowywanej" przez dany węzeł drzewa DOM -&amp;gt; np. &lt;code&gt;this.textInput.current.value&lt;/code&gt;&lt;/p&gt;
+&lt;p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="VwjNxOJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React Ref - createRef"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/VwjNxOJ"&gt;
+  React Ref - createRef&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;(źródło wyżej zamieszczonego przykładu &lt;a href="https://css-tricks.com/working-with-refs-in-react/"&gt;CSS-Tricks Working with refs in React&lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Ref jako funkcja zwrotna (callback)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;:: Instancja ::&lt;/strong&gt; - pojedyncze wystąpienie niezależnego kodu zgodnego z danym wzorcem (za: wikipedia) np. klasa (samochód) oraz instancje (polo, mini, golf)&lt;/p&gt;
+&lt;p&gt;Istnieje możliwość przekazania jako atrybut ref funkcji zwrotnej, która będzie przechowywała referencję do danego węzła drzewa DOM we właściwości danej instacji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;ref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;textInput&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;komponent&lt;/span&gt; &lt;span class="n"&gt;Input&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;Input&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;props&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;ref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inputRef&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="n"&gt;handleSubmit&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setState&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inputElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;React&lt;/span&gt; &lt;span class="n"&gt;Ref&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Callback&lt;/span&gt; &lt;span class="n"&gt;Ref&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt; &lt;span class="n"&gt;inputRef&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inputElement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;el&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;handleSubmit&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Submit&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(źródło poniżej zamieszczonego przykładu &lt;a href="https://css-tricks.com/working-with-refs-in-react/"&gt;CSS-Tricks Working with refs in React&lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;strong&gt;React.forwardRef()&lt;/strong&gt; - Przekazywanie referencji&lt;/h3&gt;
+&lt;p&gt;Przekazywanie referencji na jej podaniu z rodzica do dziecka w celu dostępu przez rodzica do jego atrybutów (np. w celu aktualizacji stanu)&lt;/p&gt;
+&lt;p&gt;źródło poniżeszgo przykładu oraz cytatu: &lt;a href="https://pl.reactjs.org/docs/forwarding-refs.html"&gt;reactjs.org- Przekazywanie referencji&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;function FancyButton(props) {
+return (
+    &lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;className=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;FancyButton&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {props.children}
+    &lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;"FancyButton używa React.forwardRef, by przejąć przekazaną do niego referencję i przekazać ją dalej do elementu button"&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const FancyButton = React.forwardRef((props, ref) =&amp;gt; (
+&lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;ref=&lt;/span&gt;&lt;span class="s"&gt;{ref}&lt;/span&gt; &lt;span class="na"&gt;className=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;FancyButton&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {props.children}
+&lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+));
+
+// Możesz teraz otrzymać bezpośrednią referencję do elementu „button”:
+const ref = React.createRef();
+&lt;span class="nt"&gt;&amp;lt;FancyButton&lt;/span&gt; &lt;span class="na"&gt;ref=&lt;/span&gt;&lt;span class="s"&gt;{ref}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Kliknij mnie!&lt;span class="nt"&gt;&amp;lt;/FancyButton&amp;gt;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(więcej na ten temat tutaj: &lt;a href="https://pl.reactjs.org/docs/forwarding-refs.html"&gt;reactjs.org- Przekazywanie referencji&lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Ref vs State&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;refs:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;manipulacja drzewem DOM&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;render opisuje jak formularz wyglądał jakiś czas temu&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;stan:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;wykorzystanie setState/informacje zapisane w stanie/komponencie&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;render opisuje jak wygląda formularz/komponent&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="props-ref" src="https://i.stack.imgur.com/3pkGz.jpg"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/refs-and-the-dom.html#gatsby-focus-wrapper"&gt;reactjs.org - Refs and the DOM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=rDcxrI6tq3E&amp;amp;ab_channel=ArturChmaro"&gt;Co to jest Ref? (React.createRef) - Podstawy React JS -&amp;gt; Artur Chmaro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/forwarding-refs.html#gatsby-focus-wrapper"&gt;React dokumentacja - Przekazywanie referencji&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://css-tricks.com/working-with-refs-in-react/"&gt;Working with refs in React&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://simbathesailor.dev/useismounted-ref-vs-state-approach%20/"&gt;Ref vs State approach for useIsMounted&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@rossbulat/how-to-use-react-refs-4541a7501663"&gt;How to Use React Refs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://malcoded.com/posts/react-dom-refs/"&gt;React DOM Refs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/29503213/use-state-or-refs-in-react-js-form-components"&gt;SO - Use state or refs in React.js form components?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/31770007/what-are-the-difference-between-reactjs-props-and-refs"&gt;SO - What are the difference between reactJS props and refs?&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="Create React App"></category><category term="ref"></category><category term="referencje"></category><category term="instancja"></category></entry><entry><title>React i GitHub Pages</title><link href="https://kostyrko.github.io/zfrontu/react-gh-pages.html" rel="alternate"></link><published>2020-11-04T10:00:00+01:00</published><updated>2020-11-04T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-04:/zfrontu/react-gh-pages.html</id><summary type="html">&lt;p&gt;&lt;img alt="react" src="https://res.cloudinary.com/practicaldev/image/fetch/s--klrLsGeS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://completejavascript.com/wp-content/uploads/2018/08/tao-va-deploy-ung-dung-react-len-github-pages-create-react-app-completejavascript.com_.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Wymagania wstępne:&lt;/strong&gt; git, GitHub, Create React App, Node.js, NPM&lt;/p&gt;
 &lt;p&gt;Poniżej wypunktuje jak w prosty sposób można opublikować na GitHub-Pages swoją aplikację reactową stworzoną przy pomocy narzędzia Create React App &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;!&lt;/strong&gt; W pierwszej kolejności warto ustawić środowisko Routera aby dopasowało się do hostującego środowiska (PUBLIC_URL zostanie podstawione przez ścieżkę absolutną folderu …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react" src="https://res.cloudinary.com/practicaldev/image/fetch/s--klrLsGeS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://completejavascript.com/wp-content/uploads/2018/08/tao-va-deploy-ung-dung-react-len-github-pages-create-react-app-completejavascript.com_.png"&gt;&lt;/p&gt;

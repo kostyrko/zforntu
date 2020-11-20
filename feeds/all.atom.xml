@@ -1,5 +1,382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-13T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Redux: Duck + Redux-thunk</title><link href="https://kostyrko.github.io/zfrontu/redux-thunk.html" rel="alternate"></link><published>2020-11-13T10:00:00+01:00</published><updated>2020-11-13T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-13:/zfrontu/redux-thunk.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/700/1*uHumlKU6fado6sOF2eHVwg.jpeg"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-19T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>TypeScript: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html" rel="alternate"></link><published>2020-11-19T10:00:00+01:00</published><updated>2020-11-19T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-19:/zfrontu/typescript-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;TypeScript jest supersetem JavaScript&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Instalacja i użytkowanie -&amp;gt; "Hello world"&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// terminal&lt;/span&gt;
+&lt;span class="err"&gt;npm i -g typescript&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Należy stworzyć plik &lt;strong&gt;index.ts&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// index.ts&lt;/span&gt;
+&lt;span class="err"&gt;console.log(&amp;#39;Hello world&amp;#39;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;TypeScript jest supersetem JavaScript&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Instalacja i użytkowanie -&amp;gt; "Hello world"&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// terminal&lt;/span&gt;
+&lt;span class="err"&gt;npm i -g typescript&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Należy stworzyć plik &lt;strong&gt;index.ts&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// index.ts&lt;/span&gt;
+&lt;span class="err"&gt;console.log(&amp;#39;Hello world&amp;#39;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą na plik&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;tsc index.ts&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W folderze pojawi się nowy plik js po transpilacji -&amp;gt; &lt;code&gt;index.js&lt;/code&gt; jego zawartość jest w JS/ES3 (w tym przypadku treść będzie taka sama)&lt;/p&gt;
+&lt;p&gt;W celu wprowadzenia zmian w zachowaniu kompilatora można dodać flagi do komendy do niego się odwołującej w terminalu lub zawrzeć odpowiednie informacje w osobnym pliku &lt;code&gt;tsconfig.json&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    //tsconfig.json&lt;/span&gt;
+&lt;span class="err"&gt;    {&lt;/span&gt;
+&lt;span class="err"&gt;        &amp;quot;compilerOptions&amp;quot;: {&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;target&amp;quot;: &amp;quot;esnext&amp;quot;, // kompilacja do najnowszej wersji JS&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;watch&amp;quot;: true, // nasłuchiwanie na zmiany i kompilacja&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;lib&amp;quot;: [&amp;quot;dom&amp;quot;, &amp;quot;es2017&amp;quot;] // biblioteki np. &amp;quot;pilnujące&amp;quot; poprawności z klasami/obiektami DOM - trakcie pisania kodu&lt;/span&gt;
+&lt;span class="err"&gt;        }&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Pisanie kodu w sposób domniemany (implicit)&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;możliwe&lt;/span&gt; &lt;span class="n"&gt;bo&lt;/span&gt; &lt;span class="n"&gt;wcześniej&lt;/span&gt; &lt;span class="n"&gt;zadeklarowane&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt;
+&lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;22&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Podobnie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;let num&lt;/span&gt;
+&lt;span class="err"&gt;num = 22&lt;/span&gt;
+&lt;span class="err"&gt;num = &amp;#39;33&amp;#39; // będzie niepoprawne ponieważ inny typ został wyżej przypisany&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Pisanie kodu w sposób wskazany&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;let num:number // wskazanie typu bez przypisania wartości&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;let może odnosić się jedynie do liczb jeśli typ został zadeklarowany&lt;/p&gt;
+&lt;h3&gt;"Strong typing" tworzenie własnych typów&lt;/h3&gt;
+&lt;p&gt;Tworzenie własnego &lt;strong&gt;typu&lt;/strong&gt; - Zmienna&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;type&lt;/span&gt; &lt;span class="nt"&gt;Style&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bold&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;italic&amp;#39;&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;font&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Style&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;font&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;cursive&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;błąd&lt;/span&gt; &lt;span class="nt"&gt;ponieważ&lt;/span&gt; &lt;span class="nt"&gt;może&lt;/span&gt; &lt;span class="nt"&gt;być&lt;/span&gt; &lt;span class="nt"&gt;jedynie&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bold&amp;#39;&lt;/span&gt; &lt;span class="nt"&gt;albo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;italic&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Interface&lt;/strong&gt; - tworzenie wzoru Obiektów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wypełnienie&lt;/span&gt; &lt;span class="n"&gt;podanych&lt;/span&gt; &lt;span class="n"&gt;tutaj&lt;/span&gt; &lt;span class="n"&gt;kluczy&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;obowiązkowe&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pozostawia&lt;/span&gt; &lt;span class="n"&gt;furtkę&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;ew&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;kluczy&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Protocol&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;R2-D2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Astromech droid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;planet&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Naboo&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Funkcje&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pilnuje, żeby jako arg. podana była jedynie liczba&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function pow (x: number, y: number) {&lt;/span&gt;
+&lt;span class="err"&gt;    return March.pow(x,y)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pilnuje, żeby jako arg. podana była jedynie liczba ale zwraca wartość w postaci &lt;code&gt;stringa&lt;/code&gt; - wymaga wskazania &lt;strong&gt;toString()&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function pow (x: number, y: number):string {&lt;/span&gt;
+&lt;span class="err"&gt;    return March.pow(x,y).toString()&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Używa się &lt;code&gt;void&lt;/code&gt; w przypadku braku zwracania wartości&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function pow (x: number, y: number):void {&lt;/span&gt;
+&lt;span class="err"&gt;    March.pow(x,y).toString()&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Tablice&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;// wskazanie tablicy przechowującej jedynie liczby&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;23&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;
+&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;false&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;// wskazanie tablicy, która przyjmuje jedynie obiekty powstałe na podstawie wcześniej wskazanego wzoru Droid/interfejsu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Krotki&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;// dodanie &lt;strong&gt;znaku zapytania -&amp;gt; ?&lt;/strong&gt; sprawia, że są to wartości opcjonalne&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;type MyList = [number?, string?, boolean?]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Generics&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Stosowane wtedy kiedy chcemy użyć typu albo funkcji wewnątrz klasy&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html"&gt;TypeScript for JavaScript Programmers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/intro.html"&gt;The TypeScript Handbook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/intro.html"&gt;Basic Types&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/jspoint/typescript-a-beginners-guide-6956fe8bcf9e"&gt;A beginner’s guide to TypeScript (with some history of the TypeScript)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;YT&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=ahCwqrYpIuM&amp;amp;t=1s&amp;amp;ab_channel=Fireship"&gt;Fireship -&amp;gt; TypeScript - The Basics&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=nRdR6xAgGvw"&gt;React i TypeScript - jak zacząć? | Przeprogramowani.ts #7&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=BwuLxPH8IDs"&gt;TypeScript Course for Beginners 2020 - Learn TypeScript from Scratch!&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>Docker: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/docker-wprowadzenie.html" rel="alternate"></link><published>2020-11-18T10:00:00+01:00</published><updated>2020-11-18T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-18:/zfrontu/docker-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="docker-logo" src="https://www.cloudsavvyit.com/thumbcache/0/0/576bdb68675c300a17d82c131b23c927/p/uploads/2019/06/c454d054.png"&gt;&lt;/p&gt;
+&lt;p&gt;Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&amp;gt; docker tworzy "odizolowane mikrokomputery"&lt;/p&gt;
+&lt;p&gt;&lt;img alt="docker-vs-vm" src="https://miro.medium.com/max/700/0*5zQfr6j2fAeNPy-H.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-file&lt;/strong&gt; - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-image&lt;/strong&gt; - środowisko obsługujące docker-kontenerów/ niezmienne "snapshot" środowiska&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-Container&lt;/strong&gt; - proces/pracujący (running process) Docker-imag'a&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Podstawowe komendy&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;docker ps …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="docker-logo" src="https://www.cloudsavvyit.com/thumbcache/0/0/576bdb68675c300a17d82c131b23c927/p/uploads/2019/06/c454d054.png"&gt;&lt;/p&gt;
+&lt;p&gt;Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&amp;gt; docker tworzy "odizolowane mikrokomputery"&lt;/p&gt;
+&lt;p&gt;&lt;img alt="docker-vs-vm" src="https://miro.medium.com/max/700/0*5zQfr6j2fAeNPy-H.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-file&lt;/strong&gt; - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-image&lt;/strong&gt; - środowisko obsługujące docker-kontenerów/ niezmienne "snapshot" środowiska&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Docker-Container&lt;/strong&gt; - proces/pracujący (running process) Docker-imag'a&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Podstawowe komendy&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;docker ps&lt;/code&gt; -&amp;gt; docker process - ukazuje działające dockery (ukazuje min. powiązanie z obrazem oraz portem)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker build -t userName_dockerHub/nazwa_aplikacji:numer.wersji ścieżkaDoPlikuDockerfile&lt;/code&gt; -&amp;gt; switch -t = &lt;strong&gt;tag&lt;/strong&gt; pozwala na przypisanie tagu do dockera w trakcie jego budowy (&lt;strong&gt;build&lt;/strong&gt;), umożliwia to jego proste odnalezienia / (nazwa użytkownika jest opcjonalna)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// np.&lt;/span&gt;
+&lt;span class="err"&gt;docker build -t userName_dockerHub/nazwa_aplikacji:1.0 .&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;docker push/pull&lt;/code&gt; - komendy pozwalające na wypychanie i pobieranie dockera z remota&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run&lt;/code&gt; - uruchomienie Dockera&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker stop $(docker ps -aq)&lt;/code&gt; - zatrzymuje wszystkie pracujące dockery&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker compose down&lt;/code&gt; - zamyka wszystkie dockery stworzone przez &lt;code&gt;up&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Prosta nodejs Express Aplikacja&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;źródło poniższego kodu&lt;/strong&gt;: &lt;a href="https://github.com/fireship-io/docker-nodejs-basic-demo"&gt;GH-  fireship-io/docker-nodejs-basic-demo &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;wyjściowa aplikacja -&amp;gt; &lt;strong&gt;src/index.js&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)();&lt;/span&gt;
+
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; 
+        &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Docker jest prosty 🐳&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;})&lt;/span&gt; 
+    &lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PORT&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;8080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="n"&gt;listening&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;&amp;gt;&amp;gt;&amp;gt; Dockerfile &amp;lt;&amp;lt;&amp;lt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; stworzenie &lt;strong&gt;Dockerfile&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;--------------- dodanie instrukcji (zwanych warstwami) -----------------&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; wskazanie środowiska -&amp;gt; np. &lt;code&gt;FROM node:12&lt;/code&gt; (wersja 12 node.js)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; Dodanie źródła kodu poprzez zdefiniowanie Working Directory -&amp;gt; np. &lt;code&gt;WORKDIR /app&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4&lt;/strong&gt; Wskazanie ścieżki pozwalającej na skopiowanie zależności -&amp;gt; &lt;code&gt;COPY package*.json ./&lt;/code&gt; (1. skąd 2. dokąd)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5&lt;/strong&gt; Wskazanie instrukcji wykonania istalacji pakietów node.js -&amp;gt; &lt;code&gt;RUN np install&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.1&lt;/strong&gt; Wskazanie lokalnych modułów nodejs do zignorowania w trakcie kopiowania plików lokalnych -&amp;gt; stworzenie &lt;strong&gt;.dockerignore&lt;/strong&gt; -&amp;gt; dodanie &lt;code&gt;node_modules&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.2&lt;/strong&gt; Skopiowanie kodu źródłowego (skopowanie plików lokalnych do CWD, wskazanie lokalnych modułów do zignorowania w trakcie kopiowania) -&amp;gt; &lt;code&gt;COPY . .&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7&lt;/strong&gt; Wskazanie zmienna środowiskowa pracy -&amp;gt; &lt;code&gt;ENV PORT=8080&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8&lt;/strong&gt; Zdefiniowanie nasłuchiwania (port) -&amp;gt; &lt;code&gt;EXPOSE 8080&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9&lt;/strong&gt; Command/komenda wskazuje w jaki sposób ma pracować (run) docker -&amp;gt; &lt;code&gt;CMD ["npm", "start"]&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Docker Image&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; Wpisanie komendy w &lt;strong&gt;terminalu&lt;/strong&gt; -&amp;gt; &lt;code&gt;docker build -t nazwa_aplikacji&lt;/code&gt; lub &lt;code&gt;docker build -t userName_dockerHub/nazwa_aplikacji:1.0 .&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; Wypchnięcie do remota -&amp;gt; &lt;code&gt;docker push adres_repozytorium_na_np.DockerHub&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; Uruchomienie dockera &lt;code&gt;docker run idDockera/tagDockera&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4&lt;/strong&gt; Uruchomienie dockera jeśli port jest niewidoczny - wówczas należy przekierować port na dostępny &lt;code&gt;docker run -p 5000:8080 idDockera/tagDockera&lt;/code&gt; (p-&amp;gt;port forwarding local:container -&amp;gt; 5000:8080)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5&lt;/strong&gt; Zamknięcie Dockera -&amp;gt; &lt;code&gt;docker stop kluczDockera/id&lt;/code&gt; np &lt;code&gt;docker stop 11da141426d3a0&lt;/code&gt; &lt;code&gt;docker stop tagDockera&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Volumes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;folder do przechowywania informacji/plików, które zostaną zapisane po wyłączeniu dockera&lt;/p&gt;
+&lt;p&gt;// stworzenie
+docker volume create nazwaFolderu&lt;/p&gt;
+&lt;p&gt;// użycie
+--mount source=nazwaFolderu,nazwaKolejnegoFolderu&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Docker Hub&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://hub.docker.com/search?q=&amp;amp;type=image"&gt;Docker-Hub&lt;/a&gt; - miejsce (strona) która pozwoli na przechowywanie, rozpowszechnianie obrazów Dockera oraz na kolaborację nad/z nimi &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Moby Project - tool to build container-base system przykładowo ten przy użyciu LinuxKit&lt;/h3&gt;
+&lt;p&gt;przy użyciu Mobiego można pracować z LinuxKit w celu stworzenia własnej dystrybucji Linuxa&lt;/p&gt;
+&lt;p&gt;&lt;img alt="moby i docker" src="https://collabnix.com/wp-content/uploads/2017/05/moby.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.docker.com/"&gt;docs.docker.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=gAkwW2tuIqE"&gt;Learn Docker in 7 Easy Steps - Full Beginner's Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=d-PPOS-VsC8"&gt;Docker - Complete Tutorial [Docker For Everyone In 2 Hours]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=eGz9DS-aIeY"&gt;you need to learn Docker RIGHT NOW!! // Docker Containers 101&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://collabnix.com/demystifying-the-relationship-between-moby-docker/"&gt;Demystifying the Relationship Between Moby &amp;amp; Docker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.mirantis.com/blog/ok-i-give-up-is-docker-now-moby-and-what-is-linuxkit/"&gt;OK, I give up. Is Docker now Moby? And what is LinuxKit?&lt;/a&gt;&lt;/p&gt;</content><category term="containers"></category><category term="docker"></category><category term="containers"></category><category term="kontenery"></category><category term="nodejs"></category><category term="expressjs"></category><category term="express"></category></entry><entry><title>React - Ref (referencje)</title><link href="https://kostyrko.github.io/zfrontu/react-ref.html" rel="alternate"></link><published>2020-11-15T10:00:00+01:00</published><updated>2020-11-15T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-15:/zfrontu/react-ref.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-ref" src="https://miro.medium.com/max/700/1*CeJhWybkgGBVwH3gHo7QTg.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;React.createRef()/useREf&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;React.createRef()&lt;/strong&gt; oraz hook &lt;strong&gt;useRef&lt;/strong&gt; pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni&lt;/p&gt;
+&lt;p&gt;Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji
+- zarządzanie focusem, wyborem tekstu, uruchamianiem mediów
+- zarządzanie animacjami
+- integracja z bibliotekami (DOM) -&amp;gt; patrz: przekazywanie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react-ref" src="https://miro.medium.com/max/700/1*CeJhWybkgGBVwH3gHo7QTg.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;React.createRef()/useREf&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;React.createRef()&lt;/strong&gt; oraz hook &lt;strong&gt;useRef&lt;/strong&gt; pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni&lt;/p&gt;
+&lt;p&gt;Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji
+- zarządzanie focusem, wyborem tekstu, uruchamianiem mediów
+- zarządzanie animacjami
+- integracja z bibliotekami (DOM) -&amp;gt; patrz: przekazywanie referencji&lt;/p&gt;
+&lt;h3&gt;Działanie&lt;/h3&gt;
+&lt;p&gt;Możemy uzyskać referencje do węzła DOM poprzez stworzenie oraz przekazania odpowiedniego odwołania do wybranego elementu/dziecka danego komponentu i w ten sposób uzyskać dostęp do jego atrybutu poprzez odwołanie się do metody &lt;strong&gt;current&lt;/strong&gt; np. &lt;code&gt;this.exampleRef.current&lt;/code&gt;. W ten sposób możemy uzyskać również dostęp do wartości "przechowywanej" przez dany węzeł drzewa DOM -&amp;gt; np. &lt;code&gt;this.textInput.current.value&lt;/code&gt;&lt;/p&gt;
+&lt;p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="VwjNxOJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React Ref - createRef"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/VwjNxOJ"&gt;
+  React Ref - createRef&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;(źródło wyżej zamieszczonego przykładu &lt;a href="https://css-tricks.com/working-with-refs-in-react/"&gt;CSS-Tricks Working with refs in React&lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Ref jako funkcja zwrotna (callback)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;:: Instancja ::&lt;/strong&gt; - pojedyncze wystąpienie niezależnego kodu zgodnego z danym wzorcem (za: wikipedia) np. klasa (samochód) oraz instancje (polo, mini, golf)&lt;/p&gt;
+&lt;p&gt;Istnieje możliwość przekazania jako atrybut ref funkcji zwrotnej, która będzie przechowywała referencję do danego węzła drzewa DOM we właściwości danej instacji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;ref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;textInput&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;komponent&lt;/span&gt; &lt;span class="n"&gt;Input&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;Input&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;props&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;ref&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inputRef&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;React&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="n"&gt;handleSubmit&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setState&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inputElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;React&lt;/span&gt; &lt;span class="n"&gt;Ref&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Callback&lt;/span&gt; &lt;span class="n"&gt;Ref&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt; &lt;span class="n"&gt;inputRef&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inputElement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;el&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;handleSubmit&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Submit&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(źródło poniżej zamieszczonego przykładu &lt;a href="https://css-tricks.com/working-with-refs-in-react/"&gt;CSS-Tricks Working with refs in React&lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;strong&gt;React.forwardRef()&lt;/strong&gt; - Przekazywanie referencji&lt;/h3&gt;
+&lt;p&gt;Przekazywanie referencji na jej podaniu z rodzica do dziecka w celu dostępu przez rodzica do jego atrybutów (np. w celu aktualizacji stanu)&lt;/p&gt;
+&lt;p&gt;źródło poniżeszgo przykładu oraz cytatu: &lt;a href="https://pl.reactjs.org/docs/forwarding-refs.html"&gt;reactjs.org- Przekazywanie referencji&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;function FancyButton(props) {
+return (
+    &lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;className=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;FancyButton&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {props.children}
+    &lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;"FancyButton używa React.forwardRef, by przejąć przekazaną do niego referencję i przekazać ją dalej do elementu button"&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const FancyButton = React.forwardRef((props, ref) =&amp;gt; (
+&lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;ref=&lt;/span&gt;&lt;span class="s"&gt;{ref}&lt;/span&gt; &lt;span class="na"&gt;className=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;FancyButton&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {props.children}
+&lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+));
+
+// Możesz teraz otrzymać bezpośrednią referencję do elementu „button”:
+const ref = React.createRef();
+&lt;span class="nt"&gt;&amp;lt;FancyButton&lt;/span&gt; &lt;span class="na"&gt;ref=&lt;/span&gt;&lt;span class="s"&gt;{ref}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Kliknij mnie!&lt;span class="nt"&gt;&amp;lt;/FancyButton&amp;gt;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(więcej na ten temat tutaj: &lt;a href="https://pl.reactjs.org/docs/forwarding-refs.html"&gt;reactjs.org- Przekazywanie referencji&lt;/a&gt;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Ref vs State&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;refs:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;manipulacja drzewem DOM&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;render opisuje jak formularz wyglądał jakiś czas temu&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;stan:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;wykorzystanie setState/informacje zapisane w stanie/komponencie&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;render opisuje jak wygląda formularz/komponent&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="props-ref" src="https://i.stack.imgur.com/3pkGz.jpg"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/refs-and-the-dom.html#gatsby-focus-wrapper"&gt;reactjs.org - Refs and the DOM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=rDcxrI6tq3E&amp;amp;ab_channel=ArturChmaro"&gt;Co to jest Ref? (React.createRef) - Podstawy React JS -&amp;gt; Artur Chmaro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pl.reactjs.org/docs/forwarding-refs.html#gatsby-focus-wrapper"&gt;React dokumentacja - Przekazywanie referencji&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://css-tricks.com/working-with-refs-in-react/"&gt;Working with refs in React&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://simbathesailor.dev/useismounted-ref-vs-state-approach%20/"&gt;Ref vs State approach for useIsMounted&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@rossbulat/how-to-use-react-refs-4541a7501663"&gt;How to Use React Refs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://malcoded.com/posts/react-dom-refs/"&gt;React DOM Refs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/29503213/use-state-or-refs-in-react-js-form-components"&gt;SO - Use state or refs in React.js form components?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/31770007/what-are-the-difference-between-reactjs-props-and-refs"&gt;SO - What are the difference between reactJS props and refs?&lt;/a&gt;&lt;/p&gt;</content><category term="reactjs"></category><category term="react"></category><category term="Create React App"></category><category term="ref"></category><category term="referencje"></category><category term="instancja"></category></entry><entry><title>Redux: Duck + Redux-thunk</title><link href="https://kostyrko.github.io/zfrontu/redux-thunk.html" rel="alternate"></link><published>2020-11-13T10:00:00+01:00</published><updated>2020-11-13T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-13:/zfrontu/redux-thunk.html</id><summary type="html">&lt;p&gt;&lt;img alt="redux-react" src="https://miro.medium.com/max/700/1*uHumlKU6fado6sOF2eHVwg.jpeg"&gt;&lt;/p&gt;
 &lt;h3&gt;Istotne pojęcia&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Thunk&lt;/strong&gt; jest innym słowem na funkcję, która jest zwrócona przez inną funkcję.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    function wrapper_function() {&lt;/span&gt;
@@ -5728,7 +6105,222 @@ HTML Section Element (&lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt;) defines 
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hffiWUbbPFs"&gt;Znacznik label - semantyczny HTML by Comandeer&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.kurshtml.edu.pl/html/kod_poprawny_semantycznie,tekst.html"&gt;Kod poprawny semantycznie&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://codepen.io/mi-lee/post/an-overview-of-html5-semantics"&gt;An Overview of HTML5 Semantics&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.semrush.com/blog/semantic-html5-guide/"&gt;HTML5 Semantic Tags: What Are They and How To Use Them!&lt;/a&gt;&lt;/p&gt;</content><category term="html"></category><category term="css"></category><category term="html"></category><category term="semantyczny html"></category><category term="semantic"></category></entry><entry><title>Grid przy pomocy HTML i klas oraz Grid:CSS</title><link href="https://kostyrko.github.io/zfrontu/html-css-grid.html" rel="alternate"></link><published>2020-06-15T10:00:00+02:00</published><updated>2020-06-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-15:/zfrontu/html-css-grid.html</id><summary type="html">&lt;p&gt;&lt;img alt="grid" max-width="500px" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.semrush.com/blog/semantic-html5-guide/"&gt;HTML5 Semantic Tags: What Are They and How To Use Them!&lt;/a&gt;&lt;/p&gt;</content><category term="html"></category><category term="css"></category><category term="html"></category><category term="semantyczny html"></category><category term="semantic"></category></entry><entry><title>HTML: podstawy tabel</title><link href="https://kostyrko.github.io/zfrontu/html-tabele.html" rel="alternate"></link><published>2020-06-16T10:00:00+02:00</published><updated>2020-06-16T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-16:/zfrontu/html-tabele.html</id><summary type="html">&lt;p&gt;&lt;img alt="html-tabele" src="https://i.imgur.com/uIwzEfS.png"&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sekcje Tabeli&lt;/th&gt;
+&lt;th&gt;HTML&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Tabela&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;table&amp;gt;&amp;lt;/table&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sekcja nagłówka&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;thead&amp;gt;&amp;lt;/thead&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sekcja główna&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tbody&amp;gt;&amp;lt;/tbody&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stopka&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tfoot&amp;gt;&amp;lt;/tfoot&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wiersz&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tr&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Komórka&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nagłówek tabeli&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zasięg (columna/wiersz)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;th scope="col/row"&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Łączenie (liczba kolumn)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;th rowspan="2"&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3&gt;Przykładowa tabela&lt;/h3&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th scope="col"&gt;Model&lt;/th&gt;
+            &lt;th scope="col"&gt;Planet&lt;/th&gt;
+            &lt;th scope="col"&gt;Class&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;1&lt;/th&gt;
+            &lt;td&gt;R2D2&lt;/td&gt;
+            &lt;td&gt;Naboo&lt;/td&gt;
+            &lt;td&gt;Droid&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;2 …&lt;/th&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="html-tabele" src="https://i.imgur.com/uIwzEfS.png"&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sekcje Tabeli&lt;/th&gt;
+&lt;th&gt;HTML&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Tabela&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;table&amp;gt;&amp;lt;/table&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sekcja nagłówka&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;thead&amp;gt;&amp;lt;/thead&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sekcja główna&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tbody&amp;gt;&amp;lt;/tbody&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stopka&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tfoot&amp;gt;&amp;lt;/tfoot&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wiersz&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tr&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Komórka&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nagłówek tabeli&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;td&gt;----&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zasięg (columna/wiersz)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;th scope="col/row"&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Łączenie (liczba kolumn)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;th rowspan="2"&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3&gt;Przykładowa tabela&lt;/h3&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th scope="col"&gt;Model&lt;/th&gt;
+            &lt;th scope="col"&gt;Planet&lt;/th&gt;
+            &lt;th scope="col"&gt;Class&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;1&lt;/th&gt;
+            &lt;td&gt;R2D2&lt;/td&gt;
+            &lt;td&gt;Naboo&lt;/td&gt;
+            &lt;td&gt;Droid&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;2&lt;/th&gt;
+            &lt;td&gt;C3PO&lt;/td&gt;
+            &lt;td&gt;Tatooine&lt;/td&gt;
+            &lt;td rowspan="2"&gt;Protocol droid&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;3&lt;/th&gt;
+            &lt;td&gt;ME-8D9&lt;/td&gt;
+            &lt;td&gt;Takodana&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tbody&gt;
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;td colspan="4"&gt; Star wars&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+&lt;/table&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;table&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;thead&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;th&lt;/span&gt; &lt;span class="na"&gt;scope=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Model&lt;span class="nt"&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;th&lt;/span&gt; &lt;span class="na"&gt;scope=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Planet&lt;span class="nt"&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;th&lt;/span&gt; &lt;span class="na"&gt;scope=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Class&lt;span class="nt"&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/thead&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;tbody&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;th&lt;/span&gt; &lt;span class="na"&gt;scope=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;1&lt;span class="nt"&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;R2D2&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;Naboo&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;Droid&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;th&lt;/span&gt; &lt;span class="na"&gt;scope=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;2&lt;span class="nt"&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;C3PO&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;Tatooine&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&lt;/span&gt; &lt;span class="na"&gt;rowspan=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Protocol droid&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;th&lt;/span&gt; &lt;span class="na"&gt;scope=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;3&lt;span class="nt"&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;ME-8D9&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;Takodana&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/tbody&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;tfoot&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;td&lt;/span&gt; &lt;span class="na"&gt;colspan=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;4&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; Star wars&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/tfoot&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Przykładowa tabela z zagnieżdżonymi tabelami&lt;/strong&gt;&lt;/p&gt;
+&lt;p class="codepen" data-height="465" data-theme-id="light" data-default-tab="html,result" data-user="mkostyrko" data-slug-hash="dyXEKGL" style="height: 465px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Neste Table"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/dyXEKGL"&gt;
+  Neste Table&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Źródła&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://how2html.pl/tabela-html/"&gt;Kurs Html5 - tabela HTML&lt;/a&gt;&lt;/p&gt;</content><category term="html"></category><category term="css"></category><category term="html"></category><category term="semantyczny html"></category><category term="semantic"></category></entry><entry><title>Grid przy pomocy HTML i klas oraz Grid:CSS</title><link href="https://kostyrko.github.io/zfrontu/html-css-grid.html" rel="alternate"></link><published>2020-06-15T10:00:00+02:00</published><updated>2020-06-15T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-15:/zfrontu/html-css-grid.html</id><summary type="html">&lt;p&gt;&lt;img alt="grid" max-width="500px" src="https://cdn.mos.cms.futurecdn.net/7vpUPMSbPfhxiUNYj5XnE6.jpg#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Grid -&amp;gt; HTML + klasy CSS&lt;/h3&gt;
 &lt;p&gt;Grid przy pomocy klas (starsza wersja) jest czym innym niż tzw. Grid CSS (nowsza wersja rozwiązania)&lt;/p&gt;
 &lt;p&gt;W przypadku rozwiązania opartego jedynie o HTML i odpowiednio stylowane klasy css - całość oparta jest na kolumnach (pion) oraz wiersze(poziom)&lt;/p&gt;
