@@ -6,7 +6,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Dodanie remota&lt;/p&gt;
+&lt;p&gt;Dodanie kolejnego remota, z którego będą pobierane dane (tzw. upstream)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git remote add upstream &amp;lt;link do remota&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -16,18 +16,14 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Łączenie mastera (maina) lub innego głównego repo z upstreamem&lt;/p&gt;
-&lt;p&gt;git merge upstream/master&lt;/p&gt;
-&lt;p&gt;Zaakceptowanie konfliktów na korzyść zmian zewnętrznych&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git checkout --theirs .&lt;/span&gt;
-&lt;span class="err"&gt;    git add …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" src="https://i.morioh.com/2019/11/11/1f265e2d4c43.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Zmian (lub upewnienie się że jest się na gałęzi master lub tej gałęzi na której zależy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" src="https://i.morioh.com/2019/11/11/1f265e2d4c43.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;Aktualizacja sklonowanego repozytorium&lt;/h3&gt;
 &lt;p&gt;Sprawdzenie remotów&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git remote -v&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Dodanie remota&lt;/p&gt;
+&lt;p&gt;Dodanie kolejnego remota, z którego będą pobierane dane (tzw. upstream)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git remote add upstream &amp;lt;link do remota&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -37,8 +33,20 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Łączenie mastera (maina) lub innego głównego repo z upstreamem&lt;/p&gt;
-&lt;p&gt;git merge upstream/master&lt;/p&gt;
+&lt;p&gt;Zmian (lub upewnienie się że jest się na gałęzi master lub tej gałęzi na której zależy nam aby była aktualna)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+
+    &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Łączenie mastera (main) lub gałęzi z zawartością tego co znajduje się w repo z upstream&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="n"&gt;upstream&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;
+
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="n"&gt;upstream&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Zaakceptowanie konfliktów na korzyść zmian zewnętrznych&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git checkout --theirs .&lt;/span&gt;
 &lt;span class="err"&gt;    git add .&lt;/span&gt;
@@ -48,6 +56,13 @@
 &lt;p&gt;Zaakceptowanie konfliktów na korzyść zmian wewnętrznych&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git checkout --ours .&lt;/span&gt;
 &lt;span class="err"&gt;    git add .&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wypushowanie zmian na remota&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+
+    &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 

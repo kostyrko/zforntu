@@ -1,27 +1,668 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-19T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>TypeScript: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html" rel="alternate"></link><published>2020-11-19T10:00:00+01:00</published><updated>2020-11-19T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-19:/zfrontu/typescript-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;TypeScript jest supersetem JavaScript&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;Instalacja i użytkowanie -&amp;gt; "Hello world"&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// terminal&lt;/span&gt;
-&lt;span class="err"&gt;npm i -g typescript&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-12-01T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Ant Design: Form</title><link href="https://kostyrko.github.io/zfrontu/react-antd.html" rel="alternate"></link><published>2020-12-01T10:00:00+01:00</published><updated>2020-12-01T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-01:/zfrontu/react-antd.html</id><summary type="html">&lt;p&gt;&lt;img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Tworzenie projektu przy pomocy CRA + instalacja ANTD&lt;/h3&gt;
+&lt;p&gt;Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba&lt;/p&gt;
+&lt;p&gt;Stworzenie projektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;npx create-react-app antd_form&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Należy stworzyć plik &lt;strong&gt;index.ts&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// index.ts&lt;/span&gt;
-&lt;span class="err"&gt;console.log(&amp;#39;Hello world&amp;#39;);&lt;/span&gt;
+&lt;p&gt;Dodanie zależności -&amp;gt; antd&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;npm add antd&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;TypeScript jest supersetem JavaScript&lt;/p&gt;
+&lt;p&gt;Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App.css&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Tworzenie projektu przy pomocy CRA + instalacja ANTD&lt;/h3&gt;
+&lt;p&gt;Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba&lt;/p&gt;
+&lt;p&gt;Stworzenie projektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;npx create-react-app antd_form&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dodanie zależności -&amp;gt; antd&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;npm add antd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App.css&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;linijki&lt;/span&gt; &lt;span class="n"&gt;treści&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;samej&lt;/span&gt; &lt;span class="n"&gt;górze&lt;/span&gt;
+&lt;span class="nd"&gt;@import&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;~antd/dist/antd.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zaimportowanie komponentu oraz jego zastosowanie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;Button&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;antd&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./App.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;primary&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;ANT DESIGN PRO&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;ANT DESIGN PRO&lt;/em&gt; jest biblioteką UI należącą do ANT DESIGN reklamującą się jako rozwiązanie dla projektów komercyjnych (przedsiębiorczych/enterprise), ale z dalszego jej opisu możemy się dowiedzieć, że została stworzona pod kątem interfejsów adminowskich.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://ant.design/components/form/"&gt;Ant Design - Form&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/41181573/correctly-creating-an-antd-form-using-the-extends-react-component-mechanism"&gt;SO - Correctly creating an antd Form using the extends React.Component mechanism&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://codesandbox.io/s/jzyl70wpk?file=/index.js"&gt;Redux Form + antd&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://annacoding.com/article/7jDz3vvi3VdtYXYkvYpUp2/Use-Form-of-Ant-Design-V4-in-React-Hooks"&gt;Use Form of Ant Design V4 in React Hooks&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://uxdesign.cc/chinese-material-design-5d31359df4a6"&gt;Chinese Material Design This Chinese Design Language will Make You Want to Switch.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;YT&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=DaMxXs8Kl90&amp;amp;ab_channel=CodingTheWorld"&gt;3 - Add Simple Contact Form - Building a Contact Management System With React and Ant Design Library&lt;/a&gt;&lt;/p&gt;</content><category term="react"></category><category term="react"></category></entry><entry><title>Preact - 3kb React'a</title><link href="https://kostyrko.github.io/zfrontu/preact.html" rel="alternate"></link><published>2020-11-29T10:00:00+01:00</published><updated>2020-11-29T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-29:/zfrontu/preact.html</id><summary type="html">&lt;p&gt;&lt;img alt="preact-logo" src="https://camo.githubusercontent.com/14a812f7a6b051ec76bf643f72a2a938c5fc8ee37a9cca9e2c55c870e4c46499/68747470733a2f2f692e696d6775722e636f6d2f597143487645572e676966"&gt;&lt;/p&gt;
+&lt;p&gt;"Fast 3kB React alternative with the same modern API. Components &amp;amp; Virtual DOM"&lt;/p&gt;
+&lt;p&gt;Preact reklamuje się jako lekka (3kb) alternatywa dla Reacta i jest uważany za bibliotekę, która renderuje Virtual-Dom w wyjątkowo, krótkim czasie.&lt;/p&gt;
+&lt;p&gt;Preact stawia na:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wydajność (szybką)&lt;/li&gt;
+&lt;li&gt;rozmiar (mały)&lt;/li&gt;
+&lt;li&gt;efektywne wykorzystanie pamięci (wysoka)&lt;/li&gt;
+&lt;li&gt;niski próg zrozumienia kodu&lt;/li&gt;
+&lt;li&gt;zgodność z …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="preact-logo" src="https://camo.githubusercontent.com/14a812f7a6b051ec76bf643f72a2a938c5fc8ee37a9cca9e2c55c870e4c46499/68747470733a2f2f692e696d6775722e636f6d2f597143487645572e676966"&gt;&lt;/p&gt;
+&lt;p&gt;"Fast 3kB React alternative with the same modern API. Components &amp;amp; Virtual DOM"&lt;/p&gt;
+&lt;p&gt;Preact reklamuje się jako lekka (3kb) alternatywa dla Reacta i jest uważany za bibliotekę, która renderuje Virtual-Dom w wyjątkowo, krótkim czasie.&lt;/p&gt;
+&lt;p&gt;Preact stawia na:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wydajność (szybką)&lt;/li&gt;
+&lt;li&gt;rozmiar (mały)&lt;/li&gt;
+&lt;li&gt;efektywne wykorzystanie pamięci (wysoka)&lt;/li&gt;
+&lt;li&gt;niski próg zrozumienia kodu&lt;/li&gt;
+&lt;li&gt;zgodność z React API (moduł opakowujący Preact -&amp;gt; &lt;code&gt;preact-compat&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ze względu na swoją "lekkość" Preact wykorzystywany jest do tworzenia mobilnych stron (np. Uber) - tym samym stara się zniwelować jeden z problemów biblioteki React.&lt;/p&gt;
+&lt;h3&gt;p(PREACT)&lt;/h3&gt;
+&lt;p&gt;0) nie wykorzystuje &lt;a href="https://reactjs.org/docs/events.html"&gt;Syntetycznych wydarzeń&lt;/a&gt;, wykorzystuje ‘addEventListener’ &lt;/p&gt;
+&lt;p&gt;1) className (React) =&amp;gt; class (Preact)&lt;/p&gt;
+&lt;p&gt;2) this.props i this.state jest przekazywany jako arg do render()&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;constructor&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;super&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+            &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;I Suggest A New Strategy, R2 - Let The Wookiee Win.&amp;#39;&lt;/span&gt;
+            &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;droid-message&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Preact korzysta z hyperscriptu - który na podstawie JSX tworzy Virtualny DOM (jak &lt;code&gt;React.createElement&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;preact&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;preact/hooks&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;setCount&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;setCount&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;decrement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;setCount&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Count&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Increment&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;decrement&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Decrement&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;źródło powyższego przykładu: &lt;a href="https://www.merixstudio.com/blog/what-preact-and-when-should-you-consider-using-it/"&gt;What is Preact and when should you consider using it?&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;preact-compat&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/preactjs/preact-compat"&gt;preact-compat&lt;/a&gt; jest modułem, który pozwala na współpracę Preacta z modułami przygotowanymi dla Reacta&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;instalacja&lt;/span&gt; &lt;span class="n"&gt;preacta&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="c1"&gt;--save preact&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;instalacja&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compat&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="c1"&gt;--save preact-compat&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;czytaj więcej na ten temat na &lt;a href="https://github.com/preactjs/preact-compat"&gt;GH repo projektu&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Preact CLI&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;instalacja&lt;/span&gt; &lt;span class="n"&gt;globalna&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;utworzenie&lt;/span&gt; &lt;span class="n"&gt;projektu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;odwołuje&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;wybranego&lt;/span&gt; &lt;span class="n"&gt;szablonu&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;material&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;simple&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;typescript&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;npx&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt; &lt;span class="k"&gt;create&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;wejdź&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;utworzonego&lt;/span&gt; &lt;span class="n"&gt;folderu&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;uruchom&lt;/span&gt; &lt;span class="n"&gt;serwer&lt;/span&gt; &lt;span class="n"&gt;deweloperski&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ew&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;stworzenie&lt;/span&gt; &lt;span class="k"&gt;template&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;folderze&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt; &lt;span class="n"&gt;oraz&lt;/span&gt; &lt;span class="n"&gt;poinformowani&lt;/span&gt; &lt;span class="n"&gt;Preacta&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;tym&lt;/span&gt;
+&lt;span class="n"&gt;preact&lt;/span&gt; &lt;span class="n"&gt;watch&lt;/span&gt; &lt;span class="c1"&gt;--template src/template.html&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Preact i TypeScriptu&lt;/h3&gt;
+&lt;p&gt;Do treści &lt;strong&gt;tsconfig.json&lt;/strong&gt; należy dodać: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// TypeScript &amp;gt;= 4.1.1&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;  &amp;quot;compilerOptions&amp;quot;: {&lt;/span&gt;
+&lt;span class="err"&gt;    &amp;quot;jsx&amp;quot;: &amp;quot;react-jsx&amp;quot;,&lt;/span&gt;
+&lt;span class="err"&gt;    &amp;quot;jsxImportSource&amp;quot;: &amp;quot;preact&amp;quot;,&lt;/span&gt;
+&lt;span class="err"&gt;    //...&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;czytaj więcej: &lt;a href="https://preactjs.com/guide/v10/typescript"&gt;TypeScript - Preact ships TypeScript type definitions, which are used by the library itself!&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://preactjs.com/guide/v10/getting-started/"&gt;PREACT- documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://blog.logrocket.com/introduction-to-preact-a-smaller-faster-react-alternative-ad5532eb6d79/"&gt;Introduction to Preact : A smaller, faster React alternative&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.merixstudio.com/blog/what-preact-and-when-should-you-consider-using-it/"&gt;What is Preact and when should you consider using it?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/preactjs/preact"&gt;GH repo - Preact&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/preactjs/awesome-preact"&gt;Awesome Preact - A curated list of amazingly awesome things regarding Preact ecosystem&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fettblog.eu/go-preact/"&gt;fettblog.eu - Go Preact!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;YT&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=qJyKZ6txShU&amp;amp;ab_channel=Firebase"&gt;Switching from React to Preact (Server-side Rendering with JavaScript Frameworks)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=X2nHEBnJUy4&amp;amp;ab_channel=Firebase"&gt;Preact vs. React (Server-side Rendering with JavaScript Frameworks)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hipFdyhhdTg&amp;amp;ab_channel=CodingItWrong"&gt;No-Build, Minimal-Dependency Webapps with Preact&lt;/a&gt;&lt;/p&gt;</content><category term="preact"></category><category term="preact"></category><category term="react"></category></entry><entry><title>Pobór na front</title><link href="https://kostyrko.github.io/zfrontu/rekrutacja.html" rel="alternate"></link><published>2020-11-28T10:00:00+01:00</published><updated>2020-11-28T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-28:/zfrontu/rekrutacja.html</id><summary type="html">&lt;p&gt;&lt;img alt="over the top" src="https://images.immediate.co.uk/production/volatile/sites/7/2018/10/GettyImages-80457874-1-05304e3.jpg?webp=true&amp;amp;quality=90&amp;amp;resize=620%2C413"&gt;&lt;/p&gt;
+&lt;p&gt;W poniższym poście zamieszczam linki przydane w procesie rekrutacji na Frontend'owca. Zebrane materiały zarówno omawiają wybrane zagadnienia jak i przedstawiają potencjalne pytania/zadania (oraz odpowiedzi/rozwiązania) jakie można spotkać w procesie rekrutacji na front-end developera.&lt;/p&gt;
+&lt;h3&gt;CSS/HTML/JS...&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://www.freecodecamp.org/news/cracking-the-front-end-interview-9a34cd46237/"&gt;Cracking the front-end interview&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/yangshun/front-end-interview-handbook/blob/master/contents/en/javascript-questions.md"&gt;front-end-interview-handbook&lt;/a&gt; i wersja PL &lt;a href="https://github.com/yangshun/front-end-interview-handbook/tree/master/contents/pl"&gt;Podręcznik Frontend przygotowujący do …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="over the top" src="https://images.immediate.co.uk/production/volatile/sites/7/2018/10/GettyImages-80457874-1-05304e3.jpg?webp=true&amp;amp;quality=90&amp;amp;resize=620%2C413"&gt;&lt;/p&gt;
+&lt;p&gt;W poniższym poście zamieszczam linki przydane w procesie rekrutacji na Frontend'owca. Zebrane materiały zarówno omawiają wybrane zagadnienia jak i przedstawiają potencjalne pytania/zadania (oraz odpowiedzi/rozwiązania) jakie można spotkać w procesie rekrutacji na front-end developera.&lt;/p&gt;
+&lt;h3&gt;CSS/HTML/JS...&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://www.freecodecamp.org/news/cracking-the-front-end-interview-9a34cd46237/"&gt;Cracking the front-end interview&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/yangshun/front-end-interview-handbook/blob/master/contents/en/javascript-questions.md"&gt;front-end-interview-handbook&lt;/a&gt; i wersja PL &lt;a href="https://github.com/yangshun/front-end-interview-handbook/tree/master/contents/pl"&gt;Podręcznik Frontend przygotowujący do rekrutacji - Frontend Interview Handbook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bulldogjob.pl/articles/1093-pytania-rekrutacyjne-dla-front-end-developera?fbclid=IwAR0752WMZegSs70xVjqjmIeoc2xVoqphHHA8Ew4bMNJ7pF78VoqytgOftGk"&gt;Pytania rekrutacyjne dla Front-end Developera&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;HTML i CSS&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@mustafa.abdelmogoud/how-the-browser-renders-html-css-27920d8ccaa6"&gt;How the browser renders HTML &amp;amp; CSS&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;JS&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.thatjsdude.com/interview/js1.html"&gt;JS: Interview Algorithm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions"&gt;123-Essential-JavaScript-Interview-Questions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://ksmigiel.com/2016/03/js-this/"&gt;Konteksty this w JS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://rwbit.pl/pytania-js/"&gt;Rozmowa kwalifikacyjna #08 – Pytania – JavaScript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://akademiahakerow.pl/aktualnosci/pojedynczy-wpis/DoczegosluzyusestrictwJavaScript?fbclid=IwAR26CszfGHPzQPqB7-0D2zOUWxoUPg3QjHJc6murnT1_AqOZ3TDcb1TcqUY"&gt;Do czego służy use strict w JavaScript&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Struktury danych&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://scotch.io/courses/the-ultimate-guide-to-javascript-algorithms/a-gentle-introduction-to-algorithms-and-data-structures"&gt;A Gentle Introduction to Algorithms and Data Structures&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.freecodecamp.org/news/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b/"&gt;10 Common Data Structures Explained with Videos + Exercises&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://adrianmejia.com/self-balanced-binary-search-trees-with-avl-tree-data-structure-for-beginners/"&gt;Self-balanced Binary Search Trees with AVL in JavaScript&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Algorytmy&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://www.khanacademy.org/computing/computer-science"&gt;khanacademy.org, Computer science - Unit: Algorithms&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Bezpieczeństwo/Zabezpieczenia&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://www.toptal.com/security/10-most-common-web-security-vulnerabilities"&gt;10 Most Common Web Security Vulnerabilities&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;React&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/sudheerj/reactjs-interview-questions"&gt;React Interview Questions &amp;amp; Answers&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Flashcards/Fiszki&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://flashcards.io/javascript-interview-questions-flashcards-3efcba4f-beac-4463-8be9-ae0928d7ef47"&gt;Javascript Interview Questions Flashcards&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.flashcardsfordevelopers.com/decks/5b945d730d9bd6cbc6e66349"&gt;JavaScript Interview Questions&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;YT&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=944OGLqBU5c"&gt;Pytania rekrutacyjne dla Junior Frontend Developera ⌨️ hello roman #47&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Inne&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://skutecznyprogramista.pl/7-najwazniejszych-sposobow-na-wykazanie-sie-w-nowym-projekcie/"&gt;7 najważniejszych sposobów na wykazanie się w nowym projekcie, o których nikt Ci nie powiedział&lt;/a&gt;&lt;/p&gt;</content><category term="praca"></category><category term="css"></category><category term="js"></category><category term="react"></category><category term="html"></category></entry><entry><title>TypeScript: proste przykłady</title><link href="https://kostyrko.github.io/zfrontu/typescript-proste-przyklady.html" rel="alternate"></link><published>2020-11-26T10:00:00+01:00</published><updated>2020-11-26T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-26:/zfrontu/typescript-proste-przyklady.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Przykład 1 - deklarowanie typów&lt;/h3&gt;
+&lt;p&gt;1.1. Number
+TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdefiniowanego typu number (po transpilacji w JS (TS jej nie zablokuje) problem nie będzie sygnalizowany i wynik będzie wynosił "12" /np. zamiast oczekiwanego 3) - wynika to ze statycznego i dynamicznego …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Przykład 1 - deklarowanie typów&lt;/h3&gt;
+&lt;p&gt;1.1. Number
+TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdefiniowanego typu number (po transpilacji w JS (TS jej nie zablokuje) problem nie będzie sygnalizowany i wynik będzie wynosił "12" /np. zamiast oczekiwanego 3) - wynika to ze statycznego i dynamicznego typowania&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;addDroids&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;addDroids&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;num2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;1.2. Number + String + Boolean&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;addDroids&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;showRes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;boolean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;comment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;stworzenie&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;nie/zmiennej&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;aby&lt;/span&gt; &lt;span class="n"&gt;zachować&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;showRes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;comment&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;showResult&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;true&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;comment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;The number of droids is: &amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;addDroids&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;showResult&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;comment&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;1.3. Objects&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=BwuLxPH8IDs"&gt;TypeScript Course for Beginners 2020 - Learn TypeScript from Scratch!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=NjN00cM18Z4&amp;amp;ab_channel=ProgrammingwithMosh"&gt;TypeScript Tutorial - TypeScript for React - Learn TypeScript [2020]&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>TypeScript: klasy</title><link href="https://kostyrko.github.io/zfrontu/typescript-klasy.html" rel="alternate"></link><published>2020-11-25T10:00:00+01:00</published><updated>2020-11-25T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-25:/zfrontu/typescript-klasy.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://refactoring.guru/images/patterns/languages/typescript.png"&gt;&lt;/p&gt;
+&lt;p&gt;Klasy w TypeScript nie różnią od klas w JS ES6&lt;/p&gt;
+&lt;p&gt;TS transpiluje do klasy jeśli wybrany jest standard ES6 lub nowszy albo do funkcja konstruktora dla ES5 i starszych (symuluje klasy choć jest funkcją (egzekucja podobna do klas))&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Przykładowa klasa&lt;/h3&gt;
+&lt;p&gt;constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Droid …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://refactoring.guru/images/patterns/languages/typescript.png"&gt;&lt;/p&gt;
+&lt;p&gt;Klasy w TypeScript nie różnią od klas w JS ES6&lt;/p&gt;
+&lt;p&gt;TS transpiluje do klasy jeśli wybrany jest standard ES6 lub nowszy albo do funkcja konstruktora dla ES5 i starszych (symuluje klasy choć jest funkcją (egzekucja podobna do klas))&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Przykładowa klasa&lt;/h3&gt;
+&lt;p&gt;constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;tak&lt;/span&gt; &lt;span class="n"&gt;samo&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;JS&lt;/span&gt; &lt;span class="n"&gt;powyżej&lt;/span&gt; &lt;span class="n"&gt;ES6&lt;/span&gt;
+
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Greeter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;odwołanie&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;instancji&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;które&lt;/span&gt; &lt;span class="n"&gt;powstała&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;podstawie&lt;/span&gt; &lt;span class="n"&gt;klasy&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello, &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;R2D2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;zapisuje&lt;/span&gt; &lt;span class="n"&gt;jako&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;r2d2Copy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;greet&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;this&lt;/code&gt; - jest kontekstem, w zależności od miejsca, w którym się do niego odwołujemy może odnosić się do czegoś innego, w przypadku klas zwykle odnosi się do instancji klasy lub inaczej to ujmując do tego obiektu, na którym dana metoda jest wywoływana&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Dziedziczenie&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Animal&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;distanceInMeters&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;Animal&lt;/span&gt; &lt;span class="n"&gt;moved&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;distanceInMeters&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Dog&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Animal&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;bark&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Woof! Woof!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;dog&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Dog&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;dog&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bark&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;dog&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;dog&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bark&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Prywatne pola (Private)&lt;/h3&gt;
+&lt;p&gt;Prywatne sprawia, że jego edycja jest możliwa jedynie przy pomocy przeznaczonej do tego metody. To może się przydać szczególnie w momencie gdy dana metoda zawiera w sobie zdefiniowaną walidację (bezpośrednia edycja może być jej pozbawiono). w JS wszystkie pola są &lt;code&gt;publiczne/public&lt;/code&gt; w TS,  jeśli nie są inaczej oznaczone również takie są domyślnie. Prywatne pola są również ukryte po za klasą (nie są dostępne).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Planet&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;private&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;oznaczenie&lt;/span&gt; &lt;span class="n"&gt;prywatności&lt;/span&gt; &lt;span class="n"&gt;sposób&lt;/span&gt; &lt;span class="n"&gt;prywatyzacji&lt;/span&gt;
+    &lt;span class="n"&gt;private&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;również&lt;/span&gt; &lt;span class="n"&gt;oznaczenie&lt;/span&gt; &lt;span class="n"&gt;prywatności&lt;/span&gt;
+
+    &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="c1"&gt;#name = name;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="c1"&gt;#name}!`);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;addDroid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+      &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;printDroids&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;coruscant&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Coruscant&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;coruscant&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addDroid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Crime Scene Analysis Droid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;coruscant&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Swtor MCR-99 Droid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;prywatnym&lt;/span&gt; &lt;span class="n"&gt;polem&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;jego&lt;/span&gt; &lt;span class="n"&gt;zmiana&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;wartości&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;tablicy&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;możliwe&lt;/span&gt; &lt;span class="n"&gt;jedynie&lt;/span&gt; &lt;span class="n"&gt;przy&lt;/span&gt; &lt;span class="n"&gt;pomocy&lt;/span&gt; &lt;span class="n"&gt;jednego&lt;/span&gt; &lt;span class="n"&gt;sposobu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wywołanie&lt;/span&gt; &lt;span class="n"&gt;odpowiedniej&lt;/span&gt; &lt;span class="n"&gt;metody&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;więcej na ten temat: &lt;a href="https://devblogs.microsoft.com/typescript/announcing-typescript-3-8-beta/#ecmascript-private-fields"&gt;ECMAScript Private Fields&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Chronione pola (protected)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Protected&lt;/strong&gt; "chroniony" modyfikator jest zbliżony do &lt;strong&gt;private&lt;/strong&gt; "prywatny" modyfikatora - rożnica jednak polega na tym, że w przypadku tego pierwszego wartości chronione są dostępne w ramach klas derywatywnych/pochodnych.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;protected&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Employee&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;private&lt;/span&gt; &lt;span class="n"&gt;department&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;department&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;department&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;department&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;getElevatorPitch&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;Hello&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;work&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;department&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;howard&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Employee&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Howard&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sales&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;howard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getElevatorPitch&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;howard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;Property&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;protected&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;accessible&lt;/span&gt; &lt;span class="n"&gt;within&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Person&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;its&lt;/span&gt; &lt;span class="n"&gt;subclasses&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Tylko do odczytu&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Readonly&lt;/strong&gt; jest formą zastrzeżenia wybranych wartości do postaci, w której nie mogą one ulec zmianie - innymi słowy są wartościami przeznaczonymi jedynie do odczytu.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Octopus&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;readonly&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;readonly&lt;/span&gt; &lt;span class="n"&gt;numberOfLegs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;theName&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;theName&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;dad&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Octopus&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Man with the 8 strong legs&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;dad&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Man with the 3-piece suit&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Cannot&lt;/span&gt; &lt;span class="n"&gt;assign&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;because&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;property&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Interfejs w klasie&lt;/h3&gt;
+&lt;p&gt;Interface dla klasy staje się swego rodzaju "kontraktem", który klasa jest zmuszona wypełnić.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;interface&lt;/span&gt; &lt;span class="nt"&gt;Welcome&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="err"&gt;greet(&lt;/span&gt;&lt;span class="n"&gt;phrase&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Klasa droid będzie musiała posiadać imię (name) oraz metodę greet(która przyjmuje string i nic nie zwraca), może posiadać również inne właściwości - ale musi spełnić wymogi interfejsu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Welcome&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;moviesNum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phrase&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phrase&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;droid1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Greetings&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;droid1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;droid1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hi there - I am&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://www.frontlive.pl/typescript-sredniozaawansowany/"&gt;TypeScript - Generics, klasy i zaawansowane typy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://refactoring.guru/design-patterns/typescript"&gt;The Catalog of TypeScript Examples&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;JS&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/54841417/javascript-classes-vs-typescript-classes"&gt;SO - Javascript classes vs typescript classes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.w3schools.com/js/js_object_constructors.asp"&gt;JavaScript Object Constructors&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>TypeScript: typy generyczne</title><link href="https://kostyrko.github.io/zfrontu/typescript-generics.html" rel="alternate"></link><published>2020-11-24T10:00:00+01:00</published><updated>2020-11-24T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-24:/zfrontu/typescript-generics.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://miro.medium.com/max/700/1*Sy-lk-CZlnc2szy0SPsLEQ.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;Typy generyczne ("dynamiczne") wprowadzenie&lt;/h3&gt;
+&lt;p&gt;Tablica w TS również jest typem (podobnie jak np. obiekt) i do tego &lt;strong&gt;generycznym&lt;/strong&gt; (dopasowuje się do danych, które przechowuje)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;const names: Array = []&lt;/code&gt; // Array&lt;T&gt;/ przedstawiony tutaj zapis faktycznie nie zostanie przyjęty przez TS, który będzie domagał się podania jakiegokolwiek typu np. &lt;strong&gt;any&lt;/strong&gt; -&amp;gt; &lt;code&gt;const names: any[] = []&lt;/code&gt; ten …&lt;/t&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://miro.medium.com/max/700/1*Sy-lk-CZlnc2szy0SPsLEQ.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;Typy generyczne ("dynamiczne") wprowadzenie&lt;/h3&gt;
+&lt;p&gt;Tablica w TS również jest typem (podobnie jak np. obiekt) i do tego &lt;strong&gt;generycznym&lt;/strong&gt; (dopasowuje się do danych, które przechowuje)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;const names: Array = []&lt;/code&gt; // Array&lt;T&gt;/ przedstawiony tutaj zapis faktycznie nie zostanie przyjęty przez TS, który będzie domagał się podania jakiegokolwiek typu np. &lt;strong&gt;any&lt;/strong&gt; -&amp;gt; &lt;code&gt;const names: any[] = []&lt;/code&gt; ten zapis jednak można przedstawić również w następujący sposób &lt;code&gt;const names: Array&amp;lt;any&amp;gt; = []&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Typy generyczne &lt;T&gt;&lt;/h3&gt;
+&lt;p&gt;Typ generyczny (generować/tworzyć) - jest typem o szerokim polu zastosowania/akceptuje różne typy argumentów.&lt;/p&gt;
+&lt;p&gt;Funkcja identyfikacyjna typu generycznego. Przyjmuje określony dowolny typ i zwraca ten sam typ ( w przypadku zastosowania &lt;strong&gt;eny&lt;/strong&gt; typ zwracany mógłby być inny niż ten, który jest argumentem - tracona jest informacja o typie)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function identity&amp;lt;T&amp;gt;(arg: T): T {&lt;/span&gt;
+&lt;span class="err"&gt;  return arg;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Funkcja identyfikacyjna&lt;/strong&gt; - zwraca to co zostało podane jako argument&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;T&gt;&lt;/strong&gt; litera &lt;strong&gt;T&lt;/strong&gt; zamknięta w nawiasach kątowych jest zwyczajowa (T-type) faktycznie może być inna i w niektórych przypadkach jest ona inna (reprezentuje konkretny typ, zatem w przypadku stosowania 2 typów, potrzebne są 2 symbole, wg konwencji kolejnym z nich jest &lt;strong&gt;U&lt;/strong&gt;) - reprezentuje ona zmienną, która pozwala przechwycić typ.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wywołanie funkcji identyfikacyjnej typu generycznego&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;explicit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;sposób&lt;/span&gt; &lt;span class="n"&gt;sprecyzowany&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;myString&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;explicit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;sposób&lt;/span&gt; &lt;span class="n"&gt;domyślny&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="k"&gt;output&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;identity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;myString&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Typ generyczny może określać przyjęcie tablicy (wówaczas w funkcji istnieje możliwość odwołania się do metod, które są przypisane tablicom np. length). Funkcja przyjmuje jako argument tablicę, która składa się z określonych typów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function loggingIdentity&amp;lt;T&amp;gt;(arg: T[]): T[] {&lt;/span&gt;
+&lt;span class="err"&gt;  console.log(arg.length);&lt;/span&gt;
+&lt;span class="err"&gt;  return arg;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Powyższą funkcję można również zapisać w następujący sposób&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function loggingIdentity&amp;lt;T&amp;gt;(arg: Array&amp;lt;T&amp;gt;): Array&amp;lt;T&amp;gt; {&lt;/span&gt;
+&lt;span class="err"&gt;  console.log(arg.length); // Array has a .length, so no more error&lt;/span&gt;
+&lt;span class="err"&gt;  return arg;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wskazanie argumentów o różnych typach / w przypadku wskazania jedynie typu obiekt TS nie połączy obiektów tylko stworzy inny&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;objX&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;objY&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb nb-Type"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assign&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;objX&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;objY&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;jako&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;używane&lt;/span&gt; &lt;span class="n"&gt;są&lt;/span&gt; &lt;span class="n"&gt;obiekty&lt;/span&gt; &lt;span class="n"&gt;zawierające&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;nr&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;wartość&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;string&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;number&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;jointObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;moviesNum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;można&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;również&lt;/span&gt; &lt;span class="n"&gt;zapisać&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;tej&lt;/span&gt; &lt;span class="n"&gt;postaci&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;jednak&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;tyle&lt;/span&gt; &lt;span class="n"&gt;zbędne&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="err"&gt;ż&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="n"&gt;TS&lt;/span&gt; &lt;span class="n"&gt;sam&lt;/span&gt; &lt;span class="n"&gt;za&lt;/span&gt; &lt;span class="n"&gt;nas&lt;/span&gt; &lt;span class="n"&gt;odczyta&lt;/span&gt; &lt;span class="n"&gt;strukturę&lt;/span&gt; &lt;span class="n"&gt;wpisanych&lt;/span&gt; &lt;span class="n"&gt;obiektów&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;jointObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;},{&lt;/span&gt;&lt;span class="n"&gt;movies&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;moviesNum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Constrains - ograniczenie&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt; &lt;span class="n"&gt;przyjmuje&lt;/span&gt; &lt;span class="n"&gt;jedynie&lt;/span&gt; &lt;span class="n"&gt;obiekty&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;za&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;ich&lt;/span&gt; &lt;span class="n"&gt;zawartość&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;zdefiniowana&lt;/span&gt;
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;objX&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;objY&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb nb-Type"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assign&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;objX&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;objY&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt; &lt;span class="n"&gt;przyjmuje&lt;/span&gt; &lt;span class="n"&gt;jedynie&lt;/span&gt; &lt;span class="n"&gt;obiekty&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;jointObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;moviesNum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Tworzenie ograniczenia na podstawie interfejsu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;krotkę&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tuple&lt;/span&gt;
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;R2D2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nb nb-Type"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;keyof&lt;/code&gt; - jakikolwiek klucz z T&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;getKey&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;keyof&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt; &lt;span class="n"&gt;przyjmuje&lt;/span&gt; &lt;span class="n"&gt;jedynie&lt;/span&gt; &lt;span class="n"&gt;obiekty&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;jointObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;moviesNum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="n"&gt;getKey&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Typ/funkcja Generyczne&lt;/h3&gt;
+&lt;p&gt;Tworzenie funkcji/typu generycznego jest zbliżone do interfejsów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;droid&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nt"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;return&lt;/span&gt; &lt;span class="err"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;myDroid&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nt"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;droid&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Typ generyczny napisany przypisany do postaci obiektu (patrz niżej interfejs)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nt"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;return&lt;/span&gt; &lt;span class="err"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;myIdentity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;&amp;lt;T&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;generyczny interfejs&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;interface&lt;/span&gt; &lt;span class="nt"&gt;GenericIdentityFn&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;&amp;lt;T&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nt"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;return&lt;/span&gt; &lt;span class="err"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;myIdentity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;GenericIdentityFn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przesunięcie generycznego parametru całości interfejsu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;interface&lt;/span&gt; &lt;span class="nt"&gt;GenericIdentityFn&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="nt"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;return&lt;/span&gt; &lt;span class="err"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;myIdentity&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;GenericIdentityFn&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Klasy Generyczne&lt;/h3&gt;
+&lt;p&gt;Stworzenie klasy generycznej pozwala na dynamiczne przypisanie typu do jej instancji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;class&lt;/span&gt; &lt;span class="nt"&gt;GenericNumber&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;zeroValue&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;przypisanie&lt;/span&gt; &lt;span class="nt"&gt;typu&lt;/span&gt; &lt;span class="nt"&gt;do&lt;/span&gt; &lt;span class="nt"&gt;instancji&lt;/span&gt;
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;myGenericNumber&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;new&lt;/span&gt; &lt;span class="nt"&gt;GenericNumber&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;();&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;przypisanie&lt;/span&gt; &lt;span class="nt"&gt;wartości&lt;/span&gt;
+&lt;span class="nt"&gt;myGenericNumber&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;zeroValue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;przypisanie&lt;/span&gt; &lt;span class="nt"&gt;metody&lt;/span&gt; &lt;span class="nt"&gt;do&lt;/span&gt; &lt;span class="nt"&gt;instancji&lt;/span&gt;
+&lt;span class="nt"&gt;myGenericNumber&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;add&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;x&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;y&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;return&lt;/span&gt; &lt;span class="err"&gt;x&lt;/span&gt; &lt;span class="err"&gt;+&lt;/span&gt; &lt;span class="err"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kolejny przykład&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;DataArr&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;numbers&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;private&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;[]:&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt;
+
+  &lt;span class="n"&gt;addItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;getItems&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;instancja&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;textStorage&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;DataArr&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;textStorage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;instancja&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;numberStorage&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;DataArr&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;textStorage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródło: &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/generics.html"&gt;TypeScript - Generics&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bulldogjob.pl/articles/1019-typescript-tworzenie-podtypow-warunkowych"&gt;TypeScript: Tworzenie podtypów warunkowych&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.frontlive.pl/typescript-sredniozaawansowany/"&gt;TypeScript - Generics, klasy i zaawansowane typy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://jsdn.pl/typescript-typy-generyczne/"&gt;TypeScript – pierwsze kroki. Typy generyczne.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kamilmysliwiec.com/typescript-typy-generyczne"&gt;TypeScript – typy generyczne&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>TypeScript: wprowadzenie + podstawowe typy</title><link href="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html" rel="alternate"></link><published>2020-11-19T10:00:00+01:00</published><updated>2020-11-19T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-19:/zfrontu/typescript-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"&gt;&lt;/p&gt;
+&lt;p&gt;TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju "rozszerzeniem" JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TS wprowadza/charakteryzuje&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Możliwość stosowania/definiowania typów&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wprowadza elementy dokumentacji/klarowności kodu np …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"&gt;&lt;/p&gt;
+&lt;p&gt;TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju "rozszerzeniem" JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TS wprowadza/charakteryzuje&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Możliwość stosowania/definiowania typów&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wprowadza elementy dokumentacji/klarowności kodu np. poprzez zastosowanie tzw. &lt;em&gt;silnego typowania&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Statycznie typowany - typy są zadeklarowane na początku i nie zmieniają się w trakcie wykonywania kodu w sposób dynamiczny (co cechuje JS)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wprowadza nowe typy: &lt;strong&gt;tuple (krotki), enum (wyliczeniowy typ danych), any, void&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Warto pamiętać że: typy prymitywne w TS pisane są małą literą np. stringa oraz number zamiast String czy Number&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;Instalacja i użytkowanie -&amp;gt; "Hello world"&lt;/h3&gt;
+&lt;h3&gt;Instalacja i konfiguracja&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// terminal&lt;/span&gt;
 &lt;span class="err"&gt;npm i -g typescript&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -39,19 +680,32 @@
 
 
 &lt;p&gt;W folderze pojawi się nowy plik js po transpilacji -&amp;gt; &lt;code&gt;index.js&lt;/code&gt; jego zawartość jest w JS/ES3 (w tym przypadku treść będzie taka sama)&lt;/p&gt;
-&lt;p&gt;W celu wprowadzenia zmian w zachowaniu kompilatora można dodać flagi do komendy do niego się odwołującej w terminalu lub zawrzeć odpowiednie informacje w osobnym pliku &lt;code&gt;tsconfig.json&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;W celu wprowadzenia zmian w zachowaniu kompilatora można dodać flagi do komendy do niego się odwołującej w terminalu lub zawrzeć odpowiednie informacje w osobnym pliku &lt;code&gt;tsconfig.json&lt;/code&gt; (plik można utworzyć poprzez komendę &lt;code&gt;tsc --init&lt;/code&gt; - tworzy plik z zakomentowanymi opcjami kompilatora -&amp;gt; po wpisaniu &lt;code&gt;tsc&lt;/code&gt; kompiluje wszystkie pliki ts/ tworzy analytics.ts i .js)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    //tsconfig.json&lt;/span&gt;
 &lt;span class="err"&gt;    {&lt;/span&gt;
 &lt;span class="err"&gt;        &amp;quot;compilerOptions&amp;quot;: {&lt;/span&gt;
 &lt;span class="err"&gt;            &amp;quot;target&amp;quot;: &amp;quot;esnext&amp;quot;, // kompilacja do najnowszej wersji JS&lt;/span&gt;
 &lt;span class="err"&gt;            &amp;quot;watch&amp;quot;: true, // nasłuchiwanie na zmiany i kompilacja&lt;/span&gt;
-&lt;span class="err"&gt;            &amp;quot;lib&amp;quot;: [&amp;quot;dom&amp;quot;, &amp;quot;es2017&amp;quot;] // biblioteki np. &amp;quot;pilnujące&amp;quot; poprawności z klasami/obiektami DOM - trakcie pisania kodu&lt;/span&gt;
-&lt;span class="err"&gt;        }&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;lib&amp;quot;: [&amp;quot;dom&amp;quot;, &amp;quot;es2017&amp;quot;], // biblioteki np. &amp;quot;pilnujące&amp;quot; poprawności z klasami/obiektami DOM - trakcie pisania kodu&lt;/span&gt;
+&lt;span class="err"&gt;            &amp;quot;sourceMap&amp;quot;: true // Source Map&lt;/span&gt;
+&lt;span class="err"&gt;        },&lt;/span&gt;
+&lt;span class="err"&gt;        &amp;quot;exclude&amp;quot; [ // pliki ts z tych folderów nie będą branę pod uwagę&lt;/span&gt;
+&lt;span class="err"&gt;          &amp;quot;node_modules&lt;/span&gt;
+&lt;span class="err"&gt;        ]&lt;/span&gt;
 &lt;span class="err"&gt;    }&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Pisanie kodu w sposób domniemany (implicit)&lt;/h3&gt;
+&lt;p&gt;!! W terminalu należy zainicjować "kompilację po wykryciu zmiany" poprzez&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;tsc --watch&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;TypeScript Playground&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.typescriptlang.org/play/index.html"&gt;Onlinowy edytor TS&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;1. Pisanie kodu w sposób domniemany (implicit)&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt;
 
 &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;możliwe&lt;/span&gt; &lt;span class="n"&gt;bo&lt;/span&gt; &lt;span class="n"&gt;wcześniej&lt;/span&gt; &lt;span class="n"&gt;zadeklarowane&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt;
@@ -66,13 +720,43 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Pisanie kodu w sposób wskazany&lt;/h3&gt;
+&lt;h3&gt;2. Pisanie kodu w sposób wskazany (explicit)&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;let num:number // wskazanie typu bez przypisania wartości&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;let może odnosić się jedynie do liczb jeśli typ został zadeklarowany&lt;/p&gt;
-&lt;h3&gt;"Strong typing" tworzenie własnych typów&lt;/h3&gt;
+&lt;h3&gt;Obiekty&lt;/h3&gt;
+&lt;p&gt;Wskazanie na obiekt&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Protocol&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Albo wykorzystując &lt;code&gt;{}&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Protocol&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Może to przyjąć jeszcze bardziej rozbudowaną formę -&amp;gt; wskazanie na reprezentację obiektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Protocol&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Innym sposobem z którym pracujemy z obiektami i jego wzorami są tzw &lt;strong&gt;interfejsu&lt;/strong&gt; (więcej na ten temat poniżej).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;3. "Strong typing"/Silne typowanie tworzenie własnych typów&lt;/h3&gt;
 &lt;p&gt;Tworzenie własnego &lt;strong&gt;typu&lt;/strong&gt; - Zmienna&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;type&lt;/span&gt; &lt;span class="nt"&gt;Style&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bold&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;italic&amp;#39;&lt;/span&gt;
 
@@ -82,11 +766,12 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;Interface&lt;/strong&gt; - tworzenie wzoru Obiektów&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interface&lt;/strong&gt; - tworzenie typu &lt;strong&gt;Obiektów&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Interfejs powinien być poprzedzony słowem &lt;strong&gt;interface&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wypełnienie&lt;/span&gt; &lt;span class="n"&gt;podanych&lt;/span&gt; &lt;span class="n"&gt;tutaj&lt;/span&gt; &lt;span class="n"&gt;kluczy&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;obowiązkowe&lt;/span&gt;
     &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pozostawia&lt;/span&gt; &lt;span class="n"&gt;furtkę&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;ew&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;kluczy&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pozostawia&lt;/span&gt; &lt;span class="n"&gt;furtkę&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;dodanie&lt;/span&gt; &lt;span class="n"&gt;ew&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;kluczy&lt;/span&gt; &lt;span class="n"&gt;wykorzystując&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -102,7 +787,32 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Interfejs jest przykładem tzw. duck typing” albo “structural subtyping” (to pojęcie nie jest zarezerwowane dla TS) - "rozpoznawanie typu obiektu nie na podstawie deklaracji, ale przez badanie metod udostępnionych przez obiekt. Technika ta wywodzi się z powiedzenia: „jeśli chodzi jak kaczka i kwacze jak kaczka, to musi być kaczką”." (za wikipedia) - innymi słowy należy sprawdzić metody przypisane do obiektu/jego "zachowanie".&lt;/p&gt;
+&lt;p&gt;Kolejny przykład - zawierający "funkcję"&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;interface&lt;/span&gt; &lt;span class="nt"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;moviesNum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="err"&gt;greet(&lt;/span&gt;&lt;span class="n"&gt;phrase&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;droid1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;droid1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nf"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phrase&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;phrase&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="err"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;droid1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;greet&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hi there - I am&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;Hi&lt;/span&gt; &lt;span class="nt"&gt;there&lt;/span&gt; &lt;span class="nt"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;I&lt;/span&gt; &lt;span class="nt"&gt;am&lt;/span&gt; &lt;span class="nt"&gt;C3PO&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;Interface&lt;/code&gt; przypomina &lt;code&gt;type&lt;/code&gt; - jednak interface odnosi się jedynie do obiektu, interface może zostać również zaimplementowany w klasie - staje się wówczas swego rodzaju "kontraktem", który klasa jest zmuszona wypełnić.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Funkcje&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;więcej na temat funkcji również poniżej&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Pilnuje, żeby jako arg. podana była jedynie liczba&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function pow (x: number, y: number) {&lt;/span&gt;
 &lt;span class="err"&gt;    return March.pow(x,y)&lt;/span&gt;
@@ -125,7 +835,8 @@
 
 
 &lt;p&gt;&lt;strong&gt;Tablice&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;// wskazanie tablicy przechowującej jedynie liczby&lt;/p&gt;
+&lt;p&gt;Tablica może przechowywać dane jednego typu (strict) lub wielu (flexible)&lt;/p&gt;
+&lt;p&gt;Wskazanie tablicy przechowującej jedynie liczby&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
 &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;23&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;
@@ -138,23 +849,187 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;Krotki&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;4. Nowe typy - Tuple, Union, Any, Void, Never, Enum, unknown&lt;/h3&gt;
+&lt;p&gt;W przypadku typów własnych (np. enum) konwencja nakazuje &lt;strong&gt;nazwę z dużej litery&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Krotki/Tuple&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Nowy typ, który nie występuje w JS. Krotki mogą przechowywać informacje posiadające różne typy, ale mają ograniczoną długość (length)&lt;/p&gt;
+&lt;p&gt;Definicja krotki (różne typy), w ramach obiektu ograniczonej do 2 wpisów gdzie 1. zawsze numerem a 2. łańcuchem znaków&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;interface Droid {&lt;/span&gt;
+&lt;span class="err"&gt;    first: string;&lt;/span&gt;
+&lt;span class="err"&gt;    class: string;&lt;/span&gt;
+&lt;span class="err"&gt;    planet: [number, string] // krotka&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;TS wyłapie jeśli będzie planowali przypisać do 2. atrybutu wartość o typie number (&lt;code&gt;droid.planet[1]=1&lt;/code&gt;), nie pozwoli jednak na (nie wykrywa) pushowanie atrybutu do tablicy &lt;code&gt;droid.planet.push('comment')&lt;/code&gt; nie pozwoli jednak na &lt;code&gt;droid.planet[1, 'Coirsant', 'comment']&lt;/code&gt; zastąpienie tablicy inną niż ta, która spełnia określony wzórd&lt;/p&gt;
 &lt;p&gt;// dodanie &lt;strong&gt;znaku zapytania -&amp;gt; ?&lt;/strong&gt; sprawia, że są to wartości opcjonalne&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;type MyList = [number?, string?, boolean?]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;Generics&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Stosowane wtedy kiedy chcemy użyć typu albo funkcji wewnątrz klasy&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;p&gt;więcej na ten temat: &lt;a href="https://www.tutorialsteacher.com/typescript/typescript-tuple"&gt;TypeScript - Tuples&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Enum - wyliczeniowy typ danych&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Enums to "zbiór nazwanych, określonych wartości liczbowych", gdzie początkowa liczba domyślnie jest równa 0 a każda kolejna jest +1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;Running&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;Timeout&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;Disabled&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Timeout&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;p&gt;Poszczególnym wartościom mogą być przypisane inne liczby np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;Running&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;Timeout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;Disabled&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;domyślnie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;więc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Często nazwy poszczególnych wartości w enum pisanę są wyłącznie dużymi literami np. &lt;code&gt;RUNNING&lt;/code&gt; zamiast &lt;code&gt;Running&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://kamilmysliwiec.com/typescript-typ-wyliczeniowy-enum"&gt;kamilmysliwiec.com - TypeScript – typ wyliczeniowy, enum&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://solutionchaser.com/typescript-enum/"&gt;solutionchaser.com - Zrozumieć enumy w TypeScriptcie&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Union&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Typ który określa przyjęcie więcej niż jednego podanego typu (przy użyciu symbolu "pipe") - przypomina JS "or" -&amp;gt; || i cechuje się zbliżoną semantyką&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;let droids: number | string[]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;TS nie analizuje typów, stąd może nie pozwalać na np. sumowanie typu &lt;strong&gt;union&lt;/strong&gt; z &lt;strong&gt;number&lt;/strong&gt; (można obejść walidacją lub odwołując się do metody .toString())&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Literal types - dosłowny typ&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Wykorzystywane w momencie gdy ma przechowywać określoną wartość lub ograniczoną ilość możliwych wartości np.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;let droid: &amp;#39;C3PO&amp;#39; | &amp;#39;R2D2&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Type Aliases/Custom types&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Definiowanie własnych typów (na początku kodu) poprzedzone słowem kluczowym &lt;strong&gt;type&lt;/strong&gt; - nazwa nie może pokrywać się z żadnym ze znanych obiektów z JS np. Date. Istnieje możliwość przypisania pojedynczego typu do nowego typu jednak nie miało by to praktycznego zastosowania, stąd ta możliwość wykorzystywana jest najczęściej w przypadku typu &lt;strong&gt;Union&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;StingsNums&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;
+
+&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;OldDroid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;R2D2&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;firstAppearance&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;input1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;StringsNums&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przechowuje&lt;/span&gt; &lt;span class="n"&gt;tylko&lt;/span&gt; &lt;span class="n"&gt;liczby&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;ciąg&lt;/span&gt; &lt;span class="err"&gt;ł&lt;/span&gt;&lt;span class="n"&gt;ańcucha&lt;/span&gt; &lt;span class="n"&gt;znaków&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;input2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;OldDroid&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;przechowuje&lt;/span&gt; &lt;span class="n"&gt;tylko&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;lub&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;R2D2&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droid1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;firstAppearance&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1977&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Any&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Użycie typu &lt;strong&gt;any&lt;/strong&gt; w trakcie deklarowania tablicy, zmiennej etc. w efektywny sposób likwiduje benefity płynące z używania TS, ponieważ &lt;strong&gt;any&lt;/strong&gt; (oznacza &lt;strong&gt;jakikolwiek&lt;/strong&gt;) oznacza, że można stosować dowolny typ np. tablica może przechowywać dane pod dowolnym typem&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;let droids: any[]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;unknown&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Unknown&lt;/em&gt; jest stosowane w momencie kiedy nie mamy pewności jaki typ powinien,będzie używany - przyjmie każdy typ danych. Typ &lt;em&gt;unknown&lt;/em&gt; nie może być jednak przypisany do innego typu (&lt;em&gt;any&lt;/em&gt; już na to pozwala)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;userInput&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;unknown&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;anotherInput&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;
+
+&lt;span class="n"&gt;userInput&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;anotherInput&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zastosowanie -&amp;gt; nie wiem co będzie wpisane ale jeśli będzie to &lt;em&gt;string&lt;/em&gt; to chciałbym to wykorzystać (jednak o ile jest to możliwe warto korzystać z typu &lt;em&gt;union&lt;/em&gt; ze względu na to, że jest precyzyjniejszym rozwiązaniem)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;if (typeof userInput === &amp;#39;string&amp;#39;) {&lt;/span&gt;
+&lt;span class="err"&gt;    anotherInput = userInput&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;never&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;funkcja może zwracać &lt;em&gt;never&lt;/em&gt; w przypadku, gdy funkcja nie tworzy wartości/value tylko powoduje "zatrzymanie skryptu" (never= nigdy nic nie zwraca i taka jest intencja tej funkcji)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;constError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;throw&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;errorCode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;constError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Such droid does not exist&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;--&lt;/p&gt;
+&lt;h3&gt;5. Funkcje jako typy&lt;/h3&gt;
+&lt;p&gt;Deklarowanie zmiennej z typem &lt;strong&gt;Function&lt;/strong&gt; pozwala nam na zapewnienie tego, że będzie ona przechowywać jedynie funkcję,a nie coś innego dodatkowo istnieje możliwość wskazania wzoru (typu) tej funkcji&lt;/p&gt;
+&lt;p&gt;Przykład bez wskazania&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;addDroids&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;number&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;return&lt;/span&gt; &lt;span class="err"&gt;n1&lt;/span&gt; &lt;span class="err"&gt;+&lt;/span&gt; &lt;span class="err"&gt;n2&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;sumDroids&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;Function&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;sumDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;5&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;error&lt;/span&gt;
+&lt;span class="nt"&gt;sumDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;addDroids&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;ok&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykład ze wskazaniem typu funkcji np. &lt;code&gt;()=&amp;gt; number&lt;/code&gt; nie przyjmuje żadnych arg. i zwraca liczbę albo &lt;code&gt;(a:number, b:number)=&amp;gt; number&lt;/code&gt; powinien przyjąć jakąkolwiek funkcję która przyjmuje 2 arg. będące liczbami i zwraca liczbę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;addDroids&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;number&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;return&lt;/span&gt; &lt;span class="err"&gt;n1&lt;/span&gt; &lt;span class="err"&gt;+&lt;/span&gt; &lt;span class="err"&gt;n2&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;sumUpDroids&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;console.log(n1+n2)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nt"&gt;let&lt;/span&gt; &lt;span class="nt"&gt;sumDroids&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;b&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;)=&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;number&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;definiowanie&lt;/span&gt; &lt;span class="nt"&gt;typu&lt;/span&gt; &lt;span class="nt"&gt;zwracanego&lt;/span&gt;
+
+&lt;span class="nt"&gt;sumDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;addDroids&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;ok&lt;/span&gt; &lt;span class="nt"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;spełnia&lt;/span&gt; &lt;span class="nt"&gt;definicję&lt;/span&gt; &lt;span class="nt"&gt;wyżej&lt;/span&gt; &lt;span class="nt"&gt;wskazaną&lt;/span&gt;
+&lt;span class="nt"&gt;sumDroids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;sumUpDroids&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nt"&gt;error&lt;/span&gt; &lt;span class="nt"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;nie&lt;/span&gt; &lt;span class="nt"&gt;spełnia&lt;/span&gt; &lt;span class="nt"&gt;wskazanego&lt;/span&gt; &lt;span class="nt"&gt;typu&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Funkcje - zwracanie typów + 'void' &amp;amp; 'undefined'&lt;/h3&gt;
+&lt;p&gt;Istnieje możliwość typu zwracanej wartości funkcji -&amp;gt; poprzez zastosowanie po argumentach dwukropka oraz podania odpowiedniego typu (stosowane jedynie w przypadku potrzeby)&lt;/p&gt;
+&lt;p&gt;w wyniku tej funkcji zostanie zwrócona liczba/numbers&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function addDroids(n1:number, n2:number): number {&lt;/span&gt;
+&lt;span class="err"&gt;    return n1 + n2&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;typ &lt;strong&gt;void&lt;/strong&gt; oznacza brak wartości zwrotnej (nie trzeba tego definować, ale taki typ jest przypisany przez TS) - funkcji brakuje konkretnego &lt;strong&gt;returna&lt;/strong&gt; (w JS zwrócony zostanie &lt;strong&gt;undefined&lt;/strong&gt; a nie &lt;strong&gt;void&lt;/strong&gt;) [samotny return bez przypisanej wartości również będzie spójny z tym konceptem]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function sumDroids(n1:number, n2:number): void {&lt;/span&gt;
+&lt;span class="err"&gt;    console.log(n1+n2)&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;TS pozwala również na przypisanie typu &lt;strong&gt;undefined&lt;/strong&gt;, funkcja wykorzystująca ten typ musi jednak posiadać &lt;strong&gt;return&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function addDroids(n1:number, n2:number): undefined {&lt;/span&gt;
+&lt;span class="err"&gt;    console.log(n1+n2);&lt;/span&gt;
+&lt;span class="err"&gt;    return;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;callaback jako funkcja&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Jednym z argumentów w ramach funkcji może być inna funkcja - istnieje możliwość wskazania jej wzoru/typu.
+Wskazanie &lt;code&gt;void&lt;/code&gt; może oznaczać, że z wartością zwróconą nic nie będzie wykonywane - nie oznacza to jednak, że ta funkcja nie musi nic zwracać (innymi słowy &lt;strong&gt;void&lt;/strong&gt; nie jest zobowiązujące)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;addMoreDroids&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;callB&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;n1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt;
+    &lt;span class="n"&gt;callB&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;addMoreDroids&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;
+    &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -164,10 +1039,16 @@
 &lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/intro.html"&gt;The TypeScript Handbook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/intro.html"&gt;Basic Types&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://medium.com/jspoint/typescript-a-beginners-guide-6956fe8bcf9e"&gt;A beginner’s guide to TypeScript (with some history of the TypeScript)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://clockworkjava.pl/2019/07/co-to-typescript/"&gt;Co to TypeScript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://refactoring.guru/design-patterns/typescript"&gt;The Catalog of TypeScript Examples&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;YT&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=ahCwqrYpIuM&amp;amp;t=1s&amp;amp;ab_channel=Fireship"&gt;Fireship -&amp;gt; TypeScript - The Basics&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=nRdR6xAgGvw"&gt;React i TypeScript - jak zacząć? | Przeprogramowani.ts #7&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=BwuLxPH8IDs"&gt;TypeScript Course for Beginners 2020 - Learn TypeScript from Scratch!&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>Docker: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/docker-wprowadzenie.html" rel="alternate"></link><published>2020-11-18T10:00:00+01:00</published><updated>2020-11-18T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-18:/zfrontu/docker-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="docker-logo" src="https://www.cloudsavvyit.com/thumbcache/0/0/576bdb68675c300a17d82c131b23c927/p/uploads/2019/06/c454d054.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=BwuLxPH8IDs"&gt;TypeScript Course for Beginners 2020 - Learn TypeScript from Scratch!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=NjN00cM18Z4&amp;amp;ab_channel=ProgrammingwithMosh"&gt;TypeScript Tutorial - TypeScript for React - Learn TypeScript [2020]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=IU1yUVtxEMI&amp;amp;ab_channel=Rebased"&gt;Rebased - Kurs TypeScript 1: Wprowadzenie&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Podcast&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://devstyle.pl/2020/05/18/devtalk-116-o-typescript-z-tomaszem-ducinem/"&gt;DevTalk #116 – O TypeScript z Tomaszem Ducinem&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>Docker: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/docker-wprowadzenie.html" rel="alternate"></link><published>2020-11-18T10:00:00+01:00</published><updated>2020-11-18T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-18:/zfrontu/docker-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="docker-logo" src="https://www.cloudsavvyit.com/thumbcache/0/0/576bdb68675c300a17d82c131b23c927/p/uploads/2019/06/c454d054.png"&gt;&lt;/p&gt;
 &lt;p&gt;Docker - odtwarzanie/reprodukcja środowiska, wirtualizuje system operacyjny a nie hardware (jak np. virtual machine) -&amp;gt; docker tworzy "odizolowane mikrokomputery"&lt;/p&gt;
 &lt;p&gt;&lt;img alt="docker-vs-vm" src="https://miro.medium.com/max/700/0*5zQfr6j2fAeNPy-H.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Docker-file&lt;/strong&gt; - plan pozwalający na stworzenie docker-image/ tu znajduje się definicja środowiska (lista zależności) dla Docker-image&lt;/p&gt;
@@ -254,13 +1135,13 @@ docker volume create nazwaFolderu&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=eGz9DS-aIeY"&gt;you need to learn Docker RIGHT NOW!! // Docker Containers 101&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://collabnix.com/demystifying-the-relationship-between-moby-docker/"&gt;Demystifying the Relationship Between Moby &amp;amp; Docker&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.mirantis.com/blog/ok-i-give-up-is-docker-now-moby-and-what-is-linuxkit/"&gt;OK, I give up. Is Docker now Moby? And what is LinuxKit?&lt;/a&gt;&lt;/p&gt;</content><category term="containers"></category><category term="docker"></category><category term="containers"></category><category term="kontenery"></category><category term="nodejs"></category><category term="expressjs"></category><category term="express"></category></entry><entry><title>React - Ref (referencje)</title><link href="https://kostyrko.github.io/zfrontu/react-ref.html" rel="alternate"></link><published>2020-11-15T10:00:00+01:00</published><updated>2020-11-15T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-15:/zfrontu/react-ref.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-ref" src="https://miro.medium.com/max/700/1*CeJhWybkgGBVwH3gHo7QTg.jpeg"&gt;&lt;/p&gt;
-&lt;h3&gt;React.createRef()/useREf&lt;/h3&gt;
+&lt;h3&gt;React.createRef()/useRef&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;React.createRef()&lt;/strong&gt; oraz hook &lt;strong&gt;useRef&lt;/strong&gt; pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni&lt;/p&gt;
 &lt;p&gt;Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji
 - zarządzanie focusem, wyborem tekstu, uruchamianiem mediów
 - zarządzanie animacjami
 - integracja z bibliotekami (DOM) -&amp;gt; patrz: przekazywanie …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react-ref" src="https://miro.medium.com/max/700/1*CeJhWybkgGBVwH3gHo7QTg.jpeg"&gt;&lt;/p&gt;
-&lt;h3&gt;React.createRef()/useREf&lt;/h3&gt;
+&lt;h3&gt;React.createRef()/useRef&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;React.createRef()&lt;/strong&gt; oraz hook &lt;strong&gt;useRef&lt;/strong&gt; pozwala na dostęp do elementów drzewa DOM (faktycznego, a nie wirtualnego) w sposób bezpośredni&lt;/p&gt;
 &lt;p&gt;Dokumentacja Reacta wspomina o 3 głównych przypadkach, w których warto skorzystać z funkcji referencji
 - zarządzanie focusem, wyborem tekstu, uruchamianiem mediów
@@ -4644,7 +5525,7 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Dodanie remota&lt;/p&gt;
+&lt;p&gt;Dodanie kolejnego remota, z którego będą pobierane dane (tzw. upstream)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git remote add upstream &amp;lt;link do remota&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -4654,18 +5535,14 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Łączenie mastera (maina) lub innego głównego repo z upstreamem&lt;/p&gt;
-&lt;p&gt;git merge upstream/master&lt;/p&gt;
-&lt;p&gt;Zaakceptowanie konfliktów na korzyść zmian zewnętrznych&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git checkout --theirs .&lt;/span&gt;
-&lt;span class="err"&gt;    git add …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" src="https://i.morioh.com/2019/11/11/1f265e2d4c43.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Zmian (lub upewnienie się że jest się na gałęzi master lub tej gałęzi na której zależy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="git-branch" src="https://i.morioh.com/2019/11/11/1f265e2d4c43.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;Aktualizacja sklonowanego repozytorium&lt;/h3&gt;
 &lt;p&gt;Sprawdzenie remotów&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git remote -v&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Dodanie remota&lt;/p&gt;
+&lt;p&gt;Dodanie kolejnego remota, z którego będą pobierane dane (tzw. upstream)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git remote add upstream &amp;lt;link do remota&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -4675,8 +5552,20 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Łączenie mastera (maina) lub innego głównego repo z upstreamem&lt;/p&gt;
-&lt;p&gt;git merge upstream/master&lt;/p&gt;
+&lt;p&gt;Zmian (lub upewnienie się że jest się na gałęzi master lub tej gałęzi na której zależy nam aby była aktualna)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+
+    &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Łączenie mastera (main) lub gałęzi z zawartością tego co znajduje się w repo z upstream&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="n"&gt;upstream&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;
+
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;merge&lt;/span&gt; &lt;span class="n"&gt;upstream&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Zaakceptowanie konfliktów na korzyść zmian zewnętrznych&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git checkout --theirs .&lt;/span&gt;
 &lt;span class="err"&gt;    git add .&lt;/span&gt;
@@ -4686,6 +5575,13 @@ który nie tylko pozwala na tworzenie tablic, ale również na ich rozpraszanie,
 &lt;p&gt;Zaakceptowanie konfliktów na korzyść zmian wewnętrznych&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    git checkout --ours .&lt;/span&gt;
 &lt;span class="err"&gt;    git add .&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wypushowanie zmian na remota&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+
+    &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -6629,7 +7525,7 @@ Pozycjonowanie dzieci&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Źródła&lt;/p&gt;
 &lt;p&gt;https://getbootstrap.com/docs/4.0/layout/grid/&lt;/p&gt;
-&lt;p&gt;https://www.w3schools.com/css/css_grid.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="grid"></category><category term="layout"></category><category term="rwd"></category></entry><entry><title>JavaScript i moduły - CommonJS i ES6</title><link href="https://kostyrko.github.io/zfrontu/js-moduly.html" rel="alternate"></link><published>2020-06-12T11:00:00+02:00</published><updated>2020-06-12T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-12:/zfrontu/js-moduly.html</id><summary type="html">&lt;p&gt;&lt;img alt="mandalorian" src="https://i.pinimg.com/236x/93/3c/e5/933ce5ca53336ae73e95ffdae6f76797.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;https://www.w3schools.com/css/css_grid.asp&lt;/p&gt;</content><category term="css"></category><category term="css"></category><category term="grid"></category><category term="layout"></category><category term="rwd"></category></entry><entry><title>JavaScript i moduły - CommonJS i import/export(ES6)</title><link href="https://kostyrko.github.io/zfrontu/js-moduly.html" rel="alternate"></link><published>2020-06-12T11:00:00+02:00</published><updated>2020-06-12T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-12:/zfrontu/js-moduly.html</id><summary type="html">&lt;p&gt;&lt;img alt="mandalorian" src="https://i.pinimg.com/236x/93/3c/e5/933ce5ca53336ae73e95ffdae6f76797.jpg"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;Podział projektu na mniejsze pliki (modułowość) może przynieść sporo korzyści w związku z jego utrzymaniem oraz reużywalnością kodu w innych projektach, pozwala na to (&lt;a href="https://requirejs.org/docs/commonjs.html"&gt;CommonJS&lt;/a&gt; oraz moduły wprowadzone w &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"&gt;ES6&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;CommonJS jest standardem wykorzystywanym przez &lt;em&gt;node.js&lt;/em&gt; natomiast moduł ES (ES6) jest przeznaczony dla przeglądarek &lt;/p&gt;
@@ -6771,9 +7667,74 @@ Wówczas wystarczy zaimportować w sposób następujący -&amp;gt;  &lt;strong&g
 
 &lt;hr&gt;
 &lt;p&gt;Inne źródła:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://flaviocopes.com/commonjs/"&gt;Introduction to CommonJS&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="import"></category><category term="require"></category><category term="moduły"></category><category term="modules"></category></entry><entry><title>JavaScript: asynchroniczność i AJAX</title><link href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html" rel="alternate"></link><published>2020-06-11T12:00:00+02:00</published><updated>2020-06-11T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-asynchronicznosc-ajax.html</id><summary type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg#center"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://flaviocopes.com/commonjs/"&gt;Introduction to CommonJS&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="import"></category><category term="require"></category><category term="moduły"></category><category term="modules"></category><category term="export"></category></entry><entry><title>JavaScript: Set i Map</title><link href="https://kostyrko.github.io/zfrontu/js-set-map.html" rel="alternate"></link><published>2020-06-12T11:00:00+02:00</published><updated>2020-06-12T11:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-12:/zfrontu/js-set-map.html</id><summary type="html">&lt;p&gt;&lt;img alt="set_and_map" src="https://i.ytimg.com/vi/hLgUTM3FOII/hqdefault.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;ES6 wprowadza 2 dodatkowe struktury przechowywania danych &lt;strong&gt;Map&lt;/strong&gt; oraz &lt;strong&gt;Set&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Map&lt;/h3&gt;
+&lt;p&gt;Mapa jest kolekcją danych, do których przyporządkowane są klucze, w odróżnieniu od zwykłego &lt;strong&gt;Obiektu&lt;/strong&gt; w tym przypadku klucze mogą być dowolnego typu/o dowolnym typie przykładowo kluczem może być Obiekt&lt;/p&gt;
+&lt;p&gt;Przykładowo: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Map&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;str1 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="set_and_map" src="https://i.ytimg.com/vi/hLgUTM3FOII/hqdefault.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;ES6 wprowadza 2 dodatkowe struktury przechowywania danych &lt;strong&gt;Map&lt;/strong&gt; oraz &lt;strong&gt;Set&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Map&lt;/h3&gt;
+&lt;p&gt;Mapa jest kolekcją danych, do których przyporządkowane są klucze, w odróżnieniu od zwykłego &lt;strong&gt;Obiektu&lt;/strong&gt; w tym przypadku klucze mogą być dowolnego typu/o dowolnym typie przykładowo kluczem może być Obiekt&lt;/p&gt;
+&lt;p&gt;Przykładowo: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Map&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;str1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;łańcuch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;znaków&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jako&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;klucz&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;num1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Liczba&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jako&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;klucz&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;bool1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Boolean&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jako&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;klucz&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;=============================&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;R2D2&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mapie&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;będą&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;przechowywane&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;informacje&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ilu&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ekranizacjach&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wystąpił&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;moviesCountMap&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Map&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jest&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;kluczem&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dla&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mapy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dodajemy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jako&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;liczbę&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;filmów&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;których&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;można&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;zobaczyć&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;moviesCountMap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;visitsCountMap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;metody i właściwości &lt;strong&gt;Mapy&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;new Map()&lt;/code&gt; – tworzy mapę&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.set(key, value)&lt;/code&gt; – zapisuje daną wraz z kluczem&lt;/p&gt;
+&lt;p&gt;Każde wywołanie &lt;code&gt;.set()&lt;/code&gt; zwraca Map stąd można je łączyć w łańcuchy&lt;/p&gt;
+&lt;p&gt;map.set('1', 'str1'); &lt;br&gt;
+      .set(1, 'num1');   &lt;br&gt;
+      .set(true, 'bool1');&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.get(key)&lt;/code&gt; – zwraca wartość przypisaną do klucza (undef. jeśli klucza nie ma) &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.has(key)&lt;/code&gt; – zwraca true/false jeśli klucz istnieje w mapie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.delete(key)&lt;/code&gt; – usuwa wartość wg podanego klucza&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.clear()&lt;/code&gt; – czyści całą mapę&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.size&lt;/code&gt; – zwraca "długość" mapy/ liczbę zapisanych wartości/danych&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.keys()&lt;/code&gt;– zwraca wszystkie klucze w postaci iterowalnej&lt;/p&gt;
+&lt;p&gt;// iteruje przez klucze i je zwraca
+  for (let droid of allDroids.keys()) {
+    alert(droid); // r2d2, c3po, d-o
+  }&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.values()&lt;/code&gt; – zwraca wszystkie właściwości w postaci iterowalnej&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;map.entries()&lt;/code&gt; – zwraca wszystkie wpisy w postaci iterowalnej [key, value] -&amp;gt; for..of.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mav-vs-object" src="https://i.stack.imgur.com/P5hSl.jpg"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Set&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Set&lt;/strong&gt; jest specjalnym typem kolekcji danych pozbawionym klucza, gdzie każda wartość może wystąpić jeden raz&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;new Set(iterable)&lt;/code&gt; – tworzy set, jeśli jako argument podane są dane w postaci iterowalnej (np. tablica) to tworzy z nich set &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;set.add(value)&lt;/code&gt; – dodaje wartość i zwraca set&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;set.delete(value)&lt;/code&gt; – usuwa wartość, zwraca &lt;code&gt;true&lt;/code&gt; jeśli wartość istnieje na początku wywołania &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;set.has(value)&lt;/code&gt; – zwraca &lt;code&gt;true/false&lt;/code&gt; w zależności istnienia wartości w secie&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;set.clear()&lt;/code&gt; – usuwa wszystko z setu&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;set.size&lt;/code&gt; – zwraca liczbę obiektów znajdujących sie w secie.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="map-set-spread" src="https://miro.medium.com/max/700/1*IqR1zAT2mFU684OrPl85KA.png"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Inne źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://javascript.info/map-set"&gt;javascript.info - set and map&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/18541940/map-vs-object-in-javascript"&gt;SO - Map vs Object in JavaScript&lt;/a&gt;&lt;/p&gt;</content><category term="javascript"></category><category term="js"></category><category term="est"></category><category term="map"></category><category term="es6"></category><category term="set"></category></entry><entry><title>JavaScript: asynchroniczność i AJAX</title><link href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html" rel="alternate"></link><published>2020-06-11T12:00:00+02:00</published><updated>2020-06-11T12:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-11:/zfrontu/js-asynchronicznosc-ajax.html</id><summary type="html">&lt;p&gt;&lt;img alt="ajax" src="https://miro.medium.com/max/700/1*v3b022s2UAyhVAFLUtzhJg.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
-&lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="ajax" src="https://adairtechs.com/images/ajax.jpg#center"&gt;&lt;/p&gt;
+&lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="ajax" src="https://miro.medium.com/max/700/1*v3b022s2UAyhVAFLUtzhJg.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Wstęp&lt;/h3&gt;
 &lt;p&gt;JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody setTimeout(opóźnienie wywołania się bloku kodu))- jest to przydatne w przypadku odwołań do serwerów, gdzie zwrócenie określonych danych może trwać dłuższy moment np. w przypadku Fetch API (kod odpowiedzialny za funkcjonowanie strony będzie dalej funkcjonował poprawnie w trakcie wysyłania i odbierania zapytania). Patrz też dalej &lt;a href="#ajax"&gt;ajax&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Podsumowując - asynchroniczność pozwala na:&lt;/strong&gt;&lt;/p&gt;
@@ -11882,8 +12843,8 @@ https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/&lt;/p
 &lt;p&gt;Istnieją trzy typy deklaracji zmiennych&lt;/p&gt;
 &lt;p&gt;&lt;img alt="starWars_zmienne" src="https://miro.medium.com/max/640/0*2Iz9vcaOtPNivfen.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;const&lt;/code&gt; - podstawowa deklaracja, nie ulega zmianie, tylko do odczytu&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;let&lt;/code&gt; - deklaracja stosowana w przypadku gdy zmienna będzie musiała ulec zmianie, jest lokalna i ograniczona do bloku, w którym jest zawarta&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;const&lt;/code&gt; - podstawowa deklaracja, nie ulega zmianie, tylko do odczytu / zwany &lt;strong&gt;identyfikatorem&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;let&lt;/code&gt; - deklaracja stosowana w przypadku gdy &lt;strong&gt;zmienna&lt;/strong&gt; będzie musiała ulec zmianie, jest lokalna i ograniczona do bloku, w którym jest zawarta&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;var&lt;/code&gt; - wcześniej podstawowa zmienna (przed ES6), obecnie rzadziej stosowana (po wprowadzeniu const i let) więcej na ten temat &lt;a href="https://medium.com/@larry.sassainsworth/let-vs-var-vs-const-in-javascript-8b898f868394"&gt;tutaj&lt;/a&gt; lub poniżej.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;

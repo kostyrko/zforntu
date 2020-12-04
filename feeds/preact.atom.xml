@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - preact</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/preact.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-11-29T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Preact - 3kb React'a</title><link href="https://kostyrko.github.io/zfrontu/preact.html" rel="alternate"></link><published>2020-11-29T10:00:00+01:00</published><updated>2020-11-29T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-29:/zfrontu/preact.html</id><summary type="html">&lt;p&gt;&lt;img alt="preact-logo" src="https://camo.githubusercontent.com/14a812f7a6b051ec76bf643f72a2a938c5fc8ee37a9cca9e2c55c870e4c46499/68747470733a2f2f692e696d6775722e636f6d2f597143487645572e676966"&gt;&lt;/p&gt;
+&lt;p&gt;"Fast 3kB React alternative with the same modern API. Components &amp;amp; Virtual DOM"&lt;/p&gt;
+&lt;p&gt;Preact reklamuje się jako lekka (3kb) alternatywa dla Reacta i jest uważany za bibliotekę, która renderuje Virtual-Dom w wyjątkowo, krótkim czasie.&lt;/p&gt;
+&lt;p&gt;Preact stawia na:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wydajność (szybką)&lt;/li&gt;
+&lt;li&gt;rozmiar (mały)&lt;/li&gt;
+&lt;li&gt;efektywne wykorzystanie pamięci (wysoka)&lt;/li&gt;
+&lt;li&gt;niski próg zrozumienia kodu&lt;/li&gt;
+&lt;li&gt;zgodność z …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="preact-logo" src="https://camo.githubusercontent.com/14a812f7a6b051ec76bf643f72a2a938c5fc8ee37a9cca9e2c55c870e4c46499/68747470733a2f2f692e696d6775722e636f6d2f597143487645572e676966"&gt;&lt;/p&gt;
+&lt;p&gt;"Fast 3kB React alternative with the same modern API. Components &amp;amp; Virtual DOM"&lt;/p&gt;
+&lt;p&gt;Preact reklamuje się jako lekka (3kb) alternatywa dla Reacta i jest uważany za bibliotekę, która renderuje Virtual-Dom w wyjątkowo, krótkim czasie.&lt;/p&gt;
+&lt;p&gt;Preact stawia na:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wydajność (szybką)&lt;/li&gt;
+&lt;li&gt;rozmiar (mały)&lt;/li&gt;
+&lt;li&gt;efektywne wykorzystanie pamięci (wysoka)&lt;/li&gt;
+&lt;li&gt;niski próg zrozumienia kodu&lt;/li&gt;
+&lt;li&gt;zgodność z React API (moduł opakowujący Preact -&amp;gt; &lt;code&gt;preact-compat&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ze względu na swoją "lekkość" Preact wykorzystywany jest do tworzenia mobilnych stron (np. Uber) - tym samym stara się zniwelować jeden z problemów biblioteki React.&lt;/p&gt;
+&lt;h3&gt;p(PREACT)&lt;/h3&gt;
+&lt;p&gt;0) nie wykorzystuje &lt;a href="https://reactjs.org/docs/events.html"&gt;Syntetycznych wydarzeń&lt;/a&gt;, wykorzystuje ‘addEventListener’ &lt;/p&gt;
+&lt;p&gt;1) className (React) =&amp;gt; class (Preact)&lt;/p&gt;
+&lt;p&gt;2) this.props i this.state jest przekazywany jako arg do render()&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="k"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;constructor&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;super&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+            &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;I Suggest A New Strategy, R2 - Let The Wookiee Win.&amp;#39;&lt;/span&gt;
+            &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;droid-message&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Preact korzysta z hyperscriptu - który na podstawie JSX tworzy Virtualny DOM (jak &lt;code&gt;React.createElement&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;preact&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;preact/hooks&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;setCount&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;useState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;setCount&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;decrement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;setCount&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Count&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Increment&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;decrement&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Decrement&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;źródło powyższego przykładu: &lt;a href="https://www.merixstudio.com/blog/what-preact-and-when-should-you-consider-using-it/"&gt;What is Preact and when should you consider using it?&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;preact-compat&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/preactjs/preact-compat"&gt;preact-compat&lt;/a&gt; jest modułem, który pozwala na współpracę Preacta z modułami przygotowanymi dla Reacta&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;instalacja&lt;/span&gt; &lt;span class="n"&gt;preacta&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="c1"&gt;--save preact&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;instalacja&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compat&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="c1"&gt;--save preact-compat&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;czytaj więcej na ten temat na &lt;a href="https://github.com/preactjs/preact-compat"&gt;GH repo projektu&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Preact CLI&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;instalacja&lt;/span&gt; &lt;span class="n"&gt;globalna&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;g&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;utworzenie&lt;/span&gt; &lt;span class="n"&gt;projektu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;odwołuje&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;wybranego&lt;/span&gt; &lt;span class="n"&gt;szablonu&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;material&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;simple&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;typescript&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;npx&lt;/span&gt; &lt;span class="n"&gt;preact&lt;/span&gt; &lt;span class="k"&gt;create&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;wejdź&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;utworzonego&lt;/span&gt; &lt;span class="n"&gt;folderu&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;uruchom&lt;/span&gt; &lt;span class="n"&gt;serwer&lt;/span&gt; &lt;span class="n"&gt;deweloperski&lt;/span&gt;
+&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;
+
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ew&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;stworzenie&lt;/span&gt; &lt;span class="k"&gt;template&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;folderze&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt; &lt;span class="n"&gt;oraz&lt;/span&gt; &lt;span class="n"&gt;poinformowani&lt;/span&gt; &lt;span class="n"&gt;Preacta&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;tym&lt;/span&gt;
+&lt;span class="n"&gt;preact&lt;/span&gt; &lt;span class="n"&gt;watch&lt;/span&gt; &lt;span class="c1"&gt;--template src/template.html&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Preact i TypeScriptu&lt;/h3&gt;
+&lt;p&gt;Do treści &lt;strong&gt;tsconfig.json&lt;/strong&gt; należy dodać: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// TypeScript &amp;gt;= 4.1.1&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;  &amp;quot;compilerOptions&amp;quot;: {&lt;/span&gt;
+&lt;span class="err"&gt;    &amp;quot;jsx&amp;quot;: &amp;quot;react-jsx&amp;quot;,&lt;/span&gt;
+&lt;span class="err"&gt;    &amp;quot;jsxImportSource&amp;quot;: &amp;quot;preact&amp;quot;,&lt;/span&gt;
+&lt;span class="err"&gt;    //...&lt;/span&gt;
+&lt;span class="err"&gt;  }&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;czytaj więcej: &lt;a href="https://preactjs.com/guide/v10/typescript"&gt;TypeScript - Preact ships TypeScript type definitions, which are used by the library itself!&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://preactjs.com/guide/v10/getting-started/"&gt;PREACT- documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://blog.logrocket.com/introduction-to-preact-a-smaller-faster-react-alternative-ad5532eb6d79/"&gt;Introduction to Preact : A smaller, faster React alternative&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.merixstudio.com/blog/what-preact-and-when-should-you-consider-using-it/"&gt;What is Preact and when should you consider using it?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/preactjs/preact"&gt;GH repo - Preact&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/preactjs/awesome-preact"&gt;Awesome Preact - A curated list of amazingly awesome things regarding Preact ecosystem&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fettblog.eu/go-preact/"&gt;fettblog.eu - Go Preact!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;YT&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=qJyKZ6txShU&amp;amp;ab_channel=Firebase"&gt;Switching from React to Preact (Server-side Rendering with JavaScript Frameworks)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=X2nHEBnJUy4&amp;amp;ab_channel=Firebase"&gt;Preact vs. React (Server-side Rendering with JavaScript Frameworks)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hipFdyhhdTg&amp;amp;ab_channel=CodingItWrong"&gt;No-Build, Minimal-Dependency Webapps with Preact&lt;/a&gt;&lt;/p&gt;</content><category term="preact"></category><category term="preact"></category><category term="react"></category></entry></feed>

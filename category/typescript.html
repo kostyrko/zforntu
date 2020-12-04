@@ -131,34 +131,94 @@
 
 <article>
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html">TypeScript: wprowadzenie</a></h2>
+    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-proste-przyklady.html">TypeScript: proste przykłady</a></h2>
+    <p>
+      Opublikowano czw 26 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"></p>
+<h3>Przykład 1 - deklarowanie typów</h3>
+<p>1.1. Number
+TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdefiniowanego typu number (po transpilacji w JS (TS jej nie zablokuje) problem nie będzie sygnalizowany i wynik będzie wynosił "12" /np. zamiast oczekiwanego 3) - wynika to ze statycznego i dynamicznego …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/typescript-proste-przyklady.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-klasy.html">TypeScript: klasy</a></h2>
+    <p>
+      Opublikowano śro 25 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="typescript-logo" src="https://refactoring.guru/images/patterns/languages/typescript.png"></p>
+<p>Klasy w TypeScript nie różnią od klas w JS ES6</p>
+<p>TS transpiluje do klasy jeśli wybrany jest standard ES6 lub nowszy albo do funkcja konstruktora dla ES5 i starszych (symuluje klasy choć jest funkcją (egzekucja podobna do klas))</p>
+<hr>
+<h3>Przykładowa klasa</h3>
+<p>constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/typescript-klasy.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-generics.html">TypeScript: typy generyczne</a></h2>
+    <p>
+      Opublikowano wto 24 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="typescript-logo" src="https://miro.medium.com/max/700/1*Sy-lk-CZlnc2szy0SPsLEQ.jpeg"></p>
+<h3>Typy generyczne ("dynamiczne") wprowadzenie</h3>
+<p>Tablica w TS również jest typem (podobnie jak np. obiekt) i do tego <strong>generycznym</strong> (dopasowuje się do danych, które przechowuje)</p>
+<p><code>const names: Array = []</code> // Array<T>/ przedstawiony tutaj zapis faktycznie nie zostanie przyjęty przez TS, który będzie domagał się podania jakiegokolwiek typu np. <strong>any</strong> -&gt; <code>const names: any[] = []</code> ten …</t></p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/typescript-generics.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html">TypeScript: wprowadzenie + podstawowe typy</a></h2>
     <p>
       Opublikowano czw 19 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
 
           &#8226; Tagi: 
               <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
-        &#8226; 2 min read
+        &#8226; 7 min read
     </p>
   </header>
   <div>
-      <p><img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"></p>
-<p>TypeScript jest supersetem JavaScript</p>
+      <p><img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"></p>
+<p>TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju "rozszerzeniem" JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS.</p>
+<p><strong>TS wprowadza/charakteryzuje</strong></p>
 <ol>
-<li>Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )</li>
-</ol>
-<h3>Instalacja i użytkowanie -&gt; "Hello world"</h3>
-<div class="highlight"><pre><span></span><code><span class="err">// terminal</span>
-<span class="err">npm i -g typescript</span>
-</code></pre></div>
-
-
-<p>Należy stworzyć plik <strong>index.ts</strong></p>
-<div class="highlight"><pre><span></span><code><span class="err">// index.ts</span>
-<span class="err">console.log(&#39;Hello world&#39;);</span>
-</code></pre></div>
-
-
-<p>Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą …</p>
+<li>
+<p>Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )</p>
+</li>
+<li>
+<p>Możliwość stosowania/definiowania typów</p>
+</li>
+<li>
+<p>Wprowadza elementy dokumentacji/klarowności kodu np …</p></li></ol>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html">Czytaj dalej</a>
   </div>

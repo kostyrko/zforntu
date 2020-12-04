@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Klasy w TypeScript nie różnią od klas w JS ES6 TS transpiluje do klasy jeśli wybrany jest standard ES6 lub nowszy albo do funkcja konstruktora dla ES5 i starszych (symuluje klasy choć jest funkcją (egzekucja podobna do klas)) Przykładowa klasa constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu class Droid …" />
+<meta name="keywords" content="rts, typescript">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="TypeScript: klasy"/>
+<meta property="og:description" content="Klasy w TypeScript nie różnią od klas w JS ES6 TS transpiluje do klasy jeśli wybrany jest standard ES6 lub nowszy albo do funkcja konstruktora dla ES5 i starszych (symuluje klasy choć jest funkcją (egzekucja podobna do klas)) Przykładowa klasa constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu class Droid …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/typescript-klasy.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-25 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="typescript"/>
+<meta property="article:tag" content="rts"/>
+<meta property="article:tag" content="typescript"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; TypeScript: klasy</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="typescript-klasy">TypeScript: klasy</h1>
+    <p>
+      Opublikowano śro 25 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="typescript-logo" src="https://refactoring.guru/images/patterns/languages/typescript.png"></p>
+<p>Klasy w TypeScript nie różnią od klas w JS ES6</p>
+<p>TS transpiluje do klasy jeśli wybrany jest standard ES6 lub nowszy albo do funkcja konstruktora dla ES5 i starszych (symuluje klasy choć jest funkcją (egzekucja podobna do klas))</p>
+<hr>
+<h3>Przykładowa klasa</h3>
+<p>constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span> <span class="o">//</span> <span class="n">tak</span> <span class="n">samo</span> <span class="n">w</span> <span class="n">JS</span> <span class="n">powyżej</span> <span class="n">ES6</span>
+
+  <span class="n">constructor</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">greeting</span> <span class="o">=</span> <span class="n">message</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">greet</span><span class="p">(</span><span class="n">this</span><span class="p">:</span> <span class="n">Greeter</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">do</span> <span class="n">instancji</span><span class="p">,</span> <span class="n">które</span> <span class="n">powstała</span> <span class="n">na</span> <span class="n">podstawie</span> <span class="n">klasy</span> <span class="n">Droid</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">let</span> <span class="n">r2d2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s2">&quot;R2D2&quot;</span><span class="p">);</span> <span class="o">//</span> <span class="o">-&gt;</span> <span class="n">arg</span> <span class="n">zapisuje</span> <span class="n">jako</span> <span class="n">name</span>
+
+<span class="k">const</span> <span class="n">r2d2Copy</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span> <span class="n">greet</span> <span class="p">:</span> <span class="n">r2d2</span><span class="o">.</span><span class="n">greet</span><span class="p">}</span>
+</code></pre></div>
+
+
+<p><code>this</code> - jest kontekstem, w zależności od miejsca, w którym się do niego odwołujemy może odnosić się do czegoś innego, w przypadku klas zwykle odnosi się do instancji klasy lub inaczej to ujmując do tego obiektu, na którym dana metoda jest wywoływana</p>
+<hr>
+<h3>Dziedziczenie</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Animal</span> <span class="p">{</span>
+  <span class="n">move</span><span class="p">(</span><span class="n">distanceInMeters</span><span class="p">:</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">Animal</span> <span class="n">moved</span> <span class="o">$</span><span class="p">{</span><span class="n">distanceInMeters</span><span class="p">}</span><span class="n">m</span><span class="o">.</span><span class="err">`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">Dog</span> <span class="k">extends</span> <span class="n">Animal</span> <span class="p">{</span>
+  <span class="n">bark</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Woof! Woof!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="n">dog</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Dog</span><span class="p">();</span>
+<span class="n">dog</span><span class="o">.</span><span class="n">bark</span><span class="p">();</span>
+<span class="n">dog</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">dog</span><span class="o">.</span><span class="n">bark</span><span class="p">();</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Prywatne pola (Private)</h3>
+<p>Prywatne sprawia, że jego edycja jest możliwa jedynie przy pomocy przeznaczonej do tego metody. To może się przydać szczególnie w momencie gdy dana metoda zawiera w sobie zdefiniowaną walidację (bezpośrednia edycja może być jej pozbawiono). w JS wszystkie pola są <code>publiczne/public</code> w TS,  jeśli nie są inaczej oznaczone również takie są domyślnie. Prywatne pola są również ukryte po za klasą (nie są dostępne).</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Planet</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="n">name</span><span class="p">:</span> <span class="n">string</span>  <span class="o">//</span> <span class="n">oznaczenie</span> <span class="n">prywatności</span> <span class="n">sposób</span> <span class="n">prywatyzacji</span>
+    <span class="n">private</span> <span class="n">droids</span><span class="p">:</span> <span class="n">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[]</span> <span class="o">//</span> <span class="n">to</span> <span class="n">jest</span> <span class="n">również</span> <span class="n">oznaczenie</span> <span class="n">prywatności</span>
+
+    <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="c1">#name = name;</span>
+    <span class="p">}</span>
+
+    <span class="n">greet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">This</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="c1">#name}!`);</span>
+    <span class="p">}</span>
+
+    <span class="n">addDroid</span><span class="p">(</span><span class="n">droid</span><span class="p">:</span> <span class="n">string</span><span class="p">){</span>
+      <span class="n">this</span><span class="o">.</span><span class="n">droids</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">droid</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">printDroids</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">droids</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">let</span> <span class="n">coruscant</span> <span class="o">=</span> <span class="n">new</span> <span class="n">person</span><span class="p">(</span><span class="s2">&quot;Coruscant&quot;</span><span class="p">);</span>
+<span class="n">coruscant</span><span class="o">.</span><span class="n">addDroid</span><span class="p">(</span><span class="s1">&#39;Crime Scene Analysis Droid&#39;</span><span class="p">)</span>
+
+<span class="n">coruscant</span><span class="o">.</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Swtor MCR-99 Droid&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">error</span> <span class="o">-</span> <span class="n">droids</span> <span class="n">jest</span> <span class="n">prywatnym</span> <span class="n">polem</span> <span class="n">i</span> <span class="n">jego</span> <span class="n">zmiana</span> <span class="p">(</span><span class="n">dodanie</span> <span class="n">nowej</span> <span class="n">wartości</span> <span class="n">to</span> <span class="n">tablicy</span> <span class="n">jest</span> <span class="n">możliwe</span> <span class="n">jedynie</span> <span class="n">przy</span> <span class="n">pomocy</span> <span class="n">jednego</span> <span class="n">sposobu</span><span class="p">,</span> <span class="n">wywołanie</span> <span class="n">odpowiedniej</span> <span class="n">metody</span><span class="p">)</span><span class="o">.</span>
+</code></pre></div>
+
+
+<p>więcej na ten temat: <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-3-8-beta/#ecmascript-private-fields">ECMAScript Private Fields</a></p>
+<hr>
+<h3>Chronione pola (protected)</h3>
+<p><strong>Protected</strong> "chroniony" modyfikator jest zbliżony do <strong>private</strong> "prywatny" modyfikatora - rożnica jednak polega na tym, że w przypadku tego pierwszego wartości chronione są dostępne w ramach klas derywatywnych/pochodnych.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Person</span> <span class="p">{</span>
+  <span class="n">protected</span> <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">Employee</span> <span class="k">extends</span> <span class="n">Person</span> <span class="p">{</span>
+  <span class="n">private</span> <span class="n">department</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+
+  <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span> <span class="n">department</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">super</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">department</span> <span class="o">=</span> <span class="n">department</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">public</span> <span class="n">getElevatorPitch</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="err">`</span><span class="n">Hello</span><span class="p">,</span> <span class="n">my</span> <span class="n">name</span> <span class="k">is</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">}</span> <span class="ow">and</span> <span class="n">I</span> <span class="n">work</span> <span class="ow">in</span> <span class="o">$</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">department</span><span class="p">}</span><span class="o">.</span><span class="err">`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">let</span> <span class="n">howard</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Howard&quot;</span><span class="p">,</span> <span class="s2">&quot;Sales&quot;</span><span class="p">);</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">howard</span><span class="o">.</span><span class="n">getElevatorPitch</span><span class="p">());</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">howard</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
+<span class="n">Property</span> <span class="s1">&#39;name&#39;</span> <span class="k">is</span> <span class="n">protected</span> <span class="ow">and</span> <span class="n">only</span> <span class="n">accessible</span> <span class="n">within</span> <span class="k">class</span> <span class="s1">&#39;Person&#39;</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">subclasses</span><span class="o">.</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Tylko do odczytu</h3>
+<p><strong>Readonly</strong> jest formą zastrzeżenia wybranych wartości do postaci, w której nie mogą one ulec zmianie - innymi słowy są wartościami przeznaczonymi jedynie do odczytu.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Octopus</span> <span class="p">{</span>
+  <span class="n">readonly</span> <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+  <span class="n">readonly</span> <span class="n">numberOfLegs</span><span class="p">:</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+  <span class="n">constructor</span><span class="p">(</span><span class="n">theName</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">theName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">let</span> <span class="n">dad</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Octopus</span><span class="p">(</span><span class="s2">&quot;Man with the 8 strong legs&quot;</span><span class="p">);</span>
+<span class="n">dad</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Man with the 3-piece suit&quot;</span><span class="p">;</span>
+<span class="n">Cannot</span> <span class="n">assign</span> <span class="n">to</span> <span class="s1">&#39;name&#39;</span> <span class="n">because</span> <span class="n">it</span> <span class="k">is</span> <span class="n">a</span> <span class="n">read</span><span class="o">-</span><span class="n">only</span> <span class="n">property</span><span class="o">.</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Interfejs w klasie</h3>
+<p>Interface dla klasy staje się swego rodzaju "kontraktem", który klasa jest zmuszona wypełnić.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">interface</span> <span class="nt">Welcome</span><span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+
+  <span class="err">greet(</span><span class="n">phrase</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span><span class="o">:</span> <span class="n">void</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Klasa droid będzie musiała posiadać imię (name) oraz metodę greet(która przyjmuje string i nic nie zwraca), może posiadać również inne właściwości - ale musi spełnić wymogi interfejsu</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="n">implements</span> <span class="n">Welcome</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+  <span class="n">moviesNum</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+
+  <span class="n">constructor</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">greet</span><span class="p">(</span><span class="n">phrase</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">phrase</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">let</span> <span class="n">droid1</span><span class="p">:</span> <span class="n">Greetings</span><span class="p">;</span>
+
+<span class="n">droid1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;C3PO&#39;</span><span class="p">);</span>
+
+<span class="n">droid1</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s1">&#39;Hi there - I am&#39;</span><span class="p">);</span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid1</span><span class="p">);</span>
+</code></pre></div>
+
+
+<hr>
+<p><a href="https://www.frontlive.pl/typescript-sredniozaawansowany/">TypeScript - Generics, klasy i zaawansowane typy</a></p>
+<p><a href="https://refactoring.guru/design-patterns/typescript">The Catalog of TypeScript Examples</a></p>
+<p>JS</p>
+<p><a href="https://stackoverflow.com/questions/54841417/javascript-classes-vs-typescript-classes">SO - Javascript classes vs typescript classes</a></p>
+<p><a href="https://www.w3schools.com/js/js_object_constructors.asp">JavaScript Object Constructors</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

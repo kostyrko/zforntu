@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Aktualizacja sklonowanego repozytorium Sprawdzenie remotów git remote -v Dodanie remota git remote add upstream &lt;link do remota&gt; Pobieranie info z dodanego/upstream remota git fetch upstream Łączenie mastera (maina) lub innego głównego repo z upstreamem git merge upstream/master Zaakceptowanie konfliktów na korzyść zmian zewnętrznych git checkout --theirs . git add …" />
+<meta name="description" content="Aktualizacja sklonowanego repozytorium Sprawdzenie remotów git remote -v Dodanie kolejnego remota, z którego będą pobierane dane (tzw. upstream) git remote add upstream &lt;link do remota&gt; Pobieranie info z dodanego/upstream remota git fetch upstream Zmian (lub upewnienie się że jest się na gałęzi master lub tej gałęzi na której zależy …" />
 <meta name="keywords" content="git, branch, gałąź, github, git-hub, commit, system kontroli wersji, dev, git init">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="Git - aktualizacja sforkowanego repo"/>
-<meta property="og:description" content="Aktualizacja sklonowanego repozytorium Sprawdzenie remotów git remote -v Dodanie remota git remote add upstream &lt;link do remota&gt; Pobieranie info z dodanego/upstream remota git fetch upstream Łączenie mastera (maina) lub innego głównego repo z upstreamem git merge upstream/master Zaakceptowanie konfliktów na korzyść zmian zewnętrznych git checkout --theirs . git add …"/>
+<meta property="og:description" content="Aktualizacja sklonowanego repozytorium Sprawdzenie remotów git remote -v Dodanie kolejnego remota, z którego będą pobierane dane (tzw. upstream) git remote add upstream &lt;link do remota&gt; Pobieranie info z dodanego/upstream remota git fetch upstream Zmian (lub upewnienie się że jest się na gałęzi master lub tej gałęzi na której zależy …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/git-aktualizacja-forka.html"/>
 <meta property="og:type" content="article"/>
@@ -164,7 +164,7 @@
 </code></pre></div>
 
 
-<p>Dodanie remota</p>
+<p>Dodanie kolejnego remota, z którego będą pobierane dane (tzw. upstream)</p>
 <div class="highlight"><pre><span></span><code><span class="err">    git remote add upstream &lt;link do remota&gt;</span>
 </code></pre></div>
 
@@ -174,8 +174,20 @@
 </code></pre></div>
 
 
-<p>Łączenie mastera (maina) lub innego głównego repo z upstreamem</p>
-<p>git merge upstream/master</p>
+<p>Zmian (lub upewnienie się że jest się na gałęzi master lub tej gałęzi na której zależy nam aby była aktualna)</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+
+    <span class="n">np</span><span class="p">.</span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">dev</span>
+</code></pre></div>
+
+
+<p>Łączenie mastera (main) lub gałęzi z zawartością tego co znajduje się w repo z upstream</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">merge</span> <span class="n">upstream</span><span class="o">/</span><span class="n">master</span>
+
+<span class="n">np</span><span class="p">.</span> <span class="n">git</span> <span class="n">merge</span> <span class="n">upstream</span><span class="o">/</span><span class="n">dev</span>
+</code></pre></div>
+
+
 <p>Zaakceptowanie konfliktów na korzyść zmian zewnętrznych</p>
 <div class="highlight"><pre><span></span><code><span class="err">    git checkout --theirs .</span>
 <span class="err">    git add .</span>
@@ -185,6 +197,13 @@
 <p>Zaakceptowanie konfliktów na korzyść zmian wewnętrznych</p>
 <div class="highlight"><pre><span></span><code><span class="err">    git checkout --ours .</span>
 <span class="err">    git add .</span>
+</code></pre></div>
+
+
+<p>Wypushowanie zmian na remota</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+
+    <span class="n">np</span><span class="p">.</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">dev</span>
 </code></pre></div>
 
 

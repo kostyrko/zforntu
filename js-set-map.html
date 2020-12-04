@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="ES6 wprowadza 2 dodatkowe struktury przechowywania danych Map oraz Set Map Mapa jest kolekcją danych, do których przyporządkowane są klucze, w odróżnieniu od zwykłego Obiektu w tym przypadku klucze mogą być dowolnego typu/o dowolnym typie przykładowo kluczem może być Obiekt Przykładowo: let map = new Map(); map.set(&#39;1&#39;, &#39;str1 …" />
+<meta name="keywords" content="js, est, map, es6, set">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JavaScript: Set i Map"/>
+<meta property="og:description" content="ES6 wprowadza 2 dodatkowe struktury przechowywania danych Map oraz Set Map Mapa jest kolekcją danych, do których przyporządkowane są klucze, w odróżnieniu od zwykłego Obiektu w tym przypadku klucze mogą być dowolnego typu/o dowolnym typie przykładowo kluczem może być Obiekt Przykładowo: let map = new Map(); map.set(&#39;1&#39;, &#39;str1 …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-set-map.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-12 11:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="est"/>
+<meta property="article:tag" content="map"/>
+<meta property="article:tag" content="es6"/>
+<meta property="article:tag" content="set"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JavaScript: Set i Map</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="js-set-map">JavaScript: Set i Map</h1>
+    <p>
+      Opublikowano pią 12 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="set_and_map" src="https://i.ytimg.com/vi/hLgUTM3FOII/hqdefault.jpg"></p>
+<p>ES6 wprowadza 2 dodatkowe struktury przechowywania danych <strong>Map</strong> oraz <strong>Set</strong></p>
+<h3>Map</h3>
+<p>Mapa jest kolekcją danych, do których przyporządkowane są klucze, w odróżnieniu od zwykłego <strong>Obiektu</strong> w tym przypadku klucze mogą być dowolnego typu/o dowolnym typie przykładowo kluczem może być Obiekt</p>
+<p>Przykładowo: </p>
+<div class="highlight"><pre><span></span><code><span class="n">let</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">Map</span><span class="p">();</span><span class="w"></span>
+
+<span class="k">map</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;str1&#39;</span><span class="p">);</span><span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="n">łańcuch</span><span class="w"> </span><span class="n">znaków</span><span class="w"> </span><span class="n">jako</span><span class="w"> </span><span class="n">klucz</span><span class="w"></span>
+<span class="k">map</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;num1&#39;</span><span class="p">);</span><span class="w">     </span><span class="o">//</span><span class="w"> </span><span class="n">Liczba</span><span class="w"> </span><span class="n">jako</span><span class="w"> </span><span class="n">klucz</span><span class="w"></span>
+<span class="k">map</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bool1&#39;</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">Boolean</span><span class="w"> </span><span class="n">jako</span><span class="w"> </span><span class="n">klucz</span><span class="w"></span>
+
+<span class="o">=============================</span><span class="w"></span>
+
+<span class="n">let</span><span class="w"> </span><span class="n">r2d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">name</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;R2D2&quot;</span><span class="w"> </span><span class="err">}</span><span class="p">;</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">mapie</span><span class="w"> </span><span class="n">będą</span><span class="w"> </span><span class="n">przechowywane</span><span class="w"> </span><span class="n">informacje</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">ilu</span><span class="w"> </span><span class="n">ekranizacjach</span><span class="w"> </span><span class="n">wystąpił</span><span class="w"> </span><span class="n">r2d2</span><span class="w"></span>
+<span class="n">let</span><span class="w"> </span><span class="n">moviesCountMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">Map</span><span class="p">();</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="n">r2d2</span><span class="w"> </span><span class="n">jest</span><span class="w"> </span><span class="n">kluczem</span><span class="w"> </span><span class="n">dla</span><span class="w"> </span><span class="n">mapy</span><span class="p">,</span><span class="w"> </span><span class="n">dodajemy</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="n">jako</span><span class="w"> </span><span class="n">liczbę</span><span class="w"> </span><span class="n">filmów</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">których</span><span class="w"> </span><span class="n">można</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">zobaczyć</span><span class="w"></span>
+<span class="n">moviesCountMap</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="n">r2d2</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">alert</span><span class="p">(</span><span class="w"> </span><span class="n">visitsCountMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">r2d2</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>metody i właściwości <strong>Mapy</strong></p>
+<p><code>new Map()</code> – tworzy mapę</p>
+<p><code>map.set(key, value)</code> – zapisuje daną wraz z kluczem</p>
+<p>Każde wywołanie <code>.set()</code> zwraca Map stąd można je łączyć w łańcuchy</p>
+<p>map.set('1', 'str1'); <br>
+      .set(1, 'num1');   <br>
+      .set(true, 'bool1');</p>
+<p><code>map.get(key)</code> – zwraca wartość przypisaną do klucza (undef. jeśli klucza nie ma) </p>
+<p><code>map.has(key)</code> – zwraca true/false jeśli klucz istnieje w mapie</p>
+<p><code>map.delete(key)</code> – usuwa wartość wg podanego klucza</p>
+<p><code>map.clear()</code> – czyści całą mapę</p>
+<p><code>map.size</code> – zwraca "długość" mapy/ liczbę zapisanych wartości/danych</p>
+<p><code>map.keys()</code>– zwraca wszystkie klucze w postaci iterowalnej</p>
+<p>// iteruje przez klucze i je zwraca
+  for (let droid of allDroids.keys()) {
+    alert(droid); // r2d2, c3po, d-o
+  }</p>
+<p><code>map.values()</code> – zwraca wszystkie właściwości w postaci iterowalnej</p>
+<p><code>map.entries()</code> – zwraca wszystkie wpisy w postaci iterowalnej [key, value] -&gt; for..of.</p>
+<p><img alt="mav-vs-object" src="https://i.stack.imgur.com/P5hSl.jpg"></p>
+<hr>
+<h3>Set</h3>
+<p><strong>Set</strong> jest specjalnym typem kolekcji danych pozbawionym klucza, gdzie każda wartość może wystąpić jeden raz</p>
+<p><code>new Set(iterable)</code> – tworzy set, jeśli jako argument podane są dane w postaci iterowalnej (np. tablica) to tworzy z nich set </p>
+<p><code>set.add(value)</code> – dodaje wartość i zwraca set</p>
+<p><code>set.delete(value)</code> – usuwa wartość, zwraca <code>true</code> jeśli wartość istnieje na początku wywołania </p>
+<p><code>set.has(value)</code> – zwraca <code>true/false</code> w zależności istnienia wartości w secie</p>
+<p><code>set.clear()</code> – usuwa wszystko z setu</p>
+<p><code>set.size</code> – zwraca liczbę obiektów znajdujących sie w secie.</p>
+<p><img alt="map-set-spread" src="https://miro.medium.com/max/700/1*IqR1zAT2mFU684OrPl85KA.png"></p>
+<hr>
+<p>Inne źródła:</p>
+<p><a href="https://javascript.info/map-set">javascript.info - set and map</a></p>
+<p><a href="https://stackoverflow.com/questions/18541940/map-vs-object-in-javascript">SO - Map vs Object in JavaScript</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/est.html">est</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/map.html">map</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/es6.html">es6</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/set.html">set</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
