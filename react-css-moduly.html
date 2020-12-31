@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Kolejnym sposobem na indywidualne stylowanie komponentów lub jego elementów w React są CSS Modules, który oparty jest na rozgraniczeniu warstwy CSS do osobnego pliku, następnie zaimportowania go do pliku zawierającego komponent i wykorzystywania tego importu (obiektu) w oparciu o przypisane do niego style, traktowane jako moduły. W takim ujęciu style …" />
+<meta name="keywords" content="react, css, radium, styled components, styled-components, css modules">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="React: modułowy CSS (CSS Modules)"/>
+<meta property="og:description" content="Kolejnym sposobem na indywidualne stylowanie komponentów lub jego elementów w React są CSS Modules, który oparty jest na rozgraniczeniu warstwy CSS do osobnego pliku, następnie zaimportowania go do pliku zawierającego komponent i wykorzystywania tego importu (obiektu) w oparciu o przypisane do niego style, traktowane jako moduły. W takim ujęciu style …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-css-moduly.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-12-05 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="react"/>
+<meta property="article:tag" content="react"/>
+<meta property="article:tag" content="css"/>
+<meta property="article:tag" content="radium"/>
+<meta property="article:tag" content="styled components"/>
+<meta property="article:tag" content="styled-components"/>
+<meta property="article:tag" content="css modules"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; React: modułowy CSS (CSS Modules)</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="react-css-moduly">React: modułowy CSS (CSS Modules)</h1>
+    <p>
+      Opublikowano sob 05 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/react.html">react</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <hr>
+<p><img alt="css-modules" src="https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png"></p>
+<p>Kolejnym sposobem na indywidualne stylowanie komponentów lub jego elementów w React są <a href="https://github.com/css-modules/css-modules">CSS Modules</a>, który oparty jest na rozgraniczeniu warstwy CSS do osobnego pliku, następnie zaimportowania go do pliku zawierającego komponent i wykorzystywania tego importu (obiektu) w oparciu o przypisane do niego style, traktowane jako moduły.</p>
+<p>W takim ujęciu style CSS są zintegrowane z komponentami,  jednak ich logika przechowywana jest w osobnych plikach.</p>
+<h3>Instalacja i Konfiguracja środowiska</h3>
+<p><strong>react-scripts &lt; 2.0</strong> - package.json</p>
+<p><strong>1</strong> - <code>npm run eject</code></p>
+<p><strong>2</strong> - pojawi się folder <strong>config</strong> -&gt; pliki <strong>webpack.config.dev.js/webpack.config.prod.js</strong> -&gt; dodanie 2 lini kodu</p>
+<div class="highlight"><pre><span></span><code><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="nl">test</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="err">\</span><span class="p">.</span><span class="n">css</span><span class="err">$</span><span class="o">/</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">use</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"></span>
+<span class="n">    require.resolve(&#39;style-loader),</span>
+<span class="n">    {</span>
+<span class="n">      loader: require.resolve(&#39;style-loader),</span>
+<span class="n">      options: {</span>
+<span class="n">        importLoaders: 1,</span>
+<span class="n">        modules: true, // ! dodana linia</span>
+<span class="n">        localIdentName: &#39;[name</span><span class="o">]</span><span class="n">__</span><span class="o">[</span><span class="n">local</span><span class="o">]</span><span class="n">__</span><span class="o">[</span><span class="n">hash:base64:5</span><span class="o">]</span><span class="err">&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">!</span><span class="w"> </span><span class="n">dodana</span><span class="w"> </span><span class="n">linia</span><span class="w"></span>
+<span class="w">      </span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="err">{</span><span class="w"></span>
+<span class="o">[</span><span class="n">...</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
+
+
+<p><strong>3</strong> - <code>npm start</code></p>
+<p>Dla <strong>react-scripts &gt; 2.0</strong> powyższa konfiguracja nie jest potrzebna, różnica polega jednak na tym że nazwa pliku przechowującego deklaracje css powinna zawierać słowo <code>module</code> np. <code>App.module.css</code>, oznacza to również i import jest innych tzn. powinien i powinien zawierać słowo <code>module</code> np. <code>import classes from './App.module.css';</code></p>
+<h3>Użytkowanie</h3>
+<p>Style można przechowywać w plikach typu CSS o tej samej nazwie co komponent, wygenerowana klasa będzie miała unikalną nazwę, stąd nawet jeśli dla wielu komponentów będziemy mieli klasę np. Button w końcowym wyniku będzie ona przetworzona na inną unikalną.</p>
+<p>App.css / lub App.module.css (pisanie klasy z wykorzystaniem dużej litery)</p>
+<div class="highlight"><pre><span></span><code><span class="na">.Button</span> <span class="err">{</span>
+  <span class="nl">background-color:</span> <span class="nf">yellow</span><span class="c1">;</span>
+<span class="err">}</span>
+
+<span class="nl">.Button:hover:</span> <span class="err">{</span>
+  <span class="nl">background-color:</span> <span class="nf">blue</span><span class="c1">;</span>
+<span class="err">}</span>
+
+<span class="na">.Button.Red</span> <span class="err">{</span>
+  <span class="nl">background-color:</span> <span class="nf">red</span><span class="c1">;</span>
+<span class="err">}</span>
+
+<span class="nl">.Button.Red:</span><span class="nf">hover</span> <span class="err">{</span>
+  <span class="nl">background-color:</span> <span class="nf">pink</span><span class="c1">;</span>
+<span class="err">}</span>
+
+<span class="na">.App</span> <span class="no">button</span> <span class="err">{</span> <span class="c1">// każdy button w komponencie App</span>
+  <span class="nl">color:</span> <span class="nf">white</span><span class="c1">;</span>
+<span class="err">}</span>
+
+<span class="err">@</span><span class="nf">media</span> <span class="p">(</span><span class="no">min-width</span><span class="p">:</span> <span class="mi">500</span><span class="no">px</span><span class="p">):</span> <span class="err">{</span>
+  <span class="na">.Button</span> <span class="err">{</span>
+    <span class="nl">width:</span> <span class="err">450</span><span class="nf">px</span><span class="c1">;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>App.js (nazwa <strong>classes</strong> nie jest narzucona może się tu znaleźć dowolny wyraz służący jako identyfikator)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">classes</span> <span class="nn">from</span> <span class="s1">&#39;./App.css&#39;</span><span class="p">;</span>
+<span class="o">//</span> <span class="kn">import</span> <span class="nn">classes</span> <span class="nn">from</span> <span class="s1">&#39;./App.module.css&#39;</span><span class="p">;</span> <span class="n">dla</span> <span class="n">react</span><span class="o">-</span><span class="n">scripts</span> <span class="o">&gt;</span> <span class="mf">2.0</span> <span class="n">gdzie</span> <span class="n">plik</span> <span class="n">z</span> <span class="n">css</span> <span class="n">powinien</span> <span class="n">być</span> <span class="o">-&gt;</span> <span class="n">App</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">css</span>
+
+<span class="k">class</span> <span class="nc">App</span> <span class="n">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+  <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="n">Button</span> <span class="n">className</span><span class="o">=</span><span class="p">{</span><span class="n">classes</span><span class="o">.</span><span class="n">Button</span><span class="p">}</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="p">}</span><span class="o">&gt;</span>
+          <span class="n">Zatwierdź</span>
+    <span class="o">&lt;/</span><span class="n">Button</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Dynamiczne stylowanie klasą z wykorzystaniem <code>.join(' ')</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">classes</span> <span class="nn">from</span> <span class="s1">&#39;./App.css&#39;</span><span class="p">;</span>
+<span class="o">//</span> <span class="kn">import</span> <span class="nn">classes</span> <span class="nn">from</span> <span class="s1">&#39;./App.module.css&#39;</span><span class="p">;</span>
+
+
+<span class="k">class</span> <span class="nc">App</span> <span class="n">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+  <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">let</span> <span class="n">btnClass</span> <span class="o">=</span> <span class="p">[</span><span class="n">classes</span><span class="o">.</span><span class="n">Button</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="p">([</span><span class="o">...</span><span class="p">]</span> <span class="o">//</span> <span class="n">warunek</span>
+      <span class="n">btnClass</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">classes</span><span class="o">.</span><span class="n">Red</span><span class="p">)</span> <span class="o">//</span> <span class="o">=&gt;</span> <span class="n">button</span><span class="o">.</span><span class="n">Button</span><span class="o">.</span><span class="n">Red</span><span class="o">/&lt;</span><span class="n">button</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;Button Red&quot;</span><span class="o">&gt;&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="n">Button</span> <span class="n">className</span><span class="o">=</span><span class="p">{</span><span class="n">btnClass</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)}</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="p">}</span><span class="o">&gt;</span>
+          <span class="n">Zatwierdź</span>
+      <span class="o">&lt;/</span><span class="n">Button</span><span class="o">&gt;</span>
+    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://www.nafrontendzie.pl/css-modules-kolejny-sposob-style-react">nafrontendzie.pl -&gt; CSS Modules - kolejny sposób na style w React</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/radium.html">radium</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/styled-components.html">styled components</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/styled-components.html">styled-components</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css-modules.html">css modules</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/react-radium-styled-components.html">React: Styled Components oraz Radium</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

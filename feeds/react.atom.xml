@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - react</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/react.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-12-01T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Ant Design: Form</title><link href="https://kostyrko.github.io/zfrontu/react-antd.html" rel="alternate"></link><published>2020-12-01T10:00:00+01:00</published><updated>2020-12-01T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-01:/zfrontu/react-antd.html</id><summary type="html">&lt;p&gt;&lt;img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - react</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/react.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-12-12T10:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Ant Design: Form</title><link href="https://kostyrko.github.io/zfrontu/react-antd.html" rel="alternate"></link><published>2020-12-12T10:00:00+01:00</published><updated>2020-12-12T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-12:/zfrontu/react-antd.html</id><summary type="html">&lt;p&gt;&lt;img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"&gt;&lt;/p&gt;
+&lt;h2&gt;&amp;gt;&amp;gt;[Wstępny zarys/szkielet]&amp;lt;&amp;lt;&lt;/h2&gt;
 &lt;h3&gt;Tworzenie projektu przy pomocy CRA + instalacja ANTD&lt;/h3&gt;
 &lt;p&gt;Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba&lt;/p&gt;
 &lt;p&gt;Stworzenie projektu&lt;/p&gt;
@@ -12,8 +13,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App.css&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"&gt;&lt;/p&gt;
+&lt;p&gt;Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"&gt;&lt;/p&gt;
+&lt;h2&gt;&amp;gt;&amp;gt;[Wstępny zarys/szkielet]&amp;lt;&amp;lt;&lt;/h2&gt;
 &lt;h3&gt;Tworzenie projektu przy pomocy CRA + instalacja ANTD&lt;/h3&gt;
 &lt;p&gt;Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba&lt;/p&gt;
 &lt;p&gt;Stworzenie projektu&lt;/p&gt;
@@ -54,11 +55,317 @@
 &lt;h3&gt;ANT DESIGN PRO&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;ANT DESIGN PRO&lt;/em&gt; jest biblioteką UI należącą do ANT DESIGN reklamującą się jako rozwiązanie dla projektów komercyjnych (przedsiębiorczych/enterprise), ale z dalszego jej opisu możemy się dowiedzieć, że została stworzona pod kątem interfejsów adminowskich.&lt;/p&gt;
 &lt;hr&gt;
+&lt;h3&gt;Pozycjonowanie elementów&lt;/h3&gt;
+&lt;h4&gt;Siatka - Grid&lt;/h4&gt;
+&lt;p&gt;System/Pole jest podzielony na 24 sekcje/kolumny (nazwane 'box')&lt;/p&gt;
+&lt;p&gt;1 - należy zdefiniować zestaw kolumn oraz zdefiniować rząd:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nt"&gt;&amp;lt;Row&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;Col&lt;/span&gt; &lt;span class="na"&gt;span=&lt;/span&gt;&lt;span class="s"&gt;{12}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-12&lt;span class="nt"&gt;&amp;lt;/Col&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;Col&lt;/span&gt; &lt;span class="na"&gt;span=&lt;/span&gt;&lt;span class="s"&gt;{12}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-12&lt;span class="nt"&gt;&amp;lt;/Col&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/Row&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2 - siatka/grid jest oparta o &lt;code&gt;display: flex&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;3 - istnieje możliwość zdefiniowania odstępów/gutter -&amp;gt; &lt;code&gt;&amp;lt;Row gutter={16}&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;4 - offset/odsunięcie również jest definiowane w nawiązaniu do sekcji/kolumn &lt;code&gt;&amp;lt;Col span={8} offset={8}&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;5 - Nawiązując (parafrazując) do właściwości flexboxa istnieje możliwość ułożenie "dzieci" w poziomie wykorzystując właściwość &lt;code&gt;align&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;Row&lt;/span&gt; &lt;span class="na"&gt;justify=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;start&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; / &lt;span class="nt"&gt;&amp;lt;Row&lt;/span&gt; &lt;span class="na"&gt;justify=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;space-between&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; / &lt;span class="nt"&gt;&amp;lt;Row&lt;/span&gt; &lt;span class="na"&gt;justify=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;center&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;Col&lt;/span&gt; &lt;span class="na"&gt;span=&lt;/span&gt;&lt;span class="s"&gt;{4}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-4&lt;span class="nt"&gt;&amp;lt;/Col&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;Col&lt;/span&gt; &lt;span class="na"&gt;span=&lt;/span&gt;&lt;span class="s"&gt;{4}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;col-4&lt;span class="nt"&gt;&amp;lt;/Col&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/Row&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;6- ułożenie dzieci w pionie wykorzystuje właściwość &lt;code&gt;align&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;Row&lt;/span&gt; &lt;span class="na"&gt;justify=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;space-around&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;align=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;middle&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;Col&lt;/span&gt; &lt;span class="na"&gt;span=&lt;/span&gt;&lt;span class="s"&gt;{4}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/Col&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/Row&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;7 - istnieje możliwość wypełnienie całości stosując właściwość &lt;code&gt;flex&lt;/code&gt; oraz definiowania relacji pomiędzy obiektami&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;Row&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;Col&lt;/span&gt; &lt;span class="na"&gt;flex=&lt;/span&gt;&lt;span class="s"&gt;{2}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;2 / 5&lt;span class="nt"&gt;&amp;lt;/Col&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;Col&lt;/span&gt; &lt;span class="na"&gt;flex=&lt;/span&gt;&lt;span class="s"&gt;{3}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;3 / 5&lt;span class="nt"&gt;&amp;lt;/Col&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/Row&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;8 - można również wykorzystać wartości znane z &lt;code&gt;bootstrapa&lt;/code&gt;&lt;/p&gt;
+&lt;p class="codepen" data-height="465" data-theme-id="light" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="abmZPzZ" style="height: 465px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Playground - antd@4.9"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/mkostyrko/pen/abmZPzZ"&gt;
+  Playground - antd@4.9&lt;/a&gt; by Mikołaj Kostyrko (&lt;a href="https://codepen.io/mkostyrko"&gt;@mkostyrko&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://ant.design/components/form/"&gt;Ant Design - Form&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://stackoverflow.com/questions/41181573/correctly-creating-an-antd-form-using-the-extends-react-component-mechanism"&gt;SO - Correctly creating an antd Form using the extends React.Component mechanism&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/playlist?list=PLiUrl-SQRR7LM5cw7azA2H_FZwFx2UgkI"&gt;Code with Bibek - React Ant Design Project - Tech Website&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://codesandbox.io/s/jzyl70wpk?file=/index.js"&gt;Redux Form + antd&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://annacoding.com/article/7jDz3vvi3VdtYXYkvYpUp2/Use-Form-of-Ant-Design-V4-in-React-Hooks"&gt;Use Form of Ant Design V4 in React Hooks&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://uxdesign.cc/chinese-material-design-5d31359df4a6"&gt;Chinese Material Design This Chinese Design Language will Make You Want to Switch.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;YT&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=DaMxXs8Kl90&amp;amp;ab_channel=CodingTheWorld"&gt;3 - Add Simple Contact Form - Building a Contact Management System With React and Ant Design Library&lt;/a&gt;&lt;/p&gt;</content><category term="react"></category><category term="react"></category></entry></feed>
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=FizDLRlE6NE&amp;amp;t=777s&amp;amp;ab_channel=CodingTheWorld"&gt;Coding the World - 1 - Getting Started - Building a Contact Management System With React and Ant Design Library&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/playlist?list=PLiUrl-SQRR7LM5cw7azA2H_FZwFx2UgkI"&gt;Code with Bibek - React Ant Design Project - Tech Website&lt;/a&gt;&lt;/p&gt;</content><category term="react"></category><category term="react"></category></entry><entry><title>React: modułowy CSS (CSS Modules)</title><link href="https://kostyrko.github.io/zfrontu/react-css-moduly.html" rel="alternate"></link><published>2020-12-05T10:00:00+01:00</published><updated>2020-12-05T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-05:/zfrontu/react-css-moduly.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="css-modules" src="https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;Kolejnym sposobem na indywidualne stylowanie komponentów lub jego elementów w React są &lt;a href="https://github.com/css-modules/css-modules"&gt;CSS Modules&lt;/a&gt;, który oparty jest na rozgraniczeniu warstwy CSS do osobnego pliku, następnie zaimportowania go do pliku zawierającego komponent i wykorzystywania tego importu (obiektu) w oparciu o przypisane do niego style, traktowane jako moduły.&lt;/p&gt;
+&lt;p&gt;W takim ujęciu style …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="css-modules" src="https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;Kolejnym sposobem na indywidualne stylowanie komponentów lub jego elementów w React są &lt;a href="https://github.com/css-modules/css-modules"&gt;CSS Modules&lt;/a&gt;, który oparty jest na rozgraniczeniu warstwy CSS do osobnego pliku, następnie zaimportowania go do pliku zawierającego komponent i wykorzystywania tego importu (obiektu) w oparciu o przypisane do niego style, traktowane jako moduły.&lt;/p&gt;
+&lt;p&gt;W takim ujęciu style CSS są zintegrowane z komponentami,  jednak ich logika przechowywana jest w osobnych plikach.&lt;/p&gt;
+&lt;h3&gt;Instalacja i Konfiguracja środowiska&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;react-scripts &amp;lt; 2.0&lt;/strong&gt; - package.json&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; - &lt;code&gt;npm run eject&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; - pojawi się folder &lt;strong&gt;config&lt;/strong&gt; -&amp;gt; pliki &lt;strong&gt;webpack.config.dev.js/webpack.config.prod.js&lt;/strong&gt; -&amp;gt; dodanie 2 lini kodu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nl"&gt;test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;use&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;    require.resolve(&amp;#39;style-loader),&lt;/span&gt;
+&lt;span class="n"&gt;    {&lt;/span&gt;
+&lt;span class="n"&gt;      loader: require.resolve(&amp;#39;style-loader),&lt;/span&gt;
+&lt;span class="n"&gt;      options: {&lt;/span&gt;
+&lt;span class="n"&gt;        importLoaders: 1,&lt;/span&gt;
+&lt;span class="n"&gt;        modules: true, // ! dodana linia&lt;/span&gt;
+&lt;span class="n"&gt;        localIdentName: &amp;#39;[name&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="n"&gt;__&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="n"&gt;__&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;hash:base64:5&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dodana&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;linia&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;...&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; - &lt;code&gt;npm start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Dla &lt;strong&gt;react-scripts &amp;gt; 2.0&lt;/strong&gt; powyższa konfiguracja nie jest potrzebna, różnica polega jednak na tym że nazwa pliku przechowującego deklaracje css powinna zawierać słowo &lt;code&gt;module&lt;/code&gt; np. &lt;code&gt;App.module.css&lt;/code&gt;, oznacza to również i import jest innych tzn. powinien i powinien zawierać słowo &lt;code&gt;module&lt;/code&gt; np. &lt;code&gt;import classes from './App.module.css';&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Użytkowanie&lt;/h3&gt;
+&lt;p&gt;Style można przechowywać w plikach typu CSS o tej samej nazwie co komponent, wygenerowana klasa będzie miała unikalną nazwę, stąd nawet jeśli dla wielu komponentów będziemy mieli klasę np. Button w końcowym wyniku będzie ona przetworzona na inną unikalną.&lt;/p&gt;
+&lt;p&gt;App.css / lub App.module.css (pisanie klasy z wykorzystaniem dużej litery)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.Button&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;yellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="nl"&gt;.Button:hover:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;blue&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="na"&gt;.Button.Red&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="nl"&gt;.Button.Red:&lt;/span&gt;&lt;span class="nf"&gt;hover&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;background-color:&lt;/span&gt; &lt;span class="nf"&gt;pink&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="na"&gt;.App&lt;/span&gt; &lt;span class="no"&gt;button&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;// każdy button w komponencie App&lt;/span&gt;
+  &lt;span class="nl"&gt;color:&lt;/span&gt; &lt;span class="nf"&gt;white&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+
+&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;media&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;min-width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="na"&gt;.Button&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;width:&lt;/span&gt; &lt;span class="err"&gt;450&lt;/span&gt;&lt;span class="nf"&gt;px&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;App.js (nazwa &lt;strong&gt;classes&lt;/strong&gt; nie jest narzucona może się tu znaleźć dowolny wyraz służący jako identyfikator)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;classes&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./App.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;classes&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./App.module.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;dla&lt;/span&gt; &lt;span class="n"&gt;react&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mf"&gt;2.0&lt;/span&gt; &lt;span class="n"&gt;gdzie&lt;/span&gt; &lt;span class="n"&gt;plik&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="n"&gt;powinien&lt;/span&gt; &lt;span class="n"&gt;być&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;App&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt; &lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;handleClick&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="n"&gt;Zatwierdź&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Dynamiczne stylowanie klasą z wykorzystaniem &lt;code&gt;.join(' ')&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;classes&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./App.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;classes&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./App.module.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;App&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;btnClass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;warunek&lt;/span&gt;
+      &lt;span class="n"&gt;btnClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Red&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Red&lt;/span&gt;&lt;span class="o"&gt;/&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Button Red&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt; &lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;btnClass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt; &lt;span class="n"&gt;onClick&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;handleClick&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="n"&gt;Zatwierdź&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/css-modules-kolejny-sposob-style-react"&gt;nafrontendzie.pl -&amp;gt; CSS Modules - kolejny sposób na style w React&lt;/a&gt;&lt;/p&gt;</content><category term="react"></category><category term="react"></category><category term="css"></category><category term="radium"></category><category term="styled components"></category><category term="styled-components"></category><category term="css modules"></category></entry><entry><title>React: Styled Components oraz Radium</title><link href="https://kostyrko.github.io/zfrontu/react-radium-styled-components.html" rel="alternate"></link><published>2020-12-04T10:00:00+01:00</published><updated>2020-12-04T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-04:/zfrontu/react-radium-styled-components.html</id><summary type="html">&lt;p&gt;&lt;img alt="react-styled-components" src="https://www.styled-components.com/atom.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Styled components&lt;/h3&gt;
+&lt;p&gt;Biblioteka styled components po wyrenderowaniu nadaje własne nazwy klas, a informację przechowuje w &lt;strong&gt;head&lt;/strong&gt; dokumentu, nie jest to zatem styl inlinowy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Instalacja&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;  npm i --save styled-components&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; - Import np. w App.js&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;styled&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;styled-components&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; - Użytkowanie odwołanie się do metod obiektu &lt;code&gt;styled&lt;/code&gt; np. div, h1 etc …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="react-styled-components" src="https://www.styled-components.com/atom.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Styled components&lt;/h3&gt;
+&lt;p&gt;Biblioteka styled components po wyrenderowaniu nadaje własne nazwy klas, a informację przechowuje w &lt;strong&gt;head&lt;/strong&gt; dokumentu, nie jest to zatem styl inlinowy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Instalacja&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;  npm i --save styled-components&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; - Import np. w App.js&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;styled&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;styled-components&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; - Użytkowanie odwołanie się do metod obiektu &lt;code&gt;styled&lt;/code&gt; np. div, h1 etc. -&amp;gt; &lt;code&gt;styled.div&lt;/code&gt; istotne jest to, że styl wpisuje się pomiędzy -&amp;gt; &lt;strong&gt;``&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  const StyledDiv = styled.div`
+          backgroundColor: &amp;#39;yellow&amp;#39;;
+          &amp;#39;@media (min-width: 500px)&amp;#39;: {
+            backgroundColor: &amp;#39;pink&amp;#39;
+          }
+        `
+
+  return (
+    &lt;span class="nt"&gt;&amp;lt;StyledDiv&amp;gt;&lt;/span&gt;
+
+      [...]
+
+    &lt;span class="nt"&gt;&amp;lt;/StyledDiv&amp;gt;&lt;/span&gt;
+  )
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; - Możliwość definiowania stylu po za komponentem i wówczas deklaracje styli będą przypominały te znane bezpośrednio z CSS/SCSS a nie Reacta&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const StyledButton = styled.button`
+        background-color: yellow;
+        &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;:hover: {
+          background-color: blue
+        }
+      `
+
+const App = () =&amp;gt; {
+  [...]
+  render (
+    &lt;span class="nt"&gt;&amp;lt;StyledButton&lt;/span&gt; &lt;span class="na"&gt;onClick=&lt;/span&gt;&lt;span class="s"&gt;{this.handleClick}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      Zatwierdź
+    &lt;span class="nt"&gt;&amp;lt;/StyledButton&amp;gt;&lt;/span&gt;
+  )
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;4&lt;/strong&gt; - Dynamiczne style w zależności od tego czy warunek zawarty w deklaracji jest spełniony (true/false)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;const StyledButton = styled.button`
+                  background-color: &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="o"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;props&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;alt&lt;/span&gt; &lt;span class="err"&gt;?&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;red&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;green&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;;
+                  &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;:hover: {
+                    background-color: blue
+                  }
+                `
+
+const App = () =&amp;gt; {
+      [...]
+      render (
+        &lt;span class="nt"&gt;&amp;lt;StyledButton&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;{this.state.droid}&lt;/span&gt; &lt;span class="na"&gt;onClick=&lt;/span&gt;&lt;span class="s"&gt;{this.handleClick}&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+          Zatwierdź
+        &lt;span class="nt"&gt;&amp;lt;/StyledButton&amp;gt;&lt;/span&gt;
+      )
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="radium" src="https://sahilthakur7blog.files.wordpress.com/2018/01/og-image.jpg?w=648"&gt;&lt;/p&gt;
+&lt;h3&gt;Radium - pseudoselektory&lt;/h3&gt;
+&lt;p&gt;Biblioteka, która umożliwia pseudoklas przy stylowaniu bezpośrednio w komponencie&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Instalacja&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    npm i --save radium&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Użytkowanie:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; - import Radium&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;Radium&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;radium&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; - opakowanie eksportu w komponent wyższego rzędu &lt;code&gt;Radium(component)&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;Radium&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; - Możliwość stosowania pseudoklas przedstawionych jako String&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;backgroundColor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;red&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s1"&gt;&amp;#39;hover:&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;backgroundColor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;blue&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;4&lt;/strong&gt; - Odwołanie się do zastosowanej stylistyki w dalszej części komponentu np. w celu nadawania dynamicznych styli&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;style.backgroundColor = &amp;#39;purple&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;style[&amp;#39;hover:&amp;#39;] {&lt;/span&gt;
+&lt;span class="err"&gt;  backgroundColor: &amp;#39;yellow&amp;#39;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Radium - media queries&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; - import StyleRoot&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;Radium&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;StyleRoot&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;radium&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; - opakowanie zwracanego komponentu w komponentu StyleRoot&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;return (
+  &lt;span class="nt"&gt;&amp;lt;StyleRoot&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;className=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;App&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+
+      [...]
+
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/StyleRoot&amp;gt;&lt;/span&gt;
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;3&lt;/strong&gt; - definiowanie Media Query&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="s1"&gt;&amp;#39;@media (min-width: 500px)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;backgroundColor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;pink&amp;#39;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/playlist?list=PL19053wDcT0-JONXrzsngyTS4CJI8V_QE"&gt;Hello Roman -&amp;gt; styled components&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/styled-components-sposob-style-reactjs"&gt;nafrontendzie.pl -&amp;gt; Styled Components - najlepszy sposób na style w ReactJS?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nafrontendzie.pl/css-modules-kolejny-sposob-style-react"&gt;nafrontendzie.pl -&amp;gt; CSS Modules - kolejny sposób na style w React&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/@dmitrynozhenko/9-ways-to-implement-css-in-react-js-ccea4d543aa3"&gt;Dimitry Nozhenko - 9 Ways To Implement CSS in React JS&lt;/a&gt;&lt;/p&gt;</content><category term="react"></category><category term="react"></category><category term="css"></category><category term="radium"></category><category term="styled components"></category><category term="styled-components"></category><category term="css modules"></category></entry></feed>

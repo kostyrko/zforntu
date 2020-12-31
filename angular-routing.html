@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji 1 - należy zaimportować RouterModule w app.module.ts oraz w importach go zastosować łącznie z metodą forRoot(), która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek …" />
+<meta name="keywords" content="angular">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Angular: routing - podstawy"/>
+<meta property="og:description" content="Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji 1 - należy zaimportować RouterModule w app.module.ts oraz w importach go zastosować łącznie z metodą forRoot(), która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-routing.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-12-27 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="angular"/>
+<meta property="article:tag" content="angular"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Angular: routing - podstawy</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="angular-routing">Angular: routing - podstawy</h1>
+    <p>
+      Opublikowano nie 27 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <hr>
+<p><img alt="angular" src="https://blog.knoldus.com/wp-content/uploads/2020/05/Angular-Routing.png"></p>
+<p>Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji</p>
+<p>1 - należy zaimportować <strong>RouterModule</strong> w <strong>app.module.ts</strong> oraz w importach go zastosować łącznie z metodą <strong>forRoot()</strong>, która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek jest spełniony.</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">app</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">ts</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">BrowserModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">NgModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">AppComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">CrisisListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./crisis-list/crisis-list.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">HeroesListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./heroes-list/heroes-list.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">PageNotFoundComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./page-not-found/page-not-found.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">RouterModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+
+
+<span class="nd">@NgModule</span><span class="p">({</span>
+  <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="n">AppComponent</span><span class="p">,</span>
+    <span class="n">CrisisListComponent</span><span class="p">,</span>
+    <span class="n">HeroesListComponent</span><span class="p">,</span>
+    <span class="n">PageNotFoundComponent</span>
+  <span class="p">],</span>
+  <span class="n">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="n">BrowserModule</span><span class="p">,</span>
+    <span class="n">RouterModule</span><span class="o">.</span><span class="n">forRoot</span><span class="p">([</span>
+      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;crisis-list&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">CrisisListComponent</span><span class="p">},</span> <span class="o">//</span> <span class="n">wskazanie</span> <span class="n">na</span> <span class="err">ś</span><span class="n">cieżkę</span> <span class="n">oraz</span> <span class="n">na</span> <span class="n">komponent</span><span class="p">,</span> <span class="n">który</span> <span class="n">ma</span> <span class="n">być</span> <span class="n">wyświetlony</span> <span class="n">w</span> <span class="n">jej</span> <span class="n">przypadku</span>
+      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;heroes-list&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">HeroesListComponent</span><span class="p">},</span>
+      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">redirectTo</span><span class="p">:</span> <span class="s1">&#39;/heroes-list&#39;</span><span class="p">,</span> <span class="n">pathMatch</span><span class="p">:</span> <span class="s1">&#39;full&#39;</span><span class="p">},</span> <span class="o">//</span> <span class="n">podstawowa</span> <span class="err">ś</span><span class="n">cieżka</span> <span class="n">przekierowuje</span> <span class="n">do</span> <span class="n">adresu</span> <span class="s1">&#39;/heroes-list&#39;</span><span class="p">,</span> <span class="n">gdy</span> <span class="n">ten</span> <span class="n">w</span> <span class="n">całości</span> <span class="n">pasuje</span> <span class="n">do</span> <span class="n">wskazanego</span> <span class="p">(</span><span class="n">pathMatch</span><span class="p">)</span>
+      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">PageNotFoundComponent</span><span class="p">}</span> <span class="o">//</span> <span class="s2">&quot;dzika karta&quot;</span> <span class="o">-</span> <span class="n">niezawarty</span> <span class="n">powyżej</span> <span class="n">link</span>
+    <span class="p">]),</span>
+  <span class="p">],</span>
+  <span class="n">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="n">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div>
+
+
+<p>2 - router-outlet oraz nawigacja</p>
+<p><code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> - dyretkywa ta oznacza przestrzeń w której wynik pracy routera ma swój skutek.</p>
+<p><strong>routerLink</strong> - dyrektywa łącząca ścieżki wraz ze zdefiniowanymi szablonami html</p>
+<p><strong>routerLinkActive</strong> - korzystając z tej dyrektywy wskazujemy Angularowi na przypisanie zdefiniowanej klasy do elementu HTML, która oznacza aktywną ścieżkę</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;nav&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span> <span class="na">routerLink=</span><span class="s">&quot;/crisis-list&quot;</span> <span class="na">routerLinkActive=</span><span class="s">&quot;activebutton&quot;</span><span class="nt">&gt;</span>Crisis Center<span class="nt">&lt;/a&gt;</span> |
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span> <span class="na">routerLink=</span><span class="s">&quot;/heroes-list&quot;</span> <span class="na">routerLinkActive=</span><span class="s">&quot;activebutton&quot;</span><span class="nt">&gt;</span>Heroes<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+
+<span class="nt">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span>
+</code></pre></div>
+
+
+<p>Całość kodu powyższej aplikacji <a href="https://github.com/kostyrko/JS-sandbox/tree/master/7_Angular/angular-router-sample">angular-router-sample</a></p>
+<hr>
+<p>Źródła:</p>
+<p>Więcej informacji na temat routingu: <a href="https://angular.io/guide/router">In-app navigation: routing to views</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

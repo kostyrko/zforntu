@@ -1,5 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-06-18T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" max-height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - css</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/css.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-12-16T12:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Bootstrap: wprowadzenie + formularze</title><link href="https://kostyrko.github.io/zfrontu/css-bootstrap.html" rel="alternate"></link><published>2020-12-16T12:00:00+01:00</published><updated>2020-12-16T12:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-16:/zfrontu/css-bootstrap.html</id><summary type="html">&lt;p&gt;&lt;img alt="css-bootstrap" src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/bootstrap-5.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; - jest biblioteką CSSwą Twittera, jej możliwości oparte są na 3 podstawowych cechach 1) responsywnym układzie (opartym na grid + flex) strony 2) na elementach, z których może powstać strona (np. formularze, komponenty(np. buttons, carousel, dropdowns, navs), oraz narzędziach(np. scrollspy, tooltips)) - stworzonych z html/css/js (dla v &amp;lt; 5 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="css-bootstrap" src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/bootstrap-5.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; - jest biblioteką CSSwą Twittera, jej możliwości oparte są na 3 podstawowych cechach 1) responsywnym układzie (opartym na grid + flex) strony 2) na elementach, z których może powstać strona (np. formularze, komponenty(np. buttons, carousel, dropdowns, navs), oraz narzędziach(np. scrollspy, tooltips)) - stworzonych z html/css/js (dla v &amp;lt; 5.0 również jQuery) 3) gotowych układach/motywach oraz ikonach&lt;/p&gt;
+&lt;p&gt;Linki: &lt;a href="https://getbootstrap.com/docs/5.0/examples/cheatsheet/#one"&gt;Bootstrap - cheatsheet&lt;/a&gt;, &lt;a href="https://icons.getbootstrap.com/"&gt;IKONY&lt;/a&gt;,&lt;a href="https://themes.getbootstrap.com/"&gt;MOTYWY&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Istnieją 3 możliwości dodania Boostrapa do projektu 1) poprzez pobranie Bootsrapowych plików i podłączenia ich do głównego pliku index.html lub 2) poprzez podłączenia linków CDN (content delivery network) 3) pobranie/zainstalowanie bootstrapa przy pomocy np. NPM jako zależności &lt;code&gt;npm install bootstrap&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;W obu przypadkach musimy podlinkować ścieżkę do Bootastrapowych styli (CSS) oraz połączonych z nimi logiki (JS)&lt;/p&gt;
+&lt;p&gt;W przypadku &lt;strong&gt;Bootstrapa v. 5&lt;/strong&gt;, jQuery już nie jest wykorzystywane a CDN składa się z zaledwie 2 linków. 1. z nich wklejamy do heada a kolejny tuż przed zamkncięciem tagu odpowiedzialengo za ciało strony&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;!&lt;/span&gt;&lt;span class="n"&gt;DOCTYPE&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;en&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;meta&lt;/span&gt; &lt;span class="n"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;meta&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width= , initial-scale=1.0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;integrity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;crossorigin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;anonymous&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Document&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+
+&lt;span class="p"&gt;[...]&lt;/span&gt;
+
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;integrity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;crossorigin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;anonymous&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Kontenery i responsywność&lt;/h3&gt;
+&lt;p&gt;Punkty graniczne na których jest oparta responsywność Bootstrapa dostępne są w postaci mapy w &lt;a href="https://github.com/twbs/bootstrap/blob/99379f3843ddd5bd66ce6559ab91ef68c744fbd7/scss/_variables.scss#L118"&gt;&lt;strong&gt;_variables.scss&lt;/strong&gt;&lt;/a&gt;, w których kolejno przypisane są klucze reprezentujące nazwy klas&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$grid-breakpoints: (&lt;/span&gt;
+&lt;span class="err"&gt;  xs: 0,&lt;/span&gt;
+&lt;span class="err"&gt;  sm: 576px,&lt;/span&gt;
+&lt;span class="err"&gt;  md: 768px,&lt;/span&gt;
+&lt;span class="err"&gt;  lg: 992px,&lt;/span&gt;
+&lt;span class="err"&gt;  xl: 1200px,&lt;/span&gt;
+&lt;span class="err"&gt;  xxl: 1400px&lt;/span&gt;
+&lt;span class="err"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W przypadku pracy z Sassem deklaracja własnych styli powinna odbywać się poprzez odwołanie się do @mixina w sposób następujący (pierwsza deklaracja dotyczy przedziału xs) &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.custom-class&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;none&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;include&lt;/span&gt; &lt;span class="no"&gt;media-breakpoint-up&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;sm&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="na"&gt;.custom-class&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;block&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To na CSS zostanie "przełożone" w następujący sposób (576px odpowiada &lt;strong&gt;sm&lt;/strong&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="na"&gt;.custom-class&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="nf"&gt;none&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nf"&gt;media&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;min-width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;576&lt;/span&gt;&lt;span class="no"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="no"&gt;...&lt;/span&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Powyższa deklaracja jest dla &lt;strong&gt;min-width&lt;/strong&gt; w przypadku &lt;strong&gt;max-width&lt;/strong&gt; ostatnim słowem tworzącym nazwę @mixina jest słowo &lt;strong&gt;down&lt;/strong&gt; (zamiast up) np. &lt;code&gt;@include media-breakpoint-down(sm) {...}&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;Kontenery&lt;/h4&gt;
+&lt;p&gt;Kontenery są podstawowym blokiem budującym strony oparte na bootstrapie, to w ramach konteneru tworzony jest układ oparty na siatce/grid (który jest podzielony na kolumny (pion) i rzędy (poziom))&lt;/p&gt;
+&lt;p&gt;Bootstrap oferuje 3 rodzaje kontenerów -&amp;gt; &lt;code&gt;.container&lt;/code&gt; , &lt;code&gt;.container-fluid&lt;/code&gt;, &lt;code&gt;container-{breakpoint}&lt;/code&gt; (breakpoint tj nazwa klasy)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.container-fluid&lt;/code&gt; - szerokość jest zawsze równa 100% (&lt;code&gt;width: 100%&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;W przypadku &lt;code&gt;.container&lt;/code&gt; ich maksymalna szerokość jest mniejsza od punktów granicznych związanych z responsywnością&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Extra small &amp;lt;576px&lt;/th&gt;
+&lt;th&gt;Small ≥576px&lt;/th&gt;
+&lt;th&gt;Medium ≥768px&lt;/th&gt;
+&lt;th&gt;Large ≥992px&lt;/th&gt;
+&lt;th&gt;X-Large ≥1200px&lt;/th&gt;
+&lt;th&gt;XX-Large ≥1400px&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;.container&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;td&gt;540px&lt;/td&gt;
+&lt;td&gt;720px&lt;/td&gt;
+&lt;td&gt;960px&lt;/td&gt;
+&lt;td&gt;1140px&lt;/td&gt;
+&lt;td&gt;1320px&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;container-{breakpoint}&lt;/code&gt; - podana klasa reprezentująca punkt graniczny/media query określa ten od którego kontener nie wynosi 100% - przykładowo &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;container-lg&lt;/code&gt; oznacza, że dla xs,sm i md kontener będzie &lt;code&gt;width: 100%&lt;/code&gt; natomiast dla lg już będzie wynosił &lt;strong&gt;960px&lt;/strong&gt; dla xl i xxl również wg. powyżeszj tabeli (jak dla &lt;code&gt;.container&lt;/code&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container-md&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;100% wide until medium breakpoint&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Podobnie jak w przypadku tzw. breakpointów mapa szerokości kontenerów znajduje się w pliku &lt;a href="https://github.com/twbs/bootstrap/blob/99379f3843ddd5bd66ce6559ab91ef68c744fbd7/scss/_variables.scss#L118"&gt;&lt;strong&gt;_variables.scss&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$container-max-widths: (&lt;/span&gt;
+&lt;span class="err"&gt;  sm: 540px,&lt;/span&gt;
+&lt;span class="err"&gt;  md: 720px,&lt;/span&gt;
+&lt;span class="err"&gt;  lg: 960px,&lt;/span&gt;
+&lt;span class="err"&gt;  xl: 1140px,&lt;/span&gt;
+&lt;span class="err"&gt;  xxl: 1320px&lt;/span&gt;
+&lt;span class="err"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Bootstrap Grid czyli część dalsza RWD&lt;/h3&gt;
+&lt;p&gt;Our grid supports six responsive breakpoints.&lt;/p&gt;
+&lt;p&gt;1 - Bootstrapowa siatka oparta jest na systemie 6 punktów przełomowych zw. z szerokością ekranu (tzw. breakpoints zw. z media-queries)&lt;/p&gt;
+&lt;p&gt;2 - Kontenery wyśrodkowują treść (pion i w poziomie paddingują)&lt;/p&gt;
+&lt;p&gt;3 - Rzędy opakowują kolumny&lt;/p&gt;
+&lt;p&gt;4 - kolumny są elastyczne&lt;/p&gt;
+&lt;p&gt;5 - marginesy pomiędzy kolumnami/rzędami są responsywne i konfigurowalne&lt;/p&gt;
+&lt;p&gt;Gutters are also responsive and customizable.&lt;/p&gt;
+&lt;p&gt;Bootstrapowy grid jest oparty na podziale 12 kolumn, jeśli ich liczba w ramach klasy nie jest wskazana wówczas przestrzeń jest liczona po równo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-sm&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      One of three columns
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-sm&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      One of three columns
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-sm&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      One of three columns
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Extra small &amp;lt; 576px&lt;/th&gt;
+&lt;th&gt;Small ≥ 576px&lt;/th&gt;
+&lt;th&gt;Medium ≥ 768px&lt;/th&gt;
+&lt;th&gt;Large ≥ 992px&lt;/th&gt;
+&lt;th&gt;Extra large ≥ 1200px&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Maksymalna szerokość kontenera&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Brak&lt;/td&gt;
+&lt;td&gt;540px&lt;/td&gt;
+&lt;td&gt;720px&lt;/td&gt;
+&lt;td&gt;960px&lt;/td&gt;
+&lt;td&gt;1140px&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Prefix klasy&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;.col-&lt;/td&gt;
+&lt;td&gt;.col-sm-&lt;/td&gt;
+&lt;td&gt;.col-md-&lt;/td&gt;
+&lt;td&gt;.col-lg-&lt;/td&gt;
+&lt;td&gt;.col-xl-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Przykład zastosowania&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-12 col-md-8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-12 .col-md-8&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-6 col-md-4&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-6 .col-md-4&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;col-{breakpoint}-auto&lt;/code&gt; - zmienia rozmiar kolumny w zależności od jej zawartości (dopasowuje szerokość kolumny do jej zawartości)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;class="w-100"&lt;/code&gt; - klasa odpowiadająca html &lt;code&gt;&amp;lt;/br&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-6 col-sm-3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-6 .col-sm-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-6 col-sm-3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-6 .col-sm-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+  &lt;span class="c"&gt;&amp;lt;!-- Force next columns to break to new line --&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;w-100&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-6 col-sm-3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-6 .col-sm-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-6 col-sm-3&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-6 .col-sm-3&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Wyrównanie&lt;/h4&gt;
+&lt;p&gt;Wyrównanie odbywa się na podstawie flexboxa -&amp;gt; np. dzieci &lt;code&gt;align-items-start&lt;/code&gt;, &lt;code&gt;align-items-center&lt;/code&gt; lub własne wyrównanie elementu np. &lt;code&gt;align-self-start&lt;/code&gt;. Sprawa ma się podobnie w przypadku poziomego wyrównania -&amp;gt; np. &lt;code&gt;justify-content-start&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row align-items-start&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      One of three columns
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+[...]
+
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row align-items-center justify-content-start&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      One of three columns
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col align-self-start&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      One of three columns
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+[...]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Zmiana kolejności&lt;/h4&gt;
+&lt;p&gt;Istnieje możliwość odwołania się do klasy z prefiksem &lt;code&gt;.order-&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      First, but unordered
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col order-12&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      Second, but last
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col order-1&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      Third, but first
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Margines -&amp;gt; Offset&lt;/h4&gt;
+&lt;p&gt;Uzyskanie stałego marginesu od poprzedzającego elementu (lub granicy) można osiągnąć poprzez wykorzystanie klasy z prefixem &lt;code&gt;.offset-&lt;/code&gt; oraz bazując na liczbie kolumn.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-md-4&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-md-4&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col-md-4 offset-md-4&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;.col-md-4 .offset-md-4&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;więcej informacji na temat: &lt;a href="https://getbootstrap.com/docs/5.0/layout/grid/"&gt;Bootstrapowego grida&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Gutters - marginesy&lt;/h3&gt;
+&lt;p&gt;"Marginesy" gutters w wersji podstawowej wynoszą 1.5 rem (24px) jednak ich zakres faktyczny zaczyna się od 0 i dochodzi do 3rem -&amp;gt; &lt;a href="https://github.com/twbs/bootstrap/blob/99379f3843ddd5bd66ce6559ab91ef68c744fbd7/scss/_variables.scss#L118"&gt;&lt;strong&gt;_variables.scss&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$spacer: 1rem !default;&lt;/span&gt;
+&lt;span class="err"&gt;$grid-gutter-width: 1.5rem;&lt;/span&gt;
+&lt;span class="err"&gt;$gutters: (&lt;/span&gt;
+&lt;span class="err"&gt;  0: 0,&lt;/span&gt;
+&lt;span class="err"&gt;  1: $spacer * .25,&lt;/span&gt;
+&lt;span class="err"&gt;  2: $spacer * .5,&lt;/span&gt;
+&lt;span class="err"&gt;  3: $spacer,&lt;/span&gt;
+&lt;span class="err"&gt;  4: $spacer * 1.5,&lt;/span&gt;
+&lt;span class="err"&gt;  5: $spacer * 3,&lt;/span&gt;
+&lt;span class="err"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;.gx-*&lt;/code&gt; - horyzontalne "marginesy" np. &lt;code&gt;.gx-5&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.gy-*&lt;/code&gt; - wertykalne "marginesy&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.g-5&lt;/code&gt; - horyzontalne + wertykalne&lt;/p&gt;
+&lt;p&gt;podobnie sprawy się mają w przypadku paddingów:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.px-*&lt;/code&gt; - horyzontalne paddingi np. &lt;code&gt;.px-3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.p-3&lt;/code&gt; - padding x 3&lt;/p&gt;
+&lt;p&gt;więcej na ten temat tutaj: &lt;a href="https://getbootstrap.com/docs/5.0/utilities/spacing/"&gt;getbootstrap.com -&amp;gt; utilities -&amp;gt; spacing&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Komponenty i narzędzia&lt;/h3&gt;
+&lt;p&gt;Poznawanie komponentów oraz ich możliwości najlepiej zacząć od przeglądania tzw. ściągi &lt;a href="https://getbootstrap.com/docs/5.0/examples/cheatsheet"&gt;Bootstrap - cheatsheet&lt;/a&gt;, która z powodzeniem może funkcjonować jako ich wizualny spis treści.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Formularze&lt;/h3&gt;
+&lt;p&gt;Zachowanie inputy w bootstrapowym formularzu (podobnie jak i w zamym html) jest zależne od zdefiniowanego typu (np. email,password, number) &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Klasa&lt;/th&gt;
+&lt;th&gt;zastosowanie&lt;/th&gt;
+&lt;th&gt;Przykład&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.form-control&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;podstawowa klasa elementu formularza w Bootstrapie&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;input type="email" class="form-control" [..]/&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.form-control-{rozmiar}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;kontroluje wielkość elementu formularza&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.form-control-lg&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.form-control-plaintext"&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;w miejscu formularza pojawia się tekst&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;input class="form-control-plaintext" [..]/&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.form-text&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;tekst będący częścią formularza (np. komentarz p/div/span)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;disabled&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;dodanie &lt;code&gt;disabled&lt;/code&gt; do html powoduje, że pole jest niedostępne&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;input [..] disabled/&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;readonly&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;pole jedynie do odczytu&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;input [..] readonly/&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;type="file"&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;input pozwalający na załadowanie pliku/ścieżki&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;input class="form-control" type="file"&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;form-control-color&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;umożliwia wybóru koloru (istnieje możliwość zdefiniowania koloru wyjściowego)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;input type="color" class="form-control form-control-color" value="#563d7c" [...]&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.form-select"&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;klasa dla elementu formularza typu select&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;select class="form-select" [...]&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;selected&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;wybrany element&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;multiple&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;definiuje select wielokrotnego wyboru&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;select class="form-select" multiple [...]&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;form-check&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;klasa opakowująca dla checkbox'a lub radio w zależności od zdefinowanego typu&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;div class="form-check"&amp;gt;``&amp;lt;input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;form-check-input&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;input dla checboxa lub radio w zal. od zdef. typu&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.form-check&lt;/code&gt;+&lt;code&gt;.form-switch&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;input typu switch&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;div class="form-check form-switch"&amp;gt; &amp;lt;input class="form-check-input" type="checkbox"/&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;Walidacja&lt;/h4&gt;
+&lt;p&gt;W kontekście walidacji istotne są 2 pesudo-klasy &lt;code&gt;:invalid&lt;/code&gt; (NIEprawidłowy) and &lt;code&gt;:valid&lt;/code&gt; (prawidłowy) które należy zaaplikować do elementów &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;,&lt;code&gt;&amp;lt;select&amp;gt;&lt;/code&gt; oraz &lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Klasa &lt;code&gt;.was-validated&lt;/code&gt; (powinna zostać naddana po walidacji) odnosi się do rodzica, zwykle elementu &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;, po przesłaniu należy ją usunąć aby formularz powrócił do poprzedniego stanu.&lt;/p&gt;
+&lt;p&gt;Klasy &lt;code&gt;.is-invalid&lt;/code&gt; and &lt;code&gt;.is-valid&lt;/code&gt; mogą zostać użyte zamiast wyżej wymienionych pseudo-klas w przypadku walidacji następującej po str. serwera i on nie wymagają zastosowania &lt;code&gt;.was-validated&lt;/code&gt; u rodzica.&lt;/p&gt;
+&lt;p&gt;Dodając &lt;code&gt;novalidate&lt;/code&gt; (atrubut typu logicznego) do &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; powoduje zablokowanie domyślnej walidacji ze str przeglądarki oraz pojawiania się jej tzw. tooltipów (dymków z informacją zwrotną). &lt;/p&gt;
+&lt;p&gt;Przykład walidacji (źródło: &lt;a href="https://getbootstrap.com/docs/5.0/forms/validation/"&gt;getbootstrap.com -&amp;gt; validation&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;form&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row g-3 needs-validation&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;novalidate&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  [...]
+&lt;span class="nt"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+(function () {
+  &amp;#39;use strict&amp;#39;
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll(&amp;#39;.needs-validation&amp;#39;)
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener(&amp;#39;submit&amp;#39;, function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add(&amp;#39;was-validated&amp;#39;)
+      }, false)
+    })
+})()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Więcej na temat walidacji formularzy (min. na temat walidacji przez serwer/informacja zwrotna): &lt;a href="https://getbootstrap.com/docs/5.0/forms/validation/"&gt;getbootstrap.com -&amp;gt; validation&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Layoutit!&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://www.layoutit.com/build"&gt;Layoutit!&lt;/a&gt; - aplikacja do budowy stron przy pomocy Bootstrapa&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.w3schools.com/bootstrap4/default.asp"&gt;Bootstrap 4 Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;YT&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=oOtWMEl9Uyg&amp;amp;feature=emb_title&amp;amp;ab_channel=MDB-justcodeit"&gt;Bootstrap 5 Beta - a game changer?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=c9B4TPnak1A&amp;amp;feature=emb_title&amp;amp;ab_channel=MDB-justcodeit"&gt;Bootstrap 5 tutorial - crash course for beginners in 1.5H (December 2020)&lt;/a&gt;&lt;/p&gt;</content><category term="css"></category><category term="bootstrap"></category></entry><entry><title>CSS konwencje nazewnictwa klas -&gt; OOCSS, BEM i BEMIT</title><link href="https://kostyrko.github.io/zfrontu/html-konwencje-klas.html" rel="alternate"></link><published>2020-06-18T10:00:00+02:00</published><updated>2020-06-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-06-18:/zfrontu/html-konwencje-klas.html</id><summary type="html">&lt;p&gt;&lt;img alt="BEM" max-height="300px" src="https://www.e-accent.com/images/blog/bem.png#center"&gt;&lt;/p&gt;
 &lt;h3&gt;Podstawowe zasady nazewnictwa&lt;/h3&gt;
 &lt;p&gt;Nazewnictwo klas CSS zaczyna się od... wybrania odpowiedniego taga HTML a później...&lt;/p&gt;
 &lt;h4&gt;Podział na 3 sposoby nazywania klas&lt;/h4&gt;

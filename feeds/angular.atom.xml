@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - angular</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/angular.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2020-12-29T00:00:00+01:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Angular + Bootstrap</title><link href="https://kostyrko.github.io/zfrontu/angular-bootstrap.html" rel="alternate"></link><published>2020-12-29T00:00:00+01:00</published><updated>2020-12-29T00:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-29:/zfrontu/angular-bootstrap.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular-bootstrap" src="https://therichpost.com/wp-content/uploads/2020/11/Add-Bootstrap-in-Angular-11.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Angular + Bootstrap&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://ng-bootstrap.github.io/#/home"&gt;ng-bootstrap&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Instalacja&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ng add @ng-bootstrap/ng-bootstrap&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Setup&lt;/h3&gt;
+&lt;p&gt;AppComponent
+    import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;AppComponent&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ngbConfig&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;NgbConfig&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;ngbConfig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;animation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Przykład zastosowania (Nav)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;ts - basic nav&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/core&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="nd"&gt;@Component&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ngbd-nav-basic&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;templateUrl&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./nav-basic.html&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NgbdNavBasic&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;active&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;html - basic-nav&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ul&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNav …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="angular-bootstrap" src="https://therichpost.com/wp-content/uploads/2020/11/Add-Bootstrap-in-Angular-11.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Angular + Bootstrap&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://ng-bootstrap.github.io/#/home"&gt;ng-bootstrap&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Instalacja&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ng add @ng-bootstrap/ng-bootstrap&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Setup&lt;/h3&gt;
+&lt;p&gt;AppComponent
+    import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;AppComponent&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ngbConfig&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;NgbConfig&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;ngbConfig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;animation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Przykład zastosowania (Nav)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;ts - basic nav&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/core&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="nd"&gt;@Component&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ngbd-nav-basic&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;templateUrl&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./nav-basic.html&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NgbdNavBasic&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;active&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;html - basic-nav&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ul&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNav&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#nav&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;ngbNav&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;(activeId)&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;active&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;nav-tabs&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ngbNavItem&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNavLink&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;One&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNavContent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Raw&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;denim&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;probably&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;haven&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;heard&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;them&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jean&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;shorts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Austin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Nesciunt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tofu&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stumptown&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;aliqua&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;retro&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;synth&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cleanse&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Mustache&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cliche&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tempor&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;williamsburg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;carles&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vegan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;helvetica&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Reprehenderit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;butcher&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;retro&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;keffiyeh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dreamcatcher&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;synth&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Cosby&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sweater&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eu&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;banh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;qui&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;irure&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;terry&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;richardson&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ex&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;squid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Aliquip&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;placeat&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;salvia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cillum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;iphone&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Seitan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;aliquip&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;quis&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cardigan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;american&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apparel&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;butcher&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;voluptate&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nisi&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;qui&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ngbNavItem&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNavLink&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Two&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNavContent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Exercitation&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;labore&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;velit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sartorial&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PBR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;leggings&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;next&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;level&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;anderson&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;artisan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;loko&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;farm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nc"&gt;table&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;craft&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;beer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;twee&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Qui&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;photo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;booth&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;letterpress&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;commodo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;enim&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;craft&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;beer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mlkshk&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;aliquip&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jean&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;shorts&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ullamco&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ad&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vinyl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cillum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PBR&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Homo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nostrud&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;organic&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;assumenda&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;labore&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;aesthetic&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;magna&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;delectus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mollit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Keytar&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;helvetica&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;VHS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;salvia&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;yr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vero&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;magna&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;velit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sapiente&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;labore&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stumptown&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Vegan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fanny&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pack&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;odio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cillum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;anderson&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nc"&gt;bit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sustainable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;jean&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;shorts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;beard&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;DIY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ethical&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;culpa&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;terry&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;richardson&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;biodiesel&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Art&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;party&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scenester&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;stumptown&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tumblr&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;butcher&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vero&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sint&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;qui&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sapiente&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;accusamus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tattooed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;park&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ngbNavItem&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNavLink&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Three&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ngbNavContent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Sed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;commodo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;leo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;at&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;suscipit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dictum&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;quam&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;est&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;porttitor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sapien&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eget&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sodales&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nibh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;elit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;diam&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Nulla&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;facilisi&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;Donec&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;egestas&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ligula&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vitae&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;odio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;interdum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;aliquet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Duis&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;lectus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;turpis&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;luctus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eget&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tincidunt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;congue&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;et&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;odio&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;Duis&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pharetra&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;et&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nisl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;at&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;faucibus&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Quisque&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;luctus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pulvinar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;arcu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;et&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;molestie&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;lectus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ultrices&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;et&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;diam&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;urna&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;egestas&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ipsum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vel&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;volutpat&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;volutpat&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;neque&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Praesent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fringilla&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tortor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;arcu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Vivamus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;faucibus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nisl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;enim&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nec&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;tristique&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ipsum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;euismod&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;facilisis&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Morbi&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ut&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;bibendum&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;est&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eu&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tincidunt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;odio&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Orci&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;varius&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;natoque&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;penatibus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;et&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;magnis&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dis&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;parturient&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;montes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nascetur&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ridiculus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mus&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Mauris&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;aliquet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;odio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ac&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;lorem&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;aliquet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ultricies&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eget&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;neque&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Phasellus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nec&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tortor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vel&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tellus&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pulvinar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;feugiat&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;ul&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div [ngbNavOutlet]="nav" class="mt-2"&gt;&lt;/div&gt;
+
+&lt;pre&gt;Active: {{ active }}&lt;/pre&gt;
+
+&lt;p&gt;Routing:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;links&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+  &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;One&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fragment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;one&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Two&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fragment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;two&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;];&lt;/span&gt;
+
+&lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ActivatedRoute&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://zacznijprogramowac.net/angular/jak-dodac-bootstrapa-4-do-angulara/"&gt;Jak dodać Bootstrapa 4 – bootstrap i Angular&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="bootstrap"></category><category term="angular"></category><category term="javascript"></category></entry><entry><title>Angular: routing - podstawy</title><link href="https://kostyrko.github.io/zfrontu/angular-routing.html" rel="alternate"></link><published>2020-12-27T10:00:00+01:00</published><updated>2020-12-27T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-27:/zfrontu/angular-routing.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="angular" src="https://blog.knoldus.com/wp-content/uploads/2020/05/Angular-Routing.png"&gt;&lt;/p&gt;
+&lt;p&gt;Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji&lt;/p&gt;
+&lt;p&gt;1 - należy zaimportować &lt;strong&gt;RouterModule&lt;/strong&gt; w &lt;strong&gt;app.module.ts&lt;/strong&gt; oraz w importach go zastosować łącznie z metodą &lt;strong&gt;forRoot()&lt;/strong&gt;, która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="angular" src="https://blog.knoldus.com/wp-content/uploads/2020/05/Angular-Routing.png"&gt;&lt;/p&gt;
+&lt;p&gt;Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji&lt;/p&gt;
+&lt;p&gt;1 - należy zaimportować &lt;strong&gt;RouterModule&lt;/strong&gt; w &lt;strong&gt;app.module.ts&lt;/strong&gt; oraz w importach go zastosować łącznie z metodą &lt;strong&gt;forRoot()&lt;/strong&gt;, która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek jest spełniony.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ts&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;BrowserModule&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/platform-browser&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;NgModule&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/core&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;AppComponent&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./app.component&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;CrisisListComponent&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./crisis-list/crisis-list.component&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;HeroesListComponent&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./heroes-list/heroes-list.component&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;PageNotFoundComponent&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./page-not-found/page-not-found.component&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;RouterModule&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/router&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+&lt;span class="nd"&gt;@NgModule&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;declarations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="n"&gt;AppComponent&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;CrisisListComponent&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;HeroesListComponent&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;PageNotFoundComponent&lt;/span&gt;
+  &lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="n"&gt;imports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="n"&gt;BrowserModule&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;RouterModule&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forRoot&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;
+      &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;crisis-list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;component&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;CrisisListComponent&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wskazanie&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="err"&gt;ś&lt;/span&gt;&lt;span class="n"&gt;cieżkę&lt;/span&gt; &lt;span class="n"&gt;oraz&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;komponent&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;który&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;być&lt;/span&gt; &lt;span class="n"&gt;wyświetlony&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;jej&lt;/span&gt; &lt;span class="n"&gt;przypadku&lt;/span&gt;
+      &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;heroes-list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;component&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;HeroesListComponent&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+      &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;redirectTo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/heroes-list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pathMatch&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;full&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;podstawowa&lt;/span&gt; &lt;span class="err"&gt;ś&lt;/span&gt;&lt;span class="n"&gt;cieżka&lt;/span&gt; &lt;span class="n"&gt;przekierowuje&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;adresu&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/heroes-list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gdy&lt;/span&gt; &lt;span class="n"&gt;ten&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;całości&lt;/span&gt; &lt;span class="n"&gt;pasuje&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;wskazanego&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pathMatch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;**&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;component&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PageNotFoundComponent&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dzika karta&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;niezawarty&lt;/span&gt; &lt;span class="n"&gt;powyżej&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt;
+    &lt;span class="p"&gt;]),&lt;/span&gt;
+  &lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="n"&gt;providers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[],&lt;/span&gt;
+  &lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;AppComponent&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AppModule&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2 - router-outlet oraz nawigacja&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/code&gt; - dyretkywa ta oznacza przestrzeń w której wynik pracy routera ma swój skutek.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;routerLink&lt;/strong&gt; - dyrektywa łącząca ścieżki wraz ze zdefiniowanymi szablonami html&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;routerLinkActive&lt;/strong&gt; - korzystając z tej dyrektywy wskazujemy Angularowi na przypisanie zdefiniowanej klasy do elementu HTML, która oznacza aktywną ścieżkę&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;nav&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;routerLink=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/crisis-list&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;routerLinkActive=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;activebutton&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Crisis Center&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt; |
+  &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;routerLink=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/heroes-list&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;routerLinkActive=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;activebutton&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Heroes&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+
+&lt;span class="nt"&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Całość kodu powyższej aplikacji &lt;a href="https://github.com/kostyrko/JS-sandbox/tree/master/7_Angular/angular-router-sample"&gt;angular-router-sample&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;Więcej informacji na temat routingu: &lt;a href="https://angular.io/guide/router"&gt;In-app navigation: routing to views&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="angular"></category></entry><entry><title>Angular: formularze wstęp + reactive forms</title><link href="https://kostyrko.github.io/zfrontu/angular-formularze.html" rel="alternate"></link><published>2020-12-23T10:00:00+01:00</published><updated>2020-12-23T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-23:/zfrontu/angular-formularze.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="angular" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHghCEZH5gPt3yGwrsP2c5hHAFfEHgysQdxQ&amp;amp;usqp=CAU"&gt;&lt;/p&gt;
+&lt;p&gt;Angular umożliwia stworzenie 2 rodzajów formularzy tzw. &lt;strong&gt;reaktywnych&lt;/strong&gt; (reactive) oraz &lt;strong&gt;szablonowych&lt;/strong&gt; (template-driven)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reaktywne formularze&lt;/strong&gt; -zapewniają bezpośredni dostęp do obiektów modelu. Są bardziej skalowalne i łatwiejsze w ponownym użytkowaniu. [forma walidacji: funkcja, przewidywalność: synchroniczna, model danych: ustrukturyzowany i niezmienny]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Szablonowe formularze&lt;/strong&gt; - uzależnione są od dyrektyw w tworzeniu i manipulowaniu obiektu modelu …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="angular" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHghCEZH5gPt3yGwrsP2c5hHAFfEHgysQdxQ&amp;amp;usqp=CAU"&gt;&lt;/p&gt;
+&lt;p&gt;Angular umożliwia stworzenie 2 rodzajów formularzy tzw. &lt;strong&gt;reaktywnych&lt;/strong&gt; (reactive) oraz &lt;strong&gt;szablonowych&lt;/strong&gt; (template-driven)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reaktywne formularze&lt;/strong&gt; -zapewniają bezpośredni dostęp do obiektów modelu. Są bardziej skalowalne i łatwiejsze w ponownym użytkowaniu. [forma walidacji: funkcja, przewidywalność: synchroniczna, model danych: ustrukturyzowany i niezmienny]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Szablonowe formularze&lt;/strong&gt; - uzależnione są od dyrektyw w tworzeniu i manipulowaniu obiektu modelu. Są proste w implementacji w przypadku małych form. [forma walidacji: dyrektywy, przewidywalność: asynchroniczna, model danych: nieustrukturyzowany i mutowalny]&lt;/p&gt;
+&lt;p&gt;Zarówno formy &lt;strong&gt;reaktywne&lt;/strong&gt; jak i &lt;strong&gt;szablonowe&lt;/strong&gt; korzystają z poniższych klas, które stanowią o ich funkcjonowaniu&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FormControl&lt;/strong&gt; - śledzi wartość oraz status walidacji pojedynczego elementu formularza&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FormGroup&lt;/strong&gt; - śledzi wartości oraz status walidacji zbioru elementów formularza&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FormArray&lt;/strong&gt; - śledzi wartości oraz status zbioru walidacji tablicy zawierającej formularze&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ControlValueAccessor&lt;/strong&gt; - tworzy pomost pomiędzy instancjami Angular FormControl oraz natywnymi elementami drzewa DOM.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Przykład reactive form&lt;/strong&gt; - model formularza jest bezpośrednio definiowany w klasie (wyraźny model formularza) -  dyrektywa [formControl] łączy instancję &lt;strong&gt;FormControl&lt;/strong&gt;
+do konkretnego elementu formy (widoku) poprzez wewnętrzną wartość "akcesorium"  / &lt;strong&gt;model formularza jest źródłem prawdy&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/core&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;FormControl&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/forms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="nd"&gt;@Component&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;app-reactive-favorite-color&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;
+    &lt;span class="n"&gt;Favorite&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;formControl&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;favoriteColorControl&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="err"&gt;`&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;FavoriteColorComponent&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;favoriteColorControl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;FormControl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Przykład template-driven form&lt;/strong&gt; - model formularza jest domniemany, dyrektywa NgModel tworzy i zarządza instancją FromControl dla danego elementu HTML / &lt;strong&gt;źródłem prawdy jest szablon html&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/core&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="nd"&gt;@Component&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;app-template-favorite-color&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;
+    &lt;span class="n"&gt;Favorite&lt;/span&gt; &lt;span class="n"&gt;Color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;ngModel&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;favoriteColor&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="err"&gt;`&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;FavoriteColorComponent&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;favoriteColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Do przeczytania -&amp;gt; Przepływ danych w formularzach: &lt;a href="https://angular.io/guide/forms-overview#data-flow-in-forms"&gt;angular.io - Data flow in forms&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="reactive-form" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSZShqRsNi1Z6zK-hmfGRqgEW9lU1D8y5qgA&amp;amp;usqp=CAU"&gt;&lt;/p&gt;
+&lt;h3&gt;Reaktywne formularze&lt;/h3&gt;
+&lt;p&gt;1 - Postawowy formularz reaktywny&lt;/p&gt;
+&lt;p&gt;Importowanie modułu ReactiveFormsModule do app.module.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/app.module.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;Komponent name-editor -&amp;gt; name-editor.component.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/name-editor/name-editor.component.ts
+"&gt;&lt;/script&gt;
+
+&lt;p&gt;name-editor.component.html&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/name-editor/name-editor.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;2- Zarządzanie formularzem z wieloma elementami oraz zagnieżdżone formularze&lt;/p&gt;
+&lt;p&gt;Zarządzanie &lt;strong&gt;wieloma instancjami&lt;/strong&gt; Kontroli Formularza (&lt;strong&gt;form control&lt;/strong&gt;) w pojedynczej grupie -&amp;gt; wykorzystanie &lt;code&gt;FormGroup&lt;/code&gt;&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor/profile-editor.component.ts"&gt;&lt;/script&gt;
+
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor/profile-editor.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;Przykładowy zwracany obiekt -&amp;gt; &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;{firstName: &amp;quot;mike &amp;quot;, lastName: &amp;quot;tyson&amp;quot;, address: {street: &amp;quot;uluru&amp;quot;, city: &amp;quot;rock&amp;quot;, state: &amp;quot;tn&amp;quot;, zip: &amp;quot;0000&amp;quot;}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Istnieją dwa sposoby na aktualizację wartości:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;setValue()&lt;/strong&gt; - zmienia całą wartość w odniesieniu do struktury grupy formularza&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;patchValue()&lt;/strong&gt; - zmienia właściwość zdefiniowaną w obiekcie, który uległ zmianie w modelu formularza&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;setValue()&lt;/strong&gt; pozwala na przechwycenie błędów w złożonych formularzach, podczas gdy &lt;strong&gt;patchValue&lt;/strong&gt; nie przekazuje o nich informacji/nie reaguje na nie.&lt;/p&gt;
+&lt;p&gt;3 - Tworzenie formularza przy pomocy &lt;strong&gt;FormBuildera&lt;/strong&gt; + Walidacja&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-form-builder/profile-editor-form-builder.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;Szablon HTML z dodaną walidacją&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-form-builder/profile-editor-form-builder.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;4 - Dynamicznie modyfikowany formularz przy pomocy FromArray (alternatywa dla FromGroup)&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-dynamic-form/profile-editor-dynamic-form.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;Szablon HTML wykorzystujący &lt;strong&gt;*ngFor&lt;/strong&gt;&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-dynamic-form/profile-editor-dynamic-form.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;Przykładowe dane zwrotne -&amp;gt; &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;Value: { &amp;quot;firstName&amp;quot;: &amp;quot;Mike&amp;quot;, &amp;quot;lastName&amp;quot;: &amp;quot;Tyson&amp;quot;, &amp;quot;address&amp;quot;: { &amp;quot;street&amp;quot;: &amp;quot;Bronson&amp;quot;, &amp;quot;city&amp;quot;: &amp;quot;Tyson City&amp;quot;, &amp;quot;state&amp;quot;: &amp;quot;Nebula&amp;quot;, &amp;quot;zip&amp;quot;: &amp;quot;0000&amp;quot; }, &amp;quot;aliases&amp;quot;: [ &amp;quot;mike@tyson.usa&amp;quot;, &amp;quot;tyson@usa.mike&amp;quot;, &amp;quot;bronson@tyson.mike&amp;quot; ] }&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;p&gt;Istotne/dalsze informacje:&lt;/p&gt;
+&lt;p&gt;więcej na temat walidacji formularzy można dowiedzieć się tutaj &lt;a href="https://angular.io/guide/form-validation"&gt;angular.io Validating form input&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lista Klas oraz Dyrektyw formularza Angular.io &lt;a href="https://angular.io/guide/reactive-forms#reactive-forms-api-summary"&gt;reactive-forms-api&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://angular.io/guide/reactive-forms"&gt;angular.io - Reactive forms&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://angular.io/guide/forms-overview"&gt;angular.io - forms overview&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="angular"></category></entry><entry><title>Angular: wprowadzenie</title><link href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html" rel="alternate"></link><published>2020-12-22T10:00:00+01:00</published><updated>2020-12-22T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-22:/zfrontu/angular-wprowadzenie.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Angular wprowadzenie&lt;/h3&gt;
+&lt;p&gt;Angular został napisany w TypeScript&lt;/p&gt;
+&lt;p&gt;Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Angular wprowadzenie&lt;/h3&gt;
+&lt;p&gt;Angular został napisany w TypeScript&lt;/p&gt;
+&lt;p&gt;Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne w kodzie html, natomiast informacje zapisane w html powinny odpowiadać za wyświetlanie danych i umożliwienie interakcji z użytkownikiem.&lt;/p&gt;
+&lt;p&gt;Moduły, komponenty oraz serwisy są klasami posiadającymi dekoratory. Dekoratory wskazują na ich typ oraz zapewniają ich metadane, które mają wpływ na zachowanie Angulara.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Moduły (ngModules) - kontekts&lt;/h3&gt;
+&lt;p&gt;ngModules - nazwa aby rozróżnić od JS modules.&lt;/p&gt;
+&lt;p&gt;Moduły tworzą kompilacyjny kontekst dla zbioru modułów (przez konwencję &lt;em&gt;root module&lt;/em&gt; nazywa się &lt;em&gt;AppModule&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Angular składa się z modułów -&amp;gt; app.module.ts (src/app/app.module.ts) splata wszystkie moduły w całość, poszczególny moduł natomiast zbudowana jest jako drzewo składające się z komponentów.&lt;/p&gt;
+&lt;p&gt;główny moduł posiada dekorator @NgModule, który skłąda się na aplikację Angularową.&lt;/p&gt;
+&lt;p&gt;Na moduły składają się komponenty (w przypadku małej aplikacji może istnieć jeden moduł - root module)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;BrowserModule&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/platform-browser&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;NgModule&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/core&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;AppComponent&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./app.component&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="nd"&gt;@NgModule&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+    &lt;span class="n"&gt;declarations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="err"&gt;!&lt;/span&gt; &lt;span class="n"&gt;deklaracja&lt;/span&gt; &lt;span class="n"&gt;użytych&lt;/span&gt; &lt;span class="n"&gt;komponentów&lt;/span&gt;
+      &lt;span class="n"&gt;AppComponent&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="n"&gt;imports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="err"&gt;!&lt;/span&gt; &lt;span class="n"&gt;deklaracja&lt;/span&gt; &lt;span class="n"&gt;inne&lt;/span&gt; &lt;span class="n"&gt;moduły&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;zewnętrzne&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;dostępne&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;ramach&lt;/span&gt; &lt;span class="n"&gt;Angulara&lt;/span&gt;
+      &lt;span class="n"&gt;BrowserModule&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="n"&gt;providers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;LoginService&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="err"&gt;!&lt;/span&gt; &lt;span class="n"&gt;serwis&lt;/span&gt; &lt;span class="n"&gt;zadeklarowany&lt;/span&gt; &lt;span class="n"&gt;dla&lt;/span&gt; &lt;span class="n"&gt;całej&lt;/span&gt; &lt;span class="n"&gt;aplikacji&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;jeśli&lt;/span&gt; &lt;span class="n"&gt;zadeklarowany&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;dekoratorze&lt;/span&gt; &lt;span class="n"&gt;poszczególnego&lt;/span&gt; &lt;span class="n"&gt;komponentu&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;wówczas&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;jedynie&lt;/span&gt; &lt;span class="n"&gt;widoczny&lt;/span&gt; &lt;span class="n"&gt;dla&lt;/span&gt; &lt;span class="n"&gt;danego&lt;/span&gt; &lt;span class="n"&gt;komponentu&lt;/span&gt; &lt;span class="n"&gt;oraz&lt;/span&gt; &lt;span class="n"&gt;jego&lt;/span&gt; &lt;span class="n"&gt;dzieci&lt;/span&gt;
+    &lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;AppComponent&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="err"&gt;!&lt;/span&gt; &lt;span class="n"&gt;zadeklarowanie&lt;/span&gt; &lt;span class="n"&gt;początku&lt;/span&gt; &lt;span class="n"&gt;aplikacji&lt;/span&gt;
+  &lt;span class="p"&gt;})&lt;/span&gt;
+  &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AppModule&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;czytaj dalej &lt;a href="https://angular.io/guide/architecture-modules"&gt;Introduction to modules&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Komponenty - wyświetlanie i komunikacja z użytkownikiem&lt;/h3&gt;
+&lt;p&gt;Komponent jest klasą posiadającą dekorator - wyświetla/tworzy html i obsługuje zdarzenia,
+komponenty muszą być zadeklarowane w module (środowisku/kontekście). Komponenty służą do wyświetlania danych i komunikacji z użytkownikiem.&lt;/p&gt;
+&lt;p&gt;Komponent można stworzyć przy pomocy Angular &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ng generate component nazawaKomponentu&lt;/span&gt;
+&lt;span class="err"&gt;ng generate component heroes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To spowoduje powstanie folderu o podanej nazwie w folderze src/app zawierającego 4 pliki, &lt;strong&gt;dodatkowo&lt;/strong&gt; doda nowo utworzony komponent jako deklarację w dekoratorze &lt;strong&gt;NgModule&lt;/strong&gt; (@NgModule) w głównym pliku app (&lt;strong&gt;src/app/app.module.ts&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;Komponent składa się z 3-4 (ts,css,html,ts) plików zawartych we wspólnym folderze (np. heroes ): 1) pliku "klasowego" zawierającego logikę komponentu np. &lt;strong&gt;heroes.component.ts&lt;/strong&gt;, 2) szablonu HTML np. &lt;strong&gt;heroes.component.html&lt;/strong&gt;, 3) specyficznych styli komponentu &lt;strong&gt;heroes.component.css&lt;/strong&gt; oraz opcjonalnie 4) plik z testami &lt;strong&gt;heroes.component.spec.ts&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;W pliku TS (np. heroes.component.ts) zawarta jest klasa z dekoratorem komponentowym, który należy zaimportować z &lt;strong&gt;@angular/core&lt;/strong&gt; a następnie podpiąć pod niego odpowiednio klasę&lt;/p&gt;
+&lt;p&gt;Metadane zawarte w dekoratorze odwołują się do -  definiuje selektor CSS komponentu, wskazuje na miejsce znajdowania się pliku zawierającego style, wskazuje lokację szablonu HTML.&lt;/p&gt;
+&lt;p&gt;Selektor komponentu jest referencją do danego komponentu. Przykładowo jeśli selektor został w komponencie zdefiniowany w sposób następujący &lt;code&gt;selector: 'app-name-editor',&lt;/code&gt; aby go "zawrzeć" w ramach innego komponentu (wyświetlić/html) należy się do niego odwołać w sposób następujący: &lt;code&gt;&amp;lt;app-name-editor&amp;gt;&amp;lt;/app-name-editor&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@Component()&lt;/code&gt; - dekorator komponentu identyfikuje pierwszą klasę znajdującą się pod nim jako przynależną do komponentu i zapewnia metadane dla tego komponentu.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ngOnInit(&lt;/code&gt;) - ng on initialization -&amp;gt; funkcja wywoływana zaraz po stworzeniu("zamontowaniu") komponentu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;Component&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;OnInit&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/core&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;dekoratora&lt;/span&gt;
+
+&lt;span class="nd"&gt;@Component&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;metadane&lt;/span&gt;
+  &lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;app-heroes&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;selektor&lt;/span&gt; &lt;span class="n"&gt;CSS&lt;/span&gt; &lt;span class="n"&gt;komponentu&lt;/span&gt;
+  &lt;span class="n"&gt;templateUrl&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;./heroes.component.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;szablon&lt;/span&gt; &lt;span class="n"&gt;HTML&lt;/span&gt;
+  &lt;span class="n"&gt;styleUrls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./heroes.component.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;CSS&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="n"&gt;dla&lt;/span&gt; &lt;span class="n"&gt;komponentu&lt;/span&gt;
+&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;HeroesComponent&lt;/span&gt; &lt;span class="n"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;OnInit&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;ngOnInit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;tzw&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;lifecycle&lt;/span&gt; &lt;span class="n"&gt;hook&lt;/span&gt; 
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wykorzystując selektor komponentu możliwe jest zagnieżdżenie komponentu w innym komponencie&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;app-heroes&amp;gt;&amp;lt;/app-heroes&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;czytaj więcej: &lt;a href="https://angular.io/guide/architecture-components"&gt;Introduction to components and templates&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Wprowadzenia do składni szablonów - zagadnienia podstawowe&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Wytłumaczenie podstawowych znaków: &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ }}&lt;/code&gt; - &lt;strong&gt;interpolacja&lt;/strong&gt; wyświetla wszystko na stronie w postaci tekstu, wyświetla typy proste, pozwala na wywołanie metod
+&lt;code&gt;[ ]&lt;/code&gt; - łączenie wartości
+&lt;code&gt;( )&lt;/code&gt; - łączenie wydarzenia
+&lt;code&gt;#&lt;/code&gt; - odwołanie do zmiennej/referencji szablonu zmiennych (elementu HTML)
+&lt;code&gt;*&lt;/code&gt; - dyrektywa strukturalna&lt;/p&gt;
+&lt;h3&gt;Interpolacja&lt;/h3&gt;
+&lt;p&gt;Interpolacja jest podstawowym narzędziem Angulara, które pozwala na wymianę danych pomiędzy klasą a szablonem HTML
+(stosowane jest w html ale odwołuje się do informacji zawartych w klasie komponentu)&lt;/p&gt;
+&lt;p&gt;Przykłady zastosowania interpolacji&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ droid }}&lt;/code&gt; - zmienna zawarta w komponencie (ts) // jeśli jest to obiekt zwróci &lt;code&gt;[object Object]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ droid.name }}&lt;/code&gt; - odwołanie się do właściwości name obiektu droid&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ getDroid().name }}&lt;/code&gt; - interpolacja danych &lt;code&gt;name&lt;/code&gt; z obiektu zwracanego przez funkcję &lt;code&gt;getDroid()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ getDroid }}&lt;/code&gt; - interpolacja funkcji działa na nią metod toString() , wyjątkiem jest jeśli ta jest poprzedzona słowem kluczowym &lt;code&gt;get&lt;/code&gt;, wówczas przedstawiony zostanie wynik wywołania funkcji// w takim przypadku zastosowania &lt;code&gt;{{ getDroid() }}&lt;/code&gt; zwróci jedynie informacje o typie &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ 2+2 }}&lt;/code&gt; - interpolacja wyrażenia matematycznego&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Operator Pipe&lt;/h3&gt;
+&lt;p&gt;1 - Operator &lt;code&gt;pipe&lt;/code&gt; -&amp;gt; &lt;code&gt;|&lt;/code&gt; pozwala na pracę z danymi przed ich wyświetlaniem - wpływa na zachowanie/wygląd elementu. Istnieją wbudowane rury (metody) angulara oraz istnieje możliwość stworzenia włąsnych [wszystkie rury angulara: &lt;a href="https://angular.io/api?type=pipe"&gt;Pipes - api list&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ droid | uppercase }}&lt;/code&gt; // spowoduje że dana zmienna wyświetlać się będzie dużymi literami&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JSON&lt;/strong&gt; pipe (pozwala na wyświetlanie obiektów), &lt;strong&gt;KeyValuPipe&lt;/strong&gt; (pozwala na iterowanie po obiektach za pomocą klucza), &lt;strong&gt;slice&lt;/strong&gt; pipe (tnie)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{getDate() | date: 'yyyy'}}&lt;/code&gt; // zastosowanie operatora pipe - date wraz z parametrami więcej: &lt;a href="https://angular.io/api/common/DatePipe"&gt;DatePipe&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;number&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;1.0-0&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt; // wyświetlanie jako liczby całkowitej&lt;/span&gt;
+
+&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;number&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;2.4-5&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt; // wyświetlanie 2 liczb przed i 4-5 po przecinku&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2 - Część pipów działa w oparciu o lokalizację (język, czas, miejsce)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;price&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;currency&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+
+&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;price&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;currency&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PLN&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;symbol&amp;#39;:&amp;#39;&amp;#39;:&amp;#39;pl&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt; // nadpisanie ustawień lokalnych korzystając z argumentów&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Nadpisanie lokalizacji&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;localePl&lt;/span&gt; &lt;span class="nn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/common/locales/pl&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;registerLocaleData&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;localePL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="p"&gt;{{&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;07-15-1410&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;fullDate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;pl&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3 - Istnieje możliwość łączenia Pipów&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;07-15-1410&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;fullDate&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;uppercase&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Biblioteka &lt;strong&gt;nxg pipes&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;*ngFor - dyrektywa powtórzenia&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;#ngFor&lt;/strong&gt; jest dyrektywą powtórzenia dla Angulara i powtarza dany element (gospodarza) dla każdego elementu z listy // gospodarzem jest ten element w który dyrektywa jest wpisana. Innymi słowy &lt;strong&gt;ngFor&lt;/strong&gt; powiela elementy &lt;strong&gt;html&lt;/strong&gt; tyle razy ile jest elementów w danej liście.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;let (zdefiniowanie zmiennej) item of (z) items (lista np. tablica)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;*ngFor="let hero of heroes"&lt;/code&gt; - dla każdego bohater z bohaterów gdzie w pliku &lt;strong&gt;heroes.components.ts&lt;/strong&gt; heroes został zadeklarowany jako właściwość klasy definiującej komponent &lt;code&gt;heroes = HEROES;&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// heroes.components.html
+&lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;heroes&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngFor=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;let hero of heroes&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;badge&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;hero.id&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt; &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;hero.name&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;ngFor&lt;/strong&gt; pozwala również na odwołanie się do właściwości indeksowej danego elementu, w tym celu można stworzyć kolejną zminną &lt;strong&gt;i&lt;/strong&gt;, którą można następnie wykorzystać w interpolacji - &lt;code&gt;*ngFor="let hero of heroes, let i = index"&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;collection-item row&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngFor=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;let task of tasks, let i = index&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col s10&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt; &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;task.name&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt; - &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;task.deadline&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Patrz pipe: &lt;a href="https://angular.io/api/common/KeyValuePipe"&gt;KeyValuePipe&lt;/a&gt; od pobierania informacji (klucza)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;@Component({
+  selector: &amp;#39;keyvalue-pipe&amp;#39;,
+  template: `&lt;span class="nt"&gt;&amp;lt;span&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Object&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngFor=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;let item of object | keyvalue&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;item.key&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;:&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;item.value&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Map&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngFor=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;let item of map | keyvalue&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;item.key&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;:&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;item.value&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;`
+})
+export class KeyValuePipeComponent {
+  object: {[key: number]: string} = {2: &amp;#39;foo&amp;#39;, 1: &amp;#39;bar&amp;#39;};
+  map = new Map([[2, &amp;#39;foo&amp;#39;], [1, &amp;#39;bar&amp;#39;]]);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;*ngIF (then,else, ngSwitch) - dyrektywa warunku istnienia&lt;/h3&gt;
+&lt;p&gt;Kolejną dyrektywą jest &lt;code&gt;*ngIF&lt;/code&gt; która w przypadku gdy &lt;code&gt;warunek = undefined&lt;/code&gt; nie tworzy elementu, natomiast jeśli warunek jest spełniony to tworzy dany element.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;:::*&lt;em&gt; &lt;/em&gt;&lt;/strong&gt;alternatywnie :&lt;strong&gt;&lt;em&gt; visibility -&amp;gt; hidden &lt;code&gt;&amp;lt;button (click)="btn.style.visibility = 'hidden"&amp;gt;&lt;/code&gt;  - element nie znika z drzewa DOM, a do tego nie zwalania miejsca na stronie &lt;/em&gt;*:::&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Przykład zastosowania (jeśli selectedHero = undefined nie twórz tego elementu / np na początku gdy nie został jeszcze wybrany)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngIf=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;selectedHero&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  [...]
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;*ngIF, else i ng-template&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;else&lt;/strong&gt; podobnie jak w innych elementach JS oznacza możliwość alternatywną. Np. można wskazać odwołujący się do lokalnej referencji zawarty w znacznikach &lt;code&gt;&amp;lt;ng-template&amp;gt;&amp;lt;/ng-template&amp;gt;&lt;/code&gt; który jest wykorzystywany w tym kontekście - opakowuje element, który ma się pojawić gdy dany warunek wcześniej postawiony nie zostaje spełniony (znaczniki te nie tworzą same w sobie elementu - nie istnieją w drzewie DOM)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngIf=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;day == 6&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt; &lt;span class="err"&gt;else&lt;/span&gt; &lt;span class="err"&gt;otherDay&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;sobota&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+
+&lt;span class="nt"&gt;&amp;lt;ng-template&lt;/span&gt; &lt;span class="err"&gt;#otherDay&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;dziś nie jest sobota&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ng-template&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;*ngIF, then, else i ng-container&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;ng-container&lt;/code&gt; - jest znacznikiem/kontenerem, który pozwala na skonstruowanie bardziej złożonej logiki związanej z dyrektywą warunku istnienia ( w ten sposób unikamy tworzenia dodatkowego elementu DIV lub innego dodatkowego elementu drzewa DOM) - pełni rolę elementu do obsługi logiki&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ngIf&lt;/strong&gt; i &lt;strong&gt;ngFor&lt;/strong&gt; - nie mogą być ustawione na tych samych elementach&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// Przykład 1
+&lt;span class="nt"&gt;&amp;lt;ng-container&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngIF=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;day === 6; then saturday; else notSaturday&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ng-container&amp;gt;&lt;/span&gt;
+
+&lt;span class="nt"&gt;&amp;lt;ng-template&lt;/span&gt; &lt;span class="err"&gt;#saturday&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;dziś nie jest sobota&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ng-template&amp;gt;&lt;/span&gt;
+
+&lt;span class="nt"&gt;&amp;lt;ng-template&lt;/span&gt; &lt;span class="err"&gt;#notSaturday&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;dziś nie jest sobota&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ng-template&amp;gt;&lt;/span&gt;
+
+// Przykład 2
+&lt;span class="nt"&gt;&amp;lt;ng-container&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngIf=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngFor=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;let i of [1,2,3]&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ng-container&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;ngSwitch + ngSwitchCase - wyświetlanie warunkowe&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;ngSwitch&lt;/strong&gt; - sprawdza warunek i jeśli jest on spełniony to wówczas dany element jest tworzony &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;container&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ngSwitch&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;day&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#ngSwitchCase&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Poniedziałek&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#ngSwitchCase&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Wtorek&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#ngSwitchCase&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Środa&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;#ngSwitchDefault&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Każdy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;inny&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dzień&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;ng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;container&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Biding&lt;/h3&gt;
+&lt;p&gt;Event binding - pozwala aplikacji na reakcję na dane wprowadzone przez użytkownika&lt;/p&gt;
+&lt;p&gt;Property binding - pozwala na interpolację właściwości pozyskanych z aplikacji oraz wykorzystanie ich w HTML&lt;/p&gt;
+&lt;p&gt;Obiekty HTML posiadają Atrybuty&lt;/p&gt;
+&lt;p&gt;Obiekty DOM posiadają właściwości (property)&lt;/p&gt;
+&lt;p&gt;Atrybuty inicjalizują właściwości (property) w drzewie DOM, bindowanie w Angularze bezpośrednio wpływa stan właściwości obiektu z drzewa DOM (bindowanie wartości do właściwości/property), które mają wpływ na wyświetlanie się obiektów.&lt;/p&gt;
+&lt;p&gt;Rodzaje bindingu (powiązań) - &lt;code&gt;One-way binding:&lt;/code&gt; &lt;strong&gt;Event binding ()&lt;/strong&gt;, &lt;strong&gt;Property binding (Data binding) []&lt;/strong&gt; (np. poprzez interpolację), &lt;code&gt;Two-way binding [()]:&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;Przykłady&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Event binding ()&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="err"&gt;(click)=&amp;quot;clearList()&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="err"&gt;(click)=&amp;quot;&lt;/span&gt;&lt;span class="na"&gt;taks =&lt;/span&gt; &lt;span class="s"&gt;[]&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Property binding ()&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;task.name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Submitt&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Two-way binding /event binding+property binding&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;lt;input type=&amp;quot;text&amp;quot; [(value)]=&amp;quot;task.name&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Property binding&lt;/h4&gt;
+&lt;p&gt;Pierwszy sposób na data-binging &lt;strong&gt;heroes.component.html&lt;/strong&gt; -&amp;gt; &lt;code&gt;{{hero}}&lt;/code&gt;, w nawiązaniu do &lt;strong&gt;heroes.component.ts&lt;/strong&gt; -&amp;gt; gdzie hero zostało zadeklarowane jako właściwość klasy &lt;code&gt;hero = 'Windstorm';&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[hero]="selectedHero"&lt;/code&gt; - składnia definiująca połączenie jednostronne, w ramach właściwości elementu DOM (właściwość selectedHero komponentu HeroesComponent zostaje skopiowana/przeniesiona do właściwości hero celowego elementu, który jest zmapowany na podstawie danych z HeroDetailComponent)&lt;/p&gt;
+&lt;p&gt;Schemat wygląda następująco:&lt;/p&gt;
+&lt;p&gt;[nazwa_właściwości_z_którą_się_łączy]="pole_klasowe/funkcja/wyrażenie"&lt;/p&gt;
+&lt;p&gt;Przykłady:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Wpisz danej tutaj&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;textarea&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;style.background&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;color&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;textarea&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;imgUrl&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;counter &amp;gt; 1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hero&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;detail&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;hero&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;selectedHero&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;hero&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;detail&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Wywołanie zadarzenia asynchronicznego np. &lt;code&gt;(keyup)="0"&lt;/code&gt; albo &lt;code&gt;(change)="(0)"&lt;/code&gt; w przypadku gdy to jest np. oparte na walidacji &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;disabled&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;nameInput.value === &amp;#39;&amp;#39; || dateInput.value === &amp;#39;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;[innerHTML]&lt;/code&gt;-  pozwala na wyświetlanie kodu HTML&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;SomeComponent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nl"&gt;htmlStr&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;lt;strong&amp;gt;The Tortoise&amp;lt;/strong&amp;gt; &amp;amp;amp; the Hare&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;innerHTML&lt;/span&gt;&lt;span class="o"&gt;]=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;htmlStr&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;źródło przykładu: &lt;a href="https://www.digitalocean.com/community/tutorials/angular-innerhtml-binding-angular"&gt;innerHTML Property Binding in Angular&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Events binding&lt;/h3&gt;
+&lt;p&gt;Składnia -&amp;gt; (nasłuchujTegoWydarzenia)="wykonajTąFunkcję(zTymArgumentem")&lt;/p&gt;
+&lt;p&gt;Przykład&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;// heroes.component.html &lt;/span&gt;
+&lt;span class="err"&gt;&amp;lt;li *ngFor=&amp;quot;let hero of heroes&amp;quot; (click)=&amp;quot;onSelect(hero)&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Funkcja ta jest metodą przypisaną do klasy komponentu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;heroes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;component&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ts&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;HeroesComponent&lt;/span&gt; &lt;span class="n"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;OnInit&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+  &lt;span class="n"&gt;selectedHero&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Hero&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+  &lt;span class="n"&gt;onSelect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hero&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Hero&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;selectedHero&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hero&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;W trakcie generowania się eventu/wydarzenia powstaje również obiekt przechowujące dane o danym wydarzeniu -&amp;gt; aby przechwycić dany obiekt należy wykorzystać zmienną &lt;code&gt;$event&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;keyup&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;onKeyUp($event)&amp;quot;&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;pliku&lt;/span&gt; &lt;span class="n"&gt;TS&lt;/span&gt;
+&lt;span class="n"&gt;onKeyUp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;KeyboardEvent&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;HTMLInputElement&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;rzutowanie&lt;/span&gt; &lt;span class="n"&gt;typu&lt;/span&gt;
+  &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Spis wydarzeń: &lt;a href="https://developer.mozilla.org/en-US/docs/Web/Events"&gt;Event reference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/ZacznijProgramowac/event-binding-examples/blob/master/src/app/app.component.html"&gt;Przykłady event binging&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Class binding&lt;/h3&gt;
+&lt;p&gt;Powiązania pozwalają również na połączenie klasy oraz konkretnych styli wraz ze zdefiniowanym warunkiem&lt;/p&gt;
+&lt;p&gt;Składnia: &lt;code&gt;[class.jakaś-klasa-css]="jakiś-warunek"&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// heroes.component.html
+&lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="err"&gt;*&lt;/span&gt;&lt;span class="na"&gt;ngFor=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;let hero of heroes&amp;quot;&lt;/span&gt;
+  &lt;span class="err"&gt;[class.selected]=&amp;quot;&lt;/span&gt;&lt;span class="na"&gt;hero =&lt;/span&gt;&lt;span class="s"&gt;==&lt;/span&gt; &lt;span class="err"&gt;selectedHero&amp;quot;&lt;/span&gt;
+  &lt;span class="err"&gt;(click)=&amp;quot;onSelect(hero)&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;badge&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;hero.id&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt; &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;hero.name&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Dyrektywa ngModel - Dwustronne połączenie (property+event binding)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;[(ngModel)]&lt;/code&gt; - składnia definiująca połączenie dwustronne i można je rozumieć jako połączenie &lt;strong&gt;property&lt;/strong&gt; oraz &lt;strong&gt;event binding&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Przykład zastosowania (łączy input z elementem name obiektu hero zadeklarowanym jako właściwość komponentu)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;lt;input [(ngModel)]=&amp;quot;hero.name&amp;quot; placeholder=&amp;quot;name&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;ngModel&lt;/strong&gt; jest częścią modułu odpowiedzialnego za zachowanie sie formularza &lt;strong&gt;FormsModule&lt;/strong&gt;, zatem aby z niego skorzystać należy zaimportować odpowiedni moduł w ramach dekoratora &lt;strong&gt;@NgModule&lt;/strong&gt;, który powinien znajdować się w ramach AppModule (&lt;strong&gt;src/app.module.ts&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;Dyrektywa &lt;strong&gt;ngModel&lt;/strong&gt; pozwala na dwustronne powiązanie pomiędzy zmiennymi klasy a właściwościami html (połączenie event binding z property binding &lt;code&gt;[()]&lt;/code&gt;). Korzystając z tej dyrektywy nie musimy korzystać z referencji oraz "sztucznego" wywoływania wydarzenia wspomagającego asynchroniczność wydarzeń.&lt;/p&gt;
+&lt;p&gt;1 - import FormsModule z app.module.ts&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;FormsModule&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;@angular/forms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;registerLocaleData&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;localePl&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="nd"&gt;@NgModule&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;declarations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;AppComponent&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="n"&gt;imports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;BrowserModule&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;FormsModule&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2 - deklaracja zmiennych w klasie (app.component.ts)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;AppComponent&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;taskName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Tu wpisz zadanie&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;deklaracja&lt;/span&gt; &lt;span class="n"&gt;zmiennej&lt;/span&gt;
+  &lt;span class="n"&gt;taskDate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+  &lt;span class="n"&gt;createTask&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Task&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taskName&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;deadline&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taskDate&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="p"&gt;};&lt;/span&gt;
+  &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tasks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taskName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;czyszczenie&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;u&lt;/span&gt;
+  &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taskDate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3 - app.component.html&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[...]&lt;/span&gt;
+&lt;span class="na"&gt;&amp;lt;input&lt;/span&gt;
+  &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;col s8&amp;quot;&lt;/span&gt;
+&lt;span class="s"&gt;  type=&amp;quot;text&amp;quot;&lt;/span&gt;
+&lt;span class="s"&gt;  placeholder=&amp;quot;Dodaj zadanie i datę wykonania&amp;quot;&lt;/span&gt;
+&lt;span class="s"&gt;  [(ngModel)]=&amp;quot;taskName&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="k"&gt;[...]&lt;/span&gt;
+
+&lt;span class="na"&gt;// zamiast zastosowania event oraz property binding&lt;/span&gt;
+&lt;span class="na"&gt;[value]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;(input)&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;name = $event.target.value&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;istnieje jeszcze event &lt;code&gt;(ngModelChange)&lt;/code&gt; dostępny dla formularzy&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Serwis - zaplecze/"back-end" aplikacji&lt;/h3&gt;
+&lt;p&gt;serwis (klasa z dekoratorem @Injectable) - wykonuje zadanie związane z komunikowaniem (np. pobieraniem) danych dla komponentów  - dostarcza dane, pomaga w ich analizie oraz przetwarzaniu. Serwis również wspomaga komunikację pomiędzy komponentami (serwisy HTTP, logowanie błędów, logowanie użytkowników) - pozwala na wstrzyknięcie providerów jako zależności do klasy&lt;/p&gt;
+&lt;p&gt;serwis zadeklarowany w app.module.ts jest dostępny dla całej aplikacji, natomiast jeśli zadeklarowany w dekoratorze poszczególnego komponentu to wówczas jest jedynie widoczny dla danego komponentu oraz jego dzieci.&lt;/p&gt;
+&lt;p&gt;Dekorator serwisu &lt;code&gt;@Injectable()&lt;/code&gt; przyjmuje jego metadane (podobnie jak &lt;code&gt;@Component&lt;/code&gt; w przypadku komponentu)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Zagadnienia zaawansowane - wyjaśnione w kolejnych postach&lt;/h2&gt;
+&lt;h4&gt;@Input @Output&lt;/h4&gt;
+&lt;p&gt;Dekoratory pozwalające na rozbicie logiki komponentu na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi&lt;/p&gt;
+&lt;p&gt;--&lt;/p&gt;
+&lt;h3&gt;Routing&lt;/h3&gt;
+&lt;p&gt;Routing pozwala na zdefiniowanie ścieżki nawigacji (pomiędzy stanami aplikacji)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;Injector/wtryskiwacz&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://www.tektutorialshub.com/angular/angular-injector-injectable-inject/"&gt;Angular Injector, @Injectable &amp;amp; @Inject&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.angular.love/2018/03/09/angular-injectiontoken/"&gt;Angular InjectionToken - www.angular.love&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;RxJS - asynchroniczność w serwisie&lt;/h4&gt;
+&lt;p&gt;Observable.subscribe() is the critical difference&lt;/p&gt;
+&lt;p&gt;The new version waits for the Observable to emit the array of heroes—which could happen now or several minutes from now. The subscribe() method passes the emitted array to the callback, which sets the component's heroes property.&lt;/p&gt;
+&lt;p&gt;This asynchronous approach will work when the HeroService requests heroes from the server.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://angular.io/tutorial/toh-pt4#observable-data"&gt;Observable data&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Instalacja Angular i stworzenie pierwszego projektu przy pomocy Angular CLI&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://malcoded.com/posts/angular-fundamentals-cli/"&gt;Angular CLI Cheat Sheet: The best Commands to boost your productivity&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ng - next generation (Angular reprezentuje kolejną generację HTML)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;npm install -g @angular/cli&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Użycie -&amp;gt; Stworzenie pierwszego projektu&lt;/p&gt;
+&lt;p&gt;:: Istotne: nazwa projektu nie może zaczynać się od liczby ani zawierać podkreślników lub myślników :::&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ng new PierwszyProjekt&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Odpowiedzenie na parę początkowych pytań&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;? Do you want to enforce stricter type checking and stricter bundle budgets in the workspace?&lt;/span&gt;
+&lt;span class="err"&gt;  This setting helps improve maintainability and catch bugs ahead of time.&lt;/span&gt;
+&lt;span class="err"&gt;  For more information, see https://angular.io/strict Yes&lt;/span&gt;
+&lt;span class="err"&gt;? Would you like to add Angular routing? No&lt;/span&gt;
+&lt;span class="err"&gt;? Which stylesheet format would you like to use? CSS&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Uruchomienie projektu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ng serve&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Zawartość folderu projektowego&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nazwaProjektu&lt;/span&gt;
+&lt;span class="err"&gt;    |&lt;/span&gt;
+&lt;span class="err"&gt;    |-e2e // testy end to end&lt;/span&gt;
+&lt;span class="err"&gt;    |-node modules // zależności&lt;/span&gt;
+&lt;span class="err"&gt;    |-src // zawiera projekt&lt;/span&gt;
+&lt;span class="err"&gt;    |-.editconfig // uniwersalna konfiguracja dla edytorów&lt;/span&gt;
+&lt;span class="err"&gt;    |-.gitignore &lt;/span&gt;
+&lt;span class="err"&gt;    |-.angular.json // główny plik konfiguracyjny dla projektu (budowanie, testowanie, skryptyścieżki...)&lt;/span&gt;
+&lt;span class="err"&gt;    |-browserslist // wspierane narzędzia dla przeglądarek&lt;/span&gt;
+&lt;span class="err"&gt;    |-karma.conf.js // konfiguracja testów&lt;/span&gt;
+&lt;span class="err"&gt;    |-package.json  // komendy CLI&lt;/span&gt;
+&lt;span class="err"&gt;    |-package-lock.json&lt;/span&gt;
+&lt;span class="err"&gt;    |-README.md&lt;/span&gt;
+&lt;span class="err"&gt;    |-tsconfig.app.json // konfiguracja TS dla aplikacji&lt;/span&gt;
+&lt;span class="err"&gt;    |-tsconfig.json // globalna konfiguracja TS dla workspace&lt;/span&gt;
+&lt;span class="err"&gt;    |-tsconfig.spec.json // TS do kompilowanie testów&lt;/span&gt;
+&lt;span class="err"&gt;    |-tslint.json // reguły dla TS&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;src&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nazwaProjektu&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        [...]&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        |-src // zawiera pliki aplikacji&lt;/span&gt;
+&lt;span class="err"&gt;        |   |&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-app // komponenty,serwisy&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-assests // statyczn pliki (fonty,obrazy)&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-environments // rozróżnienie pomiędzy środowiskiem developerskim a produkcyjnym&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-index.html //&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-main.ts // punkt startowy (nie zmieniany)&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-polyfills.ts // polifile dla angulara (zapewnia kompatybilność z przeglądarkami)&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-styles.ts // (style dla aplikacji)&lt;/span&gt;
+&lt;span class="err"&gt;        |   |-test.ts // konfiguracja testów&lt;/span&gt;
+&lt;span class="err"&gt;        |&lt;/span&gt;
+&lt;span class="err"&gt;        [...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Przykładowy projekt wykonany przy pomocy Angulara dostępny na stackblitz.com: &lt;a href="https://stackblitz.com/edit/angular-nstnfl?file=src/app/app.component.ts"&gt;angular-nstnfl&lt;/a&gt; źródło projektu &lt;a href="https://angular.io/start"&gt;Getting started with Angular&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Na zakończenie&lt;/h2&gt;
+&lt;h3&gt;Wtyczka dla Angulara&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd/related"&gt;&lt;strong&gt;Augury&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Glossary&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://angular.io/guide/glossary"&gt;Słownik z najważniejszymi pojęciami dla Angulara (ENG)&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://angular.io/guide/architecture"&gt;Introduction to Angular concepts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html"&gt;TypeScript - tsc CLI Options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://angular.io/guide/workspace-config"&gt;Angular workspace configuration&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/angular-kompletny-kurs"&gt;Udemy - Angular - kompletny kurs od podstaw - nowa edycja 2020&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://angular.io/guide/template-syntax"&gt;angular.io - template-syntax&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="angular"></category></entry></feed>

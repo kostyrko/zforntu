@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Użytkowanie Link do biblioteki jQuery należy umieścić w sekcji head strony internetowej, w tym celu można wykorzystać dostępny kod (jQuery Core – All Versions) i przekopiować go do opracowywanego projektu lub wykorzystać link CDN jQuery CDN – Latest Stable Versions Składania $ - znak dostępu do biblioteki jQuery selektory (np. ) - przeszukują dokument w celu …" />
+<meta name="keywords" content="jquery, javascript, js, css">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="JS: jQuery"/>
+<meta property="og:description" content="Użytkowanie Link do biblioteki jQuery należy umieścić w sekcji head strony internetowej, w tym celu można wykorzystać dostępny kod (jQuery Core – All Versions) i przekopiować go do opracowywanego projektu lub wykorzystać link CDN jQuery CDN – Latest Stable Versions Składania $ - znak dostępu do biblioteki jQuery selektory (np. ) - przeszukują dokument w celu …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/javascript-jquery.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-12-18 12:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="javascript"/>
+<meta property="article:tag" content="jquery"/>
+<meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="js"/>
+<meta property="article:tag" content="css"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; JS: jQuery</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="javascript-jquery">JS: jQuery</h1>
+    <p>
+      Opublikowano pią 18 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="jQuery" src="https://miro.medium.com/max/700/1*NeKYs9ypQ7jkalNxEX3t9Q.png"></p>
+<h3>Użytkowanie</h3>
+<p>Link do biblioteki jQuery należy umieścić w sekcji <code>head</code> strony internetowej, w tym celu można wykorzystać dostępny kod (<a href="https://code.jquery.com/jquery/">jQuery Core – All Versions</a>) i przekopiować go do opracowywanego projektu lub wykorzystać link CDN</p>
+<p><a href="https://code.jquery.com/">jQuery CDN – Latest Stable Versions</a></p>
+<h3>Składania</h3>
+<p><code>$</code> - znak dostępu do biblioteki jQuery</p>
+<p><code>selektory</code> (np. ) - przeszukują dokument w celu "złapania" określonego dokumentu</p>
+<p><code>metoda()</code> - metoda dostępna, operująca na elementach oznaczonych przez selektor</p>
+<p>np. <code>$("#id").action()</code> // ukryj ten element (bezpowrotnie)</p>
+<hr>
+<h3>Selektory</h3>
+<p>jQuery korzysta z selektorów znanych z JS/CSS i dodaje nowe w tym jeden b. istotny = <strong>this</strong></p>
+<table>
+<thead>
+<tr>
+<th>Selektor</th>
+<th>Funkcja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#</td>
+<td>wyszukuje element po id</td>
+</tr>
+<tr>
+<td>.</td>
+<td>wyszukuje element po klasie</td>
+</tr>
+<tr>
+<td>*</td>
+<td>wszystkie elementy</td>
+</tr>
+<tr>
+<td>this</td>
+<td>oznacza obecny element</td>
+</tr>
+<tr>
+<td>div/p</td>
+<td>wyszukuje dany znacznik html</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Filtr</th>
+<th>Zwracany element</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:first</td>
+<td>pierwszy element</td>
+</tr>
+<tr>
+<td>:last</td>
+<td>ostatni element</td>
+</tr>
+<tr>
+<td>:eq(indeks)</td>
+<td>konkretny element(indeks od 0)</td>
+</tr>
+<tr>
+<td>:odd</td>
+<td>nieparzyste elementy</td>
+</tr>
+<tr>
+<td>:even</td>
+<td>parzyste elementy</td>
+</tr>
+<tr>
+<td>:contains(tekst)</td>
+<td>element zawierający podany tekst</td>
+</tr>
+<tr>
+<td>:hidden</td>
+<td>elementy ukryte oraz input typu hidden</td>
+</tr>
+<tr>
+<td>:visible</td>
+<td>elementy widoczne</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td><strong>Selektory formularza</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>:text</td>
+<td>element input typu "text"</td>
+</tr>
+<tr>
+<td>:submit</td>
+<td>element input typu "submit"</td>
+</tr>
+<tr>
+<td>:checkbox</td>
+<td>element input typu "checkbox"</td>
+</tr>
+<tr>
+<td>:radio</td>
+<td>element input typu "radio"</td>
+</tr>
+<tr>
+<td>:input</td>
+<td>element typu input</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>zaznaczone pole opcji wyboru</td>
+</tr>
+<tr>
+<td>:selected</td>
+<td>element opcji wyboru</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://api.jquery.com/category/selectors/">Pełna lista selektorów</a></p>
+<hr>
+<h3>Zdarzenia</h3>
+<p>handler - proceruda obsługi wydarzenia</p>
+<table>
+<thead>
+<tr>
+<th>Zdarzenie</th>
+<th>Funkcja</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.bind()</td>
+<td>dołącz "procedurę obsługi"</td>
+<td></td>
+</tr>
+<tr>
+<td>.blur()</td>
+<td>usuwa focus z elementu do elementu</td>
+<td>$( "#target" ).blur()</td>
+</tr>
+<tr>
+<td>.change()</td>
+<td>powiązanie akcji ze zmianą</td>
+<td></td>
+</tr>
+<tr>
+<td>.click()</td>
+<td>powiązanie akcji z kliknięciem</td>
+<td></td>
+</tr>
+<tr>
+<td>.dblclick()</td>
+<td>owiązanie akcji z podwójnym kliknięciem</td>
+<td></td>
+</tr>
+<tr>
+<td>event.currentTarget</td>
+<td>wydobycie elementu DOM biorącego udział w wydarzeniu</td>
+<td></td>
+</tr>
+<tr>
+<td>event.data</td>
+<td>obiekt data biorący udział w wydarzeniu</td>
+<td></td>
+</tr>
+<tr>
+<td>event.delegateTarget</td>
+<td>element z delegowanym wydarzeniem</td>
+<td>$( event.delegateTarget ).css( "background-color", "red" );</td>
+</tr>
+<tr>
+<td>event.result</td>
+<td>ostatnia wartość zwrócona przez wydarzenie</td>
+<td></td>
+</tr>
+<tr>
+<td>event.target</td>
+<td>element DOM, który jest zainicjowany wydarzeniem</td>
+<td></td>
+</tr>
+<tr>
+<td>event.timeStamp</td>
+<td>moment w którym przeglądarka tworzy element liczony od 01.01.70</td>
+<td></td>
+</tr>
+<tr>
+<td>event.type</td>
+<td>określa typ wydarzenia</td>
+<td></td>
+</tr>
+<tr>
+<td>event.which</td>
+<td>wskazuje na klawisz lub przycisk myszy</td>
+<td></td>
+</tr>
+<tr>
+<td>.focus()</td>
+<td>skupienie</td>
+<td></td>
+</tr>
+<tr>
+<td>.focusin()/.focusout()</td>
+<td>skupienie na/po za</td>
+<td></td>
+</tr>
+<tr>
+<td>.mouseenter()/.mouseleave()</td>
+<td>najazd/wyjazd myszy</td>
+<td></td>
+</tr>
+<tr>
+<td>.off()</td>
+<td>usuwa procedurę obsługi wydarzenia</td>
+<td></td>
+</tr>
+<tr>
+<td>.on()</td>
+<td>dodaje procedurę obsługi wydarzenia</td>
+<td></td>
+</tr>
+<tr>
+<td>.one()</td>
+<td>dodanie obsługi wydarzenia, które zostanie wykonane jednokrotnie(na każdy element, wydarzenie)</td>
+<td></td>
+</tr>
+<tr>
+<td>.ready()</td>
+<td>włącza funkcję w momencie gdy DOM się w pełni załadował</td>
+<td></td>
+</tr>
+<tr>
+<td>.scroll()</td>
+<td>połączenie obsługi wydarzenia z pracą scrolla</td>
+<td></td>
+</tr>
+<tr>
+<td>.trigger()</td>
+<td>wykonanie obsługi wydarzeń oraz zachowań powiązanych z danym elementem dla danego typu wydarzenia</td>
+<td _input_.trigger_select_="$(&quot;input&quot;).trigger(&quot;select&quot;);">$("button").click(function()</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://api.jquery.com/category/events/?fbclid=IwAR0uu3uphSZSh1lVXrAZxfTxFPnD--5tC50LoJWBsqjH-u7X5vb_oN6-cPw">Pełna lista zdarzeń</a></p>
+<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="p">(</span><span class="n">document</span><span class="p">).</span><span class="n">ready</span><span class="p">(</span><span class="k">function</span><span class="p">()</span><span class="err">{</span> <span class="o">//</span> <span class="n">kiedy</span> <span class="n">załaduje</span> <span class="n">się</span> <span class="n">dokument</span>
+  <span class="err">$</span><span class="p">(</span><span class="ss">&quot;#hidden&quot;</span><span class="p">).</span><span class="n">hover</span><span class="p">(</span><span class="k">function</span><span class="p">()</span><span class="err">{</span> <span class="o">//</span> <span class="n">dla</span> <span class="n">elementu</span> <span class="n">z</span> <span class="n">id</span> <span class="n">hidden</span> <span class="n">jeśli</span> <span class="n">najedzie</span> <span class="n">się</span> <span class="n">myszką</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">this</span><span class="p">).</span><span class="n">css</span><span class="p">(</span><span class="ss">&quot;color&quot;</span><span class="p">,</span> <span class="ss">&quot;black&quot;</span><span class="p">);</span> <span class="o">//</span> <span class="n">dla</span> <span class="n">niego</span> <span class="n">zmień</span> <span class="n">css</span><span class="o">-&gt;</span><span class="n">kolor</span> <span class="n">na</span> <span class="n">czarny</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="k">function</span><span class="p">()</span> <span class="err">{</span> <span class="o">//</span> <span class="n">funkcja</span> <span class="n">zwrotna</span> <span class="o">-</span> <span class="k">to</span> <span class="n">w</span> <span class="n">niej</span> <span class="n">jest</span> <span class="n">wskazane</span> <span class="k">do</span> <span class="n">ma</span> <span class="n">się</span> <span class="n">wydarzyć</span> <span class="n">w</span> <span class="n">następnej</span> <span class="n">kolejności</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span> <span class="n">gdy</span> <span class="n">myszka</span> <span class="n">opuści</span> <span class="n">pole</span><span class="p">)</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">this</span><span class="p">).</span><span class="n">hide</span><span class="p">()</span> <span class="o">//</span> <span class="n">ukryj</span> <span class="n">ten</span> <span class="n">element</span> <span class="p">(</span><span class="n">bezpowrotnie</span><span class="p">)</span>
+  <span class="err">}</span><span class="p">);</span>
+
+  <span class="err">$</span><span class="p">(</span><span class="ss">&quot;button&quot;</span><span class="p">).</span><span class="n">click</span><span class="p">(</span><span class="k">function</span><span class="p">()</span><span class="err">{</span> <span class="o">//</span> <span class="n">po</span> <span class="n">naciśnięciu</span> <span class="n">dowolnego</span> <span class="n">przycisku</span>
+    <span class="n">alert</span><span class="p">(</span><span class="ss">&quot;I am alert!&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">pojawi</span> <span class="n">się</span> <span class="n">okno</span> <span class="n">ostrzeżenia</span> <span class="n">z</span> <span class="n">wpisaną</span> <span class="n">treścią</span>
+  <span class="err">}</span><span class="p">)</span>
+<span class="err">}</span><span class="p">)</span>
+</code></pre></div>
+
+
+<hr>
+<h3>Efekty</h3>
+<table>
+<thead>
+<tr>
+<th>Znacznik</th>
+<th>Zwracany element</th>
+<th>przykład</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.animate()</td>
+<td>animacja z elementami css</td>
+<td></td>
+</tr>
+<tr>
+<td>.delay()</td>
+<td>opóźnij wykonanie elementu</td>
+<td>$( "div.first" ).slideUp( 300 ).delay( 800 ).fadeIn( 400 )</td>
+</tr>
+<tr>
+<td>.fadeIn()</td>
+<td>pojawia się</td>
+<td></td>
+</tr>
+<tr>
+<td>.fadeOut()</td>
+<td>element niknie</td>
+<td></td>
+</tr>
+<tr>
+<td>.finish()</td>
+<td>skończ wykonanie wydarzenia/animacji</td>
+<td></td>
+</tr>
+<tr>
+<td>.hide()</td>
+<td>schowaj element</td>
+<td></td>
+</tr>
+<tr>
+<td>.queue()</td>
+<td>zakolejkuj wydarzenie/wywołanie funkcji</td>
+<td></td>
+</tr>
+<tr>
+<td>.show()</td>
+<td>pokaż element</td>
+<td></td>
+</tr>
+<tr>
+<td>.stop()</td>
+<td>przestań wywoływać animację</td>
+<td></td>
+</tr>
+<tr>
+<td>.toggle()</td>
+<td>pokaż lub ukryj dany element lub wywołaj funkcję, która...</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://api.jquery.com/category/effects/">Wszystkie efekty</a></p>
+<hr>
+<h3>CSS</h3>
+<table>
+<thead>
+<tr>
+<th>Znacznik</th>
+<th>Funkcja</th>
+<th>Przykład</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.addClass()</td>
+<td>dodaj klasę do elementu</td>
+<td></td>
+</tr>
+<tr>
+<td>.after()</td>
+<td>dodaj zawartość po elemencie</td>
+<td><code>$( "p" ).after(function() {return "&lt;div&gt;" + this.className + "&lt;/div&gt;";});</code></td>
+</tr>
+<tr>
+<td>.append()</td>
+<td>dodaje treść jako ostatnie dziecko</td>
+<td><code>$( ".container" ).append( $( "&lt;div id='object1'&gt;&lt;/div&gt;") );</code></td>
+</tr>
+<tr>
+<td>.before()</td>
+<td>dodaj zawartość przed elementem</td>
+<td></td>
+</tr>
+<tr>
+<td>.clone()</td>
+<td>sklonowanie elementu</td>
+<td><code>$( ".hello" ).clone().appendTo( ".goodbye" );</code></td>
+</tr>
+<tr>
+<td>.css()</td>
+<td>dodaj do właściwość CSS elementu</td>
+<td><code>$( this ).css( "background-color" )</code></td>
+</tr>
+<tr>
+<td>.hasClass()</td>
+<td>sprawdza czy element posiada konkretną klasę</td>
+<td></td>
+</tr>
+<tr>
+<td>.html()</td>
+<td>wstawienie treści html do elementu drzewa DOM</td>
+<td><code>$( "div.demo-container" ).html( "&lt;p&gt;All new content. &lt;em&gt;You bet!&lt;/em&gt;&lt;/p&gt;" );</code></td>
+</tr>
+<tr>
+<td>.innerHeight()</td>
+<td>zwraca wewnętrzną wysokość wskazanego elementu</td>
+<td></td>
+</tr>
+<tr>
+<td>.prop()</td>
+<td>zwraca wartość wskazanego elementu</td>
+<td></td>
+</tr>
+<tr>
+<td>.position()</td>
+<td>obecne koordynaty pierwszego elementu</td>
+<td></td>
+</tr>
+<tr>
+<td>.remove()</td>
+<td>usuwa wskazany element</td>
+<td><code>$( "div" ).remove( ".hello" );</code></td>
+</tr>
+<tr>
+<td>.removeAttr()</td>
+<td>usuwa atrybut z elementu</td>
+<td></td>
+</tr>
+<tr>
+<td>.removeClass()</td>
+<td>usuwa klasę ze wskazanego elementu</td>
+<td></td>
+</tr>
+<tr>
+<td>.replaceAll()</td>
+<td>podmień wszystkie spełniające warunek wskazanym argumentem</td>
+<td><code>$( "&lt;h2&gt;New heading&lt;/h2&gt;" ).replaceAll( ".inner" );</code></td>
+</tr>
+<tr>
+<td>.replaceWith()</td>
+<td>usuwa element DOM i w jego miejsce zdefiniowany jako arg.</td>
+<td><code>$( "div.second" ).replaceWith( "&lt;h2&gt;New heading&lt;/h2&gt;" );</code></td>
+</tr>
+<tr>
+<td>.toggleClass()</td>
+<td>usuwa lub "ukazuje" klasę</td>
+<td></td>
+</tr>
+<tr>
+<td>.wrap()</td>
+<td>opakowuje wskazany element innym</td>
+<td><code>$( ".inner" ).wrap( "&lt;div class='new'&gt;&lt;/div&gt;" );</code></td>
+</tr>
+<tr>
+<td>.wrapAll()</td>
+<td>opakowuje wszystkie elementy spełniające wskazany arg.</td>
+<td><code>$( ".inner" ).wrapAll( "&lt;div class='new' /&gt;");</code></td>
+</tr>
+<tr>
+<td>.wrapInner()</td>
+<td>wkłada element w inny element/wskazany jest jego opakowaniem</td>
+<td><code>$( ".inner" ).wrapInner( "&lt;div class='new'&gt;&lt;/div&gt;");</code></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://api.jquery.com/category/manipulation/">Manipulation</a></p>
+<hr>
+<h3>Przechodzenie po elementach DOM</h3>
+<table>
+<thead>
+<tr>
+<th>Znacznik</th>
+<th>Zwracany element</th>
+<th>przykład</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parent()</td>
+<td>rodzica</td>
+<td></td>
+</tr>
+<tr>
+<td>parents()</td>
+<td>wszystkich rodziców</td>
+<td></td>
+</tr>
+<tr>
+<td>parentsUntil()</td>
+<td>wszystkich rodziców aż do wybranego i wpisanego jako argument</td>
+<td></td>
+</tr>
+<tr>
+<td>children()</td>
+<td>dzieci (tylko 1 poziom)</td>
+<td></td>
+</tr>
+<tr>
+<td>find()</td>
+<td>znajdź element wprowadzony jako arg</td>
+<td _2px="&quot;2px" _border_:="&quot;border&quot;:" _red_="&quot;red&quot;," _ul_.find_span_.css_color_:="$(&quot;ul&quot;).find(&quot;span&quot;).css({&quot;color&quot;:" red_="red&quot;" solid>$(document).ready(function()</td>
+</tr>
+<tr>
+<td>siblings()</td>
+<td>rodzeństwo</td>
+<td></td>
+</tr>
+<tr>
+<td>next()</td>
+<td>kolejny element rodzeństwa</td>
+<td></td>
+</tr>
+<tr>
+<td>nextAll()</td>
+<td>wszystkie kolejne elementy/rodzeństwo</td>
+<td></td>
+</tr>
+<tr>
+<td>nextUntil()</td>
+<td>wszystkie koleje elementy rodzeństwa (aż do tego wpisanego w argument)</td>
+<td></td>
+</tr>
+<tr>
+<td>prev()</td>
+<td>poprzedni rodzeństwa</td>
+<td></td>
+</tr>
+<tr>
+<td>prevAll()</td>
+<td>wszystkie poprzednie elementy rodzeństwa</td>
+<td></td>
+</tr>
+<tr>
+<td>prevUntil()</td>
+<td>poprzednie elementy rodzeństwa do określonego (wpisanego jako arg.)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Źródła:</p>
+<p><a href="http://kurs.aspnetmvc.pl/JS/Skladnia_jquery">http://kurs.aspnetmvc.pl/</a></p>
+<p><a href="https://www.w3schools.com/jquery/default.asp">www.w3schools.com - jQuery Tutorial</a></p>
+<p><a href="https://jquery.com/">jquery.com</a></p>
+<p><a href="http://www.blackhouse.pl/wprowadzenie-do-jquery-selektory#.X9aADFNKjmE">Selektory JQuery - www.blackhouse.pl/</a></p>
+<p>YT</p>
+<p><a href="https://youtube.com/playlist?list=PLillGF-RfqbYJVXBgZ_nA7FTAAEpp_IAc">Traversy Media - jQuery Crash Course - 1,5h</a></p>
+<p><a href="https://www.youtube.com/watch?v=JjIvF0yikGU&amp;ab_channel=blondiebytes">Learn jQuery in 6 minutes | How to Use a JavaScript Library | Code in 5</a></p>
+<p>[Fireship - The Legend of jQuery in 100 Seconds](https://www.youtube.com/watch?v=UU-GebN</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/jquery.html">jquery</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

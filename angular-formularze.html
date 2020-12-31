@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Angular umożliwia stworzenie 2 rodzajów formularzy tzw. reaktywnych (reactive) oraz szablonowych (template-driven) Reaktywne formularze -zapewniają bezpośredni dostęp do obiektów modelu. Są bardziej skalowalne i łatwiejsze w ponownym użytkowaniu. [forma walidacji: funkcja, przewidywalność: synchroniczna, model danych: ustrukturyzowany i niezmienny] Szablonowe formularze - uzależnione są od dyrektyw w tworzeniu i manipulowaniu obiektu modelu …" />
+<meta name="keywords" content="angular">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Angular: formularze wstęp + reactive forms"/>
+<meta property="og:description" content="Angular umożliwia stworzenie 2 rodzajów formularzy tzw. reaktywnych (reactive) oraz szablonowych (template-driven) Reaktywne formularze -zapewniają bezpośredni dostęp do obiektów modelu. Są bardziej skalowalne i łatwiejsze w ponownym użytkowaniu. [forma walidacji: funkcja, przewidywalność: synchroniczna, model danych: ustrukturyzowany i niezmienny] Szablonowe formularze - uzależnione są od dyrektyw w tworzeniu i manipulowaniu obiektu modelu …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-formularze.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-12-23 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="angular"/>
+<meta property="article:tag" content="angular"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Angular: formularze wstęp + reactive forms</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="angular-formularze">Angular: formularze wstęp + reactive forms</h1>
+    <p>
+      Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <hr>
+<p><img alt="angular" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHghCEZH5gPt3yGwrsP2c5hHAFfEHgysQdxQ&amp;usqp=CAU"></p>
+<p>Angular umożliwia stworzenie 2 rodzajów formularzy tzw. <strong>reaktywnych</strong> (reactive) oraz <strong>szablonowych</strong> (template-driven)</p>
+<p><strong>Reaktywne formularze</strong> -zapewniają bezpośredni dostęp do obiektów modelu. Są bardziej skalowalne i łatwiejsze w ponownym użytkowaniu. [forma walidacji: funkcja, przewidywalność: synchroniczna, model danych: ustrukturyzowany i niezmienny]</p>
+<p><strong>Szablonowe formularze</strong> - uzależnione są od dyrektyw w tworzeniu i manipulowaniu obiektu modelu. Są proste w implementacji w przypadku małych form. [forma walidacji: dyrektywy, przewidywalność: asynchroniczna, model danych: nieustrukturyzowany i mutowalny]</p>
+<p>Zarówno formy <strong>reaktywne</strong> jak i <strong>szablonowe</strong> korzystają z poniższych klas, które stanowią o ich funkcjonowaniu</p>
+<p><strong>FormControl</strong> - śledzi wartość oraz status walidacji pojedynczego elementu formularza</p>
+<p><strong>FormGroup</strong> - śledzi wartości oraz status walidacji zbioru elementów formularza</p>
+<p><strong>FormArray</strong> - śledzi wartości oraz status zbioru walidacji tablicy zawierającej formularze</p>
+<p><strong>ControlValueAccessor</strong> - tworzy pomost pomiędzy instancjami Angular FormControl oraz natywnymi elementami drzewa DOM.</p>
+<hr>
+<p><strong>Przykład reactive form</strong> - model formularza jest bezpośrednio definiowany w klasie (wyraźny model formularza) -  dyrektywa [formControl] łączy instancję <strong>FormControl</strong>
+do konkretnego elementu formy (widoku) poprzez wewnętrzną wartość "akcesorium"  / <strong>model formularza jest źródłem prawdy</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">FormControl</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/forms&#39;</span><span class="p">;</span>
+
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;app-reactive-favorite-color&#39;</span><span class="p">,</span>
+  <span class="n">template</span><span class="p">:</span> <span class="err">`</span>
+    <span class="n">Favorite</span> <span class="n">Color</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="p">[</span><span class="n">formControl</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;favoriteColorControl&quot;</span><span class="o">&gt;</span>
+  <span class="err">`</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">FavoriteColorComponent</span> <span class="p">{</span>
+  <span class="n">favoriteColorControl</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FormControl</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>Przykład template-driven form</strong> - model formularza jest domniemany, dyrektywa NgModel tworzy i zarządza instancją FromControl dla danego elementu HTML / <strong>źródłem prawdy jest szablon html</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;app-template-favorite-color&#39;</span><span class="p">,</span>
+  <span class="n">template</span><span class="p">:</span> <span class="err">`</span>
+    <span class="n">Favorite</span> <span class="n">Color</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="p">[(</span><span class="n">ngModel</span><span class="p">)]</span><span class="o">=</span><span class="s2">&quot;favoriteColor&quot;</span><span class="o">&gt;</span>
+  <span class="err">`</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">FavoriteColorComponent</span> <span class="p">{</span>
+  <span class="n">favoriteColor</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Do przeczytania -&gt; Przepływ danych w formularzach: <a href="https://angular.io/guide/forms-overview#data-flow-in-forms">angular.io - Data flow in forms</a></p>
+<hr>
+<p><img alt="reactive-form" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSZShqRsNi1Z6zK-hmfGRqgEW9lU1D8y5qgA&amp;usqp=CAU"></p>
+<h3>Reaktywne formularze</h3>
+<p>1 - Postawowy formularz reaktywny</p>
+<p>Importowanie modułu ReactiveFormsModule do app.module.ts</p>
+<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/app.module.ts"></script>
+
+<p>Komponent name-editor -&gt; name-editor.component.ts</p>
+<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/name-editor/name-editor.component.ts
+"></script>
+
+<p>name-editor.component.html</p>
+<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/name-editor/name-editor.component.html"></script>
+
+<p>2- Zarządzanie formularzem z wieloma elementami oraz zagnieżdżone formularze</p>
+<p>Zarządzanie <strong>wieloma instancjami</strong> Kontroli Formularza (<strong>form control</strong>) w pojedynczej grupie -&gt; wykorzystanie <code>FormGroup</code></p>
+<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor/profile-editor.component.ts"></script>
+
+<script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor/profile-editor.component.html"></script>
+
+<p>Przykładowy zwracany obiekt -&gt; </p>
+<div class="highlight"><pre><span></span><code><span class="err">{firstName: &quot;mike &quot;, lastName: &quot;tyson&quot;, address: {street: &quot;uluru&quot;, city: &quot;rock&quot;, state: &quot;tn&quot;, zip: &quot;0000&quot;}}</span>
+</code></pre></div>
+
+
+<p>Istnieją dwa sposoby na aktualizację wartości:</p>
+<p><strong>setValue()</strong> - zmienia całą wartość w odniesieniu do struktury grupy formularza</p>
+<p><strong>patchValue()</strong> - zmienia właściwość zdefiniowaną w obiekcie, który uległ zmianie w modelu formularza</p>
+<p><strong>setValue()</strong> pozwala na przechwycenie błędów w złożonych formularzach, podczas gdy <strong>patchValue</strong> nie przekazuje o nich informacji/nie reaguje na nie.</p>
+<p>3 - Tworzenie formularza przy pomocy <strong>FormBuildera</strong> + Walidacja</p>
+<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-form-builder/profile-editor-form-builder.component.ts"></script>
+
+<p>Szablon HTML z dodaną walidacją</p>
+<script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-form-builder/profile-editor-form-builder.component.html"></script>
+
+<p>4 - Dynamicznie modyfikowany formularz przy pomocy FromArray (alternatywa dla FromGroup)</p>
+<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-dynamic-form/profile-editor-dynamic-form.component.ts"></script>
+
+<p>Szablon HTML wykorzystujący <strong>*ngFor</strong></p>
+<script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-dynamic-form/profile-editor-dynamic-form.component.html"></script>
+
+<p>Przykładowe dane zwrotne -&gt; </p>
+<div class="highlight"><pre><span></span><code><span class="c">Value: { &quot;firstName&quot;: &quot;Mike&quot;, &quot;lastName&quot;: &quot;Tyson&quot;, &quot;address&quot;: { &quot;street&quot;: &quot;Bronson&quot;, &quot;city&quot;: &quot;Tyson City&quot;, &quot;state&quot;: &quot;Nebula&quot;, &quot;zip&quot;: &quot;0000&quot; }, &quot;aliases&quot;: [ &quot;mike@tyson.usa&quot;, &quot;tyson@usa.mike&quot;, &quot;bronson@tyson.mike&quot; ] }</span>
+</code></pre></div>
+
+
+<hr>
+<p>Istotne/dalsze informacje:</p>
+<p>więcej na temat walidacji formularzy można dowiedzieć się tutaj <a href="https://angular.io/guide/form-validation">angular.io Validating form input</a></p>
+<p>Lista Klas oraz Dyrektyw formularza Angular.io <a href="https://angular.io/guide/reactive-forms#reactive-forms-api-summary">reactive-forms-api</a></p>
+<hr>
+<p>Źródła:</p>
+<p><a href="https://angular.io/guide/reactive-forms">angular.io - Reactive forms</a></p>
+<p><a href="https://angular.io/guide/forms-overview">angular.io - forms overview</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

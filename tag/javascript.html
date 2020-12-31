@@ -131,6 +131,125 @@
 
 <article>
   <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/javascript-formularze.html">JavaScript: formularze</a></h2>
+    <p>
+      Opublikowano czw 31 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="java-script-formularz" src="https://www.proformat.pl/wp-content/uploads/U%C5%BCyteczny-formularz-kontaktowy.jpg"></p>
+<h2>Formularz</h2>
+<p>"Łapanie" formularza na 2 sposoby = poprzez odwołanie się do forms lub poprzez "klasyczne" selektory</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">firstForm1</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">firstForm2</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s2">&quot;form&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3>Właściwości formularza (wybrane)</h3>
+<table>
+<thead>
+<tr>
+<th>właściwość formularza</th>
+<th>funkcja</th>
+<th>Przykład zastosowania</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>formularz.elements</td>
+<td>"zwraca kolekcję kontrolek zawartych" w formularzu</td>
+<td>firstForm1.elements</td>
+</tr>
+<tr>
+<td>formularz.length</td>
+<td>"zwraca ilość kontrolek" w formularzu …</td></tr></tbody></table>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/javascript-formularze.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-bootstrap.html">Angular + Bootstrap</a></h2>
+    <p>
+      Opublikowano wto 29 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular-bootstrap" src="https://therichpost.com/wp-content/uploads/2020/11/Add-Bootstrap-in-Angular-11.png"></p>
+<h3>Angular + Bootstrap</h3>
+<p><a href="https://ng-bootstrap.github.io/#/home">ng-bootstrap</a></p>
+<h3>Instalacja</h3>
+<div class="highlight"><pre><span></span><code><span class="err">ng add @ng-bootstrap/ng-bootstrap</span>
+</code></pre></div>
+
+
+<h3>Setup</h3>
+<p>AppComponent
+    import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">class</span> <span class="n">AppComponent</span> <span class="p">{</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">ngbConfig</span><span class="p">:</span> <span class="n">NgbConfig</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ngbConfig</span><span class="o">.</span><span class="n">animation</span> <span class="o">=</span> <span class="bp">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h3>Przykład zastosowania (Nav)</h3>
+<p><strong>ts - basic nav</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span><span class="n">Component</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;ngbd-nav-basic&#39;</span><span class="p">,</span>
+  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./nav-basic.html&#39;</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">NgbdNavBasic</span> <span class="p">{</span>
+  <span class="n">active</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>html - basic-nav</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">ul</span><span class="w"> </span><span class="n">ngbNav …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-bootstrap.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/javascript-jquery.html">JS: jQuery</a></h2>
+    <p>
+      Opublikowano pią 18 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/jquery.html">jquery</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="jQuery" src="https://miro.medium.com/max/700/1*NeKYs9ypQ7jkalNxEX3t9Q.png"></p>
+<h3>Użytkowanie</h3>
+<p>Link do biblioteki jQuery należy umieścić w sekcji <code>head</code> strony internetowej, w tym celu można wykorzystać dostępny kod (<a href="https://code.jquery.com/jquery/">jQuery Core – All Versions</a>) i przekopiować go do opracowywanego projektu lub wykorzystać link CDN</p>
+<p><a href="https://code.jquery.com/">jQuery CDN – Latest Stable Versions</a></p>
+<h3>Składania</h3>
+<p><code>$</code> - znak dostępu do biblioteki jQuery</p>
+<p><code>selektory</code> (np. ) - przeszukują dokument w celu …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/javascript-jquery.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://kostyrko.github.io/zfrontu/js-fetch-api.html">JavaScript i  Fetch API</a></h2>
     <p>
       Opublikowano pon 20 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
@@ -499,104 +618,6 @@ Lokalna pamięć przeglądarki działa w sposób synchroniczny (odpowiada na zap
 <p><strong><code>.addEventListener(wydarzenie, funkcja-przekazana-do-wywołania)</code></strong> - ta metoda przyjmuje dwa argumenty rodzaj 1) rodzaj wydarzenia np. 'click' (kliknięcie myszy) oraz 2) funkcję jaka ma się wywołać w momencie jego …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/js-wydarzenia-dom-1.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/js-dom-manipulowanie-elementami.html">JavaScript i DOM - tworzenie, usuwanie i pozyskiwanie informacji z elementów</a></h2>
-    <p>
-      Opublikowano sob 02 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/selektory.html">selektory</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dom.html">dom</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/elementy-dom.html">elementy dom</a>
-        &#8226; 3 min read
-    </p>
-  </header>
-  <div>
-      <h3>DOMContentLoaded</h3>
-<p>Na początek warto pamiętać o wydarzeniu <code>DOMContentLoaded</code> - nasłuchuje przeładowania przeglądarki -&gt; pozwala na wywołanie funkcji zmieniającej elementy DOM w momencie załadowania całości drzewa DOM (jest to istotne w momencie gdy plik zawierający skrypt js jest podlinkowany w <head> zamiast po </body>)</p>
-<p>Przykładowe zastosowanie "zamknięcie" zmian w bloku/funkcji -&gt; w momencie przeładowania przeglądarki …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-dom-manipulowanie-elementami.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/js-dom-elementy-selektory.html">JavaScript - selektory DOM</a></h2>
-    <p>
-      Opublikowano sob 02 maja 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/selektory.html">selektory</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/dom.html">dom</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/elementy-dom.html">elementy dom</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/sibling.html">sibling</a>
-        &#8226; 2 min read
-    </p>
-  </header>
-  <div>
-      <p>DOM - document object model</p>
-<h3>Selektory pojedynczych elementów</h3>
-<table>
-<thead>
-<tr>
-<th>selektor</th>
-<th>funkcja</th>
-<th>przykładowe zastosowanie</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>document.getElementById()</code></td>
-<td>zwraca element w podanym Id</td>
-<td><code>document.getElementById('button-4')</code></td>
-</tr>
-<tr>
-<td><code>document.querySelector()</code></td>
-<td>zwraca pierwszy element spełniający podany warunek/ wpisany składnią znaną z CSS</td>
-<td><code>document.getElementById('#button-4')</code></td>
-</tr>
-</tbody>
-</table>
-<p>:::Istnieje możliwość łączenia selektorów z atrybutami :::</p>
-<p>Przykładowe zastosowanie</p>
-<p><code>document.getElementById('button-4').className</code> // zwraca …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-dom-elementy-selektory.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/js-obiekt-window-document.html">JavaScript - obiekt window i document</a></h2>
-    <p>
-      Opublikowano czw 30 kwietnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/window.html">window</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/document.html">document</a>
-        &#8226; 2 min read
-    </p>
-  </header>
-  <div>
-      <p>Obiekt <em>document</em> jest częścią obiektu <em>window</em> i został opisany poniżej. Wybrane metody obiektu window (globalny) -&gt;</p>
-<h3>Window</h3>
-<p><code>alert()</code> - pokazuje się okienko z ostrzeżeniem</p>
-<div class="highlight"><pre><span></span><code><span class="err">window.alert(&#39;Hello world&#39;)</span>
-</code></pre></div>
-
-
-<p>lub po prostu</p>
-<p>alert('Hello world')</p>
-<p><code>prompt()</code> - wyskakuje okienko z informacją</p>
-<p><code>confirm()</code> - przyjmuje parametr</p>
-<div class="highlight"><pre><span></span><code><span class="err">if(confirm(&#39;Are you sure?&#39;)) {</span>
-<span class="err">  console.log(&#39;Yes)</span>
-<span class="err">}</span>
-</code></pre></div>
-
-
-<p><code>window.outerHeight …</code></p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/js-obiekt-window-document.html">Czytaj dalej</a>
   </div>
 </article>
 

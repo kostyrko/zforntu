@@ -131,17 +131,221 @@
 
 <article>
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-antd.html">Ant Design: Form</a></h2>
+    <h2><a href="https://kostyrko.github.io/zfrontu/javascript-formularze.html">JavaScript: formularze</a></h2>
     <p>
-      Opublikowano wto 01 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/react.html">react</a>
+      Opublikowano czw 31 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
           &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="java-script-formularz" src="https://www.proformat.pl/wp-content/uploads/U%C5%BCyteczny-formularz-kontaktowy.jpg"></p>
+<h2>Formularz</h2>
+<p>"Łapanie" formularza na 2 sposoby = poprzez odwołanie się do forms lub poprzez "klasyczne" selektory</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">firstForm1</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">const</span> <span class="n">firstForm2</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s2">&quot;form&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3>Właściwości formularza (wybrane)</h3>
+<table>
+<thead>
+<tr>
+<th>właściwość formularza</th>
+<th>funkcja</th>
+<th>Przykład zastosowania</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>formularz.elements</td>
+<td>"zwraca kolekcję kontrolek zawartych" w formularzu</td>
+<td>firstForm1.elements</td>
+</tr>
+<tr>
+<td>formularz.length</td>
+<td>"zwraca ilość kontrolek" w formularzu …</td></tr></tbody></table>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/javascript-formularze.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-bootstrap.html">Angular + Bootstrap</a></h2>
+    <p>
+      Opublikowano wto 29 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular-bootstrap" src="https://therichpost.com/wp-content/uploads/2020/11/Add-Bootstrap-in-Angular-11.png"></p>
+<h3>Angular + Bootstrap</h3>
+<p><a href="https://ng-bootstrap.github.io/#/home">ng-bootstrap</a></p>
+<h3>Instalacja</h3>
+<div class="highlight"><pre><span></span><code><span class="err">ng add @ng-bootstrap/ng-bootstrap</span>
+</code></pre></div>
+
+
+<h3>Setup</h3>
+<p>AppComponent
+    import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">class</span> <span class="n">AppComponent</span> <span class="p">{</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">ngbConfig</span><span class="p">:</span> <span class="n">NgbConfig</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ngbConfig</span><span class="o">.</span><span class="n">animation</span> <span class="o">=</span> <span class="bp">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h3>Przykład zastosowania (Nav)</h3>
+<p><strong>ts - basic nav</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span><span class="n">Component</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;ngbd-nav-basic&#39;</span><span class="p">,</span>
+  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./nav-basic.html&#39;</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">NgbdNavBasic</span> <span class="p">{</span>
+  <span class="n">active</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>html - basic-nav</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">ul</span><span class="w"> </span><span class="n">ngbNav …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-bootstrap.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-routing.html">Angular: routing - podstawy</a></h2>
+    <p>
+      Opublikowano nie 27 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
         &#8226; 1 min read
     </p>
   </header>
   <div>
+      <hr>
+<p><img alt="angular" src="https://blog.knoldus.com/wp-content/uploads/2020/05/Angular-Routing.png"></p>
+<p>Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji</p>
+<p>1 - należy zaimportować <strong>RouterModule</strong> w <strong>app.module.ts</strong> oraz w importach go zastosować łącznie z metodą <strong>forRoot()</strong>, która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-routing.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-formularze.html">Angular: formularze wstęp + reactive forms</a></h2>
+    <p>
+      Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <hr>
+<p><img alt="angular" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHghCEZH5gPt3yGwrsP2c5hHAFfEHgysQdxQ&amp;usqp=CAU"></p>
+<p>Angular umożliwia stworzenie 2 rodzajów formularzy tzw. <strong>reaktywnych</strong> (reactive) oraz <strong>szablonowych</strong> (template-driven)</p>
+<p><strong>Reaktywne formularze</strong> -zapewniają bezpośredni dostęp do obiektów modelu. Są bardziej skalowalne i łatwiejsze w ponownym użytkowaniu. [forma walidacji: funkcja, przewidywalność: synchroniczna, model danych: ustrukturyzowany i niezmienny]</p>
+<p><strong>Szablonowe formularze</strong> - uzależnione są od dyrektyw w tworzeniu i manipulowaniu obiektu modelu …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-formularze.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Angular: wprowadzenie</a></h2>
+    <p>
+      Opublikowano wto 22 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+        &#8226; 9 min read
+    </p>
+  </header>
+  <div>
+      <hr>
+<p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
+<h3>Angular wprowadzenie</h3>
+<p>Angular został napisany w TypeScript</p>
+<p>Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/javascript-jquery.html">JS: jQuery</a></h2>
+    <p>
+      Opublikowano pią 18 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/jquery.html">jquery</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="jQuery" src="https://miro.medium.com/max/700/1*NeKYs9ypQ7jkalNxEX3t9Q.png"></p>
+<h3>Użytkowanie</h3>
+<p>Link do biblioteki jQuery należy umieścić w sekcji <code>head</code> strony internetowej, w tym celu można wykorzystać dostępny kod (<a href="https://code.jquery.com/jquery/">jQuery Core – All Versions</a>) i przekopiować go do opracowywanego projektu lub wykorzystać link CDN</p>
+<p><a href="https://code.jquery.com/">jQuery CDN – Latest Stable Versions</a></p>
+<h3>Składania</h3>
+<p><code>$</code> - znak dostępu do biblioteki jQuery</p>
+<p><code>selektory</code> (np. ) - przeszukują dokument w celu …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/javascript-jquery.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/css-bootstrap.html">Bootstrap: wprowadzenie + formularze</a></h2>
+    <p>
+      Opublikowano śro 16 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/css.html">css</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>
+        &#8226; 5 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="css-bootstrap" src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/bootstrap-5.jpg"></p>
+<p><a href="https://getbootstrap.com/">Bootstrap</a> - jest biblioteką CSSwą Twittera, jej możliwości oparte są na 3 podstawowych cechach 1) responsywnym układzie (opartym na grid + flex) strony 2) na elementach, z których może powstać strona (np. formularze, komponenty(np. buttons, carousel, dropdowns, navs), oraz narzędziach(np. scrollspy, tooltips)) - stworzonych z html/css/js (dla v &lt; 5 …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/css-bootstrap.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/react-antd.html">Ant Design: Form</a></h2>
+    <p>
+      Opublikowano sob 12 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/react.html">react</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
       <p><img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"></p>
+<h2>&gt;&gt;[Wstępny zarys/szkielet]&lt;&lt;</h2>
 <h3>Tworzenie projektu przy pomocy CRA + instalacja ANTD</h3>
 <p>Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba</p>
 <p>Stworzenie projektu</p>
@@ -154,10 +358,61 @@
 </code></pre></div>
 
 
-<p>Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App.css</p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">App</span><span class="o">.</span><span class="n">css …</span></code></pre></div>
+<p>Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/react-antd.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/react-css-moduly.html">React: modułowy CSS (CSS Modules)</a></h2>
+    <p>
+      Opublikowano sob 05 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/react.html">react</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/radium.html">radium</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/styled-components.html">styled components</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/styled-components.html">styled-components</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/css-modules.html">css modules</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <hr>
+<p><img alt="css-modules" src="https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png"></p>
+<p>Kolejnym sposobem na indywidualne stylowanie komponentów lub jego elementów w React są <a href="https://github.com/css-modules/css-modules">CSS Modules</a>, który oparty jest na rozgraniczeniu warstwy CSS do osobnego pliku, następnie zaimportowania go do pliku zawierającego komponent i wykorzystywania tego importu (obiektu) w oparciu o przypisane do niego style, traktowane jako moduły.</p>
+<p>W takim ujęciu style …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-css-moduly.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/react-radium-styled-components.html">React: Styled Components oraz Radium</a></h2>
+    <p>
+      Opublikowano pią 04 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/react.html">react</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/radium.html">radium</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/styled-components.html">styled components</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/styled-components.html">styled-components</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/css-modules.html">css modules</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="react-styled-components" src="https://www.styled-components.com/atom.png"></p>
+<h3>Styled components</h3>
+<p>Biblioteka styled components po wyrenderowaniu nadaje własne nazwy klas, a informację przechowuje w <strong>head</strong> dokumentu, nie jest to zatem styl inlinowy.</p>
+<p><strong>Instalacja</strong></p>
+<div class="highlight"><pre><span></span><code><span class="err">  npm i --save styled-components</span>
+</code></pre></div>
+
+
+<p><strong>1</strong> - Import np. w App.js</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">styled</span> <span class="nn">from</span> <span class="s1">&#39;styled-components&#39;</span>
+</code></pre></div>
+
+
+<p><strong>2</strong> - Użytkowanie odwołanie się do metod obiektu <code>styled</code> np. div, h1 etc …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-radium-styled-components.html">Czytaj dalej</a>
   </div>
   <hr />
 </article>
@@ -212,7 +467,7 @@
 </article>
 <article>
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-proste-przyklady.html">TypeScript: proste przykłady</a></h2>
+    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-migracja-js-ts.html">Migracja z JS do TS</a></h2>
     <p>
       Opublikowano czw 26 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
 
@@ -223,11 +478,12 @@
   </header>
   <div>
       <p><img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"></p>
-<h3>Przykład 1 - deklarowanie typów</h3>
-<p>1.1. Number
-TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdefiniowanego typu number (po transpilacji w JS (TS jej nie zablokuje) problem nie będzie sygnalizowany i wynik będzie wynosił "12" /np. zamiast oczekiwanego 3) - wynika to ze statycznego i dynamicznego …</p>
+<h3>Migracja z JS do TS</h3>
+<h4>Przykład 1 - deklarowanie typów</h4>
+<p>1.1. Funkcja definiująca argumenty jako typ Number
+TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdefiniowanego typu number (po transpilacji w JS (TS jej nie zablokuje) problem nie będzie sygnalizowany i wynik będzie wynosił "12 …</p>
         <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/typescript-proste-przyklady.html">Czytaj dalej</a>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/typescript-migracja-js-ts.html">Czytaj dalej</a>
   </div>
   <hr />
 </article>
@@ -415,205 +671,6 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 <span class="err">        |_ {actions …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/redux-prosty-przyklad.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/redux-wprowadzenie.html">Redux: wprowadzenie</a></h2>
-    <p>
-      Opublikowano pią 06 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/redux.html">redux</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/redux.html">redux</a>
-        &#8226; 3 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="redux-logo" src="https://chriscourses.com/img/blog/redux/redux.jpg"></p>
-<h2>Redux - kontener stanu</h2>
-<p>Redux jest biblioteką do zarządzania stanem dla całej aplikacji ("kontenerem stanu") w sposób ponadkomponentowy (współpracuje min. z Reactem oraz Angularem)</p>
-<p>Poniżej opiszę parę kluczowych pojęć do pracy z Reduxem</p>
-<hr>
-<h3>Store - miejsce przechowywania stanu</h3>
-<p>Store (przechowalnia) - jest obiektem przechowującym stan aplikacji i jest tworzony przez reduktora/reducera</p>
-<p>Store …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/redux-wprowadzenie.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-gh-pages.html">React i GitHub Pages</a></h2>
-    <p>
-      Opublikowano śro 04 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
-        &#8226; 2 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="react" src="https://res.cloudinary.com/practicaldev/image/fetch/s--klrLsGeS--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://completejavascript.com/wp-content/uploads/2018/08/tao-va-deploy-ung-dung-react-len-github-pages-create-react-app-completejavascript.com_.png"></p>
-<p><strong>Wymagania wstępne:</strong> git, GitHub, Create React App, Node.js, NPM</p>
-<p>Poniżej wypunktuje jak w prosty sposób można opublikować na GitHub-Pages swoją aplikację reactową stworzoną przy pomocy narzędzia Create React App </p>
-<p><strong>!</strong> W pierwszej kolejności warto ustawić środowisko Routera aby dopasowało się do hostującego środowiska (PUBLIC_URL zostanie podstawione przez ścieżkę absolutną folderu …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-gh-pages.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/ubuntu-czyszczenie.html">Ubuntu zwalnianie i przenoszczenie pamięci</a></h2>
-    <p>
-      Opublikowano śro 14 października 2020 w <a href="https://kostyrko.github.io/zfrontu/category/ubuntu.html">ubuntu</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/ubuntu.html">ubuntu</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/linux.html">linux</a>
-        &#8226; 2 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="ubuntu 20" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Desktop_Ubuntu_20.04.png"></p>
-<p>W tym artykule znajdzie się opis podstawowych kroków, które można wykonać w celu zwolnienia miejsca pracę systemu (Ubuntu)</p>
-<p>Podstawowym narzędziem, z którego korzystam jest <strong>Disk Usage Analyzer</strong>, które wizualizuje rozkład oraz zużycie miejsca na poszczególne foldery/aplikacje. U mnie w tym momencie najwięcej miejsca zajmuje anaconda3 - 4,6gb (tj 10 …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/ubuntu-czyszczenie.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-sourceMap.html">React: Create React App i sourceMap w trakcie produkcji</a></h2>
-    <p>
-      Opublikowano pią 18 września 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/sourcemap.html">sourceMap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/create-react-app.html">Create React App</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/crp.html">CRP</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="react" src="https://user-images.githubusercontent.com/27288406/47966049-b13a5700-e056-11e8-808e-45f2ffd4719c.png"></p>
-<p>Jedną z moich ulubionych wtyczek w Gulpie/Webpacku bez wątpienia jest ta przy pomocy której jestem wstanie w szybki sposób dojść do tego, w którym pliku/linijce znajduje się frapująca mnie deklaracja stylu -&gt; <strong>sourceMap</strong></p>
-<p>Wykorzystując opcję tworzenia aplikacji przy pomocy narzędzie Create React App nie mamy jednak możliwości skorzystania z …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-sourceMap.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-routing.html">React: routing</a></h2>
-    <p>
-      Opublikowano pon 14 września 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
-        &#8226; 3 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="react" src="https://www.educative.io/api/page/4807683539468288/image/download/5379198832082944"></p>
-<p>Routing - "ścieżkowanie", rozpoznawanie na podstawie ścieżki zasobów jaki serwer może zwrócić, inaczej to określając jest procesem rozpoznawania zasobów serwera</p>
-<p>React Router jest tzw <strong>high order component</strong> i dostarcza nam szereg innych komponentów, które można wykorzystać w trakcie tworzenia nawigacji tworzonej aplikacji</p>
-<div class="highlight"><pre><span></span><code><span class="err">    HashRouter lub BrowserRouter - główny komponent &quot;opakowujący&quot; nawigację</span>
-<span class="err">    Route, - komponent …</span></code></pre></div>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-routing.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-cra.html">React: create APP</a></h2>
-    <p>
-      Opublikowano czw 10 września 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="react" src="https://create-react-app.dev/img/logo.svg"></p>
-<p>Przy pomocy Create React APP oraz jednej komendy tworzymy repopozytorium z szkielet aplikacji, instalacją zależności oraz <strong>inicjalizujemy git</strong></p>
-<div class="highlight"><pre><span></span><code><span class="err">npx create-react-app &lt;nazwa-aplikacji/projektu&gt;</span>
-</code></pre></div>
-
-
-<p>Jeśli chcemy wypushować do GitHuba to odwiedzamy własne konto tworzymy nowe repo nadajemy mu nazwę (licencję, readme i inne informacje pomijamy) następnie kopiujemy link do wypuszowania (wyprzchnięcia na …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-cra.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-kontekst.html">React: kontekst</a></h2>
-    <p>
-      Opublikowano nie 30 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/props-drilling.html">props-drilling</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/kompozycja.html">kompozycja</a>
-        &#8226; 3 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="react" src="https://codesource.io/wp-content/uploads/2019/12/Getting-Started-with-React-Context-API-950x500.png"></p>
-<h3>Context API</h3>
-<p>Kontekst/<em>Context API</em> pozwala komponentowi na pozyskanie danych z <strong>kontekstu</strong> a <strong>nie</strong> przez <strong>props</strong> poprzez tworzenie <em>globalnych</em> danych dostępnych dla całości drzewa komponentu [innymi słowy uniknięcia sytuacji, w której przekazujemy informację do wielowarstwowo-zagnieżdżonego komponentu przez wiele pośredniczących komponentów (tzn. przez każdy poziom struktury)].
-Na jakiego typu danych może …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-kontekst.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-kompozycja.html">React: kompozycja</a></h2>
-    <p>
-      Opublikowano sob 29 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/props-drilling.html">props-drilling</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/kompozycja.html">kompozycja</a>
-        &#8226; 2 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="react-kompozycja" src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhp38MJ0--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/1cjigsdjmgz5j8lohlch.png"></p>
-<p><code>props.children</code> pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu</p>
-<p>Komponent otwarty na ew. rozszerzenia o nową treść</p>
-<div class="highlight"><pre><span></span><code>function TestComposition(props) {
-  let {children} = props;
-  return (<span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
-      {children …</code></pre></div>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-kompozycja.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html">React: warunkowe renderowanie</a></h2>
-    <p>
-      Opublikowano śro 26 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/formularze.html">formularze</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
-        &#8226; 2 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="react" max-height="300px" src="https://daqxzxzy8xq3u.cloudfront.net/wp-content/uploads/2019/06/29192442/react-conditional-types.jpg"></p>
-<p>Warunkowe renderowanie pozwala na zmianie zachowania się komponentu w zależności od informacji zawartych w stanie komponentu lub w propsie. Jest parę prostych zasad, o których warto pamiętać w tym kontekście.</p>
-<p>W zależności od złożoności sytuacji, w której chcemy wykorzystać warunkowe renderowanie możemy:</p>
-<p>1) wykorzystać operator trójargumentowy w formie in-linowej walidacji …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html">Czytaj dalej</a>
   </div>
 </article>
 

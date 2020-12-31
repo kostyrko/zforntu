@@ -50,17 +50,17 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Tworzenie projektu przy pomocy CRA + instalacja ANTD Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba Stworzenie projektu npx create-react-app antd_form Dodanie zależności -&gt; antd npm add antd Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App.css // App.css …" />
+<meta name="description" content="&gt;&gt;[Wstępny zarys/szkielet]&lt;&lt; Tworzenie projektu przy pomocy CRA + instalacja ANTD Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba Stworzenie projektu npx create-react-app antd_form Dodanie zależności -&gt; antd npm add antd Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App …" />
 <meta name="keywords" content="react">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="Ant Design: Form"/>
-<meta property="og:description" content="Tworzenie projektu przy pomocy CRA + instalacja ANTD Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba Stworzenie projektu npx create-react-app antd_form Dodanie zależności -&gt; antd npm add antd Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App.css // App.css …"/>
+<meta property="og:description" content="&gt;&gt;[Wstępny zarys/szkielet]&lt;&lt; Tworzenie projektu przy pomocy CRA + instalacja ANTD Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba Stworzenie projektu npx create-react-app antd_form Dodanie zależności -&gt; antd npm add antd Zaimportowanie do App.js odpowiedniego komponentu oraz CSS do App …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-antd.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-12-01 10:00:00+01:00"/>
+<meta property="article:published_time" content="2020-12-12 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
 <meta property="article:section" content="react"/>
@@ -141,15 +141,16 @@
       
     <h1 id="react-antd">Ant Design: Form</h1>
     <p>
-      Opublikowano wto 01 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/react.html">react</a>
+      Opublikowano sob 12 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/react.html">react</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
 
   <div>
     <p><img alt="antd-logo" src="https://miro.medium.com/max/1000/1*fyrm-nSWAyxa5_m78mTq2g.png"></p>
+<h2>&gt;&gt;[Wstępny zarys/szkielet]&lt;&lt;</h2>
 <h3>Tworzenie projektu przy pomocy CRA + instalacja ANTD</h3>
 <p>Ant Design jest biblioteką do stylowania komponentów Reactowych (współpracuje również z VUE oraz Angularem (NG-ZORRO)) utrzymywana przez Grupę Alibaba</p>
 <p>Stworzenie projektu</p>
@@ -190,14 +191,64 @@
 <h3>ANT DESIGN PRO</h3>
 <p><em>ANT DESIGN PRO</em> jest biblioteką UI należącą do ANT DESIGN reklamującą się jako rozwiązanie dla projektów komercyjnych (przedsiębiorczych/enterprise), ale z dalszego jej opisu możemy się dowiedzieć, że została stworzona pod kątem interfejsów adminowskich.</p>
 <hr>
+<h3>Pozycjonowanie elementów</h3>
+<h4>Siatka - Grid</h4>
+<p>System/Pole jest podzielony na 24 sekcje/kolumny (nazwane 'box')</p>
+<p>1 - należy zdefiniować zestaw kolumn oraz zdefiniować rząd:</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">&lt;Row&gt;</span>
+      <span class="nt">&lt;Col</span> <span class="na">span=</span><span class="s">{12}</span><span class="nt">&gt;</span>col-12<span class="nt">&lt;/Col&gt;</span>
+      <span class="nt">&lt;Col</span> <span class="na">span=</span><span class="s">{12}</span><span class="nt">&gt;</span>col-12<span class="nt">&lt;/Col&gt;</span>
+  <span class="nt">&lt;/Row&gt;</span>
+</code></pre></div>
+
+
+<p>2 - siatka/grid jest oparta o <code>display: flex</code></p>
+<p>3 - istnieje możliwość zdefiniowania odstępów/gutter -&gt; <code>&lt;Row gutter={16}&gt;</code></p>
+<p>4 - offset/odsunięcie również jest definiowane w nawiązaniu do sekcji/kolumn <code>&lt;Col span={8} offset={8}&gt;</code></p>
+<p>5 - Nawiązując (parafrazując) do właściwości flexboxa istnieje możliwość ułożenie "dzieci" w poziomie wykorzystując właściwość <code>align</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Row</span> <span class="na">justify=</span><span class="s">&quot;start&quot;</span><span class="nt">&gt;</span> / <span class="nt">&lt;Row</span> <span class="na">justify=</span><span class="s">&quot;space-between&quot;</span><span class="nt">&gt;</span> / <span class="nt">&lt;Row</span> <span class="na">justify=</span><span class="s">&quot;center&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Col</span> <span class="na">span=</span><span class="s">{4}</span><span class="nt">&gt;</span>col-4<span class="nt">&lt;/Col&gt;</span>
+      <span class="nt">&lt;Col</span> <span class="na">span=</span><span class="s">{4}</span><span class="nt">&gt;</span>col-4<span class="nt">&lt;/Col&gt;</span>
+<span class="nt">&lt;/Row&gt;</span>
+</code></pre></div>
+
+
+<p>6- ułożenie dzieci w pionie wykorzystuje właściwość <code>align</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Row</span> <span class="na">justify=</span><span class="s">&quot;space-around&quot;</span> <span class="na">align=</span><span class="s">&quot;middle&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Col</span> <span class="na">span=</span><span class="s">{4}</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/Col&gt;</span>
+<span class="nt">&lt;/Row&gt;</span>
+</code></pre></div>
+
+
+<p>7 - istnieje możliwość wypełnienie całości stosując właściwość <code>flex</code> oraz definiowania relacji pomiędzy obiektami</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Row&gt;</span>
+      <span class="nt">&lt;Col</span> <span class="na">flex=</span><span class="s">{2}</span><span class="nt">&gt;</span>2 / 5<span class="nt">&lt;/Col&gt;</span>
+      <span class="nt">&lt;Col</span> <span class="na">flex=</span><span class="s">{3}</span><span class="nt">&gt;</span>3 / 5<span class="nt">&lt;/Col&gt;</span>
+<span class="nt">&lt;/Row&gt;</span>
+</code></pre></div>
+
+
+<p>8 - można również wykorzystać wartości znane z <code>bootstrapa</code></p>
+<p class="codepen" data-height="465" data-theme-id="light" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="abmZPzZ" style="height: 465px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Playground - antd@4.9">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/abmZPzZ">
+  Playground - antd@4.9</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
 <p>Źródła:</p>
 <p><a href="https://ant.design/components/form/">Ant Design - Form</a></p>
 <p><a href="https://stackoverflow.com/questions/41181573/correctly-creating-an-antd-form-using-the-extends-react-component-mechanism">SO - Correctly creating an antd Form using the extends React.Component mechanism</a></p>
+<p><a href="https://www.youtube.com/playlist?list=PLiUrl-SQRR7LM5cw7azA2H_FZwFx2UgkI">Code with Bibek - React Ant Design Project - Tech Website</a></p>
 <p><a href="https://codesandbox.io/s/jzyl70wpk?file=/index.js">Redux Form + antd</a></p>
 <p><a href="https://annacoding.com/article/7jDz3vvi3VdtYXYkvYpUp2/Use-Form-of-Ant-Design-V4-in-React-Hooks">Use Form of Ant Design V4 in React Hooks</a></p>
 <p><a href="https://uxdesign.cc/chinese-material-design-5d31359df4a6">Chinese Material Design This Chinese Design Language will Make You Want to Switch.</a></p>
 <p>YT</p>
-<p><a href="https://www.youtube.com/watch?v=DaMxXs8Kl90&amp;ab_channel=CodingTheWorld">3 - Add Simple Contact Form - Building a Contact Management System With React and Ant Design Library</a></p>
+<p><a href="https://www.youtube.com/watch?v=FizDLRlE6NE&amp;t=777s&amp;ab_channel=CodingTheWorld">Coding the World - 1 - Getting Started - Building a Contact Management System With React and Ant Design Library</a></p>
+<p><a href="https://www.youtube.com/playlist?list=PLiUrl-SQRR7LM5cw7azA2H_FZwFx2UgkI">Code with Bibek - React Ant Design Project - Tech Website</a></p>
   </div>
   <div class="tag-cloud">
     <p>
