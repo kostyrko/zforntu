@@ -51,7 +51,7 @@
 
 <meta name="author" content="mkostyrko" />
 <meta name="description" content="Formularz &#34;Łapanie&#34; formularza na 2 sposoby = poprzez odwołanie się do forms lub poprzez &#34;klasyczne&#34; selektory const firstForm1 = document.forms[0] const firstForm2 = document.querySelector(&#34;form&#34;) Właściwości formularza (wybrane) właściwość formularza funkcja Przykład zastosowania formularz.elements &#34;zwraca kolekcję kontrolek zawartych&#34; w formularzu firstForm1.elements formularz.length &#34;zwraca ilość kontrolek&#34; w formularzu …" />
-<meta name="keywords" content="bootstrap, angular, javascript">
+<meta name="keywords" content="bootstrap, js, javascript, formularze, walidacja">
 
 
 <meta property="og:site_name" content="...z frontu"/>
@@ -60,13 +60,15 @@
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/javascript-formularze.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-12-31 12:00:00+01:00"/>
+<meta property="article:published_time" content="2021-01-02 12:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
 <meta property="article:section" content="javascript"/>
 <meta property="article:tag" content="bootstrap"/>
-<meta property="article:tag" content="angular"/>
+<meta property="article:tag" content="js"/>
 <meta property="article:tag" content="javascript"/>
+<meta property="article:tag" content="formularze"/>
+<meta property="article:tag" content="walidacja"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; JavaScript: formularze</title>
@@ -143,7 +145,7 @@
       
     <h1 id="javascript-formularze">JavaScript: formularze</h1>
     <p>
-      Opublikowano czw 31 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+      Opublikowano sob 02 stycznia 2021 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
 
         &#8226; 2 min read
     </p>
@@ -328,7 +330,7 @@
 </code></pre></div>
 
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="YzGejNK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS_formularz_tekst/email">
+<p class="codepen" data-height="365" data-theme-id="dark" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="YzGejNK" style="height: 365px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS_formularz_tekst/email">
   <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/YzGejNK">
   JS_formularz_tekst/email</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -351,16 +353,34 @@
 </code></pre></div>
 
 
+<p class="codepen" data-height="365" data-theme-id="dark" data-default-tab="js,result" data-user="mkostyrko" data-slug-hash="eYdMZJJ" style="height: 365px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS_formularz_radiobox/checkbox">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/eYdMZJJ">
+  JS_formularz_radiobox/checkbox</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 <h4>Select</h4>
 <p>Właściwości elementu formularza typu select</p>
 <p><strong>select.value</strong> - wartość pola selected</p>
 <p><strong>select.options</strong> - zbiór elementów opcji</p>
 <p><strong>select.selectedIndex</strong> - indeks wybranej opcji</p>
 <p><strong>select.options[selectedIndex]</strong> - indeks wybranej opcji z formularza select</p>
+<p><strong>option.selected</strong> - wydarzenie związane z elementem option wewnątrz elementu <strong>select</strong> - zwraca wartość logiczną - wybrany lub nie (true/false)</p>
 <p>Przy tworzeniu opcji formularza select istnieje możliwość wykorzystania konstruktora <strong>Option(text<em>, value</em>, defaultSelected<em>, selected</em>)</strong></p>
+<p>Zdarzenia dla elementu select: <strong>focus, blur, change, keydown, keyup, keypress</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">option1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Option</span><span class="p">(</span><span class="s2">&quot;Tekst&quot;</span><span class="p">,</span> <span class="mi">102</span><span class="p">);</span>
 </code></pre></div>
 
+
+<p class="codepen" data-height="365" data-theme-id="dark" data-default-tab="html,result" data-user="mkostyrko" data-slug-hash="qBaoPxp" style="height: 365px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS_select_bootstrap">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/qBaoPxp">
+  JS_select_bootstrap</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 <h4>Color</h4>
 <p>Reaguje na zdarzenie <strong>change</strong></p>
@@ -378,22 +398,39 @@
 </code></pre></div>
 
 
+<p class="codepen" data-height="365" data-theme-id="dark" data-default-tab="html,result" data-user="mkostyrko" data-slug-hash="MWjVVzG" style="height: 365px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="JS_fromularz_zasieg">
+  <span>See the Pen <a href="https://codepen.io/mkostyrko/pen/MWjVVzG">
+  JS_fromularz_zasieg</a> by Mikołaj Kostyrko (<a href="https://codepen.io/mkostyrko">@mkostyrko</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 <hr>
 <p>Źródła:</p>
 <p><a href="http://javascript-html5-tutorial.pl/ui-formularze-w-javascript.html">Formularze w JavaScript</a></p>
 <p><a href="https://kursjs.pl/kurs/formularze/formularze-walidacja.php">kursjs.pl -&gt; Formularze - walidacja</a></p>
 <p><a href="https://kursjs.pl/kurs/formularze/formularze.php">kursjs.pl - Formularze</a></p>
+<p><a href="https://www.dyn-web.com/tutorials/forms/examples/select-pizza.php">Demo: Handling Select List OnChange Event</a></p>
   </div>
   <div class="tag-cloud">
     <p>
       <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/formularze.html">formularze</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/walidacja.html">walidacja</a>
     </p>
   </div>
 
 
 
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="https://kostyrko.github.io/zfrontu/javascript-formularze-walidacja.html">JavaScript: walidacja formularzy</a></li>
+    </ul>
+  </div>
 
 
 <!-- Disqus -->
@@ -416,7 +453,7 @@
       </a>
       <footer>
 <p>
-  &copy;  2020 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+  &copy;  2021 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
 </p>
 <p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
   <a rel="license"
