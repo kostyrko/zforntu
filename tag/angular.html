@@ -131,61 +131,172 @@
 
 <article>
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/angular-bootstrap.html">Angular + Bootstrap</a></h2>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-serwisy.html">Angular: serwisy</a></h2>
     <p>
-      Opublikowano wto 29 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+      Opublikowano nie 11 kwietnia 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
 
           &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
         &#8226; 2 min read
     </p>
   </header>
   <div>
-      <p><img alt="angular-bootstrap" src="https://therichpost.com/wp-content/uploads/2020/11/Add-Bootstrap-in-Angular-11.png"></p>
-<h3>Angular + Bootstrap</h3>
-<p><a href="https://ng-bootstrap.github.io/#/home">ng-bootstrap</a></p>
-<h3>Instalacja</h3>
-<div class="highlight"><pre><span></span><code><span class="err">ng add @ng-bootstrap/ng-bootstrap</span>
-</code></pre></div>
-
-
-<h3>Setup</h3>
-<p>AppComponent
-    import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">class</span> <span class="n">AppComponent</span> <span class="p">{</span>
-  <span class="n">constructor</span><span class="p">(</span><span class="n">ngbConfig</span><span class="p">:</span> <span class="n">NgbConfig</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">ngbConfig</span><span class="o">.</span><span class="n">animation</span> <span class="o">=</span> <span class="bp">false</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-
-<h3>Przykład zastosowania (Nav)</h3>
-<p><strong>ts - basic nav</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span><span class="n">Component</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
-
-<span class="nd">@Component</span><span class="p">({</span>
-  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;ngbd-nav-basic&#39;</span><span class="p">,</span>
-  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./nav-basic.html&#39;</span>
-<span class="p">})</span>
-<span class="n">export</span> <span class="k">class</span> <span class="nc">NgbdNavBasic</span> <span class="p">{</span>
-  <span class="n">active</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-
-<p><strong>html - basic-nav</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">ul</span><span class="w"> </span><span class="n">ngbNav …</span></code></pre></div>
+      <p><img alt="angular" src="https://i.stack.imgur.com/E8ItT.png"></p>
+<h3>Angular serwisy</h3>
+<h4>Wstęp</h4>
+<p>Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).
+Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + dane określające w jaki sposób działa serwis + użycie innych serwisów).</p>
+<div class="highlight"><pre><span></span><code><span class="err">@</span><span class="n">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="n">LoggerService</span> <span class="p">{</span>
+  <span class="nb">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">any …</span></code></pre></div>
         <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-bootstrap.html">Czytaj dalej</a>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-serwisy.html">Czytaj dalej</a>
   </div>
   <hr />
 </article>
 <article>
   <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/angular-routing.html">Angular: routing - podstawy</a></h2>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-lifecycle-hooks.html">Angular: cykle życia komponentu</a></h2>
     <p>
-      Opublikowano nie 27 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+      Opublikowano pon 01 lutego 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular" src="https://wpblog.semaphoreci.com/wp-content/uploads/2019/01/Testing-Components-in-Angular-2-with-Jasmine-776x320.png"></p>
+<p>Tabela przedstawiająca life cycle hooki (wg kolejności ich życia)</p>
+<table>
+<thead>
+<tr>
+<th>Haki cykli życia</th>
+<th>Interfejs</th>
+<th>Wykrywa zmianę?*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ngOnChanges</td>
+<td>OnChanges</td>
+<td>Tak</td>
+</tr>
+<tr>
+<td>ngOnInit</td>
+<td>OnInit</td>
+<td>Nie</td>
+</tr>
+<tr>
+<td>ngDoCheck</td>
+<td>DoCheck</td>
+<td>Tak</td>
+</tr>
+<tr>
+<td>ngAfterContentInit</td>
+<td>AfterContentInit</td>
+<td>Nope</td>
+</tr>
+<tr>
+<td>ngAfterContentChecked</td>
+<td>AfterContentChecked</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>ngAfterViewInit</td>
+<td>AfterViewInit</td>
+<td>Nej</td>
+</tr>
+<tr>
+<td>ngAfterViewChecked</td>
+<td>AfterViewChecked</td>
+<td>Yup</td>
+</tr>
+<tr>
+<td>ngOnDestroy</td>
+<td>OnDestroy</td>
+<td>Nope</td>
+</tr>
+</tbody>
+</table>
+<p><strong>*Uruchamiane wielokrotnie</strong></p>
+<p>Dyrektywy podobnie jak komponenty mogą korzystać z haków cykli …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-lifecycle-hooks.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-cli.html">Angular CLI</a></h2>
+    <p>
+      Opublikowano pon 25 stycznia 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular-bootstrap" src="https://angular.io/assets/images/logos/angular/angular.svg"></p>
+<h3>Podstawowe komendy</h3>
+<p>Proste generowanie komponentu</p>
+<div class="highlight"><pre><span></span><code><span class="n">ng</span> <span class="n">generate</span> <span class="n">component</span> <span class="n">nazwaKomponentu</span>
+
+<span class="n">np</span><span class="p">.</span> <span class="n">ng</span> <span class="n">generate</span> <span class="n">component</span> <span class="n">menu</span>
+<span class="o">&gt;</span> <span class="n">informacja</span> <span class="n">o</span> <span class="n">wygenerowanych</span> <span class="n">plikach</span> <span class="n">oraz</span> <span class="n">o</span> <span class="n">aktualizacji</span> <span class="n">app</span><span class="p">.</span><span class="n">module</span><span class="p">.</span><span class="n">ts</span>
+</code></pre></div>
+
+
+<p>--skiTests true // generowanie bez pliku testów</p>
+<p>Zapis tej komendy można wykorzystać również w skróconej wersji</p>
+<div class="highlight"><pre><span></span><code><span class="n">ng</span> <span class="k">g</span> <span class="k">c</span> <span class="n">nazwaKomponentu</span>
+
+<span class="n">ng</span> <span class="k">g</span> <span class="k">c</span> <span class="n">navbar</span> <span class="c1">--skipTests true</span>
+<span class="k">CREATE …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-cli.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-projekt.html">Angular -> Mały projekt od podstaw</a></h2>
+    <p>
+      Opublikowano sob 23 stycznia 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/bootstrap.html">bootstrap</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular-bootstrap" src="https://angular.io/assets/images/logos/angular/angular.svg"></p>
+<h3>Mały projekt - cytaty z Gwiezdnych Wojen</h3>
+<p>Zainiscjowanie projekty przy pomocy Angular-CLI</p>
+<div class="highlight"><pre><span></span><code><span class="err">ng new star-wars-quotes-app</span>
+</code></pre></div>
+
+
+<p>dodanie frameworku css-owego <a href="https://materializecss.com/getting-started.html"><strong>materialize-css</strong></a> do zależności</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span> <span class="n">materialize</span><span class="o">-</span><span class="n">css</span><span class="mf">@1.0.0</span>
+</code></pre></div>
+
+
+<p>Konfigurowanie zależności stylowej w angular.json // wskazanie zarówno na styl css oraz na jego plik js</p>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;styles&quot;: [</span>
+<span class="err">    &quot;src/styles.css&quot;,</span>
+<span class="err">    &quot;./node_modules/materialize-css/dist …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-projekt.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-ng-content.html">Angular: referencje szablonów i ng-content</a></h2>
+    <p>
+      Opublikowano pon 28 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
 
           &#8226; Tagi: 
               <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
@@ -193,12 +304,19 @@
     </p>
   </header>
   <div>
-      <hr>
-<p><img alt="angular" src="https://blog.knoldus.com/wp-content/uploads/2020/05/Angular-Routing.png"></p>
-<p>Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji</p>
-<p>1 - należy zaimportować <strong>RouterModule</strong> w <strong>app.module.ts</strong> oraz w importach go zastosować łącznie z metodą <strong>forRoot()</strong>, która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek …</p>
+      <p><img alt="angular ng-content" src="https://cdn-media-1.freecodecamp.org/images/1*mFnAxpS3I_lpRPnIyevxKw.png"></p>
+<p>Przy pomocy ng-content można przekazywać treść oraz różne komponenty</p>
+<p>ng-content jest swego rodzaju wskaźnikiem/selektorem pozwalającym na opakowanie elementu komponentem, innymi słowy na zagnieżdżenie innego komponentu, fragmentu kodu html lub treści (stringa) w ramach innego komponentu.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn-floating teal add-button&quot;</span> <span class="err">(click)=&quot;clickButton.emit()&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ng-content&gt;&lt;/ng-content&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+
+<p>zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;app-button</span> <span class="err">(clickButton …</span></code></pre></div>
         <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-routing.html">Czytaj dalej</a>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-ng-content.html">Czytaj dalej</a>
   </div>
   <hr />
 </article>
@@ -226,6 +344,38 @@
 </article>
 <article>
   <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-komunikacja-komponentow.html">Angular: komunikacja pomiędzy dzieckiem a rodzicem (input, output, eventEmitter, ViewChild)</a></h2>
+    <p>
+      Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/input.html">input</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/output.html">output</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/eventemitter.html">eventEmitter</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/viewchild.html">ViewChild</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <hr>
+<p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
+<h3>Dekorator @Input()</h3>
+<p>Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty)</p>
+<p>Wymaga importu z counterReducer</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">OnInit</span><span class="p">,</span> <span class="n">Input</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+
+<p>Oraz zdefiniowania identyfikatora opatrzonego dekoratorem @Input() </p>
+<div class="highlight"><pre><span></span><code><span class="err">@Input() hero: Hero;</span>
+</code></pre></div>
+
+
+<p>Odwołanie się w komponencie posiadającym element, do którego następuje odwołanie (komponent …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-komunikacja-komponentow.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Angular: wprowadzenie</a></h2>
     <p>
       Opublikowano wto 22 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
@@ -243,6 +393,43 @@
 <p>Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-routing.html">Angular: routing</a></h2>
+    <p>
+      Opublikowano pią 07 lutego 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular" src="https://wpblog.semaphoreci.com/wp-content/uploads/2019/01/Testing-Components-in-Angular-2-with-Jasmine-776x320.png"></p>
+<h3>Zastosowanie routingu w małej aplikacji</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">BrowserModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">NgModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">AppComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">CrisisListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./crisis-list/crisis-list.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">HeroesListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./heroes-list/heroes-list.component&#39;</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">RouterModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">PageNotFoundComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./page-not-found/page-not-found.component&#39;</span><span class="p">;</span>
+
+<span class="nd">@NgModule</span><span class="p">({</span>
+  <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="n">AppComponent</span><span class="p">,</span>
+    <span class="n">CrisisListComponent</span><span class="p">,</span>
+    <span class="n">HeroesListComponent</span><span class="p">,</span>
+    <span class="n">PageNotFoundComponent</span>
+  <span class="p">],</span>
+  <span class="n">imports …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-routing.html">Czytaj dalej</a>
   </div>
 </article>
 

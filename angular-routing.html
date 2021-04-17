@@ -50,24 +50,24 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji 1 - należy zaimportować RouterModule w app.module.ts oraz w importach go zastosować łącznie z metodą forRoot(), która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek …" />
+<meta name="description" content="Zastosowanie routingu w małej aplikacji import { BrowserModule } from &#39;@angular/platform-browser&#39;; import { NgModule } from &#39;@angular/core&#39;; import { AppComponent } from &#39;./app.component&#39;; import { CrisisListComponent } from &#39;./crisis-list/crisis-list.component&#39;; import { HeroesListComponent } from &#39;./heroes-list/heroes-list.component&#39;; import { RouterModule } from &#39;@angular/router&#39;; import { PageNotFoundComponent } from &#39;./page-not-found/page-not-found.component&#39;; @NgModule({ declarations: [ AppComponent, CrisisListComponent, HeroesListComponent, PageNotFoundComponent ], imports …" />
 <meta name="keywords" content="angular">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="Angular: routing - podstawy"/>
-<meta property="og:description" content="Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji 1 - należy zaimportować RouterModule w app.module.ts oraz w importach go zastosować łącznie z metodą forRoot(), która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek …"/>
+<meta property="og:title" content="Angular: routing"/>
+<meta property="og:description" content="Zastosowanie routingu w małej aplikacji import { BrowserModule } from &#39;@angular/platform-browser&#39;; import { NgModule } from &#39;@angular/core&#39;; import { AppComponent } from &#39;./app.component&#39;; import { CrisisListComponent } from &#39;./crisis-list/crisis-list.component&#39;; import { HeroesListComponent } from &#39;./heroes-list/heroes-list.component&#39;; import { RouterModule } from &#39;@angular/router&#39;; import { PageNotFoundComponent } from &#39;./page-not-found/page-not-found.component&#39;; @NgModule({ declarations: [ AppComponent, CrisisListComponent, HeroesListComponent, PageNotFoundComponent ], imports …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-routing.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-12-27 10:00:00+01:00"/>
+<meta property="article:published_time" content="2020-02-07 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
 <meta property="article:section" content="angular"/>
 <meta property="article:tag" content="angular"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; Angular: routing - podstawy</title>
+  <title>...z frontu &ndash; Angular: routing</title>
 
 </head>
 <body>
@@ -139,29 +139,27 @@
 <article class="single">
   <header>
       
-    <h1 id="angular-routing">Angular: routing - podstawy</h1>
+    <h1 id="angular-routing">Angular: routing</h1>
     <p>
-      Opublikowano nie 27 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+      Opublikowano pią 07 lutego 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
 
-        &#8226; 1 min read
+        &#8226; 3 min read
     </p>
   </header>
 
 
   <div>
-    <hr>
-<p><img alt="angular" src="https://blog.knoldus.com/wp-content/uploads/2020/05/Angular-Routing.png"></p>
-<p>Narzędzie routingu pozwala na nawigację pomiędzy różnymi komponentami (stanami pojedynczej strony) aplikacji</p>
-<p>1 - należy zaimportować <strong>RouterModule</strong> w <strong>app.module.ts</strong> oraz w importach go zastosować łącznie z metodą <strong>forRoot()</strong>, która iteruje przez tablicę zawierającą obiekty, zawierające informacje o ścieżce (warunku) oraz komponencie, który ma być wyświetlony w momencie gdy warunek jest spełniony.</p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">app</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">ts</span>
-<span class="kn">import</span> <span class="p">{</span> <span class="n">BrowserModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
+    <p><img alt="angular" src="https://wpblog.semaphoreci.com/wp-content/uploads/2019/01/Testing-Components-in-Angular-2-with-Jasmine-776x320.png"></p>
+<h3>Zastosowanie routingu w małej aplikacji</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">BrowserModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
 <span class="kn">import</span> <span class="p">{</span> <span class="n">NgModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
 <span class="kn">import</span> <span class="p">{</span> <span class="n">AppComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app.component&#39;</span><span class="p">;</span>
 <span class="kn">import</span> <span class="p">{</span> <span class="n">CrisisListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./crisis-list/crisis-list.component&#39;</span><span class="p">;</span>
 <span class="kn">import</span> <span class="p">{</span> <span class="n">HeroesListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./heroes-list/heroes-list.component&#39;</span><span class="p">;</span>
-<span class="kn">import</span> <span class="p">{</span> <span class="n">PageNotFoundComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./page-not-found/page-not-found.component&#39;</span><span class="p">;</span>
-<span class="kn">import</span> <span class="p">{</span> <span class="n">RouterModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
 
+<span class="kn">import</span> <span class="p">{</span> <span class="n">RouterModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">PageNotFoundComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./page-not-found/page-not-found.component&#39;</span><span class="p">;</span>
 
 <span class="nd">@NgModule</span><span class="p">({</span>
   <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span>
@@ -173,10 +171,10 @@
   <span class="n">imports</span><span class="p">:</span> <span class="p">[</span>
     <span class="n">BrowserModule</span><span class="p">,</span>
     <span class="n">RouterModule</span><span class="o">.</span><span class="n">forRoot</span><span class="p">([</span>
-      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;crisis-list&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">CrisisListComponent</span><span class="p">},</span> <span class="o">//</span> <span class="n">wskazanie</span> <span class="n">na</span> <span class="err">ś</span><span class="n">cieżkę</span> <span class="n">oraz</span> <span class="n">na</span> <span class="n">komponent</span><span class="p">,</span> <span class="n">który</span> <span class="n">ma</span> <span class="n">być</span> <span class="n">wyświetlony</span> <span class="n">w</span> <span class="n">jej</span> <span class="n">przypadku</span>
+      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;crisis-list&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">CrisisListComponent</span><span class="p">},</span>
       <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;heroes-list&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">HeroesListComponent</span><span class="p">},</span>
-      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">redirectTo</span><span class="p">:</span> <span class="s1">&#39;/heroes-list&#39;</span><span class="p">,</span> <span class="n">pathMatch</span><span class="p">:</span> <span class="s1">&#39;full&#39;</span><span class="p">},</span> <span class="o">//</span> <span class="n">podstawowa</span> <span class="err">ś</span><span class="n">cieżka</span> <span class="n">przekierowuje</span> <span class="n">do</span> <span class="n">adresu</span> <span class="s1">&#39;/heroes-list&#39;</span><span class="p">,</span> <span class="n">gdy</span> <span class="n">ten</span> <span class="n">w</span> <span class="n">całości</span> <span class="n">pasuje</span> <span class="n">do</span> <span class="n">wskazanego</span> <span class="p">(</span><span class="n">pathMatch</span><span class="p">)</span>
-      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">PageNotFoundComponent</span><span class="p">}</span> <span class="o">//</span> <span class="s2">&quot;dzika karta&quot;</span> <span class="o">-</span> <span class="n">niezawarty</span> <span class="n">powyżej</span> <span class="n">link</span>
+      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">redirectTo</span><span class="p">:</span> <span class="s1">&#39;/heroes-list&#39;</span><span class="p">,</span> <span class="n">pathMatch</span><span class="p">:</span> <span class="s1">&#39;full&#39;</span><span class="p">},</span>
+      <span class="p">{</span><span class="n">path</span><span class="p">:</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">PageNotFoundComponent</span><span class="p">}</span>
     <span class="p">]),</span>
   <span class="p">],</span>
   <span class="n">providers</span><span class="p">:</span> <span class="p">[],</span>
@@ -186,11 +184,11 @@
 </code></pre></div>
 
 
-<p>2 - router-outlet oraz nawigacja</p>
-<p><code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> - dyretkywa ta oznacza przestrzeń w której wynik pracy routera ma swój skutek.</p>
-<p><strong>routerLink</strong> - dyrektywa łącząca ścieżki wraz ze zdefiniowanymi szablonami html</p>
-<p><strong>routerLinkActive</strong> - korzystając z tej dyrektywy wskazujemy Angularowi na przypisanie zdefiniowanej klasy do elementu HTML, która oznacza aktywną ścieżkę</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;nav&gt;</span>
+<p>Router-outlet w app.component.html odpowiada za wyświetlenie elementów przypisanych do konkretnej ścieżki (alternatywnie można stosować ngIf)</p>
+<p>app.component.html</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;h1&gt;</span>Angular Router Sample<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;nav&gt;</span>
   <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span> <span class="na">routerLink=</span><span class="s">&quot;/crisis-list&quot;</span> <span class="na">routerLinkActive=</span><span class="s">&quot;activebutton&quot;</span><span class="nt">&gt;</span>Crisis Center<span class="nt">&lt;/a&gt;</span> |
   <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span> <span class="na">routerLink=</span><span class="s">&quot;/heroes-list&quot;</span> <span class="na">routerLinkActive=</span><span class="s">&quot;activebutton&quot;</span><span class="nt">&gt;</span>Heroes<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
@@ -199,10 +197,164 @@
 </code></pre></div>
 
 
-<p>Całość kodu powyższej aplikacji <a href="https://github.com/kostyrko/JS-sandbox/tree/master/7_Angular/angular-router-sample">angular-router-sample</a></p>
+<h3>Większa aplikacja może wymagać odosobnienia logiki routingu</h3>
+<p>Założenie nowego pliku przechowującego/obsługującego Routing w folderze app
+app-routing.modules.ts</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">NgModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">RouterModule</span><span class="p">,</span> <span class="n">Routes</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="kn">import</span> <span class="nn">komponentów</span><span class="o">,</span> <span class="nn">które</span> <span class="nn">mają</span> <span class="nn">funkcjonować</span> <span class="nn">pod</span> <span class="nn">konkretną</span> <span class="err">ś</span><span class="n">cieżką</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">MoviesComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/movies/movies.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">PageNotFoundComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/page-not-found/page-not-found.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">CategoriesComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/categories/categories.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">MovieDetailsComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/movies/movie-details/movie-details.component&#39;</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">tablica</span> <span class="n">przechowująca</span> <span class="n">routing</span> <span class="o">-</span> <span class="err">ś</span><span class="n">cieżki</span>
+<span class="n">const</span> <span class="n">routes</span><span class="p">:</span> <span class="n">Routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="o">//</span> <span class="n">przekierowanie</span> <span class="n">do</span> <span class="n">movies</span> <span class="n">od</span> <span class="n">razu</span> <span class="n">po</span> <span class="n">załadowaniu</span> <span class="err">ś</span><span class="n">cieżki</span> <span class="n">początkowej</span><span class="o">/</span><span class="n">pustego</span> <span class="n">adresu</span>
+  <span class="o">//</span> <span class="n">pathMatch</span><span class="p">:</span> <span class="s1">&#39;full&#39;</span> <span class="o">-</span> <span class="err">ś</span><span class="n">cieżka</span> <span class="n">musi</span> <span class="n">zgadzać</span> <span class="n">się</span> <span class="n">w</span> <span class="mi">100</span><span class="o">%</span>
+  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">redirectTo</span><span class="p">:</span> <span class="s1">&#39;/movies&#39;</span><span class="p">,</span> <span class="n">pathMatch</span><span class="p">:</span> <span class="s1">&#39;full&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;movies&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">MoviesComponent</span> <span class="p">},</span>
+  <span class="o">//</span> <span class="n">jako</span> <span class="nb">id</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="n">powinna</span> <span class="n">być</span> <span class="n">przekazana</span> <span class="n">przy</span> <span class="n">pomocy</span> <span class="n">routingu</span> <span class="n">wartość</span>
+  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;movie/:id&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">MovieDetailsComponent</span><span class="p">},</span>
+  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;categories&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">CategoriesComponent</span><span class="p">},</span>
+  <span class="o">//</span> <span class="n">dopasuje</span> <span class="n">się</span> <span class="n">do</span> <span class="n">każdej</span> <span class="err">ś</span><span class="n">cieżki</span><span class="p">,</span> <span class="n">dlatego</span> <span class="n">musi</span> <span class="n">być</span> <span class="n">na</span> <span class="n">końcu</span> <span class="err">ś</span><span class="n">cieżek</span>
+  <span class="p">{</span> <span class="n">path</span><span class="p">:</span> <span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">PageNotFoundComponent</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="o">//</span> <span class="n">importowanie</span> <span class="n">i</span> <span class="n">eksportowanie</span>
+<span class="nd">@NgModule</span><span class="p">({</span>
+  <span class="n">imports</span><span class="p">:</span> <span class="p">[</span><span class="n">RouterModule</span><span class="o">.</span><span class="n">forRoot</span><span class="p">(</span><span class="n">routes</span><span class="p">)],</span>
+  <span class="n">exports</span><span class="p">:</span> <span class="p">[</span><span class="n">RouterModule</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">AppRoutingModule</span> <span class="p">{}</span>
+</code></pre></div>
+
+
+<p>Zaimportowanie oraz implementacja w app.module.ts Routingu</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">BrowserModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">NgModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">AppComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">HttpClientModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/common/http&#39;</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">PageNotFoundComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/page-not-found/page-not-found.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">MovieCoverComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./shared/movie-cover/movie-cover.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">MovieDetailsComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/movies/movie-details/movie-details.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">MoviesComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/movies/movies.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">CategoriesComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/categories/categories.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">MoviesInCategoryComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./pages/categories/movies-in-category/movies-in-category.component&#39;</span><span class="p">;</span>
+
+<span class="o">//</span>  <span class="o">&gt;&gt;</span> <span class="n">Import</span> <span class="n">Routingu</span> <span class="o">&lt;&lt;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">AppRoutingModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app-routing.module&#39;</span><span class="p">;</span>
+
+<span class="nd">@NgModule</span><span class="p">({</span>
+  <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="n">AppComponent</span><span class="p">,</span>
+    <span class="n">MovieDetailsComponent</span><span class="p">,</span>
+    <span class="n">MoviesComponent</span><span class="p">,</span>
+    <span class="n">CategoriesComponent</span><span class="p">,</span>
+    <span class="n">PageNotFoundComponent</span><span class="p">,</span>
+    <span class="n">MoviesInCategoryComponent</span><span class="p">,</span>
+    <span class="n">MovieCoverComponent</span><span class="p">,</span>
+  <span class="p">],</span>
+
+  <span class="o">//</span>  <span class="o">&gt;&gt;</span> <span class="n">Implementacja</span> <span class="n">Routingu</span> <span class="o">&lt;&lt;</span>
+
+  <span class="n">imports</span><span class="p">:</span> <span class="p">[</span><span class="n">BrowserModule</span><span class="p">,</span> <span class="n">HttpClientModule</span><span class="p">,</span> <span class="n">AppRoutingModule</span><span class="p">],</span>
+  <span class="n">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="n">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">AppModule</span> <span class="p">{}</span>
+</code></pre></div>
+
+
+<p>Router-outlet w app.component.html odpowiada za wyświetlenie elementów przypisanych do konkretnej ścieżki (alternatywnie można stosować ngIf)</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;nav&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;nav-wrapper black&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;brand-logo&quot;</span> <span class="na">routerLink=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Best Movies<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;right hide-on-med-and-down&quot;</span><span class="nt">&gt;</span>
+      // active - klasa (nazwa przykładowa), która przypisana jest do aktywnego linku
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">routerLink=</span><span class="s">&quot;/movies&quot;</span> <span class="na">routerLinkActive=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;</span>Movies<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">routerLink=</span><span class="s">&quot;/categories&quot;</span> <span class="na">routerLinkActive=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;</span>Categories<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a&gt;</span>Years<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span>
+</code></pre></div>
+
+
+<p>Przekazywanie id/tokena wartości przy pomocy Routingu</p>
+<p><strong>movie-cover.component.html</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;grid__item&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;card&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;card-image&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="n">img</span><span class="w"> </span><span class="o">[</span><span class="n">src</span><span class="o">]=</span><span class="ss">&quot;movie.poster&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="n">span</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;card-title black&quot;</span><span class="o">&gt;</span><span class="err">{{</span><span class="w"> </span><span class="n">movie</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="err">}}</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;card-content&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">{{</span><span class="w"> </span><span class="n">movie</span><span class="p">.</span><span class="n">plot</span><span class="p">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="p">...</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;card-action&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">//</span><span class="w">  </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">przekazanie</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">obiektu</span><span class="w"> </span><span class="n">movie</span><span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="n">a</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;black-text&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">routerLink</span><span class="o">]=</span><span class="ss">&quot;[&#39;/movie&#39;, movie.id]&quot;</span><span class="o">&gt;</span><span class="n">More</span><span class="w"> </span><span class="o">&gt;&gt;&lt;/</span><span class="n">a</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>Wykorzystanie przekazanego id</p>
+<p><strong>movie-details.component.ts</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">OnInit</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">Observable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">HttpService</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../../../services/http.service&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">Movie</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../../../models/movie&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">ActivatedRoute</span><span class="p">,</span> <span class="n">ParamMap</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">switchMap</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;rxjs/operators&#39;</span><span class="p">;</span>
+
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;app-movie-details&#39;</span><span class="p">,</span>
+  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./movie-details.component.html&#39;</span><span class="p">,</span>
+  <span class="n">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;./movie-details.component.css&#39;</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">MovieDetailsComponent</span> <span class="n">implements</span> <span class="n">OnInit</span> <span class="p">{</span>
+  <span class="n">movieDetails</span><span class="p">:</span> <span class="n">Observable</span><span class="o">&lt;</span><span class="n">Movie</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">wykorzystanie</span> <span class="n">serwisu</span> <span class="n">dzięki</span> <span class="n">niemu</span> <span class="n">zastosowanie</span> <span class="nb">id</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">private</span> <span class="n">http</span><span class="p">:</span> <span class="n">HttpService</span><span class="p">,</span> <span class="n">private</span> <span class="n">route</span><span class="p">:</span> <span class="n">ActivatedRoute</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="n">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">this</span><span class="o">.</span><span class="n">movieDetails</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">paramMap</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span>
+    <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">serwisu</span> <span class="o">//</span> <span class="n">subskrypcja</span> <span class="n">zachodzi</span> <span class="n">po</span> <span class="nb">str</span> <span class="n">frontendu</span> <span class="n">przy</span> <span class="n">pomocy</span> <span class="n">async</span> <span class="n">pipe</span>
+    <span class="n">switchMap</span><span class="p">((</span><span class="n">params</span><span class="p">:</span> <span class="n">ParamMap</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">this</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">getMovie</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)))</span>
+  <span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="n">goToMovies</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>movie-details.component.html</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;row&quot;</span><span class="w"> </span><span class="o">*</span><span class="n">ngIf</span><span class="o">=</span><span class="ss">&quot;movieDetails | async as movie&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;col s4&quot;</span><span class="o">&gt;&lt;</span><span class="n">img</span><span class="w"> </span><span class="o">[</span><span class="n">src</span><span class="o">]=</span><span class="ss">&quot;movie.poster&quot;</span><span class="w"> </span><span class="o">/&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nc">table</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;col s8&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">tbody</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">[</span><span class="n">...</span><span class="o">]</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="nc">table</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">button</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;btn black&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">click</span><span class="p">)</span><span class="o">=</span><span class="ss">&quot;goToMovies()&quot;</span><span class="o">&gt;</span><span class="n">Back</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>ParamMap jako Observable pozwala na zmianę zawartości i re-renderowanie komponentu, również przy zmianie ścieżki</p>
 <hr>
 <p>Źródła:</p>
-<p>Więcej informacji na temat routingu: <a href="https://angular.io/guide/router">In-app navigation: routing to views</a></p>
+<p><a href="https://github.com/ZacznijProgramowac/angular-movie-db-routing-example/blob/002-router-param/src/app/app-routing.module.ts">Zachnij Programować - angular-movie-db-routing-example</a></p>
   </div>
   <div class="tag-cloud">
     <p>

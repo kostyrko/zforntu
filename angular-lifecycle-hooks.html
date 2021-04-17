@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
+  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
+  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+
+    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Tabela przedstawiająca life cycle hooki (wg kolejności ich życia) Haki cykli życia Interfejs Wykrywa zmianę?* ngOnChanges OnChanges Tak ngOnInit OnInit Nie ngDoCheck DoCheck Tak ngAfterContentInit AfterContentInit Nope ngAfterContentChecked AfterContentChecked Ja ngAfterViewInit AfterViewInit Nej ngAfterViewChecked AfterViewChecked Yup ngOnDestroy OnDestroy Nope *Uruchamiane wielokrotnie Dyrektywy podobnie jak komponenty mogą korzystać z haków cykli …" />
+<meta name="keywords" content="angular">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Angular: cykle życia komponentu"/>
+<meta property="og:description" content="Tabela przedstawiająca life cycle hooki (wg kolejności ich życia) Haki cykli życia Interfejs Wykrywa zmianę?* ngOnChanges OnChanges Tak ngOnInit OnInit Nie ngDoCheck DoCheck Tak ngAfterContentInit AfterContentInit Nope ngAfterContentChecked AfterContentChecked Ja ngAfterViewInit AfterViewInit Nej ngAfterViewChecked AfterViewChecked Yup ngOnDestroy OnDestroy Nope *Uruchamiane wielokrotnie Dyrektywy podobnie jak komponenty mogą korzystać z haków cykli …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-lifecycle-hooks.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-02-01 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:section" content="angular"/>
+<meta property="article:tag" content="angular"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Angular: cykle życia komponentu</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href="https://kostyrko.github.io/zfrontu">
+        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="angular-lifecycle-hooks">Angular: cykle życia komponentu</h1>
+    <p>
+      Opublikowano pon 01 lutego 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="angular" src="https://wpblog.semaphoreci.com/wp-content/uploads/2019/01/Testing-Components-in-Angular-2-with-Jasmine-776x320.png"></p>
+<p>Tabela przedstawiająca life cycle hooki (wg kolejności ich życia)</p>
+<table>
+<thead>
+<tr>
+<th>Haki cykli życia</th>
+<th>Interfejs</th>
+<th>Wykrywa zmianę?*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ngOnChanges</td>
+<td>OnChanges</td>
+<td>Tak</td>
+</tr>
+<tr>
+<td>ngOnInit</td>
+<td>OnInit</td>
+<td>Nie</td>
+</tr>
+<tr>
+<td>ngDoCheck</td>
+<td>DoCheck</td>
+<td>Tak</td>
+</tr>
+<tr>
+<td>ngAfterContentInit</td>
+<td>AfterContentInit</td>
+<td>Nope</td>
+</tr>
+<tr>
+<td>ngAfterContentChecked</td>
+<td>AfterContentChecked</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>ngAfterViewInit</td>
+<td>AfterViewInit</td>
+<td>Nej</td>
+</tr>
+<tr>
+<td>ngAfterViewChecked</td>
+<td>AfterViewChecked</td>
+<td>Yup</td>
+</tr>
+<tr>
+<td>ngOnDestroy</td>
+<td>OnDestroy</td>
+<td>Nope</td>
+</tr>
+</tbody>
+</table>
+<p><strong>*Uruchamiane wielokrotnie</strong></p>
+<p>Dyrektywy podobnie jak komponenty mogą korzystać z haków cykli życia (life cycle hooks)</p>
+<h3>ngOnChanges</h3>
+<p>Uruchamia się jako 1 ze wszystkich hooków oraz za każdym razem kiedy zmienia się property (referencja, zatem jeśli referencja nie ulega zmianie, ew zmiany w ramach obiektu nie będą zauważone  referencja przecież zostaje ta sama) tego komponentu (zmienia się zawsze kiedy zmianie ulegnie property zw z input). Uruchamia się gdy powstaje komponent.</p>
+<div class="highlight"><pre><span></span><code><span class="n">export</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">ChildComponent</span><span class="w"> </span><span class="n">implements</span><span class="w"> </span><span class="n">OnChanges</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="nv">@Input</span><span class="p">()</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+<span class="w">  </span><span class="n">ngOnChanges</span><span class="p">(</span><span class="nl">changes</span><span class="p">:</span><span class="w"> </span><span class="n">SimpleChanges</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">const</span><span class="w"> </span><span class="n">prop</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">Object</span><span class="p">.</span><span class="n">keys</span><span class="p">(</span><span class="n">changes</span><span class="p">))</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">changes</span><span class="o">[</span><span class="n">prop</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>źródło: <a href="https://zacznijprogramowac.net/angular/ngonchanges-w-angularze-sposob-na-sledzenie-zmian-property/">Sposób na śledzenie zmian property @Input – ngOnChanges i Angular</a></p>
+<p><a href="https://dev.to/nickraphael/ngonchanges-best-practice-always-use-simplechanges-always-1feg">ngOnChanges best practice - always use SimpleChanges - always</a></p>
+<h3>OnInit</h3>
+<p>Uruchamia się jednokrotnie (zaraz po ngOnChange), pełni rolę konstruktora dla obiektu [zwykły konstruktor komponentu jest powiązany z TS a nie Angularem]. Dobre do inicjalizowania danych, uruchomienie logiki startowej, w metodzie ngOnInit należy się odwołać do wstrzykniętych zależności</p>
+<p>ngOnInit jest szybsze od konstruktora (który może nie mieć dostępu do wszystkich właściwości komponentu), dlatego ten jest wykorzystywany jedynie wstrzykiwania zależności, duża ilość logiki w konstruktorze spowalnia komponent i utrudnia testowanie.</p>
+<h3>DoCheck</h3>
+<p>Hook ten uruchamia się po to by sprawdzić czy nastąpiły zmiany w danych i czy należy zmienić szablon html. Może wykonywać się wiele razy, przez to również trzeba uważać przy jego wykonywaniu. W odróżnieniu od innych hooków (ngOnChanges) ngDoCheck sprawdza min. również wnętrza obiektów (dane) i rozpozna zmianę oraz wywoła zdarzenie - podobnie będzie to wyglądało np. w przypadku wpisywania tekstu do inputu. Uwaga: powoduje wykonanie wywołanie również we wszystkich komponentach położonych niżej, obciąża również aplikację.</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">class</span> <span class="n">ChildComponent</span> <span class="n">DoCheck</span> <span class="p">{</span>
+  <span class="err">@</span><span class="n">Input</span><span class="p">()</span> <span class="n">dog</span><span class="p">:</span> <span class="n">Dog</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">Uruchomi</span> <span class="n">się</span> <span class="n">zawsze</span> <span class="n">z</span> <span class="n">Change</span> <span class="n">Detection</span>
+  <span class="n">ngDoCheck</span><span class="p">():</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Uruchamiam się zawsze :smile:&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><a href="https://zacznijprogramowac.net/angular/docheck-wykrywanie-zminan-angular-ngdocheck/">DoCheck wykrywanie zminan – Angular i ngDoCheck</a></p>
+<h3>AfterContentInit</h3>
+<p>Wywołuje się raz, po tym jak wykona się ngDoCheck - ma dostęp do komponentów wyświetlanych przez <ng-content></ng-content></p>
+<h3>AfterContentChecked</h3>
+<p>Uruchamia się za każdym razem jak zostaje uruchomiony changeDetection -&gt; Oznacza, że komponent został już sprawdzony i zaraz zostanie wyrenderowany z nowymi danymi (np. do pobrania najnowszych/końcowych danych)</p>
+<h3>AfterViewInit</h3>
+<p>Uruchomi się raz w cyklu życia komponentu. Ma dostęp do komponentów, które zostały wstrzyknięte przy pomocy ViewChild.</p>
+<h3>AfterViewChecked</h3>
+<p>Uruchamia się po detekcji zmiany - gdy widok komponentu lub jego dziecka zostanie sprawdzony przez <em>change detection</em> -&gt; czy zmiany nastąpiły?/czy należy je zmienić?</p>
+<h3>OnDestroy</h3>
+<p>Wywołuje się tylko gdy Angular będzie niszczony przez Angulara (np przy pomocy ngIf, inaczej rzecz ujmując gdy likwidowana jest logika, aplikacji która zajmuje pamięć przeglądarki).</p>
+<p>@HostListener('window:beforeunload') - listener zakładany na metodę, który wykona się przy wpisanej w argument akcji</p>
+<hr>
+<p>Źródła:</p>
+<p><a href="https://angular.io/guide/lifecycle-hooks">Hooking into the component lifecycle</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2021 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : "https://kostyrko.github.io/zfrontu",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
