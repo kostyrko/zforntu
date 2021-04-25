@@ -51,7 +51,7 @@
 
 <meta name="author" content="mkostyrko" />
 <meta name="description" content="Angular serwisy Wstęp Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + dane określające w jaki sposób działa serwis + użycie innych serwisów). @Injectable() export class LoggerService { log(msg: any …" />
-<meta name="keywords" content="angular">
+<meta name="keywords" content="angular, serwis, service, subscribe, unfinished">
 
 
 <meta property="og:site_name" content="...z frontu"/>
@@ -65,6 +65,10 @@
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
 <meta property="article:section" content="angular"/>
 <meta property="article:tag" content="angular"/>
+<meta property="article:tag" content="serwis"/>
+<meta property="article:tag" content="service"/>
+<meta property="article:tag" content="subscribe"/>
+<meta property="article:tag" content="unfinished"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; Angular: serwisy</title>
@@ -204,6 +208,39 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 </code></pre></div>
 
 
+<h3>Przykładowy projekt z zastosowaniem serwisu</h3>
+<p>Orginalne żródło poniższego projektu: <a href="https://github.com/ZacznijProgramowac/easy-words/tree/003-answer-component">GH - ZacznijProgramowac/easy-words</a></p>
+<p><a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw">Udemy -Angular - kompletny kurs od podstaw - edycja na rok 2021</a></p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/bcommit/7150e1ce3b29825f61b5a2320250c74ca1c9bfdf?branch=7150e1ce3b29825f61b5a2320250c74ca1c9bfdf&diff=split"></script>
+
+<p><strong>model danych</strong> easy-words-app/src/app/data/models.ts</p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/data/models.ts"></script>
+
+<p><strong>dane/plik zastępujący bazę danych</strong> easy-words-app/src/app/data/data-base.ts</p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/data/data-base.ts"></script>
+
+<p><strong>serwis</strong> - easy-words-app/src/app/services/words.service.ts</p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/services/words.service.ts"></script>
+
+<p><strong>Komponent korzystający z serwisu</strong> - easy-words-app/src/app/compontents/question/question.component.ts </p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.ts"></script>
+
+<p>easy-words-app/src/app/compontents/question/question.component.html</p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.html"></script>
+
+<p><strong>Komponent korzystający z serwisu 2 - główny komponent przekazujący dane do dziecka (dump komponentu)</strong></p>
+<p>easy-words-app/src/app/app.component.ts</p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.ts"></script>
+
+<p>easy-words-app/src/app/app.component.html</p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.html"></script>
+
+<p><strong>Komponent przyjmujący dane od rodzica</strong>  - easy-words-app/src/app/compontents/answers/answers.component.ts </p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.ts"></script>
+
+<p>easy-words-app/src/app/compontents/answers/answers.component.html</p>
+<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.html"></script>
+
 <hr>
 <p>Źródła:</p>
 <p><a href="https://stackoverflow.com/questions/43585998/angular-2-how-to-share-array-data-between-components-using-service">SO - Angular 2, How to Share Array Data Between components using service?</a></p>
@@ -217,6 +254,10 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
   <div class="tag-cloud">
     <p>
       <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/serwis.html">serwis</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/service.html">service</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/subscribe.html">subscribe</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
     </p>
   </div>
 

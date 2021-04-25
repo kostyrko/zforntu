@@ -1,5 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - angular</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/angular.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2021-04-11T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Angular: serwisy</title><link href="https://kostyrko.github.io/zfrontu/angular-serwisy.html" rel="alternate"></link><published>2021-04-11T10:00:00+02:00</published><updated>2021-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2021-04-11:/zfrontu/angular-serwisy.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular" src="https://i.stack.imgur.com/E8ItT.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>...z frontu - angular</title><link href="https://kostyrko.github.io/zfrontu/" rel="alternate"></link><link href="https://kostyrko.github.io/zfrontu/feeds/angular.atom.xml" rel="self"></link><id>https://kostyrko.github.io/zfrontu/</id><updated>2021-04-18T10:00:00+02:00</updated><subtitle>JS/CSS/PY</subtitle><entry><title>Angular i RxJS oraz Observable</title><link href="https://kostyrko.github.io/zfrontu/angular-rxjs-observable.html" rel="alternate"></link><published>2021-04-18T10:00:00+02:00</published><updated>2021-04-18T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2021-04-18:/zfrontu/angular-rxjs-observable.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular+rxjs" src="https://miro.medium.com/max/5872/1*rcewo8BQLzUc_fI-_O7S_w.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Bilbioteka RxJS&lt;/h3&gt;
+&lt;p&gt;Programowani reaktywne - paradygmat programowani oparty na zdarzeniach (strumieniach danych oraz zmianach zachodzących w tych strumieniach - min. wymiana danych przy pomocy równoległych strumieni).&lt;/p&gt;
+&lt;p&gt;RxJs - biblioteka do reaktywnego programowania, w Angularze wykorzystywana (domyślnie) w kontekście routingu, zapytań do bazy danych (HTTP), formularzy. Pełni istotną funkcję w kontekście obsługi asynchroniczności oraz …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="angular+rxjs" src="https://miro.medium.com/max/5872/1*rcewo8BQLzUc_fI-_O7S_w.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Bilbioteka RxJS&lt;/h3&gt;
+&lt;p&gt;Programowani reaktywne - paradygmat programowani oparty na zdarzeniach (strumieniach danych oraz zmianach zachodzących w tych strumieniach - min. wymiana danych przy pomocy równoległych strumieni).&lt;/p&gt;
+&lt;p&gt;RxJs - biblioteka do reaktywnego programowania, w Angularze wykorzystywana (domyślnie) w kontekście routingu, zapytań do bazy danych (HTTP), formularzy. Pełni istotną funkcję w kontekście obsługi asynchroniczności oraz eventów. Jej składową jest obiekt &lt;strong&gt;Observable&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observable&lt;/strong&gt; (strumień danych) różni się od Promise tym, że może być zwracany wielokrotnie, udostępnia metody do filtrowani i operowania przesyłanymi danymi (metody pipe -  do modyfikowania).&lt;/p&gt;
+&lt;h3&gt;Observable&lt;/h3&gt;
+&lt;p&gt;Obiekt observable &lt;strong&gt;wymaga subskrypcji&lt;/strong&gt; aby otrzymywać od niego dane. Na obiekcie observable należy wywołać metodę &lt;strong&gt;subscribe&lt;/strong&gt; w ramach, której można przekazać funkcję (callbecki, które wykonają się w momencie gdy dostaną dane). &lt;strong&gt;Subscribe&lt;/strong&gt; - może zwrócić wiele wyników rozłożonych w czasie.
+Funkcja &lt;strong&gt;of()&lt;/strong&gt; tworzy z tablicy/listy obiekt typu Observable - przeciwieństwem jest funkcja &lt;strong&gt;from()&lt;/strong&gt;, która rozbija listę i przekazuje elementy pojedynczo.&lt;/p&gt;
+&lt;p&gt;W ten sposób stworzony observable będzie dla każdego subskrybenta nowym obiektem (każdy komponent dostaje te same dane). W przypadku &lt;strong&gt;subject&lt;/strong&gt; (przedstawione poniżej) jest to jeden obiekt przekazywany wielu obserwatorom (część elementów może nie zdążyć przyjąć danych).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;rxjs&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;c3po&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bb8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;observable&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Observable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;observable&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subscribe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(Observable - rxjs-dev.firebaseapp.com)[https://rxjs-dev.firebaseapp.com/api/index/class/Observable]&lt;/p&gt;
+&lt;p&gt;(from - www.learnrxjs.io)[https://www.learnrxjs.io/learn-rxjs/operators/creation/from]&lt;/p&gt;
+&lt;h3&gt;Observable w Angularze&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://rxjs-dev.firebaseapp.com/guide/operators"&gt;&lt;strong&gt;Operatory&lt;/strong&gt;&lt;/a&gt; RxJs pozwalają na pracę z danymi (ale nie ich modyfikację) w obiekcie &lt;a href="https://rxjs-dev.firebaseapp.com/guide/observable"&gt;&lt;strong&gt;Observable&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;W środku metody &lt;a href="https://rxjs-dev.firebaseapp.com/api/index/function/pipe"&gt;pipe&lt;/a&gt; wstawia się operatory, istnieje możliwość dodania kolejnych obserwatorów po przecinku.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;observable.pipe(&lt;/span&gt;
+&lt;span class="err"&gt;  filter(x =&amp;gt; x.length &amp;gt; 0 ),&lt;/span&gt;
+&lt;span class="err"&gt;  toArray() // zmienia dane w listy&lt;/span&gt;
+&lt;span class="err"&gt;).subscribe( x =&amp;gt; console.log(x))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Subject (typ Observable)&lt;/h3&gt;
+&lt;p&gt;Subject jest typem Observable i pozwala dzielić dane na wiele elementów (np. pomiędzy komponenty i serwisy).
+Dostarczenie (seedowanie) danych do obiektu &lt;strong&gt;subject&lt;/strong&gt; można przy pomocy metody &lt;strong&gt;next()&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;nowy&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;subject&lt;/span&gt; &lt;span class="n"&gt;oraz&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;którym&lt;/span&gt; &lt;span class="n"&gt;będzie&lt;/span&gt; &lt;span class="n"&gt;pracował&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;subject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Subject&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;subskrypcja&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;obiektu&lt;/span&gt; &lt;span class="n"&gt;subject&lt;/span&gt;
+&lt;span class="n"&gt;subject&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subscribe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Subject: &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;dostarczenie&lt;/span&gt; &lt;span class="n"&gt;danych&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;powyższy&lt;/span&gt; &lt;span class="n"&gt;kod&lt;/span&gt; &lt;span class="n"&gt;zareaguje&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;pojawienie&lt;/span&gt; &lt;span class="n"&gt;się&lt;/span&gt; &lt;span class="n"&gt;danych&lt;/span&gt;
+&lt;span class="n"&gt;subject&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Może zdążyć się tak, że informacje inicjalizacyjne zostają przekazane do komponentu zanim ten się zbuduje, a po jego stworzeniu brak danych (dane nie są przekazane). Alternatywnie można użyć &lt;strong&gt;Behavior subject&lt;/strong&gt; gdzie komponenty nawet gdy później załadowane będą otrzymywać dane.&lt;/p&gt;
+&lt;h5&gt;Behavior subject&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;Behavior subject&lt;/strong&gt; wymaga zainicjowania z określoną już wartością (null lub undefined również jest możliwe). W odróżnieniu od zwykłego subjectu oznacza to, że otrzymuje się wartość startową. &lt;strong&gt;Behavior subject&lt;/strong&gt; przekaże zawsze ostatnią wartość jaka się pojawiła.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;subjectBehavior&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;BehaviorSubject&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r2d2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;subject&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subscribe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Subject: &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Inne subjecty: &lt;strong&gt;ReplaySubject&lt;/strong&gt; (def buforu), &lt;strong&gt;AsynSubject&lt;/strong&gt; (ostatnia wartość wykonania obserwacji jest przekazana ale dopiero po jej wykonaniu)&lt;/p&gt;
+&lt;h4&gt;Subscribe&lt;/h4&gt;
+&lt;p&gt;Obiekt &lt;strong&gt;subscribe&lt;/strong&gt; jest otrzymywany po wywołaniu metody subscribe na &lt;strong&gt;Observable&lt;/strong&gt; // przechwytywanie poprzez przypisanie zmiennej i przypisanie tego co zwraca metoda subscribe&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt; &lt;span class="n"&gt;obiekt&lt;/span&gt; &lt;span class="n"&gt;subscribe&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;isStopped&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;false&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;subskrypcja&lt;/span&gt; &lt;span class="n"&gt;trwa&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;subscribe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subjectBehavior&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subscribe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;BehaviorSubject: &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Unsubscribe&lt;/h4&gt;
+&lt;p&gt;Unsubscribe - metoda służąca do anulowania/zaprzestania subskrypcji (w przypadku Angulara np na ngOnDestroy)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observable&lt;/strong&gt; z formularzy, routingu, subjectu bez anulowania subskrypcji będą zajmowały pamięć (z HTTP kończą działanie jak przekażą dane). Observable stworzony wykorzystując metodę &lt;strong&gt;from()&lt;/strong&gt; nie muszą być usuwane (subskrypcja jest zamknięta), przy pomocy &lt;strong&gt;interval()&lt;/strong&gt; będzie tego wymagał.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;subscribe.unsubscribe();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;Przykładowy projekt z zastosowaniem serwisu wykorzystujący obiekt 'subject'&lt;/h3&gt;
+&lt;p&gt;::: Orginalne żródło poniższego projektu: &lt;a href="https://github.com/ZacznijProgramowac/"&gt;GH - ZacznijProgramowac&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw"&gt;Udemy -Angular - kompletny kurs od podstaw - edycja na rok 2021&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Projekt porównujący zachowanie &lt;strong&gt;subject&lt;/strong&gt; oraz &lt;strong&gt;Behavior subject&lt;/strong&gt; =&amp;gt; &lt;a href="https://github.com/kostyrko/JS-sandbox/tree/master/7_Angular/peoples-list-subjects-app"&gt;peoples-list-subjects-app&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;Projekt easy-words bazujący na Subjects:&lt;/h4&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/bcommit/7150e1ce3b29825f61b5a2320250c74ca1c9bfdf?branch=7150e1ce3b29825f61b5a2320250c74ca1c9bfdf&amp;diff=split"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;model danych&lt;/strong&gt; easy-words-app/src/app/data/models.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/data/models.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;dane/plik zastępujący bazę danych&lt;/strong&gt; easy-words-app/src/app/data/data-base.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/data/data-base.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;serwis&lt;/strong&gt; - easy-words-app/src/app/services/words.service.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/services/words.service.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Komponent korzystający z serwisu&lt;/strong&gt; - easy-words-app/src/app/compontents/question/question.component.ts &lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;easy-words-app/src/app/compontents/question/question.component.html&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Komponent korzystający z serwisu 2 - główny komponent przekazujący dane do dziecka (dump komponentu)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;easy-words-app/src/app/app.component.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;easy-words-app/src/app/app.component.html&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Komponent przyjmujący dane od rodzica&lt;/strong&gt;  - easy-words-app/src/app/compontents/answers/answers.component.ts &lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;easy-words-app/src/app/compontents/answers/answers.component.html&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/master/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.html"&gt;&lt;/script&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Źródła:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://rxjs-dev.firebaseapp.com/guide/overview"&gt;RxJS - dokumentacja&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/ReactiveX/rxjs"&gt;GH - ReactiveX/rxjs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="shorturl.at/nqP46"&gt;RxJS z Angularem - programowanie reaktywne aplikacji frontendowej&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.angular.love/2018/07/04/rxjs-w-angular-co-wypada-wiedziec/"&gt;RxJS w Angular – co wypada wiedzieć&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[https://kamilmysliwiec.com/rxjs-hot-vs-cold-observable-operator-create](https://kamilmysliwiec.com/rxjs-hot-vs-cold-ob&lt;/p&gt;</content><category term="angular"></category><category term="angular"></category><category term="rxjs"></category><category term="observable"></category><category term="unfinished"></category></entry><entry><title>Angular: serwisy</title><link href="https://kostyrko.github.io/zfrontu/angular-serwisy.html" rel="alternate"></link><published>2021-04-11T10:00:00+02:00</published><updated>2021-04-11T10:00:00+02:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2021-04-11:/zfrontu/angular-serwisy.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular" src="https://i.stack.imgur.com/E8ItT.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Angular serwisy&lt;/h3&gt;
 &lt;h4&gt;Wstęp&lt;/h4&gt;
 &lt;p&gt;Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).
@@ -61,6 +172,39 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h3&gt;Przykładowy projekt z zastosowaniem serwisu&lt;/h3&gt;
+&lt;p&gt;Orginalne żródło poniższego projektu: &lt;a href="https://github.com/ZacznijProgramowac/easy-words/tree/003-answer-component"&gt;GH - ZacznijProgramowac/easy-words&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw"&gt;Udemy -Angular - kompletny kurs od podstaw - edycja na rok 2021&lt;/a&gt;&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/bcommit/7150e1ce3b29825f61b5a2320250c74ca1c9bfdf?branch=7150e1ce3b29825f61b5a2320250c74ca1c9bfdf&amp;diff=split"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;model danych&lt;/strong&gt; easy-words-app/src/app/data/models.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/data/models.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;dane/plik zastępujący bazę danych&lt;/strong&gt; easy-words-app/src/app/data/data-base.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/data/data-base.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;serwis&lt;/strong&gt; - easy-words-app/src/app/services/words.service.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/services/words.service.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Komponent korzystający z serwisu&lt;/strong&gt; - easy-words-app/src/app/compontents/question/question.component.ts &lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;easy-words-app/src/app/compontents/question/question.component.html&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Komponent korzystający z serwisu 2 - główny komponent przekazujący dane do dziecka (dump komponentu)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;easy-words-app/src/app/app.component.ts&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;easy-words-app/src/app/app.component.html&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.html"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Komponent przyjmujący dane od rodzica&lt;/strong&gt;  - easy-words-app/src/app/compontents/answers/answers.component.ts &lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.ts"&gt;&lt;/script&gt;
+
+&lt;p&gt;easy-words-app/src/app/compontents/answers/answers.component.html&lt;/p&gt;
+&lt;script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.html"&gt;&lt;/script&gt;
+
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://stackoverflow.com/questions/43585998/angular-2-how-to-share-array-data-between-components-using-service"&gt;SO - Angular 2, How to Share Array Data Between components using service?&lt;/a&gt;&lt;/p&gt;
@@ -69,7 +213,7 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 &lt;p&gt;&lt;a href="https://zacznijprogramowac.net/angular-pytania/czym-jest-serwis-w-angularze/"&gt;Czym jest serwis w Angularze?&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.p-programowanie.pl/angular/jak-pozbyc-sie-singletonow-w-angularze"&gt;Jak pozbyć się singletonów w Angularze?&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://angular.io/tutorial/toh-pt4"&gt;angular.io -&amp;gt; Add services&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://angular.io/guide/dependency-injection"&gt;angular.io -&amp;gt; Dependency injection in Angular&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="angular"></category></entry><entry><title>Angular: cykle życia komponentu</title><link href="https://kostyrko.github.io/zfrontu/angular-lifecycle-hooks.html" rel="alternate"></link><published>2021-02-01T10:00:00+01:00</published><updated>2021-02-01T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2021-02-01:/zfrontu/angular-lifecycle-hooks.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular" src="https://wpblog.semaphoreci.com/wp-content/uploads/2019/01/Testing-Components-in-Angular-2-with-Jasmine-776x320.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://angular.io/guide/dependency-injection"&gt;angular.io -&amp;gt; Dependency injection in Angular&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="angular"></category><category term="serwis"></category><category term="service"></category><category term="subscribe"></category><category term="unfinished"></category></entry><entry><title>Angular: cykle życia komponentu</title><link href="https://kostyrko.github.io/zfrontu/angular-lifecycle-hooks.html" rel="alternate"></link><published>2021-02-01T10:00:00+01:00</published><updated>2021-02-01T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2021-02-01:/zfrontu/angular-lifecycle-hooks.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular" src="https://wpblog.semaphoreci.com/wp-content/uploads/2019/01/Testing-Components-in-Angular-2-with-Jasmine-776x320.png"&gt;&lt;/p&gt;
 &lt;p&gt;Tabela przedstawiająca life cycle hooki (wg kolejności ich życia)&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -272,7 +416,7 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://angular.io/cli"&gt;Angular -CLI&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw/"&gt;Angular - kompletny kurs od podstaw - edycja na rok 2021&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="bootstrap"></category><category term="angular"></category><category term="javascript"></category></entry><entry><title>Angular -&gt; Mały projekt od podstaw</title><link href="https://kostyrko.github.io/zfrontu/angular-projekt.html" rel="alternate"></link><published>2021-01-23T00:00:00+01:00</published><updated>2021-01-23T00:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2021-01-23:/zfrontu/angular-projekt.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular-bootstrap" src="https://angular.io/assets/images/logos/angular/angular.svg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw/"&gt;Angular - kompletny kurs od podstaw - edycja na rok 2021&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="bootstrap"></category><category term="angular"></category><category term="javascript"></category><category term="unfinished"></category></entry><entry><title>Angular -&gt; Mały projekt od podstaw</title><link href="https://kostyrko.github.io/zfrontu/angular-projekt.html" rel="alternate"></link><published>2021-01-23T12:00:00+01:00</published><updated>2021-01-23T12:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2021-01-23:/zfrontu/angular-projekt.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular-bootstrap" src="https://angular.io/assets/images/logos/angular/angular.svg"&gt;&lt;/p&gt;
 &lt;h3&gt;Mały projekt - cytaty z Gwiezdnych Wojen&lt;/h3&gt;
 &lt;p&gt;Zainiscjowanie projekty przy pomocy Angular-CLI&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ng new star-wars-quotes-app&lt;/span&gt;
@@ -316,6 +460,11 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 &lt;ol&gt;
 &lt;li&gt;Dodanie folderu modeli -&amp;gt; /star-wars-quotes-app/src/models&lt;/li&gt;
 &lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;plik models lub folder zwyczajowo zawiera modele przkazywanych/używanych danych - np. interfejsów lub enumów &amp;lt;&amp;lt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;code&gt;quotation.ts&lt;/code&gt; -&amp;gt; zawiera interfejs pojedynczego cytatu&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;Quotation&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;author&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -518,7 +667,7 @@ Dodanie metody, która obsługuje dodane pole.&lt;/p&gt;
 
 &lt;hr&gt;
 &lt;p&gt;Źródła:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw/"&gt;Angular - kompletny kurs od podstaw - edycja na rok 2021&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="bootstrap"></category><category term="angular"></category><category term="javascript"></category></entry><entry><title>Angular: referencje szablonów i ng-content</title><link href="https://kostyrko.github.io/zfrontu/angular-ng-content.html" rel="alternate"></link><published>2020-12-28T10:00:00+01:00</published><updated>2020-12-28T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-28:/zfrontu/angular-ng-content.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular ng-content" src="https://cdn-media-1.freecodecamp.org/images/1*mFnAxpS3I_lpRPnIyevxKw.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw/"&gt;Angular - kompletny kurs od podstaw - edycja na rok 2021&lt;/a&gt;&lt;/p&gt;</content><category term="angular"></category><category term="angular"></category><category term="javascript"></category><category term="models"></category></entry><entry><title>Angular: referencje szablonów i ng-content</title><link href="https://kostyrko.github.io/zfrontu/angular-ng-content.html" rel="alternate"></link><published>2020-12-28T10:00:00+01:00</published><updated>2020-12-28T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-12-28:/zfrontu/angular-ng-content.html</id><summary type="html">&lt;p&gt;&lt;img alt="angular ng-content" src="https://cdn-media-1.freecodecamp.org/images/1*mFnAxpS3I_lpRPnIyevxKw.png"&gt;&lt;/p&gt;
 &lt;p&gt;Przy pomocy ng-content można przekazywać treść oraz różne komponenty&lt;/p&gt;
 &lt;p&gt;ng-content jest swego rodzaju wskaźnikiem/selektorem pozwalającym na opakowanie elementu komponentem, innymi słowy na zagnieżdżenie innego komponentu, fragmentu kodu html lub treści (stringa) w ramach innego komponentu.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;btn-floating teal add-button&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;(click)=&amp;quot;clickButton.emit()&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
