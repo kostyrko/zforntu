@@ -50,25 +50,26 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Przy pomocy ng-content można przekazywać treść oraz różne komponenty ng-content jest swego rodzaju wskaźnikiem/selektorem pozwalającym na opakowanie elementu komponentem, innymi słowy na zagnieżdżenie innego komponentu, fragmentu kodu html lub treści (stringa) w ramach innego komponentu. &lt;button class=&#34;btn-floating teal add-button&#34; (click)=&#34;clickButton.emit()&#34;&gt; &lt;ng-content&gt;&lt;/ng-content&gt; &lt;/button&gt; zastosowanie &lt;app-button (clickButton …" />
-<meta name="keywords" content="angular, unfinished">
+<meta name="description" content="Niedawno odbyła się zdalna konferencja prowadzona przez Applitools oraz Cypress nazwana Front-End Test Fest 2021. Jedeno z wystąpień było poświęcone dobrym praktykom pisania testów (link w źródłach) i dzisiejszy wpis jest ekstraktem z tego wystąpienia Główna zasada: testy powinny być proste - &#34;flat test desing&#34; Pisanie testów nie powinno być realizowane …" />
+<meta name="keywords" content="cypress, testing, good practices">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="Angular: referencje szablonów i ng-content"/>
-<meta property="og:description" content="Przy pomocy ng-content można przekazywać treść oraz różne komponenty ng-content jest swego rodzaju wskaźnikiem/selektorem pozwalającym na opakowanie elementu komponentem, innymi słowy na zagnieżdżenie innego komponentu, fragmentu kodu html lub treści (stringa) w ramach innego komponentu. &lt;button class=&#34;btn-floating teal add-button&#34; (click)=&#34;clickButton.emit()&#34;&gt; &lt;ng-content&gt;&lt;/ng-content&gt; &lt;/button&gt; zastosowanie &lt;app-button (clickButton …"/>
+<meta property="og:title" content="Dobre zasady testowania"/>
+<meta property="og:description" content="Niedawno odbyła się zdalna konferencja prowadzona przez Applitools oraz Cypress nazwana Front-End Test Fest 2021. Jedeno z wystąpień było poświęcone dobrym praktykom pisania testów (link w źródłach) i dzisiejszy wpis jest ekstraktem z tego wystąpienia Główna zasada: testy powinny być proste - &#34;flat test desing&#34; Pisanie testów nie powinno być realizowane …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-ng-content.html"/>
+<meta property="og:url" content="https://kostyrko.github.io/zfrontu/testing-good-practices.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-12-28 10:00:00+01:00"/>
+<meta property="article:published_time" content="2021-06-25 10:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
-<meta property="article:section" content="angular"/>
-<meta property="article:tag" content="angular"/>
-<meta property="article:tag" content="unfinished"/>
+<meta property="article:section" content="testing"/>
+<meta property="article:tag" content="cypress"/>
+<meta property="article:tag" content="testing"/>
+<meta property="article:tag" content="good practices"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; Angular: referencje szablonów i ng-content</title>
+  <title>...z frontu &ndash; Dobre zasady testowania</title>
 
 </head>
 <body>
@@ -140,47 +141,52 @@
 <article class="single">
   <header>
       
-    <h1 id="angular-ng-content">Angular: referencje szablonów i ng-content</h1>
+    <h1 id="testing-good-practices">Dobre zasady testowania</h1>
     <p>
-      Opublikowano pon 28 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+      Opublikowano pią 25 czerwca 2021 w <a href="https://kostyrko.github.io/zfrontu/category/testing.html">testing</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
 
   <div>
-    <p><img alt="angular ng-content" src="https://cdn-media-1.freecodecamp.org/images/1*mFnAxpS3I_lpRPnIyevxKw.png"></p>
-<p>Przy pomocy ng-content można przekazywać treść oraz różne komponenty</p>
-<p>ng-content jest swego rodzaju wskaźnikiem/selektorem pozwalającym na opakowanie elementu komponentem, innymi słowy na zagnieżdżenie innego komponentu, fragmentu kodu html lub treści (stringa) w ramach innego komponentu.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn-floating teal add-button&quot;</span> <span class="err">(click)=&quot;clickButton.emit()&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ng-content&gt;&lt;/ng-content&gt;</span>
-<span class="nt">&lt;/button&gt;</span>
+    <p><img alt="testing" src="https://static-cms.hotjar.com/documents/conducting-usability-test_yon4BQT.svg"></p>
+<p>Niedawno odbyła się zdalna konferencja prowadzona przez Applitools oraz Cypress nazwana Front-End Test Fest 2021. Jedeno z wystąpień było poświęcone dobrym praktykom pisania testów (link w źródłach) i dzisiejszy wpis jest ekstraktem z tego wystąpienia</p>
+<h3>Główna zasada: testy powinny być proste - "flat test desing"</h3>
+<p>Pisanie testów nie powinno być realizowane w sposób identyczny jak pisanie kodu, prostota powinna znajdować się na pierwszym miejscu, nawet kosztem powtarzalności kodu. Oznacza to,  że test o ile to możliwe nie powinien korzystać z dodatkowej abstrakcji i cechować się płaskim modelem (bez zagłębień).</p>
+<h3>Cel testu powinien być zrozumiały -&gt; "get test instantly"</h3>
+<p>Opis testu powinien przedstawiać w sposób klarowny jego intencje, aby to było możliwe należy spełnić 3 warunki i opisać:</p>
+<p>1) co jest testowane (np. właściwość elementu)</p>
+<p>2) w jakich warunkach jest testowane (np. na użytkowania właściwości)</p>
+<p>3) jaki jest oczekiwany efekt</p>
+<h3>Układ testu - zasada AAA (Arrange, Act, Assert)</h3>
+<p>-&gt; Arrange = setup scenariusza (zmienne, mockowanie etc.)</p>
+<p>-&gt; Act = przeprowadzenie akcji, które prowadzą do końcowego rezultatu</p>
+<p>-&gt; Assert = sprawdzanie wykonania się scenariusza</p>
+<h3>Niezależność testów</h3>
+<p>Każdy z testów powinien posiadać własne izolowane środowisko i nie powinien być zależny od wyniku poprzedzającego go testu. Oznacza, to że testy nie powinny być od siebie zależne ani ze sobą powiązane w żaden sposób - środowisko danych powinno być takie samo dla każdego testu.</p>
+<h3>Realistyczne dane</h3>
+<p>Jednym z elementów czytelności testu jest wprowadzanie realistycznych danych (nie bazowanie na tzw. place holderach jak np Foo Bar), w ten sposób można w prostszy sposób zrozumieć powiązanie z testowanym produktem</p>
+<h3>Selektory</h3>
+<p>Nie należy korzystać z selektorów, które mogą ulec zmianie - zamiast tego najlepiej podczepiać się pod właściwości, które są widoczne lub istotne również dla użytkownika (np. poprzez cy.contains()) lub przypisywanie testowych atrybutów typu data do testowanego obiektu (np. data-cy).</p>
+<h3>Czekanie...</h3>
+<p>Zamiast arbitralnie ustalonego czakania na wykonanie się jakiegoś testowego zadania (w dużej mierze będzie to zależne od zapytania HTTP) można ustawić czekanie na pozytywną odpowiedź tego zapytania</p>
+<div class="highlight"><pre><span></span><code><span class="err">    cy.wiat(&#39;@request&#39;)</span>
+<span class="err">        .its(&#39;response.statusCode&#39;)</span>
+<span class="err">        .should(&#39;equal&#39;, 200);</span>
 </code></pre></div>
 
 
-<p>zastosowanie</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;app-button</span> <span class="err">(clickButton)=&quot;form.onSwitchForm()&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;material-icons&quot;</span><span class="nt">&gt;</span>add<span class="nt">&lt;/i&gt;</span>
-<span class="nt">&lt;/app-button&gt;</span>
-</code></pre></div>
-
-
-<h3>Rozbudowane użycie ng-content</h3>
-<p>Nadawanie nazwy aby mieć większy wpływ na to, gdzie dany element jest wyświetlany</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="o">=[</span><span class="n">first</span><span class="o">]</span><span class="w"></span>
-</code></pre></div>
-
-
-<p>Wstrzykiwanie ng-content</p>
-<p>ngAfterViewInit() / @ContentChild / @ContentChildren</p>
-<p>https://github.com/ZacznijProgramowac/ng-template-examples/tree/master/src/app</p>
 <hr>
+<p>Źródło:</p>
+<p><a href="https://www.youtube.com/watch?v=uvJwWQLaVqU&amp;list=PL8GlT7H3xOcIXrl0nXmyDBYztCKcVqQQg&amp;index=6&amp;ab_channel=Cypress.io">Front-End Test Fest 2021: Recordings - It's a (Testing) Trap! - Common Testing Pitfalls and How to Solve Them</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/cypress.html">cypress</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/testing.html">testing</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/good-practices.html">good practices</a>
     </p>
   </div>
 

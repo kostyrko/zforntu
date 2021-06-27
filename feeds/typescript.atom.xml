@@ -76,20 +76,29 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 &lt;h3&gt;Przykładowa klasa&lt;/h3&gt;
 &lt;p&gt;constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;tak&lt;/span&gt; &lt;span class="n"&gt;samo&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;JS&lt;/span&gt; &lt;span class="n"&gt;powyżej&lt;/span&gt; &lt;span class="n"&gt;ES6&lt;/span&gt;
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;deklaracja&lt;/span&gt; &lt;span class="n"&gt;pola&lt;/span&gt; &lt;span class="n"&gt;jakie&lt;/span&gt; &lt;span class="n"&gt;zawiera&lt;/span&gt; &lt;span class="n"&gt;klasa&lt;/span&gt; &lt;span class="n"&gt;wraz&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="n"&gt;typem&lt;/span&gt; &lt;span class="n"&gt;danych&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inaczej&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;metoda&lt;/span&gt; &lt;span class="n"&gt;konstruktora&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;tworzy&lt;/span&gt; &lt;span class="n"&gt;nowe&lt;/span&gt; &lt;span class="n"&gt;obiekty&lt;/span&gt; &lt;span class="n"&gt;instancji&lt;/span&gt; &lt;span class="n"&gt;klasy&lt;/span&gt; 
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;pozwala&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;istnienie&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;przy&lt;/span&gt; &lt;span class="n"&gt;inicjalizacji&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;instancji&lt;/span&gt; &lt;span class="n"&gt;klasy&lt;/span&gt;
+  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
 
-  &lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Greeter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;odwołanie&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;instancji&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;które&lt;/span&gt; &lt;span class="n"&gt;powstała&lt;/span&gt; &lt;span class="n"&gt;na&lt;/span&gt; &lt;span class="n"&gt;podstawie&lt;/span&gt; &lt;span class="n"&gt;klasy&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;funkcja&lt;/span&gt; &lt;span class="n"&gt;zwracająca&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;
+  &lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;  
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello, &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zmienia&lt;/span&gt; &lt;span class="n"&gt;imię&lt;/span&gt; &lt;span class="n"&gt;ale&lt;/span&gt; &lt;span class="n"&gt;nic&lt;/span&gt; &lt;span class="n"&gt;nie&lt;/span&gt; &lt;span class="n"&gt;zwraca&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;jako&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;przyjmuje&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;
+  &lt;span class="n"&gt;changeDroidName&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;droid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;R2D2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;zapisuje&lt;/span&gt; &lt;span class="n"&gt;jako&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
-
-&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;r2d2Copy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C3PO&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;greet&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;tworzenie&lt;/span&gt; &lt;span class="n"&gt;nowej&lt;/span&gt; &lt;span class="n"&gt;instancji&lt;/span&gt; &lt;span class="n"&gt;klasy&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;typie&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;kaŻda&lt;/span&gt; &lt;span class="n"&gt;klasa&lt;/span&gt; &lt;span class="n"&gt;definiuje&lt;/span&gt; &lt;span class="n"&gt;nowy&lt;/span&gt; &lt;span class="n"&gt;typ&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;zmienna&lt;/span&gt; &lt;span class="n"&gt;r2d2&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;typie&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;r2dr&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;R2D2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
@@ -123,7 +132,7 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
     &lt;span class="n"&gt;private&lt;/span&gt; &lt;span class="n"&gt;droids&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;również&lt;/span&gt; &lt;span class="n"&gt;oznaczenie&lt;/span&gt; &lt;span class="n"&gt;prywatności&lt;/span&gt;
 
     &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="c1"&gt;#name = name;&lt;/span&gt;
+        &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 
     &lt;span class="n"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -232,6 +241,9 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 &lt;hr&gt;
 &lt;p&gt;&lt;a href="https://www.frontlive.pl/typescript-sredniozaawansowany/"&gt;TypeScript - Generics, klasy i zaawansowane typy&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://refactoring.guru/design-patterns/typescript"&gt;The Catalog of TypeScript Examples&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://jsdn.pl/typescript-pierwsze-kroki-tworzenie-klas-w-typescript/"&gt;TypeScript – pierwsze kroki. Tworzenie klas w TypeScript. Część Pierwsza.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.typescriptlang.org/docs/handbook/2/classes.html"&gt;www.typescriptlang.org -&amp;gt; Classes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://clockworkjava.pl/2019/09/klasy-w-typescript/"&gt;Klasy w TypeScript - clockworkjava.pl&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;JS&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://stackoverflow.com/questions/54841417/javascript-classes-vs-typescript-classes"&gt;SO - Javascript classes vs typescript classes&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.w3schools.com/js/js_object_constructors.asp"&gt;JavaScript Object Constructors&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>TypeScript: typy generyczne</title><link href="https://kostyrko.github.io/zfrontu/typescript-generics.html" rel="alternate"></link><published>2020-11-24T10:00:00+01:00</published><updated>2020-11-24T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-24:/zfrontu/typescript-generics.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://miro.medium.com/max/700/1*Sy-lk-CZlnc2szy0SPsLEQ.jpeg"&gt;&lt;/p&gt;
@@ -426,17 +438,23 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 &lt;p&gt;&lt;a href="https://www.frontlive.pl/typescript-sredniozaawansowany/"&gt;TypeScript - Generics, klasy i zaawansowane typy&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://jsdn.pl/typescript-typy-generyczne/"&gt;TypeScript – pierwsze kroki. Typy generyczne.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://kamilmysliwiec.com/typescript-typy-generyczne"&gt;TypeScript – typy generyczne&lt;/a&gt;&lt;/p&gt;</content><category term="typescript"></category><category term="rts"></category><category term="typescript"></category></entry><entry><title>TypeScript: wprowadzenie + podstawowe typy</title><link href="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html" rel="alternate"></link><published>2020-11-19T10:00:00+01:00</published><updated>2020-11-19T10:00:00+01:00</updated><author><name>mkostyrko</name></author><id>tag:kostyrko.github.io,2020-11-19:/zfrontu/typescript-wprowadzenie.html</id><summary type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Spis treści&lt;/h4&gt;
+&lt;p&gt;&lt;a href="#interface"&gt;* interface&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#enum"&gt;* enum&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#funkcjaTyp"&gt;* Funkcje jako typy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#zwracanieTypu"&gt;* Funkcje - zwracanie typów oraz 'void' &amp;amp; 'undefined'&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju "rozszerzeniem" JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TS wprowadza/charakteryzuje&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi )&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Możliwość stosowania/definiowania typów&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Wprowadza elementy dokumentacji/klarowności kodu np …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"&gt;&lt;/p&gt;
+&lt;p&gt;Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Spis treści&lt;/h4&gt;
+&lt;p&gt;&lt;a href="#interface"&gt;* interface&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#enum"&gt;* enum&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#funkcjaTyp"&gt;* Funkcje jako typy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#zwracanieTypu"&gt;* Funkcje - zwracanie typów oraz 'void' &amp;amp; 'undefined'&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju "rozszerzeniem" JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TS wprowadza/charakteryzuje&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -563,7 +581,7 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;Interface&lt;/strong&gt; - tworzenie typu &lt;strong&gt;Obiektów&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interface&lt;/strong&gt; {#interface} - tworzenie typu &lt;strong&gt;Obiektów&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Interfejs powinien być poprzedzony słowem &lt;strong&gt;interface&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;wypełnienie&lt;/span&gt; &lt;span class="n"&gt;podanych&lt;/span&gt; &lt;span class="n"&gt;tutaj&lt;/span&gt; &lt;span class="n"&gt;kluczy&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="n"&gt;obowiązkowe&lt;/span&gt;
@@ -668,9 +686,9 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 
 &lt;p&gt;więcej na ten temat: &lt;a href="https://www.tutorialsteacher.com/typescript/typescript-tuple"&gt;TypeScript - Tuples&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Enum - wyliczeniowy typ danych&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Enums to "zbiór nazwanych, określonych wartości liczbowych", gdzie początkowa liczba domyślnie jest równa 0 a każda kolejna jest +1&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;p&gt;&lt;strong&gt;Enum - wyliczeniowy typ danych&lt;/strong&gt; {#emu}&lt;/p&gt;
+&lt;p&gt;Enums to jest &lt;strong&gt;zbiorem wyliczeniowym możliwych wartości typu&lt;/strong&gt; (gdzie początkowa liczba domyślnie jest równa 0 a każda kolejna jest +1).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Running&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="n"&gt;Timeout&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="n"&gt;Disabled&lt;/span&gt;
@@ -681,7 +699,7 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 
 
 &lt;p&gt;Poszczególnym wartościom mogą być przypisane inne liczby np.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Running&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="n"&gt;Timeout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="n"&gt;Disabled&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;domyślnie&lt;/span&gt; &lt;span class="n"&gt;jest&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;więc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;
@@ -690,6 +708,23 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 
 
 &lt;p&gt;Często nazwy poszczególnych wartości w enum pisanę są wyłącznie dużymi literami np. &lt;code&gt;RUNNING&lt;/code&gt; zamiast &lt;code&gt;Running&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Enum pozwala również na zadeklarowanie wartości przy pomocy łańcucha znaków&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;RUNNING&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Running&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;TIMEOUT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Timeout&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;DISABLED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Disabled&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;stosowanie&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;runner&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;runner&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RUNNING&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;the status is: running&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;runner&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Stoped&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Nie&lt;/span&gt; &lt;span class="n"&gt;można&lt;/span&gt; &lt;span class="n"&gt;przypisać&lt;/span&gt; &lt;span class="n"&gt;argumentu&lt;/span&gt; &lt;span class="n"&gt;typu&lt;/span&gt; &lt;span class="n"&gt;Stoped&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;parametru&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Status&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;źródła:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://kamilmysliwiec.com/typescript-typ-wyliczeniowy-enum"&gt;kamilmysliwiec.com - TypeScript – typ wyliczeniowy, enum&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://solutionchaser.com/typescript-enum/"&gt;solutionchaser.com - Zrozumieć enumy w TypeScriptcie&lt;/a&gt;&lt;/p&gt;
@@ -763,7 +798,7 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 
 &lt;hr&gt;
 &lt;p&gt;--&lt;/p&gt;
-&lt;h3&gt;5. Funkcje jako typy&lt;/h3&gt;
+&lt;h3 id="funkcjaTyp"&gt;5. Funkcje jako typy&lt;/h3&gt;
 &lt;p&gt;Deklarowanie zmiennej z typem &lt;strong&gt;Function&lt;/strong&gt; pozwala nam na zapewnienie tego, że będzie ona przechowywać jedynie funkcję,a nie coś innego dodatkowo istnieje możliwość wskazania wzoru (typu) tej funkcji&lt;/p&gt;
 &lt;p&gt;Przykład bez wskazania&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;function&lt;/span&gt; &lt;span class="nt"&gt;addDroids&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;number&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt; &lt;span class="nt"&gt;number&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -792,7 +827,7 @@ TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdef
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Funkcje - zwracanie typów + 'void' &amp;amp; 'undefined'&lt;/h3&gt;
+&lt;h3 id="zwracanieTypu"&gt;Funkcje - zwracanie typów + 'void' &amp;amp; 'undefined'&lt;/h3&gt;
 &lt;p&gt;Istnieje możliwość typu zwracanej wartości funkcji -&amp;gt; poprzez zastosowanie po argumentach dwukropka oraz podania odpowiedniego typu (stosowane jedynie w przypadku potrzeby)&lt;/p&gt;
 &lt;p&gt;w wyniku tej funkcji zostanie zwrócona liczba/numbers&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;function addDroids(n1:number, n2:number): number {&lt;/span&gt;

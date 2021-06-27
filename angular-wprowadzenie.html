@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Angular wprowadzenie Angular został napisany w TypeScript Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …" />
+<meta name="description" content="Angular wprowadzenie Angular opraty jest o TypeScript Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablonu w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …" />
 <meta name="keywords" content="angular">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="Angular: wprowadzenie"/>
-<meta property="og:description" content="Angular wprowadzenie Angular został napisany w TypeScript Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …"/>
+<meta property="og:description" content="Angular wprowadzenie Angular opraty jest o TypeScript Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablonu w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html"/>
 <meta property="og:type" content="article"/>
@@ -143,7 +143,7 @@
     <p>
       Opublikowano wto 22 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
 
-        &#8226; 9 min read
+        &#8226; 10 min read
     </p>
   </header>
 
@@ -152,15 +152,46 @@
     <hr>
 <p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
 <h3>Angular wprowadzenie</h3>
-<p>Angular został napisany w TypeScript</p>
-<p>Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne w kodzie html, natomiast informacje zapisane w html powinny odpowiadać za wyświetlanie danych i umożliwienie interakcji z użytkownikiem.</p>
+<p>Angular opraty jest o TypeScript</p>
+<p>Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablonu w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne w kodzie html, natomiast informacje zapisane w html powinny odpowiadać za wyświetlanie danych i umożliwienie interakcji z użytkownikiem.</p>
 <p>Moduły, komponenty oraz serwisy są klasami posiadającymi dekoratory. Dekoratory wskazują na ich typ oraz zapewniają ich metadane, które mają wpływ na zachowanie Angulara.</p>
+<p>Angular wymaga używania podwójnego cudzysłowu przy pisaniu wyrażeń.</p>
+<p>Przykładowo</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">ngClass</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;{&#39;btn-primary&#39; : newItem !== &#39;&#39; , btn-default === &#39;&#39;}&quot;</span><span class="w"></span>
+</code></pre></div>
+
+
+<h4>Spis treści</h4>
+<p><a href="#ngModules">ngModules</a></p>
+<p><a href="#komponenty">Komponenty - wyświetlanie i komunikacja z użytkownikiem </a></p>
+<p><a href="#szablony">SZABLONY</a></p>
+<p><a href="#interpolacja">Interpolacja</a></p>
 <hr>
-<h3>Moduły (ngModules) - kontekts</h3>
+<p><a href="#operatory">OPERATORY - zmiana danych w szablonie</a></p>
+<hr>
+<p><a href="#dyrektywy">DYREKTYWY - tworzenie dynamicznego szablonu</a></p>
+<p><a href="#ngFor">ngFor</a></p>
+<p><a href="#ngClass">ngClass</a></p>
+<p><a href="#ngStyle">ngStyle</a></p>
+<p><a href="#ngIf">ngIF, else i ng-template</a></p>
+<p><a href="#ngContainer">ngIF, then, else i ng-container</a></p>
+<p><a href="#ngSwitch">ngSwitch + ngSwitchCase</a></p>
+<hr>
+<p><a href="#binding">BINDING - tworzenie logiki aplikacji w ramach komponentu</a></p>
+<p><a href="#propertyBinding">propertyBinding</a></p>
+<p><a href="#eventBinding">eventBinding</a></p>
+<p><a href="#classBinding">classsBinding</a></p>
+<p><a href="#ngModel">ngModel</a></p>
+<hr>
+<p><a href="#serwis">SERWIS</a></p>
+<p><a href="#instalacjaAngular">Instalacja Angular i stworzenie pierwszego projektu przy pomocy Angular CLI</a></p>
+<p><a href="#glossary">Słownik z najważniejszymi pojęciami Angulara</a></p>
+<hr>
+<h3 id="ngModules">Moduły (ngModules) - kontekts</h3>
 <p>ngModules - nazwa aby rozróżnić od JS modules.</p>
-<p>Moduły tworzą kompilacyjny kontekst dla zbioru modułów (przez konwencję <em>root module</em> nazywa się <em>AppModule</em>)</p>
+<p>Moduły tworzą kompilacyjny kontekst dla zbioru modułów, które składają się na aplikację (przez konwencję <em>root module</em> nazywa się <em>AppModule</em>) - tu deklarujemy moduły, z których aplikacja się składa.</p>
 <p>Angular składa się z modułów -&gt; app.module.ts (src/app/app.module.ts) splata wszystkie moduły w całość, poszczególny moduł natomiast zbudowana jest jako drzewo składające się z komponentów.</p>
-<p>główny moduł posiada dekorator @NgModule, który skłąda się na aplikację Angularową.</p>
+<p>główny moduł posiada dekorator @NgModule, który skłąda się na aplikację Angularową (nie mylić z dyrektywą <strong>NgModel</strong>).</p>
 <p>Na moduły składają się komponenty (w przypadku małej aplikacji może istnieć jeden moduł - root module)</p>
 <div class="highlight"><pre><span></span><code>  <span class="kn">import</span> <span class="p">{</span> <span class="n">BrowserModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
   <span class="kn">import</span> <span class="p">{</span> <span class="n">NgModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
@@ -175,7 +206,7 @@
       <span class="n">BrowserModule</span>
     <span class="p">],</span>
     <span class="n">providers</span><span class="p">:</span> <span class="p">[</span><span class="n">LoginService</span><span class="p">],</span> <span class="o">//</span> <span class="err">!</span> <span class="n">serwis</span> <span class="n">zadeklarowany</span> <span class="n">dla</span> <span class="n">całej</span> <span class="n">aplikacji</span> <span class="o">-</span> <span class="n">jeśli</span> <span class="n">zadeklarowany</span> <span class="n">w</span> <span class="n">dekoratorze</span> <span class="n">poszczególnego</span> <span class="n">komponentu</span> <span class="n">to</span> <span class="n">wówczas</span> <span class="n">jest</span> <span class="n">jedynie</span> <span class="n">widoczny</span> <span class="n">dla</span> <span class="n">danego</span> <span class="n">komponentu</span> <span class="n">oraz</span> <span class="n">jego</span> <span class="n">dzieci</span>
-    <span class="n">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">]</span> <span class="o">//</span> <span class="err">!</span> <span class="n">zadeklarowanie</span> <span class="n">początku</span> <span class="n">aplikacji</span>
+    <span class="n">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">]</span> <span class="o">//</span> <span class="err">!</span> <span class="n">zadeklarowanie</span> <span class="n">początku</span> <span class="n">aplikacji</span> <span class="n">lub</span> <span class="n">tzw</span> <span class="n">root</span> <span class="o">-</span> <span class="n">na</span> <span class="n">podstawie</span> <span class="n">tego</span> <span class="s2">&quot;komponentu&quot;</span> <span class="n">Angular</span> <span class="n">tworzy</span> <span class="n">aplikację</span><span class="o">.</span>
   <span class="p">})</span>
   <span class="n">export</span> <span class="k">class</span> <span class="nc">AppModule</span> <span class="p">{</span> <span class="p">}</span>
 </code></pre></div>
@@ -183,7 +214,7 @@
 
 <p>czytaj dalej <a href="https://angular.io/guide/architecture-modules">Introduction to modules</a></p>
 <hr>
-<h3>Komponenty - wyświetlanie i komunikacja z użytkownikiem</h3>
+<h3 id="komponenty">Komponenty - wyświetlanie i komunikacja z użytkownikiem</h3>
 <p>Komponent jest klasą posiadającą dekorator - wyświetla/tworzy html i obsługuje zdarzenia,
 komponenty muszą być zadeklarowane w module (środowisku/kontekście). Komponenty służą do wyświetlania danych i komunikacji z użytkownikiem.</p>
 <p>Komponent można stworzyć przy pomocy Angular </p>
@@ -224,7 +255,7 @@ komponenty muszą być zadeklarowane w module (środowisku/kontekście). Kompone
 
 <p>czytaj więcej: <a href="https://angular.io/guide/architecture-components">Introduction to components and templates</a></p>
 <hr>
-<h2>Wprowadzenia do składni szablonów - zagadnienia podstawowe</h2>
+<h2 id="szablony">Wprowadzenia do składni szablonów - zagadnienia podstawowe</h2>
 <hr>
 <p>Wytłumaczenie podstawowych znaków: </p>
 <p><code>{{ }}</code> - <strong>interpolacja</strong> wyświetla wszystko na stronie w postaci tekstu, wyświetla typy proste, pozwala na wywołanie metod
@@ -232,7 +263,7 @@ komponenty muszą być zadeklarowane w module (środowisku/kontekście). Kompone
 <code>( )</code> - łączenie wydarzenia
 <code>#</code> - odwołanie do zmiennej/referencji szablonu zmiennych (elementu HTML)
 <code>*</code> - dyrektywa strukturalna</p>
-<h3>Interpolacja</h3>
+<h3 id="interpolacja">Interpolacja</h3>
 <p>Interpolacja jest podstawowym narzędziem Angulara, które pozwala na wymianę danych pomiędzy klasą a szablonem HTML
 (stosowane jest w html ale odwołuje się do informacji zawartych w klasie komponentu)</p>
 <p>Przykłady zastosowania interpolacji</p>
@@ -242,6 +273,7 @@ komponenty muszą być zadeklarowane w module (środowisku/kontekście). Kompone
 <p><code>{{ getDroid }}</code> - interpolacja funkcji działa na nią metod toString() , wyjątkiem jest jeśli ta jest poprzedzona słowem kluczowym <code>get</code>, wówczas przedstawiony zostanie wynik wywołania funkcji// w takim przypadku zastosowania <code>{{ getDroid() }}</code> zwróci jedynie informacje o typie </p>
 <p><code>{{ 2+2 }}</code> - interpolacja wyrażenia matematycznego</p>
 <hr>
+<h2 id="operatory">Operatory</h2>
 <h3>Operator Pipe</h3>
 <p>1 - Operator <code>pipe</code> -&gt; <code>|</code> pozwala na pracę z danymi przed ich wyświetlaniem - wpływa na zachowanie/wygląd elementu. Istnieją wbudowane rury (metody) angulara oraz istnieje możliwość stworzenia włąsnych [wszystkie rury angulara: <a href="https://angular.io/api?type=pipe">Pipes - api list</a>]</p>
 <p><code>{{ droid | uppercase }}</code> // spowoduje że dana zmienna wyświetlać się będzie dużymi literami</p>
@@ -276,9 +308,13 @@ komponenty muszą być zadeklarowane w module (środowisku/kontekście). Kompone
 
 <p>Biblioteka <strong>nxg pipes</strong></p>
 <hr>
-<h3>*ngFor - dyrektywa powtórzenia</h3>
-<p><strong>#ngFor</strong> jest dyrektywą powtórzenia dla Angulara i powtarza dany element (gospodarza) dla każdego elementu z listy // gospodarzem jest ten element w który dyrektywa jest wpisana. Innymi słowy <strong>ngFor</strong> powiela elementy <strong>html</strong> tyle razy ile jest elementów w danej liście.</p>
-<div class="highlight"><pre><span></span><code><span class="err">let (zdefiniowanie zmiennej) item of (z) items (lista np. tablica)</span>
+<h2 id="dyrektywy">Dyrektywy</h2>
+<p>Komponent sam w sobie jest dyrektywą (instrukcją wykonania czegoś), jednak równie istotanymi dyrektywami w Angularze, są te które pozwalającymi na manipulowanie szablonem (html) np. poprzez tworzenie warunków, pętli, wprowadzaniem klas w sposób dynamiczny etc. (gdzie zmienna, na której są one oparte lub od kttórej są zaleŻne znajduje się w TS). </p>
+<p>Warto pamiętać: Dyrektywy które mają wpływ na strukturę drzewa DOM mają przed sobą gwiazdkę np. *ngFor w odróżnieniu od ngModel - te dyrektywy nazywane strukturalnymi. Inne dyrektywy nazywamy atrybutowymi, ponieważ zmieniają atrybutu elementów drzewa DOM.</p>
+<hr>
+<h3 id="ngFor">*ngFor - dyrektywa powtórzenia</h3>
+<p><strong>ngFor*<em> jest dyrektywą powtórzenia - powtarza dany element (gospodarza) dla każdego elementu ze zbioru (gospodarzem jest ten element w który dyrektywa jest wpisana). Innymi słowy <strong>ngFor</strong> powiela elementy <strong>html</strong> tyle razy ile jest elementów w danym zbiorze. Dyrektywa </em></strong>ngFor<strong> jest częścią modułu </strong>BrowserModule** (importowanego w pliku TS komponentu).</p>
+<div class="highlight"><pre><span></span><code><span class="err">let (zdefiniowanie zmiennej) item of (z) items (zbiór/lista np. tablica)</span>
 </code></pre></div>
 
 
@@ -292,6 +328,7 @@ komponenty muszą być zadeklarowane w module (środowisku/kontekście). Kompone
 </code></pre></div>
 
 
+<p>W wyniku zastosowania dyrektywy <strong>ngFor</strong> w powyŻszym przykładzie, postanie li * n , gdzie <em>n</em> odpowiada liczbie elementów w zbiorze <strong>heroes</strong></p>
 <p><strong>ngFor</strong> pozwala również na odwołanie się do właściwości indeksowej danego elementu, w tym celu można stworzyć kolejną zminną <strong>i</strong>, którą można następnie wykorzystać w interpolacji - <code>*ngFor="let hero of heroes, let i = index"</code></p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;collection-item row&quot;</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">&quot;let task of tasks, let i = index&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;col s10&quot;</span><span class="nt">&gt;</span> <span class="cp">{{</span><span class="nv">i</span> <span class="o">+</span> <span class="m">1</span> <span class="cp">}}</span> <span class="cp">{{</span><span class="nv">task.name</span><span class="cp">}}</span> - <span class="cp">{{</span><span class="nv">task.deadline</span><span class="cp">}}</span><span class="nt">&lt;/span&gt;</span>
@@ -320,17 +357,35 @@ export class KeyValuePipeComponent {
 
 
 <hr>
-<h3>*ngIF (then,else, ngSwitch) - dyrektywa warunku istnienia</h3>
-<p>Kolejną dyrektywą jest <code>*ngIF</code> która w przypadku gdy <code>warunek = undefined</code> nie tworzy elementu, natomiast jeśli warunek jest spełniony to tworzy dany element.</p>
-<p><strong>:::*<em> </em></strong>alternatywnie :<strong><em> visibility -&gt; hidden <code>&lt;button (click)="btn.style.visibility = 'hidden"&gt;</code>  - element nie znika z drzewa DOM, a do tego nie zwalania miejsca na stronie </em>*:::</strong></p>
-<p>Przykład zastosowania (jeśli selectedHero = undefined nie twórz tego elementu / np na początku gdy nie został jeszcze wybrany)</p>
+<h3 id="ngClass">*ngClass</h3>
+<p>Zmień klasę elementu do którego dyrektywa jest przypisana, moŻe być zastosowana jedynie wówczas gdy jest jej przypisana jakaś określona (ngClass stosuje się w połączeniu z data binding -&gt; [] tak aby nie trzeba było definiować połączenia osobno, jednak ngClass .</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">ngClass</span><span class="o">]=</span><span class="ss">&quot;someItem&quot;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>albo przekazujemy obiekt,  który zawiera w sobie warunek (jeden lub więcej, oddzielone przecinkiem).</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">ngClass</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;{&#39;btn-primary&#39; : newItem !== &#39;&#39; , &#39;btn-default&#39; === &#39;&#39;}&quot;</span><span class="w"></span>
+</code></pre></div>
+
+
+<h3 id="ngStyle">*ngStyle</h3>
+<p>Dyrektywa pozwalająca na edytowanie stylu danego obiektu</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">ngStyle</span><span class="o">]=</span><span class="ss">&quot;{backgroundColor: i % 2 === 0 ? &#39;yellow&#39; : &#39;blue&#39;}&quot;</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
+<h3 id="ngIf">*ngIF (then, else, ngSwitch) - dyrektywa warunku istnienia</h3>
+<p>Kolejną dyrektywą jest <code>*ngIF</code> która w przypadku gdy <code>warunek = undefined lub false</code> nie tworzy elementu, natomiast jeśli warunek jest spełniony to tworzy dany element.</p>
+<p><strong>:::*<em> </em></strong>alternatywnie :<strong><em> visibility -&gt; hidden <code>&lt;button (click)="btn.style.visibility = 'hidden'"&gt;</code>  - ale w takim przypadku element nie znika z drzewa DOM, a do tego nie zwalania miejsca na stronie </em>*:::</strong></p>
+<p>Przykład zastosowania (jeśli selectedHero = undefined nie twórz tego elementu / np. na początku gdy nie został jeszcze wybrany)</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">&quot;selectedHero&quot;</span><span class="nt">&gt;</span>
   [...]
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 
 
-<h4>*ngIF, else i ng-template</h4>
+<h4 id="ngTemplate">*ngIF, else i ng-template</h4>
 <p><strong>else</strong> podobnie jak w innych elementach JS oznacza możliwość alternatywną. Np. można wskazać odwołujący się do lokalnej referencji zawarty w znacznikach <code>&lt;ng-template&gt;&lt;/ng-template&gt;</code> który jest wykorzystywany w tym kontekście - opakowuje element, który ma się pojawić gdy dany warunek wcześniej postawiony nie zostaje spełniony (znaczniki te nie tworzą same w sobie elementu - nie istnieją w drzewie DOM)</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;p</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">&quot;day == 6&quot;</span><span class="err">;</span> <span class="err">else</span> <span class="err">otherDay</span><span class="nt">&gt;</span>sobota<span class="nt">&lt;/p&gt;</span>
 
@@ -340,7 +395,7 @@ export class KeyValuePipeComponent {
 </code></pre></div>
 
 
-<h4>*ngIF, then, else i ng-container</h4>
+<h4 id="ngContainer">*ngIF, then, else i ng-container</h4>
 <p><code>ng-container</code> - jest znacznikiem/kontenerem, który pozwala na skonstruowanie bardziej złożonej logiki związanej z dyrektywą warunku istnienia ( w ten sposób unikamy tworzenia dodatkowego elementu DIV lub innego dodatkowego elementu drzewa DOM) - pełni rolę elementu do obsługi logiki</p>
 <p><strong>ngIf</strong> i <strong>ngFor</strong> - nie mogą być ustawione na tych samych elementach</p>
 <div class="highlight"><pre><span></span><code>// Przykład 1
@@ -362,7 +417,7 @@ export class KeyValuePipeComponent {
 </code></pre></div>
 
 
-<h4>ngSwitch + ngSwitchCase - wyświetlanie warunkowe</h4>
+<h4 id="ngSwitch">ngSwitch + ngSwitchCase - wyświetlanie warunkowe</h4>
 <p><strong>ngSwitch</strong> - sprawdza warunek i jeśli jest on spełniony to wówczas dany element jest tworzony </p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">ng</span><span class="o">-</span><span class="n">container</span><span class="w"> </span><span class="o">[</span><span class="n">ngSwitch</span><span class="o">]=</span><span class="ss">&quot;day&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="o">&lt;</span><span class="n">span</span><span class="w"> </span><span class="n">#ngSwitchCase</span><span class="o">=</span><span class="ss">&quot;1&quot;</span><span class="o">&gt;</span><span class="n">Poniedziałek</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="w"></span>
@@ -374,13 +429,15 @@ export class KeyValuePipeComponent {
 
 
 <hr>
-<h3>Biding</h3>
-<p>Event binding - pozwala aplikacji na reakcję na dane wprowadzone przez użytkownika</p>
-<p>Property binding - pozwala na interpolację właściwości pozyskanych z aplikacji oraz wykorzystanie ich w HTML</p>
-<p>Obiekty HTML posiadają Atrybuty</p>
-<p>Obiekty DOM posiadają właściwości (property)</p>
-<p>Atrybuty inicjalizują właściwości (property) w drzewie DOM, bindowanie w Angularze bezpośrednio wpływa stan właściwości obiektu z drzewa DOM (bindowanie wartości do właściwości/property), które mają wpływ na wyświetlanie się obiektów.</p>
-<p>Rodzaje bindingu (powiązań) - <code>One-way binding:</code> <strong>Event binding ()</strong>, <strong>Property binding (Data binding) []</strong> (np. poprzez interpolację), <code>Two-way binding [()]:</code></p>
+<h3 id="binding">Biding - łączenie</h3>
+<p><strong> Podstawy </strong></p>
+<p>Event binding - pozwala aplikacji na reakcję na dane wprowadzone przez użytkownika - łączenie elementu DOM poprzez wydarzeniem z właściwościami komponentu (ts).</p>
+<p>Property binding - pozwala na interpolację właściwości pozyskanych z aplikacji oraz wykorzystanie ich w HTML - pozwala na połączenie właściwości komponentu z właściwością elementu drzewa dom.</p>
+<p>Two way binding - połączenie zwrotne, gdzie właściwość elementu drzewa dom jest połączony z właściwoscią komponentu, a ten jest połączony za pomocą wydarzenia z elementem drzewa DOM.</p>
+<p><strong> Wyjaśnienie działania/ Podsumowanie </strong></p>
+<p>Obiekty HTML posiadają Atrybuty // Obiekty DOM posiadają właściwości (property)</p>
+<p>Atrybuty inicjalizują właściwości (property) w drzewie DOM, łaczenie/bindowanie w Angularze bezpośrednio wpływa na stan właściwości obiektu z drzewa DOM (łączenie/bindowanie wartości do właściwości/property), które mają wpływ na wyświetlanie się obiektów.</p>
+<p>Rodzaje bindingu (powiązań) - <code>One-way binding:</code> <strong>Event binding ()</strong>, <strong>Property binding (Data binding) []</strong> (np. poprzez interpolację), <code>Two-way binding [()]:</code> =&gt; patrz !! <strong>Dyrektywa ngModel</strong></p>
 <h4>Przykłady</h4>
 <p><strong>Event binding ()</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;button</span> <span class="err">(click)=&quot;clearList()&quot;</span><span class="nt">&gt;&lt;/button&gt;</span>
@@ -399,7 +456,7 @@ export class KeyValuePipeComponent {
 </code></pre></div>
 
 
-<h4>Property binding</h4>
+<h4 id="propertyBinding">Property binding</h4>
 <p>Pierwszy sposób na data-binging <strong>heroes.component.html</strong> -&gt; <code>{{hero}}</code>, w nawiązaniu do <strong>heroes.component.ts</strong> -&gt; gdzie hero zostało zadeklarowane jako właściwość klasy <code>hero = 'Windstorm';</code></p>
 <p><code>[hero]="selectedHero"</code> - składnia definiująca połączenie jednostronne, w ramach właściwości elementu DOM (właściwość selectedHero komponentu HeroesComponent zostaje skopiowana/przeniesiona do właściwości hero celowego elementu, który jest zmapowany na podstawie danych z HeroDetailComponent)</p>
 <p>Schemat wygląda następująco:</p>
@@ -432,7 +489,7 @@ export class KeyValuePipeComponent {
 
 
 <p>źródło przykładu: <a href="https://www.digitalocean.com/community/tutorials/angular-innerhtml-binding-angular">innerHTML Property Binding in Angular</a></p>
-<h3>Events binding</h3>
+<h3 id="eventBinding">Event binding</h3>
 <p>Składnia -&gt; (nasłuchujTegoWydarzenia)="wykonajTąFunkcję(zTymArgumentem")</p>
 <p>Przykład</p>
 <div class="highlight"><pre><span></span><code><span class="err">// heroes.component.html </span>
@@ -469,7 +526,7 @@ export class KeyValuePipeComponent {
 <p>Spis wydarzeń: <a href="https://developer.mozilla.org/en-US/docs/Web/Events">Event reference</a></p>
 <p><a href="https://github.com/ZacznijProgramowac/event-binding-examples/blob/master/src/app/app.component.html">Przykłady event binging</a></p>
 <hr>
-<h3>Class binding</h3>
+<h3 id="classBinding">Class binding</h3>
 <p>Powiązania pozwalają również na połączenie klasy oraz konkretnych styli wraz ze zdefiniowanym warunkiem</p>
 <p>Składnia: <code>[class.jakaś-klasa-css]="jakiś-warunek"</code></p>
 <div class="highlight"><pre><span></span><code>// heroes.component.html
@@ -482,8 +539,8 @@ export class KeyValuePipeComponent {
 
 
 <hr>
-<h3>Dyrektywa ngModel - Dwustronne połączenie (property+event binding)</h3>
-<p><code>[(ngModel)]</code> - składnia definiująca połączenie dwustronne i można je rozumieć jako połączenie <strong>property</strong> oraz <strong>event binding</strong></p>
+<h3 id="ngModel">Dyrektywa ngModel - Dwustronne połączenie (property + event binding)</h3>
+<p><code>[(ngModel)]</code> - składnia definiująca połączenie dwustronne (funkcjonuje na zasadzie połączenie <strong>property</strong> oraz <strong>event binding</strong>). Nie posiada gwiazdki przez nazwą powniewaŻ nie zmienia struktury drzewa DOM, a jedynie zmienia wartość przypisaną do obiektu drzewa DOM.</p>
 <p>Przykład zastosowania (łączy input z elementem name obiektu hero zadeklarowanym jako właściwość komponentu)</p>
 <div class="highlight"><pre><span></span><code><span class="err">&lt;input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot; /&gt;</span>
 </code></pre></div>
@@ -540,29 +597,13 @@ export class KeyValuePipeComponent {
 
 <p>istnieje jeszcze event <code>(ngModelChange)</code> dostępny dla formularzy</p>
 <hr>
-<h3>Serwis - zaplecze/"back-end" aplikacji</h3>
+<h3 id="serwis">Serwis - zaplecze/"back-end" aplikacji</h3>
 <p>serwis (klasa z dekoratorem @Injectable) - wykonuje zadanie związane z komunikowaniem (np. pobieraniem) danych dla komponentów  - dostarcza dane, pomaga w ich analizie oraz przetwarzaniu. Serwis również wspomaga komunikację pomiędzy komponentami (serwisy HTTP, logowanie błędów, logowanie użytkowników) - pozwala na wstrzyknięcie providerów jako zależności do klasy</p>
 <p>serwis zadeklarowany w app.module.ts jest dostępny dla całej aplikacji, natomiast jeśli zadeklarowany w dekoratorze poszczególnego komponentu to wówczas jest jedynie widoczny dla danego komponentu oraz jego dzieci.</p>
 <p>Dekorator serwisu <code>@Injectable()</code> przyjmuje jego metadane (podobnie jak <code>@Component</code> w przypadku komponentu)</p>
+<p>więcej na ten temat  czytaj tutaj -&gt; <a href="https://kostyrko.github.io/zfrontu/angular-serwisy.html">Angular: serwis</a></p>
 <hr>
-<h2>Zagadnienia zaawansowane - wyjaśnione w kolejnych postach</h2>
-<h4>@Input @Output</h4>
-<p>Dekoratory pozwalające na rozbicie logiki komponentu na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi</p>
-<p>--</p>
-<h3>Routing</h3>
-<p>Routing pozwala na zdefiniowanie ścieżki nawigacji (pomiędzy stanami aplikacji)</p>
-<hr>
-<h4>Injector/wtryskiwacz</h4>
-<p><a href="https://www.tektutorialshub.com/angular/angular-injector-injectable-inject/">Angular Injector, @Injectable &amp; @Inject</a></p>
-<p><a href="https://www.angular.love/2018/03/09/angular-injectiontoken/">Angular InjectionToken - www.angular.love</a></p>
-<hr>
-<h4>RxJS - asynchroniczność w serwisie</h4>
-<p>Observable.subscribe() is the critical difference</p>
-<p>The new version waits for the Observable to emit the array of heroes—which could happen now or several minutes from now. The subscribe() method passes the emitted array to the callback, which sets the component's heroes property.</p>
-<p>This asynchronous approach will work when the HeroService requests heroes from the server.</p>
-<p><a href="https://angular.io/tutorial/toh-pt4#observable-data">Observable data</a></p>
-<hr>
-<h2>Instalacja Angular i stworzenie pierwszego projektu przy pomocy Angular CLI</h2>
+<h2 id="instalacjaAngular">Instalacja Angular i stworzenie pierwszego projektu przy pomocy Angular CLI</h2>
 <p><a href="https://malcoded.com/posts/angular-fundamentals-cli/">Angular CLI Cheat Sheet: The best Commands to boost your productivity</a></p>
 <p>ng - next generation (Angular reprezentuje kolejną generację HTML)</p>
 <div class="highlight"><pre><span></span><code><span class="err">npm install -g @angular/cli</span>
@@ -632,10 +673,7 @@ export class KeyValuePipeComponent {
 
 <p>Przykładowy projekt wykonany przy pomocy Angulara dostępny na stackblitz.com: <a href="https://stackblitz.com/edit/angular-nstnfl?file=src/app/app.component.ts">angular-nstnfl</a> źródło projektu <a href="https://angular.io/start">Getting started with Angular</a></p>
 <hr>
-<h2>Na zakończenie</h2>
-<h3>Wtyczka dla Angulara</h3>
-<p><a href="https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd/related"><strong>Augury</strong></a></p>
-<h3>Glossary</h3>
+<h3 id="glossary">Glossary</h3>
 <p><a href="https://angular.io/guide/glossary">Słownik z najważniejszymi pojęciami dla Angulara (ENG)</a></p>
 <hr>
 <p>Źródła:</p>
@@ -657,6 +695,8 @@ export class KeyValuePipeComponent {
     <h4>Zobacz także</h4>
     <ul class="related-posts">
       <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/typescript-klasy.html">TypeScript: klasy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/angular-serwisy.html">Angular: serwisy</a></li>
     </ul>
   </div>
 

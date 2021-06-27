@@ -158,18 +158,15 @@
 
           &#8226; Tagi: 
               <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/serwis.html">serwis</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/service.html">service</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/subscribe.html">subscribe</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
-        &#8226; 2 min read
+        &#8226; 5 min read
     </p>
   </header>
   <div>
       <p><img alt="angular" src="https://i.stack.imgur.com/E8ItT.png"></p>
 <h3>Angular serwisy</h3>
 <h4>Wstęp</h4>
-<p>Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).
-Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + dane określające w jaki sposób działa serwis + użycie innych serwisów).</p>
-<div class="highlight"><pre><span></span><code><span class="err">@</span><span class="n">Injectable</span><span class="p">()</span>
-<span class="k">export</span> <span class="k">class</span> <span class="n">LoggerService</span> <span class="p">{</span>
-  <span class="nb">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">any …</span></code></pre></div>
+<p>Klasa TyperScriptowa - przy pomocy, której istnieje możliwość zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).</p>
+<p>Serwis posiada swój dekorator <strong>@Injectable</strong> - ten wskazuje na to, że dana klasa jest serwisem i …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-serwisy.html">Czytaj dalej</a>
   </div>
@@ -236,6 +233,61 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 <span class="k">CREATE …</span></code></pre></div>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-cli.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-ng-content.html">Angular: referencje szablonów i ng-content</a></h2>
+    <p>
+      Opublikowano pon 28 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular ng-content" src="https://cdn-media-1.freecodecamp.org/images/1*mFnAxpS3I_lpRPnIyevxKw.png"></p>
+<p>Przy pomocy ng-content można przekazywać treść oraz różne komponenty</p>
+<p>ng-content jest swego rodzaju wskaźnikiem/selektorem pozwalającym na opakowanie elementu komponentem, innymi słowy na zagnieżdżenie innego komponentu, fragmentu kodu html lub treści (stringa) w ramach innego komponentu.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn-floating teal add-button&quot;</span> <span class="err">(click)=&quot;clickButton.emit()&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ng-content&gt;&lt;/ng-content&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+
+<p>zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;app-button</span> <span class="err">(clickButton …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-ng-content.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-komunikacja-komponentow.html">Angular: komunikacja pomiędzy dzieckiem a rodzicem (input, output, eventEmitter, ViewChild)</a></h2>
+    <p>
+      Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/input.html">input</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/output.html">output</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/eventemitter.html">eventEmitter</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/viewchild.html">ViewChild</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <hr>
+<p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
+<h4 id="inputOutput">@Input oraz @Output</h4>
+<p>Dekoratory pozwalające na rozbicie logiki komponentu na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi -&gt; <strong>@Input</strong> działa niczym właściwość komponentu w React (props) tzn. pozwala na przekazanie do komponentu danych np.</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="n">rodzic</span><span class="w"></span>
+<span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]=</span><span class="ss">&quot;Mike&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>gdzie komponent app-user musie mieć przy pomocy dekoratora …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-komunikacja-komponentow.html">Czytaj dalej</a>
   </div>
   <hr />
 </article>

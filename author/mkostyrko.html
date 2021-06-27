@@ -131,6 +131,27 @@
 
 <article>
   <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/testing-good-practices.html">Dobre zasady testowania</a></h2>
+    <p>
+      Opublikowano pią 25 czerwca 2021 w <a href="https://kostyrko.github.io/zfrontu/category/testing.html">testing</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/cypress.html">cypress</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/testing.html">testing</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/good-practices.html">good practices</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="testing" src="https://static-cms.hotjar.com/documents/conducting-usability-test_yon4BQT.svg"></p>
+<p>Niedawno odbyła się zdalna konferencja prowadzona przez Applitools oraz Cypress nazwana Front-End Test Fest 2021. Jedeno z wystąpień było poświęcone dobrym praktykom pisania testów (link w źródłach) i dzisiejszy wpis jest ekstraktem z tego wystąpienia</p>
+<h3>Główna zasada: testy powinny być proste - "flat test desing"</h3>
+<p>Pisanie testów nie powinno być realizowane …</p>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/testing-good-practices.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="https://kostyrko.github.io/zfrontu/angular-rxjs-observable.html">Angular i RxJS oraz Observable</a></h2>
     <p>
       Opublikowano nie 18 kwietnia 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
@@ -158,18 +179,15 @@
 
           &#8226; Tagi: 
               <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/serwis.html">serwis</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/service.html">service</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/subscribe.html">subscribe</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
-        &#8226; 2 min read
+        &#8226; 5 min read
     </p>
   </header>
   <div>
       <p><img alt="angular" src="https://i.stack.imgur.com/E8ItT.png"></p>
 <h3>Angular serwisy</h3>
 <h4>Wstęp</h4>
-<p>Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).
-Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + dane określające w jaki sposób działa serwis + użycie innych serwisów).</p>
-<div class="highlight"><pre><span></span><code><span class="err">@</span><span class="n">Injectable</span><span class="p">()</span>
-<span class="k">export</span> <span class="k">class</span> <span class="n">LoggerService</span> <span class="p">{</span>
-  <span class="nb">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">any …</span></code></pre></div>
+<p>Klasa TyperScriptowa - przy pomocy, której istnieje możliwość zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).</p>
+<p>Serwis posiada swój dekorator <strong>@Injectable</strong> - ten wskazuje na to, że dana klasa jest serwisem i …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-serwisy.html">Czytaj dalej</a>
   </div>
@@ -193,6 +211,43 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 <p>1) serwujemy php …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/wordpress-live-server.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="https://kostyrko.github.io/zfrontu/angular-routing.html">Angular: routing</a></h2>
+    <p>
+      Opublikowano nie 07 lutego 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+
+          &#8226; Tagi: 
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="angular" src="https://wpblog.semaphoreci.com/wp-content/uploads/2019/01/Testing-Components-in-Angular-2-with-Jasmine-776x320.png"></p>
+<h3>Zastosowanie routingu w małej aplikacji</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">BrowserModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">NgModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">AppComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">CrisisListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./crisis-list/crisis-list.component&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">HeroesListComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./heroes-list/heroes-list.component&#39;</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span> <span class="n">RouterModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">PageNotFoundComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./page-not-found/page-not-found.component&#39;</span><span class="p">;</span>
+
+<span class="nd">@NgModule</span><span class="p">({</span>
+  <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="n">AppComponent</span><span class="p">,</span>
+    <span class="n">CrisisListComponent</span><span class="p">,</span>
+    <span class="n">HeroesListComponent</span><span class="p">,</span>
+    <span class="n">PageNotFoundComponent</span>
+  <span class="p">],</span>
+  <span class="n">imports …</span></code></pre></div>
+        <br>
+        <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-routing.html">Czytaj dalej</a>
   </div>
   <hr />
 </article>
@@ -372,7 +427,7 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
       Opublikowano pon 28 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
 
           &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
         &#8226; 1 min read
     </p>
   </header>
@@ -422,26 +477,21 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
       Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
 
           &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/input.html">input</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/output.html">output</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/eventemitter.html">eventEmitter</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/viewchild.html">ViewChild</a>
-        &#8226; 1 min read
+              <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/input.html">input</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/output.html">output</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/eventemitter.html">eventEmitter</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/viewchild.html">ViewChild</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
+        &#8226; 2 min read
     </p>
   </header>
   <div>
       <hr>
 <p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
-<h3>Dekorator @Input()</h3>
-<p>Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty)</p>
-<p>Wymaga importu z counterReducer</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">OnInit</span><span class="p">,</span> <span class="n">Input</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<h4 id="inputOutput">@Input oraz @Output</h4>
+<p>Dekoratory pozwalające na rozbicie logiki komponentu na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi -&gt; <strong>@Input</strong> działa niczym właściwość komponentu w React (props) tzn. pozwala na przekazanie do komponentu danych np.</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="n">rodzic</span><span class="w"></span>
+<span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]=</span><span class="ss">&quot;Mike&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="o">&gt;</span><span class="w"></span>
 </code></pre></div>
 
 
-<p>Oraz zdefiniowania identyfikatora opatrzonego dekoratorem @Input() </p>
-<div class="highlight"><pre><span></span><code><span class="err">@Input() hero: Hero;</span>
-</code></pre></div>
-
-
-<p>Odwołanie się w komponencie posiadającym element, do którego następuje odwołanie (komponent …</p>
+<p>gdzie komponent app-user musie mieć przy pomocy dekoratora …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-komunikacja-komponentow.html">Czytaj dalej</a>
   </div>
@@ -455,15 +505,15 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 
           &#8226; Tagi: 
               <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
-        &#8226; 9 min read
+        &#8226; 10 min read
     </p>
   </header>
   <div>
       <hr>
 <p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
 <h3>Angular wprowadzenie</h3>
-<p>Angular został napisany w TypeScript</p>
-<p>Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablony w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …</p>
+<p>Angular opraty jest o TypeScript</p>
+<p>Aplikacje budowane są z modułów, które składają się komponentów (w przypadku małej aplikacji może istnieć jeden moduł - root module). Każdy z komponentów składa się z klasy pisanej w TS oraz szablonu w HTML. Pierwszy z nich odpowiada za informacje, które powinny być widoczne …</p>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Czytaj dalej</a>
   </div>
@@ -663,50 +713,6 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 <li>zgodność z …</li></ul>
         <br>
         <a class="btn" href="https://kostyrko.github.io/zfrontu/preact.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/rekrutacja.html">Pobór na front</a></h2>
-    <p>
-      Opublikowano sob 28 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/praca.html">praca</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/css.html">css</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/html.html">html</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="over the top" src="https://images.immediate.co.uk/production/volatile/sites/7/2018/10/GettyImages-80457874-1-05304e3.jpg?webp=true&amp;quality=90&amp;resize=620%2C413"></p>
-<p>W poniższym poście zamieszczam linki przydane w procesie rekrutacji na Frontend'owca. Zebrane materiały zarówno omawiają wybrane zagadnienia jak i przedstawiają potencjalne pytania/zadania (oraz odpowiedzi/rozwiązania) jakie można spotkać w procesie rekrutacji na front-end developera.</p>
-<h3>CSS/HTML/JS...</h3>
-<p><a href="https://www.freecodecamp.org/news/cracking-the-front-end-interview-9a34cd46237/">Cracking the front-end interview</a></p>
-<p><a href="https://github.com/yangshun/front-end-interview-handbook/blob/master/contents/en/javascript-questions.md">front-end-interview-handbook</a> i wersja PL <a href="https://github.com/yangshun/front-end-interview-handbook/tree/master/contents/pl">Podręcznik Frontend przygotowujący do …</a></p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/rekrutacja.html">Czytaj dalej</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="https://kostyrko.github.io/zfrontu/typescript-migracja-js-ts.html">Migracja z JS do TS</a></h2>
-    <p>
-      Opublikowano czw 26 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
-
-          &#8226; Tagi: 
-              <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>,              <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p><img alt="typescript-logo" src="https://www.positronx.io/wp-content/uploads/2018/11/positronx-banner-1152-1.jpg"></p>
-<h3>Migracja z JS do TS</h3>
-<h4>Przykład 1 - deklarowanie typów</h4>
-<p>1.1. Funkcja definiująca argumenty jako typ Number
-TS - podkreśli num2 w wywołaniu (res) ze względu na to, że nie spełnia zdefiniowanego typu number (po transpilacji w JS (TS jej nie zablokuje) problem nie będzie sygnalizowany i wynik będzie wynosił "12 …</p>
-        <br>
-        <a class="btn" href="https://kostyrko.github.io/zfrontu/typescript-migracja-js-ts.html">Czytaj dalej</a>
   </div>
 </article>
 

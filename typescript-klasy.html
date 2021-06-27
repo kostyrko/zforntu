@@ -157,20 +157,29 @@
 <h3>Przykładowa klasa</h3>
 <p>constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="p">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span> <span class="o">//</span> <span class="n">tak</span> <span class="n">samo</span> <span class="n">w</span> <span class="n">JS</span> <span class="n">powyżej</span> <span class="n">ES6</span>
+  <span class="o">//</span> <span class="n">deklaracja</span> <span class="n">pola</span> <span class="n">jakie</span> <span class="n">zawiera</span> <span class="n">klasa</span> <span class="n">wraz</span> <span class="n">z</span> <span class="n">typem</span> <span class="n">danych</span> <span class="p">(</span><span class="n">inaczej</span> <span class="n">typ</span> <span class="n">any</span><span class="p">)</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
 
-  <span class="n">constructor</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">this</span><span class="o">.</span><span class="n">greeting</span> <span class="o">=</span> <span class="n">message</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">metoda</span> <span class="n">konstruktora</span> <span class="o">-</span> <span class="n">tworzy</span> <span class="n">nowe</span> <span class="n">obiekty</span> <span class="n">instancji</span> <span class="n">klasy</span> 
+  <span class="o">//</span> <span class="n">pozwala</span> <span class="n">na</span> <span class="n">istnienie</span> <span class="n">arg</span><span class="o">.</span> <span class="n">przy</span> <span class="n">inicjalizacji</span> <span class="n">nowej</span> <span class="n">instancji</span> <span class="n">klasy</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="n">greet</span><span class="p">(</span><span class="n">this</span><span class="p">:</span> <span class="n">Greeter</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">do</span> <span class="n">instancji</span><span class="p">,</span> <span class="n">które</span> <span class="n">powstała</span> <span class="n">na</span> <span class="n">podstawie</span> <span class="n">klasy</span> <span class="n">Droid</span>
+  <span class="o">//</span> <span class="n">funkcja</span> <span class="n">zwracająca</span> <span class="n">string</span>
+  <span class="n">greet</span><span class="p">()</span> <span class="p">:</span> <span class="n">string</span> <span class="p">{</span>  
     <span class="k">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="n">zmienia</span> <span class="n">imię</span> <span class="n">ale</span> <span class="n">nic</span> <span class="n">nie</span> <span class="n">zwraca</span><span class="p">,</span> <span class="n">jako</span> <span class="n">arg</span><span class="o">.</span> <span class="n">przyjmuje</span> <span class="n">string</span>
+  <span class="n">changeDroidName</span> <span class="p">(</span><span class="n">droid</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">:</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">droid</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">let</span> <span class="n">r2d2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s2">&quot;R2D2&quot;</span><span class="p">);</span> <span class="o">//</span> <span class="o">-&gt;</span> <span class="n">arg</span> <span class="n">zapisuje</span> <span class="n">jako</span> <span class="n">name</span>
-
-<span class="k">const</span> <span class="n">r2d2Copy</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span> <span class="n">greet</span> <span class="p">:</span> <span class="n">r2d2</span><span class="o">.</span><span class="n">greet</span><span class="p">}</span>
+<span class="o">//</span> <span class="n">tworzenie</span> <span class="n">nowej</span> <span class="n">instancji</span> <span class="n">klasy</span> <span class="n">o</span> <span class="n">typie</span> <span class="n">Droid</span> <span class="p">(</span><span class="o">&gt;&gt;</span><span class="n">kaŻda</span> <span class="n">klasa</span> <span class="n">definiuje</span> <span class="n">nowy</span> <span class="n">typ</span><span class="o">&lt;&lt;</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">zmienna</span> <span class="n">r2d2</span> <span class="n">o</span> <span class="n">typie</span> <span class="n">Droid</span>
+<span class="k">const</span> <span class="n">r2dr</span> <span class="p">:</span> <span class="n">Droid</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s2">&quot;R2D2&quot;</span><span class="p">);</span>
 </code></pre></div>
 
 
@@ -204,7 +213,7 @@
     <span class="n">private</span> <span class="n">droids</span><span class="p">:</span> <span class="n">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[]</span> <span class="o">//</span> <span class="n">to</span> <span class="n">jest</span> <span class="n">również</span> <span class="n">oznaczenie</span> <span class="n">prywatności</span>
 
     <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">this</span><span class="o">.</span><span class="c1">#name = name;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="n">greet</span><span class="p">()</span> <span class="p">{</span>
@@ -313,6 +322,9 @@
 <hr>
 <p><a href="https://www.frontlive.pl/typescript-sredniozaawansowany/">TypeScript - Generics, klasy i zaawansowane typy</a></p>
 <p><a href="https://refactoring.guru/design-patterns/typescript">The Catalog of TypeScript Examples</a></p>
+<p><a href="http://jsdn.pl/typescript-pierwsze-kroki-tworzenie-klas-w-typescript/">TypeScript – pierwsze kroki. Tworzenie klas w TypeScript. Część Pierwsza.</a></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/2/classes.html">www.typescriptlang.org -&gt; Classes</a></p>
+<p><a href="https://clockworkjava.pl/2019/09/klasy-w-typescript/">Klasy w TypeScript - clockworkjava.pl</a></p>
 <p>JS</p>
 <p><a href="https://stackoverflow.com/questions/54841417/javascript-classes-vs-typescript-classes">SO - Javascript classes vs typescript classes</a></p>
 <p><a href="https://www.w3schools.com/js/js_object_constructors.asp">JavaScript Object Constructors</a></p>
@@ -329,7 +341,7 @@
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Angular: wprowadzenie</a></li>
     </ul>
   </div>
 

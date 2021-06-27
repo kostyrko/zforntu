@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Dekorator @Input() Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty) Wymaga importu z counterReducer import { Component, OnInit, Input } from &#39;@angular/core&#39;; Oraz zdefiniowania identyfikatora opatrzonego dekoratorem @Input() @Input() hero: Hero; Odwołanie się w komponencie posiadającym element, do którego następuje odwołanie (komponent …" />
-<meta name="keywords" content="angular, input, output, eventEmitter, ViewChild">
+<meta name="description" content="@Input oraz @Output Dekoratory pozwalające na rozbicie logiki komponentu na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi -&gt; @Input działa niczym właściwość komponentu w React (props) tzn. pozwala na przekazanie do komponentu danych np. // rodzic &lt;app-user [name]=&#34;Mike&#34;&gt;&lt;/app-user&gt; gdzie komponent app-user musie mieć przy pomocy dekoratora …" />
+<meta name="keywords" content="angular, input, output, eventEmitter, ViewChild, unfinished">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="Angular: komunikacja pomiędzy dzieckiem a rodzicem (input, output, eventEmitter, ViewChild)"/>
-<meta property="og:description" content="Dekorator @Input() Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty) Wymaga importu z counterReducer import { Component, OnInit, Input } from &#39;@angular/core&#39;; Oraz zdefiniowania identyfikatora opatrzonego dekoratorem @Input() @Input() hero: Hero; Odwołanie się w komponencie posiadającym element, do którego następuje odwołanie (komponent …"/>
+<meta property="og:description" content="@Input oraz @Output Dekoratory pozwalające na rozbicie logiki komponentu na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi -&gt; @Input działa niczym właściwość komponentu w React (props) tzn. pozwala na przekazanie do komponentu danych np. // rodzic &lt;app-user [name]=&#34;Mike&#34;&gt;&lt;/app-user&gt; gdzie komponent app-user musie mieć przy pomocy dekoratora …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-komunikacja-komponentow.html"/>
 <meta property="og:type" content="article"/>
@@ -69,6 +69,7 @@
 <meta property="article:tag" content="output"/>
 <meta property="article:tag" content="eventEmitter"/>
 <meta property="article:tag" content="ViewChild"/>
+<meta property="article:tag" content="unfinished"/>
 <meta property="og:image" content="">
 
   <title>...z frontu &ndash; Angular: komunikacja pomiędzy dzieckiem a rodzicem (input, output, eventEmitter, ViewChild)</title>
@@ -147,7 +148,7 @@
     <p>
       Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
@@ -155,6 +156,36 @@
   <div>
     <hr>
 <p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
+<h4 id="inputOutput">@Input oraz @Output</h4>
+<p>Dekoratory pozwalające na rozbicie logiki komponentu na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi -&gt; <strong>@Input</strong> działa niczym właściwość komponentu w React (props) tzn. pozwala na przekazanie do komponentu danych np.</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="n">rodzic</span><span class="w"></span>
+<span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]=</span><span class="ss">&quot;Mike&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>gdzie komponent app-user musie mieć przy pomocy dekoratora @Input zdefiniową właściwość</p>
+<div class="highlight"><pre><span></span><code><span class="err">@Input() name: string;</span>
+</code></pre></div>
+
+
+<p><strong>@Output</strong> - pozwala na przekazanie informacji do rodzica, aby tego dokoną naleŻy stworzyć nową instację klasy EventEmmiter // wywołanie funkcji konstruktora</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@Output</span><span class="p">()</span><span class="w"> </span><span class="n">nameChanged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EventEmmiter</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">typ</span><span class="w"> </span><span class="n">generyczny</span><span class="w"> </span><span class="n">moŻe</span><span class="w"> </span><span class="n">być</span><span class="w"> </span><span class="n">róŻnego</span><span class="w"> </span><span class="n">rodzaju</span><span class="w"></span>
+
+<span class="n">onUserInput</span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">nameChanged</span><span class="p">.</span><span class="n">emit</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">target</span><span class="p">.</span><span class="k">value</span><span class="p">);</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+
+<span class="o">//</span><span class="w"> </span><span class="nl">rodzic</span><span class="p">:</span><span class="w"></span>
+<span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]=</span><span class="ss">&quot;name&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">nameChanged</span><span class="p">)</span><span class="o">=</span><span class="ss">&quot;onNameChanged($event)&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="o">&gt;</span><span class="w"></span>
+
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Mike&quot;</span><span class="w"></span>
+
+<span class="n">onNameChannged</span><span class="p">(</span><span class="n">newName</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newName</span><span class="p">;</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
+
 <h3>Dekorator @Input()</h3>
 <p>Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty)</p>
 <p>Wymaga importu z counterReducer</p>
@@ -230,13 +261,10 @@
 <h3>@ViewChild</h3>
 <p>@ViewChild('odnośnikDoTemplateReference/nazwaKlasyDziecka/wieleObiektówDanegoTypuHTML') - dekorator pozwalający na wstrzyknięcie komponentu dziecka pozwalający na jego sterowanie z klasy rodzica. Ten dekorator może być również wykorzystany do sterowaniem html (pobranie) jak i funkcjonalnością dziecka.</p>
 <p>W przypadku wielu takich samych komponentów przy odwołaniu się do klasy komponentu dziecka, zostanie wykorzystany pierwszy napotkany komponent (aby temu zapobiec można wykorzystać <strong>template reference</strong>)</p>
-<script src="http://gist-it.appspot.com/github.com/ZacznijProgramowac/template-reference-examples/blob/master/src/app/app.component.ts"></script>
-
-<script src="http://gist-it.appspot.com/github.com/ZacznijProgramowac/template-reference-examples/blob/master/src/app/app.component.html"></script>
-
-<p><a href="https://typeofweb.com/komunikacja-pomiedzy-komponentami-w-angular-2/">Komunikacja pomiędzy komponentami w Angular 2</a></p>
+<p>Patrz: <a href="https://github.com/ZacznijProgramowac/template-reference-examples/tree/master/src/app">template-reference-examples</a></p>
 <hr>
 <p>Źródła:</p>
+<p><a href="https://typeofweb.com/komunikacja-pomiedzy-komponentami-w-angular-2/">Komunikacja pomiędzy komponentami w Angular 2</a></p>
   </div>
   <div class="tag-cloud">
     <p>
@@ -245,6 +273,7 @@
       <a href="https://kostyrko.github.io/zfrontu/tag/output.html">output</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/eventemitter.html">eventEmitter</a>
       <a href="https://kostyrko.github.io/zfrontu/tag/viewchild.html">ViewChild</a>
+      <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
     </p>
   </div>
 
@@ -254,6 +283,7 @@
     <h4>Zobacz także</h4>
     <ul class="related-posts">
       <li><a href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Angular: wprowadzenie</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/typescript-klasy.html">TypeScript: klasy</a></li>
     </ul>
   </div>
 

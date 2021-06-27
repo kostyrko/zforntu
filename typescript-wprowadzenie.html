@@ -50,13 +50,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi ) Możliwość stosowania/definiowania typów Wprowadza elementy dokumentacji/klarowności kodu np …" />
+<meta name="description" content="Spis treści * interface * enum * Funkcje jako typy * Funkcje - zwracanie typów oraz &#39;void&#39; &amp; &#39;undefined&#39; TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne …" />
 <meta name="keywords" content="rts, typescript">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="TypeScript: wprowadzenie + podstawowe typy"/>
-<meta property="og:description" content="TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi ) Możliwość stosowania/definiowania typów Wprowadza elementy dokumentacji/klarowności kodu np …"/>
+<meta property="og:description" content="Spis treści * interface * enum * Funkcje jako typy * Funkcje - zwracanie typów oraz &#39;void&#39; &amp; &#39;undefined&#39; TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html"/>
 <meta property="og:type" content="article"/>
@@ -151,6 +151,12 @@
 
   <div>
     <p><img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"></p>
+<h4>Spis treści</h4>
+<p><a href="#interface">* interface</a></p>
+<p><a href="#enum">* enum</a></p>
+<p><a href="#funkcjaTyp">* Funkcje jako typy</a></p>
+<p><a href="#zwracanieTypu">* Funkcje - zwracanie typów oraz 'void' &amp; 'undefined'</a></p>
+<hr>
 <p>TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju "rozszerzeniem" JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS.</p>
 <p><strong>TS wprowadza/charakteryzuje</strong></p>
 <ol>
@@ -277,7 +283,7 @@
 </code></pre></div>
 
 
-<p><strong>Interface</strong> - tworzenie typu <strong>Obiektów</strong></p>
+<p><strong>Interface</strong> {#interface} - tworzenie typu <strong>Obiektów</strong></p>
 <p>Interfejs powinien być poprzedzony słowem <strong>interface</strong></p>
 <div class="highlight"><pre><span></span><code><span class="n">interface</span> <span class="n">Droid</span> <span class="p">{</span>
     <span class="n">first</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span> <span class="o">//</span> <span class="n">wypełnienie</span> <span class="n">podanych</span> <span class="n">tutaj</span> <span class="n">kluczy</span> <span class="n">jest</span> <span class="n">obowiązkowe</span>
@@ -382,9 +388,9 @@
 
 <p>więcej na ten temat: <a href="https://www.tutorialsteacher.com/typescript/typescript-tuple">TypeScript - Tuples</a></p>
 <hr>
-<p><strong>Enum - wyliczeniowy typ danych</strong></p>
-<p>Enums to "zbiór nazwanych, określonych wartości liczbowych", gdzie początkowa liczba domyślnie jest równa 0 a każda kolejna jest +1</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
+<p><strong>Enum - wyliczeniowy typ danych</strong> {#emu}</p>
+<p>Enums to jest <strong>zbiorem wyliczeniowym możliwych wartości typu</strong> (gdzie początkowa liczba domyślnie jest równa 0 a każda kolejna jest +1).</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
     <span class="n">Running</span><span class="p">,</span>
     <span class="n">Timeout</span><span class="p">,</span>
     <span class="n">Disabled</span>
@@ -395,7 +401,7 @@
 
 
 <p>Poszczególnym wartościom mogą być przypisane inne liczby np.</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
     <span class="n">Running</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
     <span class="n">Timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
     <span class="n">Disabled</span> <span class="o">//</span> <span class="n">domyślnie</span> <span class="n">jest</span> <span class="o">+</span><span class="mi">1</span> <span class="n">więc</span> <span class="o">=</span> <span class="mi">11</span>
@@ -404,6 +410,23 @@
 
 
 <p>Często nazwy poszczególnych wartości w enum pisanę są wyłącznie dużymi literami np. <code>RUNNING</code> zamiast <code>Running</code></p>
+<p>Enum pozwala również na zadeklarowanie wartości przy pomocy łańcucha znaków</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
+        <span class="n">RUNNING</span> <span class="o">=</span> <span class="s1">&#39;Running&#39;</span><span class="p">,</span>
+        <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="s1">&#39;Timeout&#39;</span><span class="p">,</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s1">&#39;Disabled&#39;&#39;</span>
+    <span class="p">}</span>
+
+<span class="n">stosowanie</span><span class="p">:</span>
+
+<span class="k">const</span> <span class="n">runner</span> <span class="o">=</span> <span class="p">(</span><span class="n">status</span><span class="p">:</span> <span class="n">Status</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">the</span> <span class="n">status</span> <span class="k">is</span><span class="p">:</span> <span class="o">$</span><span class="p">{</span><span class="n">status</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+
+<span class="n">runner</span><span class="p">(</span><span class="n">Status</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;the status is: running&#39;</span>
+
+<span class="n">runner</span><span class="p">(</span><span class="n">Stoped</span><span class="p">)</span> <span class="o">//</span> <span class="n">Nie</span> <span class="n">można</span> <span class="n">przypisać</span> <span class="n">argumentu</span> <span class="n">typu</span> <span class="n">Stoped</span> <span class="n">to</span> <span class="n">parametru</span> <span class="s1">&#39;Status&#39;</span>
+</code></pre></div>
+
+
 <p>źródła:</p>
 <p><a href="https://kamilmysliwiec.com/typescript-typ-wyliczeniowy-enum">kamilmysliwiec.com - TypeScript – typ wyliczeniowy, enum</a></p>
 <p><a href="https://solutionchaser.com/typescript-enum/">solutionchaser.com - Zrozumieć enumy w TypeScriptcie</a></p>
@@ -477,7 +500,7 @@
 
 <hr>
 <p>--</p>
-<h3>5. Funkcje jako typy</h3>
+<h3 id="funkcjaTyp">5. Funkcje jako typy</h3>
 <p>Deklarowanie zmiennej z typem <strong>Function</strong> pozwala nam na zapewnienie tego, że będzie ona przechowywać jedynie funkcję,a nie coś innego dodatkowo istnieje możliwość wskazania wzoru (typu) tej funkcji</p>
 <p>Przykład bez wskazania</p>
 <div class="highlight"><pre><span></span><code><span class="nt">function</span> <span class="nt">addDroids</span><span class="o">(</span><span class="nt">n1</span><span class="p">:</span><span class="nd">number</span><span class="o">,</span> <span class="nt">n2</span><span class="p">:</span><span class="nd">number</span><span class="o">):</span> <span class="nt">number</span> <span class="p">{</span>
@@ -506,7 +529,7 @@
 </code></pre></div>
 
 
-<h3>Funkcje - zwracanie typów + 'void' &amp; 'undefined'</h3>
+<h3 id="zwracanieTypu">Funkcje - zwracanie typów + 'void' &amp; 'undefined'</h3>
 <p>Istnieje możliwość typu zwracanej wartości funkcji -&gt; poprzez zastosowanie po argumentach dwukropka oraz podania odpowiedniego typu (stosowane jedynie w przypadku potrzeby)</p>
 <p>w wyniku tej funkcji zostanie zwrócona liczba/numbers</p>
 <div class="highlight"><pre><span></span><code><span class="err">function addDroids(n1:number, n2:number): number {</span>
