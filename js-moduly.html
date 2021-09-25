@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="JavaScript i moduły - CommonJS i import/export(ES6)"/>
 <meta property="og:description" content="Wstęp Podział projektu na mniejsze pliki (modułowość) może przynieść sporo korzyści w związku z jego utrzymaniem oraz reużywalnością kodu w innych projektach, pozwala na to (CommonJS oraz moduły wprowadzone w ES6. CommonJS jest standardem wykorzystywanym przez node.js natomiast moduł ES (ES6) jest przeznaczony dla przeglądarek CommonJS Importowanie zależności (w …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-moduly.html"/>
+<meta property="og:url" content="./js-moduly.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-06-12 11:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="javascript"/>
 <meta property="article:tag" content="js"/>
 <meta property="article:tag" content="import"/>
@@ -83,15 +82,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -110,7 +109,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -127,12 +126,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -146,7 +144,7 @@
       
     <h1 id="js-moduly">JavaScript i moduły - CommonJS i import/export(ES6)</h1>
     <p>
-      Opublikowano pią 12 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+      Opublikowano ptk 12 czerwca 2020 w <a href="./category/javascript.html">javascript</a>
 
         &#8226; 2 min read
     </p>
@@ -164,16 +162,13 @@
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">package</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;./sciezka/nazwaModulu)</span>
 </code></pre></div>
 
-
 <p>np.</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">findDroidFunc</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;./findDroid&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p>Zanim moduł może zostać zaimportowany musi być najpierw wyeksportowany poprzez tworzenie obiektu <code>module</code> poprzez odwołanie się do właściwości <code>exports</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="n">nazwaModulu</span><span class="p">;</span>
 </code></pre></div>
-
 
 <p>np.</p>
 <div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">droidFinder</span><span class="o">.</span><span class="n">js</span>
@@ -193,7 +188,6 @@
 <span class="o">&gt;&gt;</span> <span class="n">Obi</span> <span class="n">Wan</span><span class="p">:</span> <span class="n">This</span> <span class="k">is</span> <span class="ow">not</span> <span class="n">the</span> <span class="n">droid</span> <span class="n">you</span> <span class="n">are</span> <span class="n">looking</span> <span class="k">for</span>
 </code></pre></div>
 
-
 <p>gdzie findDroidFunc jest nazwą funkcji znajdującą się danym pliku - zwana modułem</p>
 <p>Moduły mogą być wbudowane (stworzone w pliku) jak i zewnętrzne np udostępnione przy pomocy <strong>npm</strong></p>
 <h3>Eksportowanie i importowanie wielu modułów z jednego pliku</h3>
@@ -204,7 +198,6 @@
   <span class="n">makeDroid</span>
 <span class="p">};</span>
 </code></pre></div>
-
 
 <p>Import poprzez odwołanie się do nazwy plików z modułami / rozszerzenia .js najczęściej się nie podaje (tu zawarte dla czytelności)</p>
 <p>const  droids = require("./droidsFuncs.js")</p>
@@ -221,28 +214,23 @@
 <span class="p">};</span>
 </code></pre></div>
 
-
 <p>Importowanie zależności odbywa się poprzez wykorzystanie kluczowego słowa <code>import</code> (całość konceptu jest podobna do tego znanego mi z Pythona ;)</p>
 <p>Import wszystkich modułów z pojedynczego pliku</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="o">*</span> <span class="k">as</span> <span class="n">myModule</span> <span class="kn">from</span> <span class="s1">&#39;/modules/my-module.js&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-
 <p>Wywołanie poprzez... (nazwa modułu + metoda)</p>
-<div class="highlight"><pre><span></span><code><span class="err">myModule.findDroid()</span>
+<div class="highlight"><pre><span></span><code>myModule.findDroid()
 </code></pre></div>
-
 
 <p>Importowanie pojedynczego <code>importu</code> / kolejne należy dodawać po przecinku (destrukturyzacja obiektu)</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span><span class="n">myExport</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;/modules/my-module.js&#39;</span>
 </code></pre></div>
 
-
 <p>Importowanie z nadaniem nowej nazwy (jak w Pythonie ;) / kolejne należy dodawać po przecinku</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span><span class="n">bardzoBardzoDlugaNazwa</span> <span class="k">as</span> <span class="n">krotkaNazwa</span><span class="p">}</span>
 <span class="kn">from</span> <span class="s1">&#39;/modules/my-module.js&#39;</span><span class="p">;</span>
 </code></pre></div>
-
 
 <p>Można również zastosować importowanie poprzez podanie nazwy bez nawiasów jeśli w innym pliku został zastosowany <strong>export default NazwaFunkcji</strong>;
 Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import NazwaModulu from './nazwaPliku'</strong></p>
@@ -252,9 +240,8 @@ Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import N
 
 <span class="o">//</span> <span class="n">stormTrooper</span><span class="o">.</span><span class="n">js</span> <span class="p">(</span><span class="n">nowa</span> <span class="n">nazwa</span> <span class="n">może</span> <span class="n">być</span> <span class="n">inna</span> <span class="o">-</span> <span class="n">taka</span> <span class="n">jaką</span> <span class="n">planujemy</span> <span class="n">zastosować</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">droidSeeker</span> <span class="nn">from</span> <span class="s1">&#39;./droid&#39;</span>
+<span class="kn">import</span> <span class="nn">droidSeeker</span> <span class="kn">from</span> <span class="s1">&#39;./droid&#39;</span>
 </code></pre></div>
-
 
 <p>można również stosować taki zabieg stosując default (wówczas importując można nadać dowolną nazwę -&gt; ekportuję tą tablicę - nadaj jej nazwę importując)</p>
 <p>// plik export.js</p>
@@ -264,22 +251,20 @@ Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import N
 <p>// plik import.js (nazwa tablica jest nadana dopiero w pliku gdzie dane są importowane)</p>
 <p>import tablica from "./export.js"</p>
 <h4>Asynchroniczny import</h4>
-<div class="highlight"><pre><span></span><code><span class="err">import(&#39;/modules/my-module.js&#39;)</span>
-<span class="err">  .then((module) =&gt; {</span>
-<span class="err">    // Do something with the module.</span>
-<span class="err">  });</span>
+<div class="highlight"><pre><span></span><code><span class="nv">import</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/modules/my-module.js</span><span class="s1">&#39;</span><span class="ss">)</span>
+  .<span class="k">then</span><span class="ss">((</span><span class="nv">module</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+    <span class="o">//</span> <span class="k">Do</span> <span class="nv">something</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">module</span>.
+  }<span class="ss">)</span><span class="c1">;</span>
 </code></pre></div>
 
-
 <p>Przy pomocy async</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">somethingIsTrue</span><span class="p">)</span> <span class="p">{</span>
-    <span class="o">//</span> <span class="kn">import</span> <span class="nn">module</span> <span class="nn">for</span> <span class="nn">side</span> <span class="nn">effects</span>
-    <span class="n">await</span> <span class="n">import</span><span class="p">(</span><span class="s1">&#39;/modules/my-module.js&#39;</span><span class="p">);</span>
+    <span class="o">//</span> <span class="kn">import</span> <span class="nn">module</span> <span class="k">for</span> <span class="n">side</span> <span class="n">effects</span>
+    <span class="k">await</span> <span class="n">import</span><span class="p">(</span><span class="s1">&#39;/modules/my-module.js&#39;</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">})();</span>
 </code></pre></div>
-
 
 <hr>
 <h3>Import z node modules</h3>
@@ -287,19 +272,18 @@ Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import N
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">formatDistanceToNow</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;date-fns&quot;</span>
 </code></pre></div>
 
-
 <hr>
 <p>Inne źródła:</p>
 <p><a href="https://flaviocopes.com/commonjs/">Introduction to CommonJS</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/import.html">import</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/require.html">require</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/moduly.html">moduły</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/modules.html">modules</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/export.html">export</a>
+      <a href="./tag/js.html">js</a>
+      <a href="./tag/import.html">import</a>
+      <a href="./tag/require.html">require</a>
+      <a href="./tag/moduly.html">moduły</a>
+      <a href="./tag/modules.html">modules</a>
+      <a href="./tag/export.html">export</a>
     </p>
   </div>
 
@@ -308,7 +292,7 @@ Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import N
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/js-webpack.html">JavaScript: Webpack - krótkie wprowadzenie</a></li>
+      <li><a href="./js-webpack.html">JavaScript: Webpack - krótkie wprowadzenie</a></li>
     </ul>
   </div>
 
@@ -358,7 +342,7 @@ Wówczas wystarczy zaimportować w sposób następujący -&gt;  <strong>import N
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

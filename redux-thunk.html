@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="Redux: Duck + Redux-thunk"/>
 <meta property="og:description" content="Istotne pojęcia Thunk jest innym słowem na funkcję, która jest zwrócona przez inną funkcję. function wrapper_function() { // &gt;&gt; to jest &#34;thunk&#34; ponieważ odracza wykonanie kodu na później: return function thunk() { // &gt;&gt; anonimowa lub nazwana console.log(&#39;do stuff now&#39;); }; } W Reduxie akcje/actions są jedynie obiektami, z kolei reduktory/reducers są &#34;czyste&#34; (nie …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/redux-thunk.html"/>
+<meta property="og:url" content="./redux-thunk.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-11-13 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="redux"/>
 <meta property="article:tag" content="react"/>
 <meta property="article:tag" content="redux"/>
@@ -82,15 +81,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -109,7 +108,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -126,12 +125,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -145,7 +143,7 @@
       
     <h1 id="redux-thunk">Redux: Duck + Redux-thunk</h1>
     <p>
-      Opublikowano pią 13 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/redux.html">redux</a>
+      Opublikowano ptk 13 listopada 2020 w <a href="./category/redux.html">redux</a>
 
         &#8226; 5 min read
     </p>
@@ -156,14 +154,13 @@
     <p><img alt="redux-react" src="https://miro.medium.com/max/700/1*uHumlKU6fado6sOF2eHVwg.jpeg"></p>
 <h3>Istotne pojęcia</h3>
 <p><strong>Thunk</strong> jest innym słowem na funkcję, która jest zwrócona przez inną funkcję.</p>
-<div class="highlight"><pre><span></span><code><span class="err">    function wrapper_function() {</span>
-<span class="err">            // &gt;&gt; to jest &quot;thunk&quot; ponieważ odracza wykonanie kodu na później:</span>
-<span class="err">            return function thunk() {   // &gt;&gt; anonimowa lub nazwana</span>
-<span class="err">            console.log(&#39;do stuff now&#39;);</span>
-<span class="err">            };</span>
-<span class="err">    }</span>
+<div class="highlight"><pre><span></span><code>    <span class="nt">function</span> <span class="nt">wrapper_function</span><span class="o">()</span> <span class="p">{</span>
+            <span class="err">//</span> <span class="err">&gt;&gt;</span> <span class="err">to</span> <span class="err">jest</span> <span class="err">&quot;thunk&quot;</span> <span class="err">ponieważ</span> <span class="err">odracza</span> <span class="err">wykonanie</span> <span class="err">kodu</span> <span class="err">na</span> <span class="n">później</span><span class="p">:</span>
+            <span class="n">return</span> <span class="n">function</span> <span class="nf">thunk</span><span class="p">()</span> <span class="err">{</span>   <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">anonimowa</span> <span class="n">lub</span> <span class="n">nazwana</span>
+            <span class="n">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s1">&#39;do stuff now&#39;</span><span class="p">);</span>
+            <span class="p">}</span><span class="o">;</span>
+    <span class="err">}</span>
 </code></pre></div>
-
 
 <p>W Reduxie <strong>akcje/actions</strong> są jedynie obiektami, z kolei <strong>reduktory/reducers</strong> są "czyste" (nie zmieniają nic co znajduje się po za ich własnym zakresem).</p>
 <p>Zatem aby akcja w reduxie miała być funkcyjna powinna wewnątrz wywoływać funkcję -&gt; innymi słowy <strong>thunk</strong></p>
@@ -204,7 +201,7 @@
 
     <span class="n">function</span> <span class="n">droids</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">initialDroids</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">switch</span> <span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">sprawdza</span> <span class="n">typ</span> <span class="n">akcji</span>
-            <span class="n">case</span> <span class="s1">&#39;RESET_DROIDS&#39;</span><span class="p">:</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">nazwa</span> <span class="n">wywołania</span> <span class="n">akcji</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;RESET&#39;</span><span class="p">})</span> <span class="n">przy</span> <span class="n">założeniu</span> <span class="err">ż</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">zwraca</span> <span class="n">pustą</span> <span class="n">tablicę</span>
+            <span class="n">case</span> <span class="s1">&#39;RESET_DROIDS&#39;</span><span class="p">:</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">nazwa</span> <span class="n">wywołania</span> <span class="n">akcji</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;RESET&#39;</span><span class="p">})</span> <span class="n">przy</span> <span class="n">założeniu</span> <span class="n">że</span> <span class="o">-&gt;</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">zwraca</span> <span class="n">pustą</span> <span class="n">tablicę</span>
                 <span class="k">return</span> <span class="p">{</span>
                     <span class="o">...</span><span class="n">state</span><span class="p">,</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">kopiowanie</span> <span class="n">atrybutów</span><span class="p">,</span> <span class="n">które</span> <span class="n">nie</span> <span class="n">mają</span> <span class="n">zostać</span> <span class="n">zmienione</span>
                     <span class="nb">list</span><span class="p">:</span> <span class="p">[]</span>
@@ -213,7 +210,7 @@
                     <span class="k">return</span> <span class="p">{</span>
                         <span class="o">...</span><span class="n">state</span><span class="p">,</span>
                         <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="n">state</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="n">action</span><span class="o">.</span><span class="n">item</span><span class="p">]</span>
-                        <span class="o">//</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;ADD&#39;</span><span class="p">,</span> <span class="n">droid</span><span class="p">:</span> <span class="s1">&#39;D-O&#39;</span><span class="p">})</span> <span class="n">przy</span> <span class="n">założeniu</span> <span class="err">ż</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="p">)</span> <span class="o">-</span> <span class="n">spowoduje</span> <span class="n">dodanie</span> <span class="n">nowego</span> <span class="n">droida</span>
+                        <span class="o">//</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">({</span><span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;ADD&#39;</span><span class="p">,</span> <span class="n">droid</span><span class="p">:</span> <span class="s1">&#39;D-O&#39;</span><span class="p">})</span> <span class="n">przy</span> <span class="n">założeniu</span> <span class="n">że</span> <span class="o">-&gt;</span> <span class="n">window</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span><span class="p">)</span> <span class="o">-</span> <span class="n">spowoduje</span> <span class="n">dodanie</span> <span class="n">nowego</span> <span class="n">droida</span>
                     <span class="p">}</span>
                 <span class="n">default</span><span class="p">:</span>
                     <span class="k">return</span> <span class="n">state</span>
@@ -237,7 +234,7 @@
             <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="err">łą</span><span class="n">cznie</span> <span class="n">reduktorów</span> <span class="n">w</span> <span class="n">obiekt</span> <span class="n">mapujący</span> <span class="n">akcje</span> <span class="n">reduktorów</span>
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">łącznie</span> <span class="n">reduktorów</span> <span class="n">w</span> <span class="n">obiekt</span> <span class="n">mapujący</span> <span class="n">akcje</span> <span class="n">reduktorów</span>
     <span class="n">const</span> <span class="n">allReducers</span> <span class="o">=</span> <span class="n">combineReducers</span><span class="p">({</span><span class="n">droids</span><span class="p">,</span> <span class="n">droidClasses</span><span class="p">})</span> <span class="o">//</span>  <span class="n">obiekt</span> <span class="n">mapujący</span> <span class="n">akcje</span> <span class="n">stora</span> <span class="n">na</span> <span class="n">reducer</span>
 
     <span class="o">//</span> <span class="o">----------------------------</span> <span class="n">Store</span> <span class="o">-----------------------</span>
@@ -256,10 +253,10 @@
     <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">wywołanie</span> <span class="n">kreatora</span> <span class="n">akcji</span>
     <span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">addDroid</span><span class="p">(</span><span class="s1">&#39;ME-8D9&#39;</span><span class="p">))</span>
 
-    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="err">łą</span><span class="n">czenie</span> <span class="n">kreatorów</span> <span class="n">akcji</span> <span class="o">-</span> <span class="n">obiekt</span> <span class="n">w</span> <span class="n">którym</span> <span class="n">przekazywane</span> <span class="n">są</span> <span class="n">różne</span> <span class="n">funkcje</span> <span class="o">+</span> <span class="n">obiekt</span> <span class="n">dispatch</span>
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">łączenie</span> <span class="n">kreatorów</span> <span class="n">akcji</span> <span class="o">-</span> <span class="n">obiekt</span> <span class="n">w</span> <span class="n">którym</span> <span class="n">przekazywane</span> <span class="n">są</span> <span class="n">różne</span> <span class="n">funkcje</span> <span class="o">+</span> <span class="n">obiekt</span> <span class="n">dispatch</span>
     <span class="n">const</span> <span class="n">droidActions</span> <span class="o">=</span> <span class="n">bindActionCreators</span><span class="p">({</span><span class="n">add</span><span class="p">:</span> <span class="n">addDroid</span><span class="p">,</span> <span class="n">reset</span><span class="p">},</span> <span class="n">store</span><span class="o">.</span><span class="n">dispatch</span><span class="p">)</span>
 
-    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">metody</span> <span class="err">łą</span><span class="n">czącej</span> <span class="n">w</span> <span class="n">sobie</span> <span class="n">akcje</span> <span class="p">(</span><span class="n">dispatch</span> <span class="n">już</span> <span class="n">jest</span> <span class="n">wpisany</span><span class="p">)</span>
+    <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">metody</span> <span class="n">łączącej</span> <span class="n">w</span> <span class="n">sobie</span> <span class="n">akcje</span> <span class="p">(</span><span class="n">dispatch</span> <span class="n">już</span> <span class="n">jest</span> <span class="n">wpisany</span><span class="p">)</span>
     <span class="n">droidActions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;DN-LD&#39;</span><span class="p">)</span>
     <span class="n">droidActions</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 
@@ -282,42 +279,40 @@
     <span class="n">export</span> <span class="n">default</span> <span class="n">App</span><span class="p">;</span>
 </code></pre></div>
 
-
 <hr>
 <p><strong>2.</strong> Faza projektu i jego struktura (istotne pliki/te które są edytowane oraz które zostaną/ły dodane są zilustrowane poniżej). 
 W tej fazie logika projektu zostaje rozłożona pomiędzy poszczególnymi plikami. Główna logika odpowiedzialna za pracę ze stanem przy pomocy Reduxa znajduje się w folderach <code>duck</code>
 Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują ją według przyjętego wzoru, zapewniając czytelność kodu.</p>
-<div class="highlight"><pre><span></span><code><span class="err">    {public}</span>
-<span class="err">    |</span>
-<span class="err">    |_ [...]</span>
-<span class="err">    {src}</span>
-<span class="err">        |</span>
-<span class="err">        |</span>
-<span class="err">        |---App.js</span>
-<span class="err">        |--- reducers.js</span>
-<span class="err">        |---[...]</span>
-<span class="err">        |</span>
-<span class="err">        |_{app}</span>
-<span class="err">            |</span>
-<span class="err">            |_ {droids}</span>
-<span class="err">            |    |</span>
-<span class="err">            |    |_ {duck}</span>
-<span class="err">            |       |</span>
-<span class="err">            |       | --- actions.js</span>
-<span class="err">            |       | --- index.js</span>
-<span class="err">            |       | --- reducers.js</span>
-<span class="err">            |       | --- types.js</span>
-<span class="err">            |_ {droidClasses}</span>
-<span class="err">            |    |</span>
-<span class="err">            |    |_ {duck}</span>
-<span class="err">            |       |</span>
-<span class="err">            |       | --- actions.js</span>
-<span class="err">            |       | --- index.js</span>
-<span class="err">            |       | --- reducers.js</span>
-<span class="err">            |       | --- types.js</span>
-<span class="err">        [...]</span>
+<div class="highlight"><pre><span></span><code>    {public}
+    |
+    |_ [...]
+    {src}
+        |
+        |
+        |---App.js
+        |--- reducers.js
+        |---[...]
+        |
+        |_{app}
+            |
+            |_ {droids}
+            |    |
+            |    |_ {duck}
+            |       |
+            |       | --- actions.js
+            |       | --- index.js
+            |       | --- reducers.js
+            |       | --- types.js
+            |_ {droidClasses}
+            |    |
+            |    |_ {duck}
+            |       |
+            |       | --- actions.js
+            |       | --- index.js
+            |       | --- reducers.js
+            |       | --- types.js
+        [...]
 </code></pre></div>
-
 
 <p><strong>Przykładowa zawartość &gt;&gt;ducks&lt;&lt;</strong></p>
 <div class="highlight"><pre><span></span><code>    <span class="o">//</span><span class="n">types</span><span class="o">.</span><span class="n">js</span>
@@ -331,7 +326,7 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
 
 
     <span class="o">//</span><span class="n">reducers</span><span class="o">.</span><span class="n">js</span>
-    <span class="kn">import</span> <span class="nn">types</span> <span class="nn">from</span> <span class="s1">&#39;./types&#39;</span>
+    <span class="kn">import</span> <span class="nn">types</span> <span class="kn">from</span> <span class="s1">&#39;./types&#39;</span>
 
     <span class="n">const</span> <span class="n">INITIAL_STATE</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">droidsName</span><span class="p">:</span> <span class="s2">&quot;Favorite&quot;</span><span class="p">,</span>
@@ -359,7 +354,7 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
 
     <span class="o">//</span> <span class="n">action</span><span class="o">.</span><span class="n">js</span>
 
-    <span class="kn">import</span> <span class="nn">types</span> <span class="nn">from</span> <span class="s1">&#39;./types&#39;</span>
+    <span class="kn">import</span> <span class="nn">types</span> <span class="kn">from</span> <span class="s1">&#39;./types&#39;</span>
 
     <span class="n">const</span> <span class="n">add</span> <span class="o">=</span> <span class="n">item</span> <span class="o">=&gt;</span> <span class="p">({</span>
         <span class="nb">type</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">ADD_DROID</span><span class="p">,</span> <span class="n">item</span>
@@ -375,18 +370,17 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
     <span class="p">}</span>
 
     <span class="o">//</span><span class="n">index</span><span class="o">.</span><span class="n">js</span> <span class="o">-</span> <span class="n">integruje</span> <span class="n">oraz</span> <span class="n">eksportuje</span> <span class="n">logikę</span> <span class="n">z</span> <span class="n">duck</span>
-    <span class="kn">import</span> <span class="nn">droidsReducer</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+    <span class="kn">import</span> <span class="nn">droidsReducer</span> <span class="kn">from</span> <span class="s1">&#39;./reducers&#39;</span>
     <span class="n">export</span> <span class="p">{</span><span class="n">default</span> <span class="k">as</span> <span class="n">droidTypes</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./types&#39;</span>
     <span class="n">export</span> <span class="p">{</span><span class="n">default</span> <span class="k">as</span> <span class="n">droidActions</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./actions&#39;</span>
     <span class="n">export</span> <span class="n">default</span> <span class="n">droidsReducer</span>
 </code></pre></div>
 
-
 <p>W pliku <strong>&gt;&gt;reducers.js&lt;&lt;</strong> łączone są reduktory i eksportowane jako jeden obiekt</p>
 <div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span> <span class="n">combineReducers</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;redux&quot;</span><span class="p">;</span>
 
-    <span class="kn">import</span> <span class="nn">droidsReducer</span> <span class="nn">from</span> <span class="s1">&#39;./app/droids/duck&#39;</span>
-    <span class="kn">import</span> <span class="nn">droidsClassReducer</span> <span class="nn">from</span> <span class="s1">&#39;./app/droidClasses/duck&#39;</span>
+    <span class="kn">import</span> <span class="nn">droidsReducer</span> <span class="kn">from</span> <span class="s1">&#39;./app/droids/duck&#39;</span>
+    <span class="kn">import</span> <span class="nn">droidsClassReducer</span> <span class="kn">from</span> <span class="s1">&#39;./app/droidClasses/duck&#39;</span>
 
     <span class="n">const</span> <span class="n">rootReducer</span> <span class="o">=</span> <span class="n">combineReducers</span><span class="p">({</span>
         <span class="n">droids</span><span class="p">:</span> <span class="n">droidsReducer</span><span class="p">,</span>
@@ -396,10 +390,9 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
     <span class="n">export</span> <span class="n">default</span> <span class="n">rootReducer</span>
 </code></pre></div>
 
-
 <p>Do pliku <strong>&gt;&gt;App.js&lt;&lt;</strong> należy zaimportować połączone reduktory (rootReducer)</p>
 <div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span><span class="n">createStore</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;redux&#39;</span>
-    <span class="kn">import</span> <span class="nn">rootReducer</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+    <span class="kn">import</span> <span class="nn">rootReducer</span> <span class="kn">from</span> <span class="s1">&#39;./reducers&#39;</span>
     <span class="kn">import</span> <span class="p">{</span><span class="n">droidActions</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./app/droids/duck&#39;</span>
 
     <span class="n">const</span> <span class="n">store</span> <span class="o">=</span> <span class="n">createStore</span><span class="p">(</span><span class="n">rootReducer</span><span class="p">,</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span> <span class="o">&amp;&amp;</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION__</span><span class="p">())</span>
@@ -410,57 +403,54 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
     <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 </code></pre></div>
 
-
 <p>wszystkie zmiany jakie zaszły na tym etapie projektu można znaleźć w tym miejscu: <a href="https://github.com/kostyrko/JS-sandbox/commit/d73069b2b79e8b28e3f965d3ec6ac555ca3e2f65">2_redux-thunk-&gt; distribution of logic</a></p>
 <hr>
 <p><strong>3.</strong> Faza projektu oparta jest na podłączeniu Reduxa do Reacta oraz zastosowaniu Redux-Thunk</p>
 <p>W tym celu należy zainstalować react-redux oraz redux-thunk</p>
-<div class="highlight"><pre><span></span><code><span class="err"> npm i react-redux redux-thunk</span>
+<div class="highlight"><pre><span></span><code> npm i react-redux redux-thunk
 </code></pre></div>
 
-
 <p>Pliki, które uległy zmianie lub zostąły dodane:</p>
-<div class="highlight"><pre><span></span><code>    <span class="err">{</span><span class="k">public</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code>    <span class="p">{</span><span class="n">public</span><span class="p">}</span>
             <span class="o">|</span>
             <span class="o">|</span><span class="n">_</span> <span class="p">[...]</span>
-            <span class="err">{</span><span class="n">src</span><span class="err">}</span>
+            <span class="p">{</span><span class="n">src</span><span class="p">}</span>
                 <span class="o">|</span>
-                <span class="o">|</span><span class="c1">---index.js // &lt;Provider&gt; - tu jest podpięta logika Reduxa</span>
-                <span class="o">|</span><span class="c1">---App.js // store zostaje usunięty</span>
-                <span class="o">|</span><span class="c1">---store.js // plik przechowujący konfigurację stora</span>
-                <span class="o">|</span><span class="c1">---[...]</span>
+                <span class="o">|---</span><span class="nf">index</span><span class="p">.</span><span class="n">js</span> <span class="c1">// &lt;Provider&gt; - tu jest podpięta logika Reduxa</span>
+                <span class="o">|---</span><span class="n">App</span><span class="p">.</span><span class="n">js</span> <span class="c1">// store zostaje usunięty</span>
+                <span class="o">|---</span><span class="kr">store</span><span class="p">.</span><span class="n">js</span> <span class="c1">// plik przechowujący konfigurację stora</span>
+                <span class="o">|---</span><span class="p">[...]</span>
                 <span class="o">|</span>
-                <span class="o">|</span><span class="n">_</span><span class="err">{</span><span class="n">app</span><span class="err">}</span>
+                <span class="o">|</span><span class="n">_</span><span class="p">{</span><span class="n">app</span><span class="p">}</span>
                     <span class="o">|</span>
-                    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">droids</span><span class="err">}</span>
+                    <span class="o">|</span><span class="n">_</span> <span class="p">{</span><span class="n">droids</span><span class="p">}</span>
                     <span class="o">|</span>    <span class="o">|</span>
-                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">components</span><span class="err">}</span>
+                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="p">{</span><span class="n">components</span><span class="p">}</span>
                     <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span>
-                    <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span> <span class="c1">--- DroidsContainer.js // &quot;smart&quot; component połączony z Redux</span>
-                    <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span> <span class="c1">--- DroidsForm.js // input - dodawanie droida to stanu  / zastoswanie akcji</span>
+                    <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span> <span class="o">---</span> <span class="n">DroidsContainer</span><span class="p">.</span><span class="n">js</span> <span class="c1">// &quot;smart&quot; component połączony z Redux</span>
+                    <span class="o">|</span>    <span class="o">|</span>    <span class="o">|</span> <span class="o">---</span> <span class="n">DroidsForm</span><span class="p">.</span><span class="n">js</span> <span class="c1">// input - dodawanie droida to stanu  / zastoswanie akcji</span>
                     <span class="o">|</span>    <span class="o">|</span>
-                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">duck</span><span class="err">}</span>
+                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="p">{</span><span class="n">duck</span><span class="p">}</span>
                     <span class="o">|</span>         <span class="o">|</span>
-                    <span class="o">|</span>         <span class="o">|</span><span class="n">_operations</span><span class="p">.</span><span class="n">js</span> <span class="o">//</span> <span class="o">!!</span> <span class="n">pobieranie</span> <span class="n">wysyłanie</span> <span class="n">danych</span> <span class="n">z</span> <span class="n">API</span>
+                    <span class="o">|</span>         <span class="o">|</span><span class="n">_operations</span><span class="p">.</span><span class="n">js</span> <span class="c1">// !! pobieranie wysyłanie danych z API</span>
                     <span class="o">|</span>         <span class="p">[...]</span>
 
-                    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">droidClasses</span><span class="err">}</span>
+                    <span class="o">|</span><span class="n">_</span> <span class="p">{</span><span class="n">droidClasses</span><span class="p">}</span>
                     <span class="o">|</span>    <span class="o">|</span>
-                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="err">{</span><span class="n">duck</span><span class="err">}</span>
+                    <span class="o">|</span>    <span class="o">|</span><span class="n">_</span> <span class="p">{</span><span class="n">duck</span><span class="p">}</span>
                     <span class="o">|</span>       <span class="o">|</span>
                     <span class="o">|</span>       <span class="p">[...]</span>
                     <span class="o">|</span>
-                    <span class="o">|</span><span class="n">_</span><span class="err">{</span><span class="n">jsServer</span><span class="err">}</span>
+                    <span class="o">|</span><span class="n">_</span><span class="p">{</span><span class="n">jsServer</span><span class="p">}</span>
                     <span class="o">|</span>     <span class="o">|</span>
                     <span class="o">|</span>     <span class="o">|</span><span class="n">_db</span><span class="p">.</span><span class="n">json</span> <span class="p">(</span><span class="n">baza</span> <span class="n">danych</span> <span class="n">w</span> <span class="n">formacie</span> <span class="n">json</span> <span class="o">-&gt;</span> <span class="n">Json</span> <span class="n">Server</span><span class="p">)</span>
                   <span class="p">[...]</span>
 </code></pre></div>
 
-
 <p><strong>&gt;&gt;index.js&lt;&lt;</strong> - tu zostaje przeniesiony store i App.js jest opakowany w <Provider> tak aby cała aplikacja miała dostęp do Reduxa</p>
 <div class="highlight"><pre><span></span><code>    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
     <span class="kn">import</span> <span class="p">{</span><span class="n">Provider</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
-    <span class="kn">import</span> <span class="nn">store</span> <span class="nn">from</span> <span class="s1">&#39;./store&#39;</span>
+    <span class="kn">import</span> <span class="nn">store</span> <span class="kn">from</span> <span class="s1">&#39;./store&#39;</span>
 
     <span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
     <span class="o">&lt;</span><span class="n">Provider</span> <span class="n">store</span><span class="o">=</span><span class="p">{</span><span class="n">store</span><span class="p">}</span><span class="o">&gt;</span>
@@ -469,7 +459,6 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
     <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
     <span class="p">);</span>
 </code></pre></div>
-
 
 <p><strong>&gt;&gt;DroidsContainer.js&lt;&lt;</strong></p>
 <div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span><span class="n">connect</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
@@ -508,11 +497,10 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
     <span class="n">export</span> <span class="n">default</span> <span class="n">connect</span><span class="p">(</span><span class="n">mapStateToProps</span><span class="p">,</span> <span class="n">mapDispatchToProps</span><span class="p">)(</span><span class="n">DroidsContainer</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p><strong>&gt;&gt;DroidsForm.js&lt;&lt;</strong></p>
-<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">React</span> <span class="nn">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">React</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
     <span class="kn">import</span> <span class="p">{</span><span class="n">connect</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
-    <span class="kn">import</span> <span class="nn">actions</span> <span class="nn">from</span> <span class="s1">&#39;../duck/actions&#39;</span>
+    <span class="kn">import</span> <span class="nn">actions</span> <span class="kn">from</span> <span class="s1">&#39;../duck/actions&#39;</span>
 
     <span class="n">const</span> <span class="n">DroidsForm</span> <span class="o">=</span> <span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
@@ -544,14 +532,13 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
     <span class="n">export</span> <span class="n">default</span> <span class="n">connect</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="n">mapDispatchToProps</span><span class="p">)(</span><span class="n">DroidsForm</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p><strong>&gt;&gt;operations.js&lt;&lt;</strong></p>
 <div class="highlight"><pre><span></span><code>    <span class="o">//</span> <span class="n">akcje</span> <span class="n">generują</span> <span class="n">state</span>
-    <span class="kn">import</span> <span class="nn">actions</span> <span class="nn">from</span> <span class="s2">&quot;./actions&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">actions</span> <span class="kn">from</span> <span class="s2">&quot;./actions&quot;</span><span class="p">;</span>
 
-    <span class="n">const</span> <span class="n">fetchDroids</span> <span class="o">=</span> <span class="n">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="n">const</span> <span class="n">response</span> <span class="o">=</span> <span class="n">await</span> <span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3001/droidsTypes&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">method</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span> <span class="p">})</span>
-        <span class="n">const</span> <span class="n">json</span> <span class="o">=</span> <span class="n">await</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">const</span> <span class="n">fetchDroids</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="n">const</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3001/droidsTypes&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">method</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span> <span class="p">})</span>
+        <span class="n">const</span> <span class="n">json</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
         <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">);</span>
         <span class="k">return</span> <span class="n">json</span>
     <span class="p">};</span>
@@ -560,19 +547,18 @@ Pliki index.js skupiają w sobie logikę z poszczególnych plików i eksportują
     <span class="o">//</span> <span class="n">export</span> <span class="n">const</span> <span class="n">getAllDroids</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
     <span class="n">export</span> <span class="n">const</span> <span class="n">getAllDroids</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
-    <span class="n">async</span> <span class="p">(</span><span class="n">dispatch</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="n">const</span> <span class="n">droids</span> <span class="o">=</span> <span class="n">await</span> <span class="n">fetchDroids</span><span class="p">()</span>
+    <span class="k">async</span> <span class="p">(</span><span class="n">dispatch</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="n">const</span> <span class="n">droids</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetchDroids</span><span class="p">()</span>
         <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droids</span><span class="p">);</span>
         <span class="n">droids</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">droid</span> <span class="o">=&gt;</span> <span class="n">dispatch</span><span class="p">(</span><span class="n">actions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">droid</span><span class="p">)))</span>
     <span class="p">}</span>
 </code></pre></div>
 
-
 <p><strong>&gt;&gt;store.js&lt;&lt;</strong> - redux-thunk =&gt; applyMiddleware(thunk)
 więcej na temat composeEnhancers patrz tutaj: <a href="https://github.com/zalmoxisus/redux-devtools-extension#usage">Redux DevTools Extension - 1.2 Advanced store setup</a></p>
 <div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span><span class="n">createStore</span><span class="p">,</span> <span class="n">applyMiddleware</span><span class="p">,</span> <span class="n">compose</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;redux&#39;</span>
-    <span class="kn">import</span> <span class="nn">rootReducer</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
-    <span class="kn">import</span> <span class="nn">thunk</span> <span class="nn">from</span> <span class="s1">&#39;redux-thunk&#39;</span>
+    <span class="kn">import</span> <span class="nn">rootReducer</span> <span class="kn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+    <span class="kn">import</span> <span class="nn">thunk</span> <span class="kn">from</span> <span class="s1">&#39;redux-thunk&#39;</span>
 
     <span class="n">const</span> <span class="n">composeEnhancers</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span> <span class="o">||</span> <span class="n">compose</span>
 
@@ -581,7 +567,6 @@ więcej na temat composeEnhancers patrz tutaj: <a href="https://github.com/zalmo
 
     <span class="n">export</span> <span class="n">default</span> <span class="n">store</span>
 </code></pre></div>
-
 
 <p>wszystkie zmiany jakie zaszły na tym etapie projektu można znaleźć w tym miejscu: <a href="https://github.com/kostyrko/JS-sandbox/commit/2ccfcedbb19f1e4acdce5543fff4139e8bc10e08">2_redux-thunk-&gt; Connect to React + Thunk</a></p>
 <p><strong>4.</strong> faza zastosowanie hooków <code>useDispatch/useSelector</code> (wszystkie operacje zachodzą na pliku <strong>DroidsContainer.js</strong>)</p>
@@ -619,7 +604,6 @@ więcej na temat composeEnhancers patrz tutaj: <a href="https://github.com/zalmo
     <span class="n">export</span> <span class="n">default</span> <span class="n">DroidsContainer</span><span class="p">;</span>
 </code></pre></div>
 
-
 <hr>
 <p><strong>Źródła</strong>:</p>
 <p>Podstawowe:</p>
@@ -635,11 +619,11 @@ więcej na temat composeEnhancers patrz tutaj: <a href="https://github.com/zalmo
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/redux.html">redux</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/redux-devtools-extension.html">Redux DevTools Extension</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/usedispatch.html">useDispatch</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/useselector.html">useSelector</a>
+      <a href="./tag/react.html">react</a>
+      <a href="./tag/redux.html">redux</a>
+      <a href="./tag/redux-devtools-extension.html">Redux DevTools Extension</a>
+      <a href="./tag/usedispatch.html">useDispatch</a>
+      <a href="./tag/useselector.html">useSelector</a>
     </p>
   </div>
 
@@ -648,7 +632,7 @@ więcej na temat composeEnhancers patrz tutaj: <a href="https://github.com/zalmo
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="./react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
     </ul>
   </div>
 
@@ -698,7 +682,7 @@ więcej na temat composeEnhancers patrz tutaj: <a href="https://github.com/zalmo
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

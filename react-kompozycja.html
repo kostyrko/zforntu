@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="React: kompozycja"/>
 <meta property="og:description" content="props.children pozwala nam na tworzenie komponentów otwartych na uzupełniania nowym kodem, wystarczy wykorzystać {props.children} w ramach komponentu aby wskazać, w którym miejscu istnieje możliwość uzupełnienia/wstawienia kodu Komponent otwarty na ew. rozszerzenia o nową treść function TestComposition(props) { let {children} = props; return (&lt;div&gt; &lt;h1&gt;Test Kompozycji&lt;/h1&gt; {children …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-kompozycja.html"/>
+<meta property="og:url" content="./react-kompozycja.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-08-29 10:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="reactjs"/>
 <meta property="article:tag" content="react"/>
 <meta property="article:tag" content="hooks"/>
@@ -82,15 +81,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -109,7 +108,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -126,12 +125,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -145,7 +143,7 @@
       
     <h1 id="react-kompozycja">React: kompozycja</h1>
     <p>
-      Opublikowano sob 29 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+      Opublikowano sob 29 sierpnia 2020 w <a href="./category/reactjs.html">reactjs</a>
 
         &#8226; 2 min read
     </p>
@@ -183,7 +181,6 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <p>W efekcie tego powstanie</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;div&gt;</span>
 
@@ -197,7 +194,6 @@ ReactDOM.render(
 
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
-
 
 <p><code>props.children</code> może wyrenderować inny komponent przyjęty w propsie.</p>
 <p>Powyższy przykład, może wyglądać również w poniższy sposób</p>
@@ -229,7 +225,6 @@ ReactDOM.render(
   document.getElementById(&quot;app&quot;)
 );
 </code></pre></div>
-
 
 <hr>
 <p>A co jeśli zależy nam na tym aby dany komponent był w stanie przyjąć wiele innych komponentów lub inaczej rzecz ujmując mieć możliwość wypełnienia wielu luk. W tym przypadku należy zastosować odrębne nazewnictwo dla każdego fragmentu/luki, który ma być uzupełniony a następnie przekazać go w odpowiedni sposób w props.</p>
@@ -263,7 +258,6 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <p>W efekcie tego powstanie</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;div&gt;</span>
   <span class="nt">&lt;h1&gt;</span>Test Kompozycji<span class="nt">&lt;/h1&gt;</span>
@@ -276,7 +270,6 @@ ReactDOM.render(
 
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
-
 
 <h3>Ominięcie prop-drilling wykorzystując kompozycję oraz props.children</h3>
 <p>Przekazywanie propsów do elementu liściowego z pominięciem pośredników (lub tzw. prop-drilling -&gt; gdzie dane w postaci propsów są przekazywane przez komponenty które, z nich faktycznie nie korzystają) może odbyć się poprzez wykorzystanie props.children. Wymaga to jednak <em>otwartości</em> poprzednich komponentów na możliwość (włączenia) wywołania w nich dzeci.</p>
@@ -327,7 +320,6 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <p>W wyniku tego powstanie:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;app&quot;</span><span class="nt">&gt;</span>
 
@@ -368,7 +360,6 @@ ReactDOM.render(
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 
-
 <hr>
 <p>Źródła:</p>
 <p><a href="https://www.youtube.com/watch?v=9n9Er-NIJ_c">Kompozycja vs dziedziczenie - Wzorce w React #3</a></p>
@@ -377,11 +368,11 @@ ReactDOM.render(
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/props-drilling.html">props-drilling</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/kompozycja.html">kompozycja</a>
+      <a href="./tag/react.html">react</a>
+      <a href="./tag/hooks.html">hooks</a>
+      <a href="./tag/props.html">props</a>
+      <a href="./tag/props-drilling.html">props-drilling</a>
+      <a href="./tag/kompozycja.html">kompozycja</a>
     </p>
   </div>
 
@@ -390,12 +381,12 @@ ReactDOM.render(
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/react-kontekst.html">React: kontekst</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-stany.html">React: (zjednoczne) Stany React'a</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-warunkowe-renderowanie.html">React: warunkowe renderowanie</a></li>
+      <li><a href="./react-kontekst.html">React: kontekst</a></li>
+      <li><a href="./react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
+      <li><a href="./react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
+      <li><a href="./react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
+      <li><a href="./react-stany.html">React: (zjednoczne) Stany React'a</a></li>
+      <li><a href="./react-warunkowe-renderowanie.html">React: warunkowe renderowanie</a></li>
     </ul>
   </div>
 
@@ -445,7 +436,7 @@ ReactDOM.render(
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

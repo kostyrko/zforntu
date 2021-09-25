@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="Angular: formularze wstęp + reactive forms"/>
 <meta property="og:description" content="Angular umożliwia stworzenie 2 rodzajów formularzy tzw. reaktywnych (reactive) oraz szablonowych (template-driven) Reaktywne formularze -zapewniają bezpośredni dostęp do obiektów modelu. Są bardziej skalowalne i łatwiejsze w ponownym użytkowaniu. [forma walidacji: funkcja, przewidywalność: synchroniczna, model danych: ustrukturyzowany i niezmienny] Szablonowe formularze - uzależnione są od dyrektyw w tworzeniu i manipulowaniu obiektu modelu …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-formularze.html"/>
+<meta property="og:url" content="./angular-formularze.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-12-23 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="angular"/>
 <meta property="article:tag" content="angular"/>
 <meta property="og:image" content="">
@@ -78,15 +77,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -105,7 +104,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -122,12 +121,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -141,9 +139,9 @@
       
     <h1 id="angular-formularze">Angular: formularze wstęp + reactive forms</h1>
     <p>
-      Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+      Opublikowano śro 23 grudnia 2020 w <a href="./category/angular.html">angular</a>
 
-        &#8226; 2 min read
+        &#8226; 3 min read
     </p>
   </header>
 
@@ -159,6 +157,61 @@
 <p><strong>FormGroup</strong> - śledzi wartości oraz status walidacji zbioru elementów formularza</p>
 <p><strong>FormArray</strong> - śledzi wartości oraz status zbioru walidacji tablicy zawierającej formularze</p>
 <p><strong>ControlValueAccessor</strong> - tworzy pomost pomiędzy instancjami Angular FormControl oraz natywnymi elementami drzewa DOM.</p>
+<hr>
+<h3>Dyrektywy</h3>
+<p><strong>ngModel</strong></p>
+<p>dyrektywa <strong>ngModel</strong> jest częścią '@angular/forms' i jest z formularzami właśnie powiązana. Pozwala na dwustronne powiązanie <code>[(ngModel)]</code> (w odróżnieniu od pojedynczego <code>[ngModel]</code> np. w celu wskazania wartości początkowej/domyślnej), ale kiedy jest używana w pojedynce, wskazuje Angularowi, na element HTML, który ma kontrolować/ którego powinien być świadomy, w kontekście formularza oraz jego obsługi (patrz <strong>ngSubmit</strong>) - tworzy obiekt związany z formularzem. (patrz również poniżej <strong>Lokalna referencja + ngModel</strong>)</p>
+<div class="highlight"><pre><span></span><code>&lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; class=&quot;form-control&quot; ngModel&gt;
+
+&lt;input
+  class=&quot;col s8&quot;
+  type=&quot;text&quot;
+  placeholder=&quot;Dodaj zadanie i datę wykonania&quot;
+  [(ngModel)]=&quot;taskName&quot;
+/&gt;
+</code></pre></div>
+
+<p><strong>ngSubmit</strong></p>
+<p>dyrektywa <strong>ngSubmit</strong> pozwala na połączenie z wydarzeniem, które ma zostać wykonane w trakcie wysyłania formularza - zapobiega wysłaniu formularza i wywołuje właściwe zdarzenie.</p>
+<div class="highlight"><pre><span></span><code>&lt;form (ngSubmit)=&quot;onSubmit()&quot;&gt;
+</code></pre></div>
+
+<p><strong>ngModelChange</strong></p>
+<h3>Lokalna referencja</h3>
+<p><code>#form = "ngForm"</code> - tworzy lokalną referencję (#form) do szablonu formularza poprzez wykorzystanie słowa kluczowego (ngForm) oraz obiektu formularza utworzony przez Angular (patrz <strong>ngModel</strong>).</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nt">html</span>
+<span class="o">&lt;</span><span class="nt">form</span> <span class="o">(</span><span class="nt">ngSubmit</span><span class="o">)=</span><span class="s2">&quot;onSubmit(form)&quot;</span> <span class="p">#</span><span class="nn">form</span><span class="o">=</span><span class="s2">&quot;ngForm&quot;</span><span class="o">&gt;</span>
+
+<span class="o">//</span> <span class="nt">ts</span>
+<span class="nt">onSubmit</span><span class="o">(</span><span class="nt">submittedForm</span><span class="o">:</span> <span class="p">{}</span><span class="o">)</span> <span class="p">{</span>
+ <span class="err">console.log(submittedForm)</span><span class="p">;</span>
+</code></pre></div>
+
+<p>}</p>
+<h3>Lokalna referencja + ngModel</h3>
+<p>Przy pomocy lokalnej refencji oraz użyciu <code>ngModel</code> w szablonie formularza wskazujemy Angularowi jaki element chcemy kontrolować/ do którego chcemy się podpiąć -&gt; patrz span: jeśli input/element posiada jest invalid to wtedy zaistniej.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Character name<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span>
+      <span class="na">type=</span><span class="s">&quot;text&quot;</span>
+      <span class="na">id=</span><span class="s">&quot;name&quot;</span>
+      <span class="na">name=</span><span class="s">&quot;name&quot;</span>
+      <span class="na">class=</span><span class="s">&quot;form-control&quot;</span>
+      <span class="err">ngModel</span>
+      <span class="err">required</span>
+      <span class="err">#</span><span class="na">nameCtrl=</span><span class="s">&quot;ngModel&quot;</span>
+    <span class="nt">/&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;help-block&quot;</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">&quot;nameCtrl.invalid&quot;</span><span class="nt">&gt;</span>Please enter a character name!<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>Podobny przypadek -&gt; jeśli obiekt formularza posiada invalid = true to przycisk będzie niedostępny/disabled</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">form</span><span class="w"> </span><span class="p">(</span><span class="n">ngSubmit</span><span class="p">)</span><span class="o">=</span><span class="ss">&quot;onSubmit(form)&quot;</span><span class="w"> </span><span class="n">#form</span><span class="o">=</span><span class="ss">&quot;ngForm&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">[</span><span class="n">...</span><span class="o">]</span><span class="err">]</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">button</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;btn btn-primary&quot;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="ss">&quot;submit&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">disabled</span><span class="o">]=</span><span class="ss">&quot;form.invalid&quot;</span><span class="o">&gt;</span><span class="k">Add</span><span class="w"> </span><span class="k">Character</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
 <hr>
 <p><strong>Przykład reactive form</strong> - model formularza jest bezpośrednio definiowany w klasie (wyraźny model formularza) - dyrektywa [formControl] łączy instancję <strong>FormControl</strong>
 do konkretnego elementu formy (widoku) poprzez wewnętrzną wartość "akcesorium" / <strong>model formularza jest źródłem prawdy</strong></p>
@@ -176,7 +229,6 @@ do konkretnego elementu formy (widoku) poprzez wewnętrzną wartość "akcesoriu
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p><strong>Przykład template-driven form</strong> - model formularza jest domniemany, dyrektywa NgModel tworzy i zarządza instancją FromControl dla danego elementu HTML / <strong>źródłem prawdy jest szablon html</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 
@@ -191,53 +243,32 @@ do konkretnego elementu formy (widoku) poprzez wewnętrzną wartość "akcesoriu
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Do przeczytania -&gt; Przepływ danych w formularzach: <a href="https://angular.io/guide/forms-overview#data-flow-in-forms">angular.io - Data flow in forms</a></p>
 <hr>
 <p><img alt="reactive-form" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSZShqRsNi1Z6zK-hmfGRqgEW9lU1D8y5qgA&amp;usqp=CAU"></p>
 <h3>Reaktywne formularze</h3>
-<p>1 - Postawowy formularz reaktywny</p>
+<p>1 - Postawowy formularz reaktywny / całe repo dostępne <a href="https://github.com/kostyrko/JS-sandbox/tree/master/7_Angular/angular-reactive-forms-example">tutaj</a></p>
+<p>Opis:</p>
 <p>Importowanie modułu ReactiveFormsModule do app.module.ts</p>
-<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/app.module.ts"></script>
-
-<p>Komponent name-editor -&gt; name-editor.component.ts</p>
-<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/name-editor/name-editor.component.ts
-"></script>
-
-<p>name-editor.component.html</p>
-<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/name-editor/name-editor.component.html"></script>
-
+<p>Komponent name-editor -&gt; name-editor.component.ts/name-editor.component.html</p>
 <p>2- Zarządzanie formularzem z wieloma elementami oraz zagnieżdżone formularze</p>
 <p>Zarządzanie <strong>wieloma instancjami</strong> Kontroli Formularza (<strong>form control</strong>) w pojedynczej grupie -&gt; wykorzystanie <code>FormGroup</code></p>
-<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor/profile-editor.component.ts"></script>
-
-<script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor/profile-editor.component.html"></script>
-
+<p>profile-editor.component.ts i profile-editor.component.html</p>
 <p>Przykładowy zwracany obiekt -&gt;</p>
-<div class="highlight"><pre><span></span><code><span class="err">{firstName: &quot;mike &quot;, lastName: &quot;tyson&quot;, address: {street: &quot;uluru&quot;, city: &quot;rock&quot;, state: &quot;tn&quot;, zip: &quot;0000&quot;}}</span>
+<div class="highlight"><pre><span></span><code>{firstName: &quot;mike &quot;, lastName: &quot;tyson&quot;, address: {street: &quot;uluru&quot;, city: &quot;rock&quot;, state: &quot;tn&quot;, zip: &quot;0000&quot;}}
 </code></pre></div>
-
 
 <p>Istnieją dwa sposoby na aktualizację wartości:</p>
 <p><strong>setValue()</strong> - zmienia całą wartość w odniesieniu do struktury grupy formularza</p>
 <p><strong>patchValue()</strong> - zmienia właściwość zdefiniowaną w obiekcie, który uległ zmianie w modelu formularza</p>
 <p><strong>setValue()</strong> pozwala na przechwycenie błędów w złożonych formularzach, podczas gdy <strong>patchValue</strong> nie przekazuje o nich informacji/nie reaguje na nie.</p>
 <p>3 - Tworzenie formularza przy pomocy <strong>FormBuildera</strong> + Walidacja</p>
-<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-form-builder/profile-editor-form-builder.component.ts"></script>
-
-<p>Szablon HTML z dodaną walidacją</p>
-<script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-form-builder/profile-editor-form-builder.component.html"></script>
-
+<p>Szablon HTML z dodaną walidacją ()</p>
 <p>4 - Dynamicznie modyfikowany formularz przy pomocy FromArray (alternatywa dla FromGroup)</p>
-<script src="http://gist-it.appspot.com/github/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-dynamic-form/profile-editor-dynamic-form.component.ts"></script>
-
 <p>Szablon HTML wykorzystujący <strong>*ngFor</strong></p>
-<script src="http://gist-it.appspot.com/github/kostyrko/kostyrko/JS-sandbox/blob/master/7_Angular/angular-reactive-forms-example/src/app/profile-editor-dynamic-form/profile-editor-dynamic-form.component.html"></script>
-
 <p>Przykładowe dane zwrotne -&gt;</p>
-<div class="highlight"><pre><span></span><code><span class="c">Value: { &quot;firstName&quot;: &quot;Mike&quot;, &quot;lastName&quot;: &quot;Tyson&quot;, &quot;address&quot;: { &quot;street&quot;: &quot;Bronson&quot;, &quot;city&quot;: &quot;Tyson City&quot;, &quot;state&quot;: &quot;Nebula&quot;, &quot;zip&quot;: &quot;0000&quot; }, &quot;aliases&quot;: [ &quot;mike@tyson.usa&quot;, &quot;tyson@usa.mike&quot;, &quot;bronson@tyson.mike&quot; ] }</span>
+<div class="highlight"><pre><span></span><code><span class="k">Value</span><span class="err">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="ss">&quot;firstName&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Mike&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;lastName&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Tyson&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;address&quot;</span><span class="err">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="ss">&quot;street&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Bronson&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;city&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Tyson City&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;state&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;Nebula&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;zip&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;0000&quot;</span><span class="w"> </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;aliases&quot;</span><span class="err">:</span><span class="w"> </span><span class="o">[</span><span class="n"> &quot;mike@tyson.usa&quot;, &quot;tyson@usa.mike&quot;, &quot;bronson@tyson.mike&quot; </span><span class="o">]</span><span class="w"> </span><span class="err">}</span><span class="w"></span>
 </code></pre></div>
-
 
 <hr>
 <p>Istotne/dalsze informacje:</p>
@@ -250,7 +281,7 @@ do konkretnego elementu formy (widoku) poprzez wewnętrzną wartość "akcesoriu
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
+      <a href="./tag/angular.html">angular</a>
     </p>
   </div>
 
@@ -303,7 +334,7 @@ do konkretnego elementu formy (widoku) poprzez wewnętrzną wartość "akcesoriu
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

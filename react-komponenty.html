@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="React: komponenty i właściwości (props) + destrukturyzacja"/>
 <meta property="og:description" content="Aplikacje/strony tworzone przy pomocy Reacta składają się z komponentów. Komponenty tworzą strukturę aplikacji i są interaktywny - mogą przyjmować dane i na ich podstawie zwracać zmienione komponenty (tworzona są przy pomocy klas lub funkcji) Komponenty są elementami strony, które się powtarzają i stanowią spójną całość, warto podzielić dany komponent na …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-komponenty.html"/>
+<meta property="og:url" content="./react-komponenty.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-07-23 10:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="reactjs"/>
 <meta property="article:tag" content="komponenty"/>
 <meta property="article:tag" content="props"/>
@@ -83,15 +82,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -110,7 +109,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -127,12 +126,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -146,7 +144,7 @@
       
     <h1 id="react-komponenty">React: komponenty i właściwości (props) + destrukturyzacja</h1>
     <p>
-      Opublikowano czw 23 lipca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+      Opublikowano czw 23 lipca 2020 w <a href="./category/reactjs.html">reactjs</a>
 
         &#8226; 4 min read
     </p>
@@ -172,7 +170,6 @@
 }
 </code></pre></div>
 
-
 <p>oraz przy pomocy ES6</p>
 <div class="highlight"><pre><span></span><code>const HelloWookie = () =&gt; {
   return (
@@ -182,7 +179,6 @@
   )
 }
 </code></pre></div>
-
 
 <p><strong id="komponent-klasy">Klasa</strong> tworząca komponent (bardziej skomplikowana struktura, trudniejszy w kod w testowaniu) wymaga zaimportowania <strong>{Component}</strong> i dziedziczenia z klasy <strong>Components</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">Component</span><span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
@@ -194,21 +190,19 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <hr>
 <h3>Renderowanie komponentów</h3>
 <p>Bez znaczenia czy komponent powstał przy pomocy klasy czy funkcji jest on renderowany w podobny sposób -&gt; nazwa renderowanego komponentów zamknięta jest jest pomiędzy trójkątnymi nawiasami i posiada znak zamknięcia w postaci ukośnika</p>
-<div class="highlight"><pre><span></span><code><span class="err">ReactDOM.render(</span>
-<span class="err">  &lt;HelloDroid/&gt;,</span>
-<span class="err">  document.getElementById(&quot;app&quot;)</span>
-<span class="err">);</span>
+<div class="highlight"><pre><span></span><code>ReactDOM.render(
+  &lt;HelloDroid/&gt;,
+  document.getElementById(&quot;app&quot;)
+);
 </code></pre></div>
-
 
 <h4>Praktyka</h4>
 <p>Częstą praktyką jest korzystanie pliku głównego np. app.js, w ramach którego tworzony jest komponent główny skupiający w sobie podstawowe komponenty (patrz również poniżej <a href="#zagnieżdżanie">zagnieżdżanie</a>), który następnie jest renderowany (wymaga to wcześniejszego zaimportowania komponentów z innych plików) - zamiast skupiania w metodzie renderującej należącej do ReactDOM, przy pomocy fragmentów wszystkich komponentów</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="nn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="kn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="p">{</span><span class="n">HoverEventFunc</span><span class="p">,</span> <span class="n">HoverEventClass</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./HoverEvent&#39;</span>
 
@@ -217,13 +211,12 @@
   <span class="o">&lt;&gt;</span>
     <span class="o">&lt;</span><span class="n">HoverEventFunc</span><span class="o">/&gt;</span>
     <span class="o">&lt;</span><span class="n">HoverEventClass</span><span class="o">/&gt;</span>
-  <span class="o">&lt;/&gt;</span>
+  
 <span class="p">)</span>
 
 
 <span class="n">ReactDOM</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">&lt;</span><span class="n">App</span><span class="o">/&gt;</span><span class="p">,</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">));</span>
 </code></pre></div>
-
 
 <hr>
 <h3>Właściwości -&gt; properties (obiekt props)</h3>
@@ -240,7 +233,6 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <p>albo z perspektywy komponentu klasowego (warto zwrócić uwagę na pojawienie się słowa kluczowego <strong>this</strong>)</p>
 <div class="highlight"><pre><span></span><code>class Droid extends Component {
   render() {
@@ -255,17 +247,15 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <p>React pobiera atrybuty przekazane do komponentu i implementuje je do <strong>obiektu</strong> <strong>props</strong></p>
 <p>np. </p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">Droid</span> <span class="n">name</span><span class="o">=</span><span class="ss">&quot;C3-PO&quot;</span> <span class="o">/&gt;</span> <span class="o">=&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;Droid name=&quot;C3-PO&quot; /&gt; =&gt;
 
-<span class="n">Obiekt</span> <span class="n">props</span> <span class="n">wygląda</span> <span class="n">następująco</span><span class="p">:</span>
-<span class="err">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="ss">&quot;C3-PO&quot;</span>
-<span class="err">}</span>
+Obiekt props wygląda następująco:
+{
+  name: &quot;C3-PO&quot;
+}
 </code></pre></div>
-
 
 <p>albo </p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C3-PO&quot;</span><span class="p">,</span> <span class="s2">&quot;R2-D2&quot;</span><span class="p">];</span>
@@ -277,7 +267,6 @@ ReactDOM.render(
   <span class="n">droids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C3-PO&quot;</span><span class="p">,</span> <span class="s2">&quot;R2-D2&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <hr>
 <h3>Destrukturyzacja (obiektów) props</h3>
@@ -300,7 +289,6 @@ ReactDOM.render(
 <span class="p">}</span>
 </code></pre></div>
 
-
 <h4>Funkcje</h4>
 <p>destrukturyzacji dwóch obiektów w przypadku <strong>komponentów funkcyjnych</strong></p>
 <div class="highlight"><pre><span></span><code>const Droids = (props) =&gt; {
@@ -314,7 +302,6 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <p>destrukturyzacji przekazując arg. do Komponentu</p>
 <div class="highlight"><pre><span></span><code>const Droids = ({droid1, droid2}) =&gt; {
   return <span class="nt">&lt;h1&gt;</span>{droid1} {droid2}<span class="nt">&lt;/h1&gt;</span>
@@ -325,7 +312,6 @@ ReactDOM.render(
   document.getElementById(&quot;app&quot;)
 );
 </code></pre></div>
-
 
 <p>Wykorzystując tablicę (w przypadku prostego zwrócenia elementu słowo kluczowe <strong>return</strong> nie jest wymagane podobnie jak nawiasy klamrowe - wynika to funkcji strzałkowej (ang. arrow function))</p>
 <div class="highlight"><pre><span></span><code>const Droids = ({droids}) =&gt; (
@@ -340,7 +326,6 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <hr>
 <h3 id="propsy-cd">Props cd.</h3>
 <p>Jako props można przekazać różnego rodzaju dane - liczby, wartości logiczne, łańcuchy szablonowe, zmienne, tablice, funkcje jednak te wówczas winny znaleźć się w <strong>nawiasach klamrowych</strong>. </p>
@@ -352,7 +337,6 @@ ReactDOM.render(
 <span class="p">);</span>
 </code></pre></div>
 
-
 <p>Przy większej ilości właściwości odwołujemy się do ich klucza i nie są oddzielane żadnymi znakami</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">protocol</span> <span class="o">=</span> <span class="s1">&#39;protocol droid&#39;</span>
 
@@ -363,7 +347,6 @@ ReactDOM.render(
   <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;app&#39;</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
-
 
 <p>W przypadku łańcucha szablonowego zmienna znajduje swoje miejsce w wywołaniu komponentu (przekazania właściwości/propsu)</p>
 <div class="highlight"><pre><span></span><code>const Greeting = (props) =&gt; {
@@ -380,7 +363,6 @@ const name = &quot;C3-PO&quot;
 <span class="nt">&lt;Greeting</span> <span class="na">message=</span><span class="s">{`Hi,</span> <span class="err">${user}.`}</span> <span class="nt">/&gt;</span>
 </code></pre></div>
 
-
 <p>Właściwości pozwalają nam również na przekazanie funkcji, które mogą być wywołane wewnątrz komponentu</p>
 <div class="highlight"><pre><span></span><code>const Greeting = (props) =&gt; {
     props.func(&quot;Elo&quot;)         // wywołanie przkazanej funkcji z podaną właściwością
@@ -393,7 +375,6 @@ const simpleFunc = (greeting) =&gt; {
 
 <span class="nt">&lt;Greeting</span> <span class="na">func=</span><span class="s">{simpleFunc}</span> <span class="nt">/&gt;</span>
 </code></pre></div>
-
 
 <hr>
 <h3>Zagnieżdżanie komponentów{#zagnieżdżanie}</h3>
@@ -416,7 +397,6 @@ ReactDOM.render(
   document.getElementById(&#39;app&#39;)
 );
 </code></pre></div>
-
 
 <p>...ale takich elementów mogło by być również więcej</p>
 <div class="highlight"><pre><span></span><code>class Droid extends Component {
@@ -443,7 +423,6 @@ ReactDOM.render(
 );
 </code></pre></div>
 
-
 <hr>
 <p>Źródła:</p>
 <p><a href="https://pl.reactjs.org/docs/components-and-props.html">komponenty - React docs</a></p>
@@ -454,12 +433,12 @@ ReactDOM.render(
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/komponenty.html">komponenty</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/props.html">props</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/components.html">components</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/destrukturyzacja.html">destrukturyzacja</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/fragmenty.html">fragmenty</a>
+      <a href="./tag/komponenty.html">komponenty</a>
+      <a href="./tag/props.html">props</a>
+      <a href="./tag/react.html">react</a>
+      <a href="./tag/components.html">components</a>
+      <a href="./tag/destrukturyzacja.html">destrukturyzacja</a>
+      <a href="./tag/fragmenty.html">fragmenty</a>
     </p>
   </div>
 
@@ -512,7 +491,7 @@ ReactDOM.render(
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Niedawno odbyła się zdalna konferencja prowadzona przez Applitools oraz Cypress nazwana Front-End Test Fest 2021. Jedeno z wystąpień było poświęcone dobrym praktykom pisania testów (link w źródłach) i dzisiejszy wpis jest ekstraktem z tego wystąpienia Główna zasada: testy powinny być proste - &#34;flat test desing&#34; Pisanie testów nie powinno być realizowane …" />
+<meta name="keywords" content="cypress, testing, good practices">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Dobre zasady testowania"/>
+<meta property="og:description" content="Niedawno odbyła się zdalna konferencja prowadzona przez Applitools oraz Cypress nazwana Front-End Test Fest 2021. Jedeno z wystąpień było poświęcone dobrym praktykom pisania testów (link w źródłach) i dzisiejszy wpis jest ekstraktem z tego wystąpienia Główna zasada: testy powinny być proste - &#34;flat test desing&#34; Pisanie testów nie powinno być realizowane …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="./testing-good-practices.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-06-25 10:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/mkostyrko.html">
+<meta property="article:section" content="testing"/>
+<meta property="article:tag" content="cypress"/>
+<meta property="article:tag" content="testing"/>
+<meta property="article:tag" content="good practices"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Dobre zasady testowania</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href=".">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="./search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href=".">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="testing-good-practices">Dobre zasady testowania</h1>
+    <p>
+      Opublikowano ptk 25 czerwca 2021 w <a href="./category/testing.html">testing</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="testing" src="https://static-cms.hotjar.com/documents/conducting-usability-test_yon4BQT.svg"></p>
+<p>Niedawno odbyła się zdalna konferencja prowadzona przez Applitools oraz Cypress nazwana Front-End Test Fest 2021. Jedeno z wystąpień było poświęcone dobrym praktykom pisania testów (link w źródłach) i dzisiejszy wpis jest ekstraktem z tego wystąpienia</p>
+<h3>Główna zasada: testy powinny być proste - "flat test desing"</h3>
+<p>Pisanie testów nie powinno być realizowane w sposób identyczny jak pisanie kodu, prostota powinna znajdować się na pierwszym miejscu, nawet kosztem powtarzalności kodu. Oznacza to,  że test o ile to możliwe nie powinien korzystać z dodatkowej abstrakcji i cechować się płaskim modelem (bez zagłębień).</p>
+<h3>Cel testu powinien być zrozumiały -&gt; "get test instantly"</h3>
+<p>Opis testu powinien przedstawiać w sposób klarowny jego intencje, aby to było możliwe należy spełnić 3 warunki i opisać:</p>
+<p>1) co jest testowane (np. właściwość elementu)</p>
+<p>2) w jakich warunkach jest testowane (np. na użytkowania właściwości)</p>
+<p>3) jaki jest oczekiwany efekt</p>
+<h3>Układ testu - zasada AAA (Arrange, Act, Assert)</h3>
+<p>-&gt; Arrange = setup scenariusza (zmienne, mockowanie etc.)</p>
+<p>-&gt; Act = przeprowadzenie akcji, które prowadzą do końcowego rezultatu</p>
+<p>-&gt; Assert = sprawdzanie wykonania się scenariusza</p>
+<h3>Niezależność testów</h3>
+<p>Każdy z testów powinien posiadać własne izolowane środowisko i nie powinien być zależny od wyniku poprzedzającego go testu. Oznacza, to że testy nie powinny być od siebie zależne ani ze sobą powiązane w żaden sposób - środowisko danych powinno być takie samo dla każdego testu.</p>
+<h3>Realistyczne dane</h3>
+<p>Jednym z elementów czytelności testu jest wprowadzanie realistycznych danych (nie bazowanie na tzw. place holderach jak np Foo Bar), w ten sposób można w prostszy sposób zrozumieć powiązanie z testowanym produktem</p>
+<h3>Selektory</h3>
+<p>Nie należy korzystać z selektorów, które mogą ulec zmianie - zamiast tego najlepiej podczepiać się pod właściwości, które są widoczne lub istotne również dla użytkownika (np. poprzez cy.contains()) lub przypisywanie testowych atrybutów typu data do testowanego obiektu (np. data-cy).</p>
+<h3>Czekanie...</h3>
+<p>Zamiast arbitralnie ustalonego czakania na wykonanie się jakiegoś testowego zadania (w dużej mierze będzie to zależne od zapytania HTTP) można ustawić czekanie na pozytywną odpowiedź tego zapytania</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">cy</span><span class="p">.</span><span class="n">wiat</span><span class="p">(</span><span class="s1">&#39;@request&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">its</span><span class="p">(</span><span class="s1">&#39;response.statusCode&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<hr>
+<p>Źródło:</p>
+<p><a href="https://www.youtube.com/watch?v=uvJwWQLaVqU&amp;list=PL8GlT7H3xOcIXrl0nXmyDBYztCKcVqQQg&amp;index=6&amp;ab_channel=Cypress.io">Front-End Test Fest 2021: Recordings - It's a (Testing) Trap! - Common Testing Pitfalls and How to Solve Them</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/cypress.html">cypress</a>
+      <a href="./tag/testing.html">testing</a>
+      <a href="./tag/good-practices.html">good practices</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2021 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : ".",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

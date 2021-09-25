@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="JavaScript: asynchroniczność i AJAX"/>
 <meta property="og:description" content="Wstęp JavaScript w swoim założeniu jest jednowątkowa, kod wywoływany jest w sposób synchroniczny (linia po linii), w zestawieniu z node.js lub przeglądarką internetową może stać się asynchroniczna (kod dalej jest wywołany po kolei, ale jego elementy nie zatrzymają wywołania się reszty kodu np. w przypadku obiektu Window i metody …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html"/>
+<meta property="og:url" content="./js-asynchronicznosc-ajax.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-06-11 12:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="javascript"/>
 <meta property="article:tag" content="javascript"/>
 <meta property="article:tag" content="js"/>
@@ -86,15 +85,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -113,7 +112,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -130,12 +129,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -149,7 +147,7 @@
       
     <h1 id="js-asynchronicznosc-ajax">JavaScript: asynchroniczność i AJAX</h1>
     <p>
-      Opublikowano czw 11 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+      Opublikowano czw 11 czerwca 2020 w <a href="./category/javascript.html">javascript</a>
 
         &#8226; 3 min read
     </p>
@@ -183,36 +181,33 @@
 <hr>
 <h3>Wyjście z piekła wywołań zwrotnych/ callback hell</h3>
 <p>Callback jest informacją zwrotną wynikającą z wywołania funkcji, ta może posłużyć jako parametr/agrument wywołania kolejnej funkcji (funkcja zagnieżdżona w wywołaniu funkcji) umożliwia to uzależnienia kolejnego działania od zwrotu działania funkcji poprzedzającej - wywołanie się funkcji wewnętrznej było uzależnione od wywołania funkcji wyższego rzędu. Wielokrotne zagnieżdżenie wywołań zwrotnych (ang. callback), trudne do opanowania oraz utrzymania, nazywane jest <code>callback hell</code></p>
-<div class="highlight"><pre><span></span><code><span class="err">    function renderPage = function() {</span>
-<span class="err">        getFirstData(function(x) {</span>
-<span class="err">            getAnotherData1(x, function(y) {</span>
-<span class="err">                getAnotherData2(y, function(z) {</span>
-<span class="err">                    getAnotherData3(z, function() {</span>
-<span class="err">                        [...]</span>
-<span class="err">                    });</span>
-<span class="err">                });</span>
-<span class="err">            });</span>
-<span class="err">        });</span>
+<div class="highlight"><pre><span></span><code>    function renderPage = function() {
+        getFirstData(function(x) {
+            getAnotherData1(x, function(y) {
+                getAnotherData2(y, function(z) {
+                    getAnotherData3(z, function() {
+                        [...]
+                    });
+                });
+            });
+        });
 </code></pre></div>
-
 
 <p>Przykład za: <a href="http://kursjs.pl/kurs/ajax/promise.php">kursjs.pl - Callback i Promise</a></p>
 <hr>
 <h4>Obietnice/Promises</h4>
 <p><em>Promises</em> zostały wprowadzone wraz z ES6, bez nich  asynchroniczność opierano na <code>callbackach</code>/<em>wywołaniach zwrotnych</em>. Obiekty <em>Promise</em> (obietnice) zakładają wykonanie pewnej czynności oraz zwrócenie rezultatu lub poinformowania o błędzie i może znajdować się w jednym stanie jednocześnie: <code>Pending</code> (wywołane i oczekuje), <code>Fulfilled</code> (wykonane z powodzeniem), <code>Rejected</code> (odrzucone z niepowodzeniem). Wprowadzenie <em>obietnic</em> pozwala na uniknięcie stosowania funkcji warunkowych.</p>
 <p>Schemat kodu w przypadku Fulfilled</p>
-<div class="highlight"><pre><span></span><code><span class="err">Promise(treść-obietnicy).then(result=&gt;{</span>
-<span class="err">    //rezultat do wykonania</span>
-<span class="err">})</span>
+<div class="highlight"><pre><span></span><code><span class="nv">Promise</span><span class="ss">(</span><span class="nv">tre</span>ść<span class="o">-</span><span class="nv">obietnicy</span><span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="nb">result</span><span class="o">=&gt;</span>{
+    <span class="o">//</span><span class="nv">rezultat</span> <span class="k">do</span> <span class="nv">wykonania</span>
+}<span class="ss">)</span>
 </code></pre></div>
-
 
 <p>Schemat kodu w przypadku Rejected</p>
-<div class="highlight"><pre><span></span><code><span class="err">Promise(treść-obietnicy).catch(error=&gt;{</span>
-<span class="err">    //zwraca błąd</span>
-<span class="err">})</span>
+<div class="highlight"><pre><span></span><code>Promise(treść-obietnicy).catch(error=&gt;{
+    //zwraca błąd
+})
 </code></pre></div>
-
 
 <hr>
 <h4>Async oraz await</h4>
@@ -301,20 +296,21 @@
 <p><a href="http://kursjs.pl/kurs/ajax/promise.php">Callback i Promise</a></p>
 <p><a href="http://kursjs.pl/kurs/ajax/async-await.php">Async / await</a></p>
 <p><a href="https://derivadow.com/2007/01/05/ajax-what-is-it-its-not-dhtml/">AJAX what is it? (it’s not DHTML)</a></p>
-<p>http://kursjs.pl/kurs/ajax/ajax.php</p>
-<p>https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started</p>
+<p><a href="https://www.freecodecamp.org/news/how-to-use-async-await-write-better-javascript/">How to Use Async/Await to Write Better JavaScript Code</a></p>
+<p><a href="http://kursjs.pl/kurs/ajax/ajax.php">AJAX - kursjs.pl</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started">AJAX - getting started - developer.mozilla.org</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/asynchronicznosc.html">asynchroniczność</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/call-stack.html">call stack</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/web-api.html">Web Api</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/obietnice.html">obietnice</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/promises.html">promises</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/callback.html">callback</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/promise.html">promise</a>
+      <a href="./tag/javascript.html">javascript</a>
+      <a href="./tag/js.html">js</a>
+      <a href="./tag/asynchronicznosc.html">asynchroniczność</a>
+      <a href="./tag/call-stack.html">call stack</a>
+      <a href="./tag/web-api.html">Web Api</a>
+      <a href="./tag/obietnice.html">obietnice</a>
+      <a href="./tag/promises.html">promises</a>
+      <a href="./tag/callback.html">callback</a>
+      <a href="./tag/promise.html">promise</a>
     </p>
   </div>
 
@@ -323,7 +319,7 @@
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></li>
+      <li><a href="./js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></li>
     </ul>
   </div>
 
@@ -373,7 +369,7 @@
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

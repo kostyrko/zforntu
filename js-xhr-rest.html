@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="JavaScript: XMLHttpRequest i REST API"/>
 <meta property="og:description" content="! REST -&gt; Representational state transfer (pl. zmiana stanu poprzez reprezentacje) Wysyłanie danych Tym razem do prezentacji możliwości XMLHttpRequest posłużę się fake API -&gt; https://reqres.in/ (&#34;A hosted REST-API ready to respond to your AJAX requests&#34;), które pozwala na ćwiczenie funkcjonalności REST API Wysyłanie danych wymaga (1) przygotowanie danych do wysłania const …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/js-xhr-rest.html"/>
+<meta property="og:url" content="./js-xhr-rest.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-06-29 12:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="javascript"/>
 <meta property="article:tag" content="javascript"/>
 <meta property="article:tag" content="js"/>
@@ -85,15 +84,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -112,7 +111,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -129,12 +128,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -148,7 +146,7 @@
       
     <h1 id="js-xhr-rest">JavaScript: XMLHttpRequest i REST API</h1>
     <p>
-      Opublikowano pon 29 czerwca 2020 w <a href="https://kostyrko.github.io/zfrontu/category/javascript.html">javascript</a>
+      Opublikowano pon 29 czerwca 2020 w <a href="./category/javascript.html">javascript</a>
 
         &#8226; 2 min read
     </p>
@@ -170,27 +168,22 @@
   <span class="k">const</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p>(2) stworzenie nowego obiektu XMLHttpRequest </p>
 <div class="highlight"><pre><span></span><code>  <span class="k">const</span> <span class="n">xhr</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XMLHttpRequest</span><span class="p">();</span>
 </code></pre></div>
-
 
 <p>(3) Zdefiniować połączenie za pomocą metody <code>open()</code> wykorzystując słowo kluczowe POST </p>
 <div class="highlight"><pre><span></span><code>  <span class="k">const</span> <span class="n">url</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">reqres</span><span class="o">.</span><span class="ow">in</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">users</span><span class="s1">&#39;;</span>
   <span class="n">xhr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">true</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p>(4) ustalenie metadanych wysyłanej informacji - nagłówek (headera) będącego częścią teksty wysłanego do serwera, który jest informacją o przesyłanych danych </p>
-<div class="highlight"><pre><span></span><code><span class="err">  setRequestHeader(nagłówek, wartość)</span>
+<div class="highlight"><pre><span></span><code>  setRequestHeader(nagłówek, wartość)
 </code></pre></div>
-
 
 <p>Gdzie -&gt; <code>nagłówek</code>: określa nazwę nagłówka, <code>wartość</code>: określa wartość nagłówka, tu również może pojawić się informacja na temat formatu kodowania</p>
-<div class="highlight"><pre><span></span><code><span class="err">xhr.setRequestHeader(&#39;Content-type&#39;,&#39;application/json; charset=utf-8&#39;);</span>
+<div class="highlight"><pre><span></span><code>xhr.setRequestHeader(&#39;Content-type&#39;,&#39;application/json; charset=utf-8&#39;);
 </code></pre></div>
-
 
 <p>(5) Ustawienie nasłuchiwania z wiadomością nastawioną na tworzenie <strong>201</strong> - Created (Utworzono – wysłany dokument został zapisany na serwerze)</p>
 <div class="highlight"><pre><span></span><code><span class="n">xhr</span><span class="o">.</span><span class="n">onload</span> <span class="o">=</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -203,11 +196,9 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>(6) Wysłanie żądania z przekazanymi danymi</p>
-<div class="highlight"><pre><span></span><code><span class="err">xhr.send(json);</span>
+<div class="highlight"><pre><span></span><code><span class="nv">xhr</span>.<span class="k">send</span><span class="ss">(</span><span class="nv">json</span><span class="ss">)</span><span class="c1">;</span>
 </code></pre></div>
-
 
 <p>Całość zapytania może prezentować się w następujący sposób:</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://reqres.in/api/users&#39;</span><span class="p">;</span>
@@ -232,14 +223,12 @@
 <span class="n">xhr</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
 </code></pre></div>
 
-
 <hr>
 <h3>Edytowanie/Uaktualnianie istniejących danych</h3>
 <p>Edytowanie danych istniejących na serwerze jest zbliżone do procesu wyżej przedstawionego związanego z wysyłaniem danych -&gt; główne różnice zwarte są w definiowaniu połączenia (należy użyć słowo kluczowe PUT oraz zdefiniować pozycję dla której dane powinny zostać zmienione), tym razem status odpowiedzi zwrotnej powinien być równy <em>200</em></p>
 <p>Przykładowo </p>
-<div class="highlight"><pre><span></span><code><span class="err">xhr.open(&quot;PUT&quot;, url+&#39;/12&#39;, true);</span>
+<div class="highlight"><pre><span></span><code>xhr.open(&quot;PUT&quot;, url+&#39;/12&#39;, true);
 </code></pre></div>
-
 
 <p>Gdzie url + 12 wyznacza konkretną część danych/obiekt zawartą na serwerze, w tym przypadku użytkownika</p>
 <p>Zapytanie może prezentować się w następujący sposób:</p>
@@ -265,7 +254,6 @@
 <span class="n">xhr</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
 </code></pre></div>
 
-
 <hr>
 <h3>Usuwanie danych</h3>
 <p>Usuwanie danych jest jeszcze prostsze, ponieważ wymaga jedynie wskazanie na obiekt do usunięcia oraz  poprawnego zdefiniowania połączenia, tym razem przy pomocy słowa kluczowego DELETE. Usuwanie danych nie wymaga tworzenia nagłówka, jednak tym razem status odpowiedzi powinien być równy <em>204</em></p>
@@ -285,7 +273,6 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Przedstawiony wyżej kod znajduje się również tutaj na <a href="https://gist.github.com/kostyrko/d04ed2eb6aa9b9d9dc87d07e5f6e0c0a">GitHub - Gist</a></p>
 <p>I małe podsumowanie:</p>
 <p><img alt="REST API CHECKLIST" src="https://usercontent.one/wp/www.kennethlange.com/wp-content/uploads/2020/04/customer_rest_api-624x314.png"></p>
@@ -298,14 +285,14 @@
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/javascript.html">javascript</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/js.html">js</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/ajax.html">ajax</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/rest.html">rest</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/xmlhttprequest.html">XMLHttpRequest</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/delete.html">delete</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/get.html">get</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/put.html">put</a>
+      <a href="./tag/javascript.html">javascript</a>
+      <a href="./tag/js.html">js</a>
+      <a href="./tag/ajax.html">ajax</a>
+      <a href="./tag/rest.html">rest</a>
+      <a href="./tag/xmlhttprequest.html">XMLHttpRequest</a>
+      <a href="./tag/delete.html">delete</a>
+      <a href="./tag/get.html">get</a>
+      <a href="./tag/put.html">put</a>
     </p>
   </div>
 
@@ -314,8 +301,8 @@
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/js-asynchronicznosc-ajax.html">JavaScript: asynchroniczność i AJAX</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></li>
+      <li><a href="./js-asynchronicznosc-ajax.html">JavaScript: asynchroniczność i AJAX</a></li>
+      <li><a href="./js-xhr.html">JavaScript: XMLHttpRequest - wstęp (GET)</a></li>
     </ul>
   </div>
 
@@ -365,7 +352,7 @@
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

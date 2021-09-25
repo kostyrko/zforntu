@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -50,19 +49,19 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Angular serwisy Wstęp Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + dane określające w jaki sposób działa serwis + użycie innych serwisów). @Injectable() export class LoggerService { log(msg: any …" />
+<meta name="description" content="Angular serwisy Wstęp Klasa TyperScriptowa - stworzona do centralizacji danych/zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable - ten wskazuje na to, że dana klasa jest serwisem i jej …" />
 <meta name="keywords" content="angular, serwis, service, subscribe, unfinished">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="Angular: serwisy"/>
-<meta property="og:description" content="Angular serwisy Wstęp Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + dane określające w jaki sposób działa serwis + użycie innych serwisów). @Injectable() export class LoggerService { log(msg: any …"/>
+<meta property="og:title" content="Angular: przekazanie danych pomiędzy komponentami cz. 2 -&gt; serwis"/>
+<meta property="og:description" content="Angular serwisy Wstęp Klasa TyperScriptowa - stworzona do centralizacji danych/zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable - ten wskazuje na to, że dana klasa jest serwisem i jej …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-serwisy.html"/>
+<meta property="og:url" content="./angular-serwisy.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2021-04-11 10:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="angular"/>
 <meta property="article:tag" content="angular"/>
 <meta property="article:tag" content="serwis"/>
@@ -71,7 +70,7 @@
 <meta property="article:tag" content="unfinished"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; Angular: serwisy</title>
+  <title>...z frontu &ndash; Angular: przekazanie danych pomiędzy komponentami cz. 2 -&gt; serwis</title>
 
 </head>
 <body>
@@ -82,15 +81,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -109,7 +108,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -126,12 +125,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -143,11 +141,11 @@
 <article class="single">
   <header>
       
-    <h1 id="angular-serwisy">Angular: serwisy</h1>
+    <h1 id="angular-serwisy">Angular: przekazanie danych pomiędzy komponentami cz. 2 -> serwis</h1>
     <p>
-      Opublikowano nie 11 kwietnia 2021 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+      Opublikowano ndz 11 kwietnia 2021 w <a href="./category/angular.html">angular</a>
 
-        &#8226; 2 min read
+        &#8226; 5 min read
     </p>
   </header>
 
@@ -156,29 +154,82 @@
     <p><img alt="angular" src="https://i.stack.imgur.com/E8ItT.png"></p>
 <h3>Angular serwisy</h3>
 <h4>Wstęp</h4>
-<p>Dowolna klasa TS, wykonuje zadanie dostarczania danych na potrzeby komponentów (komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).
-Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + dane określające w jaki sposób działa serwis + użycie innych serwisów).</p>
-<div class="highlight"><pre><span></span><code><span class="err">@</span><span class="n">Injectable</span><span class="p">()</span>
-<span class="k">export</span> <span class="k">class</span> <span class="n">LoggerService</span> <span class="p">{</span>
-  <span class="nb">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="n">any</span><span class="p">)</span> <span class="p">{</span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">);}</span>
+<p>Klasa TyperScriptowa - stworzona do centralizacji danych/zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).</p>
+<p>Serwis posiada swój dekorator <strong>@Injectable</strong> - ten wskazuje na to, że dana klasa jest serwisem i jej logikę można wstrzyknąć do innego komponentu przy pomocy <strong>dependecy injection</strong>  poprzez zadeklarowanie providera (dostarczyciela) + dane określające w jaki sposób działa serwis + użycie innych serwisów. </p>
+<p>Warto pamiętać : dekorator <strong>@Injectable</strong> nie jest warunkiem koniecznym do implementacji serwisu, jest natomiast warunkiem niezbędnym do wstrzyknięcia serwisu w serwis (wówczas serwis, do którego inny jest wstrzykiwany musi posiadać taki dekorator).)</p>
+<hr>
+<p>Przykładowa <strong>deklaracja tworząca klasę serwisu</strong> (np. <strong>loggerService.service.ts</strong>)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Injectable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="nd">@Injectable</span><span class="p">()</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">LoggerService</span> <span class="p">{</span>
+  <span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
+<p>Przykład prostej aplikacji korzystającej z serwisu <a href="https://github.com/kostyrko/JS-sandbox/tree/angular-service/7_Angular/angular-service-app/star-wars-services/src/app">star-wars-app</a> </p>
+<p>Przykład tej samej aplikacji, ale gdzie serwis (ServiceLog) został wstrzyknięty do serwisu (StarWarsService) <a href="https://github.com/kostyrko/JS-sandbox/tree/angular-service-into-service/7_Angular/angular-service-app/star-wars-services/src/app">star-wars-app</a></p>
+<p>-&gt; więcej na temat tej aplikacji <a href="https://www.udemy.com/course/angular-essentials-angular-2-angular-4-with-typescript/">Udemy: Angular Essentials (Angular 2+ with TypeScript)</a></p>
+<hr>
+<p><strong>Wykorzystanie serwisu w ramach aplikacji</strong></p>
+<p>Deklaracja serwisu (<em>dependency injection</em>) znajduje się w tablicy <strong>providers</strong> (dostarczycieli ===&gt; <code>providers: [LoggerService]</code> w <strong>app.module.ts</strong></p>
+<p><strong>app.module.ts</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="kn">import</span> <span class="nn">serwisu</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">LoggerService</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./shared/loggerService.service&#39;</span><span class="p">;</span>
+<span class="o">//</span> <span class="kn">import</span> <span class="nn">komponentu</span> <span class="n">wykorzystującego</span> <span class="n">serwis</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">LoggingComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./logging/logging.component&#39;</span><span class="p">;</span>
 
-<p>Provider w deklaracji komponentu ===&gt; providers: [LoggerService]</p>
-<p>W kostruktorze -&gt; dependency Injection (przygotowanie instancji obiektu i wstyrzknięcie jej do komponentu)</p>
-<div class="highlight"><pre><span></span><code><span class="err">@</span><span class="n">NgModule</span><span class="p">({</span>
-    <span class="n">imports</span><span class="p">:</span> <span class="p">[</span> <span class="n">BrowserModule</span> <span class="p">],</span>
-    <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span> <span class="n">App</span><span class="p">,</span> <span class="n">OtherComponent</span> <span class="p">],</span>
-    <span class="n">bootstrap</span><span class="p">:</span> <span class="p">[</span> <span class="n">App</span> <span class="p">],</span>
-    <span class="n">providers</span><span class="p">:</span> <span class="p">[</span> <span class="n">LoggerService</span> <span class="p">]</span>
-  <span class="p">})</span>
-  <span class="k">export</span> <span class="k">class</span> <span class="n">AppModule</span> <span class="p">{</span>
-    <span class="n">constructor</span><span class="p">(</span><span class="n">private</span> <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerService</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-  <span class="p">}</span>
+<span class="nd">@NgModule</span><span class="p">({</span>
+  <span class="n">imports</span><span class="p">:</span> <span class="p">[</span><span class="n">BrowserModule</span><span class="p">],</span>
+  <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">,</span> <span class="n">LogTestComponent</span><span class="p">],</span>
+  <span class="n">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">],</span>
+  <span class="n">providers</span><span class="p">:</span> <span class="p">[</span><span class="n">LoggerService</span><span class="p">]</span> <span class="o">//</span> <span class="n">jedna</span> <span class="n">instancja</span> <span class="n">dla</span> <span class="n">całej</span> <span class="n">aplikacji</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">AppModule</span> <span class="p">{</span> <span class="p">}</span>
 </code></pre></div>
 
+<p><strong>Wykorzystanie serwisu w ramach komponentu</strong></p>
+<p>W Angular analizuje argumenty w konstruktorze oraz zadeklarowane zależności (wyżej) i dokonuje wstrzyknięcia zależności (dependency injection) na podstawie wskazania w konstruktorze</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;@angular/core&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">LoggerService</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../shared/loggerService.service&#39;</span><span class="p">;</span>
+
+<span class="nd">@Component</span><span class="p">({</span>
+    <span class="n">selector</span><span class="p">:</span> <span class="s2">&quot;log-test&quot;</span><span class="p">,</span>
+    <span class="n">templateUrl</span><span class="p">:</span> <span class="s2">&quot;./log-test.component.html&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">LogTestComponent</span> <span class="p">{</span>
+
+    <span class="n">loggerService</span> <span class="p">:</span> <span class="n">LoggerService</span> <span class="o">//</span> <span class="n">nowa</span> <span class="n">właściwość</span> <span class="n">klasy</span> <span class="n">loggerService</span> <span class="n">typu</span> <span class="n">LoggerService</span>
+
+    <span class="n">constructor</span><span class="p">(</span>
+      <span class="n">loggerService</span><span class="p">:</span> <span class="n">LoggerService</span> <span class="o">//</span> <span class="n">deklaracja</span> <span class="n">argumentu</span>
+      <span class="p">)</span> <span class="p">{</span> 
+        <span class="n">this</span><span class="o">.</span><span class="n">loggerService</span> <span class="o">=</span> <span class="n">LoggerService</span> <span class="o">//</span> <span class="n">dependency</span> <span class="n">injection</span>
+      <span class="p">}</span>
+
+    <span class="n">ngOnInit</span> <span class="p">{</span>
+      <span class="n">testLog</span><span class="p">():</span> <span class="n">void</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">loggerService</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Test the `log()` Method&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>providedIn: 'root'</strong></p>
+<p>zastosowanie providedIn: 'root' w ramach dekoratora <code>@Injectable()</code> powoduje, że deklarujemy jego dostępność w całym komponencie, wówczas nie ma potrzeby deklarowania go wśród providerów w <strong>app.module.ts</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Injectable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="nd">@Injectable</span><span class="p">(</span>
+  <span class="o">//</span> <span class="n">declares</span> <span class="n">that</span> <span class="n">this</span> <span class="n">service</span> <span class="n">should</span> <span class="n">be</span> <span class="n">created</span>
+  <span class="o">//</span> <span class="n">by</span> <span class="n">the</span> <span class="n">root</span> <span class="n">application</span> <span class="n">injector</span><span class="o">.</span>
+  <span class="n">providedIn</span><span class="p">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">LoggerService</span> <span class="p">{</span>
+  <span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <h4>Dekoratory</h4>
 <h5>Injectable</h5>
@@ -189,11 +240,14 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 <p><code>providedIn: 'any'</code>  -&gt; nowa instancja dla każdego modułu</p>
 <p><code>providedIn: 'moduleName'</code> -&gt; wskazanie nazwy modułu, do którego przynależy serwis</p>
 <p>providers: [ LoggerService ] w dekoratorze @Component({.... - dla komponentu oraz wszystkich jego dzieci powstanie nowa instancja serwisu // Dzieci już nie muszą deklarować tego serwisu w soich prowiderach. Tym samym również dochodzi do nadpisania globalnego serwisu.</p>
+<h4>Wykorzystanie serwisu w serwisie</h4>
+<p>Serwis może zostać zadeklarowany w <strong>app.component.ts</strong> (spaja aplikację) jednak aby faktycznie był widoczny (używalny) w innym serwisie musi on zostać zadeklarowany w głównym pliku modułowym angulara <strong>app.module.ts</strong></p>
+<p>Dodatkowo serwis korzystający z innego serwisu musi posiadać dekorator <strong>@Injectable</strong>!! (importowany z '@angular/core') [dependency injector w angularze współpracuje tylko z klasami, które posiadają dekorator <strong>Injectable</strong>]</p>
+<hr>
 <h4>Generowanie serwisu przy pomocy Angular CLI</h4>
 <p>ng g s services/serviceName (ng generate service)</p>
-<div class="highlight"><pre><span></span><code><span class="err">    npm run ng g s core/services/loggerService</span>
+<div class="highlight"><pre><span></span><code>    npm run ng g s core/services/loggerService
 </code></pre></div>
-
 
 <p>Wynik:</p>
 <div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span> <span class="n">Injectable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
@@ -207,39 +261,265 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
     <span class="p">}</span>
 </code></pre></div>
 
-
+<hr>
 <h3>Przykładowy projekt z zastosowaniem serwisu</h3>
 <p>Orginalne żródło poniższego projektu: <a href="https://github.com/ZacznijProgramowac/easy-words/tree/003-answer-component">GH - ZacznijProgramowac/easy-words</a></p>
 <p><a href="https://www.udemy.com/course/angular-kompletny-kurs-od-podstaw">Udemy -Angular - kompletny kurs od podstaw - edycja na rok 2021</a></p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/bcommit/7150e1ce3b29825f61b5a2320250c74ca1c9bfdf?branch=7150e1ce3b29825f61b5a2320250c74ca1c9bfdf&diff=split"></script>
-
+<hr>
 <p><strong>model danych</strong> easy-words-app/src/app/data/models.ts</p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/data/models.ts"></script>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="n">interface</span> <span class="n">WordType</span> <span class="p">{</span>
+  <span class="n">word</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+  <span class="n">type</span><span class="p">:</span> <span class="n">Type</span><span class="p">;</span>
+  <span class="n">correct</span><span class="err">?</span><span class="p">:</span> <span class="n">boolean</span><span class="p">;</span>
+<span class="p">}</span>
 
+<span class="k">export</span> <span class="k">enum</span> <span class="n">Type</span> <span class="p">{</span>
+  <span class="n">NOUN</span><span class="p">,</span> <span class="n">VERB</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr>
 <p><strong>dane/plik zastępujący bazę danych</strong> easy-words-app/src/app/data/data-base.ts</p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/data/data-base.ts"></script>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Type</span><span class="p">,</span> <span class="n">WordType</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./models&#39;</span><span class="p">;</span>
 
+<span class="n">export</span> <span class="n">const</span> <span class="n">WORDS</span><span class="p">:</span> <span class="n">WordType</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;accept&#39;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span><span class="o">.</span><span class="n">VERB</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;advice&#39;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span><span class="o">.</span><span class="n">NOUN</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;blood&#39;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span><span class="o">.</span><span class="n">NOUN</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;clear&#39;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span><span class="o">.</span><span class="n">VERB</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;damage&#39;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span><span class="o">.</span><span class="n">VERB</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;choice&#39;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span><span class="o">.</span><span class="n">NOUN</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;educate&#39;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span><span class="o">.</span><span class="n">VERB</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">];</span>
+</code></pre></div>
+
+<hr>
 <p><strong>serwis</strong> - easy-words-app/src/app/services/words.service.ts</p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/services/words.service.ts"></script>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Injectable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">WORDS</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../data/data-base&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">WordType</span><span class="p">,</span> <span class="n">Type</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../data/models&#39;</span><span class="p">;</span>
 
+<span class="nd">@Injectable</span><span class="p">({</span>
+  <span class="n">providedIn</span><span class="p">:</span> <span class="s1">&#39;root&#39;</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">WordsService</span> <span class="p">{</span>
+
+  <span class="o">//</span> <span class="n">zdefiniowanie</span> <span class="n">tablic</span> <span class="n">jako</span> <span class="n">prywatnych</span> <span class="n">i</span> <span class="n">niewidocznych</span> <span class="n">po</span> <span class="n">za</span> <span class="n">klasą</span> <span class="p">(</span><span class="n">do</span> <span class="n">ich</span> <span class="n">wydobycia</span> <span class="n">poniższe</span> <span class="n">metody</span><span class="p">)</span>
+  <span class="n">private</span> <span class="n">words</span><span class="p">:</span> <span class="n">WordType</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="n">private</span> <span class="n">nouns</span><span class="p">:</span> <span class="n">WordType</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="n">private</span> <span class="n">verbs</span><span class="p">:</span> <span class="n">WordType</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="n">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">zainicjowanie</span> <span class="n">zawartości</span> <span class="n">tablicy</span> <span class="n">przechowującej</span> <span class="n">słowa</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">words</span> <span class="o">=</span> <span class="n">WORDS</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">getWords</span><span class="p">():</span> <span class="n">WordType</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">words</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">getNouns</span><span class="p">():</span> <span class="n">WordType</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">nouns</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">getVerbs</span><span class="p">():</span> <span class="n">WordType</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">verbs</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">addNoun</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">WordType</span><span class="p">):</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">nouns</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">addVerb</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">WordType</span><span class="p">):</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">verbs</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">check</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">word</span><span class="o">.</span><span class="n">correct</span> <span class="n">true</span> <span class="n">albo</span> <span class="n">false</span> <span class="n">jeśli</span> <span class="n">typ</span> <span class="n">słowa</span> <span class="n">jest</span> <span class="n">równy</span> <span class="n">tej</span> <span class="n">grupie</span> <span class="n">do</span><span class="p">,</span> <span class="n">której</span> <span class="n">został</span> <span class="n">przypisany</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">nouns</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">word</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">correct</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">type</span> <span class="o">===</span> <span class="n">Type</span><span class="o">.</span><span class="n">NOUN</span><span class="p">));</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">verbs</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">word</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">correct</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">type</span> <span class="o">===</span> <span class="n">Type</span><span class="o">.</span><span class="n">VERB</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr>
 <p><strong>Komponent korzystający z serwisu</strong> - easy-words-app/src/app/compontents/question/question.component.ts </p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.ts"></script>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">OnInit</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">WordType</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;src/app/data/models&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">WordsService</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;src/app/services/words.service&#39;</span><span class="p">;</span>
 
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;app-question&#39;</span><span class="p">,</span>
+  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./question.component.html&#39;</span><span class="p">,</span>
+  <span class="n">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;./question.component.css&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">QuestionComponent</span> <span class="n">implements</span> <span class="n">OnInit</span> <span class="p">{</span>
+
+  <span class="o">//</span> <span class="n">przechowuje</span> <span class="n">jedno</span> <span class="n">słowo</span><span class="p">,</span> <span class="n">wyświetlane</span> <span class="n">w</span> <span class="n">danym</span> <span class="n">momencie</span>
+  <span class="o">//</span> <span class="n">ma</span> <span class="n">postać</span> <span class="n">obiektu</span> <span class="n">WordType</span> <span class="n">zdefiniowane</span> <span class="n">w</span> <span class="n">models</span><span class="o">.</span><span class="n">ts</span>
+  <span class="n">word</span><span class="p">:</span> <span class="n">WordType</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+
+  <span class="n">constructor</span><span class="p">(</span>
+    <span class="o">//</span> <span class="n">wstrzyknięcie</span> <span class="n">komponentu</span> <span class="p">(</span><span class="nd">@Injectable</span><span class="p">({</span><span class="n">providedIn</span><span class="p">:</span> <span class="s1">&#39;root&#39;</span><span class="p">}))</span> <span class="n">więc</span> <span class="n">tu</span> <span class="n">nie</span> <span class="n">musi</span> <span class="n">być</span> <span class="n">podany</span> <span class="n">w</span> <span class="n">tablicy</span> <span class="n">providers</span>
+    <span class="o">//</span> <span class="n">private</span> <span class="o">-</span> <span class="n">dostępny</span> <span class="n">tylko</span> <span class="n">w</span> <span class="n">klasie</span> <span class="n">komponentu</span> <span class="o">//</span> <span class="n">public</span> <span class="o">-</span> <span class="n">html</span> <span class="n">również</span> <span class="n">ma</span> <span class="n">do</span> <span class="n">niego</span> <span class="n">dostęp</span>
+    <span class="n">private</span> <span class="n">wordsService</span><span class="p">:</span> <span class="n">WordsService</span>
+  <span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="n">ngOnInit</span><span class="p">():</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">wywołanie</span> <span class="n">metody</span> <span class="n">w</span> <span class="n">celu</span> <span class="n">pobrania</span> <span class="n">słowa</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">fetchWord</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="n">pobiera</span> <span class="n">element</span> <span class="n">z</span> <span class="n">listy</span> <span class="n">oraz</span> <span class="n">go</span> <span class="n">usuwa</span> <span class="p">(</span><span class="n">shift</span><span class="p">())</span>
+  <span class="n">private</span> <span class="n">fetchWord</span><span class="p">():</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">word</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">wordsService</span><span class="o">.</span><span class="n">getWords</span><span class="p">()</span><span class="o">.</span><span class="n">shift</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="n">dodanie</span> <span class="n">słowa</span> <span class="n">do</span> <span class="n">zbioru</span> <span class="p">(</span><span class="n">tablicy</span><span class="p">)</span> <span class="n">nouns</span> <span class="n">znajdującej</span> <span class="n">się</span> <span class="n">serwisie</span> <span class="n">WordsService</span>
+  <span class="n">addToNouns</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="n">WordType</span><span class="p">):</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">wordsService</span><span class="o">.</span><span class="n">addNoun</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">fetchWord</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="n">dodanie</span> <span class="n">słowa</span> <span class="n">do</span> <span class="n">zbioru</span> <span class="p">(</span><span class="n">tablicy</span><span class="p">)</span> <span class="n">verbs</span> <span class="n">znajdującej</span> <span class="n">się</span> <span class="n">serwisie</span> <span class="n">WordsService</span>
+  <span class="n">addToVerbs</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="n">WordType</span><span class="p">):</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">wordsService</span><span class="o">.</span><span class="n">addVerb</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">fetchWord</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">metody</span> <span class="n">sprawdzającej</span> <span class="n">poprawność</span> <span class="n">przypisani</span> <span class="n">słów</span> <span class="n">znajdującej</span> <span class="n">się</span> <span class="n">serwisie</span> <span class="n">WordsService</span>
+  <span class="n">check</span><span class="p">():</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">wordsService</span><span class="o">.</span><span class="n">check</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr>
 <p>easy-words-app/src/app/compontents/question/question.component.html</p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/question/question.component.html"></script>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row center&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col s12&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;card blue-grey darken-1&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;card-content white-text&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- jeżeli obiekt word ma wartość to jest wyświetlane w innym przypadku koniec/ obiekt ten za każdym razem ulega zmianie w momencie użycia poniższych 2 pierwszych metod--&gt;</span>
+        <span class="nt">&lt;h2&gt;</span><span class="cp">{{</span> <span class="nv">word</span> <span class="err">?</span> <span class="nv">word.word</span> <span class="o">:</span> <span class="s1">&#39;Koniec&#39;</span><span class="cp">}}</span><span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;card-action&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn-large blue m5&quot;</span> <span class="err">(click)=&quot;addToNouns(word)&quot;</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">&quot;word&quot;</span><span class="nt">&gt;</span>
+          Noun
+        <span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn-large blue&quot;</span> <span class="err">(click)=&quot;addToVerbs(word)&quot;</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">&quot;word&quot;</span><span class="nt">&gt;</span>
+          Verb
+        <span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn-large black&quot;</span> <span class="err">(click)=&quot;check()&quot;</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">&quot;!word&quot;</span><span class="nt">&gt;</span>
+          Sprawdź
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
 
 <p><strong>Komponent korzystający z serwisu 2 - główny komponent przekazujący dane do dziecka (dump komponentu)</strong></p>
-<p>easy-words-app/src/app/app.component.ts</p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.ts"></script>
+<p><strong>easy-words-app/src/app/app.component.ts</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">WordsService</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./services/words.service&#39;</span><span class="p">;</span>
 
-<p>easy-words-app/src/app/app.component.html</p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/app.component.html"></script>
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;app-root&#39;</span><span class="p">,</span>
+  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./app.component.html&#39;</span><span class="p">,</span>
+  <span class="n">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;./app.component.css&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">AppComponent</span> <span class="p">{</span>
+  <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;easy-words-app&#39;</span><span class="p">;</span>
 
-<p><strong>Komponent przyjmujący dane od rodzica</strong>  - easy-words-app/src/app/compontents/answers/answers.component.ts </p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.ts"></script>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">private</span> <span class="n">wordsService</span><span class="p">:</span> <span class="n">WordsService</span><span class="p">)</span> <span class="p">{}</span>
 
-<p>easy-words-app/src/app/compontents/answers/answers.component.html</p>
-<script src="http://gist-it.appspot.com/github.com/kostyrko/JS-sandbox/blob/easy-words-app-noSubjects/7_Angular/angular-easy-words/easy-words-app/src/app/compontents/answers/answers.component.html"></script>
+  <span class="o">//</span> <span class="n">bezpośredni</span> <span class="n">dostęp</span> <span class="n">do</span> <span class="n">zawartości</span> <span class="n">serwisu</span>
+  <span class="o">//</span> <span class="n">getter</span> <span class="n">rzeczowników</span>
+  <span class="n">get</span> <span class="n">nouns</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">wordsService</span><span class="o">.</span><span class="n">getNouns</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="s1">&#39;getter&#39;</span> <span class="n">czasowników</span>
+  <span class="n">get</span> <span class="n">verbs</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">wordsService</span><span class="o">.</span><span class="n">getVerbs</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>easy-words-app/src/app/app.component.html</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;row&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;col s12&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="n">question</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="n">question</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;col s6&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="n">oraz</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="n">nouns</span><span class="o">/</span><span class="n">getter</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">komponentu</span><span class="w"> </span><span class="n">rodzica</span><span class="w"> </span><span class="p">(</span><span class="nv">@Input</span><span class="p">)</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="n">answers</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="ss">&quot;Nouns&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">words</span><span class="o">]=</span><span class="ss">&quot;nouns&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="n">answers</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;col s6&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="n">answers</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="ss">&quot;Verbs&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">words</span><span class="o">]=</span><span class="ss">&quot;verbs&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="n">answers</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
+<p><strong>Komponent przyjmujący dane od rodzica</strong> </p>
+<p><strong>easy-words-app/src/app/compontents/answers/answers.component.ts</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">OnInit</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">WordType</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;src/app/data/models&#39;</span><span class="p">;</span>
+
+<span class="nd">@Component</span><span class="p">({</span>
+  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;app-answers&#39;</span><span class="p">,</span>
+  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./answers.component.html&#39;</span><span class="p">,</span>
+  <span class="n">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;./answers.component.css&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">AnswersComponent</span> <span class="p">{</span>
+
+  <span class="o">//</span> <span class="n">nazwa</span> <span class="n">listy</span> <span class="n">verbs</span> <span class="n">albo</span> <span class="n">nouns</span>
+  <span class="nd">@Input</span><span class="p">()</span> <span class="n">title</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">przechowuję</span> <span class="n">listę</span> <span class="n">przypisanych</span> <span class="n">słów</span>
+  <span class="nd">@Input</span><span class="p">()</span> <span class="n">words</span><span class="p">:</span> <span class="n">WordType</span><span class="p">[];</span>
+
+  <span class="n">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>easy-words-app/src/app/compontents/answers/answers.component.html</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">ul</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;collection with-header&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;collection-header&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">h4</span><span class="o">&gt;</span><span class="err">{{</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="err">}}</span><span class="o">&lt;/</span><span class="n">h4</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="w"> </span><span class="n">word</span><span class="vm">?</span><span class="p">.</span><span class="n">correct</span><span class="w"> </span><span class="n">zawiera</span><span class="w"> </span><span class="vm">?</span><span class="w"> </span><span class="n">ponieważ</span><span class="w"> </span><span class="n">nie</span><span class="w"> </span><span class="n">jest</span><span class="w"> </span><span class="n">obowiązkowe</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">jest</span><span class="w"> </span><span class="n">przypisywane</span><span class="w"> </span><span class="n">dopiero</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">momencie</span><span class="w"> </span><span class="n">sprawdzania</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">li</span><span class="w"></span>
+<span class="w">    </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;collection-item&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">ngFor</span><span class="o">=</span><span class="ss">&quot;let word of words&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="o">[</span><span class="n">ngClass</span><span class="o">]=</span><span class="ss">&quot;{ incorrect: word?.correct === false}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">word</span><span class="w"> </span><span class="err">}}</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
 
 <hr>
 <p>Źródła:</p>
@@ -250,19 +530,26 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
 <p><a href="https://www.p-programowanie.pl/angular/jak-pozbyc-sie-singletonow-w-angularze">Jak pozbyć się singletonów w Angularze?</a></p>
 <p><a href="https://angular.io/tutorial/toh-pt4">angular.io -&gt; Add services</a></p>
 <p><a href="https://angular.io/guide/dependency-injection">angular.io -&gt; Dependency injection in Angular</a></p>
+<p><a href="https://www.codemag.com/article/1711021/Logging-in-Angular-Applications">Logging in Angular Applications</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/serwis.html">serwis</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/service.html">service</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/subscribe.html">subscribe</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/unfinished.html">unfinished</a>
+      <a href="./tag/angular.html">angular</a>
+      <a href="./tag/serwis.html">serwis</a>
+      <a href="./tag/service.html">service</a>
+      <a href="./tag/subscribe.html">subscribe</a>
+      <a href="./tag/unfinished.html">unfinished</a>
     </p>
   </div>
 
 
 
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="./angular-komunikacja-komponentow.html">Angular: przekazywanie danych pomiędzy kompenentami (input, output, eventEmitter, ViewChild)</a></li>
+    </ul>
+  </div>
 
 
 <!-- Disqus -->
@@ -310,7 +597,7 @@ Serwis posiada swój dekorator @Injectable (wskauje na to, że jest serwisem + d
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

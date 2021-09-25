@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -50,28 +49,29 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Dekorator @Input() Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty) Wymaga importu z counterReducer import { Component, OnInit, Input } from &#39;@angular/core&#39;; Oraz zdefiniowania identyfikatora opatrzonego dekoratorem @Input() @Input() hero: Hero; Odwołanie się w komponencie posiadającym element, do którego następuje odwołanie (komponent …" />
-<meta name="keywords" content="angular, input, output, eventEmitter, ViewChild">
+<meta name="description" content="@Input oraz @Output 1) przekazanie danych &#39;w dół&#39; (od rodzica do dziecka) @Input - Dekoratory pozwalające na rozbicie logiki aplikacji na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi. Dekorator @Input można porównać do właściwość (property/props) komponentu w React tzn. pozwala na przekazanie do komponentu danych np. // rodzic &lt;app …" />
+<meta name="keywords" content="angular, input, output, eventEmitter, ViewChild, unfinished">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="Angular: komunikacja pomiędzy dzieckiem a rodzicem (input, output, eventEmitter, ViewChild)"/>
-<meta property="og:description" content="Dekorator @Input() Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty) Wymaga importu z counterReducer import { Component, OnInit, Input } from &#39;@angular/core&#39;; Oraz zdefiniowania identyfikatora opatrzonego dekoratorem @Input() @Input() hero: Hero; Odwołanie się w komponencie posiadającym element, do którego następuje odwołanie (komponent …"/>
+<meta property="og:title" content="Angular: przekazywanie danych pomiędzy kompenentami (input, output, eventEmitter, ViewChild)"/>
+<meta property="og:description" content="@Input oraz @Output 1) przekazanie danych &#39;w dół&#39; (od rodzica do dziecka) @Input - Dekoratory pozwalające na rozbicie logiki aplikacji na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi. Dekorator @Input można porównać do właściwość (property/props) komponentu w React tzn. pozwala na przekazanie do komponentu danych np. // rodzic &lt;app …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/angular-komunikacja-komponentow.html"/>
+<meta property="og:url" content="./angular-komunikacja-komponentow.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-12-23 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="angular"/>
 <meta property="article:tag" content="angular"/>
 <meta property="article:tag" content="input"/>
 <meta property="article:tag" content="output"/>
 <meta property="article:tag" content="eventEmitter"/>
 <meta property="article:tag" content="ViewChild"/>
+<meta property="article:tag" content="unfinished"/>
 <meta property="og:image" content="">
 
-  <title>...z frontu &ndash; Angular: komunikacja pomiędzy dzieckiem a rodzicem (input, output, eventEmitter, ViewChild)</title>
+  <title>...z frontu &ndash; Angular: przekazywanie danych pomiędzy kompenentami (input, output, eventEmitter, ViewChild)</title>
 
 </head>
 <body>
@@ -82,15 +82,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -109,7 +109,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -126,12 +126,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -143,11 +142,11 @@
 <article class="single">
   <header>
       
-    <h1 id="angular-komunikacja-komponentow">Angular: komunikacja pomiędzy dzieckiem a rodzicem (input, output, eventEmitter, ViewChild)</h1>
+    <h1 id="angular-komunikacja-komponentow">Angular: przekazywanie danych pomiędzy kompenentami (input, output, eventEmitter, ViewChild)</h1>
     <p>
-      Opublikowano śro 23 grudnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/angular.html">angular</a>
+      Opublikowano śro 23 grudnia 2020 w <a href="./category/angular.html">angular</a>
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
@@ -155,96 +154,75 @@
   <div>
     <hr>
 <p><img alt="angular" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"></p>
-<h3>Dekorator @Input()</h3>
-<p>Łączy input z danym komponentem pozwalając mu na zewnętrzne użytkowanie - rozbicie logiki komponentu na mniejsze części (komponenty)</p>
-<p>Wymaga importu z counterReducer</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">OnInit</span><span class="p">,</span> <span class="n">Input</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<h4 id="inputOutput">@Input oraz @Output</h4>
+<p><strong>1) przekazanie danych 'w dół' (od rodzica do dziecka)</strong></p>
+<p><strong>@Input</strong> - Dekoratory pozwalające na rozbicie logiki aplikacji na mniejsze części/komponenty i komunikowanie się danymi pomiędzy nimi. Dekorator <strong>@Input</strong> można porównać do właściwość (property/props) komponentu w React tzn. pozwala na przekazanie do komponentu danych np.</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="n">rodzic</span><span class="w"></span>
+<span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]=</span><span class="ss">&quot;Mike&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="k">user</span><span class="o">&gt;</span><span class="w"></span>
 </code></pre></div>
 
-
-<p>Oraz zdefiniowania identyfikatora opatrzonego dekoratorem @Input() </p>
-<div class="highlight"><pre><span></span><code><span class="err">@Input() hero: Hero;</span>
+<p>gdzie komponent <code>app-user</code> przy pomocy dekoratora @Input ma zdefiniować właściwość <code>name</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@Input</span><span class="p">()</span><span class="w"> </span><span class="nl">name</span><span class="p">:</span><span class="w"> </span><span class="n">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 
+<p><strong>2) przekazanie danych 'w górę' (od dziecka do rodzica)</strong></p>
+<p><strong>@Output</strong> - pozwala na przekazanie informacji DO rodzica, aby tego dokoną należy stworzyć nową instancję klasy <strong>EventEmmiter</strong> (poprzez wywołanie funkcji konstruktora). 1) W klasie dziecka przy pomocy dekoratora <code>@Output</code>  rejestrujemy EventEmmiter, który będzie przekazywał dane do rodzica - jego zmiana wywołana jest poprzez dedykowaną metodę klasy/komponentu dziecka.</p>
+<div class="highlight"><pre><span></span><code>@Output() nameChanged = new EventEmmiter<span class="nt">&lt;string&gt;</span>(); // typ generyczny odpowiadający typowi przesyłanych danych
 
-<p>Odwołanie się w komponencie posiadającym element, do którego następuje odwołanie (komponent rodzica) wygląda w sposób następujący (np. heroes.component.html -&gt; selectedHero)</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="n">hero</span><span class="o">-</span><span class="n">detail</span><span class="w"> </span><span class="o">[</span><span class="n">hero</span><span class="o">]=</span><span class="ss">&quot;selectedHero&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="n">hero</span><span class="o">-</span><span class="n">detail</span><span class="o">&gt;</span><span class="w"></span>
+onUserInput(event){
+  this.nameChanged.emit(event.target.value);
+}
+
+// rodzic:
+//html
+<span class="nt">&lt;app-user</span> <span class="err">(nameChanged)=&quot;onNameChanged($event)&quot;</span><span class="nt">&gt;&lt;/app-user&gt;</span>
+
+// ts
+[...]
+// wartość która ulegnie zmianie
+name = &quot;Mike&quot;
+
+onNameChanged(newName) {
+  this.name = newName;
+}
 </code></pre></div>
 
-
-<p><code>[hero]="selectedHero"</code> - składnia definiująca połączenie jednostronne, w ramach właściwości elementu DOM (właściwość selectedHero komponentu HeroesComponent zostaje skopiowana/przeniesiona do właściwości hero celowego elementu, który jest zmapowany na podstawie danych z HeroDetailComponent). Kiedy użytkownik klika selectedHero ulega zmianie, a przez to również HeroDetailComponent (property bindig go odświeża)</p>
-<p>Przykład</p>
-<div class="highlight"><pre><span></span><code><span class="o">====</span> <span class="n">Usunięcie</span> <span class="n">tego</span> <span class="n">fragmentu</span> <span class="o">=====</span>
-<span class="o">&lt;</span><span class="n">div</span> <span class="o">*</span><span class="n">ngIf</span><span class="o">=</span><span class="s2">&quot;selectedHero&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">selectedHero</span><span class="o">.</span><span class="n">name</span> <span class="o">|</span> <span class="n">uppercase</span> <span class="p">}}</span> <span class="n">Details</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;</span><span class="nb">id</span><span class="p">:</span> <span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">selectedHero</span><span class="o">.</span><span class="n">id</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">label</span>
-      <span class="o">&gt;</span><span class="n">name</span><span class="p">:</span>
-      <span class="o">&lt;</span><span class="nb">input</span> <span class="p">[(</span><span class="n">ngModel</span><span class="p">)]</span><span class="o">=</span><span class="s2">&quot;selectedHero.name&quot;</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">/&gt;</span>
-    <span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-<span class="o">============</span> <span class="n">Zastąpienie</span> <span class="n">go</span> <span class="n">tym</span> <span class="o">========</span>
-<span class="o">&lt;</span><span class="n">app</span><span class="o">-</span><span class="n">hero</span><span class="o">-</span><span class="n">detail</span> <span class="p">[</span><span class="n">hero</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;selectedHero&quot;</span><span class="o">&gt;&lt;/</span><span class="n">app</span><span class="o">-</span><span class="n">hero</span><span class="o">-</span><span class="n">detail</span><span class="o">&gt;</span>
-
-
-<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="n">Komponent</span> <span class="n">dziecka</span> <span class="n">zawierającego</span> <span class="nb">input</span> <span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
-
-<span class="o">//</span> <span class="n">HTML</span> <span class="n">dziecka</span>
-<span class="o">&lt;</span><span class="n">div</span> <span class="o">*</span><span class="n">ngIf</span><span class="o">=</span><span class="s2">&quot;hero&quot;</span><span class="o">&gt;</span>
-
-  <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{{</span><span class="n">hero</span><span class="o">.</span><span class="n">name</span> <span class="o">|</span> <span class="n">uppercase</span><span class="p">}}</span> <span class="n">Details</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;</span><span class="nb">id</span><span class="p">:</span> <span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="p">{{</span><span class="n">hero</span><span class="o">.</span><span class="n">id</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">name</span><span class="p">:</span>
-      <span class="o">&lt;</span><span class="nb">input</span> <span class="p">[(</span><span class="n">ngModel</span><span class="p">)]</span><span class="o">=</span><span class="s2">&quot;hero.name&quot;</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="o">/&gt;</span>
-    <span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-
-<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-
-<span class="o">//</span> <span class="n">TS</span> <span class="n">dziecka</span>
-<span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">OnInit</span><span class="p">,</span> <span class="n">Input</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
-<span class="kn">import</span> <span class="p">{</span> <span class="n">Hero</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../hero&#39;</span><span class="p">;</span>
-
-<span class="nd">@Component</span><span class="p">({</span>
-  <span class="n">selector</span><span class="p">:</span> <span class="s1">&#39;app-hero-detail&#39;</span><span class="p">,</span>
-  <span class="n">templateUrl</span><span class="p">:</span> <span class="s1">&#39;./hero-detail.component.html&#39;</span><span class="p">,</span>
-  <span class="n">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;./hero-detail.component.css&#39;</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="n">export</span> <span class="k">class</span> <span class="nc">HeroDetailComponent</span> <span class="n">implements</span> <span class="n">OnInit</span> <span class="p">{</span>
-
-  <span class="nd">@Input</span><span class="p">()</span> <span class="n">hero</span><span class="p">:</span> <span class="n">Hero</span><span class="p">;</span>
-
-  <span class="n">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-  <span class="n">ngOnInit</span><span class="p">():</span> <span class="n">void</span> <span class="p">{</span>
-  <span class="p">}</span>
-
-<span class="p">}</span>
-</code></pre></div>
-
-
-<h2>Template Reference</h2>
+<p>Przykładowa aplikacja wykorzystująca tzw. Event Binding i wyżej wymienione dekoratory w sposób bezpośredni <a href="https://github.com/kostyrko/JS-sandbox/tree/angular-event-binding/7_Angular/angular-service-app/star-wars-services/src/app">star-wars-angular-service-app (etap prze implementacą serwisu)</a></p>
 <h3>@ViewChild</h3>
-<p>@ViewChild('odnośnikDoTemplateReference/nazwaKlasyDziecka/wieleObiektówDanegoTypuHTML') - dekorator pozwalający na wstrzyknięcie komponentu dziecka pozwalający na jego sterowanie z klasy rodzica. Ten dekorator może być również wykorzystany do sterowaniem html (pobranie) jak i funkcjonalnością dziecka.</p>
-<p>W przypadku wielu takich samych komponentów przy odwołaniu się do klasy komponentu dziecka, zostanie wykorzystany pierwszy napotkany komponent (aby temu zapobiec można wykorzystać <strong>template reference</strong>)</p>
-<script src="http://gist-it.appspot.com/github.com/ZacznijProgramowac/template-reference-examples/blob/master/src/app/app.component.ts"></script>
+<p>Zapisanie w zmiennej referencji do dziecka danego elementu (dowolny jego element html jak i cały komponent). Pozwala na odwołanie się do publicznych pól dziecka przez rodzica. Rodzic decyduje z jakich pól dziecka będzie potrzebował.</p>
+<p>Zadeklarowanie przy pomocy dekoratora - <code>@ViewChild</code> w klasie rodzica może wyglądać następująco:</p>
+<p>"[...] Chcąc obserwować konkretny komponent deklarujesz typ zmiennej zgodny z klasą tego komponentu. Dzięki temu masz dostęp do publicznych pól i metod tej klasy. Odtąd, w dowolnym momencie możesz używać this.child jak zwykłego pola klasy rodzica."    </p>
+<div class="highlight"><pre><span></span><code><span class="nv">@ViewChild</span><span class="p">(</span><span class="n">ChildComponent</span><span class="p">)</span><span class="w"> </span><span class="nl">child</span><span class="p">:</span><span class="w"> </span><span class="n">ChildComponent</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
 
-<script src="http://gist-it.appspot.com/github.com/ZacznijProgramowac/template-reference-examples/blob/master/src/app/app.component.html"></script>
+<p>"W przypadku tagów HTML musisz oznaczyć ten tag poprzez dowolny string z przedrostkiem ‚#’. Potem tu używasz tego stringa jako identyfikator, na podstawie którego angular namierzy tag i przypisze do zmiennej. Inny jest też deklarowany typ – ElementRef, czyli referencja lokalna na konkretny element HTML [...]"</p>
+<p>Lub w przypadku html</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@ViewChild</span><span class="p">(</span><span class="s1">&#39;ref&#39;</span><span class="p">)</span><span class="w"> </span><span class="nl">child</span><span class="p">:</span><span class="w"> </span><span class="n">ElementRef</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
 
-<p><a href="https://typeofweb.com/komunikacja-pomiedzy-komponentami-w-angular-2/">Komunikacja pomiędzy komponentami w Angular 2</a></p>
+<p>Gdzie element html wygląda następującego</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="err">#ref</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>Uwaga końcowa:</p>
+<p>"Propercja klasy dziecka rodzica na początku jest undefined. Możesz odwoływać się do niej, dopiero po zainicjalizowaniu widoku i wystąpieniu zdarzenia ngAfterViewInit()."</p>
+<p>Cytowane fragmenty tekstu za: <a href="https://a-frontman.pl/viewchild-komunikacja-komponentow/">@ViewChild(). Komunikacja komponentów</a>]</p>
+<p>Sięgnięcie do listy dzieci jest możliwe przy pomocy <code>QueryList</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">@ViewChildren</span><span class="p">(</span><span class="n">ChildComponent</span><span class="p">)</span><span class="w"> </span><span class="nl">children</span><span class="p">:</span><span class="w"> </span><span class="n">QueryList</span><span class="o">&lt;</span><span class="n">ChildComponent</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+
 <hr>
 <p>Źródła:</p>
+<p><a href="https://a-frontman.pl/viewchild-komunikacja-komponentow/">viewchild-komunikacja-komponentow</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/angular.html">angular</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/input.html">input</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/output.html">output</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/eventemitter.html">eventEmitter</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/viewchild.html">ViewChild</a>
+      <a href="./tag/angular.html">angular</a>
+      <a href="./tag/input.html">input</a>
+      <a href="./tag/output.html">output</a>
+      <a href="./tag/eventemitter.html">eventEmitter</a>
+      <a href="./tag/viewchild.html">ViewChild</a>
+      <a href="./tag/unfinished.html">unfinished</a>
     </p>
   </div>
 
@@ -253,7 +231,7 @@
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/angular-wprowadzenie.html">Angular: wprowadzenie</a></li>
+      <li><a href="./angular-serwisy.html">Angular: przekazanie danych pomiędzy komponentami cz. 2 -> serwis</a></li>
     </ul>
   </div>
 
@@ -303,7 +281,7 @@
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

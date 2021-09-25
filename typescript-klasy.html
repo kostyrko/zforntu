@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="TypeScript: klasy"/>
 <meta property="og:description" content="Klasy w TypeScript nie różnią od klas w JS ES6 TS transpiluje do klasy jeśli wybrany jest standard ES6 lub nowszy albo do funkcja konstruktora dla ES5 i starszych (symuluje klasy choć jest funkcją (egzekucja podobna do klas)) Przykładowa klasa constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu class Droid …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/typescript-klasy.html"/>
+<meta property="og:url" content="./typescript-klasy.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-11-25 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="typescript"/>
 <meta property="article:tag" content="rts"/>
 <meta property="article:tag" content="typescript"/>
@@ -79,15 +78,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -106,7 +105,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -123,12 +122,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -142,7 +140,7 @@
       
     <h1 id="typescript-klasy">TypeScript: klasy</h1>
     <p>
-      Opublikowano śro 25 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
+      Opublikowano śro 25 listopada 2020 w <a href="./category/typescript.html">typescript</a>
 
         &#8226; 3 min read
     </p>
@@ -157,22 +155,30 @@
 <h3>Przykładowa klasa</h3>
 <p>constructor - funkcja wykonywana w trakcie inicjalizacji/tworzenia obiektu</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="p">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span> <span class="o">//</span> <span class="n">tak</span> <span class="n">samo</span> <span class="n">w</span> <span class="n">JS</span> <span class="n">powyżej</span> <span class="n">ES6</span>
+  <span class="o">//</span> <span class="n">deklaracja</span> <span class="n">pola</span> <span class="n">jakie</span> <span class="n">zawiera</span> <span class="n">klasa</span> <span class="n">wraz</span> <span class="n">z</span> <span class="n">typem</span> <span class="n">danych</span> <span class="p">(</span><span class="n">inaczej</span> <span class="n">typ</span> <span class="n">any</span><span class="p">)</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
 
-  <span class="n">constructor</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">this</span><span class="o">.</span><span class="n">greeting</span> <span class="o">=</span> <span class="n">message</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">metoda</span> <span class="n">konstruktora</span> <span class="o">-</span> <span class="n">tworzy</span> <span class="n">nowe</span> <span class="n">obiekty</span> <span class="n">instancji</span> <span class="n">klasy</span> 
+  <span class="o">//</span> <span class="n">pozwala</span> <span class="n">na</span> <span class="n">istnienie</span> <span class="n">arg</span><span class="o">.</span> <span class="n">przy</span> <span class="n">inicjalizacji</span> <span class="n">nowej</span> <span class="n">instancji</span> <span class="n">klasy</span>
+  <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="n">greet</span><span class="p">(</span><span class="n">this</span><span class="p">:</span> <span class="n">Greeter</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span> <span class="n">odwołanie</span> <span class="n">do</span> <span class="n">instancji</span><span class="p">,</span> <span class="n">które</span> <span class="n">powstała</span> <span class="n">na</span> <span class="n">podstawie</span> <span class="n">klasy</span> <span class="n">Droid</span>
+  <span class="o">//</span> <span class="n">funkcja</span> <span class="n">zwracająca</span> <span class="n">string</span>
+  <span class="n">greet</span><span class="p">()</span> <span class="p">:</span> <span class="n">string</span> <span class="p">{</span>  
     <span class="k">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="o">//</span> <span class="n">zmienia</span> <span class="n">imię</span> <span class="n">ale</span> <span class="n">nic</span> <span class="n">nie</span> <span class="n">zwraca</span><span class="p">,</span> <span class="n">jako</span> <span class="n">arg</span><span class="o">.</span> <span class="n">przyjmuje</span> <span class="n">string</span>
+  <span class="n">changeDroidName</span> <span class="p">(</span><span class="n">droid</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">:</span> <span class="n">void</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">droid</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">let</span> <span class="n">r2d2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s2">&quot;R2D2&quot;</span><span class="p">);</span> <span class="o">//</span> <span class="o">-&gt;</span> <span class="n">arg</span> <span class="n">zapisuje</span> <span class="n">jako</span> <span class="n">name</span>
-
-<span class="k">const</span> <span class="n">r2d2Copy</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span> <span class="n">greet</span> <span class="p">:</span> <span class="n">r2d2</span><span class="o">.</span><span class="n">greet</span><span class="p">}</span>
+<span class="o">//</span> <span class="n">tworzenie</span> <span class="n">nowej</span> <span class="n">instancji</span> <span class="n">klasy</span> <span class="n">o</span> <span class="n">typie</span> <span class="n">Droid</span> <span class="p">(</span><span class="o">&gt;&gt;</span><span class="n">kaŻda</span> <span class="n">klasa</span> <span class="n">definiuje</span> <span class="n">nowy</span> <span class="n">typ</span><span class="o">&lt;&lt;</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">zmienna</span> <span class="n">r2d2</span> <span class="n">o</span> <span class="n">typie</span> <span class="n">Droid</span>
+<span class="k">const</span> <span class="n">r2dr</span> <span class="p">:</span> <span class="n">Droid</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Droid</span><span class="p">(</span><span class="s2">&quot;R2D2&quot;</span><span class="p">);</span>
 </code></pre></div>
-
 
 <p><code>this</code> - jest kontekstem, w zależności od miejsca, w którym się do niego odwołujemy może odnosić się do czegoś innego, w przypadku klas zwykle odnosi się do instancji klasy lub inaczej to ujmując do tego obiektu, na którym dana metoda jest wywoływana</p>
 <hr>
@@ -195,7 +201,6 @@
 <span class="n">dog</span><span class="o">.</span><span class="n">bark</span><span class="p">();</span>
 </code></pre></div>
 
-
 <hr>
 <h3>Prywatne pola (Private)</h3>
 <p>Prywatne sprawia, że jego edycja jest możliwa jedynie przy pomocy przeznaczonej do tego metody. To może się przydać szczególnie w momencie gdy dana metoda zawiera w sobie zdefiniowaną walidację (bezpośrednia edycja może być jej pozbawiono). w JS wszystkie pola są <code>publiczne/public</code> w TS,  jeśli nie są inaczej oznaczone również takie są domyślnie. Prywatne pola są również ukryte po za klasą (nie są dostępne).</p>
@@ -204,7 +209,7 @@
     <span class="n">private</span> <span class="n">droids</span><span class="p">:</span> <span class="n">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[]</span> <span class="o">//</span> <span class="n">to</span> <span class="n">jest</span> <span class="n">również</span> <span class="n">oznaczenie</span> <span class="n">prywatności</span>
 
     <span class="n">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">this</span><span class="o">.</span><span class="c1">#name = name;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="n">greet</span><span class="p">()</span> <span class="p">{</span>
@@ -225,7 +230,6 @@
 
 <span class="n">coruscant</span><span class="o">.</span><span class="n">droids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Swtor MCR-99 Droid&#39;</span><span class="p">)</span> <span class="o">//</span> <span class="n">error</span> <span class="o">-</span> <span class="n">droids</span> <span class="n">jest</span> <span class="n">prywatnym</span> <span class="n">polem</span> <span class="n">i</span> <span class="n">jego</span> <span class="n">zmiana</span> <span class="p">(</span><span class="n">dodanie</span> <span class="n">nowej</span> <span class="n">wartości</span> <span class="n">to</span> <span class="n">tablicy</span> <span class="n">jest</span> <span class="n">możliwe</span> <span class="n">jedynie</span> <span class="n">przy</span> <span class="n">pomocy</span> <span class="n">jednego</span> <span class="n">sposobu</span><span class="p">,</span> <span class="n">wywołanie</span> <span class="n">odpowiedniej</span> <span class="n">metody</span><span class="p">)</span><span class="o">.</span>
 </code></pre></div>
-
 
 <p>więcej na ten temat: <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-3-8-beta/#ecmascript-private-fields">ECMAScript Private Fields</a></p>
 <hr>
@@ -257,7 +261,6 @@
 <span class="n">Property</span> <span class="s1">&#39;name&#39;</span> <span class="k">is</span> <span class="n">protected</span> <span class="ow">and</span> <span class="n">only</span> <span class="n">accessible</span> <span class="n">within</span> <span class="k">class</span> <span class="s1">&#39;Person&#39;</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">subclasses</span><span class="o">.</span>
 </code></pre></div>
 
-
 <hr>
 <h3>Tylko do odczytu</h3>
 <p><strong>Readonly</strong> jest formą zastrzeżenia wybranych wartości do postaci, w której nie mogą one ulec zmianie - innymi słowy są wartościami przeznaczonymi jedynie do odczytu.</p>
@@ -275,7 +278,6 @@
 <span class="n">Cannot</span> <span class="n">assign</span> <span class="n">to</span> <span class="s1">&#39;name&#39;</span> <span class="n">because</span> <span class="n">it</span> <span class="k">is</span> <span class="n">a</span> <span class="n">read</span><span class="o">-</span><span class="n">only</span> <span class="n">property</span><span class="o">.</span>
 </code></pre></div>
 
-
 <hr>
 <h3>Interfejs w klasie</h3>
 <p>Interface dla klasy staje się swego rodzaju "kontraktem", który klasa jest zmuszona wypełnić.</p>
@@ -285,7 +287,6 @@
   <span class="err">greet(</span><span class="n">phrase</span><span class="p">:</span> <span class="n">string</span><span class="p">)</span><span class="o">:</span> <span class="n">void</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>Klasa droid będzie musiała posiadać imię (name) oraz metodę greet(która przyjmuje string i nic nie zwraca), może posiadać również inne właściwości - ale musi spełnić wymogi interfejsu</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Droid</span> <span class="n">implements</span> <span class="n">Welcome</span> <span class="p">{</span>
@@ -309,18 +310,20 @@
 <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">droid1</span><span class="p">);</span>
 </code></pre></div>
 
-
 <hr>
 <p><a href="https://www.frontlive.pl/typescript-sredniozaawansowany/">TypeScript - Generics, klasy i zaawansowane typy</a></p>
 <p><a href="https://refactoring.guru/design-patterns/typescript">The Catalog of TypeScript Examples</a></p>
+<p><a href="http://jsdn.pl/typescript-pierwsze-kroki-tworzenie-klas-w-typescript/">TypeScript – pierwsze kroki. Tworzenie klas w TypeScript. Część Pierwsza.</a></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/2/classes.html">www.typescriptlang.org -&gt; Classes</a></p>
+<p><a href="https://clockworkjava.pl/2019/09/klasy-w-typescript/">Klasy w TypeScript - clockworkjava.pl</a></p>
 <p>JS</p>
 <p><a href="https://stackoverflow.com/questions/54841417/javascript-classes-vs-typescript-classes">SO - Javascript classes vs typescript classes</a></p>
 <p><a href="https://www.w3schools.com/js/js_object_constructors.asp">JavaScript Object Constructors</a></p>
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
+      <a href="./tag/rts.html">rts</a>
+      <a href="./tag/typescript.html">typescript</a>
     </p>
   </div>
 
@@ -329,7 +332,7 @@
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="./angular-wprowadzenie.html">Angular: wprowadzenie</a></li>
     </ul>
   </div>
 
@@ -379,7 +382,7 @@
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

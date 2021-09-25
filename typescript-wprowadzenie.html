@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -50,19 +49,19 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi ) Możliwość stosowania/definiowania typów Wprowadza elementy dokumentacji/klarowności kodu np …" />
+<meta name="description" content="Spis treści * interface * enum * Funkcje jako typy * Funkcje - zwracanie typów oraz &#39;void&#39; &amp; &#39;undefined&#39; TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne …" />
 <meta name="keywords" content="rts, typescript">
 
 
 <meta property="og:site_name" content="...z frontu"/>
 <meta property="og:title" content="TypeScript: wprowadzenie + podstawowe typy"/>
-<meta property="og:description" content="TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne, dopiero gdy typowi ) Możliwość stosowania/definiowania typów Wprowadza elementy dokumentacji/klarowności kodu np …"/>
+<meta property="og:description" content="Spis treści * interface * enum * Funkcje jako typy * Funkcje - zwracanie typów oraz &#39;void&#39; &amp; &#39;undefined&#39; TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju &#34;rozszerzeniem&#34; JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS. TS wprowadza/charakteryzuje Statyczne typowanie - kompilator sprawdza błędy przed wykonaniem kodu (jest to opcjonalne …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/typescript-wprowadzenie.html"/>
+<meta property="og:url" content="./typescript-wprowadzenie.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-11-19 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="typescript"/>
 <meta property="article:tag" content="rts"/>
 <meta property="article:tag" content="typescript"/>
@@ -79,15 +78,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -106,7 +105,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -123,12 +122,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -142,7 +140,7 @@
       
     <h1 id="typescript-wprowadzenie">TypeScript: wprowadzenie + podstawowe typy</h1>
     <p>
-      Opublikowano czw 19 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/typescript.html">typescript</a>
+      Opublikowano czw 19 listopada 2020 w <a href="./category/typescript.html">typescript</a>
 
         &#8226; 7 min read
     </p>
@@ -151,6 +149,12 @@
 
   <div>
     <p><img alt="typescript-logo" src="https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png"></p>
+<h4>Spis treści</h4>
+<p><a href="#interface">* interface</a></p>
+<p><a href="#enum">* enum</a></p>
+<p><a href="#funkcjaTyp">* Funkcje jako typy</a></p>
+<p><a href="#zwracanieTypu">* Funkcje - zwracanie typów oraz 'void' &amp; 'undefined'</a></p>
+<hr>
 <p>TypeScript jest supersetem (nadzbiorem) JavaScript - oznacza to, że jest swego rodzaju "rozszerzeniem" JS posiadającym własne reguły (nowe możliwości) ale ulega kompilacji do JS.</p>
 <p><strong>TS wprowadza/charakteryzuje</strong></p>
 <ol>
@@ -174,67 +178,59 @@
 </li>
 </ol>
 <h3>Instalacja i konfiguracja</h3>
-<div class="highlight"><pre><span></span><code><span class="err">// terminal</span>
-<span class="err">npm i -g typescript</span>
+<div class="highlight"><pre><span></span><code>// terminal
+npm i -g typescript
 </code></pre></div>
-
 
 <p>Należy stworzyć plik <strong>index.ts</strong></p>
-<div class="highlight"><pre><span></span><code><span class="err">// index.ts</span>
-<span class="err">console.log(&#39;Hello world&#39;);</span>
+<div class="highlight"><pre><span></span><code>// index.ts
+console.log(&#39;Hello world&#39;);
 </code></pre></div>
-
 
 <p>Następnie w terminalu wywołać komendę odwołującą się do TS i wskazującą na plik</p>
-<div class="highlight"><pre><span></span><code><span class="err">tsc index.ts</span>
+<div class="highlight"><pre><span></span><code>tsc index.ts
 </code></pre></div>
-
 
 <p>W folderze pojawi się nowy plik js po transpilacji -&gt; <code>index.js</code> jego zawartość jest w JS/ES3 (w tym przypadku treść będzie taka sama)</p>
 <p>W celu wprowadzenia zmian w zachowaniu kompilatora można dodać flagi do komendy do niego się odwołującej w terminalu lub zawrzeć odpowiednie informacje w osobnym pliku <code>tsconfig.json</code> (plik można utworzyć poprzez komendę <code>tsc --init</code> - tworzy plik z zakomentowanymi opcjami kompilatora -&gt; po wpisaniu <code>tsc</code> kompiluje wszystkie pliki ts/ tworzy analytics.ts i .js)</p>
-<div class="highlight"><pre><span></span><code><span class="err">    //tsconfig.json</span>
-<span class="err">    {</span>
-<span class="err">        &quot;compilerOptions&quot;: {</span>
-<span class="err">            &quot;target&quot;: &quot;esnext&quot;, // kompilacja do najnowszej wersji JS</span>
-<span class="err">            &quot;watch&quot;: true, // nasłuchiwanie na zmiany i kompilacja</span>
-<span class="err">            &quot;lib&quot;: [&quot;dom&quot;, &quot;es2017&quot;], // biblioteki np. &quot;pilnujące&quot; poprawności z klasami/obiektami DOM - trakcie pisania kodu</span>
-<span class="err">            &quot;sourceMap&quot;: true // Source Map</span>
-<span class="err">        },</span>
-<span class="err">        &quot;exclude&quot; [ // pliki ts z tych folderów nie będą branę pod uwagę</span>
-<span class="err">          &quot;node_modules</span>
-<span class="err">        ]</span>
-<span class="err">    }</span>
+<div class="highlight"><pre><span></span><code>    <span class="o">//</span><span class="nv">tsconfig</span>.<span class="nv">json</span>
+    {
+        <span class="s2">&quot;</span><span class="s">compilerOptions</span><span class="s2">&quot;</span>: {
+            <span class="s2">&quot;</span><span class="s">target</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">esnext</span><span class="s2">&quot;</span>, <span class="o">//</span> <span class="nv">kompilacja</span> <span class="k">do</span> <span class="nv">najnowszej</span> <span class="nv">wersji</span> <span class="nv">JS</span>
+            <span class="s2">&quot;</span><span class="s">watch</span><span class="s2">&quot;</span>: <span class="nv">true</span>, <span class="o">//</span> <span class="nv">nas</span>ł<span class="nv">uchiwanie</span> <span class="nv">na</span> <span class="nv">zmiany</span> <span class="nv">i</span> <span class="nv">kompilacja</span>
+            <span class="s2">&quot;</span><span class="s">lib</span><span class="s2">&quot;</span>: [<span class="s2">&quot;</span><span class="s">dom</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">es2017</span><span class="s2">&quot;</span>], <span class="o">//</span> <span class="nv">biblioteki</span> <span class="nv">np</span>. <span class="s2">&quot;</span><span class="s">pilnujące</span><span class="s2">&quot;</span> <span class="nv">poprawno</span>ś<span class="nv">ci</span> <span class="nv">z</span> <span class="nv">klasami</span><span class="o">/</span><span class="nv">obiektami</span> <span class="nv">DOM</span> <span class="o">-</span> <span class="nv">trakcie</span> <span class="nv">pisania</span> <span class="nv">kodu</span>
+            <span class="s2">&quot;</span><span class="s">sourceMap</span><span class="s2">&quot;</span>: <span class="nv">true</span> <span class="o">//</span> <span class="nv">Source</span> <span class="nv">Map</span>
+        },
+        <span class="s2">&quot;</span><span class="s">exclude</span><span class="s2">&quot;</span> [ <span class="o">//</span> <span class="nv">pliki</span> <span class="nv">ts</span> <span class="nv">z</span> <span class="nv">tych</span> <span class="nv">folder</span>ó<span class="nv">w</span> <span class="nv">nie</span> <span class="nv">b</span>ę<span class="nv">d</span>ą <span class="nv">bran</span>ę <span class="nv">pod</span> <span class="nv">uwag</span>ę
+          <span class="s2">&quot;</span><span class="s">node_modules</span>
+        ]
+    }
 </code></pre></div>
-
 
 <p>!! W terminalu należy zainicjować "kompilację po wykryciu zmiany" poprzez</p>
-<div class="highlight"><pre><span></span><code><span class="err">tsc --watch</span>
+<div class="highlight"><pre><span></span><code>tsc --watch
 </code></pre></div>
-
 
 <hr>
 <h3>TypeScript Playground</h3>
 <p><a href="http://www.typescriptlang.org/play/index.html">Onlinowy edytor TS</a></p>
 <hr>
 <h3>1. Pisanie kodu w sposób domniemany (implicit)</h3>
-<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">23</span> <span class="o">//</span> <span class="k">type</span><span class="p">:</span> <span class="nb">number</span>
+<div class="highlight"><pre><span></span><code>let num = 23 // type: number
 
-<span class="o">//</span> <span class="n">nie</span> <span class="n">jest</span> <span class="n">możliwe</span> <span class="n">bo</span> <span class="n">wcześniej</span> <span class="n">zadeklarowane</span> <span class="n">jest</span> <span class="nb">number</span>
-<span class="n">num</span> <span class="o">=</span> <span class="s1">&#39;22&#39;</span>
+// nie jest możliwe bo wcześniej zadeklarowane jest number
+num = &#39;22&#39;
 </code></pre></div>
-
 
 <p>Podobnie</p>
-<div class="highlight"><pre><span></span><code><span class="err">let num</span>
-<span class="err">num = 22</span>
-<span class="err">num = &#39;33&#39; // będzie niepoprawne ponieważ inny typ został wyżej przypisany</span>
+<div class="highlight"><pre><span></span><code>let num
+num = 22
+num = &#39;33&#39; // będzie niepoprawne ponieważ inny typ został wyżej przypisany
 </code></pre></div>
-
 
 <h3>2. Pisanie kodu w sposób wskazany (explicit)</h3>
-<div class="highlight"><pre><span></span><code><span class="err">let num:number // wskazanie typu bez przypisania wartości</span>
+<div class="highlight"><pre><span></span><code>let num:number // wskazanie typu bez przypisania wartości
 </code></pre></div>
-
 
 <p>let może odnosić się jedynie do liczb jeśli typ został zadeklarowany</p>
 <h3>Obiekty</h3>
@@ -245,14 +241,12 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Albo wykorzystując <code>{}</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droid</span><span class="p">:</span> <span class="p">{}</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span>
     <span class="k">class</span><span class="p">:</span> <span class="s1">&#39;Protocol&#39;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>Może to przyjąć jeszcze bardziej rozbudowaną formę -&gt; wskazanie na reprezentację obiektu</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">droid</span><span class="p">:</span> <span class="p">{</span>
@@ -263,7 +257,6 @@
     <span class="k">class</span><span class="p">:</span> <span class="s1">&#39;Protocol&#39;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>Innym sposobem z którym pracujemy z obiektami i jego wzorami są tzw <strong>interfejsu</strong> (więcej na ten temat poniżej).</p>
 <hr>
@@ -276,8 +269,7 @@
 <span class="nt">font</span> <span class="o">=</span> <span class="s1">&#39;cursive&#39;</span> <span class="o">//</span> <span class="nt">błąd</span> <span class="nt">ponieważ</span> <span class="nt">może</span> <span class="nt">być</span> <span class="nt">jedynie</span> <span class="s1">&#39;bold&#39;</span> <span class="nt">albo</span> <span class="s1">&#39;italic&#39;</span>
 </code></pre></div>
 
-
-<p><strong>Interface</strong> - tworzenie typu <strong>Obiektów</strong></p>
+<p><strong>Interface</strong> {#interface} - tworzenie typu <strong>Obiektów</strong></p>
 <p>Interfejs powinien być poprzedzony słowem <strong>interface</strong></p>
 <div class="highlight"><pre><span></span><code><span class="n">interface</span> <span class="n">Droid</span> <span class="p">{</span>
     <span class="n">first</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span> <span class="o">//</span> <span class="n">wypełnienie</span> <span class="n">podanych</span> <span class="n">tutaj</span> <span class="n">kluczy</span> <span class="n">jest</span> <span class="n">obowiązkowe</span>
@@ -296,7 +288,6 @@
     <span class="n">planet</span><span class="p">:</span> <span class="s1">&#39;Naboo&#39;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>Interfejs jest przykładem tzw. duck typing” albo “structural subtyping” (to pojęcie nie jest zarezerwowane dla TS) - "rozpoznawanie typu obiektu nie na podstawie deklaracji, ale przez badanie metod udostępnionych przez obiekt. Technika ta wywodzi się z powiedzenia: „jeśli chodzi jak kaczka i kwacze jak kaczka, to musi być kaczką”." (za wikipedia) - innymi słowy należy sprawdzić metody przypisane do obiektu/jego "zachowanie".</p>
 <p>Kolejny przykład - zawierający "funkcję"</p>
@@ -320,30 +311,26 @@
 <span class="nt">droid1</span><span class="p">.</span><span class="nc">greet</span><span class="o">(</span><span class="s1">&#39;Hi there - I am&#39;</span><span class="o">);</span> <span class="o">//</span> <span class="nt">Hi</span> <span class="nt">there</span> <span class="nt">-</span> <span class="nt">I</span> <span class="nt">am</span> <span class="nt">C3PO</span>
 </code></pre></div>
 
-
 <p><code>Interface</code> przypomina <code>type</code> - jednak interface odnosi się jedynie do obiektu, interface może zostać również zaimplementowany w klasie - staje się wówczas swego rodzaju "kontraktem", który klasa jest zmuszona wypełnić.</p>
 <p><strong>Funkcje</strong></p>
 <p><em>więcej na temat funkcji również poniżej</em></p>
 <p>Pilnuje, żeby jako arg. podana była jedynie liczba</p>
-<div class="highlight"><pre><span></span><code><span class="err">function pow (x: number, y: number) {</span>
-<span class="err">    return March.pow(x,y)</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">pow</span> <span class="ss">(</span><span class="nv">x</span>: <span class="nv">number</span>, <span class="nv">y</span>: <span class="nv">number</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">March</span>.<span class="nv">pow</span><span class="ss">(</span><span class="nv">x</span>,<span class="nv">y</span><span class="ss">)</span>
+}
 </code></pre></div>
-
 
 <p>Pilnuje, żeby jako arg. podana była jedynie liczba ale zwraca wartość w postaci <code>stringa</code> - wymaga wskazania <strong>toString()</strong></p>
-<div class="highlight"><pre><span></span><code><span class="err">function pow (x: number, y: number):string {</span>
-<span class="err">    return March.pow(x,y).toString()</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">pow</span> <span class="ss">(</span><span class="nv">x</span>: <span class="nv">number</span>, <span class="nv">y</span>: <span class="nv">number</span><span class="ss">)</span>:<span class="nv">string</span> {
+    <span class="k">return</span> <span class="nv">March</span>.<span class="nv">pow</span><span class="ss">(</span><span class="nv">x</span>,<span class="nv">y</span><span class="ss">)</span>.<span class="nv">toString</span><span class="ss">()</span>
+}
 </code></pre></div>
-
 
 <p>Używa się <code>void</code> w przypadku braku zwracania wartości</p>
-<div class="highlight"><pre><span></span><code><span class="err">function pow (x: number, y: number):void {</span>
-<span class="err">    March.pow(x,y).toString()</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code>function pow (x: number, y: number):void {
+    March.pow(x,y).toString()
+}
 </code></pre></div>
-
 
 <p><strong>Tablice</strong></p>
 <p>Tablica może przechowywać dane jednego typu (strict) lub wielu (flexible)</p>
@@ -354,11 +341,9 @@
 <span class="n">arr</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="bp">false</span><span class="p">)</span> <span class="o">//</span> <span class="n">error</span>
 </code></pre></div>
 
-
 <p>// wskazanie tablicy, która przyjmuje jedynie obiekty powstałe na podstawie wcześniej wskazanego wzoru Droid/interfejsu</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">arr</span><span class="p">:</span> <span class="n">Droid</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div>
-
 
 <hr>
 <h3>4. Nowe typy - Tuple, Union, Any, Void, Never, Enum, unknown</h3>
@@ -366,25 +351,23 @@
 <p><strong>Krotki/Tuple</strong></p>
 <p>Nowy typ, który nie występuje w JS. Krotki mogą przechowywać informacje posiadające różne typy, ale mają ograniczoną długość (length)</p>
 <p>Definicja krotki (różne typy), w ramach obiektu ograniczonej do 2 wpisów gdzie 1. zawsze numerem a 2. łańcuchem znaków</p>
-<div class="highlight"><pre><span></span><code><span class="err">interface Droid {</span>
-<span class="err">    first: string;</span>
-<span class="err">    class: string;</span>
-<span class="err">    planet: [number, string] // krotka</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">interface</span> <span class="nt">Droid</span> <span class="p">{</span>
+    <span class="n">first</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+    <span class="n">class</span><span class="p">:</span> <span class="n">string</span><span class="p">;</span>
+    <span class="n">planet</span><span class="p">:</span> <span class="cp">[</span><span class="nx">number</span><span class="p">,</span> <span class="kt">string</span><span class="cp">]</span> <span class="o">//</span> <span class="n">krotka</span>
+<span class="p">}</span>
 </code></pre></div>
-
 
 <p>TS wyłapie jeśli będzie planowali przypisać do 2. atrybutu wartość o typie number (<code>droid.planet[1]=1</code>), nie pozwoli jednak na (nie wykrywa) pushowanie atrybutu do tablicy <code>droid.planet.push('comment')</code> nie pozwoli jednak na <code>droid.planet[1, 'Coirsant', 'comment']</code> zastąpienie tablicy inną niż ta, która spełnia określony wzórd</p>
 <p>// dodanie <strong>znaku zapytania -&gt; ?</strong> sprawia, że są to wartości opcjonalne</p>
-<div class="highlight"><pre><span></span><code><span class="err">type MyList = [number?, string?, boolean?]</span>
+<div class="highlight"><pre><span></span><code>type MyList = [number?, string?, boolean?]
 </code></pre></div>
-
 
 <p>więcej na ten temat: <a href="https://www.tutorialsteacher.com/typescript/typescript-tuple">TypeScript - Tuples</a></p>
 <hr>
-<p><strong>Enum - wyliczeniowy typ danych</strong></p>
-<p>Enums to "zbiór nazwanych, określonych wartości liczbowych", gdzie początkowa liczba domyślnie jest równa 0 a każda kolejna jest +1</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
+<p><strong>Enum - wyliczeniowy typ danych</strong> {#emu}</p>
+<p>Enums to jest <strong>zbiorem wyliczeniowym możliwych wartości typu</strong> (gdzie początkowa liczba domyślnie jest równa 0 a każda kolejna jest +1).</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
     <span class="n">Running</span><span class="p">,</span>
     <span class="n">Timeout</span><span class="p">,</span>
     <span class="n">Disabled</span>
@@ -393,34 +376,46 @@
 <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Status</span><span class="o">.</span><span class="n">Timeout</span><span class="p">)</span> <span class="o">//</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
 </code></pre></div>
 
-
 <p>Poszczególnym wartościom mogą być przypisane inne liczby np.</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
     <span class="n">Running</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
     <span class="n">Timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
     <span class="n">Disabled</span> <span class="o">//</span> <span class="n">domyślnie</span> <span class="n">jest</span> <span class="o">+</span><span class="mi">1</span> <span class="n">więc</span> <span class="o">=</span> <span class="mi">11</span>
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Często nazwy poszczególnych wartości w enum pisanę są wyłącznie dużymi literami np. <code>RUNNING</code> zamiast <code>Running</code></p>
+<p>Enum pozwala również na zadeklarowanie wartości przy pomocy łańcucha znaków</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="k">enum</span> <span class="n">Status</span> <span class="p">{</span>
+        <span class="n">RUNNING</span> <span class="o">=</span> <span class="s1">&#39;Running&#39;</span><span class="p">,</span>
+        <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="s1">&#39;Timeout&#39;</span><span class="p">,</span>
+        <span class="n">DISABLED</span> <span class="o">=</span> <span class="s1">&#39;Disabled&#39;&#39;</span>
+    <span class="p">}</span>
+
+<span class="n">stosowanie</span><span class="p">:</span>
+
+<span class="k">const</span> <span class="n">runner</span> <span class="o">=</span> <span class="p">(</span><span class="n">status</span><span class="p">:</span> <span class="n">Status</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">the</span> <span class="n">status</span> <span class="k">is</span><span class="p">:</span> <span class="o">$</span><span class="p">{</span><span class="n">status</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+
+<span class="n">runner</span><span class="p">(</span><span class="n">Status</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">)</span> <span class="o">//</span> <span class="s1">&#39;the status is: running&#39;</span>
+
+<span class="n">runner</span><span class="p">(</span><span class="n">Stoped</span><span class="p">)</span> <span class="o">//</span> <span class="n">Nie</span> <span class="n">można</span> <span class="n">przypisać</span> <span class="n">argumentu</span> <span class="n">typu</span> <span class="n">Stoped</span> <span class="n">to</span> <span class="n">parametru</span> <span class="s1">&#39;Status&#39;</span>
+</code></pre></div>
+
 <p>źródła:</p>
 <p><a href="https://kamilmysliwiec.com/typescript-typ-wyliczeniowy-enum">kamilmysliwiec.com - TypeScript – typ wyliczeniowy, enum</a></p>
 <p><a href="https://solutionchaser.com/typescript-enum/">solutionchaser.com - Zrozumieć enumy w TypeScriptcie</a></p>
 <hr>
 <p><strong>Union</strong></p>
 <p>Typ który określa przyjęcie więcej niż jednego podanego typu (przy użyciu symbolu "pipe") - przypomina JS "or" -&gt; || i cechuje się zbliżoną semantyką</p>
-<div class="highlight"><pre><span></span><code><span class="err">let droids: number | string[]</span>
+<div class="highlight"><pre><span></span><code>let droids: number | string[]
 </code></pre></div>
-
 
 <p>TS nie analizuje typów, stąd może nie pozwalać na np. sumowanie typu <strong>union</strong> z <strong>number</strong> (można obejść walidacją lub odwołując się do metody .toString())</p>
 <hr>
 <p><strong>Literal types - dosłowny typ</strong></p>
 <p>Wykorzystywane w momencie gdy ma przechowywać określoną wartość lub ograniczoną ilość możliwych wartości np.</p>
-<div class="highlight"><pre><span></span><code><span class="err">let droid: &#39;C3PO&#39; | &#39;R2D2&#39;</span>
+<div class="highlight"><pre><span></span><code>let droid: &#39;C3PO&#39; | &#39;R2D2&#39;
 </code></pre></div>
-
 
 <hr>
 <p><strong>Type Aliases/Custom types</strong></p>
@@ -438,31 +433,27 @@
 <span class="k">const</span> <span class="n">droid1</span><span class="p">:</span> <span class="n">Droid</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;C3PO&#39;</span><span class="p">,</span> <span class="n">firstAppearance</span><span class="p">:</span> <span class="mi">1977</span> <span class="p">};</span>
 </code></pre></div>
 
-
 <hr>
 <p><strong>Any</strong></p>
 <p>Użycie typu <strong>any</strong> w trakcie deklarowania tablicy, zmiennej etc. w efektywny sposób likwiduje benefity płynące z używania TS, ponieważ <strong>any</strong> (oznacza <strong>jakikolwiek</strong>) oznacza, że można stosować dowolny typ np. tablica może przechowywać dane pod dowolnym typem</p>
-<div class="highlight"><pre><span></span><code><span class="err">let droids: any[]</span>
+<div class="highlight"><pre><span></span><code>let droids: any[]
 </code></pre></div>
-
 
 <hr>
 <p><strong>unknown</strong></p>
 <p><em>Unknown</em> jest stosowane w momencie kiedy nie mamy pewności jaki typ powinien,będzie używany - przyjmie każdy typ danych. Typ <em>unknown</em> nie może być jednak przypisany do innego typu (<em>any</em> już na to pozwala)</p>
-<div class="highlight"><pre><span></span><code><span class="n">let</span> <span class="n">userInput</span><span class="p">:</span> <span class="k">unknown</span>
+<div class="highlight"><pre><span></span><code>let userInput: unknown
 
-<span class="n">let</span> <span class="n">anotherInput</span><span class="p">:</span> <span class="n">string</span>
+let anotherInput: string
 
-<span class="n">userInput</span> <span class="o">=</span> <span class="n">anotherInput</span> <span class="o">//</span> <span class="n">error</span>
+userInput = anotherInput // error
 </code></pre></div>
-
 
 <p>Zastosowanie -&gt; nie wiem co będzie wpisane ale jeśli będzie to <em>string</em> to chciałbym to wykorzystać (jednak o ile jest to możliwe warto korzystać z typu <em>union</em> ze względu na to, że jest precyzyjniejszym rozwiązaniem)</p>
-<div class="highlight"><pre><span></span><code><span class="err">if (typeof userInput === &#39;string&#39;) {</span>
-<span class="err">    anotherInput = userInput</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ss">(</span><span class="nv">typeof</span> <span class="nv">userInput</span> <span class="o">===</span> <span class="s1">&#39;</span><span class="s">string</span><span class="s1">&#39;</span><span class="ss">)</span> {
+    <span class="nv">anotherInput</span> <span class="o">=</span> <span class="nv">userInput</span>
+}
 </code></pre></div>
-
 
 <hr>
 <p><strong>never</strong></p>
@@ -474,10 +465,9 @@
 <span class="n">constError</span><span class="p">(</span><span class="s1">&#39;Such droid does not exist&#39;</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
 </code></pre></div>
 
-
 <hr>
 <p>--</p>
-<h3>5. Funkcje jako typy</h3>
+<h3 id="funkcjaTyp">5. Funkcje jako typy</h3>
 <p>Deklarowanie zmiennej z typem <strong>Function</strong> pozwala nam na zapewnienie tego, że będzie ona przechowywać jedynie funkcję,a nie coś innego dodatkowo istnieje możliwość wskazania wzoru (typu) tej funkcji</p>
 <p>Przykład bez wskazania</p>
 <div class="highlight"><pre><span></span><code><span class="nt">function</span> <span class="nt">addDroids</span><span class="o">(</span><span class="nt">n1</span><span class="p">:</span><span class="nd">number</span><span class="o">,</span> <span class="nt">n2</span><span class="p">:</span><span class="nd">number</span><span class="o">):</span> <span class="nt">number</span> <span class="p">{</span>
@@ -488,7 +478,6 @@
 <span class="nt">sumDroids</span> <span class="o">=</span> <span class="nt">5</span> <span class="o">//</span> <span class="nt">error</span>
 <span class="nt">sumDroids</span> <span class="o">=</span> <span class="nt">addDroids</span> <span class="o">//</span> <span class="nt">ok</span>
 </code></pre></div>
-
 
 <p>Przykład ze wskazaniem typu funkcji np. <code>()=&gt; number</code> nie przyjmuje żadnych arg. i zwraca liczbę albo <code>(a:number, b:number)=&gt; number</code> powinien przyjąć jakąkolwiek funkcję która przyjmuje 2 arg. będące liczbami i zwraca liczbę</p>
 <div class="highlight"><pre><span></span><code><span class="nt">function</span> <span class="nt">addDroids</span><span class="o">(</span><span class="nt">n1</span><span class="p">:</span><span class="nd">number</span><span class="o">,</span> <span class="nt">n2</span><span class="p">:</span><span class="nd">number</span><span class="o">):</span> <span class="nt">number</span> <span class="p">{</span>
@@ -505,30 +494,26 @@
 <span class="nt">sumDroids</span> <span class="o">=</span> <span class="nt">sumUpDroids</span> <span class="o">//</span> <span class="nt">error</span> <span class="nt">-</span> <span class="nt">nie</span> <span class="nt">spełnia</span> <span class="nt">wskazanego</span> <span class="nt">typu</span>
 </code></pre></div>
 
-
-<h3>Funkcje - zwracanie typów + 'void' &amp; 'undefined'</h3>
+<h3 id="zwracanieTypu">Funkcje - zwracanie typów + 'void' &amp; 'undefined'</h3>
 <p>Istnieje możliwość typu zwracanej wartości funkcji -&gt; poprzez zastosowanie po argumentach dwukropka oraz podania odpowiedniego typu (stosowane jedynie w przypadku potrzeby)</p>
 <p>w wyniku tej funkcji zostanie zwrócona liczba/numbers</p>
-<div class="highlight"><pre><span></span><code><span class="err">function addDroids(n1:number, n2:number): number {</span>
-<span class="err">    return n1 + n2</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="nv">function</span> <span class="nv">addDroids</span><span class="ss">(</span><span class="nv">n1</span>:<span class="nv">number</span>, <span class="nv">n2</span>:<span class="nv">number</span><span class="ss">)</span>: <span class="nv">number</span> {
+    <span class="k">return</span> <span class="nv">n1</span> <span class="o">+</span> <span class="nv">n2</span>
+}
 </code></pre></div>
-
 
 <p>typ <strong>void</strong> oznacza brak wartości zwrotnej (nie trzeba tego definować, ale taki typ jest przypisany przez TS) - funkcji brakuje konkretnego <strong>returna</strong> (w JS zwrócony zostanie <strong>undefined</strong> a nie <strong>void</strong>) [samotny return bez przypisanej wartości również będzie spójny z tym konceptem]</p>
-<div class="highlight"><pre><span></span><code><span class="err">function sumDroids(n1:number, n2:number): void {</span>
-<span class="err">    console.log(n1+n2)</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code>function sumDroids(n1:number, n2:number): void {
+    console.log(n1+n2)
+}
 </code></pre></div>
-
 
 <p>TS pozwala również na przypisanie typu <strong>undefined</strong>, funkcja wykorzystująca ten typ musi jednak posiadać <strong>return</strong></p>
-<div class="highlight"><pre><span></span><code><span class="err">function addDroids(n1:number, n2:number): undefined {</span>
-<span class="err">    console.log(n1+n2);</span>
-<span class="err">    return;</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">function</span> <span class="nt">addDroids</span><span class="o">(</span><span class="nt">n1</span><span class="p">:</span><span class="nd">number</span><span class="o">,</span> <span class="nt">n2</span><span class="p">:</span><span class="nd">number</span><span class="o">):</span> <span class="nt">undefined</span> <span class="p">{</span>
+    <span class="err">console.log(n1+n2)</span><span class="p">;</span>
+    <span class="err">return</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-
 
 <p><strong>callaback jako funkcja</strong></p>
 <p>Jednym z argumentów w ramach funkcji może być inna funkcja - istnieje możliwość wskazania jej wzoru/typu.
@@ -542,7 +527,6 @@ Wskazanie <code>void</code> może oznaczać, że z wartością zwróconą nic ni
     <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="p">})</span>
 </code></pre></div>
-
 
 <hr>
 <p>Źródła:</p>
@@ -563,8 +547,8 @@ Wskazanie <code>void</code> może oznaczać, że z wartością zwróconą nic ni
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/rts.html">rts</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/typescript.html">typescript</a>
+      <a href="./tag/rts.html">rts</a>
+      <a href="./tag/typescript.html">typescript</a>
     </p>
   </div>
 
@@ -573,7 +557,7 @@ Wskazanie <code>void</code> może oznaczać, że z wartością zwróconą nic ni
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="./react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
     </ul>
   </div>
 
@@ -623,7 +607,7 @@ Wskazanie <code>void</code> może oznaczać, że z wartością zwróconą nic ni
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

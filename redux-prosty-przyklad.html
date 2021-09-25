@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="React + Redux: prosty przykład zastosowania"/>
 <meta property="og:description" content="Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA). 1) Instalacja narzędzi/zależności npx create-react-app &lt;nazwa_projektu&gt; npm i redux react-redux 2) Struktura projektu (istotne pliki/te które są edytowane oraz które zostaną/ły dodane) {public} | |_ [...] {src} | |_ {actions …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/redux-prosty-przyklad.html"/>
+<meta property="og:url" content="./redux-prosty-przyklad.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-11-08 10:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="redux"/>
 <meta property="article:tag" content="react"/>
 <meta property="article:tag" content="redux"/>
@@ -84,15 +83,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -111,7 +110,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -128,12 +127,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -147,7 +145,7 @@
       
     <h1 id="redux-prosty-przyklad">React + Redux: prosty przykład zastosowania</h1>
     <p>
-      Opublikowano nie 08 listopada 2020 w <a href="https://kostyrko.github.io/zfrontu/category/redux.html">redux</a>
+      Opublikowano ndz 08 listopada 2020 w <a href="./category/redux.html">redux</a>
 
         &#8226; 2 min read
     </p>
@@ -158,47 +156,45 @@
     <p><img alt="redux-react" src="https://miro.medium.com/max/1838/0*95tBOgxEPQAVq9YO.png"></p>
 <p>Poniżej przedstawię przykład (oraz kolejne kroki powstania) bardzo prostego projektu wykorzystującego stan kontrolowany przez Redux. Projekt bazuje na React (CRA).</p>
 <p><strong>1)</strong> Instalacja narzędzi/zależności</p>
-<div class="highlight"><pre><span></span><code><span class="err">    npx create-react-app &lt;nazwa_projektu&gt;</span>
-<span class="err">    npm i redux react-redux</span>
+<div class="highlight"><pre><span></span><code>    npx create-react-app &lt;nazwa_projektu&gt;
+    npm i redux react-redux
 </code></pre></div>
-
 
 <hr>
 <p><strong>2)</strong> Struktura projektu (istotne pliki/te które są edytowane oraz które zostaną/ły dodane)</p>
-<div class="highlight"><pre><span></span><code><span class="err">    {public}</span>
-<span class="err">    |</span>
-<span class="err">    |_ [...]</span>
-<span class="err">    {src}</span>
-<span class="err">        |</span>
-<span class="err">        |_ {actions}</span>
-<span class="err">        |    |</span>
-<span class="err">        |    | --- index.js</span>
-<span class="err">        |</span>
-<span class="err">        |_ {reducers}</span>
-<span class="err">        |    |</span>
-<span class="err">        |    | --- index.js</span>
-<span class="err">        |    | --- counter.js</span>
-<span class="err">        |    | --- isLogged.js</span>
-<span class="err">        |</span>
-<span class="err">        |---App.js</span>
-<span class="err">        |---index.js</span>
-<span class="err">        |</span>
-<span class="err">        [...]</span>
+<div class="highlight"><pre><span></span><code>    {public}
+    |
+    |_ [...]
+    {src}
+        |
+        |_ {actions}
+        |    |
+        |    | --- index.js
+        |
+        |_ {reducers}
+        |    |
+        |    | --- index.js
+        |    | --- counter.js
+        |    | --- isLogged.js
+        |
+        |---App.js
+        |---index.js
+        |
+        [...]
 </code></pre></div>
-
 
 <hr>
 <p><strong>3)</strong> <strong>&gt;&gt;index.js&lt;&lt;</strong>
 - tutaj należy stworzyć store oraz zaimportować reduktory 
 - window.<strong>REDUX_DEVTOOLS_EXTENSION</strong> &amp;&amp; window.<strong>REDUX_DEVTOOLS_EXTENSION</strong>() [wcześniej window.devToolsExtension] jest przydatne w momencie tworzenia układu stanu za pomocą Reduxa, gdy nie jest jeszcze podpięty z Reactem (umożliwia komunikację z Redux Dev Tools, więcej na ten temat tutaj: <a href="http://extension.remotedev.io/">Redux DevTools Extension</a>)
 - App jest wskazany jako Provider (komponent wyższego rzędu) gdzie jako props przekazywany jest store</p>
-<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">React</span> <span class="nn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
-    <span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">React</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="kn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
     <span class="kn">import</span> <span class="s2">&quot;./index.css&quot;</span><span class="p">;</span>
-    <span class="kn">import</span> <span class="nn">App</span> <span class="nn">from</span> <span class="s2">&quot;./App&quot;</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">App</span> <span class="kn">from</span> <span class="s2">&quot;./App&quot;</span><span class="p">;</span>
 
     <span class="kn">import</span> <span class="p">{</span> <span class="n">createStore</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;redux&quot;</span><span class="p">;</span>
-    <span class="kn">import</span> <span class="nn">allReducers</span> <span class="nn">from</span> <span class="s1">&#39;./reducers&#39;</span>
+    <span class="kn">import</span> <span class="nn">allReducers</span> <span class="kn">from</span> <span class="s1">&#39;./reducers&#39;</span>
 
     <span class="kn">import</span> <span class="p">{</span><span class="n">Provider</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react-redux&#39;</span>
 
@@ -215,7 +211,6 @@
     <span class="p">,</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">)</span>
     <span class="p">);</span>
 </code></pre></div>
-
 
 <hr>
 <p><strong>4)</strong> <strong>&gt;&gt;{reducers}&lt;&lt;</strong></p>
@@ -237,7 +232,6 @@
 <span class="k">export</span> <span class="n">default</span> <span class="n">loggedReducer</span>
 </code></pre></div>
 
-
 </li>
 <li>
 <p><strong>counter.js</strong> - counterReducer przyjmuje 2 arg. 1 stan = 0 oraz akcję (będącą obiektem) jeśli typ akcji jest równy INCREMENT wówczas należy stan zwiększyć o wartość zawartą w <strong>action.payload</strong> a jeśli DECREMENT - odjąć 1.</p>
@@ -254,12 +248,11 @@
 <span class="k">export</span> <span class="n">default</span>
 </code></pre></div>
 
-
 </li>
 <li>
 <p><strong>index.js</strong> - skupie w sobie reduktory (przy pomocy combineReducers) i eksportuje w postaci obiektu </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">counterReducer</span> <span class="nn">from</span> <span class="s1">&#39;./counter&#39;</span>
-<span class="kn">import</span> <span class="nn">loggedReducer</span> <span class="nn">from</span> <span class="s1">&#39;./isLogged&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">counterReducer</span> <span class="kn">from</span> <span class="s1">&#39;./counter&#39;</span>
+<span class="kn">import</span> <span class="nn">loggedReducer</span> <span class="kn">from</span> <span class="s1">&#39;./isLogged&#39;</span>
 
 <span class="kn">import</span> <span class="p">{</span> <span class="n">combineReducers</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;redux&#39;</span>
 
@@ -271,7 +264,6 @@
 
 <span class="n">export</span> <span class="n">default</span> <span class="n">allReducers</span>
 </code></pre></div>
-
 
 </li>
 </ul>
@@ -291,7 +283,6 @@
     <span class="p">};</span>
 <span class="p">};</span>
 </code></pre></div>
-
 
 </li>
 </ul>
@@ -323,7 +314,6 @@
 <span class="n">export</span> <span class="n">default</span> <span class="n">App</span><span class="p">;</span>
 </code></pre></div>
 
-
 </li>
 </ul>
 <hr>
@@ -332,13 +322,13 @@
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/redux.html">redux</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/redux-devtools-extension.html">Redux DevTools Extension</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/redux-hooks.html">redux-hooks</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/useselector.html">useSelector</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/usedispatch.html">useDispatch</a>
+      <a href="./tag/react.html">react</a>
+      <a href="./tag/redux.html">redux</a>
+      <a href="./tag/redux-devtools-extension.html">Redux DevTools Extension</a>
+      <a href="./tag/redux-hooks.html">redux-hooks</a>
+      <a href="./tag/hooks.html">hooks</a>
+      <a href="./tag/useselector.html">useSelector</a>
+      <a href="./tag/usedispatch.html">useDispatch</a>
     </p>
   </div>
 
@@ -347,7 +337,7 @@
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="./react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
     </ul>
   </div>
 
@@ -397,7 +387,7 @@
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }

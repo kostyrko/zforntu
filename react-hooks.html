@@ -10,16 +10,16 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/jquery.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.min.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.js"></script>
-  <script src="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch_set.js"></script>
-  <link rel="stylesheet" href="https://kostyrko.github.io/zfrontu/theme/tipuesearch/tipuesearch.css" />
-  <script src="https://kostyrko.github.io/zfrontu/tipuesearch_content.js"></script>
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://kostyrko.github.io/zfrontu/theme/pygments/tango.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
   
   <link
     rel="stylesheet"
@@ -29,9 +29,8 @@
   />
 
 
-    <link href="https://kostyrko.github.io/zfrontu/theme/custom_css/custom.css" rel="stylesheet">
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
 
-    <link href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="...z frontu Atom">
 
 
     <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
@@ -58,11 +57,11 @@
 <meta property="og:title" content="React: Haki (hooks) na Reacta"/>
 <meta property="og:description" content="Haki/Przyczepienia (hooks) Hooki mogą być używane jedynie w komponentach funkcyjnych i pozwalają na przechowanie stanu pomiędzy kolejnymi wywołaniami funkcji zawartych w komponentach! Podstawowe dwa z nich pozwalają na wprowadzenie stanów (useState) podczas gdy inny pozwala na zarządzanie automatycznym zachowaniem się danego komponentu (useEffect) - kompensując brak funkcji znanych z komponentów …"/>
 <meta property="og:locale" content="pl_PL"/>
-<meta property="og:url" content="https://kostyrko.github.io/zfrontu/react-hooks.html"/>
+<meta property="og:url" content="./react-hooks.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2020-08-08 10:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://kostyrko.github.io/zfrontu/author/mkostyrko.html">
+<meta property="article:author" content="./author/mkostyrko.html">
 <meta property="article:section" content="reactjs"/>
 <meta property="article:tag" content="react"/>
 <meta property="article:tag" content="formularze"/>
@@ -80,15 +79,15 @@
   <aside class='d--none'>
     <div>
       <a href="" class="aside--close"><i class="fa fa-times"></i></a>
-      <a href="https://kostyrko.github.io/zfrontu">
-        <img src="https://kostyrko.github.io/zfrontu/theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
       </a>
-      <h1><a href="https://kostyrko.github.io/zfrontu">Notatki z frontu</a></h1>
+      <h1><a href=".">Notatki z frontu</a></h1>
 
 <p>JS/CSS/PY</p>      <nav>
         <ul class="list">
 
-            <li><a target="_blank" href="https://kostyrko.github.io/zfrontu/pages/o-blogu.html">O blogu</a></li>
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
 
           
         </ul>
@@ -107,7 +106,7 @@
           </a></li>
       </ul>
       
-        <form class="navbar-search" action="https://kostyrko.github.io/zfrontu/search.html" role="search">
+        <form class="navbar-search" action="./search.html" role="search">
             <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
         </form>
 
@@ -124,12 +123,11 @@
 
 
       <nav id="nav">
-        <a href="https://kostyrko.github.io/zfrontu">Strona główna</a>
+        <a href=".">Strona główna</a>
 
         <a href="categories.html">Kategorie</a>
         <a href="tags.html">Tagi</a>
 
-        <a href="https://kostyrko.github.io/zfrontu/feeds/all.atom.xml">Atom</a>
 
 
         <!-- Switches for dark/light motive -->
@@ -143,7 +141,7 @@
       
     <h1 id="react-hooks">React: Haki (hooks) na Reacta</h1>
     <p>
-      Opublikowano sob 08 sierpnia 2020 w <a href="https://kostyrko.github.io/zfrontu/category/reactjs.html">reactjs</a>
+      Opublikowano sob 08 sierpnia 2020 w <a href="./category/reactjs.html">reactjs</a>
 
         &#8226; 3 min read
     </p>
@@ -160,7 +158,6 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">useState</span><span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-
 <hr>
 <h3>Definiowanie stanu -&gt; useState()</h3>
 <p><strong>useState()</strong> - zwraca tablicę elementów (parę) - przy pomocy destrukturyzacji można "wyciągnąć" poszczególne elementy do zmiennych (co jest przyjętą praktyką). Istotną konwencją, o której warto w tym kontekście pamiętać jest to, że pierwsza zmienna przechowuje stan natomiast kolejna powinna odwoływać się do funkcji, która ma wpływ na zmianę stanu. Nazwa 2. elementu powinna powielać nazwę tej, która przechowuje stan ale poprzedza ją słowem 'set'. <strong>useState</strong> przyjmuje argument określający początkową właściwość stanu</p>
@@ -169,7 +166,6 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <span class="o">======</span> <span class="n">przykładowo</span> <span class="o">=====</span>
 <span class="k">const</span> <span class="p">[</span><span class="n">counter</span><span class="p">,</span> <span class="n">setCounter</span><span class="p">]</span> <span class="o">=</span> <span class="n">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>Aby użyć analogii można stwierdzić, że <strong>useState()</strong> w funkcyjnym komponencie "zastępuje" z komponentu klasowego <strong>konstruktor stanu</strong> oraz <strong>setState()</strong> (setState() =&gt; setWybranaNazwaFunkcjiModyfikatora() np. setCounter())</p>
 <p>Przykład</p>
@@ -180,17 +176,15 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 }
 </code></pre></div>
 
-
 <hr>
 <h3>Obsługa efektów ubocznych useEffect()</h3>
 <p><strong>useEffect()</strong> ma mieć wpływ na kod z poza zakresu wywoływanej funkcji lub inaczej rzecz ujmując odpowiada za wykonywanie efektów ubocznych w komponentach funkcyjnych. Hook <strong>useEffect()</strong> pozwala na ustawienie zależności wywoływania się konkretnej zawartej w nim funkcji oraz na zwolnienie jej zasobów - jednak nie w każdej sytuacji jest to wymagane.</p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="n">wywoła</span> <span class="n">się</span> <span class="n">podczas</span> <span class="n">każdorazowego</span> <span class="n">renderowania</span> <span class="n">komponentu</span>
+<div class="highlight"><pre><span></span><code>//wywoła się podczas każdorazowego renderowania komponentu
 
-<span class="n">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="err">{</span>
-  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Komponent zamontowany&#39;</span><span class="p">)</span>
-<span class="err">}</span><span class="p">)</span>
+useEffect(() =&gt; {
+  console.log(&#39;Komponent zamontowany&#39;)
+})
 </code></pre></div>
-
 
 <p>Podstawowy schemat prezentuje się następująco. Warto zwrócić uwagę na tablicę kończącą wyrażenie (input) w to miejsce można wpisać zależności, których zmiana spowoduje wywołanie się funkcji - brak elementów oznacza, że funkcja powinna wywołać się tylko raz, podczas pierwszego renderowania elementu</p>
 <div class="highlight"><pre><span></span><code><span class="n">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
@@ -200,7 +194,6 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <span class="w">    </span><span class="err">}</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">input</span><span class="o">]</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-
 
 <p>Przykład 1</p>
 <div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">uruchamia</span> <span class="n">się</span> <span class="n">tylko</span> <span class="n">raz</span> <span class="n">ponieważ</span> <span class="n">w</span> <span class="n">arg</span><span class="o">.</span> <span class="n">brak</span> <span class="n">info</span> <span class="n">o</span> <span class="n">tym</span> <span class="n">by</span> <span class="n">się</span> <span class="n">uruchamiał</span> <span class="n">ponownie</span>
@@ -215,7 +208,6 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <span class="p">},</span> <span class="p">[]);</span>
 </code></pre></div>
 
-
 <p>Przykład 2</p>
 <div class="highlight"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="n">uruchamia</span><span class="w"> </span><span class="n">się</span><span class="w"> </span><span class="n">za</span><span class="w"> </span><span class="n">każdym</span><span class="w"> </span><span class="n">razem</span><span class="w"> </span><span class="n">jak</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">ulegnie</span><span class="w"> </span><span class="n">zmianie</span><span class="w"></span>
 <span class="n">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
@@ -223,10 +215,9 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <span class="err">}</span><span class="p">,</span><span class="o">[</span><span class="n">counter</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">kiedy</span><span class="w"> </span><span class="n">wywołać</span><span class="vm">?</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">jak</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">ulegnie</span><span class="w"> </span><span class="n">zmianie</span><span class="w"></span>
 </code></pre></div>
 
-
 <p>Przykład komponentu funkcyjnego korzystającego z <strong>hooków</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span><span class="n">useState</span><span class="p">,</span> <span class="n">useEffect</span><span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="nn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ReactDOM</span> <span class="kn">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
 
 <span class="n">const</span> <span class="n">ShowInfo</span> <span class="o">=</span> <span class="p">({</span><span class="n">info</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="n">info</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
@@ -246,7 +237,7 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
   <span class="p">},</span> <span class="p">[]);</span>
 
   <span class="n">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="n">document</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="sb">`Clicked:${click}`</span>
+    <span class="n">document</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="err">`</span><span class="n">Clicked</span><span class="p">:</span><span class="err">$</span><span class="p">{</span><span class="n">click</span><span class="p">}</span><span class="err">`</span>
   <span class="p">},[</span><span class="n">click</span><span class="p">])</span>
 
   <span class="n">const</span> <span class="n">clicked</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">setClick</span><span class="p">(</span><span class="n">prev</span><span class="o">=&gt;</span><span class="n">prev</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
@@ -256,7 +247,7 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
       <span class="o">&lt;</span><span class="n">ShowInfo</span> <span class="n">info</span><span class="o">=</span><span class="p">{</span><span class="n">message</span><span class="p">}</span><span class="o">/&gt;</span>
       <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Clicked</span> <span class="p">{</span><span class="n">click</span><span class="p">}</span> <span class="n">times</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
       <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">clicked</span><span class="p">}</span><span class="o">&gt;</span><span class="n">Clicke</span> <span class="n">Me</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
-    <span class="o">&lt;/&gt;</span>
+    
   <span class="p">)</span>
 <span class="p">}</span>
 
@@ -265,7 +256,6 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
   <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
-
 
 <hr>
 <h3>Własne hooki</h3>
@@ -289,7 +279,6 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Przykładowe użycie wygląda w następujący sposóbu</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">useFormFields</span> <span class="p">}</span> <span class="kn">from</span> <span class="s2">&quot;../ścieżka/hooksLib&quot;</span><span class="p">;</span>
 
@@ -307,7 +296,6 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
 <span class="o">/&gt;</span>
 </code></pre></div>
 
-
 <p>[więcej na ten temat w kontekście opisywania formularzy]</p>
 <hr>
 <p>Źródła:</p>
@@ -320,9 +308,9 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="https://kostyrko.github.io/zfrontu/tag/react.html">react</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/formularze.html">formularze</a>
-      <a href="https://kostyrko.github.io/zfrontu/tag/hooks.html">hooks</a>
+      <a href="./tag/react.html">react</a>
+      <a href="./tag/formularze.html">formularze</a>
+      <a href="./tag/hooks.html">hooks</a>
     </p>
   </div>
 
@@ -331,11 +319,11 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
-      <li><a href="https://kostyrko.github.io/zfrontu/react-stany.html">React: (zjednoczne) Stany React'a</a></li>
+      <li><a href="./react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="./react-komponenty.html">React: komponenty i właściwości (props) + destrukturyzacja</a></li>
+      <li><a href="./react-listy.html">React: Klucz do tworzenia wielu elementów listy</a></li>
+      <li><a href="./react-zdarzenia.html">React: zdarzenia - podstawy</a></li>
+      <li><a href="./react-stany.html">React: (zjednoczne) Stany React'a</a></li>
     </ul>
   </div>
 
@@ -385,7 +373,7 @@ Jednym z szybko zauważalnych efektów korzystania z komponentów funkcyjnych + 
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " ...z frontu ",
-  "url" : "https://kostyrko.github.io/zfrontu",
+  "url" : ".",
   "image": "",
   "description": ""
 }
