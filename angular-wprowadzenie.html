@@ -141,7 +141,7 @@
     <p>
       Opublikowano wto 22 grudnia 2020 w <a href="./category/angular.html">angular</a>
 
-        &#8226; 11 min read
+        &#8226; 10 min read
     </p>
   </header>
 
@@ -302,8 +302,8 @@ ng generate component heroes
 <p>Warto pamiętać: Dyrektywy które mają wpływ na strukturę drzewa DOM mają przed sobą gwiazdkę np. *ngFor w odróżnieniu od ngModel - te dyrektywy nazywane strukturalnymi. Inne dyrektywy nazywamy atrybutowymi, ponieważ zmieniają atrybutu elementów drzewa DOM.</p>
 <hr>
 <h3 id="ngFor">*ngFor - dyrektywa powtórzenia</h3>
-<p><strong>ngFor</strong> jest dyrektywą powtórzenia - powtarza dany element (gospodarza) dla każdego elementu ze zbioru (gospodarzem jest ten element w który dyrektywa jest wpisana). Innymi słowy <strong>ngFor</strong> powiela elementy <strong>html</strong> tyle razy ile jest elementów w danym zbiorze. Dyrektywa <strong><em>ngFor</em>* jest częścią modułu </strong>BrowserModule** (importowanego w pliku TS komponentu).</p>
-<div class="highlight"><pre><span></span><code>let (zdefiniowanie zmiennej) item of (z) items (zbiór/lista np. tablica)
+<p><strong>ngFor*<em> jest dyrektywą powtórzenia - powtarza dany element (gospodarza) dla każdego elementu ze zbioru (gospodarzem jest ten element w który dyrektywa jest wpisana). Innymi słowy <strong>ngFor</strong> powiela elementy <strong>html</strong> tyle razy ile jest elementów w danym zbiorze. Dyrektywa </em></strong>ngFor<strong> jest częścią modułu </strong>BrowserModule** (importowanego w pliku TS komponentu).</p>
+<div class="highlight"><pre><span></span><code><span class="err">let (zdefiniowanie zmiennej) item of (z) items (zbiór/lista np. tablica)</span>
 </code></pre></div>
 
 <p><code>*ngFor="let hero of heroes"</code> - dla każdego bohater z bohaterów gdzie w pliku <strong>heroes.components.ts</strong> heroes został zadeklarowany jako właściwość klasy definiującej komponent <code>heroes = HEROES;</code></p>
@@ -357,9 +357,27 @@ export class KeyValuePipeComponent {
 </code></pre></div>
 
 <hr>
+<h3 id="ngClass">*ngClass</h3>
+<p>Zmień klasę elementu do którego dyrektywa jest przypisana, moŻe być zastosowana jedynie wówczas gdy jest jej przypisana jakaś określona (ngClass stosuje się w połączeniu z data binding -&gt; [] tak aby nie trzeba było definiować połączenia osobno, jednak ngClass .</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">ngClass</span><span class="o">]=</span><span class="ss">&quot;someItem&quot;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>albo przekazujemy obiekt,  który zawiera w sobie warunek (jeden lub więcej, oddzielone przecinkiem).</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">ngClass</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;{&#39;btn-primary&#39; : newItem !== &#39;&#39; , &#39;btn-default&#39; === &#39;&#39;}&quot;</span><span class="w"></span>
+</code></pre></div>
+
+
+<h3 id="ngStyle">*ngStyle</h3>
+<p>Dyrektywa pozwalająca na edytowanie stylu danego obiektu</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">ngStyle</span><span class="o">]=</span><span class="ss">&quot;{backgroundColor: i % 2 === 0 ? &#39;yellow&#39; : &#39;blue&#39;}&quot;</span><span class="w"></span>
+</code></pre></div>
+
+
+<hr>
 <h3 id="ngIf">*ngIF (then, else, ngSwitch) - dyrektywa warunku istnienia</h3>
 <p>Kolejną dyrektywą jest <code>*ngIF</code> która w przypadku gdy <code>warunek = undefined lub false</code> nie tworzy elementu, natomiast jeśli warunek jest spełniony to tworzy dany element.</p>
-<p><strong>:::</strong> <strong><em>alternatywnie :</em></strong> visibility -&gt; hidden <code>&lt;button (click)="btn.style.visibility = 'hidden'"&gt;</code>  - ale w takim przypadku element nie znika z drzewa DOM, a do tego nie zwalania miejsca na stronie <strong>:::</strong></p>
+<p><strong>:::*<em> </em></strong>alternatywnie :<strong><em> visibility -&gt; hidden <code>&lt;button (click)="btn.style.visibility = 'hidden'"&gt;</code>  - ale w takim przypadku element nie znika z drzewa DOM, a do tego nie zwalania miejsca na stronie </em>*:::</strong></p>
 <p>Przykład zastosowania (jeśli selectedHero = undefined nie twórz tego elementu / np. na początku gdy nie został jeszcze wybrany)</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">&quot;selectedHero&quot;</span><span class="nt">&gt;</span>
   [...]
@@ -507,9 +525,10 @@ export class KeyValuePipeComponent {
 </code></pre></div>
 
 <hr>
-<h3 id="ngModel">Dyrektywa ngModel - Dwustronne połączenie (property + event binding) i nie tylko</h3>
-<p>dyrektyra <strong>ngModel</strong> jest częścią '@angular/forms' i jest z formularzami właśnie powiązana. Pozwala na dwustronne powiązanie (o czym poniżej), ale kiedy jest używana w pojedynce, wskazuje Angularowi, na element HTML, który ma kontrolować/ którego powinien być świadomy.</p>
-<div class="highlight"><pre><span></span><code>&lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; class=&quot;form-control&quot; ngModel&gt;
+<h3 id="ngModel">Dyrektywa ngModel - Dwustronne połączenie (property + event binding)</h3>
+<p><code>[(ngModel)]</code> - składnia definiująca połączenie dwustronne (funkcjonuje na zasadzie połączenie <strong>property</strong> oraz <strong>event binding</strong>). Nie posiada gwiazdki przez nazwą powniewaŻ nie zmienia struktury drzewa DOM, a jedynie zmienia wartość przypisaną do obiektu drzewa DOM.</p>
+<p>Przykład zastosowania (łączy input z elementem name obiektu hero zadeklarowanym jako właściwość komponentu)</p>
+<div class="highlight"><pre><span></span><code><span class="err">&lt;input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot; /&gt;</span>
 </code></pre></div>
 
 <p><code>[(ngModel)]</code> - składnia definiująca połączenie dwustronne (funkcjonuje na zasadzie połączenie <strong>property</strong> oraz <strong>event binding</strong>). Nie posiada gwiazdki przez nazwą powniewaŻ nie zmienia struktury drzewa DOM, a jedynie zmienia wartość przypisaną do obiektu drzewa DOM.</p>
@@ -656,9 +675,9 @@ export class KeyValuePipeComponent {
   <div class="related-posts">
     <h4>Zobacz także</h4>
     <ul class="related-posts">
-      <li><a href="./react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
-      <li><a href="./typescript-klasy.html">TypeScript: klasy</a></li>
-      <li><a href="./angular-serwisy.html">Angular: przekazanie danych pomiędzy komponentami cz. 2 -> serwis</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/react-wprowadzenie.html">JavaScript: wprowadzenie do React'a</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/typescript-klasy.html">TypeScript: klasy</a></li>
+      <li><a href="https://kostyrko.github.io/zfrontu/angular-serwisy.html">Angular: serwisy</a></li>
     </ul>
   </div>
 
