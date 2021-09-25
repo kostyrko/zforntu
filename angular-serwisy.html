@@ -49,13 +49,13 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="mkostyrko" />
-<meta name="description" content="Angular serwisy Wstęp Klasa TyperScriptowa - przy pomocy, której istnieje możliwość zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable - ten wskazuje na to, że dana klasa jest serwisem i …" />
+<meta name="description" content="Angular serwisy Wstęp Klasa TyperScriptowa - stworzona do centralizacji danych/zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable - ten wskazuje na to, że dana klasa jest serwisem i jej …" />
 <meta name="keywords" content="angular, serwis, service, subscribe, unfinished">
 
 
 <meta property="og:site_name" content="...z frontu"/>
-<meta property="og:title" content="Angular: serwisy"/>
-<meta property="og:description" content="Angular serwisy Wstęp Klasa TyperScriptowa - przy pomocy, której istnieje możliwość zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable - ten wskazuje na to, że dana klasa jest serwisem i …"/>
+<meta property="og:title" content="Angular: przekazanie danych pomiędzy komponentami cz. 2 -&gt; serwis"/>
+<meta property="og:description" content="Angular serwisy Wstęp Klasa TyperScriptowa - stworzona do centralizacji danych/zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji). Serwis posiada swój dekorator @Injectable - ten wskazuje na to, że dana klasa jest serwisem i jej …"/>
 <meta property="og:locale" content="pl_PL"/>
 <meta property="og:url" content="./angular-serwisy.html"/>
 <meta property="og:type" content="article"/>
@@ -154,8 +154,9 @@
     <p><img alt="angular" src="https://i.stack.imgur.com/E8ItT.png"></p>
 <h3>Angular serwisy</h3>
 <h4>Wstęp</h4>
-<p>Klasa TyperScriptowa - przy pomocy, której istnieje możliwość zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).</p>
-<p>Serwis posiada swój dekorator <strong>@Injectable</strong> - ten wskazuje na to, że dana klasa jest serwisem i jej logikę można wstzyknąć do innego komponentu przy pomocy <strong>dependecy injection</strong>  poprzez zadeklarowanie providera (dostarczyciela) + dane określające w jaki sposób działa serwis + użycie innych serwisówv.</p>
+<p>Klasa TyperScriptowa - stworzona do centralizacji danych/zarządzania danymi (a docelowo stanem aplikacji). Jej zadaniem jest - dostarczania danych na potrzeby komponentów (np. poprzez komunikacja z API, komunikacja pomiędzy komponentami, przechowywanie stanu aplikacji).</p>
+<p>Serwis posiada swój dekorator <strong>@Injectable</strong> - ten wskazuje na to, że dana klasa jest serwisem i jej logikę można wstrzyknąć do innego komponentu przy pomocy <strong>dependecy injection</strong>  poprzez zadeklarowanie providera (dostarczyciela) + dane określające w jaki sposób działa serwis + użycie innych serwisów. </p>
+<p>Warto pamiętać : dekorator <strong>@Injectable</strong> nie jest warunkiem koniecznym do implementacji serwisu, jest natomiast warunkiem niezbędnym do wstrzyknięcia serwisu w serwis (wówczas serwis, do którego inny jest wstrzykiwany musi posiadać taki dekorator).)</p>
 <hr>
 <p>Przykładowa <strong>deklaracja tworząca klasę serwisu</strong> (np. <strong>loggerService.service.ts</strong>)</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Injectable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
@@ -167,14 +168,16 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
+<p>Przykład prostej aplikacji korzystającej z serwisu <a href="https://github.com/kostyrko/JS-sandbox/tree/angular-service/7_Angular/angular-service-app/star-wars-services/src/app">star-wars-app</a> </p>
+<p>Przykład tej samej aplikacji, ale gdzie serwis (ServiceLog) został wstrzyknięty do serwisu (StarWarsService) <a href="https://github.com/kostyrko/JS-sandbox/tree/angular-service-into-service/7_Angular/angular-service-app/star-wars-services/src/app">star-wars-app</a></p>
+<p>-&gt; więcej na temat tej aplikacji <a href="https://www.udemy.com/course/angular-essentials-angular-2-angular-4-with-typescript/">Udemy: Angular Essentials (Angular 2+ with TypeScript)</a></p>
 <hr>
 <p><strong>Wykorzystanie serwisu w ramach aplikacji</strong></p>
 <p>Deklaracja serwisu (<em>dependency injection</em>) znajduje się w tablicy <strong>providers</strong> (dostarczycieli ===&gt; <code>providers: [LoggerService]</code> w <strong>app.module.ts</strong></p>
 <p><strong>app.module.ts</strong></p>
 <div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="kn">import</span> <span class="nn">serwisu</span>
 <span class="kn">import</span> <span class="p">{</span> <span class="n">LoggerService</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./shared/loggerService.service&#39;</span><span class="p">;</span>
-<span class="o">//</span> <span class="kn">import</span> <span class="nn">komponentu</span> <span class="nn">wykorzystującego</span> <span class="nn">serwis</span>
+<span class="o">//</span> <span class="kn">import</span> <span class="nn">komponentu</span> <span class="n">wykorzystującego</span> <span class="n">serwis</span>
 <span class="kn">import</span> <span class="p">{</span> <span class="n">LoggingComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./logging/logging.component&#39;</span><span class="p">;</span>
 
 <span class="nd">@NgModule</span><span class="p">({</span>
@@ -185,7 +188,6 @@
 <span class="p">})</span>
 <span class="n">export</span> <span class="k">class</span> <span class="nc">AppModule</span> <span class="p">{</span> <span class="p">}</span>
 </code></pre></div>
-
 
 <p><strong>Wykorzystanie serwisu w ramach komponentu</strong></p>
 <p>W Angular analizuje argumenty w konstruktorze oraz zadeklarowane zależności (wyżej) i dokonuje wstrzyknięcia zależności (dependency injection) na podstawie wskazania w konstruktorze</p>
@@ -211,42 +213,6 @@
         <span class="n">this</span><span class="o">.</span><span class="n">loggerService</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Test the `log()` Method&quot;</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Przykład prostej aplikacji korzystającej z serwisu <a href="https://github.com/kostyrko/JS-sandbox/tree/angular-service/7_Angular/angular-service-app/star-wars-services/src/app">star-wars-app</a> </p>
-<p>Przykład tej samej aplikacji, ale gdzie serwis (ServiceLog) został wstrzyknięty do serwisu (StarWarsService) <a href="https://github.com/kostyrko/JS-sandbox/tree/angular-service-into-service/7_Angular/angular-service-app/star-wars-services/src/app">star-wars-app</a></p>
-<p>-&gt; więcej na temat tej aplikacji <a href="https://www.udemy.com/course/angular-essentials-angular-2-angular-4-with-typescript/">Udemy: Angular Essentials (Angular 2+ with TypeScript)</a></p>
-<hr>
-<p><strong>Wykorzystanie serwisu w ramach aplikacji</strong></p>
-<p>Deklaracja serwisu (<em>dependency injection</em>) znajduje się w tablicy <strong>providers</strong> (dostarczycieli ===&gt; <code>providers: [LoggerService]</code> w <strong>app.module.ts</strong></p>
-<p><strong>app.module.ts</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="kn">import</span> <span class="nn">serwisu</span>
-<span class="kn">import</span> <span class="p">{</span> <span class="n">LoggerService</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./shared/loggerService.service&#39;</span><span class="p">;</span>
-<span class="o">//</span> <span class="kn">import</span> <span class="nn">komponentu</span> <span class="n">wykorzystującego</span> <span class="n">serwis</span>
-<span class="kn">import</span> <span class="p">{</span> <span class="n">LoggingComponent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;./logging/logging.component&#39;</span><span class="p">;</span>
-
-<span class="nd">@NgModule</span><span class="p">({</span>
-  <span class="n">imports</span><span class="p">:</span> <span class="p">[</span><span class="n">BrowserModule</span><span class="p">],</span>
-  <span class="n">declarations</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">,</span> <span class="n">LogTestComponent</span><span class="p">],</span>
-  <span class="n">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="n">AppComponent</span><span class="p">],</span>
-  <span class="n">providers</span><span class="p">:</span> <span class="p">[</span><span class="n">LoggerService</span><span class="p">]</span> <span class="o">//</span> <span class="n">jedna</span> <span class="n">instancja</span> <span class="n">dla</span> <span class="n">całej</span> <span class="n">aplikacji</span>
-<span class="p">})</span>
-<span class="n">export</span> <span class="k">class</span> <span class="nc">AppModule</span> <span class="p">{</span> <span class="p">}</span>
-</code></pre></div>
-
-<p><strong>providedIn: 'root'</strong></p>
-<p>zastosowanie providedIn: 'root' w ramach dekoratora <code>@Injectable()</code> powoduje, że deklarujemy jego dostępność w całym komponencie, wówczas nie ma potrzeby deklarowania go wśród providerów w <strong>app.module.ts</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Injectable</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
-<span class="nd">@Injectable</span><span class="p">(</span>
-  <span class="o">//</span> <span class="n">declares</span> <span class="n">that</span> <span class="n">this</span> <span class="n">service</span> <span class="n">should</span> <span class="n">be</span> <span class="n">created</span>
-  <span class="o">//</span> <span class="n">by</span> <span class="n">the</span> <span class="n">root</span> <span class="n">application</span> <span class="n">injector</span><span class="o">.</span>
-  <span class="n">providedIn</span><span class="p">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">export</span> <span class="k">class</span> <span class="nc">LoggerService</span> <span class="p">{</span>
-  <span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -311,7 +277,6 @@
   <span class="n">NOUN</span><span class="p">,</span> <span class="n">VERB</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <hr>
 <p><strong>dane/plik zastępujący bazę danych</strong> easy-words-app/src/app/data/data-base.ts</p>
@@ -450,7 +415,6 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <hr>
 <p>easy-words-app/src/app/compontents/question/question.component.html</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row center&quot;</span><span class="nt">&gt;</span>
@@ -519,7 +483,6 @@
 <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
 </code></pre></div>
 
-
 <p><strong>Komponent przyjmujący dane od rodzica</strong> </p>
 <p><strong>easy-words-app/src/app/compontents/answers/answers.component.ts</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">{</span> <span class="n">Component</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">OnInit</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
@@ -542,7 +505,6 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p><strong>easy-words-app/src/app/compontents/answers/answers.component.html</strong></p>
 <div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">ul</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;collection with-header&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="k">class</span><span class="o">=</span><span class="ss">&quot;collection-header&quot;</span><span class="o">&gt;</span><span class="w"></span>
@@ -558,7 +520,6 @@
 <span class="w">  </span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span><span class="w"></span>
 <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span><span class="w"></span>
 </code></pre></div>
-
 
 <hr>
 <p>Źródła:</p>
