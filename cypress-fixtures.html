@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Fixtures są plikami przechowującymi dane w ramach środowiska testowego - pozwala na jego modułową budowę. Przechowywanie danych po za plikiem testu a) pozwala na ich reużywalność (dostępność dla wielu testów) b) ma pozytywny wpływ na czytelność testów Plik należy umieścić w folderze fixture a w testach należy odwołać się do niego …" />
+<meta name="keywords" content="cypress, fixtures, alias, this">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Cypress - Fixtures"/>
+<meta property="og:description" content="Fixtures są plikami przechowującymi dane w ramach środowiska testowego - pozwala na jego modułową budowę. Przechowywanie danych po za plikiem testu a) pozwala na ich reużywalność (dostępność dla wielu testów) b) ma pozytywny wpływ na czytelność testów Plik należy umieścić w folderze fixture a w testach należy odwołać się do niego …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="./cypress-fixtures.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2022-02-01 13:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/mkostyrko.html">
+<meta property="article:section" content="qa"/>
+<meta property="article:tag" content="cypress"/>
+<meta property="article:tag" content="fixtures"/>
+<meta property="article:tag" content="alias"/>
+<meta property="article:tag" content="this"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Cypress - Fixtures</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href=".">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="./search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href=".">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="cypress-fixtures">Cypress - Fixtures</h1>
+    <p>
+      Opublikowano wto 01 lutego 2022 w <a href="./category/qa.html">qa</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="cypress" src="https://www.cypress.io/static/cypress-io-logo-social-share-8fb8a1db3cdc0b289fad927694ecb415.png"></p>
+<p><code>Fixtures</code> są plikami przechowującymi dane w ramach środowiska testowego - pozwala na jego modułową budowę. Przechowywanie danych po za plikiem testu a) pozwala na ich reużywalność (dostępność dla wielu testów) b) ma pozytywny wpływ na czytelność testów</p>
+<p>Plik należy umieścić w folderze <code>fixture</code> a w testach należy odwołać się do niego poprzez zastosowanie komendy cy.fixture('nazwaPliku') lub należy podać ścieżkę do pliku wskazującą na znajdowanie się pliku (w samym folderze fixture mogą znajdować się podfoldery).</p>
+<p><strong>Format</strong> podstawowym formatem przechowywania danych jest format JSON, jednak dopuszczonych jest wiele innych (więcej na ten temat <a href="https://docs.cypress.io/api/commands/fixture#JSON">patrz w dokumentacji</a>).</p>
+<p>Wygląd przykładowego pliku fixture/ JSON:</p>
+<div class="highlight"><pre><span></span><code>    {
+    &quot;unread_message_count&quot;: 0,
+    &quot;created_photo_requests_count&quot;: 0,
+    &quot;received_photo_requests_count&quot;: 0,
+    &quot;pending_received_photo_requests_count&quot;: 0,
+    &quot;approved_created_photo_requests_count&quot;: 0,
+    &quot;secret_albums_tab_count&quot;: 0,
+    &quot;pending_profile_views_count&quot;: 7,
+    &quot;favorited_target_ids&quot;: [
+        6,
+        28
+    ],
+    &quot;messages_dot_ids&quot;: []
+    }
+</code></pre></div>
+
+<h3>1. sposób odwołani się do fixture - korzystając z this</h3>
+<div class="highlight"><pre><span></span><code>    <span class="o">///</span> <span class="o">&lt;</span><span class="nv">reference</span> <span class="nv">types</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">cypress</span><span class="s2">&quot;</span> <span class="o">/&gt;</span>
+
+    <span class="nv">describe</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Test Contact Us form</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+        <span class="nv">before</span><span class="ss">(</span><span class="nv">function</span><span class="ss">()</span> {
+            <span class="nv">cy</span>.<span class="nv">fixture</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">example</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="nv">function</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span> {
+                <span class="o">//</span><span class="nv">this</span>.<span class="nv">data</span> <span class="o">=</span> <span class="nv">data</span><span class="c1">;</span>
+                <span class="o">//</span> <span class="nv">albo</span>
+                <span class="nv">globalThis</span>.<span class="nv">data</span> <span class="o">=</span> <span class="nv">data</span><span class="c1">;</span>
+            }<span class="ss">)</span>
+        }<span class="ss">)</span>
+        <span class="nv">it</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Should be able to submit a form</span><span class="s2">&quot;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> { 
+            <span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">[name=&quot;first_name&quot;]</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">type</span><span class="ss">(</span><span class="nv">data</span>.<span class="nv">first_name</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">[name=&quot;last_name&quot;]</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">type</span><span class="ss">(</span><span class="nv">data</span>.<span class="nv">last_name</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">[name=&quot;email&quot;]</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">type</span><span class="ss">(</span><span class="nv">data</span>.<span class="nv">email</span><span class="ss">)</span>
+            <span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">button[title=&#39;Submit&#39;]</span><span class="s2">&quot;</span><span class="ss">)</span>.<span class="nv">click</span><span class="ss">()</span><span class="c1">;</span>
+        }<span class="ss">)</span><span class="c1">;</span>
+    }<span class="ss">)</span>
+</code></pre></div>
+
+<h3>2. sposób odwołania się do danych z fixture - używając aliasu</h3>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">describe</span><span class="p">(</span><span class="ss">&quot;Test Contact Us form&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">before</span><span class="p">(</span><span class="k">function</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">cy</span><span class="p">.</span><span class="n">fixture</span><span class="p">(</span><span class="ss">&quot;userDetails&quot;</span><span class="p">).</span><span class="k">as</span><span class="p">(</span><span class="ss">&quot;user&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">it</span><span class="p">(</span><span class="ss">&quot;Should be able to submit a form&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">cy</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;@user&quot;</span><span class="p">).</span><span class="k">then</span><span class="p">((</span><span class="k">user</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">cy</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;#ContactUsFrm_first_name&#39;</span><span class="p">).</span><span class="n">type</span><span class="p">(</span><span class="k">user</span><span class="p">.</span><span class="n">first_name</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">cy</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;#ContactUsFrm_email&#39;</span><span class="p">).</span><span class="n">type</span><span class="p">(</span><span class="k">user</span><span class="p">.</span><span class="n">email</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">cy</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;button[title=&#39;Submit&#39;]&quot;</span><span class="p">).</span><span class="n">click</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<h3>3. odwołanie się do fixture w cy.intercept()</h3>
+<div class="highlight"><pre><span></span><code>    cy.intercept(&#39;GET&#39;, &#39;/users/**&#39;, { fixture: &#39;users&#39; })
+
+
+    Cypress.Commands.add(&#39;interceptXYZPage&#39;, () =&gt; {
+        cy.intercept(&#39;PUT&#39;, &#39;/xyz/track_event&#39;, trackEvent)
+        cy.intercept(&#39;POST&#39;, &#39;/profile/record_viewing_history&#39;, { fixture: &#39;xyz/recordViewingHistory&#39; })
+        cy.intercept(&#39;GET&#39;, &#39;purchases/status&#39;, { fixture: &#39;xyz/purchasesStatus&#39; })
+    })
+</code></pre></div>
+
+<hr>
+<h3>Czy fixtures są nam niezbędne?</h3>
+<p>Fixtury przechowują dane statyczne i to często nie jest korzystne ponieważ zawęża znacząco zakres testu - test w ten sposób jest zawsze wspierany tymi samymi danymi. Często korzystniejsze jest podstawianie danych, które z testu na test są zmienne - tym samym dodatkowo poszerzając zakres naszego testu - w tym celu można wykorzystać biblioteki generujące dane np. FakkerJS.</p>
+<p>Aby uniknąć tworzenia wielu plików z fixturami można też łączyć ze sobą obiekty lub podmieniać ich części np. wykorzystując bibliotekę <a href="https://www.npmjs.com/package/deepmerge">deepmerge</a></p>
+<hr>
+<p>Źródła</p>
+<p><a href="https://stackoverflow.com/questions/65012366/how-to-update-a-fixture-file-in-cypress">How to update a fixture file in Cypress</a></p>
+<p><a href="https://dev.to/dgreene1/don-t-use-fixtures-in-cypress-and-unit-tests-use-factories-5cnh">Don't use fixtures in Cypress and unit tests - use factories</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/cypress.html">cypress</a>
+      <a href="./tag/fixtures.html">fixtures</a>
+      <a href="./tag/alias.html">alias</a>
+      <a href="./tag/this.html">this</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="./automatyzacja-testow-js.html">JS - biblioteki/narzędzi do testowania</a></li>
+      <li><a href="./cypress-intercept.html">Cypress: cy.intercept() - przechwytywanie zapytań HTTP</a></li>
+      <li><a href="./cypress-commands.html">Cypress - Commands</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+  <!-- <script src="app.js"></script> -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : ".",
+  "image": "",
+  "description": ""
+}
+</script>
+    <script src="app.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Cypress i tworzenie ciągów Cypress oparty jest o tworzenie ciągów (łączeniu ze sobą funkcji w celu stworzenia testu). Cypress sam zajmuje się Promisami. cy.get(&#39;textarea.post-body&#39;) .type(&#39;{enter}&#39;) cy.get(&#39;textarea.post-body&#39;) .contains(&#39;xyz&#39;) .click() cy.get(&#39;textarea.post-body&#39;) .find(&#39;.productname&#39;) .eq(1) .click() cy.find() - szuka dziecka w …" />
+<meta name="keywords" content="testing, cypress, wprowadzenie, then, promise, chaining, variables, zmienne">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Cypress: wprowadzenie cz. 2"/>
+<meta property="og:description" content="Cypress i tworzenie ciągów Cypress oparty jest o tworzenie ciągów (łączeniu ze sobą funkcji w celu stworzenia testu). Cypress sam zajmuje się Promisami. cy.get(&#39;textarea.post-body&#39;) .type(&#39;{enter}&#39;) cy.get(&#39;textarea.post-body&#39;) .contains(&#39;xyz&#39;) .click() cy.get(&#39;textarea.post-body&#39;) .find(&#39;.productname&#39;) .eq(1) .click() cy.find() - szuka dziecka w …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="./cypress-intro-2.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2022-01-16 12:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/mkostyrko.html">
+<meta property="article:section" content="qa"/>
+<meta property="article:tag" content="testing"/>
+<meta property="article:tag" content="cypress"/>
+<meta property="article:tag" content="wprowadzenie"/>
+<meta property="article:tag" content="then"/>
+<meta property="article:tag" content="promise"/>
+<meta property="article:tag" content="chaining"/>
+<meta property="article:tag" content="variables"/>
+<meta property="article:tag" content="zmienne"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Cypress: wprowadzenie cz. 2</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href=".">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="./search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href=".">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="cypress-intro-2">Cypress: wprowadzenie cz. 2</h1>
+    <p>
+      Opublikowano ndz 16 stycznia 2022 w <a href="./category/qa.html">qa</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="cypress" src="https://www.cypress.io/static/cypress-io-logo-social-share-8fb8a1db3cdc0b289fad927694ecb415.png"></p>
+<h2>Cypress i tworzenie ciągów</h2>
+<p>Cypress oparty jest o tworzenie ciągów (łączeniu ze sobą funkcji w celu stworzenia testu). Cypress sam zajmuje się Promisami.</p>
+<div class="highlight"><pre><span></span><code>cy.get(&#39;textarea.post-body&#39;)
+    .type(&#39;{enter}&#39;)
+
+cy.get(&#39;textarea.post-body&#39;)
+    .contains(&#39;xyz&#39;)
+    .click()
+
+cy.get(&#39;textarea.post-body&#39;)
+    .find(&#39;.productname&#39;)
+    .eq(1)
+    .click()
+</code></pre></div>
+
+<p><code>cy.find()</code> - szuka dziecka w wybranego elementu na podstawie selektora</p>
+<p>Przykładowe funkcje, które pozwalają na interakcję z testowaną stroną - </p>
+<p><code>.blur()</code>- Blur na wcześniej sfokusowanym elemencie DOM.</p>
+<p><code>.focus()</code> - Focus na wybranych elemencie DOM.</p>
+<p><code>.clear()</code> -  Czyści input lub textarea.</p>
+<p><code>.check()</code> - Zaznacza checkbox(es) or radio(s).</p>
+<p><code>.uncheck()</code> - Odznacza checkbox(es).</p>
+<p><code>.select()</code> - Select an <code>&lt;option&gt;</code> within a <code>&lt;select&gt;</code>.</p>
+<p><code>.dblclick()</code> - podwójny-click na wybrany element DOM.</p>
+<p>.<code>rightclick()</code> - prawy-klik na wybrany element DOM.</p>
+<hr>
+<h3>Cypress i jego Asynchroniczność</h3>
+<p>Cypressowe komendy są asynchroniczne  (JS jest jednowątkowy, a Cypress jest na Node.js) - jakikolwiek krok jest możliwy do egzekucji to zostanie wykonany/ może wykonywać więcej niż jeden wątek na raz - cypressowe funkcje nie są wykonywane w trakcie wywołania a są kolejkowane w celu ich wykonania. Można mieć wpływ na kolejność wykonywania się testów poprzez użycie <code>then</code>.</p>
+<h3>Cypress promise i then</h3>
+<p>Cypressowe komendy działają na zasadzie promisa/ są promisami.</p>
+<p>then jest używany w przypadku pozytywnego wyniku promisa (resolve), catch w przypadku negatywnego (reject).</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">let</span> <span class="nv">promise</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Promise</span><span class="ss">((</span><span class="nv">resolve</span>, <span class="nv">reject</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+        <span class="nv">let</span> <span class="nv">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span><span class="ss">(</span><span class="nv">a</span> <span class="o">==</span> <span class="mi">2</span><span class="ss">)</span> {
+            <span class="nv">resolve</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Promise Fulfilled</span><span class="s1">&#39;</span><span class="ss">)</span>
+        } <span class="k">else</span> {
+            <span class="nv">reject</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Promise not fulfilled</span><span class="s1">&#39;</span><span class="ss">)</span>
+        }
+    }<span class="ss">)</span>
+
+    <span class="nv">promise</span>.<span class="k">then</span><span class="ss">((</span><span class="nv">message</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">message</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">, promise has passed!</span><span class="s1">&#39;</span><span class="ss">)</span>
+    }<span class="ss">)</span>.<span class="nv">catch</span><span class="ss">((</span><span class="nv">message</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">message</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">, promise has failed</span><span class="s1">&#39;</span><span class="ss">)</span>
+    }<span class="ss">)</span>
+</code></pre></div>
+
+<p>Cy.then() - pozwala na pracę z obiektem dostarczonym poprzez poprzedzającą funkcję np. cy.get()</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">xyz</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="k">then</span><span class="ss">((</span>$<span class="nv">xyz</span><span class="ss">)</span> <span class="o">=&gt;</span> {}<span class="ss">)</span> <span class="o">//</span> <span class="mi">1</span><span class="ss">)</span> <span class="nv">dostarcza</span> <span class="nv">xyz</span> <span class="mi">2</span><span class="ss">)</span> <span class="nv">wykonuje</span> <span class="nv">na</span> <span class="nv">xyz</span> <span class="nv">funkcj</span>ę
+</code></pre></div>
+
+<h3>Stosowanie zmiennych</h3>
+<p>W kontekście stosowania zmiennych należy mieć na uwadze asynchroniczność oraz promisy (dlatego aby wykorzystać obiekt, który cypress zwraca należy wykorzystać komendę then lub zasadę łańcuchowania/łączenia ciągów komend).</p>
+<div class="highlight"><pre><span></span><code>    <span class="o">//</span><span class="n">To</span> <span class="n">podejście</span> <span class="n">nie</span> <span class="n">zadziała</span><span class="p">,</span> <span class="n">ponieważ</span> <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="n">zwraca</span> <span class="n">Promise</span>
+    <span class="k">const</span> <span class="n">header</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;div .header&quot;</span><span class="p">);</span>
+    <span class="n">cy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+
+    <span class="o">//</span><span class="n">To</span> <span class="n">podejście</span> <span class="n">zadziała</span><span class="p">,</span> <span class="n">ponieważ</span> <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="n">jest</span> <span class="n">odpowiednio</span> <span class="n">obsłużony</span> <span class="n">poprzez</span> <span class="n">zastosowanie</span> <span class="n">cy</span><span class="o">.</span><span class="n">then</span><span class="p">()</span>
+    <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;div .header&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="o">$</span><span class="n">header</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">const</span> <span class="n">headerText</span> <span class="o">=</span> <span class="o">$</span><span class="n">header</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+            <span class="n">expect</span><span class="p">(</span><span class="n">headerText</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="s2">&quot;xyz&quot;</span><span class="p">)</span>
+        <span class="p">})</span>
+</code></pre></div>
+
+<p>faktycznie w przypadku cypressa aliasy zastępują zmienne - patrz przykłady zastosowania <code>alias</code> i <code>iframe</code>          </p>
+<hr>
+<h3>Iteracje .each()</h3>
+<p><code>.each(callBackFn)</code>- iteruje po wszystkich elementach znajdujących się w tablicy wykonując na nich przypisaną funkcję / podobnie jak JS forEeach().</p>
+<hr>
+<h3>Wrap() 🎁</h3>
+<p><code>.wrap()</code> - zwraca obiekt, który pozwala na wykonanie cypressowej komendy -&gt; opakowuje wybraną zmienną, po którą jest zapisane odniesienie do elementu DOM tak aby zastosować cypressową komendy -&gt; pozwala na rozróżnienie cy.click() od js.click()</p>
+<hr>
+<h3>invoke</h3>
+<p>invoke() - pozwala na wywołanie właściwości danego elementu DOM.</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">button</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">invoke</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">text</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="k">then</span><span class="ss">((</span><span class="nv">text</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+        <span class="nv">expect</span><span class="ss">(</span><span class="nv">text</span><span class="ss">)</span>.<span class="nv">to</span>.<span class="nv">equal</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">xyz</span><span class="s1">&#39;</span><span class="ss">)</span>
+    }<span class="ss">)</span>
+</code></pre></div>
+
+<hr>
+<h3>Alias</h3>
+<p><code>.as()</code> - jest swego rodzaju cypressową zmienną - pozwala na odwołanie się do przechowywanej wartości w innej części kodu.
+Odwołanie się do aliasy zależne jest od kontekstu i wymaga wskazania poprzez <code>this</code> lub <code>@</code></p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">cy</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="n">inovke</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">).</span><span class="k">as</span><span class="p">(</span><span class="s1">&#39;buttonText&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">buttonText</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">cy</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;@buttonText&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<hr>
+<h2>Przeglądarka</h2>
+<h3>Wiele tabów w przeglądarce</h3>
+<p>Cypress nie obsługuje wielu tabów w przeglądarce - obejściem tej zasady jest wyświetlenie wszystkich możliwych informacji w pojedynczym oknie przeglądarki - w przypadku linków może oznaczać to usunięcie atrybutu odpowiedzialnego za wyświetlenie treści w nowym oknie.</p>
+<div class="highlight"><pre><span></span><code>    cy.get(&#39;#xyz&#39;).invoke(&#39;removeAttr&#39;, &#39;target&#39;).click({force:true})
+</code></pre></div>
+
+<h3>Akcje przeglądarki</h3>
+<p>Cypressowe akcje pozwalają na sterowanie przeglądarką: do przodu, do tyłu, przeładuj</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">cy</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="s1">&#39;back&#39;</span><span class="p">)</span>
+    <span class="n">cy</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>
+    <span class="n">cy</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="bp">true</span><span class="p">)</span> <span class="o">//</span><span class="n">przeładuj</span> <span class="n">nie</span> <span class="n">korzystając</span> <span class="n">z</span> <span class="n">cache</span>
+
+    <span class="n">cy</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="s1">&#39;forward&#39;</span><span class="p">)</span>
+    <span class="n">cy</span><span class="o">.</span><span class="n">url</span><span class="p">()</span><span class="o">.</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3>Alerty - cy.on() 🚨</h3>
+<p>Cypress automatycznie zwraca alerty jako <code>true</code> - stąd aby stworzyć asercję lub zwrócić inny wynik alertu należy 'wyłapać' pojawienie się okna alertu oraz zwrócić <code>false</code></p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">cy</span><span class="p">.</span><span class="nc">on</span><span class="o">(</span><span class="s1">&#39;window:alert&#39;</span><span class="o">,</span> <span class="o">(</span><span class="nt">str</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="err">expect(str).to.equal(&#39;I</span> <span class="err">am</span> <span class="err">an</span> <span class="err">alert</span> <span class="err">box!&#39;)</span>
+    <span class="p">}</span><span class="o">)</span>
+
+    <span class="nt">cy</span><span class="p">.</span><span class="nc">on</span><span class="o">(</span><span class="s1">&#39;window:alert&#39;</span><span class="o">,</span> <span class="o">(</span><span class="nt">str</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="err">return</span> <span class="err">false</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">)</span>
+</code></pre></div>
+
+<h3>iframe 🖼</h3>
+<p>Cypress nie obsługuje <code>iframe</code> stad testowanie wymaga wydobycia informacji</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;#iframe&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s1">&#39;removeAttr&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">({</span><span class="n">force</span><span class="p">:</span><span class="bp">true</span><span class="p">})</span>
+
+    <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;#frame&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="o">$</span><span class="n">iframe</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="n">body</span> <span class="o">=</span> <span class="o">$</span><span class="n">iframe</span><span class="o">.</span><span class="n">contents</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span>
+        <span class="n">cy</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">body</span><span class="p">)</span><span class="o">.</span><span class="k">as</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">)</span>
+    <span class="p">})</span>
+
+    <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;@iframe&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;#button&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;@iframe&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;#qwer&#39;</span><span class="p">)</span><span class="o">.</span><span class="k">as</span><span class="p">(</span><span class="s1">&#39;qwer&#39;</span><span class="p">)</span>
+
+    <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;@qwerl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">should</span><span class="p">((</span><span class="o">$</span><span class="n">expectedText</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="n">text</span> <span class="o">=</span> <span class="o">$</span><span class="n">expectedText</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;XYZ&#39;</span><span class="p">);</span>
+    <span class="p">})</span>
+
+    <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;@qwer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Close&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</code></pre></div>
+
+<h3>Obsługa checkboxów - cy.check() ☑</h3>
+<div class="highlight"><pre><span></span><code>    cy.get(&#39;#radio-buttons&#39;).find(&quot;[type=&#39;radio&#39;]&quot;).first().check()
+
+    cy.get(&#39;#radio-buttons&#39;).find(&quot;[type=&#39;radio&#39;]&quot;).eq(1).check()
+
+    cy.get(&#39;#radio-buttons&#39;).find(&quot;[type=&#39;radio&#39;]&quot;).eq(2).uncheck()
+
+    cy.get(&quot;[value=&#39;a&#39;]&quot;).should(&#39;be.checked&#39;)
+
+    cy.get(&quot;[value=&#39;b&#39;]&quot;).should(&#39;not.be.checked&#39;)
+
+    cy.get(&quot;[value=&#39;c&#39;]&quot;).should(&#39;be.disabled&#39;)
+</code></pre></div>
+
+<h3>cy.trigger() ⌨</h3>
+<p>wywołanie wydarzenia na elementach drzewa DOM - np. w celu wywołania zdarzeń jak np. kliknięcia, wpisywania tekstu, wyboru opcji, itp. Wymaga wcześniejszego wywołania elementu (podpięcia pod element niosący element DOM)</p>
+<div class="highlight"><pre><span></span><code>    cy.get(&#39;#radio-buttons&#39;).find(&quot;[type=&#39;radio&#39;]&quot;).first().trigger(&#39;click&#39;)
+    $el.trigger(&#39;click&#39;)
+    $el.trigger(&#39;keydown&#39;)
+    $el.trigger(&#39;keypress&#39;)
+    $el.trigger(&#39;keyup&#39;)
+    $el.trigger(&#39;focus&#39;)
+    $el.trigger(&#39;blur&#39;)
+    $el.trigger(&#39;change&#39;)
+</code></pre></div>
+
+<hr>
+<h4>akcje myszy 🐁</h4>
+<p>Kliknięcie myszy na środek elementu ({which: 1})</p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">cy</span><span class="p">.</span><span class="nc">get</span><span class="o">(</span><span class="s1">&#39;#draggable&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">trigger</span><span class="o">(</span><span class="s1">&#39;mousedown&#39;</span><span class="o">,</span> <span class="p">{</span><span class="n">which</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span><span class="o">);</span>
+</code></pre></div>
+
+<p>Kliknięcie mysz w określonym miejscu elementu przez podanie współrzędnych</p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">cy</span><span class="p">.</span><span class="nc">get</span><span class="o">(</span><span class="s1">&#39;#draggable&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">trigger</span><span class="o">(</span><span class="s1">&#39;mousemove&#39;</span><span class="o">,</span> <span class="p">{</span><span class="n">clientX</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="n">clientY</span><span class="o">:</span> <span class="mi">100</span><span class="p">}</span><span class="o">);</span>
+</code></pre></div>
+
+<p>Przenieś mysz (1) a następnie upuść (2) na element</p>
+<div class="highlight"><pre><span></span><code>    cy.get(&#39;#droppable&#39;).trigger(&#39;mousemove&#39;).trigger(&#39;mouseup&#39;, {force:true})
+
+    cy.get(&#39;#droppable&#39;).dblclick()
+</code></pre></div>
+
+<p>Sprawdzenie czy kliknięty element posiada konkretny css</p>
+<div class="highlight"><pre><span></span><code>    <span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">#click-box</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">trigger</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">mousedown</span><span class="s1">&#39;</span>, {<span class="nv">which</span>: <span class="mi">1</span>}<span class="ss">)</span>.<span class="k">then</span><span class="ss">((</span><span class="mh">$e</span><span class="nv">lement</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+        <span class="nv">expect</span><span class="ss">(</span><span class="mh">$e</span><span class="nv">lement</span><span class="ss">)</span>.<span class="nv">to</span>.<span class="nv">have</span>.<span class="nv">css</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">background-color</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">rgb(0, 255, 0)</span><span class="s1">&#39;</span><span class="ss">)</span>
+    }<span class="ss">)</span>
+</code></pre></div>
+
+<hr>
+<h3>cypress real events</h3>
+<p>Podstawowe eventy cypressa są symulowane - wszystkie eventy pochodzą z JS, ich zachowanie może się trochę różnić od prawdziwych zachowań, a część zachowań nie może być w ogóle symulowana np. wpisywanie informacji do alertów lub kopiowanie - wtyczka <a href="https://github.com/dmtrKovalenko/cypress-real-events">cypress-real-events</a> ma za zadanie odpowiedzieć na te problemy.</p>
+<p>Więcej na temat zastosowanie tej wtyczki przeczytasz tutaj <a href="https://glebbahmutov.com/blog/cypress-real-events/">Cypress Real Events Plugin</a></p>
+<hr>
+<p>Źródła:</p>
+<p><a href="https://github.com/dmtrKovalenko/cypress-real-events">Cypress Real Events - github.io</a></p>
+<p><a href="https://glebbahmutov.com/blog/cypress-real-events/">Cypress Real Events Plugin</a></p>
+<p><a href="https://docs.cypress.io">cypress.io</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/testing.html">testing</a>
+      <a href="./tag/cypress.html">cypress</a>
+      <a href="./tag/wprowadzenie.html">wprowadzenie</a>
+      <a href="./tag/then.html">then</a>
+      <a href="./tag/promise.html">promise</a>
+      <a href="./tag/chaining.html">chaining</a>
+      <a href="./tag/variables.html">variables</a>
+      <a href="./tag/zmienne.html">zmienne</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="./cypress-intro.html">Cypress wprowadzenie</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+  <!-- <script src="app.js"></script> -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : ".",
+  "image": "",
+  "description": ""
+}
+</script>
+    <script src="app.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

@@ -129,6 +129,40 @@
 
 <article>
   <header>
+    <h2><a href="../cypress-intro-2.html">Cypress: wprowadzenie cz. 2</a></h2>
+    <p>
+      Opublikowano ndz 16 stycznia 2022 w <a href="../category/qa.html">qa</a>
+
+          &#8226; Tagi: 
+              <a href="../tag/testing.html">testing</a>,              <a href="../tag/cypress.html">cypress</a>,              <a href="../tag/wprowadzenie.html">wprowadzenie</a>,              <a href="../tag/then.html">then</a>,              <a href="../tag/promise.html">promise</a>,              <a href="../tag/chaining.html">chaining</a>,              <a href="../tag/variables.html">variables</a>,              <a href="../tag/zmienne.html">zmienne</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="cypress" src="https://www.cypress.io/static/cypress-io-logo-social-share-8fb8a1db3cdc0b289fad927694ecb415.png"></p>
+<h2>Cypress i tworzenie ciągów</h2>
+<p>Cypress oparty jest o tworzenie ciągów (łączeniu ze sobą funkcji w celu stworzenia testu). Cypress sam zajmuje się Promisami.</p>
+<div class="highlight"><pre><span></span><code>cy.get(&#39;textarea.post-body&#39;)
+    .type(&#39;{enter}&#39;)
+
+cy.get(&#39;textarea.post-body&#39;)
+    .contains(&#39;xyz&#39;)
+    .click()
+
+cy.get(&#39;textarea.post-body&#39;)
+    .find(&#39;.productname&#39;)
+    .eq(1)
+    .click()
+</code></pre></div>
+
+<p><code>cy.find()</code> - szuka dziecka w …</p>
+        <br>
+        <a class="btn" href="../cypress-intro-2.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="../js-asynchronicznosc-ajax.html">JavaScript: asynchroniczność i AJAX</a></h2>
     <p>
       Opublikowano czw 11 czerwca 2020 w <a href="../category/javascript.html">javascript</a>
@@ -157,7 +191,7 @@
       </a>
       <footer>
 <p>
-  &copy;  2021 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
 </p>
 <p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
   <a rel="license"
@@ -173,7 +207,7 @@
 </p>      </footer>
     </div>
   </main>
-
+  <!-- <script src="app.js"></script> -->
 
 
 
@@ -187,6 +221,7 @@
   "description": ""
 }
 </script>
+    <script src="app.js"></script>
 
 
   <script>
@@ -194,6 +229,5 @@
         $('#tipue_search_input').tipuesearch();
     });
   </script>
-  <script src="app.js"></script>
 </body>
 </html>

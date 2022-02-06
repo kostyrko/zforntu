@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Wprowadzenie Cypress jako taki zawiera różnego rodzaju komendy odpowiadający za konkretne przeprowadzanie testów mających wpływ na zachowanie się aplikacji, pozwala również na dodanie własnych komend tzw. custom commands - które nie są niczym innym niż funkcją które w łatwy sposób można łączyć z obiektami cypressowymi - to pozwala na zamknięcie pewnej powtarzalnej …" />
+<meta name="keywords" content="cypress">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Cypress - Commands"/>
+<meta property="og:description" content="Wprowadzenie Cypress jako taki zawiera różnego rodzaju komendy odpowiadający za konkretne przeprowadzanie testów mających wpływ na zachowanie się aplikacji, pozwala również na dodanie własnych komend tzw. custom commands - które nie są niczym innym niż funkcją które w łatwy sposób można łączyć z obiektami cypressowymi - to pozwala na zamknięcie pewnej powtarzalnej …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="./cypress-commands.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2022-01-29 13:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/mkostyrko.html">
+<meta property="article:section" content="qa"/>
+<meta property="article:tag" content="cypress"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Cypress - Commands</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href=".">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="./search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href=".">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="cypress-commands">Cypress - Commands</h1>
+    <p>
+      Opublikowano sob 29 stycznia 2022 w <a href="./category/qa.html">qa</a>
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="cypress-commands" src="https://digital.ai/sites/default/files/pictures/styles/maxwidth_1920/public/blog-images//cypress-framework-1.jpg?itok=Iw9boVx6"></p>
+<h3>Wprowadzenie</h3>
+<p>Cypress jako taki zawiera różnego rodzaju komendy odpowiadający za konkretne przeprowadzanie testów mających wpływ na zachowanie się aplikacji, pozwala również na dodanie własnych komend tzw. <strong>custom commands</strong> - które nie są niczym innym niż funkcją które w łatwy sposób można łączyć z obiektami cypressowymi - to pozwala na zamknięcie pewnej powtarzalnej logiki/kodu, który można stosować w wielu miejscach.</p>
+<ul>
+<li>
+<p><code>overwrite</code> pozwala na nadpisanie funkcji już w cypressie zawartych =&gt;</p>
+<p>Cypress.Commands.overwrite('visit', (originalFn, url, options) =&gt; {
+    return originalFn(url, {
+      ...options,
+      onBeforeLoad(win) {
+        win.fetch = null;
+      },
+    });
+  });</p>
+</li>
+</ul>
+<p>Po zainstalowaniu Cypressa w folderze <strong>support</strong> znaleźć można plik <strong>commands.js</strong> - ten musi być podlinkowany w <strong>index.js</strong> aby nasze komendy były importowane za każdym razem kiedy cypress jest odpalany.</p>
+<hr>
+<h4>Przykładowe komendy - commands.js</h4>
+<p><strong>Wybranie n-tego dziecka</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nv">Cypress</span>.<span class="nv">Commands</span>.<span class="nv">add</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">selectNth</span><span class="s1">&#39;</span>, { <span class="nv">prevSubject</span>: <span class="s1">&#39;</span><span class="s">element</span><span class="s1">&#39;</span> }, <span class="ss">(</span><span class="nv">subject</span>, <span class="nv">nth</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+  <span class="nv">cy</span>.<span class="nv">wrap</span><span class="ss">(</span><span class="nv">subject</span><span class="ss">)</span>
+    .<span class="nv">children</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">option</span><span class="s1">&#39;</span><span class="ss">)</span>
+    .<span class="nv">eq</span><span class="ss">(</span><span class="nv">nth</span><span class="ss">)</span>
+    .<span class="k">then</span><span class="ss">(</span><span class="nv">elem</span> <span class="o">=&gt;</span> {
+      <span class="nv">cy</span>.<span class="nv">wrap</span><span class="ss">(</span><span class="nv">subject</span><span class="ss">)</span>.<span class="nv">select</span><span class="ss">(</span><span class="nv">elem</span>.<span class="nv">val</span><span class="ss">())</span>
+    }<span class="ss">)</span>
+}<span class="ss">)</span>
+</code></pre></div>
+
+<p>zastosowanie</p>
+<div class="highlight"><pre><span></span><code>cy.get(&#39;#select&#39;).selectNth(2)
+</code></pre></div>
+
+<p><strong>Prosty generator tekstu</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">generateRandomText</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">Math</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+
+<span class="n">Cypress</span><span class="o">.</span><span class="n">Commands</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;fillWithRandomText&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="n">prevSubject</span><span class="p">:</span> <span class="s1">&#39;element&#39;</span> <span class="p">},</span> <span class="n">subject</span> <span class="o">=&gt;</span>
+  <span class="n">cy</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">generateRandomText</span><span class="p">()),</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>analogicznie zastosowanie</p>
+<div class="highlight"><pre><span></span><code>cy.get(&#39;#input&#39;).fillWithRandomText()
+</code></pre></div>
+
+<p>Do tej komendy <strong>sprawdzającej zawartość tekstu</strong> należy przekazać łańcuch znaków</p>
+<div class="highlight"><pre><span></span><code><span class="nv">Cypress</span>.<span class="nv">Commands</span>.<span class="nv">add</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">checkTextContent</span><span class="s1">&#39;</span>, { <span class="nv">prevSubject</span>: <span class="s1">&#39;</span><span class="s">element</span><span class="s1">&#39;</span> }, <span class="ss">(</span><span class="nv">subject</span>, <span class="nv">contains</span>: <span class="nv">string</span><span class="ss">)</span> <span class="o">=&gt;</span>
+  <span class="nv">cy</span>
+    .<span class="nv">wrap</span><span class="ss">(</span><span class="nv">subject</span><span class="ss">)</span>
+    .<span class="nv">invoke</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">text</span><span class="s1">&#39;</span><span class="ss">)</span>
+    .<span class="k">then</span><span class="ss">(</span><span class="nv">text</span> <span class="o">=&gt;</span> {
+      <span class="nv">expect</span><span class="ss">(</span><span class="nv">text</span><span class="ss">)</span>.<span class="nv">to</span>.<span class="nv">contain</span><span class="ss">(</span><span class="nv">contains</span><span class="ss">)</span>
+    }<span class="ss">)</span>,
+<span class="ss">)</span>
+
+<span class="nv">cy</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">#input</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">checkTextContent</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Hello World</span><span class="s1">&#39;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Ta komenda przyjmuje url w postaci łańcucha znaków oraz tablicę zawierającą obiekty, którymi request ma być stubbowany/ dto które mają być podstawione podczas kolejnych zapytań / założenie jest że w danym teście mamy testować reakcję aplikacji, obsługujących wiele zapytań tego samego typu, ale różnych zawartościach odpowiedzi na nie.</p>
+<div class="highlight"><pre><span></span><code>Cypress.Commands.add(&#39;multipleIntercepts&#39;, (url: string, responses: {}[]) =&gt; {
+  cy.intercept(url, req =&gt; {
+    req.reply(responses.shift())
+  })
+})
+</code></pre></div>
+
+<p>Źródła:</p>
+<p><a href="https://www.youtube.com/watch?v=66bEpdatEYQ&amp;list=PLYDwWPRvXB8-8LG2hZv25HO6C3w_vezZb&amp;index=12">Create your OWN CYPRESS COMMAND NOW! | Cypress Tutorial For Beginners</a></p>
+<p><a href="https://www.testersbay.pl/post/custom-commands-co-to-i-jak-ich-u%C5%BCywa%C4%87">Custom commands - co to i jak ich używać</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/cypress.html">cypress</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+  <!-- <script src="app.js"></script> -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : ".",
+  "image": "",
+  "description": ""
+}
+</script>
+    <script src="app.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

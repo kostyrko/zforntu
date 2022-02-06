@@ -129,12 +129,144 @@
 
 <article>
   <header>
-    <h2><a href="../testing-good-practices.html">Dobre zasady testowania</a></h2>
+    <h2><a href="../cypress-test-studio.html">Cypress: test studio</a></h2>
     <p>
-      Opublikowano ptk 25 czerwca 2021 w <a href="../category/testing.html">testing</a>
+      Opublikowano śro 09 lutego 2022 w <a href="../category/testing.html">testing</a>
 
           &#8226; Tagi: 
-              <a href="../tag/cypress.html">cypress</a>,              <a href="../tag/testing.html">testing</a>,              <a href="../tag/good-practices.html">good practices</a>
+              <a href="../tag/testing.html">testing</a>,              <a href="../tag/cypress.html">cypress</a>,              <a href="../tag/test-studio.html">test studio</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="cypress-test-studio" src="https://docs.cypress.io/_nuxt/img/add-test-save-test.f776eb3.png"></p>
+<h2>Cypress Test studio</h2>
+<p><strong>Cypress Test Studio</strong> - jest narzędziem (w wersji Beta w momencie pisania tego artykułu) pozwalającym na tworzenie testów w Cypressie (tryb Open) bez pisania kodu... Ponieważ ta funkcjonalność jest jedynie w wersji beta jest ograniczona do zaledwie paru funkcji (check, select,click,type,uncheck - ).</p>
+<p>Po skonfigurowaniu właściwości <strong>Cypress …</strong></p>
+        <br>
+        <a class="btn" href="../cypress-test-studio.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="../cypress-dom.html">Cypress: przechodzenie pomiędzy elementami drzewa DOM</a></h2>
+    <p>
+      Opublikowano ndz 30 stycznia 2022 w <a href="../category/qa.html">qa</a>
+
+          &#8226; Tagi: 
+              <a href="../tag/testing.html">testing</a>,              <a href="../tag/cypress.html">cypress</a>
+        &#8226; 1 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="dom-html" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/1200px-DOM-model.svg.png"></p>
+<h2>Cypress i trawersowanie pomiędzy elementami drzewa DOM</h2>
+<p><code>children()</code> - wydobywa dzieci wybranego elementu drzewa DOM / pozwala na przekazanie selektora w celu wybrania konkretnego dziecka np.</p>
+<div class="highlight"><pre><span></span><code>cy.get(&#39;#parent&#39;).children().should(&#39;have.length&#39;, 3)
+
+cy.get(&#39;#parent&#39;).children(&#39;.active&#39;).should(&#39;have.class&#39;, &#39;child&#39;)
+</code></pre></div>
+
+<p><code>closest()</code> - wydobywa najbliższego rodzica elementu DOM // również pozwala na …</p>
+        <br>
+        <a class="btn" href="../cypress-dom.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="../cypress-intro-2.html">Cypress: wprowadzenie cz. 2</a></h2>
+    <p>
+      Opublikowano ndz 16 stycznia 2022 w <a href="../category/qa.html">qa</a>
+
+          &#8226; Tagi: 
+              <a href="../tag/testing.html">testing</a>,              <a href="../tag/cypress.html">cypress</a>,              <a href="../tag/wprowadzenie.html">wprowadzenie</a>,              <a href="../tag/then.html">then</a>,              <a href="../tag/promise.html">promise</a>,              <a href="../tag/chaining.html">chaining</a>,              <a href="../tag/variables.html">variables</a>,              <a href="../tag/zmienne.html">zmienne</a>
+        &#8226; 3 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="cypress" src="https://www.cypress.io/static/cypress-io-logo-social-share-8fb8a1db3cdc0b289fad927694ecb415.png"></p>
+<h2>Cypress i tworzenie ciągów</h2>
+<p>Cypress oparty jest o tworzenie ciągów (łączeniu ze sobą funkcji w celu stworzenia testu). Cypress sam zajmuje się Promisami.</p>
+<div class="highlight"><pre><span></span><code>cy.get(&#39;textarea.post-body&#39;)
+    .type(&#39;{enter}&#39;)
+
+cy.get(&#39;textarea.post-body&#39;)
+    .contains(&#39;xyz&#39;)
+    .click()
+
+cy.get(&#39;textarea.post-body&#39;)
+    .find(&#39;.productname&#39;)
+    .eq(1)
+    .click()
+</code></pre></div>
+
+<p><code>cy.find()</code> - szuka dziecka w …</p>
+        <br>
+        <a class="btn" href="../cypress-intro-2.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="../cypress-intro.html">Cypress wprowadzenie</a></h2>
+    <p>
+      Opublikowano ndz 09 stycznia 2022 w <a href="../category/qa.html">qa</a>
+
+          &#8226; Tagi: 
+              <a href="../tag/testing.html">testing</a>,              <a href="../tag/cypress.html">cypress</a>,              <a href="../tag/wprowadzenie.html">wprowadzenie</a>,              <a href="../tag/asercje.html">asercje</a>,              <a href="../tag/js.html">js</a>,              <a href="../tag/qa.html">qa</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="cypress" src="https://www.cypress.io/static/cypress-io-logo-social-share-8fb8a1db3cdc0b289fad927694ecb415.png"></p>
+<h2>Cypress wprowadzenie</h2>
+<p>Cypress jest oparty o bibl. Mocha (struktura test) oraz Chai (asercje, funkcje, wywołania).</p>
+<h4>Mocha 🥤</h4>
+<p><code>describe</code> - opis testu / grupowanie serii tekstu / przyjmuje 2 argumenty - nazwę testu i funkcję (call back function)</p>
+<p><code>it</code> - test / pojedynczy test / przyjmuje 2 argumenty - nazwę testu i funkcję (call back function)</p>
+<p><code>.only</code> - wyłącza wszystkie inne …</p>
+        <br>
+        <a class="btn" href="../cypress-intro.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="../appium.html">Appium wprowadzenie</a></h2>
+    <p>
+      Opublikowano ndz 19 grudnia 2021 w <a href="../category/qa.html">qa</a>
+
+          &#8226; Tagi: 
+              <a href="../tag/testing.html">testing</a>,              <a href="../tag/wprowadzenie.html">wprowadzenie</a>,              <a href="../tag/tests.html">tests</a>,              <a href="../tag/qa.html">qa</a>
+        &#8226; 2 min read
+    </p>
+  </header>
+  <div>
+      <p><img alt="appium" src="https://www.infostretch.com/wp-content/uploads/2017/04/MobileDevTest_Blog-700x300.jpg"></p>
+<h3>Instalacja:</h3>
+<div class="highlight"><pre><span></span><code>    &gt; brew install node      # get node.js
+    &gt; npm install -g appium  # get appium
+    &gt; npm install wd         # get appium client
+    &gt; appium &amp;                # start appium
+    &gt; node your-appium-test.js # run your test
+</code></pre></div>
+
+<p>Pierwsze uruchomienie być może będzie wymagało -&gt; Edit configurations -&gt; podanie Android_Home (u mnie: /Users/user_name/Library/Android/sdk) + Java_Home (wpisz w terminal: /usr …</p>
+        <br>
+        <a class="btn" href="../appium.html">Czytaj dalej</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="../testing-good-practices.html">Dobre zasady testowania</a></h2>
+    <p>
+      Opublikowano ptk 25 czerwca 2021 w <a href="../category/qa.html">qa</a>
+
+          &#8226; Tagi: 
+              <a href="../tag/cypress.html">cypress</a>,              <a href="../tag/testing.html">testing</a>,              <a href="../tag/good-practices.html">good practices</a>,              <a href="../tag/tests.html">tests</a>,              <a href="../tag/qa.html">qa</a>
         &#8226; 2 min read
     </p>
   </header>
@@ -158,7 +290,7 @@
       </a>
       <footer>
 <p>
-  &copy;  2021 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
 </p>
 <p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
   <a rel="license"
@@ -174,7 +306,7 @@
 </p>      </footer>
     </div>
   </main>
-
+  <!-- <script src="app.js"></script> -->
 
 
 
@@ -188,6 +320,7 @@
   "description": ""
 }
 </script>
+    <script src="app.js"></script>
 
 
   <script>
@@ -195,6 +328,5 @@
         $('#tipue_search_input').tipuesearch();
     });
   </script>
-  <script src="app.js"></script>
 </body>
 </html>

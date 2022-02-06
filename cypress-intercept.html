@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Wprowadzenie stubbing vs mocking Oba pojęcia odnoszą się do podstawiania danych w celu przeprowadzenia testów - mockowanie odnosi się jednak do podstawiania danych w celu testowania funkcjonalności, podczas gdy stubowanie w celu zmiany stanu komponentu/strony/aplikacji. Mocks vs Stubs = Testowanie funkcjonalne vs testowanie stanu =&gt; oznacza to że może w teście …" />
+<meta name="keywords" content="cypress, testy, intercept">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Cypress: cy.intercept() - przechwytywanie zapytań HTTP"/>
+<meta property="og:description" content="Wprowadzenie stubbing vs mocking Oba pojęcia odnoszą się do podstawiania danych w celu przeprowadzenia testów - mockowanie odnosi się jednak do podstawiania danych w celu testowania funkcjonalności, podczas gdy stubowanie w celu zmiany stanu komponentu/strony/aplikacji. Mocks vs Stubs = Testowanie funkcjonalne vs testowanie stanu =&gt; oznacza to że może w teście …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="./cypress-intercept.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2022-02-02 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/mkostyrko.html">
+<meta property="article:section" content="qa"/>
+<meta property="article:tag" content="cypress"/>
+<meta property="article:tag" content="testy"/>
+<meta property="article:tag" content="intercept"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Cypress: cy.intercept() - przechwytywanie zapytań HTTP</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href=".">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="./search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href=".">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="cypress-intercept">Cypress: cy.intercept() - przechwytywanie zapytań HTTP</h1>
+    <p>
+      Opublikowano śro 02 lutego 2022 w <a href="./category/qa.html">qa</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="cypress" src="https://i.ytimg.com/vi/gGDI3ee81d8/maxresdefault.jpg"></p>
+<h3>Wprowadzenie stubbing vs mocking</h3>
+<p>Oba pojęcia odnoszą się do podstawiania danych w celu przeprowadzenia testów - <strong>mockowanie</strong> odnosi się jednak do podstawiania danych w celu <strong>testowania funkcjonalności</strong>, podczas gdy <strong>stubowanie</strong> w celu <strong>zmiany stanu</strong> komponentu/strony/aplikacji.</p>
+<p><strong>Mocks</strong> vs <strong>Stubs</strong> = Testowanie funkcjonalne vs testowanie stanu =&gt; oznacza to że może w teście być wiele stubbów ale tylko jeden mock (w ramach zasady: testowania jednej funkcjonalności na test).</p>
+<p>!!! -&gt; więcej na ten temat patrz: <a href="https://stackoverflow.com/questions/3459287/whats-the-difference-between-a-mock-stub">SO - What's the difference between a mock &amp; stub?</a></p>
+<h3>cy.intercept()</h3>
+<p><code>cy.request()</code>- pozwala na przechwycenie zapytania typu HTTP przez test cypressowy - taka komenda może przydać się w przypadku gdy 1) chcemy aby dane zapytanie doszło do skutku zanim zaczniemy wykonywać kolejną komendę lub 2) gdy zależy nam na przechwyceniu requestu HTTP i podstawienia danych do niego, w celu testowania zachowania się aplikacji front-endowej.</p>
+<div class="highlight"><pre><span></span><code>beforeEach(() =&gt; {
+    cy.viewport(viewport)
+    cy.intercept(&#39;GET&#39;, &#39;/xxx/xxx_data?page=1&#39;, { fixture: &#39;xxx/xxx_data.json&#39; })
+})
+</code></pre></div>
+
+<hr>
+<h3>cy.intercept() + cy.wait()</h3>
+<p>Nasłuchiwanie zapytania typu GET na <code>*/comments/*</code></p>
+<div class="highlight"><pre><span></span><code>cy.intercept(&#39;GET&#39;, &#39;**/comments/*&#39;).as(&#39;getComment&#39;)
+</code></pre></div>
+
+<p>Sprawdzanie statusu</p>
+<div class="highlight"><pre><span></span><code><span class="n">cy</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@getComment&#39;</span><span class="p">).</span><span class="n">its</span><span class="p">(</span><span class="s1">&#39;response.statusCode&#39;</span><span class="p">).</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;be.oneOf&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">200, 304</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Logowanie obiektu (DTO) w konsoli </p>
+<div class="highlight"><pre><span></span><code><span class="n">cy</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;@post&#39;</span><span class="p">).</span><span class="k">then</span><span class="p">(</span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<hr>
+<h3>cy.intercept() + cy.wait() + cy.commnad()</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Cypress</span><span class="p">.</span><span class="n">Commands</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">&#39;waitForApp2Start&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">dto</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">intercept</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/xyz&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">fixture</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;xdata&#39;</span><span class="w"> </span><span class="err">}</span><span class="p">).</span><span class="k">as</span><span class="p">(</span><span class="s1">&#39;xdata&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">intercept</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/search_data?*&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">fixture</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;searchData&#39;</span><span class="w"> </span><span class="err">}</span><span class="p">).</span><span class="k">as</span><span class="p">(</span><span class="s1">&#39;searchData&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="err">}</span><span class="p">)</span><span class="w"></span>
+
+
+<span class="n">cy</span><span class="p">.</span><span class="n">waitForApp2Start</span><span class="p">()</span><span class="w"></span>
+<span class="n">cy</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@xdata&#39;</span><span class="p">).</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@searchData&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<hr>
+<h3>przechwytywanie wielu zapytań / mockowanie wielu zapytań</h3>
+<p><code>cy.clock()</code>- pozwala na "zamrożenie" zegara oraz wszystkich funkcji związanych z mierzeniem czasu jak setInterval czy setTimeout</p>
+<p><code>cy.tick()</code> - pozawala na manualne sterowanie czasem</p>
+<div class="highlight"><pre><span></span><code><span class="n">it</span><span class="p">(</span><span class="s1">&#39;fetches from the server (spies)&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">intercept</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/favorite-fruits&#39;</span><span class="p">).</span><span class="k">as</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;/fruits.html&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">pierwsze</span><span class="w"> </span><span class="n">zapytanie</span><span class="w"></span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@fruits&#39;</span><span class="p">).</span><span class="n">its</span><span class="p">(</span><span class="s1">&#39;response.statusCode&#39;</span><span class="p">).</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">po</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="n">sekundach</span><span class="w"> </span><span class="n">pytanie</span><span class="w"> </span><span class="n">jest</span><span class="w"> </span><span class="n">ponawiane</span><span class="w"> </span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">30000</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">cy</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@fruits&#39;</span><span class="p">).</span><span class="n">its</span><span class="p">(</span><span class="s1">&#39;response.statusCode&#39;</span><span class="p">).</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">[</span><span class="n">...</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
+
+<p>Mockowanie zapytania HTTP</p>
+<div class="highlight"><pre><span></span><code>  <span class="nv">it</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">returns different fruits every 30 seconds</span><span class="s1">&#39;</span>, <span class="ss">()</span> <span class="o">=&gt;</span> {
+    <span class="nv">cy</span>.<span class="nv">clock</span><span class="ss">()</span>
+    <span class="nv">let</span> <span class="nv">k</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="o">//</span> <span class="nv">za</span> <span class="nv">ka</span>ż<span class="nv">dym</span> <span class="nv">razem</span> <span class="nv">kiedy</span> <span class="nv">pojawia</span> <span class="nv">si</span>ę <span class="nv">zapytanie</span> <span class="nv">inna</span> <span class="nv">odpowied</span>ź <span class="nv">jest</span> <span class="nv">podstawiana</span>
+    <span class="nv">cy</span>.<span class="nv">intercept</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/favorite-fruits</span><span class="s1">&#39;</span>, <span class="ss">(</span><span class="nv">req</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+      <span class="nv">k</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="nv">switch</span> <span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> {
+        <span class="nv">case</span> <span class="mi">1</span>:
+          <span class="k">return</span> <span class="nv">req</span>.<span class="nv">reply</span><span class="ss">(</span>[<span class="s1">&#39;</span><span class="s">apples 🍎</span><span class="s1">&#39;</span>]<span class="ss">)</span>
+        <span class="nv">case</span> <span class="mi">2</span>:
+          <span class="k">return</span> <span class="nv">req</span>.<span class="nv">reply</span><span class="ss">(</span>[<span class="s1">&#39;</span><span class="s">grapes 🍇</span><span class="s1">&#39;</span>]<span class="ss">)</span>
+        <span class="nv">default</span>:
+          <span class="k">return</span> <span class="nv">req</span>.<span class="nv">reply</span><span class="ss">(</span>[<span class="s1">&#39;</span><span class="s">kiwi 🥝</span><span class="s1">&#39;</span>]<span class="ss">)</span>
+      }
+    }<span class="ss">)</span>
+
+    <span class="nv">cy</span>.<span class="nv">visit</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/fruits.html</span><span class="s1">&#39;</span><span class="ss">)</span>
+    <span class="nv">cy</span>.<span class="nv">contains</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">apples 🍎</span><span class="s1">&#39;</span><span class="ss">)</span>
+    <span class="nv">cy</span>.<span class="nv">tick</span><span class="ss">(</span><span class="mi">30000</span><span class="ss">)</span>
+    <span class="nv">cy</span>.<span class="nv">contains</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">grapes 🍇</span><span class="s1">&#39;</span><span class="ss">)</span>
+    <span class="nv">cy</span>.<span class="nv">tick</span><span class="ss">(</span><span class="mi">30000</span><span class="ss">)</span>
+     <span class="nv">cy</span>.<span class="nv">contains</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">kiwi 🥝</span><span class="s1">&#39;</span><span class="ss">)</span>
+}<span class="ss">)</span>
+</code></pre></div>
+
+<p>Za każdym razem kiedy intercept jest wywoływany używa pierwszego elementu z tablicy odpowiedzi i usuwa go.
+Po pierwszych dwóch razach, responses.shift() zawsze zwraca <strong>undefined</strong> i wtedy odpowiedź jest w postaci tablicy zawierającej kiwi.</p>
+<div class="highlight"><pre><span></span><code><span class="n">it</span><span class="p">(</span><span class="s1">&#39;returns different fruits every 30 seconds (array shift)&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">cy</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+
+  <span class="o">//</span> <span class="k">return</span> <span class="n">difference</span> <span class="n">responses</span> <span class="n">on</span> <span class="n">each</span> <span class="n">call</span>
+  <span class="k">const</span> <span class="n">responses</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;apples 🍎&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;grapes 🍇&#39;</span><span class="p">],</span>
+  <span class="p">]</span>
+
+  <span class="n">cy</span><span class="o">.</span><span class="n">intercept</span><span class="p">(</span><span class="s1">&#39;/favorite-fruits&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="n">responses</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span> <span class="o">||</span> <span class="p">[</span><span class="s1">&#39;kiwi 🥝&#39;</span><span class="p">])</span>
+  <span class="p">})</span>
+
+  <span class="n">cy</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;/fruits.html&#39;</span><span class="p">)</span>
+  <span class="n">cy</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;apples 🍎&#39;</span><span class="p">)</span>
+  <span class="n">cy</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">30000</span><span class="p">)</span>
+  <span class="n">cy</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;grapes 🍇&#39;</span><span class="p">)</span>
+  <span class="n">cy</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">30000</span><span class="p">)</span>
+  <span class="n">cy</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;kiwi 🥝&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<hr>
+<h3>Testowanie API przy pomocy Cypressa</h3>
+<p>Generalnie Cypress nie powstał w celu testowania API - do tego zostały stworzone inne biblioteki oraz narzędzia (patrz linki w sekcji: Powiązane artykuły) nie oznacza to jednak, że nie może być z powodzeniem do tego wykorzystywany. Powstała nawet do tego osobna wtyczka <a href="https://github.com/bahmutov/cy-api">cy-api</a>.</p>
+<p>Tutaj znajdziesz linki do materiałów na YT(ang), które przedstawiają w jaki sposób można testować API w Cypressie (i jest to naturalne rozwinięcie materiału opisanego powyżej)</p>
+<p><a href="https://www.youtube.com/watch?v=TocjjF_pARo">Cypress - API Testing | Part 14</a></p>
+<p><a href="https://www.youtube.com/watch?v=OICPSvIWAQg">Cy-api/Cypress API testing Tricks</a></p>
+<p><a href="https://www.youtube.com/watch?v=bcO2E6XFJCY&amp;list=PLYDwWPRvXB8-8LG2hZv25HO6C3w_vezZb&amp;index=15">CYPRESS API TESTING Introduction - CYPRESS REQUEST</a></p>
+<hr>
+<p>Źródła:</p>
+<p><a href="https://docs.cypress.io/api/commands/intercept">intercept - cypress.io</a></p>
+<p><a href="https://example.cypress.io/commands/waiting">example.cypress.io/commands/waiting</a></p>
+<p><a href="https://www.cypress.io/blog/2019/12/23/asserting-network-calls-from-cypress-tests/">Asserting Network Calls from Cypress Tests</a></p>
+<p><a href="https://www.cypress.io/blog/2021/02/23/cy-intercept-and-cy-clock/">Testing periodic network requests with cy.intercept and cy.clock combination</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/cypress.html">cypress</a>
+      <a href="./tag/testy.html">testy</a>
+      <a href="./tag/intercept.html">intercept</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="./cypress-commands.html">Cypress - Commands</a></li>
+      <li><a href="./automatyzacja-testow-js.html">JS - biblioteki/narzędzi do testowania</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+  <!-- <script src="app.js"></script> -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : ".",
+  "image": "",
+  "description": ""
+}
+</script>
+    <script src="app.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>

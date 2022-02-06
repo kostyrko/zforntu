@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Instalacja: &gt; brew install node # get node.js &gt; npm install -g appium # get appium &gt; npm install wd # get appium client &gt; appium &amp; # start appium &gt; node your-appium-test.js # run your test Pierwsze uruchomienie być może będzie wymagało -&gt; Edit configurations -&gt; podanie Android_Home (u mnie: /Users/user_name/Library/Android/sdk) + Java_Home (wpisz w terminal: /usr …" />
+<meta name="keywords" content="testing, wprowadzenie, tests, qa">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Appium wprowadzenie"/>
+<meta property="og:description" content="Instalacja: &gt; brew install node # get node.js &gt; npm install -g appium # get appium &gt; npm install wd # get appium client &gt; appium &amp; # start appium &gt; node your-appium-test.js # run your test Pierwsze uruchomienie być może będzie wymagało -&gt; Edit configurations -&gt; podanie Android_Home (u mnie: /Users/user_name/Library/Android/sdk) + Java_Home (wpisz w terminal: /usr …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="./appium.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-12-19 10:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/mkostyrko.html">
+<meta property="article:section" content="qa"/>
+<meta property="article:tag" content="testing"/>
+<meta property="article:tag" content="wprowadzenie"/>
+<meta property="article:tag" content="tests"/>
+<meta property="article:tag" content="qa"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Appium wprowadzenie</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href=".">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="./search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href=".">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="appium">Appium wprowadzenie</h1>
+    <p>
+      Opublikowano ndz 19 grudnia 2021 w <a href="./category/qa.html">qa</a>
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="appium" src="https://www.infostretch.com/wp-content/uploads/2017/04/MobileDevTest_Blog-700x300.jpg"></p>
+<h3>Instalacja:</h3>
+<div class="highlight"><pre><span></span><code>    &gt; brew install node      # get node.js
+    &gt; npm install -g appium  # get appium
+    &gt; npm install wd         # get appium client
+    &gt; appium &amp;                # start appium
+    &gt; node your-appium-test.js # run your test
+</code></pre></div>
+
+<p>Pierwsze uruchomienie być może będzie wymagało -&gt; Edit configurations -&gt; podanie Android_Home (u mnie: /Users/user_name/Library/Android/sdk) + Java_Home (wpisz w terminal: /usr/libexec/java_home)</p>
+<h3>Instalacja Appium inspector</h3>
+<p><a href="https://github.com/appium/appium-inspector/releases">Appium inspector</a></p>
+<p>Jeśli jest problem z otwarciem na Mac to przesunąć do docka i statąd prawym i Open (teraz powinno działać)</p>
+<h3>Desired Capabilities for Appium Inspector:</h3>
+<p>Desired Capabilities are keys and values encoded in a JSON object, sent by Appium clients to the server when a new automation session is requested</p>
+<p>więcej na temat <a href="https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/caps.md">desired capabilities</a></p>
+<p>Jak wypełnić JSONa z desired capabilities?</p>
+<p>Aby dostać listę dostępnych oraz ich UDID urządzeń wpisz:</p>
+<div class="highlight"><pre><span></span><code>adb devices
+</code></pre></div>
+
+<p>Aby dostać package name aplikacji oraz pozostałe dane wpisz:</p>
+<div class="highlight"><pre><span></span><code>adb shell dumpsys window windows
+</code></pre></div>
+
+<p>szukaj informacji o aplikacji w konsoli</p>
+<div class="highlight"><pre><span></span><code>mFocusedApp=AppWindowToken{xx token=Token{xxx ActivityRecord{xx u0 xxxx-PackageName/xxx-ActivityName t1450}}}
+mInputMethodTarget=Window{xxx u0 xxxx-PackageName/xxx-ActivityName}
+</code></pre></div>
+
+<p>aby uzyskać info o podłączonych telefonach wpiszania</p>
+<div class="highlight"><pre><span></span><code>adb devices -l
+</code></pre></div>
+
+<p>Natomiast aby dostać szczegółowe info na temat danego telefonu to wówczas używając</p>
+<div class="highlight"><pre><span></span><code>adb -s &lt;UDID telefonu&gt; shell getprop
+</code></pre></div>
+
+<p>Przykładowy pakiet podanych informacji wygląda tak</p>
+<p>{
+  "appPackage": "com.code2lead.kwad",
+  "appActivity": "com.code2lead.kwad.MainActivity",
+  "platformName": "Android",
+  "deviceName": "Pixel 3XL",
+  "udid": "8AHY0L4F9"
+}</p>
+<p>Remote path może wymagać podążania</p>
+<div class="highlight"><pre><span></span><code>/wd/hub
+</code></pre></div>
+
+<h3>Pierwszy test</h3>
+<div class="highlight"><pre><span></span><code>  <span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+
+  <span class="c1"># Part 1 &quot;Desired Capabilities&quot;</span>
+  <span class="n">desired_caps</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;platformName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Android&#39;</span>
+  <span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;automationName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;UiAutomator2&#39;</span>
+  <span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;platformVersion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;7.0&#39;</span>
+  <span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;WAS-LX1&#39;</span>
+  <span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;appPackage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;com.code2lead.kwad&#39;</span>
+  <span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;appActivity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;com.code2lead.kwad.MainActivity&#39;</span>
+
+  <span class="c1"># Part 2 &quot;WebDriver object&quot;</span>
+  <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:4723/wd/hub&quot;</span><span class="p">,</span> <span class="n">desired_caps</span><span class="p">)</span>
+
+  <span class="c1"># Part 3 &quot;Action on the App&quot;</span>
+
+  <span class="c1"># find element by id and click</span>
+  <span class="n">ele_id</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&quot;com.code2lead.kwad:id/TabView&quot;</span><span class="p">)</span>
+  <span class="n">ele_id</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+  <span class="c1"># find element by Index value</span>
+  <span class="n">elem_index</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_android_uiautomator</span><span class="p">(</span><span class="s1">&#39;UiSelector().index(5)&#39;</span><span class="p">)</span>
+  <span class="n">elem_index</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</code></pre></div>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/testing.html">testing</a>
+      <a href="./tag/wprowadzenie.html">wprowadzenie</a>
+      <a href="./tag/tests.html">tests</a>
+      <a href="./tag/qa.html">qa</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+  <!-- <script src="app.js"></script> -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : ".",
+  "image": "",
+  "description": ""
+}
+</script>
+    <script src="app.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>
