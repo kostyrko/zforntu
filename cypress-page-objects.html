@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <script src="./theme/tipuesearch/jquery.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <link rel="stylesheet" href="./theme/tipuesearch/tipuesearch.css" />
+  <script src="./tipuesearch_content.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/tango.min.css">
+  
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+
+
+    <link href="./theme/custom_css/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/kostyrko/zfrontu/blob/master/theme/img/favicon.png?raw=true" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-162203128-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="mkostyrko" />
+<meta name="description" content="Page objects Page object pattern - główne założenia: wprowadzenie modułowości w testach -&gt; skupienie logiki testu w jednym miejscu a w innym stworzenie samego testu. 👉 pozwala na ograniczenie używania selektorów w testach (✌️ pozytywnie wpływa na czytelność kodu) 🤌 niewielkie zmiany dokonane w testowanej aplikacji powinny mieć wpływ na zmianę Page Objectu, unikając zmian …" />
+<meta name="keywords" content="cypress, page object model, page object">
+
+
+<meta property="og:site_name" content="...z frontu"/>
+<meta property="og:title" content="Cypress - Page Objects"/>
+<meta property="og:description" content="Page objects Page object pattern - główne założenia: wprowadzenie modułowości w testach -&gt; skupienie logiki testu w jednym miejscu a w innym stworzenie samego testu. 👉 pozwala na ograniczenie używania selektorów w testach (✌️ pozytywnie wpływa na czytelność kodu) 🤌 niewielkie zmiany dokonane w testowanej aplikacji powinny mieć wpływ na zmianę Page Objectu, unikając zmian …"/>
+<meta property="og:locale" content="pl_PL"/>
+<meta property="og:url" content="./cypress-page-objects.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2022-02-09 13:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/mkostyrko.html">
+<meta property="article:section" content="qa"/>
+<meta property="article:tag" content="cypress"/>
+<meta property="article:tag" content="page object model"/>
+<meta property="article:tag" content="page object"/>
+<meta property="og:image" content="">
+
+  <title>...z frontu &ndash; Cypress - Page Objects</title>
+
+</head>
+<body>
+
+  <!-- ASIDE -->
+  <a href="" class="aside--open">Wyszukaj / o blogu <i class="fa fa-arrow-right"></i></a>
+  
+  <aside class='d--none'>
+    <div>
+      <a href="" class="aside--close"><i class="fa fa-times"></i></a>
+      <a href=".">
+        <img src="./theme/img/profile.png" alt="Notatki z frontu" title="Notatki z frontu">
+      </a>
+      <h1><a href=".">Notatki z frontu</a></h1>
+
+<p>JS/CSS/PY</p>      <nav>
+        <ul class="list">
+
+            <li><a target="_blank" href="./pages/o-blogu.html">O blogu</a></li>
+
+          
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/m_kostyrko" target="_blank">
+            <i class="fab fa-twitter">
+            </i>
+          </a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/kostyrko" target="_blank">
+            <i class="fab fa-github">
+            </i>
+          </a></li>
+      </ul>
+      
+        <form class="navbar-search" action="./search.html" role="search">
+            <input type="text" name="q" id="tipue_search_input" placeholder="Szukaj..">
+        </form>
+
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+
+    <div class="container">
+
+
+      <nav id="nav">
+        <a href=".">Strona główna</a>
+
+        <a href="categories.html">Kategorie</a>
+        <a href="tags.html">Tagi</a>
+
+
+
+        <!-- Switches for dark/light motive -->
+        <!-- <a href=""><i class="fa fa-moon"></i></a>
+        <a href=""><i class="fa fa-sun"></i></a> -->
+
+      </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="cypress-page-objects">Cypress - Page Objects</h1>
+    <p>
+      Opublikowano śro 09 lutego 2022 w <a href="./category/qa.html">qa</a>
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h3>Page objects</h3>
+<p><strong>Page object pattern</strong> - główne założenia: wprowadzenie modułowości w testach -&gt; skupienie logiki testu w jednym miejscu a w innym stworzenie samego testu.
+👉 pozwala na ograniczenie używania selektorów w testach (✌️ pozytywnie wpływa na czytelność kodu) 
+🤌 niewielkie zmiany dokonane w testowanej aplikacji powinny mieć wpływ na zmianę Page Objectu, unikając zmian w kodzie testu (🤜 testy prostsze w utrzymaniu).</p>
+<p>Podsumowując</p>
+<ul>
+<li>
+<p>wprowadza dodatkową abstrakcję dla interakcji z UI</p>
+</li>
+<li>
+<p>zawiera szczegóły struktury UI strony oraz (części) jej funkcjonalności w jednej klasie/obiekcie</p>
+</li>
+</ul>
+<p>Page objecty przechowujemy w dedykowanym folderze (np. pageObjects) znajdującym się po za folderem 'integrations' jak reszta plików z kodem testowym.</p>
+<h4>1. Page object oparty na klasie</h4>
+<p>Przyjęte jest, że Page Objecty tworzone są na podstawie klasy / w przypadku Cypressa nie jest to jedank konieczne (o czym mowa poniżej).</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">export</span> <span class="k">class</span> <span class="n">CreditsPgObj</span> <span class="p">{</span>
+        <span class="n">getCreditsCheckbox</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;[data-cy=&quot;creditBox&quot;]&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="n">getCreditsInfo</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;[data-cy=&quot;creditsInfo&quot;]&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">export</span> <span class="k">class</span> <span class="n">ThanksCreditsPg</span> <span class="p">{</span>
+        <span class="n">getProviderName</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;[data-cy=&quot;providerName&quot;]&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="n">getTransactionId</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;[data-cy=&quot;transactionId&quot;]&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Zastosowanie</strong></p>
+<div class="highlight"><pre><span></span><code>    <span class="o">///</span> <span class="o">&lt;</span><span class="n">reference</span> <span class="n">types</span><span class="o">=</span><span class="s2">&quot;cypress&quot;</span> <span class="o">/&gt;</span>
+    <span class="kn">import</span> <span class="p">{</span> <span class="n">viewports</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../../support/main&#39;</span>
+    <span class="o">//</span> <span class="n">zaimportowanie</span> <span class="n">klasy</span> <span class="n">obiektu</span>
+    <span class="kn">import</span> <span class="p">{</span> <span class="n">CreditsPage</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../../support/credits&#39;</span>
+
+    <span class="n">viewports</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">viewport</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">describe</span><span class="p">(</span><span class="err">`</span><span class="n">Bonus</span> <span class="n">credits</span> <span class="n">management</span> <span class="o">-</span> <span class="p">(</span><span class="err">$</span><span class="p">{</span><span class="n">viewport</span><span class="p">})</span><span class="err">`</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">stworzenie</span> <span class="n">nowej</span> <span class="n">instancji</span> <span class="n">klasy</span> <span class="n">page</span> <span class="n">obiektu</span>
+        <span class="n">const</span> <span class="n">creditsPage</span> <span class="o">=</span> <span class="n">new</span> <span class="n">CreditsPgObj</span><span class="p">()</span>
+        <span class="n">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">viewport</span><span class="p">(</span><span class="n">viewport</span><span class="p">)</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@xyz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@yz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="s1">&#39;@zx&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="n">it</span><span class="p">(</span><span class="s1">&#39;Bonus credits offer should be displayed&#39;</span><span class="p">)</span>
+        <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">CreditsPage</span><span class="o">.</span><span class="n">getLimitedTimeOffer</span><span class="p">()</span><span class="o">.</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;be.visible&#39;</span><span class="p">)</span>
+            <span class="n">CreditsPage</span><span class="o">.</span><span class="n">getCreditsProductBonus</span><span class="p">()</span><span class="o">.</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;be.visible&#39;</span><span class="p">)</span>
+            <span class="n">CreditsPage</span><span class="o">.</span><span class="n">getCreditsProductBonus</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;include.text&#39;</span><span class="p">,</span> <span class="s1">&#39;100 Credits&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="p">)</span>
+    <span class="p">})</span>
+    <span class="p">})</span>
+</code></pre></div>
+
+<h4>2. Page object oparty na obiekcie Page</h4>
+<p>W przypadku Cypressa, nie ma potrzeby tworzenia Page Objectów jako klas, a także tworzenia ich instancji ponieważ te nie wymagaj  prototypów innych klas i same nimi być nie muszą - zamiast tego Page Objecty mogą składać się nawet z pojedynczych funkcji lub dla porządku mogą one być zebrane w ramach obiektu.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">export</span> <span class="k">const</span> <span class="n">menuPage</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">menuOpen</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">menuSelectors</span><span class="o">.</span><span class="n">openMenuBtn</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">();</span>
+        <span class="p">},</span>
+        <span class="n">menuClose</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">menuSelectors</span><span class="o">.</span><span class="n">closMenuBtn</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span><span class="o">.</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;not.be.visible&#39;</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="n">logOut</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">menuSelectors</span><span class="o">.</span><span class="n">menuItems</span><span class="o">.</span><span class="n">logout</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">();</span>
+                <span class="n">cy</span><span class="o">.</span><span class="n">url</span><span class="p">()</span><span class="o">.</span><span class="n">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span> <span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+            <span class="p">},</span>
+    <span class="p">};</span>
+</code></pre></div>
+
+<h4>3. Sposób na podział logiki w Page Objecty Model (POM)</h4>
+<p>Swego czasu tutaj: <a href="https://kostyrko.github.io/zfrontu/testing-good-practices.html">Dobre zasady testowania</a> pisałem, że dobry układ testu tj 3xA (Arrange/aranżacja, Act/działanie, Assert/sprawdzanie) - jak to się odnosi do tzw POM? Ja to rozumiem w sposób następujący - PageObject jest odpowiedzialny za interakcję ze stroną (przechowuje akcje, które są powtarzane w tekście) - jednak sama asercja (sprawdzenie poprawności wykonania się akcji) powinna znajdować się wewnątrz testu. Przygotowanie testu odbywać się może w różnych miejscach i na różne sposoby (pomijając przygotowanie środowiska-&gt; cy.visit/cy.intercept czy localStorage, które mogą się znaleźć np. w beforeEach) ale skupiać w sobie będzie zebranie selektorów (w osobnej klasie bądź obiekcie), które następnie będą wykorzystane zarówno w ramach testu jak i w Page Object.</p>
+<p>Scenariusz testowy w kontekście testowania aplikacji blogowej może przedstawiać się w sposób następujący: logujemy się, przechodzimy do sekcji z nowymi artykułami, tworzymy treść nowego artykuły, postujemy go - a następnie sprawdzamy czy artykuł został dodany/opublikowany.</p>
+<p><strong>Często spotykane podejście (podejście liniowe)</strong> =&gt; 1. Zebranie selektorów w obiekcie (w którym przechowywany jest PageObject), 2. wykorzystanie PageObjectu min. do cy.get() + funkcjonalność 3. wykorzystanie w tekście getterów z PageObjectu do tworzenia asercji.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">SELECTORS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">ACCEPT_BUTTON</span><span class="p">:</span> <span class="s2">&quot;#accept-cookies&quot;</span><span class="p">,</span>
+        <span class="n">REJECT_BUTTON</span><span class="p">:</span> <span class="s2">&quot;#reject-cookies&quot;</span><span class="p">,</span>
+        <span class="n">LOCALSTORAGE_DISABLED_WARNING</span><span class="p">:</span> <span class="s2">&quot;#localstorage-disabled-warning&quot;</span><span class="p">,</span>
+    <span class="p">};</span>
+</code></pre></div>
+
+<p><strong>Alternatywne podejście: rozbicie logiki na 3 klasy/obiekty/części (podejście funkcjonalne)</strong> =&gt; 1. przechowuje gettery = cy.get() + selektory 2. akcje/funkcjonalność (wykorzystuje logikę 1.) 3. test (tu wykorzystywana jest logika z 1. 2.)</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">const</span> <span class="n">getSubmitSearchButton</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;[cypress-id]=submit-search&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Powyżej przedstawiony jest przypadek pojedynczej funkcji, ale te (jak zauważyłem powyżej mogą być również zebrane w obiektach)</p>
+<p>wykorzystując <a href="https://anton-kravchenko.github.io/cypress-selectors/">cypress-selectors</a> zapis może wyglądać następująco:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nv">@ByType</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nl">searchInput</span><span class="p">:</span><span class="w"> </span><span class="n">Selector</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+
+<hr>
+<p>Źródła:</p>
+<p><a href="https://medium.com/geekculture/using-pageobject-pattern-with-cypress-6d9907850522">Using PageObject pattern with Cypress</a> =&gt; <a href="https://github.com/anton-kravchenko/cypress-page-object-example">anton-kravchenko/cypress-page-object-example</a> =&gt; <a href="https://anton-kravchenko.github.io/cypress-selectors/">cypress-selectors</a></p>
+<p><a href="https://www.youtube.com/watch?v=bC9bGHDgpQk&amp;list=PLYDwWPRvXB8-8LG2hZv25HO6C3w_vezZb&amp;index=15">CYPRESS Page Object Model EXAMPLE | POM in CYPRESS</a></p>
+<p><a href="https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/">Stop using Page Objects and Start using App Actions</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/cypress.html">cypress</a>
+      <a href="./tag/page-object-model.html">page object model</a>
+      <a href="./tag/page-object.html">page object</a>
+    </p>
+  </div>
+
+
+
+  <div class="related-posts">
+    <h4>Zobacz także</h4>
+    <ul class="related-posts">
+      <li><a href="./testing-good-practices.html">Dobre zasady testowania</a></li>
+    </ul>
+  </div>
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'zfrontu';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Włącz obsługę JavaScript, żeby zobaczyć komentarze.
+</noscript>
+<!-- End Disqus -->
+</article>
+      <a href="#nav" class='to-top'>
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <footer>
+<p>
+  &copy;  2022 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme with few modifications by mkostyrko </p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>      </footer>
+    </div>
+  </main>
+  <!-- <script src="app.js"></script> -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " ...z frontu ",
+  "url" : ".",
+  "image": "",
+  "description": ""
+}
+</script>
+    <script src="app.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch();
+    });
+  </script>
+</body>
+</html>
