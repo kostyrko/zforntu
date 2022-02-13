@@ -149,7 +149,8 @@
 
 
   <div>
-    <h3>Page objects</h3>
+    <p><img alt="cypress" src="https://www.cypress.io/static/cypress-io-logo-social-share-8fb8a1db3cdc0b289fad927694ecb415.png"></p>
+<h3>Page objects</h3>
 <p><strong>Page object pattern</strong> - główne założenia: wprowadzenie modułowości w testach -&gt; skupienie logiki testu w jednym miejscu a w innym stworzenie samego testu.
 👉 pozwala na ograniczenie używania selektorów w testach (✌️ pozytywnie wpływa na czytelność kodu) 
 🤌 niewielkie zmiany dokonane w testowanej aplikacji powinny mieć wpływ na zmianę Page Objectu, unikając zmian w kodzie testu (🤜 testy prostsze w utrzymaniu).</p>
@@ -214,7 +215,7 @@
     <span class="p">})</span>
 </code></pre></div>
 
-<h4>2. Page object oparty na obiekcie Page</h4>
+<h4>2. Page object oparty na obiekcie</h4>
 <p>W przypadku Cypressa, nie ma potrzeby tworzenia Page Objectów jako klas, a także tworzenia ich instancji ponieważ te nie wymagaj  prototypów innych klas i same nimi być nie muszą - zamiast tego Page Objecty mogą składać się nawet z pojedynczych funkcji lub dla porządku mogą one być zebrane w ramach obiektu.</p>
 <div class="highlight"><pre><span></span><code>    <span class="k">export</span> <span class="k">const</span> <span class="n">menuPage</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">menuOpen</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -248,6 +249,34 @@
 <p>Powyżej przedstawiony jest przypadek pojedynczej funkcji, ale te (jak zauważyłem powyżej mogą być również zebrane w obiektach)</p>
 <p>wykorzystując <a href="https://anton-kravchenko.github.io/cypress-selectors/">cypress-selectors</a> zapis może wyglądać następująco:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nv">@ByType</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nl">searchInput</span><span class="p">:</span><span class="w"> </span><span class="n">Selector</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+
+<p>Przykładowe zastosowanie</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">it</span><span class="p">(</span><span class="s1">&#39;change language between different languages&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">Object</span><span class="p">.</span><span class="n">keys</span><span class="p">(</span><span class="n">i18nextLngs</span><span class="p">).</span><span class="n">forEach</span><span class="p">((</span><span class="k">language</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">cy</span><span class="p">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">footerPage</span><span class="p">.</span><span class="n">changeLanguage</span><span class="p">(</span><span class="k">language</span><span class="p">)).</span><span class="k">then</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="n">expect</span><span class="p">(</span><span class="n">localStorage</span><span class="p">.</span><span class="n">getItem</span><span class="p">(</span><span class="s1">&#39;i18nextLng&#39;</span><span class="p">)).</span><span class="k">to</span><span class="p">.</span><span class="n">eq</span><span class="p">(</span><span class="n">i18nextLngs</span><span class="o">[</span><span class="n">language</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<p>gdzie footerPage.js (w tym przypadku selektory przetrzymywane są w osobnym pliku oraz obiekcie 'footerSelectors' choć nie w postaci getterów a jedynie selektorów - zatem realizowane jest podejście liniowe):</p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="p">{</span> <span class="n">footerSelectors</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../support/selectors/footerSelectors&#39;</span><span class="p">;</span>
+
+    <span class="n">const</span> <span class="n">i18nextLngs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">en</span><span class="p">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+        <span class="n">pl</span><span class="p">:</span> <span class="s1">&#39;pl&#39;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="n">export</span> <span class="n">const</span> <span class="n">footerPage</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">changeLanguage</span><span class="p">:</span> <span class="p">(</span><span class="n">language</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">footerSelectors</span><span class="o">.</span><span class="n">languageBtn</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">({</span> <span class="n">waitForAnimations</span><span class="p">:</span> <span class="n">false</span> <span class="p">});</span>
+            <span class="n">cy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">footerSelectors</span><span class="o">.</span><span class="n">languageOption</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">language</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="n">language</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="o">.</span><span class="n">click</span><span class="p">({</span> <span class="n">waitForAnimations</span><span class="p">:</span> <span class="n">false</span> <span class="p">});</span>
+        <span class="p">},</span>
+    <span class="p">};</span>
 </code></pre></div>
 
 <hr>
